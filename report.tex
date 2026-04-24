@@ -33,6 +33,16 @@
 \usepackage{parskip}
 \usepackage{setspace}
 \usepackage{caption}
+\usepackage{endnotes}
+% Redirect \footnote to \endnote (rev-3 post-publication cleanup).
+% Footnote markers (superscripts) still appear in-line; clicking them in the PDF
+% jumps to the consolidated Notes section before Appendix A. microtype's
+% \footnote patch is disabled above so this redirection sticks.
+\let\footnote=\endnote
+\let\footnotemark=\endnotemark
+\let\footnotetext=\endnotetext
+\renewcommand{\enotesize}{\small}
+\renewcommand\notesname{Notes}
 
 % ============================================================================
 % Palette & Style
@@ -150,17 +160,18 @@ Primary data: Epoch AI, \emph{Frontier Data Centers} (snapshot 2026-04-24, incor
 \begin{spacing}{1.15}
 \begin{tabular}{@{}R{0.6cm} L{11cm} R{1cm}@{}}
 \textcolor{softGrey}{1.} & The scale of what is being built & 2 \\
-\textcolor{softGrey}{2.} & Geographic concentration & 6 \\
-\textcolor{softGrey}{3.} & The operators: who owns the horizon & 7 \\
-\textcolor{softGrey}{4.} & The silicon: NVIDIA, Trainium, TPU, AMD, Broadcom, MTIA & 11 \\
-\textcolor{softGrey}{5.} & The \$1.5 trillion question: where the money comes from & 13 \\
-\textcolor{softGrey}{6.} & The counterparty graph & 17 \\
-\textcolor{softGrey}{7.} & Execution risk: what breaks the build-out & 18 \\
-\textcolor{softGrey}{8.} & Sovereign AI & 22 \\
-\textcolor{softGrey}{9.} & Known unknowns & 23 \\
-\textcolor{softGrey}{10.} & Conclusion & 25 \\
-\textcolor{softGrey}{A.} & Appendix: data sources and methodology & 27 \\
-\textcolor{softGrey}{B.} & Appendix: row-level audit (summary) & 29 \\
+\textcolor{softGrey}{2.} & Geographic concentration & 5 \\
+\textcolor{softGrey}{3.} & The operators: who owns the horizon & 6 \\
+\textcolor{softGrey}{4.} & The silicon: NVIDIA, Trainium, TPU, AMD, Broadcom, MTIA & 9 \\
+\textcolor{softGrey}{5.} & The \$1.5 trillion question: where the money comes from & 11 \\
+\textcolor{softGrey}{6.} & The counterparty graph & 14 \\
+\textcolor{softGrey}{7.} & Execution risk: what breaks the build-out & 14 \\
+\textcolor{softGrey}{8.} & Sovereign AI & 19 \\
+\textcolor{softGrey}{9.} & Known unknowns & 20 \\
+\textcolor{softGrey}{10.} & Conclusion & 22 \\
+\textcolor{softGrey}{---} & Notes & 23 \\
+\textcolor{softGrey}{A.} & Appendix: data sources and methodology & 28 \\
+\textcolor{softGrey}{B.} & Appendix: row-level audit (summary) & 30 \\
 \end{tabular}
 \end{spacing}
 
@@ -1143,6 +1154,14 @@ Our base case is not that every announced GW arrives exactly on schedule. Our ba
 \textbf{What we have not forecast} is enumerated in \S9: PUE-versus-IT ambiguity, interconnection queue opacity, chip roadmap uncertainty post-2027, cluster utilization, training-versus-inference mix, double-count residual, RPO enforceability, neocloud financing under stress, sovereign disclosure asymmetry, and China. A forecaster who knows where the bodies are buried owes the reader an itemized list of those bodies.
 
 The 6-tier evidence framework, realization-probability overrides, row-level audit (Appendix~B + \texttt{row\_level\_audit.csv}), PUE sensitivity, H100e scenario range, stress matrix, and capex-versus-financing bucket separation are the pieces of this paper that make it auditable rather than credible. We would rather be legibly wrong in specific rows than plausibly right in aggregate.
+
+% ============================================================================
+\newpage
+\section*{Notes}
+\addcontentsline{toc}{section}{Notes}
+% ============================================================================
+
+\theendnotes
 
 % ============================================================================
 \newpage
