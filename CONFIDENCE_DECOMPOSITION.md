@@ -1,10 +1,37 @@
 # Confidence decomposition — six-tier evidence framework with realization probabilities
 
-**The question:** of the Western 2027-2030 horizon (50.6 GW announced; range [45.74, 53.48]), how much is *basically certain*, how much is *likely*, how much is *speculative*, how much is *analyst inference*?
+**The question:** of the Western 2027-2030 horizon (**51.9 GW facility announced**; 50.6 GW IT-load bridge; facility range [46.40, 55.32]), how much is *basically certain*, how much is *likely*, how much is *speculative*, how much is *analyst inference*?
 
-**The answer in one line:** ~55% of the 50.6 GW is anchored in physical evidence or firm commercial contracts; ~32% is plausible-on-timeline announced pipeline at named sites; ~13% is LOI / stretch target or analyst inference.
+**The answer in one line:** ~54% of the 51.9 GW facility is anchored in physical evidence or firm commercial contracts (T1+T2+T3 = 27.9 GW facility); ~33% is plausible-on-timeline announced pipeline at named sites (T4 = 16.9 GW facility); ~13% is LOI / stretch target or analyst inference (T5+T6 = 7.1 GW facility).
 
 This document defines the **six-tier evidence framework** used throughout the paper, the **realization probabilities** attached to each tier, and the **four canonical output totals** (announced horizon, probability-weighted, conservative, full-realization) that the rest of the analysis rolls up to.
+
+## A.8 Basis discipline (rev-3)
+
+The paper's primary physical denominator is **facility power** — total MW drawn at the
+substation (IT accelerators + cooling + lighting + power-conversion losses + auxiliary
+load). This matches Epoch AI's Frontier Data Centers `Power (MW)` convention documented
+at `epoch.ai/data/data-centers-documentation`, and it is the basis most relevant to grid
+interconnection and facility capex.
+
+**Per-row `mw_basis` field.** Every Class A commitment row and every neocloud row carries
+a `mw_basis: facility | IT | unknown` tag and a `pue_assumed` field. The
+facility-basis rollup is computed row-by-row:
+
+- `mw_basis == facility`: `incremental_gw_facility_point = incremental_gw_point` (pass-through).
+- `mw_basis == IT`: `incremental_gw_facility_point = incremental_gw_point × pue_assumed`.
+- `mw_basis == unknown`: `incremental_gw_facility_point = incremental_gw_point × 1.25` (paper default).
+
+**IT-load bridge.** The IT-load-equivalent aggregate is reported as a secondary bridge
+table, computed by dividing facility by PUE. This is the number readers should use
+when comparing against chip-nameplate commitments (NVIDIA/AMD/Broadcom "X GW" silicon
+announcements are implicitly IT-basis).
+
+**Chip counts are basis-invariant.** H100e deployments don't change under the basis
+flip — only the MW denominator does. The 78.2M H100e total in the 2030 Western
+horizon is unchanged from rev-2; what shifts is that the per-MW density is now
+quoted per IT-MW (Epoch convention) with a facility-MW equivalent footnote
+(~1,157 H100e per facility-MW at blended PUE 1.20, vs ~1,388 per IT-MW).
 
 ---
 

@@ -8,41 +8,48 @@ resolves to a row in the data layer, every row carries an evidence tier
 (T1–T6) and a realization probability, and the 2030 horizon is reported as
 a Monte Carlo distribution rather than a point estimate.
 
-- **Paper**: [`report.pdf`](report.pdf) (28 pages)
-- **Latest revision**: 2026-04-24 (rev-2, incorporates Epoch 2026-04-22 changelog)
+- **Paper**: [`report.pdf`](report.pdf) (30 pages)
+- **Latest revision**: 2026-04-24 (rev-3, facility-basis reconciliation + Figure 8 rebuild)
 - **Data cutoff**: 2026-04-24
 - **Primary data**: [Epoch AI Frontier Data Centers](https://epoch.ai/data/data-centers) (CC BY 4.0)
 
 ---
 
-## The headline numbers
+## The headline numbers (facility basis, primary)
 
 | Metric | Value | Notes |
 |---|---|---|
-| Operational today (Q2 2026, IT power) | **7.76 GW** | T1, rev-2 post-Abilene slip |
-| 2030 raw announced horizon (Western) | **50.6 GW** | Unweighted sum across T1–T6 |
-| 2030 tier-weighted point | **36.1 GW** | Σ tier_GW × tier_default_probability |
-| **2030 Monte Carlo median** | **31.2 GW** | 10,000 draws; our probability-honest central estimate |
-| Monte Carlo p10–p90 | **[24.0, 36.7] GW** | Interdecile range — the relevant LP sensitivity band |
-| Conservative case (T1+T2+T3 only) | **27.8 GW** | Bear reading |
-| Full-realization ceiling | **53.5 GW** | Arithmetic high |
-| Sovereign-AI sidebar (separate) | **1.95 GW** | UAE + Saudi + India + UK; not in Western denom. |
+| Operational today (Q2 2026) | **7.56 GW tier-clean** (~8.7–9.0 GW facility-equiv) | T1; +0.20 GW T6-inferred |
+| 2030 raw announced horizon (Western) | **51.9 GW facility** (50.6 GW IT-load bridge) | Unweighted sum across T1–T6 |
+| 2030 tier-weighted point | **36.8 GW facility** | Σ tier_GW × tier_default_probability |
+| **2030 Monte Carlo median** | **31.8 GW facility** | 10,000 draws; our probability-honest central estimate |
+| Monte Carlo p10–p90 | **[24.6, 37.4] GW facility** | Interdecile range — the relevant LP sensitivity band |
+| Raw non-stretch (replaces retired "bear") | **45.2 GW facility** | Announced minus T5 stretch targets |
+| Conservative case (T1+T2+T3 only) | **27.9 GW facility** | |
+| Full-realization ceiling | **55.3 GW facility** | Arithmetic high |
+| Sovereign-AI sidebar (separate) | **2.06 GW facility** (1.95 GW IT-load) | UAE + Saudi + India + UK; not in Western denom. |
 | Capital envelope | **~$1.2–1.5T** | Capex requirement; distinct from RPO |
-| RPO (contracted revenue obligations) | **~$550B** | Oracle–OpenAI, Anthropic–AWS, Meta–Nebius, CoreWeave |
-| 2030 H100-equivalents (Western) | **78.2M** | vs. 4.2M operational today — 18.7× growth |
+| RPO (revenue underwriting, not capex) | **~$550B** | Oracle–OpenAI, Anthropic–AWS, Meta–Nebius, CoreWeave |
+| 2030 H100-equivalents (Western) | **78.2M** | vs. 4.2M operational today — 18.7× growth (basis-invariant) |
 
-**The central fact**: approximately 85% of the 50.6 GW raw 2030 horizon is
+**The central fact**: approximately 85% of the 51.9 GW facility raw 2030 horizon is
 not yet operational. The forecast stands or falls on whether the 2028–2030
 pipeline materializes on announced timelines — which is why every number
 here carries an evidence tier and a realization probability.
+
+**Power-basis note**: facility power (IT + cooling + losses + auxiliaries) is the
+primary denominator, matching [Epoch AI's methodology](https://epoch.ai/data/data-centers-documentation)
+and the basis most relevant to grid interconnection and facility capex. IT-load-equivalent
+capacity is reported as a secondary bridge against chip-nameplate commitments; the
+central IT-load bridge is ~43 GW at blended PUE 1.20.
 
 ---
 
 ## What's in this repo
 
 ### Paper
-- [`report.tex`](report.tex) — LaTeX source (1,170 lines)
-- [`report.pdf`](report.pdf) — 28-page PDF
+- [`report.tex`](report.tex) — LaTeX source
+- [`report.pdf`](report.pdf) — 30-page PDF
 
 ### Data layer (the ledger)
 - [`compute_commitments_overlay.yaml`](compute_commitments_overlay.yaml) — 14 Class A commitments + Class B chips + Class C $-only rows, each with primary-source verbatim, Epoch-overlap dedup reasoning, evidence tier, realization probability, row-level audit fields (PUE, mw_basis, ISO/RTO, interconnection status, chip family, capex split, RPO, financing source, capex bridge), plus top-level `stress_scenarios:` and `chip_density_assumptions:` blocks

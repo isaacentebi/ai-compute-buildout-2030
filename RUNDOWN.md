@@ -1,22 +1,28 @@
 # AI Compute Commitment Surface — Rundown
 
-**Data cutoff:** Epoch AI 2026-04-16  |  Overlay closed 2026-04-22
+**Data cutoff:** Epoch AI 2026-04-16  |  Overlay closed 2026-04-24 (rev-3)
 **Scope:** Western AI program (primary) + Sovereign-AI sidebar (UAE, Saudi, India, UK)
+**Basis:** Facility power (primary) / IT-load (secondary bridge)
 
 ---
 
-## 1. Headline — what each layer contributes
+## 1. Headline — what each layer contributes (facility basis, primary)
 
 | Layer | Operational today (2026-Q2) | Full buildout (2027-2030) |
 |---|---:|---:|
-| Epoch evidenced floor | 6.67 GW | 33.05 GW |
-| Our Class A overlay (Western) | — | +8.17 GW  [3.30, 11.04] |
-| Our neocloud ex-Epoch overlay | +1.49 GW | +9.39 GW |
-| **Western total** | **8.16 GW** | **50.61 GW  [45.74, 53.48]** |
-| Sovereign-AI sidebar | — | +1.95 GW  [0.72, 4.40] |
-| Global reference | 8.16 GW | 52.56 GW  [46.46, 57.88] |
+| Epoch evidenced floor (facility) | 6.27 GW | 33.05 GW |
+| Our Class A overlay (Western, facility) | — | +9.38 GW |
+| Our neocloud ex-Epoch overlay (facility) | +1.54 GW | +9.49 GW |
+| **Western total (facility)** | **7.81 GW** (7.56 tier-clean + 0.25 T6-inferred) | **51.93 GW** [46.40, 55.32] |
+| Sovereign-AI sidebar (facility) | — | +2.06 GW |
+| Global reference (facility) | ~7.8 GW | 53.99 GW |
 
-Epoch captures **65% of the Western horizon on its own** (33.05 / 50.61). Our overlay adds the remaining 35% — 17.56 GW — split between announced-but-unphotographed Class A commitments (8.17 GW) and neocloud fleets Epoch barely touches (9.39 GW).
+| Layer | Operational today (IT-load bridge) | Full buildout (IT-load bridge) |
+|---|---:|---:|
+| **Western total (IT)** | **7.76 GW** | **50.62 GW** |
+| Sovereign (IT) | — | +1.95 GW |
+
+Epoch captures **~64% of the Western horizon on its own** (33.05 / 51.93 facility). Our overlay adds the remaining ~36% — 18.87 GW facility — split between announced-but-unphotographed Class A commitments (9.38 GW facility) and neocloud fleets Epoch barely touches (9.49 GW facility).
 
 ---
 

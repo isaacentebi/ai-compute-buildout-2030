@@ -48,6 +48,8 @@ neoclouds:
     status: public
     headquarters: "Livingston, NJ, USA"
     as_of_date: "2026-02-27"  # Q4 FY25 earnings call
+    mw_basis: facility       # rev-3: CoreWeave 10-K and earnings report facility power (REIT/lease convention)
+    pue_assumed: 1.25        # rev-3: colo-average; CoreWeave fleet spans multiple climates
     fleet:
       current_operational_mw: 850  # EOY 2025 across 43 DCs (Q4'25 earnings)
       contracted_mw: 3100  # EOY 2025
@@ -108,6 +110,8 @@ neoclouds:
     status: public
     headquarters: "Amsterdam, Netherlands"
     as_of_date: "2026-02"  # Q4 FY25 shareholder letter
+    mw_basis: facility       # rev-3: Nebius shareholder letter reports facility power
+    pue_assumed: 1.20        # rev-3: GPU-first design (Finland hydropower cooling)
     audit_note: "20-F for FY2025 not yet on EDGAR as of 2026-04-23 (due 2026-04-30); re-audit 2026-05-01..05-07."
     fleet:
       current_operational_mw: 170  # >170 MW EOY 2025
@@ -155,6 +159,8 @@ neoclouds:
     status: private
     headquarters: "London, UK"
     as_of_date: "2026-04"
+    mw_basis: facility       # rev-3: Nscale press releases report facility MW (Microsoft Fairwater partner convention)
+    pue_assumed: 1.20        # rev-3: Nordic/UK sites efficient
     fleet:
       current_operational_mw: 20  # first North Carolina site online April 2026
       contracted_mw: 1500  # ~1.5 GW stated
@@ -218,6 +224,8 @@ neoclouds:
     status: private
     headquarters: "Denver, CO, USA"
     as_of_date: "2026-03"
+    mw_basis: facility       # rev-3: Crusoe Cheyenne permit (1.8 GW) is facility; Abilene disclosures match Epoch facility convention
+    pue_assumed: 1.25        # rev-3: behind-the-meter gas + liquid-cooled mix
     fleet:
       current_operational_mw: 200  # Abilene Phase 1, Iceland, Norway
       contracted_mw: 4100  # 4.1 GW
@@ -284,6 +292,8 @@ neoclouds:
   - neocloud: Lambda
     status: "private (IPO H1 2026)"
     as_of_date: "2025-11-18"
+    mw_basis: facility       # rev-3: Lambda fleet MW disclosures are facility (MSFT lease convention)
+    pue_assumed: 1.25        # rev-3: mixed colo portfolio
     fleet:
       current_operational_mw: 50  # estimate; KC+Chicago sites come 2026
       contracted_mw: 320  # "leased, signed, committed"
@@ -316,6 +326,8 @@ neoclouds:
     ticker: APLD
     status: public
     as_of_date: "2026-02-28"  # Q3 FY2026 10-Q (quarter ended 2026-02-28, press-released 2026-04-08); refreshed 2026-04-23 per primary-source audit
+    mw_basis: facility       # rev-3: APLD 10-Q reports facility MW (REIT/AI-factory lease convention)
+    pue_assumed: 1.30        # rev-3: North Dakota gas-fired; less efficient climate
     fiscal_year_note: "APLD fiscal year ends May 31. Q3 FY2026 = calendar Dec 2025 - Feb 2026."
     credit_enhancement_note: "ELN-02 and ELN-03 (250 MW) restructured into CoreWeave SPV with A3 rating + $50M LOC + CoreWeave Inc. parent guarantee per 8-K March 30, 2026."
     post_quarter_financing: "$2.15B 6.750% Senior Secured Notes due 2031 issued for PF2 construction (post-Q3)."
@@ -367,6 +379,8 @@ neoclouds:
   - neocloud: Fluidstack
     status: private
     as_of_date: "2025-11-12"  # Anthropic $50B JV announcement
+    mw_basis: IT             # rev-3: Anthropic JV framed as compute/IT load; GW figures in primary are chip commitment
+    pue_assumed: 1.25        # rev-3: Lake Mariner hydropower + lake cooling
     fleet:
       current_operational_mw: 68  # matches Epoch (G42 portion actually, Bldgs 1-2)
       contracted_mw: null  # portion of Anthropic $50B
@@ -408,6 +422,8 @@ neoclouds:
   - neocloud: Voltage Park / Lightning
     status: "private (merged Jan 2026)"
     as_of_date: "2026-01"
+    mw_basis: IT             # rev-3: MW inferred from 35k-GPU footprint (GPU-watt estimate = IT load)
+    pue_assumed: 1.25        # rev-3: mixed US colo portfolio
     fleet:
       current_operational_mw: 135  # 6 DCs, ~120-150 MW est. from 35k GPU footprint
       contracted_mw: null  # no disclosure
@@ -439,6 +455,8 @@ neoclouds:
   - neocloud: Together AI
     status: private
     as_of_date: "2025-09"
+    mw_basis: IT             # rev-3: MW estimated from GPU count (Sacra secondary source); IT-equivalent
+    pue_assumed: 1.25        # rev-3: Maryland/Memphis/Sweden mixed climates
     fleet:
       current_operational_mw: 65  # estimate 50-80 MW; MD Jul'25, Memphis, Sweden Sep'25
       contracted_mw: 200  # "secured across North America" per Sacra
@@ -468,6 +486,8 @@ neoclouds:
   - neocloud: Fermi America
     status: private
     as_of_date: "2026-04"
+    mw_basis: facility       # rev-3: 11-17 GW permit aspirational is grid-interconnection facility capacity
+    pue_assumed: 1.40        # rev-3: Texas gas baseload; high PUE (speculative; does not enter rollup)
     fleet:
       current_operational_mw: 0
       contracted_mw: 0  # no customer signed; permits only
@@ -557,3 +577,78 @@ aggregate_rollup:
 
   total_neocloud_incremental_gw: 7.90  # vs Epoch 2.25 GW (3-site sum Helios+CW Abilene Exp+Lake Mariner) already evidenced
   # Note: Applied Digital PF2 is 200 MW additional beyond CoreWeave's 3.1 GW.
+
+
+# ============================================================================
+# AGGREGATE ROLLUP — FACILITY BASIS (rev-3 primary)
+# ============================================================================
+# Parallel to aggregate_rollup above (IT-bridge); this block is the rev-3
+# primary denominator. Per-row mw_basis is declared inline on each neocloud;
+# IT rows are multiplied by pue_assumed to obtain facility.
+#
+# Basis audit (rev-3):
+#   CoreWeave        facility (PUE 1.25) — 10-K facility power
+#   Nebius           facility (PUE 1.20) — 10-Q facility power
+#   Nscale           facility (PUE 1.20) — private-co facility disclosure
+#   Crusoe           facility (PUE 1.25) — site-level facility disclosure
+#   Lambda           facility (PUE 1.25) — private-co facility disclosure
+#   Applied Digital  facility (PUE 1.30) — REIT facility power
+#   Fluidstack       IT (PUE 1.25)       — GPU-count inferred; zero rollup contribution
+#   Voltage Park     IT (PUE 1.25)       — GPU-count inferred MW
+#   Together AI      IT (PUE 1.25)       — GPU-count inferred MW
+#   Fermi America    facility (PUE 1.40) — permit-level aspirational; zero rollup contribution
+
+aggregate_rollup_facility:
+  notes: |
+    Facility-basis neocloud contribution to the Western horizon. Rev-3
+    primary denominator (matches Epoch convention). Delta vs IT-basis
+    rollup is driven by the three IT-declared neocloud operators
+    (Voltage Park, Together, Fluidstack): 9.49 GW facility vs 9.39 GW IT.
+
+  evidence_tier_rollup_facility:
+    note: |
+      Six-tier partition of the 9.49 GW facility-basis neocloud contribution.
+      T1 and T3 are facility-declared across all contributing operators
+      (unchanged vs IT-basis). T4 and T6 move under facility conversion
+      because Together AI (T4 contracted + T6 operational) and Voltage Park
+      (T6 operational) disclose GPU-count inferred MW (IT basis).
+    T1_operational_directly_disclosed_gw: 1.29   # unchanged — CoreWeave 0.85 + Nebius 0.17 + Crusoe 0.20 + Nscale 0.02 + Lambda 0.05 (all facility)
+    T3_firm_commercial_contract_gw: 6.48         # unchanged — CoreWeave 2.30 + Nebius 2.00 + Crusoe 1.98 + Applied Digital 0.20 (all facility)
+    T4_announced_private_co_gw: 1.47             # Nscale 0.90 facility + Lambda 0.32 facility + Together 0.20×1.25 = 0.25 facility
+    T6_analyst_inference_gw: 0.25                # Voltage Park 0.135×1.25 = 0.169 + Together op 0.065×1.25 = 0.081
+    total_gw: 9.49                               # vs 9.39 IT — +0.10 GW delta from IT→facility conversion
+    probability_weighted_gw:
+      # T1 × 1.00 + T3 × 0.78 + T4 × 0.58 + T6 × 0.25
+      weighted: 7.26   # 1.29×1.00 + 6.48×0.78 + 1.47×0.58 + 0.25×0.25
+      note: "Conservative (T1+T3 only): 7.77 GW facility. Full-realization: 9.49 GW facility."
+
+  neocloud_operational_mw_facility:
+    coreweave: 850        # facility (unchanged)
+    nebius: 170           # facility (unchanged)
+    nscale: 20            # facility (unchanged)
+    crusoe: 200           # facility (unchanged)
+    lambda: 50            # facility (unchanged)
+    applied_digital: 0    # dedup'd into CoreWeave
+    fluidstack: 0         # Epoch captures Lake Mariner
+    voltage_park: 169     # 135 IT × 1.25
+    together: 81          # 65 IT × 1.25
+    fermi: 0
+    total_operational_ex_epoch_mw: 1540
+    total_operational_ex_epoch_gw: 1.54   # vs 1.49 IT
+
+  neocloud_contracted_mw_facility_ex_overlap:
+    coreweave: 2300       # facility (unchanged)
+    nebius: 2000          # facility (unchanged)
+    nscale: 900           # facility (unchanged)
+    crusoe: 1980          # facility (unchanged)
+    lambda: 320           # facility (unchanged)
+    applied_digital: 200  # facility (unchanged)
+    fluidstack: 0         # dollar-only commitment
+    voltage_park: 0
+    together: 250         # 200 IT × 1.25
+    fermi: 0
+    total_contracted_ex_epoch_mw: 7950
+    total_contracted_ex_epoch_gw: 7.95   # vs 7.90 IT
+
+  total_neocloud_incremental_gw_facility: 7.95   # vs 7.90 IT bridge
+

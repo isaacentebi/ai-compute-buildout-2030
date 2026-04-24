@@ -2,11 +2,14 @@
 """
 Monte Carlo over the 2030 Western AI-compute horizon.
 
+rev-3 (2026-04-24): facility basis primary; IT-load bridge secondary.
+
 Inputs
-  - Six-tier GW partition (from audit_totals.py canonical totals)
+  - Six-tier GW partition (loaded from compute_commitments_overlay.yaml
+    via `evidence_tier_rollup_western_facility` (facility, default) or
+    `evidence_tier_rollup_western` (IT, via --basis it).
   - Tier-default realization priors (CONFIDENCE_DECOMPOSITION.md)
   - Per-row realization_probability overrides (compute_commitments_overlay.yaml)
-  - Per-row GW low/point/high ranges
   - Stress-scenario deltas + scenario probabilities (overlay stress_scenarios block)
 
 Model
@@ -21,33 +24,30 @@ Model
 
 Outputs
   - p05 / p10 / p25 / p50 / p75 / p90 / p95 of 2030 realized GW distribution
-  - Mean, std, and comparison to the tier-deterministic 36.13 GW point estimate
-  - Probability that realized 2030 GW falls below each of: 27.78 (conservative),
-    36.13 (probability-weighted), 45.74 (bear arithmetic), 50.61 (raw announced)
-  - Correlated-shock percentile: p(realized < conservative) under full stress
-    scenario stack
+  - Mean, std, and comparison to the tier-deterministic probability-weighted point
+  - Tail probabilities vs: conservative, prob-weighted, raw_non_stretch, announced
 
 Usage
-  python3 monte_carlo_horizon.py [--draws N] [--seed S]
+  python3 monte_carlo_horizon.py [--basis facility|it] [--draws N] [--seed S]
+
+Basis
+  facility (default) — rev-3 primary denominator (matches Epoch convention)
+  it                 — IT-load bridge (rev-2 legacy; kept for audit parity)
 """
 
 import argparse
 import random
 import statistics
 import sys
+from pathlib import Path
 
-# --- inputs (from audit_totals.py canonical rollup) -------------------------
-TIER_GW = {
-    "T1": 7.76,   # operational (fixed) — revised 2026-04-24 per Epoch changelog 2026-04-22 (Stargate Abilene 600 MW milestone slipped; 200 MW operational per Oracle 2026-04-22); previously 8.16
-    "T2": 12.32,  # under construction — revised 2026-04-24 (+0.40 GW: Stargate Abilene 400 MW moved from T1 to T2 pending late-May milestone); previously 11.92
-    "T3": 7.90,   # firm commercial
-    "T4": 16.28,  # announced site plan
-    "T5": 5.09,   # LOI / stretch
-    "T6": 1.25,   # analyst inference
-}
+import yaml  # type: ignore
+
+ROOT = Path(__file__).parent
+OVERLAY = ROOT / "compute_commitments_overlay.yaml"
 
 # Tier-default realization priors + documented variance bracket (p05, p95).
-# Midpoint → Beta mean; spread → Beta concentration.
+# Midpoint → Beta mean; spread → Beta concentration. Basis-invariant.
 TIER_PRIOR = {
     "T1": (1.00, 1.00, 1.00),     # fixed
     "T2": (0.88, 0.80, 0.95),
@@ -57,7 +57,10 @@ TIER_PRIOR = {
     "T6": (0.25, 0.10, 0.40),
 }
 
-# Stress scenarios from overlay stress_scenarios block.
+# Stress scenarios from overlay stress_scenarios block. Basis-invariant
+# to leading order (gw_delta magnitudes refer to absolute capacity loss
+# — the same grid-interconnect slip loses the same physical MW regardless
+# of whether we denominate in IT or facility terms).
 STRESS_SCENARIOS = {
     "A_stargate_12mo_slip":       {"gw_delta": -3.5, "prob": 0.30},
     "B_neocloud_spread_300bps":   {"gw_delta": -2.0, "prob": 0.25},
@@ -66,10 +69,61 @@ STRESS_SCENARIOS = {
     "E_inference_outpaces_training": {"gw_delta": 0.0, "prob": 0.55},  # no GW impact, chip-mix only
 }
 
-ANNOUNCED_HORIZON_GW = 50.61
-CONSERVATIVE_GW = 27.78
-PROB_WEIGHTED_POINT_GW = 36.08  # Revised 2026-04-24 (was 36.13) after Stargate Abilene T1 -> T2 reclassification
-BEAR_ARITHMETIC_GW = 45.74
+
+def load_tier_gw_from_yaml(basis: str) -> dict:
+    """Load the six-tier GW partition from the overlay YAML.
+    basis='facility' → evidence_tier_rollup_western_facility (rev-3 primary)
+    basis='it'       → evidence_tier_rollup_western (IT-load bridge)
+    """
+    with OVERLAY.open() as f:
+        doc = yaml.safe_load(f)
+    totals = doc.get("totals", {})
+    if basis == "facility":
+        block = totals.get("evidence_tier_rollup_western_facility", {})
+    elif basis == "it":
+        block = totals.get("evidence_tier_rollup_western", {})
+    else:
+        raise ValueError(f"unknown basis: {basis!r}")
+    tier_gw = {}
+    for tier_key, tier_content in block.items():
+        if not tier_key.startswith("T"):
+            continue
+        tier = tier_key.split("_")[0]
+        tier_gw[tier] = float(tier_content.get("gw", 0.0))
+    return tier_gw, block
+
+
+def load_horizon_scalars(basis: str, tier_block: dict, doc_totals: dict) -> dict:
+    """Load announced / conservative / prob-weighted / raw-non-stretch
+    headline scalars for the chosen basis."""
+    if basis == "facility":
+        west = doc_totals.get("western_horizon_2027_2030_facility", {})
+        return {
+            "announced_horizon_gw": tier_block.get("total_gw_announced_facility")
+                or west.get("total_gw_point", 0.0),
+            "conservative_gw": tier_block.get("total_gw_conservative_facility_raw", 0.0),
+            "prob_weighted_point_gw": tier_block.get("total_gw_probability_weighted_facility", 0.0),
+            "raw_non_stretch_gw": tier_block.get("total_gw_non_stretch_facility", 0.0),
+            "full_realization_gw": tier_block.get("total_gw_full_realization_facility", 0.0),
+        }
+    else:
+        west = doc_totals.get("western_horizon_2027_2030", {})
+        announced = tier_block.get("total_gw_announced") or west.get("total_gw_point", 0.0)
+        prob_weighted = tier_block.get("total_gw_probability_weighted", 0.0)
+        conservative = tier_block.get("total_gw_conservative", 0.0)
+        full_real = tier_block.get("total_gw_full_realization") or west.get("total_gw_range", [0, 0])[1]
+        # For IT basis, raw_non_stretch = announced - T5_gw (same rule)
+        t5 = 0.0
+        for k, v in tier_block.items():
+            if k.startswith("T5"):
+                t5 = float(v.get("gw", 0.0)); break
+        return {
+            "announced_horizon_gw": announced,
+            "conservative_gw": conservative,
+            "prob_weighted_point_gw": prob_weighted,
+            "raw_non_stretch_gw": round(announced - t5, 3),
+            "full_realization_gw": full_real,
+        }
 
 
 def fit_beta_from_quantiles(mean, p05, p95):
@@ -83,7 +137,6 @@ def fit_beta_from_quantiles(mean, p05, p95):
         return None  # deterministic
     sigma = (p95 - p05) / (2.0 * 1.645)
     variance = sigma ** 2
-    # Bound variance so Beta is well-defined: var < mean*(1-mean)
     max_var = mean * (1 - mean) * 0.99
     if variance >= max_var:
         variance = max_var
@@ -102,10 +155,10 @@ def sample_tier_rate(tier):
     return random.betavariate(alpha, beta)
 
 
-def one_draw():
+def one_draw(tier_gw: dict):
     """Return (realized_gw, applied_stress_names_list)."""
     realized = 0.0
-    for tier, gw in TIER_GW.items():
+    for tier, gw in tier_gw.items():
         rate = sample_tier_rate(tier)
         realized += gw * rate
     applied = []
@@ -113,7 +166,6 @@ def one_draw():
         if random.random() < sc["prob"]:
             realized += sc["gw_delta"]  # gw_delta is negative → subtract magnitude
             applied.append(name)
-    # Floor at zero (can't have negative realized GW)
     realized = max(realized, 0.0)
     return realized, applied
 
@@ -126,6 +178,8 @@ def percentile(sorted_list, q):
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--basis", choices=["facility", "it"], default="facility",
+                    help="'facility' (rev-3 primary, default) or 'it' (IT-load bridge, rev-2 compat)")
     ap.add_argument("--draws", type=int, default=10000)
     ap.add_argument("--seed", type=int, default=20260424)
     ap.add_argument("--verbose", action="store_true")
@@ -133,10 +187,25 @@ def main():
 
     random.seed(args.seed)
 
+    # Load tier GW partition + headline scalars from YAML (per basis).
+    tier_gw, tier_block = load_tier_gw_from_yaml(args.basis)
+    with OVERLAY.open() as f:
+        doc = yaml.safe_load(f)
+    scalars = load_horizon_scalars(args.basis, tier_block, doc.get("totals", {}))
+
+    # Sanity-check the partition summation vs the declared announced total.
+    partition_sum = round(sum(tier_gw.values()), 3)
+    declared = round(scalars["announced_horizon_gw"], 3)
+    if abs(partition_sum - declared) > 0.05:
+        print(f"WARNING: tier partition sums to {partition_sum} but "
+              f"declared announced is {declared} (basis={args.basis})", file=sys.stderr)
+
+    basis_label = "FACILITY (rev-3 primary)" if args.basis == "facility" else "IT-LOAD (rev-2 bridge)"
+
     results = []
     stress_counts = {name: 0 for name in STRESS_SCENARIOS}
     for _ in range(args.draws):
-        gw, applied = one_draw()
+        gw, applied = one_draw(tier_gw)
         results.append(gw)
         for name in applied:
             stress_counts[name] += 1
@@ -147,7 +216,13 @@ def main():
 
     print("=" * 72)
     print(f"MONTE CARLO — 2030 Western realized GW  (N={args.draws:,}, seed={args.seed})")
+    print(f"  Basis: {basis_label}")
     print("=" * 72)
+    print("  Six-tier GW partition (from YAML):")
+    for tier in sorted(tier_gw.keys()):
+        print(f"    {tier}: {tier_gw[tier]:6.3f} GW")
+    print(f"    Σ   : {partition_sum:6.3f} GW")
+    print()
     print(f"  Mean                 : {mean:6.2f} GW")
     print(f"  Std dev              : {std:6.2f} GW")
     print(f"  p05                  : {percentile(results, 0.05):6.2f} GW")
@@ -159,17 +234,17 @@ def main():
     print(f"  p95                  : {percentile(results, 0.95):6.2f} GW")
     print()
     print("  Reference point estimates (deterministic):")
-    print(f"    announced_horizon  : {ANNOUNCED_HORIZON_GW:6.2f} GW   (raw sum)")
-    print(f"    prob_weighted      : {PROB_WEIGHTED_POINT_GW:6.2f} GW   (Σ tier_gw × tier_prior)")
-    print(f"    bear_arithmetic    : {BEAR_ARITHMETIC_GW:6.2f} GW   (T1+T2+T3 + half T4)")
-    print(f"    conservative       : {CONSERVATIVE_GW:6.2f} GW   (T1+T2+T3 only)")
+    print(f"    announced_horizon  : {scalars['announced_horizon_gw']:6.2f} GW   (raw sum)")
+    print(f"    prob_weighted      : {scalars['prob_weighted_point_gw']:6.2f} GW   (Σ tier_gw × tier_prior)")
+    print(f"    raw_non_stretch    : {scalars['raw_non_stretch_gw']:6.2f} GW   (announced − T5; rev-3 replacement for retired 'bear')")
+    print(f"    conservative       : {scalars['conservative_gw']:6.2f} GW   (T1+T2+T3 only)")
     print()
     print("  Tail probabilities (from the sim):")
     thresholds = [
-        (f"< conservative {CONSERVATIVE_GW:.2f}", CONSERVATIVE_GW),
-        (f"< prob-weighted {PROB_WEIGHTED_POINT_GW:.2f}", PROB_WEIGHTED_POINT_GW),
-        (f"< bear {BEAR_ARITHMETIC_GW:.2f}", BEAR_ARITHMETIC_GW),
-        (f"< announced {ANNOUNCED_HORIZON_GW:.2f}", ANNOUNCED_HORIZON_GW),
+        (f"< conservative {scalars['conservative_gw']:.2f}", scalars["conservative_gw"]),
+        (f"< prob-weighted {scalars['prob_weighted_point_gw']:.2f}", scalars["prob_weighted_point_gw"]),
+        (f"< raw_non_stretch {scalars['raw_non_stretch_gw']:.2f}", scalars["raw_non_stretch_gw"]),
+        (f"< announced {scalars['announced_horizon_gw']:.2f}", scalars["announced_horizon_gw"]),
     ]
     for label, threshold in thresholds:
         p = sum(1 for x in results if x < threshold) / len(results)
@@ -183,9 +258,9 @@ def main():
     print()
     print("  Reading")
     print("    The Monte Carlo median (p50) is the probabilistically-honest")
-    print("    central estimate; the p50 landing below the deterministic")
-    print("    tier-weighted 36.13 GW reflects the stress-scenario downside")
-    print("    tail (A+B+C+D carry combined negative expected value of ")
+    print(f"    central estimate; the p50 landing below the deterministic")
+    print(f"    tier-weighted {scalars['prob_weighted_point_gw']:.2f} GW reflects the stress-scenario")
+    print("    downside tail (A+B+C+D carry combined negative expected value of")
     print("    approximately -5.9 GW). The p10-p90 interdecile range is the")
     print("    relevant LP sensitivity band.")
     print("=" * 72)

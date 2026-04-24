@@ -1,9 +1,96 @@
-# CHANGELOG — Revisions of 2026-04-23 (rev-1) and 2026-04-24 (rev-2)
+# CHANGELOG — Revisions of 2026-04-23 (rev-1), 2026-04-24 (rev-2), and 2026-04-24 (rev-3)
 
 Revisions of "The AI Compute Build-Out, 2026--2030". This changelog documents every
-headline number that moved across three PDF generations: pre-revision (17 pages),
-rev-1 2026-04-23 (27 pages), and rev-2 2026-04-24 (incorporating the Epoch
-2026-04-22 and 2026-04-10 changelog entries).
+headline number that moved across four PDF generations: pre-revision (17 pages),
+rev-1 2026-04-23 (27 pages), rev-2 2026-04-24 (Epoch drift incorporation), and
+rev-3 2026-04-24 (facility-basis reconciliation).
+
+## REV-3 (2026-04-24) — Facility-basis reconciliation
+
+The load-bearing correction: Epoch AI's public methodology defines `Power (MW)` as
+**total facility power** (per `epoch.ai/data/data-centers-documentation`: accelerators
++ cooling + lighting + conversion losses), yet the rev-2 paper asserted that "every
+gigawatt figure is an IT-equivalent gigawatt." That claim was false for the 33.05 GW
+Epoch-derived share of the 50.6 GW Western horizon and propagated downstream to the
+PUE sensitivity table, H100e densities, and headline Abstract numbers.
+
+**Resolution: Path B — facility power is the primary physical denominator.** IT-declared
+overlay rows are multiplied by `pue_assumed` to get facility; Epoch rows pass through
+unchanged; IT-load-equivalent capacity is reported as a secondary bridge table. The
+hierarchy of cases is now: raw announced / raw non-stretch / deterministic tier-weighted /
+Monte Carlo median + interdecile / IT-load bridge.
+
+| Metric | Rev-2 (IT basis) | Rev-3 (facility basis, primary) | Rev-3 IT-load bridge |
+|--------|-------------------|----------------------------------|----------------------|
+| Operational today GW | 7.76 (T1 IT) | 7.56 tier-clean; ~8.7–9.0 facility-equiv | 7.76 (unchanged) |
+| Announced horizon GW | 50.62 | **51.93 facility** | 50.61 |
+| Raw non-stretch GW | 45.74 (was "bear") | **45.17 facility** | 44.32 |
+| Probability-weighted GW | 36.08 | **36.75 facility** | 36.08 |
+| Conservative T1+T2+T3 GW | 27.78 | **27.93 facility** | 27.78 |
+| Full-realization GW | 53.48 | **55.32 facility** | 53.48 |
+| Monte Carlo median | 31.2 | **31.76 facility** | 31.12 |
+| Monte Carlo p10 / p90 | [24.0, 36.7] | **[24.60, 37.37] facility** | [23.96, 36.66] |
+| Sovereign sidebar GW | 1.95 | **2.06 facility** | 1.95 |
+| H100e total (basis-invariant) | 78.21M | 78.21M | 78.21M |
+
+**Six fixes landed in rev-3**:
+
+1. **Facility-basis primary denominator.** Added `evidence_tier_rollup_western_facility`
+   block to `compute_commitments_overlay.yaml`; added `aggregate_rollup_facility` to
+   `neocloud_overlay.yaml`; added `incremental_gw_facility_point` to every Class A
+   `row_audit` entry; `audit_totals.py` now emits two rollup blocks (facility primary,
+   IT-load secondary); `monte_carlo_horizon.py` gained `--basis facility|it` CLI flag
+   and loads `TIER_GW` from YAML.
+2. **PUE sensitivity table direction reversed.** Rev-2 table purported to map IT→facility;
+   rev-3 maps facility→IT (because facility is now primary), with columns showing
+   IT-load-equivalent at PUE 1.10 / 1.20 / 1.30 / 1.50 / 1.60.
+3. **Retired "45.7 GW bear" label** everywhere. Replaced with "raw non-stretch horizon"
+   (announced minus T5 stretch targets, approximately 45.2 GW facility). The retirement
+   is principled: Monte Carlo p95 sits at 38.4 GW facility, so the prior "bear" label
+   was structurally misleading — the bear reading was never a realistic downside.
+4. **Deleted broken `[43, 58] GW facility` prose.** Rev-2 had "50.6 GW IT maps to [43, 58] GW
+   facility in PUE range 1.10–1.35" — which was arithmetically 50.6 ± 15%, not a PUE
+   conversion. Replaced with direction-correct prose tied to the new PUE table.
+5. **Figure 8 rebuilt as two charts.** Figure 8A (capex bridge — what the money physically
+   buys) and Figure 8B (financing bridge — where the money comes from) are now distinct.
+   The $550B RPO is handled in separator prose between the two: RPO is revenue
+   underwriting that *enables* the debt-financing channel, not a funding channel in its
+   own right. Rev-2 depicted "lab take-or-pay contracts" as a $500B stand-alone channel;
+   this category error is corrected.
+6. **Fixed T1 7.76 / 7.56 inconsistency.** Monte Carlo and Figure 10 / 10B now use the
+   tier-clean T1 = 7.56 GW (Epoch 6.27 + neocloud directly-disclosed 1.29). The 0.20 GW
+   T6-inferred operational (Voltage Park 0.135 + Together 0.065) stays in T6 throughout.
+   Operational-today prose restated as "7.56 GW tier-clean plus 0.20 GW T6-inferred."
+
+**Grid-region corrections (Phase C.8)**:
+- Meta Hyperion (Richland Parish, Louisiana) is MISO-South via Entergy Louisiana, NOT ERCOT.
+- xAI Colossus 2 (Memphis, Tennessee) is MISO via Memphis Light, Gas & Water, NOT ERCOT.
+
+**Files touched in rev-3**:
+- `report.tex`: Abstract rewritten (facility primary + IT bridge); §1 opener replaced
+  with verbatim rev-3 prose + conversion-policy paragraph; §1 PUE sensitivity table
+  reversed; §1 "[43, 58]" prose deleted; §5 Figure 8 rebuilt as 8A + 8B; §7 subsection
+  title + bear prose retired; §7 MC percentile table updated to facility basis;
+  §7 tail-probability prose updated; §2 grid-region corrections; §3 Hyperion + Colossus~2
+  prose corrections; Figure 1 y-axis + 2030 point updated; TOC page numbers resynced.
+- `compute_commitments_overlay.yaml`: added `evidence_tier_rollup_western_facility`,
+  `western_horizon_2027_2030_facility`, `sovereign_ai_sidebar_horizon_facility`;
+  per-row `incremental_gw_facility_point` on every Class A row; `overlay_version`
+  2026-04-22 → 2026-04-24.
+- `neocloud_overlay.yaml`: added `aggregate_rollup_facility` block.
+- `compute_commitments_totals.csv`: added `incremental_gw_point_facility` column;
+  rewrote footer with facility-primary rollup + IT-load secondary rollup + H100e
+  density clarifier (1,388 H100e/IT-MW ≈ 1,157 H100e/facility-MW at blended PUE 1.20).
+- `row_level_audit.csv`: renamed columns to `incremental_gw_it` + `incremental_gw_facility`
+  + `basis_note`; corrected Fluidstack / Voltage Park / Together basis tags.
+- `audit_totals.py`: added `sum_class_a_facility`, `compute_probability_weighted_western_facility`,
+  `compute_per_row_probability_weighted_facility`; now emits both rollup blocks.
+- `monte_carlo_horizon.py`: `--basis facility|it` CLI flag (default facility); loads
+  `TIER_GW` from YAML rollup blocks; deleted hard-coded `BEAR_ARITHMETIC_GW`; now prints
+  `raw_non_stretch_gw` instead of `bear_arithmetic`.
+- `rev3_snapshot.md`: new file capturing the numerical snapshot at the Phase B gate.
+
+
 
 ## REV-2 (2026-04-24) — Epoch data-drift incorporation
 

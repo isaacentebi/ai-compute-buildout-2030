@@ -97,6 +97,49 @@ def sum_class_a(commitments: list, scope: str) -> tuple[float, float, float]:
     return round(point, 2), round(low, 2), round(high, 2)
 
 
+def sum_class_a_facility(commitments: list, scope: str) -> tuple[float, float, float]:
+    """Re-sum Class A rows for a given scope under FACILITY basis.
+    Reads row_audit.incremental_gw_facility_point + range (rev-3 A.1 fields).
+    Falls back to IT point × pue_assumed if facility fields are missing.
+    Returns (point, low, high).
+    """
+    point = low = high = 0.0
+    for c in commitments:
+        if c.get("announcement_class") != "A":
+            continue
+        cid = c["commitment_id"]
+        is_sov = cid in SOVEREIGN_IDS
+        row_scope = "sovereign" if is_sov else "western"
+        if row_scope != scope:
+            continue
+        # A.1 fields live at the commitment top level (siblings of
+        # incremental_gw_point), not inside row_audit.
+        p = c.get("incremental_gw_facility_point")
+        r = list(c.get("incremental_gw_facility_range") or [None, None])
+        # Fallback: compute from IT × PUE if A.1 facility fields missing.
+        if p is None:
+            it_p = c.get("incremental_gw_point")
+            basis = c.get("mw_basis", "unknown")
+            pue = c.get("pue_assumed", 1.25)
+            if it_p is not None:
+                p = it_p if basis == "facility" else round(it_p * pue, 3)
+        if r[0] is None or r[1] is None:
+            it_r = c.get("incremental_gw_range") or [None, None]
+            basis = c.get("mw_basis", "unknown")
+            pue = c.get("pue_assumed", 1.25)
+            if it_r[0] is not None and r[0] is None:
+                r[0] = it_r[0] if basis == "facility" else round(it_r[0] * pue, 3)
+            if it_r[1] is not None and r[1] is None:
+                r[1] = it_r[1] if basis == "facility" else round(it_r[1] * pue, 3)
+        if p is not None:
+            point += p
+        if r[0] is not None:
+            low += r[0]
+        if r[1] is not None:
+            high += r[1]
+    return round(point, 3), round(low, 3), round(high, 3)
+
+
 def compare(label: str, got: tuple, expected: tuple) -> bool:
     """Return True if (point, low, high) match within tolerance."""
     ok = all(abs(a - b) <= TOL for a, b in zip(got, expected))
@@ -150,6 +193,41 @@ def compute_probability_weighted_western(doc: dict) -> dict:
     }
 
 
+def compute_probability_weighted_western_facility(doc: dict) -> dict:
+    """
+    Parallel to compute_probability_weighted_western but reads the
+    evidence_tier_rollup_western_facility block (rev-3 primary basis).
+    """
+    totals = doc.get("totals", {})
+    tier_block = totals.get("evidence_tier_rollup_western_facility", {})
+
+    gw_announced_point = 0.0
+    gw_probability_weighted = 0.0
+    gw_conservative = 0.0
+    gw_full_realization = 0.0
+
+    for tier_key, tier_content in tier_block.items():
+        if not tier_key.startswith("T"):
+            continue
+        tier = tier_key.split("_")[0]
+        gw = tier_content.get("gw", 0.0)
+        prob = tier_content.get(
+            "realization_probability_default", TIER_DEFAULTS.get(tier, 0.5)
+        )
+        gw_announced_point += gw
+        gw_probability_weighted += gw * prob
+        if tier in CONSERVATIVE_TIERS:
+            gw_conservative += gw
+        gw_full_realization += gw
+
+    return {
+        "announced_horizon_gw": round(gw_announced_point, 3),
+        "probability_weighted_gw": round(gw_probability_weighted, 3),
+        "conservative_case_gw": round(gw_conservative, 3),
+        "full_realization_gw_framework_ceiling": round(gw_full_realization, 3),
+    }
+
+
 def compute_per_row_probability_weighted(doc: dict) -> tuple[float, list]:
     """
     Walk Class A commitments only; apply per-row realization_probability
@@ -176,6 +254,40 @@ def compute_per_row_probability_weighted(doc: dict) -> tuple[float, list]:
             {"id": cid, "gw_point": p, "tier": tier, "prob": prob, "weighted": round(weighted, 3)}
         )
     return round(total_weighted, 2), rows
+
+
+def compute_per_row_probability_weighted_facility(doc: dict) -> tuple[float, list]:
+    """
+    Parallel to compute_per_row_probability_weighted but reads
+    row_audit.incremental_gw_facility_point (rev-3 A.1 field).
+    Falls back to IT × pue_assumed if facility field missing.
+    """
+    total_weighted = 0.0
+    rows = []
+    for c in doc.get("commitments", []):
+        if c.get("announcement_class") != "A":
+            continue
+        cid = c["commitment_id"]
+        if cid in SOVEREIGN_IDS:
+            continue
+        # A.1 fields live at commitment top level, not in row_audit.
+        p = c.get("incremental_gw_facility_point")
+        if p is None:
+            it_p = c.get("incremental_gw_point")
+            basis = c.get("mw_basis", "unknown")
+            pue = c.get("pue_assumed", 1.25)
+            if it_p is not None:
+                p = it_p if basis == "facility" else round(it_p * pue, 3)
+        if p is None or p == 0.0:
+            continue
+        tier = c.get("evidence_tier", "T4")
+        prob = c.get("realization_probability", TIER_DEFAULTS.get(tier, 0.58))
+        weighted = p * prob
+        total_weighted += weighted
+        rows.append(
+            {"id": cid, "gw_point": p, "tier": tier, "prob": prob, "weighted": round(weighted, 3)}
+        )
+    return round(total_weighted, 3), rows
 
 
 def compute_sovereign_probability_weighted(doc: dict) -> tuple[float, list]:
@@ -226,52 +338,90 @@ def compute_capital_envelope(doc: dict) -> dict:
 
 
 def print_seven_canonical_totals(doc: dict, neocloud: dict) -> None:
-    print()
-    print("=" * 70)
-    print("SEVEN CANONICAL TOTALS  (six-tier evidence framework, Western)")
-    print("=" * 70)
-
     totals = doc.get("totals", {})
     op_today = totals["operational_today_2026_q2"]["total_gw"]
-
-    # Framework-level rollup
-    framework = compute_probability_weighted_western(doc)
-    # Per-row Class A weighted (for drift detection vs framework)
-    class_a_weighted, class_a_rows = compute_per_row_probability_weighted(doc)
-    sov_weighted, sov_rows = compute_sovereign_probability_weighted(doc)
     capital = compute_capital_envelope(doc)
 
+    # ------------------------------------------------------------------
+    # PRIMARY: FACILITY BASIS (rev-3)
+    # ------------------------------------------------------------------
+    print()
+    print("=" * 70)
+    print("SEVEN CANONICAL TOTALS  (facility basis — PRIMARY, rev-3)")
+    print("=" * 70)
+
+    framework_fac = compute_probability_weighted_western_facility(doc)
+    class_a_weighted_fac, class_a_rows_fac = compute_per_row_probability_weighted_facility(doc)
+
+    west_fac_block = totals.get("western_horizon_2027_2030_facility", {})
+    west_horizon_fac = west_fac_block.get("total_gw_point", 0.0)
+    west_range_fac = west_fac_block.get("total_gw_range", [0.0, 0.0])
+
+    tier_fac = totals.get("evidence_tier_rollup_western_facility", {})
+    non_stretch_fac = tier_fac.get("total_gw_non_stretch_facility", 0.0)
+    full_real_fac = tier_fac.get("total_gw_full_realization_facility", west_range_fac[1])
+
+    print(f"  1. operational_today_gw         = {op_today:>6.2f} GW IT-equiv (tier rollup T1 = 7.56 GW)")
+    print(f"                                     (~{op_today*1.16:.2f} GW facility-equivalent at blended PUE 1.16)")
+    print(f"  2. announced_horizon_gw         = {west_horizon_fac:>6.2f} GW facility  "
+          f"[{west_range_fac[0]:.2f}, {west_range_fac[1]:.2f}]")
+    print(f"  3. raw_non_stretch_gw           = {non_stretch_fac:>6.2f} GW facility  "
+          f"(announced − T5; replaces retired 'bear' label)")
+    print(f"  4. probability_weighted_gw      = {framework_fac['probability_weighted_gw']:>6.2f} GW facility  "
+          f"(tier-default midpoints)")
+    print(f"  5. conservative_case_gw         = {framework_fac['conservative_case_gw']:>6.2f} GW facility  "
+          f"(T1+T2+T3 only)")
+    print(f"  6. full_realization_gw          = {full_real_fac:>6.2f} GW facility  "
+          f"(arithmetic ceiling)")
+    print(f"  7. capital_envelope_usd_b       = {capital['capex_envelope_usd_b_rough']:>6.1f} $B  "
+          f"(rough; A.7 will refine)")
+
+    print()
+    print("  Sovereign sidebar facility (not in Western denominator):")
+    sov_fac_block = totals.get("sovereign_ai_sidebar_horizon_facility", {})
+    sov_fac_pt = sov_fac_block.get("total_gw_point", 0.0)
+    print(f"    announced_horizon_sov_gw_fac  = {sov_fac_pt:>6.2f} GW facility")
+
+    print()
+    print("  Per-row Class A facility-basis probability-weighted detail (Western only):")
+    for r in class_a_rows_fac:
+        print(
+            f"    [{r['tier']}] {r['id']:<40s}  "
+            f"gw_fac={r['gw_point']:>5.3f}  prob={r['prob']:>4.2f}  weighted={r['weighted']:>5.3f}"
+        )
+    print(f"    SUM Class A Western facility weighted = {class_a_weighted_fac:.3f} GW")
+
+    # ------------------------------------------------------------------
+    # SECONDARY: IT-LOAD BRIDGE (rev-2 legacy)
+    # ------------------------------------------------------------------
+    print()
+    print("=" * 70)
+    print("SEVEN CANONICAL TOTALS  (IT-load bridge — SECONDARY, rev-2 compat)")
+    print("=" * 70)
+
+    framework = compute_probability_weighted_western(doc)
+    class_a_weighted, class_a_rows = compute_per_row_probability_weighted(doc)
+    sov_weighted, sov_rows = compute_sovereign_probability_weighted(doc)
     west_horizon = totals["western_horizon_2027_2030"]["total_gw_point"]
     west_range = totals["western_horizon_2027_2030"]["total_gw_range"]
 
-    print(f"  1. operational_today_gw         = {op_today:>6.2f} GW  (T1)")
+    print(f"  1. operational_today_gw         = {op_today:>6.2f} GW  (T1 IT-basis)")
     print(f"  2. announced_horizon_gw         = {west_horizon:>6.2f} GW  "
-          f"[{west_range[0]:.2f}, {west_range[1]:.2f}]")
+          f"[{west_range[0]:.2f}, {west_range[1]:.2f}]  (IT-load bridge)")
     print(f"  3. probability_weighted_gw      = {framework['probability_weighted_gw']:>6.2f} GW  "
           f"(tier-default midpoints)")
     print(f"  4. conservative_case_gw         = {framework['conservative_case_gw']:>6.2f} GW  "
           f"(T1+T2+T3 only)")
     print(f"  5. full_realization_gw          = {west_range[1]:>6.2f} GW  "
           f"(arithmetic ceiling)")
-    print(f"  6. capital_envelope_usd_b       = {capital['capex_envelope_usd_b_rough']:>6.1f} $B  "
-          f"(rough; A.7 will refine)")
-    print(f"  7. rpo_obligations_usd_b_rough  = {capital['rpo_contracted_usd_b_rough']:>6.1f} $B  "
-          f"(rough; A.7 will refine)")
+    print(f"  6. capital_envelope_usd_b       = {capital['capex_envelope_usd_b_rough']:>6.1f} $B")
+    print(f"  7. rpo_obligations_usd_b_rough  = {capital['rpo_contracted_usd_b_rough']:>6.1f} $B")
 
     print()
-    print("  Sovereign sidebar (not in Western denominator):")
+    print("  Sovereign sidebar IT (not in Western denominator):")
     sov_point = totals["sovereign_ai_sidebar_horizon"]["total_gw_point"]
     print(f"    announced_horizon_sov_gw      = {sov_point:>6.2f} GW")
     print(f"    probability_weighted_sov_gw   = {sov_weighted:>6.2f} GW")
-
-    print()
-    print("  Per-row Class A probability-weighted detail (Western only):")
-    for r in class_a_rows:
-        print(
-            f"    [{r['tier']}] {r['id']:<40s}  "
-            f"gw={r['gw_point']:>5.2f}  prob={r['prob']:>4.2f}  weighted={r['weighted']:>5.3f}"
-        )
-    print(f"    SUM Class A Western weighted = {class_a_weighted:.2f} GW")
     print()
 
 
@@ -371,9 +521,71 @@ def main() -> int:
         )
         declared = tier_block.get("total_gw_announced", 0.0)
         mark = "OK  " if abs(tier_sum - declared) <= TOL else "FAIL"
-        print(f"  [{mark}] Six-tier framework sum vs declared announced horizon")
+        print(f"  [{mark}] Six-tier framework sum vs declared announced horizon (IT)")
         print(f"         Σ tier GW:              {tier_sum:.2f}")
         print(f"         declared announced:     {declared:.2f}")
+        all_ok &= mark == "OK  "
+
+    # --- rev-3: FACILITY-BASIS checks ---
+    print()
+    print("-" * 70)
+    print("rev-3 FACILITY-BASIS audit")
+    print("-" * 70)
+
+    # Class A western facility incremental vs declared
+    west_fac_block = totals.get("western_horizon_2027_2030_facility", {})
+    if west_fac_block:
+        west_fac = sum_class_a_facility(commitments, "western")
+        arith_fac = west_fac_block.get("arithmetic", {})
+        west_fac_exp_pt = arith_fac.get("class_a_western_incremental_point_gw", 0.0)
+        west_fac_exp_rng = arith_fac.get("class_a_western_incremental_range_gw", [0.0, 0.0])
+        all_ok &= compare(
+            "Class A western facility subtotal",
+            west_fac,
+            (west_fac_exp_pt, west_fac_exp_rng[0], west_fac_exp_rng[1]),
+        )
+
+        # Western horizon facility grand total
+        west_grand_fac_computed = (
+            round(arith_fac["epoch_buildout_gw"] + west_fac[0] + arith_fac["neocloud_ex_epoch_total_gw"], 3),
+            round(arith_fac["epoch_buildout_gw"] + west_fac[1] + arith_fac["neocloud_ex_epoch_total_gw"], 3),
+            round(arith_fac["epoch_buildout_gw"] + west_fac[2] + arith_fac["neocloud_ex_epoch_total_gw"], 3),
+        )
+        west_grand_fac_declared = (
+            west_fac_block["total_gw_point"],
+            west_fac_block["total_gw_range"][0],
+            west_fac_block["total_gw_range"][1],
+        )
+        all_ok &= compare(
+            "Western horizon facility grand total",
+            west_grand_fac_computed,
+            west_grand_fac_declared,
+        )
+
+    # Six-tier facility rollup sum
+    tier_fac_block = totals.get("evidence_tier_rollup_western_facility", {})
+    if tier_fac_block:
+        tier_fac_sum = sum(
+            tier_fac_block[k].get("gw", 0.0)
+            for k in tier_fac_block
+            if k.startswith("T")
+        )
+        declared_fac = tier_fac_block.get("total_gw_announced_facility", 0.0)
+        mark = "OK  " if abs(tier_fac_sum - declared_fac) <= TOL else "FAIL"
+        print(f"  [{mark}] Six-tier framework sum vs declared announced horizon (facility)")
+        print(f"         Σ tier GW_facility:     {tier_fac_sum:.3f}")
+        print(f"         declared announced:     {declared_fac:.3f}")
+        all_ok &= mark == "OK  "
+
+    # Sovereign facility sidebar sum
+    sov_fac_block = totals.get("sovereign_ai_sidebar_horizon_facility", {})
+    if sov_fac_block:
+        sov_fac_declared = sov_fac_block["total_gw_point"]
+        sov_fac_rows_sum = round(sum(sov_fac_block["rows"].values()), 3)
+        mark = "OK  " if abs(sov_fac_rows_sum - sov_fac_declared) <= TOL else "FAIL"
+        print(f"  [{mark}] Sovereign sidebar facility sum vs declared")
+        print(f"         Σ sov rows facility:    {sov_fac_rows_sum:.3f}")
+        print(f"         declared sov facility:  {sov_fac_declared:.3f}")
         all_ok &= mark == "OK  "
 
     print("=" * 70)
