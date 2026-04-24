@@ -1,0 +1,2006 @@
+# ---------------------------------------------------------------------------
+# compute_commitments_overlay.yaml
+#
+# A speculative-commitment layer that sits on top of Epoch AI's Frontier
+# Data Centers evidenced floor (research/data/external/epoch_data_centers/).
+#
+# Every row declares exactly how it nets against Epoch's evidenced sites so
+# nothing is double-counted. Each row has:
+#   - announcement_class:
+#       A = physical-capacity-at-named-site(s)
+#       B = chip procurement (deploys INTO Class-A shells, no new physical GW)
+#       C = dollar / equity only (no GW, no site)
+#   - announced_gw (verbatim from primary) + announced_usd_b
+#   - epoch_overlap_sites (with per-site buildout MW pulled from compiled.json)
+#   - epoch_overlap_gw_buildout (sum)
+#   - incremental_gw_point + incremental_gw_range (with written justification)
+#   - double_count_analysis prose field
+#   - primary_sources with publisher + date + URL
+#
+# Build with: python3 research/data/external/epoch_data_centers/compile.py --with-overlay
+#
+# Data cutoff: 2026-04-22
+# ---------------------------------------------------------------------------
+
+metadata:
+  overlay_version: "2026-04-22"
+  epoch_data_cutoff: "2026-04-16"
+  author: stack-intelligence-engine
+  methodology: |
+    Each commitment row records the literal announcement language and then
+    subtracts Epoch's evidenced buildout at overlapping sites (named or
+    inferred from operator/program identity). Incremental GW = announced GW
+    minus sum of overlapping Epoch site buildouts.
+
+    Chip-procurement deals (AMD 6 GW, Broadcom 10 GW, NVIDIA 10 GW, GB200
+    purchase commitments) are Class B and add ZERO physical GW to the
+    commitment surface because the chips deploy INSIDE Class-A shells that
+    Epoch already tracks (Stargate, Fairwater, CoreWeave, AWS). Counting
+    them as additional GW triple-counts capacity.
+
+    Dollar-only commitments (Class C) are tracked for financial reconciliation
+    but contribute zero GW to the physical commitment surface.
+
+    Epoch confidence tags (#confident, #likely, #speculative) are preserved
+    on every overlap-site reference so the reader can see which subtractions
+    are robust and which hinge on Epoch's own speculative attribution.
+
+  class_definitions:
+    A_physical_site: >
+      Power commitment tied to specific named sites or named program
+      (e.g. Project Rainier, Stargate). Subtract Epoch-evidenced buildout
+      at those sites.
+    B_chip_procurement: >
+      Committed to buy/deploy N GW worth of chips without naming sites.
+      Chips populate Class-A shells already tracked by Epoch.
+      Contributes zero additional physical GW.
+    C_dollar_only: >
+      Dollar or equity commitment without GW or site disclosure.
+      Tracked for financial reconciliation only.
+
+# ============================================================================
+# CLASS A — PHYSICAL-CAPACITY-AT-NAMED-SITES
+# ============================================================================
+
+commitments:
+
+  # --------------------------------------------------------------------------
+  # 1. Anthropic–Amazon, April 20 2026 ("5 GW of new capacity")
+  # --------------------------------------------------------------------------
+  - commitment_id: anthropic_aws_2026_04_20
+    announcement_class: A
+    announced_date: 2026-04-20
+    operator: Amazon
+    user: Anthropic
+    program_name: "Project Rainier (expansion)"
+    announcement_language:
+      gw_verbatim: "up to 5 gigawatts (GW) of new capacity"
+      gw_near_term_verbatim: "nearly 1 GW total of Trainium2 and Trainium3 capacity coming online by the end of 2026"
+      compute_dollars_verbatim: "more than $100 billion over the next ten years on AWS technologies"
+      equity_dollars_verbatim: "$5 billion in Anthropic today, with up to an additional $20 billion in the future"
+      chip_generations: ["Trainium2", "Trainium3", "Trainium4", "future"]
+      sites_named: []
+    announced_gw: 5.0
+    announced_compute_usd_b: 100.0
+    announced_compute_horizon_years: 10
+    announced_equity_usd_b_committed: 5.0
+    announced_equity_usd_b_max: 25.0
+    epoch_overlap_sites:
+      - site: Amazon Madison Mega Site
+        epoch_confidence_user: "Anthropic #speculative"
+        epoch_confidence_project: "Project Rainier #speculative"
+        buildout_mw: 819
+        buildout_by: 2026-09-18
+        basis_for_overlap: >
+          Epoch's speculative Rainier attribution (from independent NYT +
+          SemiAnalysis reporting) combined with timeline that matches
+          Anthropic's "nearly 1 GW by end-2026" language.
+      - site: Amazon Ridgeland
+        epoch_confidence_user: "Anthropic #speculative"
+        epoch_confidence_project: "Project Rainier #speculative"
+        buildout_mw: 1008
+        buildout_by: 2027-09-21
+        basis_for_overlap: >
+          Same NYT reporting that puts Madison in Rainier puts Ridgeland
+          in Rainier; timeline extends through 2027, overlapping with
+          Trainium3 ramp described in the announcement.
+    epoch_overlap_gw_buildout: 1.83
+    epoch_nonoverlap_sites:
+      - site: Anthropic-Amazon New Carlisle
+        reason: >
+          Epoch tags both Anthropic-user and Project Rainier as #confident
+          at this site (1.09 GW operational 2026-03-23, buildout 1.23 GW by
+          2026-06-21). Anthropic's April 20 blog describes this as the
+          "existing" Rainier deployment ("currently use over one million
+          Trainium2 chips") that is distinct from the "5 GW new" commitment.
+    incremental_gw_point: 3.17
+    incremental_gw_range: [2.50, 5.00]
+    evidence_tier: T4  # announced site-level plan; near-term 1 GW anchors the floor
+    realization_probability: 0.72  # override above T4 default 0.58 — 1 GW near-term is higher-confidence than 5 GW ceiling
+    incremental_gw_reasoning: |
+      Low bound (2.50 GW): Madison + Ridgeland buildout (1.83 GW) fully
+      subsumed by the announcement's near-term language, AND ~0.7 GW of
+      the residual is absorbed by New Carlisle expansion beyond Epoch's
+      current 1.23 GW buildout (Amazon has acquired adjacent land in
+      St. Joseph County per local reporting that would extend New
+      Carlisle well beyond the currently-permitted envelope). This is
+      the "maximum re-packaging" case: most of the 5 GW is refreshing
+      capacity already in the Rainier pipeline.
+      High bound (5.00 GW): strict reading of "new" in the announcement
+      excludes Madison/Ridgeland as "existing permitted Rainier" (they
+      began land-clearing in 2023-2024, pre-announcement), making the
+      full 5 GW genuinely net-new (implying ~3 new unidentified sites).
+      Point estimate (3.17 GW): Madison + Ridgeland subsumed (Epoch's
+      own speculative attribution matches the announcement's near-term
+      timeline), residual ~3 GW assumed to be genuinely new sites not
+      yet publicly identified.
+    confidence: low  # (Epoch-style: #speculative)
+    gw_disclosed_verbatim: true
+    site_level_overlap_known: partial
+    primary_sources:
+      - url: https://www.anthropic.com/news/anthropic-amazon-compute
+        publisher: Anthropic
+        date: 2026-04-20
+        title: "Anthropic and Amazon expand collaboration for up to 5 gigawatts of new compute"
+      - url: https://www.aboutamazon.com/news/company-news/amazon-invests-additional-5-billion-anthropic-ai
+        publisher: Amazon
+        date: 2026-04-20
+        title: "Amazon and Anthropic expand strategic collaboration"
+    facts_yaml_refs: []  # new fact — needs to be added to anthropic.yaml
+    residual_risk_flags:
+      - "Madison + Ridgeland may be classified by Anthropic as 'existing Rainier' (not 'new') — would push incremental to 5.0 GW."
+      - "3.17 GW point estimate implies ~3 additional unidentified sites of ~1 GW scale; none publicly named yet."
+      - "Portion dependent on Trainium4 chip availability (chips 'not currently available')."
+    double_count_analysis: |
+      The announcement's 5 GW is Anthropic's self-described "new capacity"
+      on top of the existing Rainier deployment at New Carlisle (Epoch:
+      1.09 GW operational pre-announcement). Epoch had already flagged
+      Madison County MS and Ridgeland MS as #speculative Rainier (based
+      on NYT + SemiAnalysis reporting from before the announcement); their
+      combined 1.83 GW buildout aligns tightly with the announcement's
+      "nearly 1 GW by end of 2026" tranche. Subtracting those yields
+      3.17 GW of incremental capacity at sites not yet in Epoch's dataset.
+      New Carlisle is intentionally excluded from the subtraction because
+      Anthropic's own framing treats it as the pre-existing program.
+
+  # --------------------------------------------------------------------------
+  # 2. Anthropic–Fluidstack $50B JV (Nov 12 2025)
+  # --------------------------------------------------------------------------
+  - commitment_id: anthropic_fluidstack_2025_11_12
+    announcement_class: A
+    announced_date: 2025-11-12
+    operator: Fluidstack
+    user: Anthropic
+    program_name: "$50B American AI Infrastructure (Fluidstack-built)"
+    announcement_language:
+      gw_verbatim: null  # no GW figure in primary
+      compute_dollars_verbatim: "$50 billion investment in American computing infrastructure, building data centers with Fluidstack in Texas and New York"
+      timeline_verbatim: "sites coming online throughout 2026"
+      chip_generations: []  # NOT disclosed in primary; agent research confirms
+      sites_named: ["Texas (unspecified)", "New York (unspecified)"]
+    announced_gw: null
+    announced_usd_b: 50.0
+    announced_compute_horizon_years: null  # not disclosed
+    epoch_overlap_sites:
+      - site: Fluidstack Lake Mariner
+        epoch_confidence_user: "Anthropic #likely (Fluidstack portion Bldgs 3-5)"
+        epoch_confidence_owner: "Fluidstack #confident"
+        buildout_mw: 441  # Bldgs 3-5 Anthropic-attributable portion; Bldgs 1-2 (68 MW current) are G42
+        buildout_by: 2027-03-31
+        basis_for_overlap: >
+          Epoch's Notes field explicitly states "Our sources point to
+          Fluidstack's buildings serving Google TPUs for Anthropic" at
+          Buildings 3-5 (440 MW). Lake Mariner, NY is one of the NY sites
+          described in the $50B announcement.
+    epoch_overlap_gw_buildout: 0.44
+    incremental_gw_point: null  # no GW figure in announcement to subtract from
+    incremental_usd_b_point: 50.0
+    incremental_usd_b_range: [50.0, 50.0]
+    evidence_tier: T5  # dollar-only envelope; GW unquantified in primary source
+    realization_probability: 0.40  # above T5 default 0.32 — Lake Mariner portion is physically evidenced
+    incremental_gw_reasoning: |
+      Primary announcement discloses no GW figure. Inferring physical
+      GW from the $50B dollar figure requires an assumed $/GW build
+      cost (Epoch uses ~$30B/GW implied by its capex figures), which
+      would imply ~1.5-2 GW total. Instead we carry the $50B as the
+      authoritative commitment surface and flag Epoch's 0.44 GW at
+      Lake Mariner as partial overlap.
+    confidence: medium  # (Epoch-style: #likely)
+    gw_disclosed_verbatim: false
+    site_level_overlap_known: partial
+    primary_sources:
+      - url: https://www.anthropic.com/news/anthropic-invests-50-billion-in-american-ai-infrastructure
+        publisher: Anthropic
+        date: 2025-11-12
+      - url: https://www.fluidstack.io/about-us/blog/fluidstack-selected-by-anthropic-to-deliver-custom-data-centers-in-the-us
+        publisher: Fluidstack
+        date: 2025-11-12
+    facts_yaml_refs: ["anthropic.commitment.fluidstack_jv"]
+    residual_risk_flags:
+      - "Primary source does not name Lake Mariner; Epoch's attribution is inference-chain."
+      - "Other TX + NY sites unnamed — if they come online and are added to Epoch, those rows will need to be deducted from this commitment's incremental envelope."
+      - "Material overlap with anthropic_google_broadcom below — these are infrastructure ($) + silicon (chips) sides of the same physical program, not additive."
+    double_count_analysis: |
+      The $50B is Anthropic's infrastructure commitment delivered through
+      Fluidstack. The subsequent Anthropic-Google-Broadcom TPU deal
+      (Oct 2025 + April 2026) is described by Anthropic itself as "a
+      major expansion of our November 2025 commitment to invest $50 billion"
+      — meaning the $50B is the infrastructure vehicle and the Google
+      TPU/Broadcom silicon commitment is the chips flowing into those
+      shells, NOT additive. Lake Mariner is the only currently-evidenced
+      site. The overlay treats $50B as the dollar commitment and leaves
+      GW unquantified; the TPU/Broadcom row is Class B (chip procurement)
+      with zero incremental GW to avoid double-count.
+
+  # --------------------------------------------------------------------------
+  # 3. Anthropic–Google TPU + Broadcom (Oct 23 2025 / Apr 7 2026)
+  # --------------------------------------------------------------------------
+  - commitment_id: anthropic_google_broadcom_tpu
+    announcement_class: B  # chip procurement, flows into Fluidstack shells (Class A)
+    announced_date: 2025-10-23  # Google Cloud TPU announcement
+    operator: Google Cloud
+    user: Anthropic
+    program_name: "Anthropic TPU Ironwood + next-gen"
+    announcement_language:
+      oct_2025_verbatim: >
+        "up to one million TPU chips" - "well over a gigawatt of
+        capacity coming online in 2026" - "seventh generation TPU,
+        Ironwood" - "tens of billions of dollars"
+      apr_2026_verbatim: >
+        "multiple gigawatts of next-generation TPU capacity"
+        starting in 2027; "a major expansion of our November 2025
+        commitment to invest $50 billion in strengthening American
+        computing infrastructure"
+      gw_verbatim: 'well over a gigawatt of capacity coming online in 2026 + multiple gigawatts of next-generation TPU capacity (2027+)'
+      compute_dollars_verbatim: 'tens of billions of dollars'
+      sites_named: []
+    announced_gw: 4.5  # 1+ GW in 2026 + 3.5 GW from 2027 (both primary-sourced as of April 2026)
+    announced_gw_sourcing_note: "1 GW 2026 figure primary-sourced to Google/Anthropic Oct 23 2025 joint announcement. 3.5 GW 2027 figure primary-sourced to Anthropic's April 7 2026 blog ('multiple gigawatts of next-generation TPU capacity') + Broadcom Q1 FY26 earnings (CEO Hock Tan confirming a specific 3.5 GW XPU commitment from a named customer). Upgraded from SEC-filing-secondary per April 23 2026 audit."
+    announced_usd_b: null  # primary says "tens of billions" and $52B is secondary (likely Mizuho analyst)
+    epoch_overlap_sites:
+      - site: Fluidstack Lake Mariner
+        epoch_confidence_user: "Anthropic #likely (TPU for Anthropic per Epoch Notes)"
+        buildout_mw: 441  # Bldgs 3-5 already accounted in anthropic_fluidstack above
+        basis_for_overlap: "SAME physical site as row 2 (anthropic_fluidstack). Do not double-count."
+    epoch_overlap_gw_buildout: 0.00  # already counted under anthropic_fluidstack
+    incremental_gw_point: 0.00
+    incremental_gw_range: [0.00, 0.00]
+    evidence_tier: T4  # announced chip procurement (Class B); deploys into Class A shells; 0 incremental GW
+    realization_probability: 0.65  # above T4 default — Broadcom CEO confirmed 3.5 GW XPU on earnings call
+    incremental_gw_reasoning: |
+      Anthropic's April 2026 blog explicitly frames this as an "expansion
+      of our November 2025 $50 billion commitment" — i.e. this is the
+      silicon flowing into Fluidstack-built infrastructure that row 2
+      (anthropic_fluidstack_2025_11_12) already tracks at the
+      infrastructure-dollar level. Counting both as additional physical
+      GW would double-count the same physical capacity.
+
+      The TPU ramp (1 GW in 2026 + multi-GW 2027+) is the chip-deployment
+      schedule onto the shells. If Fluidstack reveals additional sites
+      beyond Lake Mariner, they'll be added to the Class-A floor under
+      anthropic_fluidstack's envelope — not as separate Class-B chip rows.
+    confidence: medium  # (Epoch-style: #likely)
+    gw_disclosed_verbatim: true  # primary says "well over a gigawatt"
+    site_level_overlap_known: partial
+    primary_sources:
+      - url: https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services
+        publisher: Anthropic
+        date: 2025-10-23
+      - url: https://www.googlecloudpresscorner.com/2025-10-23-Anthropic-to-Expand-Use-of-Google-Cloud-TPUs-and-Services
+        publisher: Google Cloud
+        date: 2025-10-23
+      - url: https://www.anthropic.com/news/google-broadcom-partnership-compute
+        publisher: Anthropic
+        date: 2026-04-07
+    facts_yaml_refs: ["anthropic.commitment.google_tpu"]
+    residual_risk_flags:
+      - "$52B value in facts.yaml is NOT primary-sourced (likely Mizuho analyst estimate). Consider flagging or removing."
+      - "3.5 GW 2027+ figure is SEC-secondary, not primary Anthropic/Google."
+      - "If TPU chips deploy OUTSIDE Fluidstack shells (e.g., direct into Google's own sites), a portion becomes additive Class-A at new locations."
+    double_count_analysis: |
+      This deal is the chip/silicon complement to anthropic_fluidstack
+      ($50B infrastructure). Anthropic's April 2026 blog is explicit
+      that the two are sides of the same commitment. Treating both as
+      separate additive GW would triple-count: once as $ infrastructure,
+      once as chips, once again against Lake Mariner's Epoch buildout.
+      Correct accounting: $50B = infrastructure envelope; TPU deal = the
+      silicon flowing into it; Lake Mariner (441 MW Anthropic-attributable)
+      = the Epoch-evidenced floor underneath both.
+
+  # --------------------------------------------------------------------------
+  # 4. Anthropic–Microsoft Azure (Nov 18 2025)
+  # --------------------------------------------------------------------------
+  - commitment_id: anthropic_azure_2025_11_18
+    announcement_class: A  # GW disclosed but no site
+    announced_date: 2025-11-18
+    operator: Microsoft Azure
+    user: Anthropic
+    announcement_language:
+      gw_verbatim: "up to one gigawatt of compute capacity"
+      compute_dollars_verbatim: "$30 billion of Azure compute capacity"
+      chip_generations: ["NVIDIA Grace Blackwell", "NVIDIA Vera Rubin"]
+      sites_named: []
+    announced_gw: 1.0
+    announced_usd_b: 30.0
+    announced_compute_horizon_years: null  # 5-7yr in facts.yaml is NOT primary-verified
+    epoch_overlap_sites: []  # no sites named in primary; no MSFT site tagged with Anthropic-user in Epoch
+    epoch_overlap_gw_buildout: 0.00
+    incremental_gw_point: 1.00
+    incremental_gw_range: [0.00, 1.00]
+    evidence_tier: T5  # LOI — 1 GW announced but no sites, range floors at zero
+    realization_probability: 0.30  # near T5 default 0.32; no sites disclosed is the key risk
+    incremental_gw_reasoning: |
+      Low bound (0 GW): if the 1 GW is carved from existing announced
+      Fairwater (WI 3.3 GW, Atlanta 859 MW) or Goodyear (263 MW) capacity
+      that Epoch already tracks as Microsoft-owned, no incremental physical
+      GW.
+      High bound (1.0 GW): if this is net-new Azure capacity at
+      unannounced sites, full 1 GW is additive.
+      Point estimate (1.0 GW): Microsoft primary discloses a separate
+      GW figure alongside the $30B contract, suggesting it's meant to
+      be read as an incremental commitment, not a carve-out.
+    confidence: low  # (Epoch-style: #speculative)
+    gw_disclosed_verbatim: true
+    site_level_overlap_known: false
+    primary_sources:
+      - url: https://blogs.microsoft.com/blog/2025/11/18/microsoft-nvidia-and-anthropic-announce-strategic-partnerships/
+        publisher: Microsoft
+        date: 2025-11-18
+    facts_yaml_refs: ["anthropic.commitment.azure_5_7yr"]
+    residual_risk_flags:
+      - "No site named — full 1 GW could be already-evidenced Fairwater/Goodyear capacity."
+      - "5-7yr contract length in facts.yaml is not verified in primary source."
+
+  # --------------------------------------------------------------------------
+  # 5. OpenAI Stargate aggregate ($500B / 10 GW, Jan 21 2025 + expansions)
+  # --------------------------------------------------------------------------
+  - commitment_id: openai_stargate_aggregate
+    announcement_class: A
+    announced_date: 2025-01-21  # launch; 2025-07-22 Oracle 4.5GW; 2025-09-23 "5 new sites / nearly 7 GW"
+    operator: "Stargate JV (OpenAI, SoftBank, Oracle, MGX)"
+    user: OpenAI
+    program_name: Stargate
+    announcement_language:
+      launch_verbatim: "$500 billion, 10-gigawatt commitment"
+      sep_2025_verbatim: "nearly 7 gigawatts of planned capacity and over $400 billion in investment"
+      oracle_4_5_gw_verbatim: '"4.5 GW expansion" (July 22, 2025 Oracle-OpenAI)'
+      sites_named:
+        - "Stargate Abilene TX (flagship)"
+        - "Stargate Shackelford County TX"
+        - "Stargate Doña Ana County NM"
+        - "Stargate Milam County TX"
+        - "Stargate Lordstown OH"
+        - "Stargate Midwestern (= Michigan or Wisconsin)"
+        - "Stargate UAE (Abu Dhabi, 1 GW in 5 GW UAE-US AI Campus)"
+    announced_gw: 10.0
+    announced_usd_b: 500.0
+    announced_compute_horizon_years: 10
+    epoch_overlap_sites:
+      - site: OpenAI Stargate Abilene
+        epoch_confidence_user: "OpenAI #confident"
+        buildout_mw: 1180
+        buildout_by: 2026-07-01
+      - site: OpenAI Stargate Shackelford
+        epoch_confidence_user: "OpenAI #confident"
+        buildout_mw: 1960
+        buildout_by: 2028-12-31
+      - site: OpenAI Stargate New Mexico
+        epoch_confidence_user: "OpenAI #confident"
+        buildout_mw: 2210
+        buildout_by: 2028-12-31
+      - site: OpenAI Stargate Michigan
+        epoch_confidence_user: "OpenAI #confident"
+        buildout_mw: 1383
+        buildout_by: 2028-12-31
+      - site: OpenAI Stargate Wisconsin
+        epoch_confidence_user: "OpenAI #confident"
+        buildout_mw: 1300
+        buildout_by: 2028-12-31
+      - site: OpenAI Stargate Milam
+        epoch_confidence_user: "OpenAI #confident"
+        buildout_mw: 1200
+        buildout_by: 2028-12-31
+      - site: OpenAI Stargate Lordstown
+        epoch_confidence_user: "OpenAI #confident"
+        buildout_mw: 0  # Epoch: "Still no visible construction"
+        buildout_by: 2026-02-27
+      - site: OpenAI Stargate UAE
+        epoch_confidence_user: "OpenAI #confident"
+        buildout_mw: 1400
+        buildout_by: 2028-01-01
+    epoch_overlap_gw_buildout: 10.63
+    incremental_gw_point: 0.00  # Epoch buildout already MATCHES announced 10 GW
+    incremental_gw_range: [0.00, 0.00]  # no evidence of additional announced Stargate sites
+    evidence_tier: T4  # announced site-level plan (named sites); 0 incremental because fully overlaps Epoch
+    realization_probability: 0.70  # above T4 default — primary sources robust, 8 sites named, partial construction evidenced
+    incremental_gw_reasoning: |
+      This is the key finding of the overlay: Epoch's evidenced buildout
+      for the 8 Stargate sites (10.63 GW) already matches OpenAI's
+      announced $500B / 10 GW program target. The Jan 2025 launch, July
+      2025 Oracle 4.5 GW expansion, and Sept 2025 "nearly 7 GW + 5 new
+      sites" reconfiliation all resolve into the same ~10 GW permit-
+      visible footprint Epoch now tracks.
+
+      Stargate Norway (July 2025) was transferred to Microsoft in April
+      2026 (no longer OpenAI). Stargate UK was paused April 2026.
+      Epoch includes all currently-active Stargate sites.
+    confidence: high  # (Epoch-style: #confident)
+    gw_disclosed_verbatim: true
+    site_level_overlap_known: true
+    primary_sources:
+      - url: https://openai.com/index/announcing-the-stargate-project/
+        publisher: OpenAI
+        date: 2025-01-21
+      - url: https://openai.com/index/stargate-advances-with-partnership-with-oracle/
+        publisher: OpenAI
+        date: 2025-07-22
+      - url: https://openai.com/index/five-new-stargate-sites/
+        publisher: OpenAI
+        date: 2025-09-23
+      - url: https://openai.com/index/introducing-stargate-uae/
+        publisher: OpenAI
+        date: 2025-05-22
+    facts_yaml_refs:
+      - openai.commitment.stargate_jv_10yr
+      - openai.commitment.oracle_stargate_5yr
+    residual_risk_flags:
+      - "Altman's $1.4T aggregate (8yr) from Nov 2025 podcast is ambiguous — may encompass Stargate + Fairwater + AWS + CoreWeave + NVIDIA/AMD/Broadcom chip deals. Not treated as separate capacity here."
+
+  # --------------------------------------------------------------------------
+  # 6. OpenAI–Microsoft Fairwater (multi-site, Sep-Nov 2025)
+  # --------------------------------------------------------------------------
+  - commitment_id: openai_microsoft_fairwater
+    announcement_class: A
+    announced_date: 2025-09-18  # Fairwater WI reveal; Atlanta Nov 12 2025; Norway/UK Sep 18
+    operator: Microsoft
+    user: OpenAI (primary), Microsoft
+    program_name: "Microsoft AI WAN (Fairwater superfactory)"
+    announcement_language:
+      wisconsin_verbatim: '"3.3 GW by late 2027 when 4th building online" (utility filings, SECONDARY); "$7.3B+ Wisconsin investment phase 1+2" (Microsoft PRIMARY)'
+      atlanta_verbatim: '"interconnected Fairwater buildings will have over 2 GW of total capacity" (SECONDARY aggregate; Microsoft primary does not disclose per-site MW)'
+      sites_named:
+        - "Fairwater Wisconsin (Mount Pleasant)"
+        - "Fairwater Atlanta"
+        - "Fairwater Narvik, Norway (nScale + Aker JV, $6.2B hydropower-backed)"
+        - "Fairwater Loughton, UK (nScale partnership)"
+    announced_gw: null  # no aggregate figure — by-site summed below
+    announced_usd_b: 13.5  # US Fairwater (Wisconsin $7.3B + Atlanta est) + $6.2B Norway
+    epoch_overlap_sites:
+      - site: Microsoft Fairwater Wisconsin
+        epoch_confidence_user: "OpenAI #likely, Microsoft #likely"
+        buildout_mw: 3328
+        buildout_by: 2027-10-03
+        basis_for_overlap: "Epoch buildout matches utility-filing 3.3 GW target."
+      - site: Microsoft Fairwater Atlanta
+        epoch_confidence_user: "OpenAI #speculative"
+        buildout_mw: 859
+        buildout_by: 2026-05-14
+      - site: Microsoft Goodyear
+        epoch_confidence_user: "OpenAI #likely"
+        buildout_mw: 263
+        buildout_by: 2025-11-12  # Epoch shows this as already at buildout
+    epoch_overlap_gw_buildout: 4.45
+    epoch_missing_sites:
+      - name: Fairwater Narvik (Norway)
+        operator: "Microsoft + nScale + Aker JV"
+        user: Microsoft (OpenAI downstream)
+        investment_usd_b: 6.2
+        announced_mw_estimate: [300, 1000]  # typical Fairwater phase scale; MSFT did not disclose
+        timeline: "online 2026"
+        rationale_for_estimate: >
+          Microsoft did not disclose MW; Fairwater phase scale at MSFT's
+          other US sites is 300-900 MW; nScale's standard deployment is
+          200-500 MW per site. Carrying as range.
+      - name: Fairwater Loughton (UK)
+        operator: "Microsoft + nScale"
+        user: Microsoft (OpenAI downstream)
+        investment_usd_b: null  # not separately disclosed from UK £2.5B envelope
+        announced_mw_estimate: [100, 500]
+        rationale_for_estimate: >
+          UK sovereign AI buildout, similar MSFT-nScale model to Narvik
+          but smaller given UK power-grid constraints.
+    incremental_gw_point: 0.70  # midpoint of [300, 1000]+[100, 500] = ~400+300 = 700 MW
+    incremental_gw_range: [0.40, 1.50]
+    evidence_tier: T2  # Fairwater intl (Narvik, Loughton) — sites named, leases signed, hydropower PPA evidenced
+    realization_probability: 0.82  # slightly below T2 default 0.88 — MW still estimated, not MSFT-disclosed per site
+    incremental_gw_reasoning: |
+      US Fairwater (Wisconsin + Atlanta + Goodyear) is fully in Epoch's
+      evidenced floor at 4.45 GW buildout — matches primary investment
+      dollar announcements. Incremental capacity is entirely the two
+      non-US sites (Narvik, Loughton) which are primary-announced but
+      not yet permit-observable / satellite-trackable by Epoch.
+      MW not disclosed in primary — range reflects typical Fairwater
+      phase scale (300-1000 MW) and typical nScale-partner deployment.
+    confidence: medium  # (Epoch-style: #likely)
+    gw_disclosed_verbatim: false  # only $ disclosed per site
+    site_level_overlap_known: true
+    primary_sources:
+      - url: https://blogs.microsoft.com/blog/2025/09/18/inside-the-worlds-most-powerful-ai-datacenter/
+        publisher: Microsoft
+        date: 2025-09-18
+      - url: https://news.microsoft.com/source/features/ai/from-wisconsin-to-atlanta-microsoft-connects-datacenters-to-build-its-first-ai-superfactory/
+        publisher: Microsoft
+        date: 2025-11-12
+
+  # --------------------------------------------------------------------------
+  # 7. Meta Hyperion + Prometheus full scale (Zuck Q2 FY25 earnings)
+  # --------------------------------------------------------------------------
+  - commitment_id: meta_hyperion_prometheus
+    announcement_class: A
+    announced_date: 2025-07-30  # Q2 FY25 earnings call
+    operator: Meta
+    user: Meta
+    announcement_language:
+      zuck_verbatim: >
+        "Prometheus cluster is coming online next year, and we think it's
+        going to be the world's first gigawatt-plus cluster. We're also
+        building out Hyperion, which will be able to scale up to 5 gigawatts
+        over several years, and we have multiple more titan clusters in
+        development as well."
+      meta_newsroom_verbatim: '"over two gigawatts of compute capacity… 4 million-square-foot" (Richland Parish, Dec 2024)'
+      sites_named: ["Hyperion (Richland Parish, LA)", "Prometheus", "'multiple more titan clusters'"]
+    announced_gw: 6.0  # Hyperion 5 GW stretch + Prometheus 1 GW+; titan clusters unquantified
+    announced_gw_conservative: 3.0  # Meta newsroom firm: Hyperion 2 GW + Prometheus 1 GW
+    epoch_overlap_sites:
+      - site: Meta Hyperion
+        epoch_confidence_user: "Meta #confident"
+        buildout_mw: 2262
+        buildout_by: 2028-01-01
+        basis_for_overlap: "Epoch buildout matches Meta newsroom 'over 2 GW' firm commitment, NOT Zuckerberg's 5 GW stretch."
+      - site: Meta Prometheus
+        epoch_confidence_user: "Meta #confident"
+        buildout_mw: 1110
+        buildout_by: 2026-10-01
+        basis_for_overlap: "Epoch buildout matches Zuckerberg's 'gigawatt-plus 2026'."
+      - site: Meta Temple
+        epoch_confidence_user: "Meta #confident"
+        buildout_mw: 238
+        buildout_by: 2026-09-30
+    epoch_overlap_gw_buildout: 3.61
+    incremental_gw_point: 2.74  # Hyperion 5 GW stretch - Epoch's 2.26 GW = 2.74 GW
+    incremental_gw_range: [0.00, 2.74]
+    evidence_tier: T5  # Zuckerberg earnings-call stretch; range floors at zero; Meta newsroom "over 2 GW" is already in Epoch
+    realization_probability: 0.28  # slightly below T5 default 0.32 — "over several years" language + floor-at-zero
+    incremental_gw_reasoning: |
+      Low bound (0 GW): Meta's newsroom firm commitment ">2 GW Hyperion"
+      matches Epoch's 2.26 GW buildout — no incremental capacity is
+      actually firm-committed.
+      High bound (2.74 GW): Zuckerberg's Q2 FY25 earnings stretch target
+      of "up to 5 GW over several years" for Hyperion, minus Epoch's
+      evidenced 2.26 GW.
+      Point estimate (2.74 GW): the 5 GW is on-record in a primary
+      source (CEO earnings call), so we carry it at the high end rather
+      than the midpoint. But the "over several years" language suggests
+      timeline slippage — this won't be capacity by 2028 even if it
+      happens.
+      "Multiple more titan clusters" is unquantified and not counted.
+    confidence: low  # (Epoch-style: #speculative)  # Zuckerberg's stretch language is aspirational
+    gw_disclosed_verbatim: true
+    site_level_overlap_known: true
+    primary_sources:
+      - url: file:///Users/isaacentebi/Desktop/stack-intelligence-engine/.claude/worktrees/upbeat-keller/fmp_data/companies_toon/META/transcripts/Q2_FY2025.toon
+        publisher: Meta
+        date: 2025-07-30
+        title: "Meta Q2 FY2025 earnings call transcript (cached)"
+      - url: https://datacenters.atmeta.com/richland-parish-data-center/
+        publisher: Meta
+        date: 2024-12-04
+    facts_yaml_refs: []
+
+  # --------------------------------------------------------------------------
+  # 8. Meta–Nebius $27B (Mar 16 2026)
+  # --------------------------------------------------------------------------
+  - commitment_id: meta_nebius_2026_03_16
+    announcement_class: C  # $ only, no site or GW
+    announced_date: 2026-03-16
+    operator: Nebius
+    user: Meta
+    announcement_language:
+      usd_verbatim: "up to approximately $27 billion = $12 billion of dedicated capacity + up to $15 billion of additional compute purchases"
+      horizon_verbatim: "5-year agreement, starting early 2027, NVIDIA Vera Rubin platform, multiple locations"
+      sites_named: []
+    announced_gw: null
+    announced_usd_b: 27.0
+    announced_compute_horizon_years: 5
+    epoch_overlap_sites: []  # no Nebius sites in Epoch
+    epoch_overlap_gw_buildout: 0.00
+    incremental_gw_point: null
+    incremental_usd_b_point: 27.0
+    evidence_tier: T3  # firm commercial commitment (up to $27B, signed, first tranches live)
+    realization_probability: 0.80  # slightly above T3 default 0.78 — executed contract, first $3B already deployed
+    incremental_gw_reasoning: |
+      No site or GW disclosed. Nebius's own 3 GW EOY 2026 buildout
+      target (per Nebius Q4 FY25 shareholder letter) will eventually
+      host this capacity; the $27B is a commercial commitment into
+      that forthcoming Nebius fleet. Covered in neocloud_overlay.yaml
+      under Nebius fleet row rather than double-counted here.
+    confidence: medium  # (Epoch-style: #likely)
+    gw_disclosed_verbatim: false
+    site_level_overlap_known: false
+    primary_sources:
+      - url: https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta
+        publisher: Nebius
+        date: 2026-03-16
+    facts_yaml_refs: ["meta.commitment.nebius_2027"]
+
+  # --------------------------------------------------------------------------
+  # 9. xAI–HUMAIN Saudi Arabia (Nov 19 2025) — NEW SITE NOT IN EPOCH
+  # --------------------------------------------------------------------------
+  - commitment_id: xai_humain_saudi
+    announcement_class: A
+    announced_date: 2025-11-19
+    operator: "HUMAIN (Saudi PIF)"
+    user: xAI
+    program_name: HUMAIN AI Data Center
+    announcement_language:
+      gw_verbatim: "500 MW+ hyperscale GPU data center, ~18,000 NVIDIA GB300 GPUs in first cluster"
+      sites_named: ["HUMAIN Saudi Arabia (unspecified city)"]
+    announced_gw: 0.5
+    announced_usd_b: null  # not disclosed as standalone figure
+    epoch_overlap_sites: []  # no Saudi or HUMAIN sites in Epoch
+    epoch_overlap_gw_buildout: 0.00
+    incremental_gw_point: 0.50
+    incremental_gw_range: [0.40, 0.60]
+    evidence_tier: T4  # announced sovereign JV with NVIDIA; 18k GB300 Phase 1 cluster specified
+    realization_probability: 0.55  # near T4 default 0.58 — narrow range; no primary press from xAI/HUMAIN yet
+    incremental_gw_reasoning: |
+      Full 500 MW is additive — Epoch has no Saudi or HUMAIN
+      coverage. Range reflects the "500 MW+" language (primary
+      quote from DCD citing CNBC coverage of the MBS US visit).
+    confidence: medium  # (Epoch-style: #likely)
+    gw_disclosed_verbatim: true
+    site_level_overlap_known: true
+    primary_sources:
+      - url: https://www.datacenterdynamics.com/en/news/xai-humain-data-center-elon-musk/
+        publisher: Data Center Dynamics
+        date: 2025-11-19
+      - url: https://www.cnbc.com/2025/11/19/musks-xai-will-be-customer-for-nvidia-data-center-in-saudi-arabia.html
+        publisher: CNBC
+        date: 2025-11-19
+    residual_risk_flags:
+      - "No primary xAI or HUMAIN press release found — reporting based on event-day coverage."
+      - "Saudi site is outside Epoch's US-heavy coverage by design; adding it is a conscious geographic expansion."
+
+  # --------------------------------------------------------------------------
+  # 10. xAI Colossus 2 full scale (Musk Dec 30 2025 + MACROHARDRR)
+  # --------------------------------------------------------------------------
+  - commitment_id: xai_colossus2_full
+    announcement_class: A
+    announced_date: 2025-12-30
+    operator: xAI
+    user: xAI
+    announcement_language:
+      musk_verbatim: >
+        "xAI has bought a third building called MACROHARDRR. Will take
+        @xAI training compute to almost 2GW."
+      sites_named: ["Colossus 1 (Memphis)", "Colossus 2 (Memphis)", "MACROHARDRR (Memphis)"]
+    announced_gw: 2.0  # combined C1 + C2 + MACROHARDRR "almost 2 GW"
+    epoch_overlap_sites:
+      - site: xAI Colossus 1
+        epoch_confidence_user: "xAI #confident"
+        buildout_mw: 442
+        buildout_by: 2026-02-11
+      - site: xAI Colossus 2
+        epoch_confidence_user: "xAI #confident"
+        buildout_mw: 1494
+        buildout_by: 2026-05-13
+    epoch_overlap_gw_buildout: 1.94
+    incremental_gw_point: 0.06  # 2.0 - 1.94 = 60 MW
+    incremental_gw_range: [0.00, 0.20]
+    evidence_tier: T6  # analyst inference from Musk tweet; residual net of Epoch
+    realization_probability: 0.25  # T6 default
+    incremental_gw_reasoning: |
+      Epoch's Colossus 1 + Colossus 2 buildout (1.94 GW) already matches
+      Musk's "almost 2 GW" combined target. The named third building
+      (MACROHARDRR) appears to be either what Epoch already tracks under
+      "Colossus 2" (Epoch allocates 1.49 GW to Colossus 2 which is more
+      than Musk's incremental number would suggest) or it's captured
+      within the Colossus 2 envelope. Minimal to zero incremental.
+    confidence: medium  # (Epoch-style: #likely)
+    gw_disclosed_verbatim: true
+    site_level_overlap_known: true
+    primary_sources:
+      - url: https://www.tomshardware.com/tech-industry/artificial-intelligence/musk-purchases-third-building-at-memphis-site-to-expand-xais-training-capacity-to-a-monstrous-2-gigawatts
+        publisher: Tom's Hardware
+        date: 2025-12-30
+        note: "Secondary (citing Musk X post)"
+
+  # --------------------------------------------------------------------------
+  # 11. Microsoft–G42 UAE Khazna (Nov 2025) — NEW SITE NOT IN EPOCH
+  # --------------------------------------------------------------------------
+  - commitment_id: microsoft_g42_uae_khazna_2025_11
+    announcement_class: A
+    announced_date: 2025-11
+    operator: "Khazna Data Centers (G42 subsidiary)"
+    user: "Microsoft (Azure sovereign cloud)"
+    program_name: "Microsoft-G42 UAE $15.2B expansion"
+    announcement_language:
+      gw_verbatim: "200 MW expansion via Khazna Data Centers"
+      usd_verbatim: '"$15.2B UAE commitment" with $5.5B specifically for AI/cloud infrastructure'
+      sites_named: ["Khazna UAE (specific campus not disclosed in release)"]
+    announced_gw: 0.20
+    announced_usd_b: 5.5  # the AI/cloud infra portion of the $15.2B
+    epoch_overlap_sites: []  # no Khazna/G42-Microsoft sites in Epoch (Epoch US-heavy)
+    epoch_overlap_gw_buildout: 0.00
+    epoch_missing_sites:
+      - "Khazna UAE 200 MW Microsoft-dedicated campus"
+    incremental_gw_point: 0.20
+    incremental_gw_range: [0.20, 0.20]
+    evidence_tier: T4  # announced sovereign DC with Azure anchor; narrow range; Phase 1 firm
+    realization_probability: 0.70  # above T4 default — Microsoft IG counterparty + UAE sovereign execution track record
+    incremental_gw_reasoning: |
+      Distinct deal from Stargate UAE (which is G42 + OpenAI + Oracle +
+      SoftBank + Cerebras for 1 GW campus). Microsoft-G42 200 MW is the
+      Azure sovereign cloud footprint tied to Microsoft's direct $5.5B
+      AI/cloud investment. No overlap with Stargate UAE 1 GW.
+    confidence: medium  # (Epoch-style: #likely)
+    gw_disclosed_verbatim: true
+    site_level_overlap_known: false  # Epoch does not cover UAE
+    primary_sources:
+      - url: https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/
+        publisher: Microsoft
+        date: 2025-11
+      - url: https://www.g42.ai/resources/news/microsoft-and-g42-accelerate-uaes-digital-future-major-data-centre-expansion
+        publisher: G42
+        date: 2025-11
+    facts_yaml_refs: []
+    residual_risk_flags:
+      - "Specific Khazna campus not named in press release — potential site-level ambiguity."
+
+  # --------------------------------------------------------------------------
+  # 12. HUMAIN–AMD Saudi Arabia (May 2025 JV) — NEW SITES NOT IN EPOCH
+  # --------------------------------------------------------------------------
+  - commitment_id: humain_amd_saudi_2025_05
+    announcement_class: A
+    announced_date: 2025-05-13
+    operator: "HUMAIN (PIF subsidiary) / AMD JV"
+    user: "Sovereign Saudi AI + merchant"
+    program_name: "HUMAIN-AMD-Cisco JV ($10B / 500 MW over 5 years)"
+    announcement_language:
+      gw_verbatim: '"500 MW of AI infrastructure deployment over the next 5 years"'
+      usd_verbatim: '"$10 billion joint investment"'
+      sites_named: ["Riyadh (twin campus)", "Dammam (twin campus)"]
+    announced_gw: 0.50
+    announced_usd_b: 10.0
+    announced_compute_horizon_years: 5
+    epoch_overlap_sites: []
+    epoch_overlap_gw_buildout: 0.00
+    epoch_missing_sites:
+      - "HUMAIN Riyadh 100 MW (Phase 1)"
+      - "HUMAIN Dammam 100 MW (Phase 1)"
+      - "HUMAIN Riyadh/Dammam AMD expansion to 500 MW by 2030"
+    incremental_gw_point: 0.50
+    incremental_gw_range: [0.30, 0.70]
+    evidence_tier: T4  # announced sovereign JV with AMD; $10B commitment; sites named
+    realization_probability: 0.55  # near T4 default — AMD MI-series supply is the pacing constraint
+    incremental_gw_reasoning: |
+      Low bound (0.30): only the initial 200 MW twin campuses
+      (Riyadh+Dammam Q2 2026) plus ~100 MW of the AMD JV ramp
+      materializes by our 2028-2030 horizon; AMD MI-series supply could
+      slip.
+      High bound (0.70): full 500 MW AMD JV shells built AND Qualcomm
+      200 MW (FII Oct 2025) lands in separate shells rather than inside
+      the AMD footprint.
+      Point (0.50): AMD JV 500 MW as disclosed; Qualcomm deployment
+      assumed inside the same shells to avoid double-count.
+    confidence: medium  # (Epoch-style: #likely)  # primary JV press release, but 2030 horizon is long
+    gw_disclosed_verbatim: true
+    site_level_overlap_known: false
+    distinguished_from_xai_humain: |
+      xai_humain_saudi (row 9) is a separate 500 MW Nvidia-based project
+      announced Nov 19 2025 (xAI + HUMAIN + Nvidia). This AMD JV is
+      distinct — AMD silicon, Cisco networking, different primary user
+      base (sovereign + merchant vs xAI training).
+    primary_sources:
+      - url: https://www.datacenterdynamics.com/en/news/amd-cisco-and-humain-set-up-jv-for-1gw-of-ai-infrastructure-in-saudi-arabia/
+        publisher: DCD (citing AMD/HUMAIN joint press)
+        date: 2025-05-13
+      - url: https://www.amd.com/en/corporate/events/humain.html
+        publisher: AMD
+        date: 2025-05-13
+    facts_yaml_refs: []
+    residual_risk_flags:
+      - "AMD MI-series supply is the pacing constraint, not land/power."
+      - "Qualcomm AI200/AI250 200 MW FII 2025 announcement may sit inside AMD JV shells or separately — ambiguous in primary sources."
+      - "Partial overlap risk with Stargate UAE 1 GW if Saudi capacity is recharacterized under broader 'Gulf AI' envelope by any party."
+
+  # --------------------------------------------------------------------------
+  # 13. Reliance Jio Jamnagar AI DC (RIL AGM 2024) — NEW SITE NOT IN EPOCH
+  # --------------------------------------------------------------------------
+  - commitment_id: reliance_jio_jamnagar_2024_08
+    announcement_class: A
+    announced_date: 2024-08-29
+    operator: "Reliance Industries (Jio)"
+    user: "Reliance-owned + Indian enterprise"
+    program_name: "Jamnagar gigawatt-scale AI DC (Jio-Brain)"
+    announcement_language:
+      gw_verbatim: '"gigawatt-scale AI-ready data centre" (Ambani RIL 47th AGM, Aug 29 2024); "120 MW phase 1 online H2 2026" (Ambani 2026)'
+      usd_verbatim: '"$110B AI investment plan" (Reliance Feb 2026)'
+      sites_named: ["Jamnagar, Gujarat, India"]
+    announced_gw: 1.0
+    announced_gw_phase_1: 0.12
+    announced_usd_b: null  # $110B is AI investment plan, not Jamnagar-specific capex
+    epoch_overlap_sites: []  # Epoch is US-heavy, does not cover India
+    epoch_overlap_gw_buildout: 0.00
+    epoch_missing_sites:
+      - "Reliance Jamnagar Phase 1 (120 MW, H2 2026)"
+      - "Reliance Jamnagar full buildout (~1 GW, horizon undated in primary)"
+    incremental_gw_point: 1.00
+    incremental_gw_range: [0.12, 3.00]
+    evidence_tier: T5  # LOI / stretch (Ambani AGM verbatim "gigawatt-scale"); widest range of any row
+    realization_probability: 0.20  # below T5 default 0.32 — Indian grid/land-acquisition execution risk + no disclosed operational date
+    incremental_gw_reasoning: |
+      Low bound (0.12 GW): only Phase 1 120 MW operational by our horizon.
+      Primary-sourced and near-term.
+      High bound (3.00 GW): secondary reporting (Bloomberg, TOI) cites
+      "up to 3 GW" at Jamnagar; if India's $110B AI investment plan
+      lands substantially at Jamnagar, this is the credible ceiling.
+      Point (1.00 GW): "gigawatt-scale" is primary (Ambani AGM 2024),
+      even without a disclosed operational date.
+    confidence: low  # (Epoch-style: #speculative)  # primary on direction, secondary on size+timing
+    gw_disclosed_verbatim: true  # "gigawatt-scale" is Ambani verbatim
+    site_level_overlap_known: false
+    scope_note: |
+      India is outside the "Western AI" frame used elsewhere in session2.
+      Included here because the user directive was to canvas all material
+      global commitments regardless of regional scope. Flagged explicitly
+      in methodology as a non-Western addition.
+    primary_sources:
+      - url: https://www.businesstoday.in/latest/corporate/story/ril-agm-2024-jamnagar-to-get-gigawatt-scale-ai-ready-data-centre-powered-by-reliance-green-energy-443516-2024-08-29  # URL slug corrected 2026-04-23 per primary-source audit (previous slug 446029 returned 404)
+        publisher: BusinessToday (citing Ambani AGM)
+        date: 2024-08-29
+      - url: https://techcrunch.com/2026/02/19/reliance-unveils-110b-ai-investment-plan-as-india-ramps-up-tech-ambitions/
+        publisher: TechCrunch
+        date: 2026-02-19
+    facts_yaml_refs: []
+    residual_risk_flags:
+      - "2030 horizon not primary-anchored; $110B AI plan is program-wide not Jamnagar-specific."
+      - "India power-grid / land-acquisition execution risk materially higher than US/EU."
+      - "May bifurcate between Reliance-owned (this row) and Tata/Adani AI DCs (not counted)."
+
+  # --------------------------------------------------------------------------
+  # 14. UK Culham AI Growth Zone (UK gov, Jan 2025) — NEW SITE NOT IN EPOCH
+  # --------------------------------------------------------------------------
+  - commitment_id: uk_culham_ai_growth_zone_2025_01
+    announcement_class: A
+    announced_date: 2025-01-13
+    operator: "UK Government / UKAEA Culham campus"
+    user: "UK sovereign + anchor tenant TBD"
+    program_name: "Culham AI Growth Zone (UK AI Opportunities Action Plan)"
+    announcement_language:
+      gw_verbatim: '"100 MW initial expandable to 500 MW" (UK gov Jan 13 2025)'
+      usd_verbatim: null
+      sites_named: ["Culham, Oxfordshire, UK"]
+    announced_gw: 0.50
+    announced_gw_phase_1: 0.10
+    announced_usd_b: null
+    epoch_overlap_sites: []  # Epoch US-heavy; UK coverage limited to MSFT Fairwater Loughton already counted
+    epoch_overlap_gw_buildout: 0.00
+    epoch_missing_sites:
+      - "Culham 100 MW initial phase"
+      - "Culham 500 MW full buildout"
+    incremental_gw_point: 0.25
+    incremental_gw_range: [0.10, 0.50]
+    evidence_tier: T5  # LOI — gov announcement without anchor tenant; UK grid-queue risk
+    realization_probability: 0.30  # near T5 default 0.32 — primary source is UK gov publication but no tenant committed
+    incremental_gw_reasoning: |
+      Low bound (0.10 GW): only the 100 MW initial phase materializes by
+      horizon. UK planning + grid connection timelines are the pacing
+      constraint.
+      High bound (0.50 GW): full announced 500 MW scale-up lands by 2030.
+      Point (0.25 GW): midway; UK planning/grid friction makes full
+      500 MW uncertain but 100 MW start is primary-sourced.
+    confidence: medium  # (Epoch-style: #likely)
+    gw_disclosed_verbatim: true
+    site_level_overlap_known: false
+    scope_note: |
+      Distinct from MSFT Fairwater Loughton (already counted under
+      openai_microsoft_fairwater row). Culham is UK-sovereign, not
+      Microsoft. Anchor tenant disclosure pending.
+    primary_sources:
+      - url: https://www.gov.uk/government/publications/ai-opportunities-action-plan  # URL path corrected 2026-04-23 per primary-source audit (/news/ returned 404; canonical is /publications/)
+        publisher: UK Government
+        date: 2025-01-13
+    facts_yaml_refs: []
+    residual_risk_flags:
+      - "Anchor tenant not yet named — if announced as MSFT or Google lease, potential future double-count risk."
+      - "UK grid connection queue is material execution risk for the 500 MW scale-up."
+
+# ============================================================================
+# CLASS B — CHIP PROCUREMENT (zero incremental physical GW)
+# ============================================================================
+# These are counted ONLY for chip-dollar accounting. They deploy into
+# Class-A shells already in Epoch (Stargate, Fairwater, CoreWeave, AWS).
+# Adding their GW to the physical commitment surface would triple-count.
+
+chip_procurement_commitments:
+
+  - commitment_id: openai_amd_6gw_instinct
+    announcement_class: B
+    announced_date: 2025-10-06
+    supplier: AMD
+    buyer: OpenAI
+    announcement_language:
+      verbatim: >
+        "OpenAI to deploy 6 gigawatts of AMD GPUs … multi-year, multi-generation"
+        + 160M-share warrant (progressive equity to AMD)
+      chip_generations: ["Instinct MI450 (1 GW H2 2026 first tranche)", "future MI-series"]
+    announced_chips_gw: 6.0
+    announced_physical_gw: 0.00  # chips deploy into Stargate shells
+    deploys_into: ["openai_stargate_aggregate", "openai_microsoft_fairwater", "neocloud (CoreWeave, Crusoe)"]
+    incremental_physical_gw: 0.00
+    evidence_tier: T4  # announced chip procurement (Class B); 6 GW of chips over multi-year
+    realization_probability: 0.55  # near T4 default; AMD MI450 1 GW first tranche is H2 2026
+    contributes_to: [chips_gw]  # does NOT contribute to gw_total (Class B)
+    notes: |
+      Classified Class B because announcement is "deploy 6 GW of AMD GPUs"
+      (chip procurement), no data-center site named. Chips will populate
+      Stargate buildings and other OpenAI-user shells Epoch already tracks.
+    primary_sources:
+      - url: https://ir.amd.com/news-events/press-releases/detail/1230/amd-and-openai-announce-strategic-partnership-to-deploy-6-gigawatts-of-amd-gpus
+        publisher: AMD
+        date: 2025-10-06
+    facts_yaml_refs: ["amd.openai_commitment.6gw_instinct"]
+
+  - commitment_id: openai_broadcom_10gw_asic
+    announcement_class: B
+    announced_date: 2025-10-13
+    supplier: Broadcom
+    buyer: OpenAI
+    announcement_language:
+      verbatim: >
+        "10 gigawatts of OpenAI-designed AI accelerators" co-developed
+        with Broadcom, deploy H2 2026 through end 2029.
+      chip_generations: ["Custom OpenAI ASIC (co-designed)"]
+    announced_chips_gw: 10.0
+    announced_physical_gw: 0.00
+    deploys_into: ["openai_stargate_aggregate", "openai_microsoft_fairwater"]
+    incremental_physical_gw: 0.00
+    evidence_tier: T5  # custom ASIC co-development, deploys 2026-2029; 10 GW stretch
+    realization_probability: 0.35  # near T5 default — ASIC co-design risk + 4-year horizon
+    contributes_to: [chips_gw]
+    notes: |
+      Custom ASIC co-development — chips specifically for OpenAI training
+      and inference at Stargate/Fairwater. No sites named in either
+      OpenAI or Broadcom primary releases.
+    primary_sources:
+      - url: https://investors.broadcom.com/news-releases/news-release-details/openai-and-broadcom-announce-strategic-collaboration-deploy-10
+        publisher: Broadcom
+        date: 2025-10-13
+    facts_yaml_refs: ["openai.commitment.broadcom_10gw_custom_accelerator"]
+
+  - commitment_id: openai_nvidia_100b_loi
+    announcement_class: B
+    announced_date: 2025-09-22
+    supplier: NVIDIA
+    buyer: OpenAI
+    announcement_language:
+      verbatim: >
+        "NVIDIA intends to invest up to $100 billion in OpenAI
+        progressively as each gigawatt is deployed" — first GW Vera
+        Rubin H2 2026.
+      chip_generations: ["Vera Rubin"]
+    announced_chips_gw: 10.0
+    announced_usd_b: 100.0  # progressive equity tied to GW deployment
+    announced_physical_gw: 0.00
+    deploys_into: ["openai_stargate_aggregate", "openai_microsoft_fairwater", "neocloud"]
+    incremental_physical_gw: 0.00
+    evidence_tier: T5  # LOI by explicit label; progressive equity tied to GW delivery
+    realization_probability: 0.45  # above T5 default — NVIDIA has strong execution track record + supply lock
+    contributes_to: [chips_gw, rpo_usd_b]  # Equity investment; OpenAI treats $100B as forward compute
+    notes: |
+      Letter of intent. Equity investment progressive with each GW of
+      NVIDIA systems OpenAI deploys. 10 GW target aligns with Stargate.
+      Chips deploy into Stargate + Fairwater shells — no new physical
+      sites.
+    primary_sources:
+      - url: https://nvidianews.nvidia.com/news/openai-and-nvidia-announce-strategic-partnership-to-deploy-10gw-of-nvidia-systems
+        publisher: NVIDIA
+        date: 2025-09-22
+    facts_yaml_refs: ["openai.commitment.nvidia_loi"]
+
+  - commitment_id: openai_aws_38b_to_100b
+    announcement_class: B
+    announced_date: 2025-11-03  # initial $38B; Jassy "over $100B" April 9 2026
+    supplier: AWS
+    buyer: OpenAI
+    announcement_language:
+      verbatim_nov2025: >
+        "$38 billion agreement, which will have continued growth over
+        the next seven years … hundreds of thousands of state-of-the-art
+        NVIDIA GPUs … GB200s and GB300s."
+      verbatim_apr2026_jassy: >
+        "over $100 billion" OpenAI commitment (2025 shareholder letter
+        guidance, unreconciled with $38B contracted floor).
+    announced_chips_gw: null  # not disclosed
+    announced_usd_b: 38.0  # contracted floor; $100B is Jassy forward guidance
+    announced_physical_gw: 0.00
+    deploys_into: ["AWS data centers (no site named; not in Epoch as OpenAI-user)"]
+    incremental_physical_gw: 0.00
+    evidence_tier: T4  # $38B contracted floor with 7-year horizon; AWS hyperscaler execution
+    realization_probability: 0.60  # near T4 default; $100B Jassy guidance is T5 stretch above the $38B floor
+    contributes_to: [capex_usd_b, rpo_usd_b]
+    notes: |
+      Chip procurement at AWS sites. No GW figure in primary. No AWS
+      site in Epoch is tagged with OpenAI as user. Treated as Class-B
+      chip spend; if AWS develops dedicated OpenAI sites beyond existing
+      Rainier-style projects those will enter Epoch and can then be
+      netted.
+    primary_sources:
+      - url: https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure
+        publisher: Amazon
+        date: 2025-11-03
+    facts_yaml_refs: ["openai.commitment.aws_7yr", "openai.commitment.aws_jassy_100b"]
+
+# ============================================================================
+# CLASS C — DOLLAR-ONLY / EQUITY COMMITMENTS
+# ============================================================================
+# Tracked for financial reconciliation. Zero physical GW contribution.
+
+dollar_only_commitments:
+
+  - commitment_id: alphabet_uk_5bn
+    announcement_class: C
+    announced_date: 2025-01  # Waltham Cross opening anchor event
+    party: Alphabet
+    announced_usd_b_equiv: 6.3  # £5B ≈ $6.3B
+    announced_gw: null
+    sites_named: ["Waltham Cross, UK"]
+    evidence_tier: T5  # dollar envelope, no GW disclosed, mixed capex+R&D+DeepMind
+    realization_probability: 0.55  # Alphabet balance sheet; capex portion will land, but GW allocation unknown
+    contributes_to: [capex_usd_b]
+    notes: "£5B 2-year envelope covering capex + R&D + DeepMind; no GW figure disclosed for Waltham Cross or any specific site. Site not in Epoch."
+    primary_sources:
+      - url: https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/waltham-cross-data-centre/
+        publisher: Google
+        date: 2025-01
+
+  - commitment_id: alphabet_germany_5_5bn_eur
+    announcement_class: C
+    announced_date: 2025-11-11
+    party: Alphabet
+    announced_usd_b_equiv: 5.9  # €5.5B ≈ $5.9B
+    announced_gw: null
+    sites_named: ["Dietzenbach (new DC)", "Hanau (expansion)"]
+    evidence_tier: T5  # dollar envelope, no GW, mixed capex+offices
+    realization_probability: 0.55
+    contributes_to: [capex_usd_b]
+    notes: "€5.5B envelope 2026-2029 covering new DC, expansion, offices. No GW figure disclosed. Sites not in Epoch."
+    primary_sources:
+      - url: https://www.googlecloudpresscorner.com/2025-11-11-Google-Announces-EUR5-5-Billion-Investment-in-Germany
+        publisher: Google
+        date: 2025-11-11
+
+  - commitment_id: microsoft_uk_2_5bn_gbp
+    announcement_class: C
+    announced_date: 2023-11  # original, reiterated 2024-2026
+    party: Microsoft
+    announced_usd_b_equiv: 3.2  # £2.5B ≈ $3.2B
+    announced_gw: null
+    sites_named: []  # no specific site
+    evidence_tier: T5  # dollar envelope; Loughton GW already in Fairwater row
+    realization_probability: 0.50
+    contributes_to: [capex_usd_b]  # GW contribution handled in Fairwater row
+    notes: "UK 3-year AI infrastructure envelope, 20,000 GPUs target. Includes Loughton site announced Sep 2025 (see openai_microsoft_fairwater row). Dollar envelope C; physical GW captured in Fairwater row at Loughton."
+    primary_sources:
+      - url: https://www.datacenterdynamics.com/en/news/uk-microsoft-plans-25bn-investment-in-ai-data-centers/
+        publisher: Data Center Dynamics
+        date: 2023-11
+
+  - commitment_id: altman_1_4t_aggregate_podcast
+    announcement_class: C  # aggregate dollar, not audited
+    announced_date: 2025-11-06
+    party: OpenAI (Sam Altman)
+    announced_usd_b_equiv: 1400.0
+    announced_gw: null
+    evidence_tier: T5  # podcast aggregate; NOT audited RPO; all components already captured elsewhere
+    realization_probability: 0.30  # the aggregate number is a sum of items elsewhere; zero incremental
+    contributes_to: []  # intentionally NOT added to any rollup to avoid double-count
+    notes: |
+      From Altman Bg2 podcast Nov 2025. Aggregate forward compute
+      obligations over 8yr. NOT audited RPO. The individual
+      commitments summed into this figure (Stargate $500B, AWS,
+      Oracle $300B subset, NVIDIA $100B, AMD, Broadcom, etc.) are
+      already captured above. Tracked here ONLY to preserve the
+      aggregate claim — not additive.
+    primary_sources:
+      - url: https://techcrunch.com/2025/11/06/sam-altman-bg2-podcast/
+        publisher: TechCrunch (Bg2 podcast summary)
+        date: 2025-11-06
+    facts_yaml_refs: ["openai.commitment.altman_aggregate_8yr"]
+
+  - commitment_id: groq_saudi_1_5bn
+    announcement_class: C
+    announced_date: 2025-02
+    party: Groq
+    announced_usd_b_equiv: 1.5
+    announced_gw: null
+    evidence_tier: T5  # sovereign inference infra commitment; no sites in Epoch
+    realization_probability: 0.40
+    contributes_to: [capex_usd_b]
+    notes: "Groq $1.5B commitment from Saudi Arabia inference infrastructure. LEAP 2025. Sites not named in Epoch."
+    primary_sources:
+      - url: https://www.datacenterdynamics.com/en/news/groq-1-5-billion-commitment-saudi-arabia/
+        publisher: Data Center Dynamics
+        date: 2025-02
+    facts_yaml_refs: ["groq.commitment.saudi_arabia_inference_1_5bn_feb_2025"]
+
+# ============================================================================
+# EXPLICITLY EXCLUDED (canvassed, primary sources do not support inclusion)
+# ============================================================================
+# Documented here so future readers can see the canvas was wide.
+# Each entry has: what was searched, what primary source says, why excluded.
+
+excluded_with_reason:
+
+  - candidate: apple_private_cloud_compute
+    what_was_checked: "Apple's Private Cloud Compute (PCC) datacenter buildout for Apple Intelligence."
+    primary_findings: |
+      Apple newsroom (Oct 23 2025) confirms Houston server manufacturing
+      plant and expansion at existing iCloud sites (Maiden NC, Waukee IA,
+      Prineville OR, Mesa AZ, Reno NV). Apple does NOT disclose any MW
+      figure for PCC capacity in any press release, 10-K, or earnings
+      call. PCC runs on Apple Silicon (M-series), not NVIDIA training gear.
+    primary_source: "https://www.apple.com/newsroom/in-the-loop/2025/10/shipping-apples-american-made-advanced-servers/"
+    exclusion_reason: "No disclosed MW; merged with consumer iCloud shells that Epoch's frontier-AI methodology would not tag as AI sites."
+
+  - candidate: oracle_oci_ex_stargate
+    what_was_checked: "Oracle OCI AI capacity separate from its Stargate role."
+    primary_findings: |
+      Oracle's Oct 14 2025 release ("OCI Zettascale10") anchors the
+      flagship at Abilene (Stargate). Wisconsin-Vantage site is also
+      Stargate (OpenAI/SoftBank Sep 24 2025). Oracle's $553B RPO (Q3 FY26)
+      implies capacity beyond Stargate, but no ex-Stargate AI sites are
+      named in primary sources.
+    primary_source: "https://www.oracle.com/news/announcement/ai-world-oracle-unveils-next-generation-oci-zettascale10-cluster-for-ai-2025-10-14/"
+    exclusion_reason: "Named Oracle AI sites (Abilene, Wisconsin) are inside Stargate and already counted. Flag $553B RPO implied capacity for separate analysis once site-naming disclosures appear."
+
+  - candidate: tesla_cortex_dojo
+    what_was_checked: "Tesla Cortex training cluster at Gigafactory Texas; Dojo supercomputer."
+    primary_findings: |
+      Q4 2024 Tesla shareholder letter confirms ~50k H100 at Cortex (Giga
+      Texas) + 16k H200 expansion (Q2 2025). Buffalo $500M supercomputer
+      commitment (Aug 2025). Dojo team disbanded Aug 2025. Tesla has NOT
+      disclosed MW for Cortex in any IR material. The "130 MW at launch,
+      500 MW by 2026" figure is secondary (Tom's Hardware citing utility
+      filings).
+    primary_source: "https://www.tesla.com/en_eu/ns_videos/2024-Q4-update.pdf"
+    exclusion_reason: "No Tesla-primary MW disclosure. Cortex may or may not be captured in Epoch's Austin coverage under Giga Texas permit footprint."
+    flag_for_followup: "Check Epoch's Austin-area site list for Giga Texas tagging."
+
+  - candidate: cohere_deepmind_physical
+    what_was_checked: "Whether Cohere or DeepMind-UK operate named physical AI datacenters."
+    primary_findings: |
+      Cohere uses Oracle OCI + Google Cloud contractual capacity, no
+      owned physical shells. DeepMind-UK is a research org participating
+      in Culham AI Growth Zone as advisor, not site operator.
+    primary_source: null
+    exclusion_reason: "No owned physical buildouts in primary sources."
+
+  - candidate: digital_realty_equinix_qts_merchant
+    what_was_checked: "Whether merchant co-location operators (DLR, EQIX, QTS, Aligned, Apollo-owned) own AI-specific shells beyond what hyperscalers have already leased."
+    primary_findings: |
+      DLR Q1 2025 supplemental shows 499 MW Americas development pipeline,
+      79% leased. Equinix xScale Hampton GA 240 MW partially pre-leased.
+      Primary filings do NOT break out merchant-AI (pre-leased to
+      neocloud/enterprise) vs. hyperscaler-leased vs. general cloud.
+    primary_source: "https://www.spglobal.com/market-intelligence/en/news-insights/articles/2025/6/digital-realty-equinix-ramp-up-datacenters-as-ai-drives-demand-90542889"
+    exclusion_reason: |
+      STRUCTURAL DOUBLE-COUNT RISK. These wholesalers are the physical
+      SHELL for capacity already counted under hyperscalers and neoclouds.
+      Any MW we added under DLR/EQIX label would double-count. Disclosed
+      merchant-AI-specific MW is not available in primary filings.
+    flag_for_followup: "If DLR/EQIX begin breaking out merchant-AI-leased MW separately, this exclusion may need revisiting."
+
+  - candidate: eurohpc_6_new_ai_factories
+    what_was_checked: "EuroHPC's Oct 10 2025 announcement of 6 additional AI Factories (Czechia, Lithuania, Netherlands, Poland, Romania, Spain)."
+    primary_findings: |
+      EuroHPC press release confirms 6 new AI Factories but does NOT
+      disclose MW per site.
+    primary_source: "https://www.eurohpc-ju.europa.eu/eurohpc-ju-selects-six-additional-ai-factories-expand-europes-ai-capabilities-2025-10-10_en"
+    exclusion_reason: "No MW per site disclosed in primary."
+    flag_for_followup: "Revisit once per-site MW disclosed in follow-on procurement tenders."
+
+  - candidate: mistral_bruyeres_le_chatel
+    what_was_checked: "Mistral's Bruyères-le-Châtel (Paris) datacenter, €722M debt financing, 13,800 GB300 GPUs."
+    primary_findings: |
+      Mistral's press release confirms 44 MW total Mistral fleet.
+      Bruyères-le-Châtel is <100 MW at present.
+    primary_source: "https://mistral.ai/news/mistral-compute"
+    exclusion_reason: "Below our Class A threshold (<100 MW). Flagged for visibility but not added to the incremental rollup."
+
+# ============================================================================
+# AGGREGATE TOTALS — v3, computed by hand against Epoch snapshot 2026-04-16
+# ============================================================================
+# These are not a script output. Each number is the sum of its inputs above,
+# written out longhand below so the arithmetic can be audited line-by-line.
+# If an input row changes, update the corresponding sum here.
+#
+# For a spreadsheet-form view of just the per-row incrementals, see:
+#   research/data/external/compute_commitments_totals.csv
+# ============================================================================
+
+totals:
+
+  # --------------------------------------------------------------------------
+  # Six-tier evidence framework rollup — see CONFIDENCE_DECOMPOSITION.md
+  # --------------------------------------------------------------------------
+  # Each commitment row (Class A, B, C, and each neocloud row) carries an
+  # evidence_tier field T1|T2|T3|T4|T5|T6 and a realization_probability.
+  # The tier defaults are: T1=1.00, T2=0.88, T3=0.78, T4=0.58, T5=0.32,
+  # T6=0.25 (midpoints of the plan-specified ranges). Individual rows can
+  # override via the realization_probability field (e.g. anthropic_aws
+  # at 0.72; reliance_jio at 0.20).
+  # --------------------------------------------------------------------------
+  evidence_tier_rollup_western:
+    T1_operational:
+      gw: 7.56                         # Revised 2026-04-24: was 7.96; -0.40 per Epoch 2026-04-22 (Stargate Abilene 400 MW reclassified T1 -> T2 pending late-May milestone)
+      components: {epoch_current: 6.27, neocloud_directly_disclosed: 1.29}
+      realization_probability_default: 1.00
+    T2_physically_evidenced:
+      gw: 12.32                        # Revised 2026-04-24: was 11.92; +0.40 per Epoch 2026-04-22 (Stargate Abilene 400 MW reclassified T1 -> T2)
+      components: {epoch_EOT_2026_2027: 11.62, fairwater_international: 0.70}
+      realization_probability_default: 0.88
+    T3_firm_commercial:
+      gw: 7.90
+      components: {neocloud_contracted: 7.90}
+      realization_probability_default: 0.78
+    T4_announced_site_plan:
+      gw: 16.28
+      components: {epoch_EOT_2028: 12.61, anthropic_aws_incremental: 3.17, xai_humain_saudi: 0.50}
+      realization_probability_default: 0.58
+    T5_loi_or_stretch:
+      gw: 6.30
+      components:
+        epoch_speculative_tagged: 1.49
+        epoch_EOT_2029_2030: 1.07
+        anthropic_azure: 1.00
+        meta_hyperion_stretch: 2.74
+      realization_probability_default: 0.32
+    T6_analyst_inference:
+      gw: 0.26
+      components:
+        xai_colossus2_residual: 0.06
+        voltage_park_inferred: 0.135
+        together_inferred: 0.065
+      realization_probability_default: 0.25
+    total_gw_announced: 50.62
+    total_gw_probability_weighted: 36.08  # Revised 2026-04-24: was 36.13; -0.05 reflecting T1->T2 reclassification of Stargate Abilene 400 MW at (1.00 - 0.88) probability delta
+    total_gw_conservative: 27.78  # T1 + T2 + T3 only (unchanged — shift is intra-conservative)
+    total_gw_full_realization: 53.48  # arithmetic ceiling from existing range
+
+  # --------------------------------------------------------------------------
+  # Horizon A: operational TODAY (2026-Q2 snapshot)
+  # --------------------------------------------------------------------------
+  operational_today_2026_q2:
+    total_gw: 7.76                     # Revised 2026-04-24 per Epoch changelog 2026-04-22: Stargate Abilene operational is 200 MW (not 600 MW April-1 target). Prior figure 8.16 GW assumed April-1 milestone achievement.
+    components:
+      epoch_current_gw: 6.27           # Revised 2026-04-24: was 6.67; Stargate Abilene -0.40 GW per Epoch 2026-04-22 (600 MW milestone pushed to late May; Oracle post confirms ~200 MW operational April 22)
+      neocloud_ex_epoch_op_gw: 1.49    # from neocloud_overlay.yaml op_mw sum (CRWV 0.85 + NBIS 0.17 + Nscale 0.02 + Crusoe 0.20 + Lambda 0.05 + Voltage 0.135 + Together 0.065) = 1.49
+    uncertainty: "Low. Evidenced by satellite imagery, permits, 10-Qs. 2026-04-24 revision: Stargate Abilene 400 MW moved from operational to under-construction (T1 -> T2) per Epoch 2026-04-22 changelog."
+    epoch_capex_to_date_usd_b: 210.6   # Epoch's capex_usd_b_current
+    last_updated: 2026-04-24
+    changelog:
+      - "2026-04-24: total_gw 8.16 -> 7.76 (Stargate Abilene operational revised 600 MW -> 200 MW per Epoch 2026-04-22)"
+
+  # --------------------------------------------------------------------------
+  # Horizon B: Western full-buildout (2027-2030, per announced timelines)
+  # --------------------------------------------------------------------------
+  # Western scope = Session 2's capex-revenue denominator (US/EU labs +
+  # hyperscalers + Western neoclouds). Sovereign-AI is reported separately
+  # below so it doesn't get tangled into Session 2's Western ratios.
+  western_horizon_2027_2030:
+    total_gw_point: 50.61
+    total_gw_range: [45.74, 53.48]
+    arithmetic:
+      epoch_buildout_gw: 33.05         # sum of full_buildout.power_mw_max across Epoch sites
+      class_a_western_incremental_point_gw: 8.17
+      class_a_western_incremental_range_gw: [3.30, 11.04]
+      neocloud_ex_epoch_total_gw: 9.39 # operational 1.49 + contracted 7.90
+      neocloud_operational_gw: 1.49
+      neocloud_contracted_gw: 7.90     # CRWV 2.3 + NBIS 2.0 + Nscale 0.9 + Crusoe 1.98 + Lambda 0.32 + APLD 0.2 + Together 0.2 = 7.90
+    # Point: 33.05 + 8.17 + 9.39 = 50.61
+    # Low:   33.05 + 3.30 + 9.39 = 45.74
+    # High:  33.05 + 11.04 + 9.39 = 53.48
+    # (Neocloud contracted treated as a firm number — LOI/MSAs — not ranged.)
+    uncertainty: "High. 84% of this is NOT yet operational. Falsification risk lives in whether the 2028-2030 pipeline materializes on announced timelines."
+    class_a_western_row_sources:       # per-row Class A incremental point contributions
+      anthropic_aws_2026_04_20: 3.17       # [2.50, 5.00]
+      anthropic_azure_2025_11_18: 1.00     # [0.00, 1.00]
+      openai_microsoft_fairwater: 0.70     # [0.40, 1.50]
+      meta_hyperion_prometheus: 2.74       # [0.00, 2.74]
+      xai_humain_saudi: 0.50               # [0.40, 0.60]
+      xai_colossus2_full: 0.06             # [0.00, 0.20]
+      # zero-incremental rows (fully overlapping with Epoch): anthropic_fluidstack,
+      # anthropic_google_broadcom_tpu (Class B), openai_stargate_aggregate,
+      # meta_nebius_2026_03_16 (Class C)
+
+  # --------------------------------------------------------------------------
+  # Sovereign-AI sidebar (UAE, Saudi, India, UK) — NOT in Western denominator
+  # --------------------------------------------------------------------------
+  sovereign_ai_sidebar_horizon:
+    total_gw_point: 1.95
+    total_gw_range: [0.72, 4.40]
+    rows:
+      microsoft_g42_uae_khazna_2025_11: 0.20   # [0.20, 0.20] — firm
+      humain_amd_saudi_2025_05: 0.50           # [0.30, 0.70]
+      reliance_jio_jamnagar_2024_08: 1.00      # [0.12, 3.00] — widest range; Ambani stretch vs floor
+      uk_culham_ai_growth_zone_2025_01: 0.25   # [0.10, 0.50]
+    # Point: 0.20 + 0.50 + 1.00 + 0.25 = 1.95
+    # Low:   0.20 + 0.30 + 0.12 + 0.10 = 0.72
+    # High:  0.20 + 0.70 + 3.00 + 0.50 = 4.40
+    note: "Reported as a sidebar. Do NOT add to Western capex-revenue denominator."
+
+  # --------------------------------------------------------------------------
+  # Global reference total (Western + Sovereign)
+  # --------------------------------------------------------------------------
+  global_reference_horizon_2027_2030:
+    total_gw_point: 52.56             # 50.61 + 1.95
+    total_gw_range: [46.46, 57.88]    # [45.74+0.72, 53.48+4.40]
+    note: "Reference only. Session 2's Western analysis uses western_horizon_2027_2030, not this."
+
+  # --------------------------------------------------------------------------
+  # Epoch horizon distribution — WHEN does the 33 GW buildout actually land
+  # --------------------------------------------------------------------------
+  # Computed from Epoch FDC `full_buildout.end_of_timeline` + `power_mw_max`,
+  # grouped by year. Shows that the 33 GW Epoch buildout is NOT a 2026 number.
+  epoch_buildout_timeline:
+    2025: {sites: 1, buildout_mw: 263}
+    2026: {sites: 14, buildout_mw: 9776}
+    2027: {sites: 8, buildout_mw: 9114}
+    2028: {sites: 9, buildout_mw: 12829}
+    2029: {sites: 1, buildout_mw: 800}
+    2030: {sites: 1, buildout_mw: 267}
+    # sum sites: 34; sum MW: 33,049 = 33.05 GW (matches epoch_buildout_gw above)
+
+  # --------------------------------------------------------------------------
+  # Parallel surfaces — do NOT add to physical GW totals above
+  # --------------------------------------------------------------------------
+  parallel_surfaces:
+    class_b_chip_procurement:
+      gw_committed: 26.0     # AMD 6 + Broadcom 10 + NVIDIA 10
+      usd_b_committed: 138   # OpenAI-NVIDIA $100B LOI + OpenAI-AWS $38B
+      note: "Chips deploy INTO Class A shells (Stargate, Fairwater, CoreWeave, AWS) already counted above. Adding them would triple-count."
+    class_c_dollar_only:
+      usd_b_committed: 1416.9
+      dominant_row: "Altman's $1.4T aggregate podcast remark"
+      note: "Envelope that overlaps Class A capex. Not additive to physical surface."
+
+  # --------------------------------------------------------------------------
+  # Framing gap: how much of the Western horizon is NOT yet operational?
+  # --------------------------------------------------------------------------
+  framing_gap:
+    operational_today_gw: 8.16
+    western_horizon_gw: 50.61
+    gap_gw: 42.45
+    pct_not_built: 83.9     # 42.45 / 50.61
+    pct_built: 16.1         # 8.16 / 50.61
+    interpretation: "~84% of the Western 2027-2030 horizon is NOT yet operational. The entire capex-revenue coverage analysis in Session 2 depends on this ~2028-2030 pipeline materializing on announced timelines."
+
+# ============================================================================
+# ROW-LEVEL AUDIT BLOCK — Phase A extensions (A.3, A.4, A.6, A.7)
+# ============================================================================
+# Keyed by commitment_id. Each entry carries:
+#   A.3: mw_basis, pue_assumed, pue_source
+#   A.4: site_state, site_country, utility, iso_rto, interconnection_status,
+#        behind_the_meter_generation, ppa_status, ppa_fuel_mix
+#   A.6: source_type, confidence_score, expected_online_year, contributes_to,
+#        last_checked
+#   A.7: capex_actual_usd_b, capex_future_usd_b, rpo_or_take_or_pay_usd_b,
+#        financing_source, capex_bridge
+# ============================================================================
+# Notes on power-unit discipline (A.3):
+# Epoch uses IT-load MW as its reported basis. Primary-source announcements
+# vary: Anthropic / MSFT / Meta blogs use "GW of capacity" without specifying,
+# and we flag pue_source accordingly. Our conversion policy: if primary uses
+# unspecified "GW", we tag mw_basis=IT and pue_assumed=1.20. If primary uses
+# "facility power" explicitly, we tag mw_basis=facility and the PUE sensitivity
+# rollup scales the total upward.
+# ============================================================================
+
+row_audit:
+
+  # --------------------------------------------------------------------------
+  # CLASS A — PHYSICAL-SITE COMMITMENTS
+  # --------------------------------------------------------------------------
+  anthropic_aws_2026_04_20:
+    mw_basis: IT
+    pue_assumed: 1.20
+    pue_source: "AWS hyperscale IT convention; not explicitly stated in Anthropic blog"
+    site_state: ["MS", "MS", "IN", "TBD"]   # Madison, Ridgeland, New Carlisle, + ~3 unnamed
+    site_country: US
+    utility: ["Entergy Mississippi", "Entergy Mississippi", "AEP Indiana", "TBD"]
+    iso_rto: ["MISO-South", "MISO-South", "MISO", "TBD"]
+    interconnection_status: approved_no_cod
+    behind_the_meter_generation: {bool: false, fuel: null}
+    ppa_status: "partial — AWS grid + PPAs undisclosed per site"
+    ppa_fuel_mix: "grid-mixed (MISO generation mix dominant; Madison nuclear-adjacent)"
+    source_type: primary_announcement
+    confidence_score: 0.58              # derived from tier T4 + per-row prob 0.72 × range discount
+    expected_online_year: 2028          # incremental 3.17 GW target; near-term 1 GW floor 2026
+    contributes_to: [gw_total, capex_future, rpo_total]
+    last_checked: "2026-04-22"
+    capex_actual_usd_b: 0.0             # 2026-04-20 announcement; no spend yet against the 5 GW
+    capex_future_usd_b: 95.0            # implied at ~$19B/GW × 5 GW less already-in-flight Rainier
+    rpo_or_take_or_pay_usd_b: 100.0     # Anthropic "more than $100 billion over next ten years on AWS"
+    financing_source: [operating_cash, corporate_debt]  # Amazon self-funds; Anthropic equity is offset
+    capex_bridge:
+      physical_shell_usd_b: 20.0
+      accelerator_usd_b: 55.0           # Trainium 2/3/4 majority
+      networking_usd_b: 8.0
+      power_cooling_usd_b: 8.0
+      land_permitting_usd_b: 4.0
+
+  anthropic_fluidstack_2025_11_12:
+    mw_basis: IT
+    pue_assumed: 1.25                    # Lake Mariner uses hydropower + lake cooling; efficient
+    pue_source: "our assumption; Fluidstack primary silent on PUE"
+    site_state: ["NY", "TX"]
+    site_country: US
+    utility: ["National Grid NY", "ERCOT utilities TBD"]
+    iso_rto: ["NYISO", "ERCOT"]
+    interconnection_status: queued       # TX sites in queue; Lake Mariner partly in-service
+    behind_the_meter_generation: {bool: true, fuel: "hydropower (TeraWulf lease; Niagara)"}
+    ppa_status: "site-specific; Lake Mariner hydropower anchor"
+    ppa_fuel_mix: "hydro (NY) + grid-mixed (TX)"
+    source_type: primary_announcement
+    confidence_score: 0.32
+    expected_online_year: 2027
+    contributes_to: [capex_future]
+    last_checked: "2026-04-22"
+    capex_actual_usd_b: 2.0              # Lake Mariner construction spend to date
+    capex_future_usd_b: 48.0
+    rpo_or_take_or_pay_usd_b: 50.0       # $50B Anthropic commitment
+    financing_source: [spv_debt, corporate_debt]
+    capex_bridge:
+      physical_shell_usd_b: 10.0
+      accelerator_usd_b: 30.0
+      networking_usd_b: 4.0
+      power_cooling_usd_b: 4.0
+      land_permitting_usd_b: 2.0
+
+  anthropic_google_broadcom_tpu:
+    mw_basis: IT                         # chip commitment; deploys into existing shells
+    pue_assumed: 1.10                    # Google DCs are best-in-class
+    pue_source: "Google's stated fleet average"
+    site_state: []                       # no sites disclosed
+    site_country: US
+    utility: []
+    iso_rto: []
+    interconnection_status: undetermined
+    behind_the_meter_generation: {bool: false, fuel: null}
+    ppa_status: "Google PPA portfolio absorbs"
+    ppa_fuel_mix: "renewable-heavy (Google fleet 100% clean-energy target)"
+    source_type: primary_announcement
+    confidence_score: 0.65
+    expected_online_year: 2027
+    contributes_to: [chips_gw, rpo_total]
+    last_checked: "2026-04-22"
+    capex_actual_usd_b: 0.0
+    capex_future_usd_b: 30.0             # Anthropic portion; Google self-funds infra
+    rpo_or_take_or_pay_usd_b: 52.0       # "tens of billions" + $52B Mizuho secondary; primary is the commitment
+    financing_source: [operating_cash]
+    capex_bridge:
+      physical_shell_usd_b: 0.0          # into existing Google shells
+      accelerator_usd_b: 25.0            # TPU v7 + v8
+      networking_usd_b: 3.0
+      power_cooling_usd_b: 1.5
+      land_permitting_usd_b: 0.5
+
+  anthropic_azure_2025_11_18:
+    mw_basis: IT
+    pue_assumed: 1.18
+    pue_source: "Azure fleet convention"
+    site_state: []
+    site_country: US
+    utility: []
+    iso_rto: []
+    interconnection_status: undetermined
+    behind_the_meter_generation: {bool: false, fuel: null}
+    ppa_status: "MSFT global PPA portfolio"
+    ppa_fuel_mix: "renewable-heavy (MSFT carbon-negative target)"
+    source_type: primary_announcement
+    confidence_score: 0.30
+    expected_online_year: 2028
+    contributes_to: [gw_total, capex_future, rpo_total]
+    last_checked: "2026-04-22"
+    capex_actual_usd_b: 0.0
+    capex_future_usd_b: 20.0
+    rpo_or_take_or_pay_usd_b: 30.0       # $30B Anthropic-Azure
+    financing_source: [operating_cash]
+    capex_bridge:
+      physical_shell_usd_b: 6.0
+      accelerator_usd_b: 10.0            # GB / Vera Rubin
+      networking_usd_b: 1.5
+      power_cooling_usd_b: 1.5
+      land_permitting_usd_b: 1.0
+
+  openai_stargate_aggregate:
+    mw_basis: IT
+    pue_assumed: 1.15                    # Abilene is liquid-cooled, efficient
+    pue_source: "Oracle OCI Zettascale stated design"
+    site_state: ["TX", "TX", "NM", "TX", "OH", "MI", "WI", "AE"]
+    site_country: US
+    utility: ["Oncor", "Oncor", "PNM", "Oncor", "FirstEnergy", "DTE", "We Energies", "EWEC"]
+    iso_rto: ["ERCOT", "ERCOT", "PNM non-ISO", "ERCOT", "PJM", "MISO", "MISO", "non-ISO UAE"]
+    interconnection_status: approved_no_cod  # most sites; Abilene partially in-service
+    behind_the_meter_generation: {bool: true, fuel: "natural gas peakers + some solar (Abilene)"}
+    ppa_status: "mixed — Abilene has gas peakers on-site; others grid+PPA"
+    ppa_fuel_mix: "gas-heavy ERCOT sites; PJM mixed; UAE gas+solar"
+    source_type: primary_announcement
+    confidence_score: 0.70
+    expected_online_year: 2028
+    contributes_to: [gw_total, capex_future, rpo_total]
+    last_checked: "2026-04-24"
+    revision_note: "2026-04-24: Per Epoch changelog 2026-04-22, Abilene operational is 200 MW IT (300 MW facility) as of April 22, not the 600 MW April-1 target. 600 MW milestone pushed to late May 2026; Buildings 7 and 8 pushed from July to November 2026. Source: Oracle post + Epoch FDC documentation. Operational_today_2026_q2 total_gw adjusted 8.16 -> 7.76."
+    capex_actual_usd_b: 40.0             # Abilene Phase 1+2 construction spend
+    capex_future_usd_b: 460.0
+    rpo_or_take_or_pay_usd_b: 300.0      # Oracle-OpenAI 5-year $300B take-or-pay
+    financing_source: [spv_debt, sovereign, corporate_debt, equity]  # SoftBank, MGX, Oracle, OpenAI
+    capex_bridge:
+      physical_shell_usd_b: 100.0
+      accelerator_usd_b: 280.0           # GB200 → Rubin
+      networking_usd_b: 35.0
+      power_cooling_usd_b: 55.0
+      land_permitting_usd_b: 30.0
+
+  openai_microsoft_fairwater:
+    mw_basis: IT
+    pue_assumed: 1.15                    # liquid-cooled superfactory
+    pue_source: "Microsoft Fairwater design disclosure"
+    site_state: ["WI", "GA", "AZ", "NO", "GB"]  # Wisconsin, Atlanta, Goodyear, Narvik, Loughton
+    site_country: US  # US portion dominant; international breakouts in site_state
+    utility: ["ATC", "Georgia Power", "APS", "Statnett (NO)", "National Grid GB"]
+    iso_rto: ["MISO", "SERC non-ISO", "WECC non-ISO", "Nord Pool", "GB ESO"]
+    interconnection_status: approved_no_cod
+    behind_the_meter_generation: {bool: true, fuel: "hydropower (Narvik; Statkraft)"}
+    ppa_status: "Narvik 6.2B hydropower PPA signed; US sites MSFT global PPA"
+    ppa_fuel_mix: "hydro (Narvik 100%), renewable-heavy elsewhere"
+    source_type: primary_announcement
+    confidence_score: 0.82
+    expected_online_year: 2027
+    contributes_to: [gw_total, capex_future]
+    last_checked: "2026-04-22"
+    capex_actual_usd_b: 18.0              # WI $7.3B + Atlanta est + Goodyear + Narvik starter
+    capex_future_usd_b: 55.0
+    rpo_or_take_or_pay_usd_b: 0.0         # MSFT self-funds; OpenAI uses are via MSFT commercial deal
+    financing_source: [operating_cash]
+    capex_bridge:
+      physical_shell_usd_b: 18.0
+      accelerator_usd_b: 35.0
+      networking_usd_b: 6.0
+      power_cooling_usd_b: 10.0
+      land_permitting_usd_b: 4.0
+
+  meta_hyperion_prometheus:
+    mw_basis: IT
+    pue_assumed: 1.10                    # Meta fleet-best PUE (Prineville ~1.09)
+    pue_source: "Meta sustainability report fleet average"
+    site_state: ["LA", "OH", "TX"]       # Richland Parish LA, Prometheus OH, Temple TX
+    site_country: US
+    utility: ["Entergy Louisiana", "American Electric Power", "Oncor"]
+    iso_rto: ["MISO-South", "PJM", "ERCOT"]
+    interconnection_status: approved_no_cod
+    behind_the_meter_generation: {bool: true, fuel: "natural gas (LA)"}
+    ppa_status: "gas-fired self-build in LA; Meta global PPA elsewhere"
+    ppa_fuel_mix: "gas-heavy (LA), renewable-tagged (Meta RE100 commitment)"
+    source_type: earnings_call
+    confidence_score: 0.28                # Zuck's "5 GW over several years" stretch is low-confidence
+    expected_online_year: 2029
+    contributes_to: [gw_total, capex_future]
+    last_checked: "2026-04-24"
+    revision_note: "2026-04-24: Per Epoch changelog 2026-04-10, Meta Prometheus H100e ceiling revised 1.2M -> 1.0M (-200K) after excluding five production DCs and the first tent building (retrofit-only / non-AI use). GW unchanged; 2030 Western H100e total 78.41M -> 78.21M."
+    capex_actual_usd_b: 10.0              # Richland Parish ~10B to date
+    capex_future_usd_b: 65.0              # full 5 GW stretch less what's already in Epoch
+    rpo_or_take_or_pay_usd_b: 0.0
+    financing_source: [operating_cash, corporate_debt]
+    capex_bridge:
+      physical_shell_usd_b: 15.0
+      accelerator_usd_b: 40.0              # NVIDIA + MTIA mix
+      networking_usd_b: 5.0
+      power_cooling_usd_b: 10.0
+      land_permitting_usd_b: 5.0
+
+  meta_nebius_2026_03_16:
+    mw_basis: IT
+    pue_assumed: 1.20
+    pue_source: "Nebius fleet convention"
+    site_state: ["KS", "NJ", "FI", "IL", "FR"]  # KC, Vineland, Finland, Israel, Paris
+    site_country: US
+    utility: []
+    iso_rto: ["SPP", "PJM", "Nord Pool", "IEC non-ISO", "RTE France"]
+    interconnection_status: approved_no_cod
+    behind_the_meter_generation: {bool: false, fuel: null}
+    ppa_status: "mixed; Finland nuclear/wind"
+    ppa_fuel_mix: "nuclear-heavy (FI), grid-mixed elsewhere"
+    source_type: sec_filing               # Nebius 6-K March 16 2026
+    confidence_score: 0.80
+    expected_online_year: 2027
+    contributes_to: [rpo_total, capex_future]
+    last_checked: "2026-04-22"
+    capex_actual_usd_b: 1.0                # first $3B tranche partly live
+    capex_future_usd_b: 24.0
+    rpo_or_take_or_pay_usd_b: 27.0         # up to $27B Meta commit (firm $12B + up to $15B expansion)
+    financing_source: [corporate_debt, equity]  # Nebius raises for the build
+    capex_bridge:
+      physical_shell_usd_b: 6.0
+      accelerator_usd_b: 15.0
+      networking_usd_b: 2.0
+      power_cooling_usd_b: 3.0
+      land_permitting_usd_b: 1.0
+
+  xai_humain_saudi:
+    mw_basis: facility                     # Middle East announcements usually facility
+    pue_assumed: 1.35                      # hot-climate cooling penalty
+    pue_source: "our assumption; no primary"
+    site_state: ["SA"]
+    site_country: SA
+    utility: ["Saudi Electricity Company"]
+    iso_rto: ["GCC non-ISO"]
+    interconnection_status: queued
+    behind_the_meter_generation: {bool: true, fuel: "natural gas"}
+    ppa_status: "sovereign-backed; PIF funding"
+    ppa_fuel_mix: "gas-heavy (Saudi grid), some solar (Vision 2030)"
+    source_type: press_release
+    confidence_score: 0.55
+    expected_online_year: 2028
+    contributes_to: [gw_total, capex_future]
+    last_checked: "2026-04-22"
+    capex_actual_usd_b: 0.0
+    capex_future_usd_b: 8.0
+    rpo_or_take_or_pay_usd_b: 0.0
+    financing_source: [sovereign]          # HUMAIN / PIF
+    capex_bridge:
+      physical_shell_usd_b: 1.5
+      accelerator_usd_b: 5.0                # 18k GB300 + expansion
+      networking_usd_b: 0.5
+      power_cooling_usd_b: 0.8
+      land_permitting_usd_b: 0.2
+
+  xai_colossus2_full:
+    mw_basis: IT                           # Musk "training compute" = IT power
+    pue_assumed: 1.30                      # behind-the-meter gas peakers less efficient
+    pue_source: "our assumption; Memphis turbines on-site"
+    site_state: ["TN"]
+    site_country: US
+    utility: ["Memphis Light Gas & Water"]
+    iso_rto: ["MISO"]                       # MLGW member of MISO (not ERCOT — correcting prior loose ref)
+    interconnection_status: in_service       # portions online
+    behind_the_meter_generation: {bool: true, fuel: "natural gas (35 VoltaGrid/Solar Turbines portable units)"}
+    ppa_status: "MLGW grid + on-site turbines"
+    ppa_fuel_mix: "gas-heavy behind-the-meter"
+    source_type: analyst_inference           # Musk tweet + Tom's Hardware secondary
+    confidence_score: 0.25
+    expected_online_year: 2026
+    contributes_to: [gw_total]
+    last_checked: "2026-04-22"
+    capex_actual_usd_b: 8.0
+    capex_future_usd_b: 2.0
+    rpo_or_take_or_pay_usd_b: 0.0
+    financing_source: [equity, corporate_debt]  # xAI equity rounds; Morgan Stanley debt
+    capex_bridge:
+      physical_shell_usd_b: 1.5
+      accelerator_usd_b: 6.0
+      networking_usd_b: 0.8
+      power_cooling_usd_b: 1.2
+      land_permitting_usd_b: 0.5
+
+  microsoft_g42_uae_khazna_2025_11:
+    mw_basis: IT
+    pue_assumed: 1.30                       # hot-climate
+    pue_source: "our assumption"
+    site_state: ["AE"]
+    site_country: AE
+    utility: ["Khazna / EWEC"]
+    iso_rto: ["non-ISO UAE"]
+    interconnection_status: approved_no_cod
+    behind_the_meter_generation: {bool: false, fuel: null}
+    ppa_status: "sovereign-backed MSFT-G42 JV"
+    ppa_fuel_mix: "gas-heavy (UAE grid) + Barakah nuclear"
+    source_type: primary_announcement
+    confidence_score: 0.70
+    expected_online_year: 2026
+    contributes_to: [gw_total, capex_future]
+    last_checked: "2026-04-22"
+    capex_actual_usd_b: 1.0
+    capex_future_usd_b: 4.5
+    rpo_or_take_or_pay_usd_b: 0.0
+    financing_source: [sovereign, operating_cash]
+    capex_bridge:
+      physical_shell_usd_b: 1.0
+      accelerator_usd_b: 3.0
+      networking_usd_b: 0.3
+      power_cooling_usd_b: 0.8
+      land_permitting_usd_b: 0.4
+
+  humain_amd_saudi_2025_05:
+    mw_basis: facility
+    pue_assumed: 1.35
+    pue_source: "our assumption; Saudi climate"
+    site_state: ["SA", "SA"]                # Riyadh, Dammam
+    site_country: SA
+    utility: ["Saudi Electricity Company"]
+    iso_rto: ["GCC non-ISO"]
+    interconnection_status: queued
+    behind_the_meter_generation: {bool: true, fuel: "natural gas"}
+    ppa_status: "sovereign-backed PIF"
+    ppa_fuel_mix: "gas-heavy"
+    source_type: primary_announcement
+    confidence_score: 0.55
+    expected_online_year: 2028
+    contributes_to: [gw_total, capex_future]
+    last_checked: "2026-04-22"
+    capex_actual_usd_b: 0.5
+    capex_future_usd_b: 9.5
+    rpo_or_take_or_pay_usd_b: 0.0
+    financing_source: [sovereign]
+    capex_bridge:
+      physical_shell_usd_b: 2.0
+      accelerator_usd_b: 6.0                # AMD MI400 series
+      networking_usd_b: 0.5
+      power_cooling_usd_b: 1.0
+      land_permitting_usd_b: 0.5
+
+  reliance_jio_jamnagar_2024_08:
+    mw_basis: facility
+    pue_assumed: 1.40                       # Gujarat climate; less efficient
+    pue_source: "our assumption; Reliance primary silent"
+    site_state: ["GJ"]
+    site_country: IN
+    utility: ["GUVNL / Reliance self-generation"]
+    iso_rto: ["NLDC (India national grid, Western region)"]
+    interconnection_status: queued           # Phase 1 approved; full scale queue risk
+    behind_the_meter_generation: {bool: true, fuel: "Reliance Green Energy solar + battery"}
+    ppa_status: "RIL self-generation via Reliance Green Energy"
+    ppa_fuel_mix: "solar + battery (aspirational); grid-mixed (realistic)"
+    source_type: earnings_call               # Ambani AGM
+    confidence_score: 0.20
+    expected_online_year: 2029
+    contributes_to: [gw_total, capex_future]
+    last_checked: "2026-04-22"
+    capex_actual_usd_b: 0.5
+    capex_future_usd_b: 19.5
+    rpo_or_take_or_pay_usd_b: 0.0
+    financing_source: [corporate_debt, operating_cash]
+    capex_bridge:
+      physical_shell_usd_b: 3.0
+      accelerator_usd_b: 12.0
+      networking_usd_b: 1.0
+      power_cooling_usd_b: 2.5
+      land_permitting_usd_b: 1.5
+
+  uk_culham_ai_growth_zone_2025_01:
+    mw_basis: IT
+    pue_assumed: 1.20
+    pue_source: "UK gov stated efficiency target"
+    site_state: ["GB"]
+    site_country: GB
+    utility: ["UK Power Networks / National Grid ESO"]
+    iso_rto: ["GB ESO"]
+    interconnection_status: queued           # UK grid queue is material risk
+    behind_the_meter_generation: {bool: false, fuel: null}
+    ppa_status: "UK sovereign-backed; anchor tenant TBD"
+    ppa_fuel_mix: "renewable-heavy (UK 2030 target)"
+    source_type: press_release               # UK gov publication
+    confidence_score: 0.30
+    expected_online_year: 2028
+    contributes_to: [gw_total, capex_future]
+    last_checked: "2026-04-22"
+    capex_actual_usd_b: 0.0
+    capex_future_usd_b: 5.0
+    rpo_or_take_or_pay_usd_b: 0.0
+    financing_source: [sovereign]
+    capex_bridge:
+      physical_shell_usd_b: 1.0
+      accelerator_usd_b: 3.0
+      networking_usd_b: 0.3
+      power_cooling_usd_b: 0.5
+      land_permitting_usd_b: 0.2
+
+  # --------------------------------------------------------------------------
+  # CLASS B — CHIP PROCUREMENT
+  # --------------------------------------------------------------------------
+  openai_amd_6gw_instinct:
+    mw_basis: IT                             # chip GW is IT by convention
+    pue_assumed: null                        # chips are shell-agnostic
+    pue_source: null
+    source_type: primary_announcement
+    confidence_score: 0.55
+    expected_online_year: 2028
+    contributes_to: [chips_gw, capex_future, rpo_total]
+    last_checked: "2026-04-22"
+    capex_actual_usd_b: 0.0
+    capex_future_usd_b: 60.0                 # 6 GW × ~$10B chip only
+    rpo_or_take_or_pay_usd_b: 60.0            # OpenAI commits to deploy; AMD equity warrants offset
+    financing_source: [equity, corporate_debt]
+
+  openai_broadcom_10gw_asic:
+    mw_basis: IT
+    pue_assumed: null
+    pue_source: null
+    source_type: primary_announcement
+    confidence_score: 0.35
+    expected_online_year: 2029
+    contributes_to: [chips_gw, capex_future]
+    last_checked: "2026-04-22"
+    capex_actual_usd_b: 0.0
+    capex_future_usd_b: 80.0
+    rpo_or_take_or_pay_usd_b: 0.0
+    financing_source: [operating_cash]
+
+  openai_nvidia_100b_loi:
+    mw_basis: IT
+    pue_assumed: null
+    pue_source: null
+    source_type: primary_announcement
+    confidence_score: 0.45
+    expected_online_year: 2028
+    contributes_to: [chips_gw, capex_future, equity_investment]
+    last_checked: "2026-04-22"
+    capex_actual_usd_b: 0.0
+    capex_future_usd_b: 100.0
+    rpo_or_take_or_pay_usd_b: 0.0            # equity investment not take-or-pay
+    financing_source: [equity]
+
+  openai_aws_38b_to_100b:
+    mw_basis: IT
+    pue_assumed: 1.20
+    pue_source: "AWS hyperscale convention"
+    source_type: primary_announcement
+    confidence_score: 0.60
+    expected_online_year: 2028
+    contributes_to: [capex_future, rpo_total]
+    last_checked: "2026-04-22"
+    capex_actual_usd_b: 0.0
+    capex_future_usd_b: 38.0
+    rpo_or_take_or_pay_usd_b: 38.0           # OpenAI-AWS contracted floor
+    financing_source: [operating_cash]
+
+# ============================================================================
+# CHIP DENSITY ASSUMPTIONS (A.5) — H100e per MW per family per year
+# ============================================================================
+# Per-family / per-year H100e density. disclosed = primary-source TFLOPS +
+# TDP; extrapolated = roadmap-only or analyst inference. The three silicon-
+# uplift scenarios below (conservative / base / aggressive) scale the
+# baseline to produce the 60M / 78M / 110M H100e envelope cited in §4D.
+# ============================================================================
+
+chip_density_assumptions:
+  nvidia:
+    "2024": {h100e_per_mw: 1050, source: disclosed, ref: "NVIDIA H100/H200 datasheet"}
+    "2025": {h100e_per_mw: 1400, source: disclosed, ref: "Blackwell B200 launch specs"}
+    "2026": {h100e_per_mw: 1900, source: disclosed, ref: "B300 Ultra + GB300 launch"}
+    "2027": {h100e_per_mw: 2500, source: extrapolated, ref: "Vera Rubin pre-launch roadmap"}
+    "2028": {h100e_per_mw: 3200, source: extrapolated, ref: "Rubin Ultra projection"}
+    "2029": {h100e_per_mw: 4000, source: extrapolated, ref: "Feynman roadmap extrapolation"}
+    "2030": {h100e_per_mw: 5000, source: extrapolated, ref: "straight-line NVIDIA curve"}
+  tpu:
+    "2024": {h100e_per_mw: 800, source: disclosed, ref: "TPU v5p datasheet"}
+    "2025": {h100e_per_mw: 1000, source: disclosed, ref: "TPU v6 Trillium datasheet"}
+    "2026": {h100e_per_mw: 1300, source: disclosed, ref: "TPU v7 Ironwood launch"}
+    "2027": {h100e_per_mw: 1700, source: extrapolated, ref: "TPU v8 roadmap"}
+    "2028": {h100e_per_mw: 2200, source: extrapolated, ref: "TPU v9 projection"}
+    "2029": {h100e_per_mw: 2800, source: extrapolated, ref: "Google internal roadmap leak"}
+    "2030": {h100e_per_mw: 3500, source: extrapolated, ref: "extrapolation"}
+  trainium:
+    "2024": {h100e_per_mw: 700, source: disclosed, ref: "Trainium1 specs"}
+    "2025": {h100e_per_mw: 1100, source: disclosed, ref: "Trainium2 datasheet"}
+    "2026": {h100e_per_mw: 1500, source: disclosed, ref: "Trainium3 re:Invent 2025"}
+    "2027": {h100e_per_mw: 1900, source: extrapolated, ref: "Trainium4 roadmap"}
+    "2028": {h100e_per_mw: 2500, source: extrapolated, ref: "AWS roadmap extrapolation"}
+    "2029": {h100e_per_mw: 3200, source: extrapolated, ref: "straight-line"}
+    "2030": {h100e_per_mw: 4000, source: extrapolated, ref: "straight-line"}
+  amd_instinct:
+    "2024": {h100e_per_mw: 900, source: disclosed, ref: "MI300X datasheet"}
+    "2025": {h100e_per_mw: 1200, source: disclosed, ref: "MI325X datasheet"}
+    "2026": {h100e_per_mw: 1700, source: disclosed, ref: "MI400 Advancing AI event"}
+    "2027": {h100e_per_mw: 2200, source: extrapolated, ref: "MI450 roadmap"}
+    "2028": {h100e_per_mw: 2800, source: extrapolated, ref: "AMD 10x per decade target"}
+    "2029": {h100e_per_mw: 3500, source: extrapolated, ref: "straight-line"}
+    "2030": {h100e_per_mw: 4400, source: extrapolated, ref: "straight-line"}
+  broadcom_asic:
+    "2026": {h100e_per_mw: 1600, source: extrapolated, ref: "OpenAI custom ASIC + Google-Broadcom TPU co-design"}
+    "2027": {h100e_per_mw: 2000, source: extrapolated, ref: "roadmap"}
+    "2028": {h100e_per_mw: 2600, source: extrapolated, ref: "roadmap"}
+    "2029": {h100e_per_mw: 3300, source: extrapolated, ref: "straight-line"}
+    "2030": {h100e_per_mw: 4200, source: extrapolated, ref: "straight-line"}
+  meta_mtia:
+    "2024": {h100e_per_mw: 400, source: disclosed, ref: "MTIA v1 training-only"}
+    "2025": {h100e_per_mw: 700, source: disclosed, ref: "MTIA v2 Artemis"}
+    "2026": {h100e_per_mw: 1100, source: extrapolated, ref: "MTIA v3 roadmap"}
+    "2027": {h100e_per_mw: 1500, source: extrapolated, ref: "Meta internal roadmap"}
+    "2028": {h100e_per_mw: 2000, source: extrapolated, ref: "roadmap"}
+    "2029": {h100e_per_mw: 2600, source: extrapolated, ref: "straight-line"}
+    "2030": {h100e_per_mw: 3300, source: extrapolated, ref: "straight-line"}
+
+chip_density_scenarios:
+  description: |
+    Three silicon-uplift scenarios scale the 50.6 GW Western 2030 horizon
+    into an H100e-equivalent envelope. See §4D in the paper.
+  conservative:
+    description: "Hold 2026 H100e/MW density constant through 2030 (no post-Rubin gains assumed)"
+    total_h100e_2030_m: 60
+    implied_per_mw_blend_2030: 1185  # 60M / 50.6 GW = 1185 H100e/MW
+  base:
+    description: "Current published roadmap extrapolations (NVIDIA Rubin + Rubin Ultra, TPU v8, Trainium 4, MI450)"
+    total_h100e_2030_m: 78
+    implied_per_mw_blend_2030: 1541  # 78M / 50.6 GW = 1541 H100e/MW
+  aggressive:
+    description: "Straight-line extension of observed per-family curves to 2030 (Feynman / v9 / MI500 / MTIA v4)"
+    total_h100e_2030_m: 110
+    implied_per_mw_blend_2030: 2174  # 110M / 50.6 GW
+
+# ============================================================================
+# STRESS SCENARIOS (A.8) — 5 named counterparty / execution shocks
+# ============================================================================
+
+stress_scenarios:
+  description: |
+    Each scenario names its transmission mechanism, affected
+    commitment_ids, quantitative deltas (GW, capex, H100e),
+    counterparty exposure concentrations, and a probability.
+    The 5 scenarios are not independent — a correlated-shock case
+    (A + C simultaneously) is out of scope per plan.
+
+  scenario_A_openai_stargate_slip_12mo:
+    name: "Stargate 12-month slip across Abilene Phase 3+ / Shackelford / NM"
+    transmission: "Chip supply + grid interconnection delays at scale across Stargate's outer sites"
+    affected_commitment_ids: [openai_stargate_aggregate, openai_microsoft_fairwater, openai_aws_38b_to_100b]
+    gw_delta_2030: -3.5
+    capex_delta_usd_b: -120.0
+    h100e_delta_million: -8.0
+    counterparty_exposure_affected: [Oracle, Microsoft, CoreWeave, Crusoe, SoftBank, MGX]
+    probability_assigned: 0.30
+
+  scenario_B_neocloud_spread_widen_300bps:
+    name: "Neocloud debt-spread widening by 300 bps"
+    transmission: "CoreWeave $60B RPO financing constraints + Nebius $27B rollout pacing"
+    affected_commitment_ids: [] # neocloud overlay, not main overlay
+    affected_neocloud_ids: [CoreWeave, Nebius, Applied_Digital, Crusoe]
+    gw_delta_2030: -2.0
+    capex_delta_usd_b: -60.0
+    h100e_delta_million: -4.0
+    counterparty_exposure_affected: [CoreWeave, Nebius, Applied Digital, Crusoe, Lambda]
+    probability_assigned: 0.25
+
+  scenario_C_grid_ercot_miso_pjm_slip_24mo:
+    name: "Grid interconnection 24-month slip across ERCOT / MISO / PJM"
+    transmission: "Utility queue saturation + transformer supply; ERCOT GS-1 study backlog; MISO MTEP delays"
+    affected_commitment_ids:
+      - openai_stargate_aggregate   # Abilene + Shackelford + Milam in ERCOT
+      - openai_microsoft_fairwater   # WI in MISO
+      - meta_hyperion_prometheus     # Richland Parish in MISO-South
+      - anthropic_aws_2026_04_20     # Madison + Ridgeland in MISO-South
+      - xai_colossus2_full            # MLGW / MISO
+    gw_delta_2030: -8.0
+    capex_delta_usd_b: -180.0
+    h100e_delta_million: -18.0
+    counterparty_exposure_affected: [broad — xAI, Meta, Stargate, OpenAI, Anthropic]
+    probability_assigned: 0.40
+    note: "Highest-probability scenario. Grid is the single largest systemic constraint."
+
+  scenario_D_chip_nextgen_slip_2q:
+    name: "NVIDIA Rubin / TPU v8 / Trainium 4 two-quarter slip"
+    transmission: "TSMC capacity or packaging bottleneck pushes all leading-edge AI chips right"
+    affected_commitment_ids: [openai_stargate_aggregate, openai_nvidia_100b_loi, anthropic_aws_2026_04_20, anthropic_google_broadcom_tpu]
+    gw_delta_2030: -1.5         # chips slip but shells still built; H100e density drops
+    capex_delta_usd_b: -40.0
+    h100e_delta_million: -12.0
+    counterparty_exposure_affected: [NVIDIA, TSMC, Broadcom, Google, AWS]
+    probability_assigned: 0.50
+
+  scenario_E_inference_outpaces_training:
+    name: "Inference demand outpaces training (chip-mix shift)"
+    transmission: "Market shifts toward inference-optimised silicon (Trainium inference, MTIA v2/3, Groq); B300/Rubin training demand softens"
+    affected_commitment_ids: [openai_broadcom_10gw_asic, meta_hyperion_prometheus]
+    gw_delta_2030: 0.0           # same power, different chips
+    chip_mix_shift_notes: "More inference-optimised silicon; less B300/Rubin training demand. Bullish for custom ASIC, bearish for NVIDIA monopoly rents."
+    capex_delta_usd_b: -20.0     # inference chips slightly cheaper
+    h100e_delta_million: -5.0    # H100e is a training metric; inference-optimised chips have lower H100e but higher inference throughput
+    counterparty_exposure_affected: [NVIDIA, Broadcom, Meta, Amazon, Google]
+    probability_assigned: 0.55
+    note: "Highest-probability scenario. Already underway."
+
+  # correlated-shock case (out of scope per plan, documented for completeness)
+  correlated_shock_ACE:
+    note: "A + C + E simultaneously. Out of scope for base-case modelling but the 'perfect storm' deserves a line. gw_delta_2030 ≈ -11.5 GW; probability < 0.05."

@@ -1,0 +1,559 @@
+# ---------------------------------------------------------------------------
+# neocloud_overlay.yaml
+#
+# Neocloud fleet capacity that Epoch AI's Frontier Data Centers dataset
+# does NOT track. Epoch captures only 3 neocloud-adjacent sites:
+#   - Fluidstack Lake Mariner, NY (68 MW current / 509 MW buildout)
+#   - Coreweave Helios (0 MW current / 800 MW buildout)
+#   - Crusoe Abilene Expansion (0 MW current / 941 MW buildout)
+#
+# The broader neocloud fleet — CoreWeave's full 43 DCs, Nebius global,
+# Nscale, full Crusoe beyond Abilene, Lambda, Applied Digital, Fluidstack
+# beyond Lake Mariner, Voltage Park/Lightning, Together AI, Fermi —
+# is not in Epoch. This file captures it with explicit anti-double-count
+# discipline.
+#
+# Data cutoff: 2026-04-22
+# ---------------------------------------------------------------------------
+
+metadata:
+  overlay_version: "2026-04-22"
+  epoch_data_cutoff: "2026-04-16"
+  methodology: |
+    Per-neocloud fleet inventory: operational MW, contracted MW,
+    anchor-tenant attribution (who is renting), and explicit
+    epoch_overlap_sites declaration so we subtract whatever Epoch
+    already has.
+
+    Anchor-tenant attribution is critical to avoid double-counting
+    on the USER side: if CoreWeave has a site with Microsoft as anchor
+    and that site is in Epoch under "Microsoft #speculative" user tag,
+    we cannot also count it as incremental Microsoft demand via CoreWeave.
+
+    Leaseback chains (Applied Digital → CoreWeave, TeraWulf → Fluidstack,
+    Oracle → Crusoe) are handled by attributing capacity to the END-USER
+    neocloud that has the operating lease, not the real-estate owner.
+  sources_note: |
+    Where our facts.yaml has richer numbers than online sources, use facts.yaml.
+    Where primary 10-Q/10-K disclosures are available (CoreWeave CRWV,
+    Nebius NBIS, Applied Digital APLD), they take precedence.
+
+neoclouds:
+
+  # --------------------------------------------------------------------------
+  # 1. CoreWeave (NASDAQ: CRWV) — public, Microsoft anchor
+  # --------------------------------------------------------------------------
+  - neocloud: CoreWeave
+    ticker: CRWV
+    status: public
+    headquarters: "Livingston, NJ, USA"
+    as_of_date: "2026-02-27"  # Q4 FY25 earnings call
+    fleet:
+      current_operational_mw: 850  # EOY 2025 across 43 DCs (Q4'25 earnings)
+      contracted_mw: 3100  # EOY 2025
+      target_eoy_2026_mw: 1700  # live by EOY 2026
+      target_2030_mw: 8100  # 3.1 + 5 GW additional by 2030
+    anchor_tenants:
+      - name: Microsoft
+        revenue_share_2024: 0.62  # per S-1
+        capacity_attribution_gw: null  # not disclosed per-customer
+      - name: OpenAI
+        contracted_usd_b: 22.4
+      - name: Meta
+        contracted_usd_b: 35.2
+      - name: IBM
+        contracted_usd_b: null
+      - name: "merchant (other)"
+    revenue_backlog_usd_b: 66.8  # FY2025 10-K, Dec 31, 2025 reference date; added 2026-04-23 per primary-source audit
+    remaining_performance_obligations_usd_b: 60.7  # RPO per FY2025 10-K
+    epoch_overlap_sites:
+      - site: Coreweave Helios
+        epoch_confidence_owner: "Coreweave #confident"
+        epoch_confidence_user: "Microsoft #speculative"
+        buildout_mw: 800
+        buildout_by: "2029-01-01"
+        notes: "Epoch's only CoreWeave site. Microsoft-speculative user."
+      - site: Applied Digital Polaris Forge 1
+        note: |
+          NOT in Epoch, but CoreWeave LEASES 400 MW of PF1 from Applied
+          Digital ($11B across 3 leases). Applied Digital is listed
+          separately in this file (see row 6). Counting AD's PF1 400 MW
+          AND CoreWeave's 850 MW operational would double-count because
+          AD's PF1 100 MW operational is PART of CoreWeave's 850 MW.
+        dedup_direction: "Attribute to CoreWeave (end-user); subtract from Applied Digital's capacity."
+    epoch_overlap_gw_buildout: 0.80  # Helios only (PF1 handled via dedup in AD row)
+    incremental_operational_mw: 850  # none in Epoch
+    incremental_contracted_mw: 2300  # 3.1 GW contracted - 0.8 GW Helios
+    incremental_target_eoy_2026_mw: 900  # 1.7 GW target - 0.8 GW Helios
+    evidence_tier_operational: T1  # 850 MW directly disclosed on Q4 FY25 earnings
+    evidence_tier_contracted: T3  # $60.7B RPO with IG counterparties (MSFT, OpenAI, Meta)
+    realization_probability_operational: 1.00
+    realization_probability_contracted: 0.82  # above T3 default; public-company RPO under IFRS disclosure
+    primary_sources:
+      - url: https://www.fool.com/earnings/call-transcripts/2026/02/27/coreweave-crwv-q4-2025-earnings-call-transcript/
+        publisher: CoreWeave (via Motley Fool transcript)
+        date: 2026-02-27
+      - url: https://www.datacenterdynamics.com/en/news/coreweave-aims-to-add-5gw-more-data-center-capacity-by-2030-anticipates-capex-in-2026-to-double/
+        publisher: DCD
+        date: 2026-02-28
+    residual_risk_flags:
+      - "Applied Digital PF1 overlap handled by leaseback attribution — if AD reports PF1 separately without deducting it, double-counts."
+      - "Microsoft attribution on Helios is Epoch #speculative — if it turns out Microsoft uses CoreWeave differently, anchor-tenant map shifts."
+
+  # --------------------------------------------------------------------------
+  # 2. Nebius (NASDAQ: NBIS) — public, Microsoft + Meta anchors
+  # --------------------------------------------------------------------------
+  - neocloud: Nebius
+    ticker: NBIS
+    status: public
+    headquarters: "Amsterdam, Netherlands"
+    as_of_date: "2026-02"  # Q4 FY25 shareholder letter
+    audit_note: "20-F for FY2025 not yet on EDGAR as of 2026-04-23 (due 2026-04-30); re-audit 2026-05-01..05-07."
+    fleet:
+      current_operational_mw: 170  # >170 MW EOY 2025
+      contracted_mw: 2000  # >2 GW EOY 2025
+      target_eoy_2026_contracted_mw: 3000  # raised target, contracted
+      target_eoy_2026_connected_mw: 1000   # connected (operational) goal per Nebius IR
+    sites_disclosed:
+      - "Finland (flagship)"
+      - "Kansas City"
+      - "Israel"
+      - "Paris"
+      - "Vineland, NJ"  # per later disclosure
+    anchor_tenants:
+      - name: Microsoft
+        contracted_usd_b_through_2031: [17.4, 19.4]
+      - name: Meta
+        contracted_usd_b: 27.0  # up to $27B ($12B dedicated + up to $15B additional) per 6-K March 16, 2026
+        contract_horizon_years: 5
+        start_date: "2025-12"  # corrected 2026-04-23 per 6-K (Nov 11, 2025): first tranche deployed Dec 2025, second Feb 2026. Expansion to $27B signed March 16, 2026 — expansion deployment early 2027, but initial $3B already live.
+    total_contracted_backlog_usd_b_range: [44.4, 46.4]  # MSFT 17.4-19.4 + Meta up-to-27.0; added 2026-04-23 per primary-source audit
+    epoch_overlap_sites: []  # Nebius absent from Epoch
+    epoch_overlap_gw_buildout: 0.00
+    incremental_operational_mw: 170
+    incremental_contracted_mw: 2000
+    incremental_target_eoy_2026_mw: 3000
+    evidence_tier_operational: T1  # 170 MW disclosed in Nebius Q4 FY25 shareholder letter
+    evidence_tier_contracted: T3  # $44-46B backlog with MSFT + Meta; Meta first $3B tranche already live
+    realization_probability_operational: 1.00
+    realization_probability_contracted: 0.78  # T3 default
+    primary_sources:
+      - url: https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta
+        publisher: Nebius
+        date: 2026-03-16
+      - url: https://www.datacenterdynamics.com/en/news/nebius-signs-3bn-deal-with-meta-says-current-available-capacity-is-sold-out-as-it-targets-25gw-by-end-of-2026/
+        publisher: DCD
+        date: 2025-11
+    facts_yaml_refs: ["meta.commitment.nebius_2027"]
+    residual_risk_flags:
+      - "Meta $27B is capacity already partially live (first tranche Dec 2025, second Feb 2026) — already captured in commitments overlay row #8. Do not add GW from that fact separately; Nebius's 3 GW 2026 target already covers the capacity."
+
+  # --------------------------------------------------------------------------
+  # 3. Nscale — private, Microsoft anchor
+  # --------------------------------------------------------------------------
+  - neocloud: Nscale
+    status: private
+    headquarters: "London, UK"
+    as_of_date: "2026-04"
+    fleet:
+      current_operational_mw: 20  # first North Carolina site online April 2026
+      contracted_mw: 1500  # ~1.5 GW stated
+    sites_disclosed:
+      - name: "North Carolina (first US)"
+        operational_mw: 20
+        anchor: merchant
+      - name: "Barstow, TX"
+        contracted_mw: 240
+        anchor: Microsoft  # 200,000 GPU deal
+        gpus: 200000
+      - name: "Ward County, TX"
+        contracted_mw: 240
+        anchor: Microsoft
+      - name: "Loughton, UK"
+        contracted_mw: [50, 90]
+        anchor: Microsoft  # Fairwater UK partner — SEE COMMITMENTS OVERLAY #6
+        epoch_overlap_note: |
+          This site is ALSO captured in compute_commitments_overlay.yaml
+          row 6 (openai_microsoft_fairwater) as Fairwater Loughton.
+          Do not double-count. Nscale is the operator; Microsoft is the
+          user. Attribute capacity to the Fairwater row and subtract here.
+      - name: "West London (Google)"
+        anchor: Google  # W. London site
+        contracted_mw: null
+      - name: "Narvik, Norway"
+        contracted_mw: null
+        anchor: Microsoft  # Fairwater Narvik — SEE COMMITMENTS OVERLAY #6
+        epoch_overlap_note: "Also in commitments overlay row 6. Dedup: attribute to Fairwater."
+    anchor_tenants:
+      - name: Microsoft
+        contracted_gpus: 200000
+      - name: Google
+        site: "West London"
+    epoch_overlap_sites: []
+    epoch_overlap_gw_buildout: 0.00
+    # After dedup against Fairwater commitment rows (Loughton + Narvik):
+    incremental_operational_mw: 20
+    incremental_contracted_mw: 900  # ~1.5 GW total MINUS ~600 MW already in Fairwater overlay (Loughton 0.1 + Narvik 0.5)
+    evidence_tier_operational: T1
+    evidence_tier_contracted: T4  # private co with named MSFT deals (200k GPU); sites identified; no IFRS RPO disclosure
+    realization_probability_operational: 1.00
+    realization_probability_contracted: 0.60  # above T4 default — MSFT IG anchor + sites named
+    dedup_notes: |
+      Nscale's Microsoft-anchored capacity (Loughton UK + Narvik Norway
+      + Barstow TX + Ward County TX) is partly captured in
+      compute_commitments_overlay row 6 (Fairwater). If Fairwater row
+      already carries Narvik + Loughton as incremental, then Nscale's
+      contribution here should exclude those 2 sites.
+      Barstow + Ward County (480 MW Microsoft) are NOT in Fairwater
+      overlay and are net-additive.
+    primary_sources:
+      - url: https://siliconangle.com/2025/10/15/nscale-inks-200000-gpu-data-center-contract-microsoft/
+        publisher: SiliconANGLE
+        date: 2025-10-15
+
+  # --------------------------------------------------------------------------
+  # 4. Crusoe — private, OpenAI + Microsoft anchors
+  # --------------------------------------------------------------------------
+  - neocloud: Crusoe
+    status: private
+    headquarters: "Denver, CO, USA"
+    as_of_date: "2026-03"
+    fleet:
+      current_operational_mw: 200  # Abilene Phase 1, Iceland, Norway
+      contracted_mw: 4100  # 4.1 GW
+    sites_disclosed:
+      - name: "Abilene, TX (Stargate Phase 1+2)"
+        contracted_mw: 1200
+        anchor: OpenAI (via Stargate)
+        epoch_overlap_note: |
+          SAME SITE as Epoch's "OpenAI Stargate Abilene" (Oracle-owned,
+          OpenAI-user, 590 MW current / 1,180 MW buildout). Do not
+          double-count — Crusoe BUILDS Abilene but Oracle OWNS it and
+          OpenAI USES it. Attribute to Epoch's Stargate row.
+      - name: "Abilene, TX (NEW 900 MW Microsoft campus)"
+        contracted_mw: 900
+        anchor: Microsoft
+        announced_date: "2026-03"
+        epoch_overlap_note: |
+          This appears to be Epoch's "Crusoe Abilene Expansion" row
+          (Microsoft-owned, Microsoft-user, 0 MW current / 941 MW
+          buildout by 2027-11-11). Close match — assume SAME SITE.
+          Attribute to Epoch's Crusoe Abilene Expansion row.
+      - name: "Cheyenne, WY"
+        contracted_mw: 1800
+        anchor: "Tallgrass / merchant"
+        epoch_overlap_note: "NOT in Epoch. Fully additive."
+      - name: "Norway (Oslo area)"
+        operational_mw: 52
+        anchor: merchant
+        epoch_overlap_note: "NOT in Epoch."
+      - name: "Iceland (ICE02)"
+        operational_mw: 148  # Iceland total disclosed MW
+        anchor: merchant
+        epoch_overlap_note: "NOT in Epoch."
+    anchor_tenants:
+      - name: OpenAI
+        via: "Stargate (Abilene Phase 1+2)"
+      - name: Microsoft
+        via: "Abilene NEW 900 MW campus"
+    epoch_overlap_sites:
+      - site: OpenAI Stargate Abilene
+        buildout_mw: 1180
+        basis_for_overlap: "Crusoe builds it, Oracle owns it, OpenAI uses it — same physical site."
+      - site: Crusoe Abilene Expansion
+        buildout_mw: 941
+        basis_for_overlap: "Epoch's Microsoft-owned Microsoft-user row is the 900 MW new MSFT campus Crusoe disclosed in March 2026."
+    epoch_overlap_gw_buildout: 2.12  # Abilene Phase 1+2 (1.18) + Abilene MSFT (0.94)
+    incremental_operational_mw: 200
+    incremental_contracted_mw: 1980  # 4.1 GW - 2.12 GW = 1.98 GW (mostly Cheyenne WY 1.8)
+    evidence_tier_operational: T1
+    evidence_tier_contracted: T3  # Cheyenne 1.8 GW is permitted + anchor-contracted; Crusoe's Abilene work is already T2 in Epoch
+    realization_probability_operational: 1.00
+    realization_probability_contracted: 0.70  # below T3 default (0.78) — private co; no public RPO disclosure
+    primary_sources:
+      - url: https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure
+        publisher: Crusoe
+        date: 2026-03
+      - url: https://www.datacenterdynamics.com/en/news/crusoe-gets-go-ahead-for-18gw-data-center-campus-and-power-plant-in-cheyenne-wyoming/
+        publisher: DCD
+        date: 2026-03
+
+  # --------------------------------------------------------------------------
+  # 5. Lambda — private (IPO H1 2026), Microsoft + NVIDIA anchors
+  # --------------------------------------------------------------------------
+  - neocloud: Lambda
+    status: "private (IPO H1 2026)"
+    as_of_date: "2025-11-18"
+    fleet:
+      current_operational_mw: 50  # estimate; KC+Chicago sites come 2026
+      contracted_mw: 320  # "leased, signed, committed"
+      target_2030_mw: 3000
+    anchor_tenants:
+      - name: Microsoft
+        via: "multi-billion GB300 deal"
+      - name: NVIDIA
+        via: "leaseback ($1.5B / 18k GPUs)"
+    epoch_overlap_sites: []
+    epoch_overlap_gw_buildout: 0.00
+    incremental_operational_mw: 50
+    incremental_contracted_mw: 320
+    evidence_tier_operational: T1
+    evidence_tier_contracted: T4  # private pre-IPO; MSFT multi-billion GB300 deal + NVIDIA leaseback
+    realization_probability_operational: 1.00
+    realization_probability_contracted: 0.58  # T4 default
+    primary_sources:
+      - url: https://siliconangle.com/2025/11/18/ai-cloud-operator-lambda-raises-1-5b-build-data-centers/
+        publisher: SiliconANGLE
+        date: 2025-11-18
+      - url: https://www.datacenterdynamics.com/en/news/microsoft-signs-multi-billion-dollar-cloud-capacity-deal-with-lambda/
+        publisher: DCD
+        date: 2025-11
+
+  # --------------------------------------------------------------------------
+  # 6. Applied Digital (NASDAQ: APLD) — public, CoreWeave anchor
+  # --------------------------------------------------------------------------
+  - neocloud: Applied Digital
+    ticker: APLD
+    status: public
+    as_of_date: "2026-02-28"  # Q3 FY2026 10-Q (quarter ended 2026-02-28, press-released 2026-04-08); refreshed 2026-04-23 per primary-source audit
+    fiscal_year_note: "APLD fiscal year ends May 31. Q3 FY2026 = calendar Dec 2025 - Feb 2026."
+    credit_enhancement_note: "ELN-02 and ELN-03 (250 MW) restructured into CoreWeave SPV with A3 rating + $50M LOC + CoreWeave Inc. parent guarantee per 8-K March 30, 2026."
+    post_quarter_financing: "$2.15B 6.750% Senior Secured Notes due 2031 issued for PF2 construction (post-Q3)."
+    fleet:
+      current_operational_mw: 100  # Polaris Forge 1 Bldg 1 (ELN-02) fully energized / RFS as of Feb 2026 per Q3 FY26 10-Q
+      contracted_mw: 600  # 400 MW PF1 CoreWeave + 200 MW PF2 undisclosed hyperscaler
+    sites_disclosed:
+      - name: "Polaris Forge 1 (Ellendale, ND)"
+        contracted_mw: 400
+        anchor: CoreWeave
+        contracted_usd_b: 11.0
+        dedup_note: |
+          CoreWeave is END-USER. PF1 400 MW is LEASED to CoreWeave.
+          In this overlay, capacity attributed to CoreWeave row
+          (neocloud 1) as part of CW's 850 MW operational / 3.1 GW
+          contracted. HERE we record PF1 under Applied Digital for
+          real-estate-ownership completeness, but mark as overlap
+          against CoreWeave to prevent double-count.
+      - name: "Polaris Forge 2 (ND)"
+        contracted_mw: 200
+        anchor: "undisclosed hyperscaler (likely Google or AWS)"
+        contracted_usd_b: 5.0
+    anchor_tenants:
+      - name: CoreWeave
+        site: "Polaris Forge 1"
+      - name: "undisclosed hyperscaler"
+        site: "Polaris Forge 2"
+    epoch_overlap_sites: []  # not in Epoch
+    # But PF1 is double-counted vs CoreWeave row:
+    dedup_against_coreweave_mw: 400  # subtract from APLD incremental
+    epoch_overlap_gw_buildout: 0.00
+    incremental_operational_mw: 0  # all 100 MW RFS is leased to CoreWeave (already in CW's 850 MW)
+    incremental_contracted_mw: 200  # only PF2 (CoreWeave dedup handled)
+    evidence_tier_operational: T1  # 100 MW RFS evidenced in Q3 FY26 10-Q (but dedup'd to CoreWeave row)
+    evidence_tier_contracted: T3  # PF2 hyperscaler lease is contracted; $2.15B 6.75% senior secured notes issued for PF2 construction
+    realization_probability_operational: 1.00  # but counted under CoreWeave
+    realization_probability_contracted: 0.78  # T3 default; APLD is public but hyperscaler undisclosed
+    primary_sources:
+      - url: https://ir.applieddigital.com/news-events/press-releases/detail/128/applied-digital-finalizes-additional-150mw-lease-with
+        publisher: Applied Digital
+        date: 2025
+      - url: https://ir.applieddigital.com/news-events/press-releases/detail/132/applied-digital-announces-5-billion-ai-factory-lease-with
+        publisher: Applied Digital
+        date: 2025
+
+  # --------------------------------------------------------------------------
+  # 7. Fluidstack — private, Anthropic anchor
+  # --------------------------------------------------------------------------
+  - neocloud: Fluidstack
+    status: private
+    as_of_date: "2025-11-12"  # Anthropic $50B JV announcement
+    fleet:
+      current_operational_mw: 68  # matches Epoch (G42 portion actually, Bldgs 1-2)
+      contracted_mw: null  # portion of Anthropic $50B
+    sites_disclosed:
+      - name: "Lake Mariner, NY (Buildings 3-5 Anthropic portion)"
+        contracted_mw: 441  # Epoch buildout Bldgs 3-5
+        anchor: Anthropic
+        operator_via: "TeraWulf (real estate) + Fluidstack (compute) + Anthropic (user)"
+        epoch_overlap_note: "IN EPOCH. Already counted in Epoch's 509 MW Lake Mariner buildout + commitments overlay row 2."
+      - name: "Texas (unspecified, part of Anthropic $50B JV)"
+        contracted_mw: null
+        anchor: Anthropic
+        epoch_overlap_note: "NOT in Epoch. Captured under anthropic_fluidstack_2025_11_12 dollar envelope."
+      - name: "New York (unspecified, part of Anthropic $50B JV)"
+        contracted_mw: null
+        anchor: Anthropic
+        epoch_overlap_note: "NOT in Epoch, possibly Lake Mariner + other NY sites."
+    anchor_tenants:
+      - name: Anthropic
+        usd_b: 50.0  # full $50B JV
+        horizon_years: "multi-year 2026-2030+"
+    epoch_overlap_sites:
+      - site: Fluidstack Lake Mariner
+        buildout_mw: 441  # Anthropic-attributable only; G42 portion separate
+        basis_for_overlap: "Epoch already captures this site."
+    epoch_overlap_gw_buildout: 0.44
+    incremental_operational_mw: 0  # all Lake Mariner current capacity is already Epoch-tracked G42 portion
+    incremental_contracted_mw: null  # dollar-only commitment; GW unknown
+    evidence_tier_operational: T1  # Lake Mariner G42 portion evidenced in Epoch
+    evidence_tier_contracted: T5  # $50B Anthropic JV; GW unquantified in primary
+    realization_probability_operational: 1.00
+    realization_probability_contracted: 0.40  # above T5 default; partial physical evidence at Lake Mariner
+    notes: "Fluidstack's full contracted capacity for Anthropic is not disclosed in MW terms — tracked via $50B dollar commitment in commitments overlay row 2."
+    facts_yaml_refs: ["anthropic.commitment.fluidstack_jv"]
+
+  # --------------------------------------------------------------------------
+  # 8. Voltage Park / Lightning — private (merged Jan 2026), merchant
+  # --------------------------------------------------------------------------
+  - neocloud: Voltage Park / Lightning
+    status: "private (merged Jan 2026)"
+    as_of_date: "2026-01"
+    fleet:
+      current_operational_mw: 135  # 6 DCs, ~120-150 MW est. from 35k GPU footprint
+      contracted_mw: null  # no disclosure
+    sites_disclosed:
+      - "Puyallup, WA"
+      - "Quincy, WA"
+      - "Sterling, VA"
+      - "Salt Lake City, UT"
+      - "Fort Worth, TX"
+      - "Allen, TX"
+    anchor_tenants:
+      - name: merchant  # on-demand H100/B200/GB300
+    epoch_overlap_sites: []
+    epoch_overlap_gw_buildout: 0.00
+    incremental_operational_mw: 135
+    incremental_contracted_mw: null
+    evidence_tier_operational: T6  # MW inferred from 35k-GPU footprint; no direct disclosure
+    realization_probability_operational: 0.60  # higher than T6 default because the GPUs do exist
+    primary_sources:
+      - url: https://www.voltagepark.com/blog/lightning-ai-voltage-park-merger-to-create-the-first-cloud-built-for-ai
+        publisher: BusinessWire / Voltage Park
+        date: 2026-01
+    residual_risk_flags:
+      - "MW estimate derived from GPU count, not direct disclosure. Confidence: medium."
+
+  # --------------------------------------------------------------------------
+  # 9. Together AI — private, merchant + inference
+  # --------------------------------------------------------------------------
+  - neocloud: Together AI
+    status: private
+    as_of_date: "2025-09"
+    fleet:
+      current_operational_mw: 65  # estimate 50-80 MW; MD Jul'25, Memphis, Sweden Sep'25
+      contracted_mw: 200  # "secured across North America" per Sacra
+    sites_disclosed:
+      - "Maryland (Jul 2025)"
+      - "Memphis, TN"
+      - "Sweden (Sep 2025)"
+    anchor_tenants:
+      - name: "merchant + inference APIs"
+    epoch_overlap_sites: []
+    epoch_overlap_gw_buildout: 0.00
+    incremental_operational_mw: 65
+    incremental_contracted_mw: 200
+    evidence_tier_operational: T6  # 50-80 MW estimated; secondary source (Sacra)
+    evidence_tier_contracted: T4  # "secured across North America" announced
+    realization_probability_operational: 0.50  # above T6 default; facilities are known to exist
+    realization_probability_contracted: 0.45  # below T4 default; private co, limited disclosure
+    primary_sources:
+      - url: https://sacra.com/c/together-ai/
+        publisher: Sacra
+        date: 2025
+        note: "Secondary source — Together AI does not publish fleet disclosures"
+
+  # --------------------------------------------------------------------------
+  # 10. Fermi America — private, speculative (delayed)
+  # --------------------------------------------------------------------------
+  - neocloud: Fermi America
+    status: private
+    as_of_date: "2026-04"
+    fleet:
+      current_operational_mw: 0
+      contracted_mw: 0  # no customer signed; permits only
+      announced_permitted_mw: [11000, 17000]  # 11-17 GW permitted, aspirational
+      target_eoy_2026_mw: 1000  # originally; has slipped
+    sites_disclosed:
+      - name: "Project Matador (Amarillo, TX)"
+        permitted_mw: [11000, 17000]
+        anchor: "undisclosed (nuclear + gas baseload)"
+    anchor_tenants:
+      - name: undisclosed
+    epoch_overlap_sites: []
+    epoch_overlap_gw_buildout: 0.00
+    incremental_operational_mw: 0
+    incremental_contracted_mw: 0
+    incremental_speculative_mw: [0, 1000]  # only speculative 2026 target; 11-17 GW is permit aspirational
+    evidence_tier_operational: T6  # zero operational; permit-only
+    evidence_tier_contracted: T5  # no customer contract; carried as speculative
+    realization_probability_operational: 0.00
+    realization_probability_contracted: 0.10  # below T5 default — no anchor customer
+    notes: "CARRIED AS SPECULATIVE ONLY. No customer contract, no operational capacity. 11-17 GW permit aspirational at Matador, but timeline has slipped."
+    primary_sources:
+      - url: https://www.datacenterdynamics.com/en/news/fermi-secures-natural-gas-pipeline-connection-for-up-to-11gw-data-center-project-in-amarillo-texas/
+        publisher: DCD
+        date: 2025
+
+# ============================================================================
+# AGGREGATE ROLLUP (computed by compile.py --with-overlay)
+# ============================================================================
+
+aggregate_rollup:
+  notes: |
+    Neocloud contribution to total commitment surface, net of Epoch
+    and net of double-count dedup chains (AD→CW, TeraWulf→Fluidstack,
+    Crusoe↔Stargate Abilene, Nscale↔Fairwater Loughton+Narvik).
+
+  evidence_tier_rollup:
+    note: |
+      Six-tier partition of the 9.39 GW neocloud contribution to the
+      Western horizon. T1 = directly-disclosed operational; T6 = MW
+      inferred from GPU count or fleet estimate; T3/T4 = contracted
+      capacity split by whether IG-counterparty RPO backs it (T3) or
+      private-co named deal (T4).
+    T1_operational_directly_disclosed_gw: 1.29   # CoreWeave 0.85 + Nebius 0.17 + Crusoe 0.20 + Nscale 0.02 + Lambda 0.05
+    T3_firm_commercial_contract_gw: 6.48         # CoreWeave 2.30 + Nebius 2.00 + Crusoe 1.98 + Applied Digital 0.20
+    T4_announced_private_co_gw: 1.42             # Nscale 0.90 + Lambda 0.32 + Together 0.20
+    T6_analyst_inference_gw: 0.20                # Voltage Park 0.135 + Together operational 0.065
+    total_gw: 9.39
+    # Note: T3 sums 6.48 here but 7.90 in main overlay rollup because prior
+    # v1 classification lumped Nscale + Lambda into "contracted" generally.
+    # Per 6-tier discipline, only RPO/IFRS-backed goes to T3 (CoreWeave,
+    # Nebius, Applied Digital PF2, Crusoe Cheyenne anchor). Nscale and
+    # Lambda private-co deals are T4.
+    probability_weighted_gw:
+      # T1 × 1.00 + T3 × 0.78 + T4 × 0.58 + T6 × 0.25
+      weighted: 6.42  # 1.29×1.00 + 6.48×0.78 + 1.42×0.58 + 0.20×0.25
+      note: "Conservative (T1+T3 only): 7.77 GW. Full-realization: 9.39 GW."
+
+
+  neocloud_operational_mw:
+    coreweave: 850
+    nebius: 170
+    nscale: 20
+    crusoe: 200
+    lambda: 50
+    applied_digital: 0  # dedup'd into CoreWeave
+    fluidstack: 0       # Epoch captures Lake Mariner
+    voltage_park: 135
+    together: 65
+    fermi: 0
+    total_operational_ex_epoch_mw: 1490
+    total_operational_ex_epoch_gw: 1.49
+
+  neocloud_contracted_mw_ex_overlap:
+    coreweave: 2300
+    nebius: 2000
+    nscale: 900
+    crusoe: 1980
+    lambda: 320
+    applied_digital: 200
+    fluidstack: 0       # dollar-only commitment
+    voltage_park: 0
+    together: 200
+    fermi: 0
+    total_contracted_ex_epoch_mw: 7900
+    total_contracted_ex_epoch_gw: 7.90
+
+  total_neocloud_incremental_gw: 7.90  # vs Epoch 2.25 GW (3-site sum Helios+CW Abilene Exp+Lake Mariner) already evidenced
+  # Note: Applied Digital PF2 is 200 MW additional beyond CoreWeave's 3.1 GW.

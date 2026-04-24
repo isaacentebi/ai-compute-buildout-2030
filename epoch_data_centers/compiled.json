@@ -1,0 +1,3093 @@
+{
+  "source": {
+    "provider": "Epoch AI",
+    "dataset": "Frontier Data Centers",
+    "url": "https://epoch.ai/data/data-centers",
+    "dataset_updated": "2026-04-20",
+    "retrieved": "2026-04-22",
+    "license": "CC BY 4.0",
+    "files": [
+      "data_centers.csv",
+      "data_center_timelines.csv"
+    ]
+  },
+  "utilization_factor_applied": 0.3333333333333333,
+  "utilization_source_quote": "theoretical peak capacity ... typically about one third of that, due to inefficiencies",
+  "sites": [
+    {
+      "name": "Microsoft Fairwater Wisconsin",
+      "owner": "Microsoft",
+      "users": "OpenAI, Microsoft",
+      "country": "United States",
+      "project": "Microsoft AI WAN #confident",
+      "address": "4800 90th St, Mount Pleasant, WI 53403",
+      "current_h100e": 558827.6907529056,
+      "current_power_mw": 555.0,
+      "current_capex_usd_b_2025": 17.71,
+      "first_operational_date": "2026-04-16",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 555.0,
+        "h100e": 558827.6907529056,
+        "bldgs_op": 1.0,
+        "capex_usd_b": 17.71,
+        "status_text": "Building 1 operational. [X post](https://x.com/satyanadella/status/2044767391293509761?s=61) from Microsoft saying this date for Fairwater becoming operational. ",
+        "last_update": "2026-04-16"
+      },
+      "full_buildout": {
+        "h100e_max": 5191509.247094492,
+        "power_mw_max": 3328.0,
+        "capex_usd_b_max": 106.25,
+        "end_of_timeline": "2027-10-03"
+      }
+    },
+    {
+      "name": "OpenAI Stargate New Mexico",
+      "owner": "Oracle",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "Stargate #confident",
+      "address": "",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2028-12-31",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Land clearing continues, foundation construction begins 2 of the main buildings (Building B & D). Construction also beginning on modular chiller plants.",
+        "last_update": "2026-02-06"
+      },
+      "full_buildout": {
+        "h100e_max": 4598281.960586155,
+        "power_mw_max": 2210.0,
+        "capex_usd_b_max": 60.459999999999994,
+        "end_of_timeline": "2028-12-31"
+      }
+    },
+    {
+      "name": "OpenAI Stargate Shackelford",
+      "owner": "Oracle",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "Stargate #confident",
+      "address": "175 Private Road 1604, Abilene, TX 79601, Shackelford County",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2027-01-01",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Steel framing is underway for Buildings 1-3, and roofing is underway for Building 1.",
+        "last_update": "2026-04-14"
+      },
+      "full_buildout": {
+        "h100e_max": 4163719.050025265,
+        "power_mw_max": 1960.0,
+        "capex_usd_b_max": 53.629999999999995,
+        "end_of_timeline": "2028-12-31"
+      }
+    },
+    {
+      "name": "Meta Hyperion",
+      "owner": "Meta",
+      "users": "Meta",
+      "country": "United States",
+      "project": "Hyperion #confident",
+      "address": "Holly Ridge, LA 71269",
+      "current_h100e": null,
+      "current_power_mw": null,
+      "current_capex_usd_b_2025": null,
+      "first_operational_date": "2028-01-01",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Foundations are underway for the main buildings, and the overall layout aligns with the [architectural renderings](https://engineering.fb.com/2025/09/29/data-infrastructure/metas-infrastructure-evolution-and-the-advent-of-ai/) published in 2025.",
+        "last_update": "2025-10-19"
+      },
+      "full_buildout": {
+        "h100e_max": 4152951.082055361,
+        "power_mw_max": 2262.0,
+        "capex_usd_b_max": 72.21000000000001,
+        "end_of_timeline": "2028-01-01"
+      }
+    },
+    {
+      "name": "QTS Cedar Rapids",
+      "owner": "",
+      "users": "",
+      "country": "United States",
+      "project": "",
+      "address": "6200 76th Ave SW, Fairfax, IA 52228",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2026-11-15",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Building 1 roof is complete, with air-cooled chillers in place. Building 2 and 3 roofs are partly completed. Building 4 and 5 have a foundation.",
+        "last_update": "2025-10-27"
+      },
+      "full_buildout": {
+        "h100e_max": 3518579.9217138807,
+        "power_mw_max": 1587.0,
+        "capex_usd_b_max": 43.42,
+        "end_of_timeline": "2027-11-15"
+      }
+    },
+    {
+      "name": "OpenAI Stargate Michigan",
+      "owner": "Oracle",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "Stargate #confident",
+      "address": "",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2028-12-31",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Groundwork is visible for Building 1, at the left end of the site.",
+        "last_update": "2026-03-12"
+      },
+      "full_buildout": {
+        "h100e_max": 2880242.5467407783,
+        "power_mw_max": 1383.0,
+        "capex_usd_b_max": 37.84,
+        "end_of_timeline": "2028-12-31"
+      }
+    },
+    {
+      "name": "OpenAI Stargate Wisconsin",
+      "owner": "Oracle",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "Stargate #confident",
+      "address": "",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2028-12-31",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Land clearing continues, foundation construction clearly begins for eastern and northern buildings (Building 1-2)",
+        "last_update": "2026-02-14"
+      },
+      "full_buildout": {
+        "h100e_max": 2627589.691763517,
+        "power_mw_max": 1300.0,
+        "capex_usd_b_max": 34.56,
+        "end_of_timeline": "2028-12-31"
+      }
+    },
+    {
+      "name": "OpenAI Stargate Milam",
+      "owner": "Softbank",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "Stargate #confident",
+      "address": "",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2028-12-31",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Steel framing and roofing is underway for Building 1.",
+        "last_update": "2026-03-23"
+      },
+      "full_buildout": {
+        "h100e_max": 2496210.207175341,
+        "power_mw_max": 1200.0,
+        "capex_usd_b_max": 32.839999999999996,
+        "end_of_timeline": "2028-12-31"
+      }
+    },
+    {
+      "name": "OpenAI Stargate UAE",
+      "owner": "G42",
+      "users": "OpenAI",
+      "country": "United Arab Emirates",
+      "project": "Stargate #confident",
+      "address": "Nexus L&T Project Office, Al Bihouth, Al Dhafrah, Abu Dhabi, United Arab Emirates",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2026-12-01",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Building 1 and 2 are partly constructed. No clear evidence of more buildings starting construction.",
+        "last_update": "2025-11-16"
+      },
+      "full_buildout": {
+        "h100e_max": 2021222.83981809,
+        "power_mw_max": 1400.0,
+        "capex_usd_b_max": 38.31,
+        "end_of_timeline": "2028-01-01"
+      }
+    },
+    {
+      "name": "Goodnight",
+      "owner": "Google",
+      "users": "Google DeepMind",
+      "country": "United States",
+      "project": "",
+      "address": "10001 Lima Rd, Claude, TX 79019",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2026-06-15",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Construction on Building 1 and 2 looks about halfway to completion. Foundations and utility trenches are visible for Building 3-4. Building 5-6 have an outline. The substation appears to be expanding.",
+        "last_update": "2025-12-23"
+      },
+      "full_buildout": {
+        "h100e_max": 1657837.2482049519,
+        "power_mw_max": 1087.6,
+        "capex_usd_b_max": 32.38886367,
+        "end_of_timeline": "2027-10-01"
+      }
+    },
+    {
+      "name": "Crusoe Abilene Expansion",
+      "owner": "Microsoft",
+      "users": "Microsoft",
+      "country": "United States",
+      "project": "",
+      "address": "5502 Spinks Rd, Abilene, TX 79601",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2027-09-17",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Land clearing continues.",
+        "last_update": "2026-01-15"
+      },
+      "full_buildout": {
+        "h100e_max": 1480545.730166751,
+        "power_mw_max": 941.0,
+        "capex_usd_b_max": 25.74,
+        "end_of_timeline": "2027-11-11"
+      }
+    },
+    {
+      "name": "xAI Colossus 2",
+      "owner": "xAI",
+      "users": "xAI",
+      "country": "United States",
+      "project": "",
+      "address": "5420 Tulane Rd, Memphis, TN 38109",
+      "current_h100e": null,
+      "current_power_mw": null,
+      "current_capex_usd_b_2025": null,
+      "first_operational_date": "2025-10-19",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 302.0,
+        "h100e": 280837.7920316433,
+        "bldgs_op": 1.0,
+        "capex_usd_b": 8.899895272,
+        "status_text": "Since October, an array of dry cooling air-cooled condensers has been added (the array of large fans to the left of the building), and appears almost complete. Two more similar arrays appear to be under construction. More air-cooled chillers, batteries, and gas turbines have also been installed.",
+        "last_update": "2026-01-13"
+      },
+      "full_buildout": {
+        "h100e_max": 1389590.7023749368,
+        "power_mw_max": 1494.0,
+        "capex_usd_b_max": 44.03685,
+        "end_of_timeline": "2026-05-13"
+      }
+    },
+    {
+      "name": "Google Cedar Rapids",
+      "owner": "Google",
+      "users": "Google DeepMind",
+      "country": "United States",
+      "project": "",
+      "address": "5800 EDGEWOOD RD SW CEDAR RAPIDS, IA 52404",
+      "current_h100e": 71248.10510358767,
+      "current_power_mw": 105.0,
+      "current_capex_usd_b_2025": 3.34,
+      "first_operational_date": "2026-03-29",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 105.0,
+        "h100e": 71248.10510358767,
+        "bldgs_op": 1.0,
+        "capex_usd_b": 3.34,
+        "status_text": "Building 1 is operational. There was still a lot of work to be done on generators and cooling towers as of December, and winter will slow construction. The time from the roof being completed to operational was 7-8 months at Google Omaha, a similar data center.",
+        "last_update": "2026-03-29"
+      },
+      "full_buildout": {
+        "h100e_max": 1121778.6760990398,
+        "power_mw_max": 627.0,
+        "capex_usd_b_max": 20.02,
+        "end_of_timeline": "2028-11-18"
+      }
+    },
+    {
+      "name": "Meta Prometheus",
+      "owner": "Meta",
+      "users": "Meta",
+      "country": "United States",
+      "project": "Prometheus #confident",
+      "address": "1 Community Cir, New Albany, OH 43054",
+      "current_h100e": 493683.67862556846,
+      "current_power_mw": 531.0,
+      "current_capex_usd_b_2025": 15.64,
+      "first_operational_date": "2025-10-14",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 531.0,
+        "h100e": 493683.67862556846,
+        "bldgs_op": 7.0,
+        "capex_usd_b": 15.64,
+        "status_text": "The Socrates South power plant to the right of Buildings 7-11 now has 10 natural gas turbines in place, judging by the number of exhaust stacks. Battery backup has been installed nearby. To the north, a new section of tent buildings has begun east of Buildings 15-19. It is unclear how those buildings will be powered, if we assume that the Socrates North power plant is just powering Buildings 15-19.",
+        "last_update": "2026-03-12"
+      },
+      "full_buildout": {
+        "h100e_max": 1030823.6483072259,
+        "power_mw_max": 1110.0,
+        "capex_usd_b_max": 32.71,
+        "end_of_timeline": "2026-10-01"
+      }
+    },
+    {
+      "name": "OpenAI Stargate Abilene",
+      "owner": "Oracle",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "Stargate #confident",
+      "address": "5502 Spinks Rd, Abilene, TX 79601",
+      "current_h100e": 510358.7670540677,
+      "current_power_mw": 590.0,
+      "current_capex_usd_b_2025": 16.14,
+      "first_operational_date": "2025-06-28",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 590.0,
+        "h100e": 510358.7670540677,
+        "bldgs_op": 4.0,
+        "capex_usd_b": 16.14,
+        "status_text": "Building 3 and 4 operational, based on Building 4 construction [end date](https://www.tdlr.texas.gov/TABS/Search/Project/TABS2025014756).",
+        "last_update": "2026-04-01"
+      },
+      "full_buildout": {
+        "h100e_max": 1020717.5341081354,
+        "power_mw_max": 1180.0,
+        "capex_usd_b_max": 32.28,
+        "end_of_timeline": "2026-07-01"
+      }
+    },
+    {
+      "name": "Anthropic-Amazon New Carlisle",
+      "owner": "Amazon",
+      "users": "Anthropic",
+      "country": "United States",
+      "project": "Project Rainier #confident",
+      "address": "55001 Larrison Blvd, New Carlisle, IN 46552",
+      "current_h100e": 685914.059345619,
+      "current_power_mw": 1092.0,
+      "current_capex_usd_b_2025": 34.861708140000005,
+      "first_operational_date": "2025-06-23",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 1092.0,
+        "h100e": 685914.059345619,
+        "bldgs_op": 16.0,
+        "capex_usd_b": 34.861708140000005,
+        "status_text": "Buildings 12-16 are operational. Based on how long previous buildings took, when they were in a similar state to Buildings 12-16 in December.",
+        "last_update": "2026-03-23"
+      },
+      "full_buildout": {
+        "h100e_max": 771653.3167638201,
+        "power_mw_max": 1229.0,
+        "capex_usd_b_max": 39.21942165,
+        "end_of_timeline": "2026-06-21"
+      }
+    },
+    {
+      "name": "Microsoft Fairwater Atlanta",
+      "owner": "Microsoft",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "Microsoft AI WAN #confident",
+      "address": "1435 Hwy 54 W, Fayetteville, GA 30214",
+      "current_h100e": 374125.44637352496,
+      "current_power_mw": 433.0,
+      "current_capex_usd_b_2025": 11.86,
+      "first_operational_date": "2025-10-14",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 433.0,
+        "h100e": 374125.44637352496,
+        "bldgs_op": 2.0,
+        "capex_usd_b": 11.86,
+        "status_text": "Building 4 roof is complete and all mechanical equipment appears to be installed. However, there is still a lot of construction activity around the building. We expect another 3 months for finishing touches and commissioning before it's operational.",
+        "last_update": "2026-02-13"
+      },
+      "full_buildout": {
+        "h100e_max": 741312.6965053765,
+        "power_mw_max": 859.0,
+        "capex_usd_b_max": 23.490000000000002,
+        "end_of_timeline": "2026-05-14"
+      }
+    },
+    {
+      "name": "Coreweave Helios",
+      "owner": "Coreweave",
+      "users": "Microsoft",
+      "country": "United States",
+      "project": "",
+      "address": "984 County Road 112, Afton, TX 79920",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2026-06-30",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Backup generator pads and steel framing for chillers are visible, similar to the [3D renderings](https://www.galaxy.com/data-centers).",
+        "last_update": "2025-08-27"
+      },
+      "full_buildout": {
+        "h100e_max": 638207.072947418,
+        "power_mw_max": 800.0,
+        "capex_usd_b_max": 20.22,
+        "end_of_timeline": "2029-01-01"
+      }
+    },
+    {
+      "name": "Amazon Ridgeland",
+      "owner": "Amazon",
+      "users": "Anthropic",
+      "country": "United States",
+      "project": "Project Rainier #speculative",
+      "address": "1626 County Line Road Ridgeland, Mississippi",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2026-05-19",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Roof complete on Buildings 3",
+        "last_update": "2025-10-04"
+      },
+      "full_buildout": {
+        "h100e_max": 633151.4393959525,
+        "power_mw_max": 1008.0,
+        "capex_usd_b_max": 32.18003827,
+        "end_of_timeline": "2027-09-21"
+      }
+    },
+    {
+      "name": "QTS Richmond",
+      "owner": "",
+      "users": "",
+      "country": "United States",
+      "project": "",
+      "address": "6000 Technology Blvd, Sandston, VA 23150",
+      "current_h100e": 492167.7614957049,
+      "current_power_mw": 854.0,
+      "current_capex_usd_b_2025": 32.72,
+      "first_operational_date": "2023-10-01",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 854.0,
+        "h100e": 492167.7614957049,
+        "bldgs_op": 14.0,
+        "capex_usd_b": 32.72,
+        "status_text": "Building 15 looks structurally complete.",
+        "last_update": "2026-02-15"
+      },
+      "full_buildout": {
+        "h100e_max": 550783.2238504295,
+        "power_mw_max": 921.0,
+        "capex_usd_b_max": 35.29,
+        "end_of_timeline": "2026-06-15"
+      }
+    },
+    {
+      "name": "Amazon Madison Mega Site",
+      "owner": "Amazon",
+      "users": "Anthropic",
+      "country": "United States",
+      "project": "Project Rainier #speculative",
+      "address": "Amazon Data Services Inc, Madison Mega Site Nissan Parkway and Highway 22 Canton, Mississippi Madison County",
+      "current_h100e": 214348.14354550533,
+      "current_power_mw": 341.0,
+      "current_capex_usd_b_2025": 10.894283791,
+      "first_operational_date": "2025-06-23",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 341.0,
+        "h100e": 214348.14354550533,
+        "bldgs_op": 5.0,
+        "capex_usd_b": 10.894283791,
+        "status_text": "Confirmation that five buildings are fully equipped with cooling and backup generators.",
+        "last_update": "2025-10-04"
+      },
+      "full_buildout": {
+        "h100e_max": 514435.54450921173,
+        "power_mw_max": 819.0,
+        "capex_usd_b_max": 26.146281097,
+        "end_of_timeline": "2026-09-18"
+      }
+    },
+    {
+      "name": "Fluidstack Lake Mariner",
+      "owner": "Fluidstack",
+      "users": "Anthropic, G42",
+      "country": "United States",
+      "project": "",
+      "address": "7725 Lake Rd, Barker, NY 14012",
+      "current_h100e": 71753.4108135422,
+      "current_power_mw": 68.0,
+      "current_capex_usd_b_2025": 2.2199999999999998,
+      "first_operational_date": "2025-10-01",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 68.0,
+        "h100e": 71753.4108135422,
+        "bldgs_op": 2.0,
+        "capex_usd_b": 2.2199999999999998,
+        "status_text": "Building 2 is operational. On February 26, Terawulf [stated](https://investors.terawulf.com/news-events/press-releases/detail/132/terawulf-reports-fourth-quarter-and-full-year-2025-results) that CB2A is operational, presumably making up half the final capacity. CB2B was expected in March 2026. This building is [leased](https://investors.terawulf.com/news-events/press-releases/detail/99/terawulf-to-deliver-over-70-mw-of-data-center) to Core42, a subsidiary of UAE-based G42. It likely uses NVIDIA DGX B200 servers. ",
+        "last_update": "2026-03-31"
+      },
+      "full_buildout": {
+        "h100e_max": 469429.0045477514,
+        "power_mw_max": 509.0,
+        "capex_usd_b_max": 16.7,
+        "end_of_timeline": "2027-03-31"
+      }
+    },
+    {
+      "name": "Google New Albany",
+      "owner": "Google",
+      "users": "Google DeepMind",
+      "country": "United States",
+      "project": "",
+      "address": "1101 Beech Rd SW, New Albany, OH 43054",
+      "current_h100e": 207175.3410813542,
+      "current_power_mw": 407.0,
+      "current_capex_usd_b_2025": 13.005422293,
+      "first_operational_date": "2024-04-20",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 407.0,
+        "h100e": 207175.3410813542,
+        "bldgs_op": 4.0,
+        "capex_usd_b": 13.005422293,
+        "status_text": "Water vapor from cooling towers is present across Building 1-4, confirming their operation. Building 5 roof is still incomplete, but most backup generators and 5 cooling towers have been installed.",
+        "last_update": "2026-01-18"
+      },
+      "full_buildout": {
+        "h100e_max": 327943.4057604851,
+        "power_mw_max": 543.0,
+        "capex_usd_b_max": 17.340563053,
+        "end_of_timeline": "2026-12-18"
+      }
+    },
+    {
+      "name": "Google Omaha",
+      "owner": "Google",
+      "users": "Google DeepMind",
+      "country": "United States",
+      "project": "",
+      "address": "11110 State St, Omaha, NE 68142",
+      "current_h100e": 65184.4365841334,
+      "current_power_mw": 189.0,
+      "current_capex_usd_b_2025": 6.049033625,
+      "first_operational_date": "2024-04-08",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 189.0,
+        "h100e": 65184.4365841334,
+        "bldgs_op": 2.0,
+        "capex_usd_b": 6.049033625,
+        "status_text": "Building 3 has all backup generators in place but they are still being installed. Two cooling towers have fans on them, with more underway. To the south of Building 3, more land has been cleared and there's a new carpark. This suggests another building will soon start construction.",
+        "last_update": "2025-10-21"
+      },
+      "full_buildout": {
+        "h100e_max": 320363.82011116727,
+        "power_mw_max": 474.0,
+        "capex_usd_b_max": 15.122584066,
+        "end_of_timeline": "2027-07-26"
+      }
+    },
+    {
+      "name": "Google Pryor (North)",
+      "owner": "Google",
+      "users": "Google DeepMind",
+      "country": "United States",
+      "project": "",
+      "address": "4581 Webb St, Pryor, OK 74361",
+      "current_h100e": 17938.35270338555,
+      "current_power_mw": 65.0,
+      "current_capex_usd_b_2025": 2.070330583,
+      "first_operational_date": "2024-07-19",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 65.0,
+        "h100e": 17938.35270338555,
+        "bldgs_op": 1.0,
+        "capex_usd_b": 2.070330583,
+        "status_text": "The new substation for Building 2 looks mostly complete, half of the cooling towers are installed. The black patch in the top left of the building suggests that the new roof is not quite complete.",
+        "last_update": "2025-10-19"
+      },
+      "full_buildout": {
+        "h100e_max": 308236.4830722587,
+        "power_mw_max": 454.0,
+        "capex_usd_b_max": 14.492314081,
+        "end_of_timeline": "2026-05-17"
+      }
+    },
+    {
+      "name": "xAI Colossus 1",
+      "owner": "xAI",
+      "users": "xAI",
+      "country": "United States",
+      "project": "",
+      "address": "3231 Riverport Rd, Memphis, TN 38109",
+      "current_h100e": 275795.85649317835,
+      "current_power_mw": 425.0,
+      "current_capex_usd_b_2025": 11.43,
+      "first_operational_date": "2024-08-11",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 425.0,
+        "h100e": 275795.85649317835,
+        "bldgs_op": 1.0,
+        "capex_usd_b": 11.43,
+        "status_text": "All air-cooled chillers have been disconnected and/or removed from the site, leaving only the cooling towers for cooling. The third substation looks complete, with red cables connected to the building.",
+        "last_update": "2026-02-11"
+      },
+      "full_buildout": {
+        "h100e_max": 275795.85649317835,
+        "power_mw_max": 442.0,
+        "capex_usd_b_max": 11.43,
+        "end_of_timeline": "2026-02-11"
+      }
+    },
+    {
+      "name": "STACK Infrastructure NVA02",
+      "owner": "",
+      "users": "",
+      "country": "United States",
+      "project": "",
+      "address": "9590 Hornbaker Rd, Manassas, VA 20109",
+      "current_h100e": 61141.99090449722,
+      "current_power_mw": 118.0,
+      "current_capex_usd_b_2025": 5.17,
+      "first_operational_date": "2024-10-01",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 118.0,
+        "h100e": 61141.99090449722,
+        "bldgs_op": 1.0,
+        "capex_usd_b": 5.17,
+        "status_text": "All buildings have begun construction (with groundwork starting for AI building 6), as depicted by satellite imagery.",
+        "last_update": "2026-02-14"
+      },
+      "full_buildout": {
+        "h100e_max": 250631.63213744314,
+        "power_mw_max": 487.0,
+        "capex_usd_b_max": 21.28,
+        "end_of_timeline": "2028-01-01"
+      }
+    },
+    {
+      "name": "Meta Temple",
+      "owner": "Meta",
+      "users": "Meta",
+      "country": "United States",
+      "project": "",
+      "address": "2310 Eberhardt Rd, Temple, TX 76504",
+      "current_h100e": 173247.6719844078,
+      "current_power_mw": 198.0,
+      "current_capex_usd_b_2025": 5.83,
+      "first_operational_date": "2025-12-09",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 198.0,
+        "h100e": 173247.6719844078,
+        "bldgs_op": 2.0,
+        "capex_usd_b": 5.83,
+        "status_text": "Building 1 and 2 are operational. Activity related to the air quality permit (namely, emergency diesel generators) was reported to have started as of 2025-12-09. This is our best estimate, but note that the planned completion date in this [regulatory filing](https://www.tdlr.texas.gov/TABS/Search/Project/TABS2022017728) is 2026-03-01.",
+        "last_update": "2025-12-09"
+      },
+      "full_buildout": {
+        "h100e_max": 208318.05092862,
+        "power_mw_max": 238.0,
+        "capex_usd_b_max": 7.0,
+        "end_of_timeline": "2026-09-30"
+      }
+    },
+    {
+      "name": "Microsoft Goodyear",
+      "owner": "Microsoft",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "",
+      "address": "14250 W Broadway Rd, Goodyear, AZ 85338",
+      "current_h100e": 205145.18579951796,
+      "current_power_mw": 263.0,
+      "current_capex_usd_b_2025": 7.9,
+      "first_operational_date": "2023-04-24",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 263.0,
+        "h100e": 205145.18579951796,
+        "bldgs_op": 4.0,
+        "capex_usd_b": 7.9,
+        "status_text": "Confirmation that Building 3 and 4 look complete.",
+        "last_update": "2025-11-12"
+      },
+      "full_buildout": {
+        "h100e_max": 205145.18579951796,
+        "power_mw_max": 263.0,
+        "capex_usd_b_max": 7.9,
+        "end_of_timeline": "2025-11-12"
+      }
+    },
+    {
+      "name": "Google Council Bluffs (East)",
+      "owner": "Google",
+      "users": "Google DeepMind",
+      "country": "United States",
+      "project": "",
+      "address": "10410 Bunge Ave, Council Bluffs, IA 51503",
+      "current_h100e": 92470.94492167761,
+      "current_power_mw": 190.0,
+      "current_capex_usd_b_2025": 6.050000000000001,
+      "first_operational_date": "2024-11-19",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 190.0,
+        "h100e": 92470.94492167761,
+        "bldgs_op": 2.0,
+        "capex_usd_b": 6.050000000000001,
+        "status_text": "Building 3 has all 34 backup generators installed and 4 cooling towers installed, with 3 more cooling towers under construction. There are gaps between cooling towers suggesting that more could be added. Buildings 1 and 2 are running close to full capacity, given that water vapor is coming out of 5 of 7 cooling towers for each building. The land cleared in the southwest appears to be shaped for two more similar buildings, with notches for substations.",
+        "last_update": "2026-01-11"
+      },
+      "full_buildout": {
+        "h100e_max": 163213.74431531076,
+        "power_mw_max": 284.0,
+        "capex_usd_b_max": 9.08,
+        "end_of_timeline": "2026-06-10"
+      }
+    },
+    {
+      "name": "Stream Phoenix",
+      "owner": "",
+      "users": "",
+      "country": "United States",
+      "project": "",
+      "address": "2950 S. Litchfield Road",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2026-05-01",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Major construction has finished on AI building 1, and AI building 6 has been expedited, as depicted by satellite imagery.",
+        "last_update": "2026-01-31"
+      },
+      "full_buildout": {
+        "h100e_max": 160181.91005558363,
+        "power_mw_max": 267.0,
+        "capex_usd_b_max": 11.66,
+        "end_of_timeline": "2030-01-01"
+      }
+    },
+    {
+      "name": "Vantage TX1",
+      "owner": "",
+      "users": "",
+      "country": "United States",
+      "project": "",
+      "address": "Goodyear, Arizona 85338",
+      "current_h100e": 38706.417382516425,
+      "current_power_mw": 44.8,
+      "current_capex_usd_b_2025": 1.22,
+      "first_operational_date": "2026-02-15",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 44.8,
+        "h100e": 38706.417382516425,
+        "bldgs_op": 1.0,
+        "capex_usd_b": 1.22,
+        "status_text": "Building 1 operational; Roads around Building 1 complete, all cooling and side generator equipment construction has since finished as well. Although this is still earlier than the completion date reported on TDLR, based on the appearance, we believe it is operational. Reported IT power of 32 MW. [Source](https://www.tdlr.texas.gov/TABS/Search/Project/TABS2024007561)",
+        "last_update": "2026-02-15"
+      },
+      "full_buildout": {
+        "h100e_max": 154623.54724608388,
+        "power_mw_max": 179.2,
+        "capex_usd_b_max": 4.9,
+        "end_of_timeline": "2027-08-31"
+      }
+    },
+    {
+      "name": "Alibaba Zhangbei",
+      "owner": "Alibaba",
+      "users": "Alibaba",
+      "country": "China",
+      "project": "",
+      "address": "Alibaba Zhangbei Yun Calculation Data Center, Zhangbei County, Zhangjiakou, Hebei, China, 076471",
+      "current_h100e": 132895.40171803941,
+      "current_power_mw": 203.0,
+      "current_capex_usd_b_2025": 6.483082454,
+      "first_operational_date": "2025-09-17",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 203.0,
+        "h100e": 132895.40171803941,
+        "bldgs_op": 6.0,
+        "capex_usd_b": 6.483082454,
+        "status_text": "Expect Building 4-6 have finished upgrading with new chillers.",
+        "last_update": "2026-01-03"
+      },
+      "full_buildout": {
+        "h100e_max": 132895.40171803941,
+        "power_mw_max": 203.0,
+        "capex_usd_b_max": 6.483082454,
+        "end_of_timeline": "2026-01-03"
+      }
+    },
+    {
+      "name": "OpenAI Stargate Lordstown",
+      "owner": "Softbank",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "Stargate #confident",
+      "address": "2300 Hallock Young Rd, Warren, OH 44481",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": null,
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Still no visible construction, although construction within preexisting facilities",
+        "last_update": "2026-02-27"
+      },
+      "full_buildout": {
+        "h100e_max": 0.0,
+        "power_mw_max": 0.0,
+        "capex_usd_b_max": 0.0,
+        "end_of_timeline": "2026-02-27"
+      }
+    }
+  ],
+  "by_owner_current": {
+    "Amazon": {
+      "h100e": 900262.2028911244,
+      "power_mw": 1433.0,
+      "capex_usd_b": 45.755991931000004,
+      "n_sites": 3.0
+    },
+    "Microsoft": {
+      "h100e": 1138098.3229259485,
+      "power_mw": 1251.0,
+      "capex_usd_b": 37.47,
+      "n_sites": 4.0
+    },
+    "Oracle": {
+      "h100e": 510358.7670540677,
+      "power_mw": 590.0,
+      "capex_usd_b": 16.14,
+      "n_sites": 5.0
+    },
+    "Meta": {
+      "h100e": 666931.3506099762,
+      "power_mw": 729.0,
+      "capex_usd_b": 21.47,
+      "n_sites": 3.0
+    },
+    "(unspecified)": {
+      "h100e": 592016.1697827185,
+      "power_mw": 1016.8,
+      "capex_usd_b": 39.11,
+      "n_sites": 5.0
+    },
+    "xAI": {
+      "h100e": 275795.85649317835,
+      "power_mw": 425.0,
+      "capex_usd_b": 11.43,
+      "n_sites": 2.0
+    },
+    "Google": {
+      "h100e": 454017.18039413844,
+      "power_mw": 956.0,
+      "capex_usd_b": 30.514786501,
+      "n_sites": 6.0
+    },
+    "Alibaba": {
+      "h100e": 132895.40171803941,
+      "power_mw": 203.0,
+      "capex_usd_b": 6.483082454,
+      "n_sites": 1.0
+    },
+    "Fluidstack": {
+      "h100e": 71753.4108135422,
+      "power_mw": 68.0,
+      "capex_usd_b": 2.2199999999999998,
+      "n_sites": 1.0
+    },
+    "G42": {
+      "h100e": 0.0,
+      "power_mw": 0.0,
+      "capex_usd_b": 0.0,
+      "n_sites": 1.0
+    },
+    "Coreweave": {
+      "h100e": 0.0,
+      "power_mw": 0.0,
+      "capex_usd_b": 0.0,
+      "n_sites": 1.0
+    },
+    "Softbank": {
+      "h100e": 0.0,
+      "power_mw": 0.0,
+      "capex_usd_b": 0.0,
+      "n_sites": 2.0
+    }
+  },
+  "by_owner_buildout": {
+    "Amazon": {
+      "h100e": 1919240.3006689844,
+      "power_mw": 3056.0,
+      "capex_usd_b": 97.545741017,
+      "n_sites": 3.0
+    },
+    "Microsoft": {
+      "h100e": 7618512.859566137,
+      "power_mw": 5391.0,
+      "capex_usd_b": 163.38000000000002,
+      "n_sites": 4.0
+    },
+    "Oracle": {
+      "h100e": 15290550.783223849,
+      "power_mw": 8033.0,
+      "capex_usd_b": 218.77,
+      "n_sites": 5.0
+    },
+    "Meta": {
+      "h100e": 5392092.781291207,
+      "power_mw": 3610.0,
+      "capex_usd_b": 111.92000000000002,
+      "n_sites": 3.0
+    },
+    "(unspecified)": {
+      "h100e": 4634800.235003421,
+      "power_mw": 3441.2,
+      "capex_usd_b": 116.55,
+      "n_sites": 5.0
+    },
+    "xAI": {
+      "h100e": 1665386.558868115,
+      "power_mw": 1936.0,
+      "capex_usd_b": 55.46685,
+      "n_sites": 2.0
+    },
+    "Google": {
+      "h100e": 3899373.377563213,
+      "power_mw": 3469.6,
+      "capex_usd_b": 108.44432487,
+      "n_sites": 6.0
+    },
+    "Alibaba": {
+      "h100e": 132895.40171803941,
+      "power_mw": 203.0,
+      "capex_usd_b": 6.483082454,
+      "n_sites": 1.0
+    },
+    "Fluidstack": {
+      "h100e": 469429.0045477514,
+      "power_mw": 509.0,
+      "capex_usd_b": 16.7,
+      "n_sites": 1.0
+    },
+    "G42": {
+      "h100e": 2021222.83981809,
+      "power_mw": 1400.0,
+      "capex_usd_b": 38.31,
+      "n_sites": 1.0
+    },
+    "Coreweave": {
+      "h100e": 638207.072947418,
+      "power_mw": 800.0,
+      "capex_usd_b": 20.22,
+      "n_sites": 1.0
+    },
+    "Softbank": {
+      "h100e": 2496210.207175341,
+      "power_mw": 1200.0,
+      "capex_usd_b": 32.839999999999996,
+      "n_sites": 2.0
+    }
+  },
+  "by_user_current": {
+    "Anthropic": {
+      "h100e": 936138.9082978955,
+      "power_mw": 1467.0,
+      "capex_usd_b": 46.865991931,
+      "n_sites": 3.5
+    },
+    "OpenAI": {
+      "h100e": 1369043.2446035633,
+      "power_mw": 1563.5,
+      "capex_usd_b": 44.755,
+      "n_sites": 10.5
+    },
+    "Microsoft": {
+      "h100e": 279413.8453764528,
+      "power_mw": 277.5,
+      "capex_usd_b": 8.855,
+      "n_sites": 2.5
+    },
+    "Meta": {
+      "h100e": 666931.3506099762,
+      "power_mw": 729.0,
+      "capex_usd_b": 21.47,
+      "n_sites": 3.0
+    },
+    "(unspecified)": {
+      "h100e": 592016.1697827185,
+      "power_mw": 1016.8,
+      "capex_usd_b": 39.11,
+      "n_sites": 5.0
+    },
+    "xAI": {
+      "h100e": 275795.85649317835,
+      "power_mw": 425.0,
+      "capex_usd_b": 11.43,
+      "n_sites": 2.0
+    },
+    "Google DeepMind": {
+      "h100e": 454017.18039413844,
+      "power_mw": 956.0,
+      "capex_usd_b": 30.514786501,
+      "n_sites": 6.0
+    },
+    "Alibaba": {
+      "h100e": 132895.40171803941,
+      "power_mw": 203.0,
+      "capex_usd_b": 6.483082454,
+      "n_sites": 1.0
+    },
+    "G42": {
+      "h100e": 35876.7054067711,
+      "power_mw": 34.0,
+      "capex_usd_b": 1.1099999999999999,
+      "n_sites": 0.5
+    }
+  },
+  "by_user_buildout": {
+    "Anthropic": {
+      "h100e": 2153954.80294286,
+      "power_mw": 3310.5,
+      "capex_usd_b": 105.89574101699999,
+      "n_sites": 3.5
+    },
+    "OpenAI": {
+      "h100e": 23350196.33606942,
+      "power_mw": 13419.0,
+      "capex_usd_b": 374.435,
+      "n_sites": 10.5
+    },
+    "Microsoft": {
+      "h100e": 4714507.426661415,
+      "power_mw": 3405.0,
+      "capex_usd_b": 99.085,
+      "n_sites": 2.5
+    },
+    "Meta": {
+      "h100e": 5392092.781291207,
+      "power_mw": 3610.0,
+      "capex_usd_b": 111.92000000000002,
+      "n_sites": 3.0
+    },
+    "(unspecified)": {
+      "h100e": 4634800.235003421,
+      "power_mw": 3441.2,
+      "capex_usd_b": 116.55,
+      "n_sites": 5.0
+    },
+    "xAI": {
+      "h100e": 1665386.558868115,
+      "power_mw": 1936.0,
+      "capex_usd_b": 55.46685,
+      "n_sites": 2.0
+    },
+    "Google DeepMind": {
+      "h100e": 3899373.377563213,
+      "power_mw": 3469.6,
+      "capex_usd_b": 108.44432487,
+      "n_sites": 6.0
+    },
+    "Alibaba": {
+      "h100e": 132895.40171803941,
+      "power_mw": 203.0,
+      "capex_usd_b": 6.483082454,
+      "n_sites": 1.0
+    },
+    "G42": {
+      "h100e": 234714.5022738757,
+      "power_mw": 254.5,
+      "capex_usd_b": 8.35,
+      "n_sites": 0.5
+    }
+  },
+  "operational_sites": [
+    {
+      "name": "Anthropic-Amazon New Carlisle",
+      "owner": "Amazon",
+      "users": "Anthropic",
+      "country": "United States",
+      "project": "Project Rainier #confident",
+      "address": "55001 Larrison Blvd, New Carlisle, IN 46552",
+      "current_h100e": 685914.059345619,
+      "current_power_mw": 1092.0,
+      "current_capex_usd_b_2025": 34.861708140000005,
+      "first_operational_date": "2025-06-23",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 1092.0,
+        "h100e": 685914.059345619,
+        "bldgs_op": 16.0,
+        "capex_usd_b": 34.861708140000005,
+        "status_text": "Buildings 12-16 are operational. Based on how long previous buildings took, when they were in a similar state to Buildings 12-16 in December.",
+        "last_update": "2026-03-23"
+      },
+      "full_buildout": {
+        "h100e_max": 771653.3167638201,
+        "power_mw_max": 1229.0,
+        "capex_usd_b_max": 39.21942165,
+        "end_of_timeline": "2026-06-21"
+      }
+    },
+    {
+      "name": "Microsoft Fairwater Wisconsin",
+      "owner": "Microsoft",
+      "users": "OpenAI, Microsoft",
+      "country": "United States",
+      "project": "Microsoft AI WAN #confident",
+      "address": "4800 90th St, Mount Pleasant, WI 53403",
+      "current_h100e": 558827.6907529056,
+      "current_power_mw": 555.0,
+      "current_capex_usd_b_2025": 17.71,
+      "first_operational_date": "2026-04-16",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 555.0,
+        "h100e": 558827.6907529056,
+        "bldgs_op": 1.0,
+        "capex_usd_b": 17.71,
+        "status_text": "Building 1 operational. [X post](https://x.com/satyanadella/status/2044767391293509761?s=61) from Microsoft saying this date for Fairwater becoming operational. ",
+        "last_update": "2026-04-16"
+      },
+      "full_buildout": {
+        "h100e_max": 5191509.247094492,
+        "power_mw_max": 3328.0,
+        "capex_usd_b_max": 106.25,
+        "end_of_timeline": "2027-10-03"
+      }
+    },
+    {
+      "name": "OpenAI Stargate Abilene",
+      "owner": "Oracle",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "Stargate #confident",
+      "address": "5502 Spinks Rd, Abilene, TX 79601",
+      "current_h100e": 510358.7670540677,
+      "current_power_mw": 590.0,
+      "current_capex_usd_b_2025": 16.14,
+      "first_operational_date": "2025-06-28",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 590.0,
+        "h100e": 510358.7670540677,
+        "bldgs_op": 4.0,
+        "capex_usd_b": 16.14,
+        "status_text": "Building 3 and 4 operational, based on Building 4 construction [end date](https://www.tdlr.texas.gov/TABS/Search/Project/TABS2025014756).",
+        "last_update": "2026-04-01"
+      },
+      "full_buildout": {
+        "h100e_max": 1020717.5341081354,
+        "power_mw_max": 1180.0,
+        "capex_usd_b_max": 32.28,
+        "end_of_timeline": "2026-07-01"
+      }
+    },
+    {
+      "name": "Meta Prometheus",
+      "owner": "Meta",
+      "users": "Meta",
+      "country": "United States",
+      "project": "Prometheus #confident",
+      "address": "1 Community Cir, New Albany, OH 43054",
+      "current_h100e": 493683.67862556846,
+      "current_power_mw": 531.0,
+      "current_capex_usd_b_2025": 15.64,
+      "first_operational_date": "2025-10-14",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 531.0,
+        "h100e": 493683.67862556846,
+        "bldgs_op": 7.0,
+        "capex_usd_b": 15.64,
+        "status_text": "The Socrates South power plant to the right of Buildings 7-11 now has 10 natural gas turbines in place, judging by the number of exhaust stacks. Battery backup has been installed nearby. To the north, a new section of tent buildings has begun east of Buildings 15-19. It is unclear how those buildings will be powered, if we assume that the Socrates North power plant is just powering Buildings 15-19.",
+        "last_update": "2026-03-12"
+      },
+      "full_buildout": {
+        "h100e_max": 1030823.6483072259,
+        "power_mw_max": 1110.0,
+        "capex_usd_b_max": 32.71,
+        "end_of_timeline": "2026-10-01"
+      }
+    },
+    {
+      "name": "QTS Richmond",
+      "owner": "",
+      "users": "",
+      "country": "United States",
+      "project": "",
+      "address": "6000 Technology Blvd, Sandston, VA 23150",
+      "current_h100e": 492167.7614957049,
+      "current_power_mw": 854.0,
+      "current_capex_usd_b_2025": 32.72,
+      "first_operational_date": "2023-10-01",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 854.0,
+        "h100e": 492167.7614957049,
+        "bldgs_op": 14.0,
+        "capex_usd_b": 32.72,
+        "status_text": "Building 15 looks structurally complete.",
+        "last_update": "2026-02-15"
+      },
+      "full_buildout": {
+        "h100e_max": 550783.2238504295,
+        "power_mw_max": 921.0,
+        "capex_usd_b_max": 35.29,
+        "end_of_timeline": "2026-06-15"
+      }
+    },
+    {
+      "name": "Microsoft Fairwater Atlanta",
+      "owner": "Microsoft",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "Microsoft AI WAN #confident",
+      "address": "1435 Hwy 54 W, Fayetteville, GA 30214",
+      "current_h100e": 374125.44637352496,
+      "current_power_mw": 433.0,
+      "current_capex_usd_b_2025": 11.86,
+      "first_operational_date": "2025-10-14",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 433.0,
+        "h100e": 374125.44637352496,
+        "bldgs_op": 2.0,
+        "capex_usd_b": 11.86,
+        "status_text": "Building 4 roof is complete and all mechanical equipment appears to be installed. However, there is still a lot of construction activity around the building. We expect another 3 months for finishing touches and commissioning before it's operational.",
+        "last_update": "2026-02-13"
+      },
+      "full_buildout": {
+        "h100e_max": 741312.6965053765,
+        "power_mw_max": 859.0,
+        "capex_usd_b_max": 23.490000000000002,
+        "end_of_timeline": "2026-05-14"
+      }
+    },
+    {
+      "name": "xAI Colossus 1",
+      "owner": "xAI",
+      "users": "xAI",
+      "country": "United States",
+      "project": "",
+      "address": "3231 Riverport Rd, Memphis, TN 38109",
+      "current_h100e": 275795.85649317835,
+      "current_power_mw": 425.0,
+      "current_capex_usd_b_2025": 11.43,
+      "first_operational_date": "2024-08-11",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 425.0,
+        "h100e": 275795.85649317835,
+        "bldgs_op": 1.0,
+        "capex_usd_b": 11.43,
+        "status_text": "All air-cooled chillers have been disconnected and/or removed from the site, leaving only the cooling towers for cooling. The third substation looks complete, with red cables connected to the building.",
+        "last_update": "2026-02-11"
+      },
+      "full_buildout": {
+        "h100e_max": 275795.85649317835,
+        "power_mw_max": 442.0,
+        "capex_usd_b_max": 11.43,
+        "end_of_timeline": "2026-02-11"
+      }
+    },
+    {
+      "name": "Amazon Madison Mega Site",
+      "owner": "Amazon",
+      "users": "Anthropic",
+      "country": "United States",
+      "project": "Project Rainier #speculative",
+      "address": "Amazon Data Services Inc, Madison Mega Site Nissan Parkway and Highway 22 Canton, Mississippi Madison County",
+      "current_h100e": 214348.14354550533,
+      "current_power_mw": 341.0,
+      "current_capex_usd_b_2025": 10.894283791,
+      "first_operational_date": "2025-06-23",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 341.0,
+        "h100e": 214348.14354550533,
+        "bldgs_op": 5.0,
+        "capex_usd_b": 10.894283791,
+        "status_text": "Confirmation that five buildings are fully equipped with cooling and backup generators.",
+        "last_update": "2025-10-04"
+      },
+      "full_buildout": {
+        "h100e_max": 514435.54450921173,
+        "power_mw_max": 819.0,
+        "capex_usd_b_max": 26.146281097,
+        "end_of_timeline": "2026-09-18"
+      }
+    },
+    {
+      "name": "Google New Albany",
+      "owner": "Google",
+      "users": "Google DeepMind",
+      "country": "United States",
+      "project": "",
+      "address": "1101 Beech Rd SW, New Albany, OH 43054",
+      "current_h100e": 207175.3410813542,
+      "current_power_mw": 407.0,
+      "current_capex_usd_b_2025": 13.005422293,
+      "first_operational_date": "2024-04-20",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 407.0,
+        "h100e": 207175.3410813542,
+        "bldgs_op": 4.0,
+        "capex_usd_b": 13.005422293,
+        "status_text": "Water vapor from cooling towers is present across Building 1-4, confirming their operation. Building 5 roof is still incomplete, but most backup generators and 5 cooling towers have been installed.",
+        "last_update": "2026-01-18"
+      },
+      "full_buildout": {
+        "h100e_max": 327943.4057604851,
+        "power_mw_max": 543.0,
+        "capex_usd_b_max": 17.340563053,
+        "end_of_timeline": "2026-12-18"
+      }
+    },
+    {
+      "name": "Microsoft Goodyear",
+      "owner": "Microsoft",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "",
+      "address": "14250 W Broadway Rd, Goodyear, AZ 85338",
+      "current_h100e": 205145.18579951796,
+      "current_power_mw": 263.0,
+      "current_capex_usd_b_2025": 7.9,
+      "first_operational_date": "2023-04-24",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 263.0,
+        "h100e": 205145.18579951796,
+        "bldgs_op": 4.0,
+        "capex_usd_b": 7.9,
+        "status_text": "Confirmation that Building 3 and 4 look complete.",
+        "last_update": "2025-11-12"
+      },
+      "full_buildout": {
+        "h100e_max": 205145.18579951796,
+        "power_mw_max": 263.0,
+        "capex_usd_b_max": 7.9,
+        "end_of_timeline": "2025-11-12"
+      }
+    },
+    {
+      "name": "Meta Temple",
+      "owner": "Meta",
+      "users": "Meta",
+      "country": "United States",
+      "project": "",
+      "address": "2310 Eberhardt Rd, Temple, TX 76504",
+      "current_h100e": 173247.6719844078,
+      "current_power_mw": 198.0,
+      "current_capex_usd_b_2025": 5.83,
+      "first_operational_date": "2025-12-09",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 198.0,
+        "h100e": 173247.6719844078,
+        "bldgs_op": 2.0,
+        "capex_usd_b": 5.83,
+        "status_text": "Building 1 and 2 are operational. Activity related to the air quality permit (namely, emergency diesel generators) was reported to have started as of 2025-12-09. This is our best estimate, but note that the planned completion date in this [regulatory filing](https://www.tdlr.texas.gov/TABS/Search/Project/TABS2022017728) is 2026-03-01.",
+        "last_update": "2025-12-09"
+      },
+      "full_buildout": {
+        "h100e_max": 208318.05092862,
+        "power_mw_max": 238.0,
+        "capex_usd_b_max": 7.0,
+        "end_of_timeline": "2026-09-30"
+      }
+    },
+    {
+      "name": "Alibaba Zhangbei",
+      "owner": "Alibaba",
+      "users": "Alibaba",
+      "country": "China",
+      "project": "",
+      "address": "Alibaba Zhangbei Yun Calculation Data Center, Zhangbei County, Zhangjiakou, Hebei, China, 076471",
+      "current_h100e": 132895.40171803941,
+      "current_power_mw": 203.0,
+      "current_capex_usd_b_2025": 6.483082454,
+      "first_operational_date": "2025-09-17",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 203.0,
+        "h100e": 132895.40171803941,
+        "bldgs_op": 6.0,
+        "capex_usd_b": 6.483082454,
+        "status_text": "Expect Building 4-6 have finished upgrading with new chillers.",
+        "last_update": "2026-01-03"
+      },
+      "full_buildout": {
+        "h100e_max": 132895.40171803941,
+        "power_mw_max": 203.0,
+        "capex_usd_b_max": 6.483082454,
+        "end_of_timeline": "2026-01-03"
+      }
+    },
+    {
+      "name": "Google Council Bluffs (East)",
+      "owner": "Google",
+      "users": "Google DeepMind",
+      "country": "United States",
+      "project": "",
+      "address": "10410 Bunge Ave, Council Bluffs, IA 51503",
+      "current_h100e": 92470.94492167761,
+      "current_power_mw": 190.0,
+      "current_capex_usd_b_2025": 6.050000000000001,
+      "first_operational_date": "2024-11-19",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 190.0,
+        "h100e": 92470.94492167761,
+        "bldgs_op": 2.0,
+        "capex_usd_b": 6.050000000000001,
+        "status_text": "Building 3 has all 34 backup generators installed and 4 cooling towers installed, with 3 more cooling towers under construction. There are gaps between cooling towers suggesting that more could be added. Buildings 1 and 2 are running close to full capacity, given that water vapor is coming out of 5 of 7 cooling towers for each building. The land cleared in the southwest appears to be shaped for two more similar buildings, with notches for substations.",
+        "last_update": "2026-01-11"
+      },
+      "full_buildout": {
+        "h100e_max": 163213.74431531076,
+        "power_mw_max": 284.0,
+        "capex_usd_b_max": 9.08,
+        "end_of_timeline": "2026-06-10"
+      }
+    },
+    {
+      "name": "Fluidstack Lake Mariner",
+      "owner": "Fluidstack",
+      "users": "Anthropic, G42",
+      "country": "United States",
+      "project": "",
+      "address": "7725 Lake Rd, Barker, NY 14012",
+      "current_h100e": 71753.4108135422,
+      "current_power_mw": 68.0,
+      "current_capex_usd_b_2025": 2.2199999999999998,
+      "first_operational_date": "2025-10-01",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 68.0,
+        "h100e": 71753.4108135422,
+        "bldgs_op": 2.0,
+        "capex_usd_b": 2.2199999999999998,
+        "status_text": "Building 2 is operational. On February 26, Terawulf [stated](https://investors.terawulf.com/news-events/press-releases/detail/132/terawulf-reports-fourth-quarter-and-full-year-2025-results) that CB2A is operational, presumably making up half the final capacity. CB2B was expected in March 2026. This building is [leased](https://investors.terawulf.com/news-events/press-releases/detail/99/terawulf-to-deliver-over-70-mw-of-data-center) to Core42, a subsidiary of UAE-based G42. It likely uses NVIDIA DGX B200 servers. ",
+        "last_update": "2026-03-31"
+      },
+      "full_buildout": {
+        "h100e_max": 469429.0045477514,
+        "power_mw_max": 509.0,
+        "capex_usd_b_max": 16.7,
+        "end_of_timeline": "2027-03-31"
+      }
+    },
+    {
+      "name": "Google Cedar Rapids",
+      "owner": "Google",
+      "users": "Google DeepMind",
+      "country": "United States",
+      "project": "",
+      "address": "5800 EDGEWOOD RD SW CEDAR RAPIDS, IA 52404",
+      "current_h100e": 71248.10510358767,
+      "current_power_mw": 105.0,
+      "current_capex_usd_b_2025": 3.34,
+      "first_operational_date": "2026-03-29",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 105.0,
+        "h100e": 71248.10510358767,
+        "bldgs_op": 1.0,
+        "capex_usd_b": 3.34,
+        "status_text": "Building 1 is operational. There was still a lot of work to be done on generators and cooling towers as of December, and winter will slow construction. The time from the roof being completed to operational was 7-8 months at Google Omaha, a similar data center.",
+        "last_update": "2026-03-29"
+      },
+      "full_buildout": {
+        "h100e_max": 1121778.6760990398,
+        "power_mw_max": 627.0,
+        "capex_usd_b_max": 20.02,
+        "end_of_timeline": "2028-11-18"
+      }
+    },
+    {
+      "name": "Google Omaha",
+      "owner": "Google",
+      "users": "Google DeepMind",
+      "country": "United States",
+      "project": "",
+      "address": "11110 State St, Omaha, NE 68142",
+      "current_h100e": 65184.4365841334,
+      "current_power_mw": 189.0,
+      "current_capex_usd_b_2025": 6.049033625,
+      "first_operational_date": "2024-04-08",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 189.0,
+        "h100e": 65184.4365841334,
+        "bldgs_op": 2.0,
+        "capex_usd_b": 6.049033625,
+        "status_text": "Building 3 has all backup generators in place but they are still being installed. Two cooling towers have fans on them, with more underway. To the south of Building 3, more land has been cleared and there's a new carpark. This suggests another building will soon start construction.",
+        "last_update": "2025-10-21"
+      },
+      "full_buildout": {
+        "h100e_max": 320363.82011116727,
+        "power_mw_max": 474.0,
+        "capex_usd_b_max": 15.122584066,
+        "end_of_timeline": "2027-07-26"
+      }
+    },
+    {
+      "name": "STACK Infrastructure NVA02",
+      "owner": "",
+      "users": "",
+      "country": "United States",
+      "project": "",
+      "address": "9590 Hornbaker Rd, Manassas, VA 20109",
+      "current_h100e": 61141.99090449722,
+      "current_power_mw": 118.0,
+      "current_capex_usd_b_2025": 5.17,
+      "first_operational_date": "2024-10-01",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 118.0,
+        "h100e": 61141.99090449722,
+        "bldgs_op": 1.0,
+        "capex_usd_b": 5.17,
+        "status_text": "All buildings have begun construction (with groundwork starting for AI building 6), as depicted by satellite imagery.",
+        "last_update": "2026-02-14"
+      },
+      "full_buildout": {
+        "h100e_max": 250631.63213744314,
+        "power_mw_max": 487.0,
+        "capex_usd_b_max": 21.28,
+        "end_of_timeline": "2028-01-01"
+      }
+    },
+    {
+      "name": "Vantage TX1",
+      "owner": "",
+      "users": "",
+      "country": "United States",
+      "project": "",
+      "address": "Goodyear, Arizona 85338",
+      "current_h100e": 38706.417382516425,
+      "current_power_mw": 44.8,
+      "current_capex_usd_b_2025": 1.22,
+      "first_operational_date": "2026-02-15",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 44.8,
+        "h100e": 38706.417382516425,
+        "bldgs_op": 1.0,
+        "capex_usd_b": 1.22,
+        "status_text": "Building 1 operational; Roads around Building 1 complete, all cooling and side generator equipment construction has since finished as well. Although this is still earlier than the completion date reported on TDLR, based on the appearance, we believe it is operational. Reported IT power of 32 MW. [Source](https://www.tdlr.texas.gov/TABS/Search/Project/TABS2024007561)",
+        "last_update": "2026-02-15"
+      },
+      "full_buildout": {
+        "h100e_max": 154623.54724608388,
+        "power_mw_max": 179.2,
+        "capex_usd_b_max": 4.9,
+        "end_of_timeline": "2027-08-31"
+      }
+    },
+    {
+      "name": "Google Pryor (North)",
+      "owner": "Google",
+      "users": "Google DeepMind",
+      "country": "United States",
+      "project": "",
+      "address": "4581 Webb St, Pryor, OK 74361",
+      "current_h100e": 17938.35270338555,
+      "current_power_mw": 65.0,
+      "current_capex_usd_b_2025": 2.070330583,
+      "first_operational_date": "2024-07-19",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 65.0,
+        "h100e": 17938.35270338555,
+        "bldgs_op": 1.0,
+        "capex_usd_b": 2.070330583,
+        "status_text": "The new substation for Building 2 looks mostly complete, half of the cooling towers are installed. The black patch in the top left of the building suggests that the new roof is not quite complete.",
+        "last_update": "2025-10-19"
+      },
+      "full_buildout": {
+        "h100e_max": 308236.4830722587,
+        "power_mw_max": 454.0,
+        "capex_usd_b_max": 14.492314081,
+        "end_of_timeline": "2026-05-17"
+      }
+    },
+    {
+      "name": "xAI Colossus 2",
+      "owner": "xAI",
+      "users": "xAI",
+      "country": "United States",
+      "project": "",
+      "address": "5420 Tulane Rd, Memphis, TN 38109",
+      "current_h100e": null,
+      "current_power_mw": null,
+      "current_capex_usd_b_2025": null,
+      "first_operational_date": "2025-10-19",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 302.0,
+        "h100e": 280837.7920316433,
+        "bldgs_op": 1.0,
+        "capex_usd_b": 8.899895272,
+        "status_text": "Since October, an array of dry cooling air-cooled condensers has been added (the array of large fans to the left of the building), and appears almost complete. Two more similar arrays appear to be under construction. More air-cooled chillers, batteries, and gas turbines have also been installed.",
+        "last_update": "2026-01-13"
+      },
+      "full_buildout": {
+        "h100e_max": 1389590.7023749368,
+        "power_mw_max": 1494.0,
+        "capex_usd_b_max": 44.03685,
+        "end_of_timeline": "2026-05-13"
+      }
+    }
+  ],
+  "committed_sites": [
+    {
+      "name": "Goodnight",
+      "owner": "Google",
+      "users": "Google DeepMind",
+      "country": "United States",
+      "project": "",
+      "address": "10001 Lima Rd, Claude, TX 79019",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2026-06-15",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Construction on Building 1 and 2 looks about halfway to completion. Foundations and utility trenches are visible for Building 3-4. Building 5-6 have an outline. The substation appears to be expanding.",
+        "last_update": "2025-12-23"
+      },
+      "full_buildout": {
+        "h100e_max": 1657837.2482049519,
+        "power_mw_max": 1087.6,
+        "capex_usd_b_max": 32.38886367,
+        "end_of_timeline": "2027-10-01"
+      }
+    },
+    {
+      "name": "Amazon Ridgeland",
+      "owner": "Amazon",
+      "users": "Anthropic",
+      "country": "United States",
+      "project": "Project Rainier #speculative",
+      "address": "1626 County Line Road Ridgeland, Mississippi",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2026-05-19",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Roof complete on Buildings 3",
+        "last_update": "2025-10-04"
+      },
+      "full_buildout": {
+        "h100e_max": 633151.4393959525,
+        "power_mw_max": 1008.0,
+        "capex_usd_b_max": 32.18003827,
+        "end_of_timeline": "2027-09-21"
+      }
+    },
+    {
+      "name": "OpenAI Stargate UAE",
+      "owner": "G42",
+      "users": "OpenAI",
+      "country": "United Arab Emirates",
+      "project": "Stargate #confident",
+      "address": "Nexus L&T Project Office, Al Bihouth, Al Dhafrah, Abu Dhabi, United Arab Emirates",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2026-12-01",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Building 1 and 2 are partly constructed. No clear evidence of more buildings starting construction.",
+        "last_update": "2025-11-16"
+      },
+      "full_buildout": {
+        "h100e_max": 2021222.83981809,
+        "power_mw_max": 1400.0,
+        "capex_usd_b_max": 38.31,
+        "end_of_timeline": "2028-01-01"
+      }
+    },
+    {
+      "name": "Coreweave Helios",
+      "owner": "Coreweave",
+      "users": "Microsoft",
+      "country": "United States",
+      "project": "",
+      "address": "984 County Road 112, Afton, TX 79920",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2026-06-30",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Backup generator pads and steel framing for chillers are visible, similar to the [3D renderings](https://www.galaxy.com/data-centers).",
+        "last_update": "2025-08-27"
+      },
+      "full_buildout": {
+        "h100e_max": 638207.072947418,
+        "power_mw_max": 800.0,
+        "capex_usd_b_max": 20.22,
+        "end_of_timeline": "2029-01-01"
+      }
+    },
+    {
+      "name": "QTS Cedar Rapids",
+      "owner": "",
+      "users": "",
+      "country": "United States",
+      "project": "",
+      "address": "6200 76th Ave SW, Fairfax, IA 52228",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2026-11-15",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Building 1 roof is complete, with air-cooled chillers in place. Building 2 and 3 roofs are partly completed. Building 4 and 5 have a foundation.",
+        "last_update": "2025-10-27"
+      },
+      "full_buildout": {
+        "h100e_max": 3518579.9217138807,
+        "power_mw_max": 1587.0,
+        "capex_usd_b_max": 43.42,
+        "end_of_timeline": "2027-11-15"
+      }
+    },
+    {
+      "name": "OpenAI Stargate Shackelford",
+      "owner": "Oracle",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "Stargate #confident",
+      "address": "175 Private Road 1604, Abilene, TX 79601, Shackelford County",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2027-01-01",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Steel framing is underway for Buildings 1-3, and roofing is underway for Building 1.",
+        "last_update": "2026-04-14"
+      },
+      "full_buildout": {
+        "h100e_max": 4163719.050025265,
+        "power_mw_max": 1960.0,
+        "capex_usd_b_max": 53.629999999999995,
+        "end_of_timeline": "2028-12-31"
+      }
+    },
+    {
+      "name": "Crusoe Abilene Expansion",
+      "owner": "Microsoft",
+      "users": "Microsoft",
+      "country": "United States",
+      "project": "",
+      "address": "5502 Spinks Rd, Abilene, TX 79601",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2027-09-17",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Land clearing continues.",
+        "last_update": "2026-01-15"
+      },
+      "full_buildout": {
+        "h100e_max": 1480545.730166751,
+        "power_mw_max": 941.0,
+        "capex_usd_b_max": 25.74,
+        "end_of_timeline": "2027-11-11"
+      }
+    },
+    {
+      "name": "OpenAI Stargate Lordstown",
+      "owner": "Softbank",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "Stargate #confident",
+      "address": "2300 Hallock Young Rd, Warren, OH 44481",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": null,
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Still no visible construction, although construction within preexisting facilities",
+        "last_update": "2026-02-27"
+      },
+      "full_buildout": {
+        "h100e_max": 0.0,
+        "power_mw_max": 0.0,
+        "capex_usd_b_max": 0.0,
+        "end_of_timeline": "2026-02-27"
+      }
+    },
+    {
+      "name": "OpenAI Stargate New Mexico",
+      "owner": "Oracle",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "Stargate #confident",
+      "address": "",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2028-12-31",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Land clearing continues, foundation construction begins 2 of the main buildings (Building B & D). Construction also beginning on modular chiller plants.",
+        "last_update": "2026-02-06"
+      },
+      "full_buildout": {
+        "h100e_max": 4598281.960586155,
+        "power_mw_max": 2210.0,
+        "capex_usd_b_max": 60.459999999999994,
+        "end_of_timeline": "2028-12-31"
+      }
+    },
+    {
+      "name": "OpenAI Stargate Wisconsin",
+      "owner": "Oracle",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "Stargate #confident",
+      "address": "",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2028-12-31",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Land clearing continues, foundation construction clearly begins for eastern and northern buildings (Building 1-2)",
+        "last_update": "2026-02-14"
+      },
+      "full_buildout": {
+        "h100e_max": 2627589.691763517,
+        "power_mw_max": 1300.0,
+        "capex_usd_b_max": 34.56,
+        "end_of_timeline": "2028-12-31"
+      }
+    },
+    {
+      "name": "OpenAI Stargate Michigan",
+      "owner": "Oracle",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "Stargate #confident",
+      "address": "",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2028-12-31",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Groundwork is visible for Building 1, at the left end of the site.",
+        "last_update": "2026-03-12"
+      },
+      "full_buildout": {
+        "h100e_max": 2880242.5467407783,
+        "power_mw_max": 1383.0,
+        "capex_usd_b_max": 37.84,
+        "end_of_timeline": "2028-12-31"
+      }
+    },
+    {
+      "name": "OpenAI Stargate Milam",
+      "owner": "Softbank",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "Stargate #confident",
+      "address": "",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2028-12-31",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Steel framing and roofing is underway for Building 1.",
+        "last_update": "2026-03-23"
+      },
+      "full_buildout": {
+        "h100e_max": 2496210.207175341,
+        "power_mw_max": 1200.0,
+        "capex_usd_b_max": 32.839999999999996,
+        "end_of_timeline": "2028-12-31"
+      }
+    },
+    {
+      "name": "Stream Phoenix",
+      "owner": "",
+      "users": "",
+      "country": "United States",
+      "project": "",
+      "address": "2950 S. Litchfield Road",
+      "current_h100e": 0.0,
+      "current_power_mw": 0.0,
+      "current_capex_usd_b_2025": 0.0,
+      "first_operational_date": "2026-05-01",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Major construction has finished on AI building 1, and AI building 6 has been expedited, as depicted by satellite imagery.",
+        "last_update": "2026-01-31"
+      },
+      "full_buildout": {
+        "h100e_max": 160181.91005558363,
+        "power_mw_max": 267.0,
+        "capex_usd_b_max": 11.66,
+        "end_of_timeline": "2030-01-01"
+      }
+    },
+    {
+      "name": "Meta Hyperion",
+      "owner": "Meta",
+      "users": "Meta",
+      "country": "United States",
+      "project": "Hyperion #confident",
+      "address": "Holly Ridge, LA 71269",
+      "current_h100e": null,
+      "current_power_mw": null,
+      "current_capex_usd_b_2025": null,
+      "first_operational_date": "2028-01-01",
+      "operational_today": false,
+      "timeline_now": {
+        "power_mw": 0.0,
+        "h100e": 0.0,
+        "bldgs_op": 0.0,
+        "capex_usd_b": 0.0,
+        "status_text": "Foundations are underway for the main buildings, and the overall layout aligns with the [architectural renderings](https://engineering.fb.com/2025/09/29/data-infrastructure/metas-infrastructure-evolution-and-the-advent-of-ai/) published in 2025.",
+        "last_update": "2025-10-19"
+      },
+      "full_buildout": {
+        "h100e_max": 4152951.082055361,
+        "power_mw_max": 2262.0,
+        "capex_usd_b_max": 72.21000000000001,
+        "end_of_timeline": "2028-01-01"
+      }
+    }
+  ],
+  "global_scale_up_timeseries": {
+    "2019-10-19": {
+      "operational_power_mw": 0.0,
+      "operational_h100e": 0.0,
+      "operational_capex_usd_b": 0.0,
+      "operational_n_sites": 0
+    },
+    "2021-06-21": {
+      "operational_power_mw": 0.0,
+      "operational_h100e": 0.0,
+      "operational_capex_usd_b": 0.0,
+      "operational_n_sites": 0
+    },
+    "2021-11-25": {
+      "operational_power_mw": 0.0,
+      "operational_h100e": 0.0,
+      "operational_capex_usd_b": 0.0,
+      "operational_n_sites": 0
+    },
+    "2022-04-01": {
+      "operational_power_mw": 0.0,
+      "operational_h100e": 0.0,
+      "operational_capex_usd_b": 0.0,
+      "operational_n_sites": 0
+    },
+    "2022-04-14": {
+      "operational_power_mw": 0.0,
+      "operational_h100e": 0.0,
+      "operational_capex_usd_b": 0.0,
+      "operational_n_sites": 0
+    },
+    "2022-09-06": {
+      "operational_power_mw": 0.0,
+      "operational_h100e": 0.0,
+      "operational_capex_usd_b": 0.0,
+      "operational_n_sites": 0
+    },
+    "2022-10-03": {
+      "operational_power_mw": 0.0,
+      "operational_h100e": 0.0,
+      "operational_capex_usd_b": 0.0,
+      "operational_n_sites": 0
+    },
+    "2022-10-30": {
+      "operational_power_mw": 0.0,
+      "operational_h100e": 0.0,
+      "operational_capex_usd_b": 0.0,
+      "operational_n_sites": 0
+    },
+    "2023-02-05": {
+      "operational_power_mw": 0.0,
+      "operational_h100e": 0.0,
+      "operational_capex_usd_b": 0.0,
+      "operational_n_sites": 0
+    },
+    "2023-04-01": {
+      "operational_power_mw": 0.0,
+      "operational_h100e": 0.0,
+      "operational_capex_usd_b": 0.0,
+      "operational_n_sites": 0
+    },
+    "2023-04-09": {
+      "operational_power_mw": 0.0,
+      "operational_h100e": 0.0,
+      "operational_capex_usd_b": 0.0,
+      "operational_n_sites": 0
+    },
+    "2023-04-24": {
+      "operational_power_mw": 53.0,
+      "operational_h100e": 29150.947924166045,
+      "operational_capex_usd_b": 1.62,
+      "operational_n_sites": 1
+    },
+    "2023-07-14": {
+      "operational_power_mw": 53.0,
+      "operational_h100e": 29150.947924166045,
+      "operational_capex_usd_b": 1.62,
+      "operational_n_sites": 1
+    },
+    "2023-10-01": {
+      "operational_power_mw": 119.0,
+      "operational_h100e": 48554.68718641971,
+      "operational_capex_usd_b": 4.140000000000001,
+      "operational_n_sites": 2
+    },
+    "2023-10-02": {
+      "operational_power_mw": 119.0,
+      "operational_h100e": 48554.68718641971,
+      "operational_capex_usd_b": 4.140000000000001,
+      "operational_n_sites": 2
+    },
+    "2023-12-15": {
+      "operational_power_mw": 119.0,
+      "operational_h100e": 48554.68718641971,
+      "operational_capex_usd_b": 4.140000000000001,
+      "operational_n_sites": 2
+    },
+    "2024-02-09": {
+      "operational_power_mw": 119.0,
+      "operational_h100e": 48554.68718641971,
+      "operational_capex_usd_b": 4.140000000000001,
+      "operational_n_sites": 2
+    },
+    "2024-02-24": {
+      "operational_power_mw": 119.0,
+      "operational_h100e": 48554.68718641971,
+      "operational_capex_usd_b": 4.140000000000001,
+      "operational_n_sites": 2
+    },
+    "2024-04-01": {
+      "operational_power_mw": 220.0,
+      "operational_h100e": 78317.19350274108,
+      "operational_capex_usd_b": 8.01,
+      "operational_n_sites": 2
+    },
+    "2024-04-08": {
+      "operational_power_mw": 315.0,
+      "operational_h100e": 105906.885266258,
+      "operational_capex_usd_b": 11.0345168123,
+      "operational_n_sites": 3
+    },
+    "2024-04-20": {
+      "operational_power_mw": 396.0,
+      "operational_h100e": 129605.7230631251,
+      "operational_capex_usd_b": 13.6356012713,
+      "operational_n_sites": 4
+    },
+    "2024-04-24": {
+      "operational_power_mw": 396.0,
+      "operational_h100e": 129605.7230631251,
+      "operational_capex_usd_b": 13.6356012713,
+      "operational_n_sites": 4
+    },
+    "2024-05-01": {
+      "operational_power_mw": 396.0,
+      "operational_h100e": 129605.7230631251,
+      "operational_capex_usd_b": 13.6356012713,
+      "operational_n_sites": 4
+    },
+    "2024-05-31": {
+      "operational_power_mw": 396.0,
+      "operational_h100e": 129605.7230631251,
+      "operational_capex_usd_b": 13.6356012713,
+      "operational_n_sites": 4
+    },
+    "2024-06-10": {
+      "operational_power_mw": 396.0,
+      "operational_h100e": 129605.7230631251,
+      "operational_capex_usd_b": 13.6356012713,
+      "operational_n_sites": 4
+    },
+    "2024-07-19": {
+      "operational_power_mw": 461.0,
+      "operational_h100e": 147544.07576651065,
+      "operational_capex_usd_b": 15.705931854300001,
+      "operational_n_sites": 5
+    },
+    "2024-07-23": {
+      "operational_power_mw": 461.0,
+      "operational_h100e": 147544.07576651065,
+      "operational_capex_usd_b": 15.705931854300001,
+      "operational_n_sites": 5
+    },
+    "2024-07-29": {
+      "operational_power_mw": 461.0,
+      "operational_h100e": 147544.07576651065,
+      "operational_capex_usd_b": 15.705931854300001,
+      "operational_n_sites": 5
+    },
+    "2024-08-11": {
+      "operational_power_mw": 506.0,
+      "operational_h100e": 172544.07576651065,
+      "operational_capex_usd_b": 16.8659318543,
+      "operational_n_sites": 6
+    },
+    "2024-09-01": {
+      "operational_power_mw": 571.0,
+      "operational_h100e": 192099.4067417507,
+      "operational_capex_usd_b": 19.375931854300003,
+      "operational_n_sites": 6
+    },
+    "2024-09-02": {
+      "operational_power_mw": 707.0,
+      "operational_h100e": 267099.40674175066,
+      "operational_capex_usd_b": 22.8859318543,
+      "operational_n_sites": 6
+    },
+    "2024-09-13": {
+      "operational_power_mw": 803.0,
+      "operational_h100e": 296962.9742000629,
+      "operational_capex_usd_b": 25.9205303883,
+      "operational_n_sites": 6
+    },
+    "2024-10-01": {
+      "operational_power_mw": 921.0,
+      "operational_h100e": 358104.96510456013,
+      "operational_capex_usd_b": 31.090530388300003,
+      "operational_n_sites": 7
+    },
+    "2024-11-19": {
+      "operational_power_mw": 1110.0,
+      "operational_h100e": 433446.0464587795,
+      "operational_capex_usd_b": 37.145047201000004,
+      "operational_n_sites": 8
+    },
+    "2024-12-20": {
+      "operational_power_mw": 1110.0,
+      "operational_h100e": 433446.0464587795,
+      "operational_capex_usd_b": 37.145047201000004,
+      "operational_n_sites": 8
+    },
+    "2024-12-30": {
+      "operational_power_mw": 1312.0,
+      "operational_h100e": 493072.1202334132,
+      "operational_capex_usd_b": 44.87504720100001,
+      "operational_n_sites": 8
+    },
+    "2025-01-16": {
+      "operational_power_mw": 1364.0,
+      "operational_h100e": 522223.06815757917,
+      "operational_capex_usd_b": 46.505047201000004,
+      "operational_n_sites": 8
+    },
+    "2025-01-17": {
+      "operational_power_mw": 1364.0,
+      "operational_h100e": 522223.06815757917,
+      "operational_capex_usd_b": 46.505047201000004,
+      "operational_n_sites": 8
+    },
+    "2025-01-28": {
+      "operational_power_mw": 1364.0,
+      "operational_h100e": 522223.06815757917,
+      "operational_capex_usd_b": 46.505047201000004,
+      "operational_n_sites": 8
+    },
+    "2025-02-17": {
+      "operational_power_mw": 1544.0,
+      "operational_h100e": 622223.068157579,
+      "operational_capex_usd_b": 51.165047201,
+      "operational_n_sites": 8
+    },
+    "2025-02-28": {
+      "operational_power_mw": 1544.0,
+      "operational_h100e": 622223.068157579,
+      "operational_capex_usd_b": 51.165047201,
+      "operational_n_sites": 8
+    },
+    "2025-03-06": {
+      "operational_power_mw": 1544.0,
+      "operational_h100e": 622223.068157579,
+      "operational_capex_usd_b": 51.165047201,
+      "operational_n_sites": 8
+    },
+    "2025-03-11": {
+      "operational_power_mw": 1544.0,
+      "operational_h100e": 622223.068157579,
+      "operational_capex_usd_b": 51.165047201,
+      "operational_n_sites": 8
+    },
+    "2025-03-16": {
+      "operational_power_mw": 1544.0,
+      "operational_h100e": 622223.068157579,
+      "operational_capex_usd_b": 51.165047201,
+      "operational_n_sites": 8
+    },
+    "2025-04-01": {
+      "operational_power_mw": 1544.0,
+      "operational_h100e": 622223.068157579,
+      "operational_capex_usd_b": 51.165047201,
+      "operational_n_sites": 8
+    },
+    "2025-04-21": {
+      "operational_power_mw": 1544.0,
+      "operational_h100e": 622223.068157579,
+      "operational_capex_usd_b": 51.165047201,
+      "operational_n_sites": 8
+    },
+    "2025-05-01": {
+      "operational_power_mw": 1611.0,
+      "operational_h100e": 680333.2248023491,
+      "operational_capex_usd_b": 53.745047201000006,
+      "operational_n_sites": 8
+    },
+    "2025-05-10": {
+      "operational_power_mw": 1611.0,
+      "operational_h100e": 680333.2248023491,
+      "operational_capex_usd_b": 53.745047201000006,
+      "operational_n_sites": 8
+    },
+    "2025-05-19": {
+      "operational_power_mw": 1611.0,
+      "operational_h100e": 680333.2248023491,
+      "operational_capex_usd_b": 53.745047201000006,
+      "operational_n_sites": 8
+    },
+    "2025-05-31": {
+      "operational_power_mw": 1611.0,
+      "operational_h100e": 680333.2248023491,
+      "operational_capex_usd_b": 53.745047201000006,
+      "operational_n_sites": 8
+    },
+    "2025-06-01": {
+      "operational_power_mw": 1706.0,
+      "operational_h100e": 735411.5471873921,
+      "operational_capex_usd_b": 56.779645737,
+      "operational_n_sites": 8
+    },
+    "2025-06-09": {
+      "operational_power_mw": 1706.0,
+      "operational_h100e": 735411.5471873921,
+      "operational_capex_usd_b": 56.779645737,
+      "operational_n_sites": 8
+    },
+    "2025-06-15": {
+      "operational_power_mw": 1801.0,
+      "operational_h100e": 790136.1555754669,
+      "operational_capex_usd_b": 59.799645737,
+      "operational_n_sites": 8
+    },
+    "2025-06-23": {
+      "operational_power_mw": 2620.0,
+      "operational_h100e": 1304571.7000846798,
+      "operational_capex_usd_b": 85.945926834,
+      "operational_n_sites": 10
+    },
+    "2025-06-28": {
+      "operational_power_mw": 2767.0,
+      "operational_h100e": 1431908.7389932196,
+      "operational_capex_usd_b": 89.975926834,
+      "operational_n_sites": 11
+    },
+    "2025-07-19": {
+      "operational_power_mw": 2767.0,
+      "operational_h100e": 1431908.7389932196,
+      "operational_capex_usd_b": 89.975926834,
+      "operational_n_sites": 11
+    },
+    "2025-07-22": {
+      "operational_power_mw": 2848.0,
+      "operational_h100e": 1507704.5954863979,
+      "operational_capex_usd_b": 92.075926834,
+      "operational_n_sites": 11
+    },
+    "2025-08-01": {
+      "operational_power_mw": 2848.0,
+      "operational_h100e": 1507704.5954863979,
+      "operational_capex_usd_b": 92.075926834,
+      "operational_n_sites": 11
+    },
+    "2025-08-27": {
+      "operational_power_mw": 2848.0,
+      "operational_h100e": 1507704.5954863979,
+      "operational_capex_usd_b": 92.075926834,
+      "operational_n_sites": 11
+    },
+    "2025-09-01": {
+      "operational_power_mw": 3006.0,
+      "operational_h100e": 1654547.8854375838,
+      "operational_capex_usd_b": 96.725926834,
+      "operational_n_sites": 11
+    },
+    "2025-09-08": {
+      "operational_power_mw": 3006.0,
+      "operational_h100e": 1654547.8854375838,
+      "operational_capex_usd_b": 96.725926834,
+      "operational_n_sites": 11
+    },
+    "2025-09-17": {
+      "operational_power_mw": 3014.0,
+      "operational_h100e": 1654072.1576327095,
+      "operational_capex_usd_b": 99.967468062,
+      "operational_n_sites": 12
+    },
+    "2025-09-20": {
+      "operational_power_mw": 3014.0,
+      "operational_h100e": 1654072.1576327095,
+      "operational_capex_usd_b": 99.967468062,
+      "operational_n_sites": 12
+    },
+    "2025-09-26": {
+      "operational_power_mw": 3162.0,
+      "operational_h100e": 1781409.196541249,
+      "operational_capex_usd_b": 104.00746806199999,
+      "operational_n_sites": 12
+    },
+    "2025-09-27": {
+      "operational_power_mw": 3162.0,
+      "operational_h100e": 1781409.196541249,
+      "operational_capex_usd_b": 104.00746806199999,
+      "operational_n_sites": 12
+    },
+    "2025-10-01": {
+      "operational_power_mw": 3349.0,
+      "operational_h100e": 1946795.7554093644,
+      "operational_capex_usd_b": 111.057468062,
+      "operational_n_sites": 13
+    },
+    "2025-10-04": {
+      "operational_power_mw": 3349.0,
+      "operational_h100e": 1946795.7554093644,
+      "operational_capex_usd_b": 111.057468062,
+      "operational_n_sites": 13
+    },
+    "2025-10-12": {
+      "operational_power_mw": 3349.0,
+      "operational_h100e": 1946795.7554093644,
+      "operational_capex_usd_b": 111.057468062,
+      "operational_n_sites": 13
+    },
+    "2025-10-14": {
+      "operational_power_mw": 4016.0,
+      "operational_h100e": 2511421.4544357443,
+      "operational_capex_usd_b": 118.30260882600001,
+      "operational_n_sites": 15
+    },
+    "2025-10-16": {
+      "operational_power_mw": 4016.0,
+      "operational_h100e": 2511421.4544357443,
+      "operational_capex_usd_b": 118.30260882600001,
+      "operational_n_sites": 15
+    },
+    "2025-10-17": {
+      "operational_power_mw": 4016.0,
+      "operational_h100e": 2511421.4544357443,
+      "operational_capex_usd_b": 118.30260882600001,
+      "operational_n_sites": 15
+    },
+    "2025-10-19": {
+      "operational_power_mw": 4315.0,
+      "operational_h100e": 2789339.5949107315,
+      "operational_capex_usd_b": 127.109978826,
+      "operational_n_sites": 16
+    },
+    "2025-10-21": {
+      "operational_power_mw": 4315.0,
+      "operational_h100e": 2789339.5949107315,
+      "operational_capex_usd_b": 127.109978826,
+      "operational_n_sites": 16
+    },
+    "2025-10-27": {
+      "operational_power_mw": 4315.0,
+      "operational_h100e": 2789339.5949107315,
+      "operational_capex_usd_b": 127.109978826,
+      "operational_n_sites": 16
+    },
+    "2025-11-02": {
+      "operational_power_mw": 4315.0,
+      "operational_h100e": 2789339.5949107315,
+      "operational_capex_usd_b": 127.109978826,
+      "operational_n_sites": 16
+    },
+    "2025-11-07": {
+      "operational_power_mw": 4409.0,
+      "operational_h100e": 2856010.370719648,
+      "operational_capex_usd_b": 127.109978826,
+      "operational_n_sites": 16
+    },
+    "2025-11-12": {
+      "operational_power_mw": 4409.0,
+      "operational_h100e": 2856010.370719648,
+      "operational_capex_usd_b": 127.109978826,
+      "operational_n_sites": 16
+    },
+    "2025-11-15": {
+      "operational_power_mw": 4409.0,
+      "operational_h100e": 2856010.370719648,
+      "operational_capex_usd_b": 127.109978826,
+      "operational_n_sites": 16
+    },
+    "2025-11-16": {
+      "operational_power_mw": 4409.0,
+      "operational_h100e": 2856010.370719648,
+      "operational_capex_usd_b": 127.109978826,
+      "operational_n_sites": 16
+    },
+    "2025-12-01": {
+      "operational_power_mw": 4594.0,
+      "operational_h100e": 3016192.280775232,
+      "operational_capex_usd_b": 134.189978826,
+      "operational_n_sites": 16
+    },
+    "2025-12-04": {
+      "operational_power_mw": 4594.0,
+      "operational_h100e": 3016192.280775232,
+      "operational_capex_usd_b": 134.189978826,
+      "operational_n_sites": 16
+    },
+    "2025-12-09": {
+      "operational_power_mw": 4792.0,
+      "operational_h100e": 3189439.9527596394,
+      "operational_capex_usd_b": 140.01997882599994,
+      "operational_n_sites": 17
+    },
+    "2025-12-23": {
+      "operational_power_mw": 5065.0,
+      "operational_h100e": 3360918.4675960434,
+      "operational_capex_usd_b": 148.73540586499996,
+      "operational_n_sites": 17
+    },
+    "2025-12-29": {
+      "operational_power_mw": 5065.0,
+      "operational_h100e": 3360918.4675960434,
+      "operational_capex_usd_b": 148.73540586499996,
+      "operational_n_sites": 17
+    },
+    "2026-01-02": {
+      "operational_power_mw": 5065.0,
+      "operational_h100e": 3360918.4675960434,
+      "operational_capex_usd_b": 148.73540586499996,
+      "operational_n_sites": 17
+    },
+    "2026-01-03": {
+      "operational_power_mw": 5166.0,
+      "operational_h100e": 3427618.8213100405,
+      "operational_capex_usd_b": 151.97694709099997,
+      "operational_n_sites": 17
+    },
+    "2026-01-04": {
+      "operational_power_mw": 5166.0,
+      "operational_h100e": 3427618.8213100405,
+      "operational_capex_usd_b": 151.97694709099997,
+      "operational_n_sites": 17
+    },
+    "2026-01-11": {
+      "operational_power_mw": 5166.0,
+      "operational_h100e": 3427618.8213100405,
+      "operational_capex_usd_b": 151.97694709099997,
+      "operational_n_sites": 17
+    },
+    "2026-01-13": {
+      "operational_power_mw": 5169.0,
+      "operational_h100e": 3430538.472866697,
+      "operational_capex_usd_b": 152.069472363,
+      "operational_n_sites": 17
+    },
+    "2026-01-15": {
+      "operational_power_mw": 5169.0,
+      "operational_h100e": 3430538.472866697,
+      "operational_capex_usd_b": 152.069472363,
+      "operational_n_sites": 17
+    },
+    "2026-01-17": {
+      "operational_power_mw": 5169.0,
+      "operational_h100e": 3430538.472866697,
+      "operational_capex_usd_b": 152.069472363,
+      "operational_n_sites": 17
+    },
+    "2026-01-18": {
+      "operational_power_mw": 5511.0,
+      "operational_h100e": 3748881.070138046,
+      "operational_capex_usd_b": 162.159472363,
+      "operational_n_sites": 17
+    },
+    "2026-01-20": {
+      "operational_power_mw": 5511.0,
+      "operational_h100e": 3748881.070138046,
+      "operational_capex_usd_b": 162.159472363,
+      "operational_n_sites": 17
+    },
+    "2026-01-31": {
+      "operational_power_mw": 5511.0,
+      "operational_h100e": 3748881.070138046,
+      "operational_capex_usd_b": 162.159472363,
+      "operational_n_sites": 17
+    },
+    "2026-02-06": {
+      "operational_power_mw": 5511.0,
+      "operational_h100e": 3748881.070138046,
+      "operational_capex_usd_b": 162.159472363,
+      "operational_n_sites": 17
+    },
+    "2026-02-09": {
+      "operational_power_mw": 5511.0,
+      "operational_h100e": 3748881.070138046,
+      "operational_capex_usd_b": 162.15947231799998,
+      "operational_n_sites": 17
+    },
+    "2026-02-11": {
+      "operational_power_mw": 5494.0,
+      "operational_h100e": 3748881.070138046,
+      "operational_capex_usd_b": 162.15947231799998,
+      "operational_n_sites": 17
+    },
+    "2026-02-13": {
+      "operational_power_mw": 5494.0,
+      "operational_h100e": 3748881.070138046,
+      "operational_capex_usd_b": 174.01947231799997,
+      "operational_n_sites": 17
+    },
+    "2026-02-14": {
+      "operational_power_mw": 5494.0,
+      "operational_h100e": 3748881.070138046,
+      "operational_capex_usd_b": 174.01947231799997,
+      "operational_n_sites": 17
+    },
+    "2026-02-15": {
+      "operational_power_mw": 5538.8,
+      "operational_h100e": 3787587.4875205625,
+      "operational_capex_usd_b": 175.23947231799997,
+      "operational_n_sites": 18
+    },
+    "2026-02-27": {
+      "operational_power_mw": 5628.8,
+      "operational_h100e": 3870962.929663059,
+      "operational_capex_usd_b": 177.87947231799998,
+      "operational_n_sites": 18
+    },
+    "2026-03-02": {
+      "operational_power_mw": 5628.8,
+      "operational_h100e": 3870962.929663059,
+      "operational_capex_usd_b": 177.87947231799998,
+      "operational_n_sites": 18
+    },
+    "2026-03-12": {
+      "operational_power_mw": 5628.8,
+      "operational_h100e": 3870962.929663059,
+      "operational_capex_usd_b": 177.87947231799998,
+      "operational_n_sites": 18
+    },
+    "2026-03-15": {
+      "operational_power_mw": 5628.8,
+      "operational_h100e": 3870962.929663059,
+      "operational_capex_usd_b": 177.87947231799998,
+      "operational_n_sites": 18
+    },
+    "2026-03-23": {
+      "operational_power_mw": 5969.8,
+      "operational_h100e": 4085311.0732085663,
+      "operational_capex_usd_b": 188.773756158,
+      "operational_n_sites": 18
+    },
+    "2026-03-24": {
+      "operational_power_mw": 5969.8,
+      "operational_h100e": 4085311.0732085663,
+      "operational_capex_usd_b": 188.773756158,
+      "operational_n_sites": 18
+    },
+    "2026-03-29": {
+      "operational_power_mw": 6074.8,
+      "operational_h100e": 4156559.178312154,
+      "operational_capex_usd_b": 192.113756158,
+      "operational_n_sites": 19
+    },
+    "2026-03-31": {
+      "operational_power_mw": 6123.8,
+      "operational_h100e": 4208454.074724483,
+      "operational_capex_usd_b": 193.713756158,
+      "operational_n_sites": 19
+    },
+    "2026-04-01": {
+      "operational_power_mw": 6418.8,
+      "operational_h100e": 4464138.763961472,
+      "operational_capex_usd_b": 201.78375615800002,
+      "operational_n_sites": 19
+    },
+    "2026-04-14": {
+      "operational_power_mw": 6418.8,
+      "operational_h100e": 4464138.763961472,
+      "operational_capex_usd_b": 201.78375615800002,
+      "operational_n_sites": 19
+    },
+    "2026-04-16": {
+      "operational_power_mw": 6973.8,
+      "operational_h100e": 5022966.4547143765,
+      "operational_capex_usd_b": 219.49375615800002,
+      "operational_n_sites": 20
+    },
+    "2026-04-22": {
+      "operational_power_mw": 6973.8,
+      "operational_h100e": 5022966.4547143765,
+      "operational_capex_usd_b": 219.49375615800002,
+      "operational_n_sites": 20
+    },
+    "2026-05-01": {
+      "operational_power_mw": 7050.8,
+      "operational_h100e": 5069100.866033224,
+      "operational_capex_usd_b": 222.85375615800004,
+      "operational_n_sites": 21
+    },
+    "2026-05-08": {
+      "operational_power_mw": 7145.8,
+      "operational_h100e": 5139843.665426857,
+      "operational_capex_usd_b": 225.87827297000004,
+      "operational_n_sites": 21
+    },
+    "2026-05-13": {
+      "operational_power_mw": 8337.8,
+      "operational_h100e": 6248596.575770151,
+      "operational_capex_usd_b": 261.01522769800005,
+      "operational_n_sites": 21
+    },
+    "2026-05-14": {
+      "operational_power_mw": 8763.8,
+      "operational_h100e": 6615783.825902003,
+      "operational_capex_usd_b": 272.64522769800004,
+      "operational_n_sites": 21
+    },
+    "2026-05-17": {
+      "operational_power_mw": 9152.8,
+      "operational_h100e": 6906081.956270875,
+      "operational_capex_usd_b": 285.067211196,
+      "operational_n_sites": 21
+    },
+    "2026-05-18": {
+      "operational_power_mw": 9352.8,
+      "operational_h100e": 7089507.928984366,
+      "operational_capex_usd_b": 290.95721119600006,
+      "operational_n_sites": 21
+    },
+    "2026-05-19": {
+      "operational_power_mw": 9625.8,
+      "operational_h100e": 7260986.443820771,
+      "operational_capex_usd_b": 299.67263822900003,
+      "operational_n_sites": 22
+    },
+    "2026-05-28": {
+      "operational_power_mw": 9714.8,
+      "operational_h100e": 7346888.414513039,
+      "operational_capex_usd_b": 302.32263822900006,
+      "operational_n_sites": 22
+    },
+    "2026-05-31": {
+      "operational_power_mw": 9763.8,
+      "operational_h100e": 7384786.342759629,
+      "operational_capex_usd_b": 303.9326382290001,
+      "operational_n_sites": 22
+    },
+    "2026-06-01": {
+      "operational_power_mw": 9763.8,
+      "operational_h100e": 7384786.342759629,
+      "operational_capex_usd_b": 303.9326382290001,
+      "operational_n_sites": 22
+    },
+    "2026-06-10": {
+      "operational_power_mw": 9857.8,
+      "operational_h100e": 7455529.142153261,
+      "operational_capex_usd_b": 306.9626382290001,
+      "operational_n_sites": 22
+    },
+    "2026-06-15": {
+      "operational_power_mw": 10057.3,
+      "operational_h100e": 7638657.733994388,
+      "operational_capex_usd_b": 313.4785238750001,
+      "operational_n_sites": 23
+    },
+    "2026-06-21": {
+      "operational_power_mw": 10194.3,
+      "operational_h100e": 7724396.991412588,
+      "operational_capex_usd_b": 317.8362373850001,
+      "operational_n_sites": 23
+    },
+    "2026-06-30": {
+      "operational_power_mw": 10394.3,
+      "operational_h100e": 7883948.759649443,
+      "operational_capex_usd_b": 322.8962373850001,
+      "operational_n_sites": 24
+    },
+    "2026-07-01": {
+      "operational_power_mw": 10984.3,
+      "operational_h100e": 8394307.526703512,
+      "operational_capex_usd_b": 339.03623738500016,
+      "operational_n_sites": 24
+    },
+    "2026-08-15": {
+      "operational_power_mw": 11116.8,
+      "operational_h100e": 8518820.656189913,
+      "operational_capex_usd_b": 342.98212303000014,
+      "operational_n_sites": 24
+    },
+    "2026-08-26": {
+      "operational_power_mw": 11206.8,
+      "operational_h100e": 8599669.569782637,
+      "operational_capex_usd_b": 345.6221230300001,
+      "operational_n_sites": 24
+    },
+    "2026-09-18": {
+      "operational_power_mw": 11684.8,
+      "operational_h100e": 8899756.970746342,
+      "operational_capex_usd_b": 360.8741203360001,
+      "operational_n_sites": 24
+    },
+    "2026-09-30": {
+      "operational_power_mw": 11724.8,
+      "operational_h100e": 8934827.349690555,
+      "operational_capex_usd_b": 362.0441203360001,
+      "operational_n_sites": 24
+    },
+    "2026-10-01": {
+      "operational_power_mw": 11924.8,
+      "operational_h100e": 9121790.462373728,
+      "operational_capex_usd_b": 367.9341203360001,
+      "operational_n_sites": 24
+    },
+    "2026-10-31": {
+      "operational_power_mw": 12120.8,
+      "operational_h100e": 9286014.818108948,
+      "operational_capex_usd_b": 374.3741203360001,
+      "operational_n_sites": 24
+    },
+    "2026-11-15": {
+      "operational_power_mw": 12747.8,
+      "operational_h100e": 10272747.182577012,
+      "operational_capex_usd_b": 391.5341203360001,
+      "operational_n_sites": 25
+    },
+    "2026-12-01": {
+      "operational_power_mw": 13027.8,
+      "operational_h100e": 10525400.037554273,
+      "operational_capex_usd_b": 399.20412033600013,
+      "operational_n_sites": 26
+    },
+    "2026-12-18": {
+      "operational_power_mw": 13163.8,
+      "operational_h100e": 10646168.102233404,
+      "operational_capex_usd_b": 403.53926109600013,
+      "operational_n_sites": 26
+    },
+    "2027-01-01": {
+      "operational_power_mw": 13359.8,
+      "operational_h100e": 10954404.585305663,
+      "operational_capex_usd_b": 408.89926109600015,
+      "operational_n_sites": 27
+    },
+    "2027-01-24": {
+      "operational_power_mw": 13454.8,
+      "operational_h100e": 11038790.63886807,
+      "operational_capex_usd_b": 411.92377790800015,
+      "operational_n_sites": 27
+    },
+    "2027-02-20": {
+      "operational_power_mw": 14008.8,
+      "operational_h100e": 11597618.329620972,
+      "operational_capex_usd_b": 429.62377790800014,
+      "operational_n_sites": 27
+    },
+    "2027-02-22": {
+      "operational_power_mw": 14112.8,
+      "operational_h100e": 11728997.814209148,
+      "operational_capex_usd_b": 432.9537779080002,
+      "operational_n_sites": 27
+    },
+    "2027-03-31": {
+      "operational_power_mw": 14308.8,
+      "operational_h100e": 11924551.12396155,
+      "operational_capex_usd_b": 439.3837779080002,
+      "operational_n_sites": 27
+    },
+    "2027-05-23": {
+      "operational_power_mw": 14413.8,
+      "operational_h100e": 12035213.07444159,
+      "operational_capex_usd_b": 442.72377790800016,
+      "operational_n_sites": 27
+    },
+    "2027-05-31": {
+      "operational_power_mw": 15523.8,
+      "operational_h100e": 14072140.007235933,
+      "operational_capex_usd_b": 478.1537779080001,
+      "operational_n_sites": 27
+    },
+    "2027-07-26": {
+      "operational_power_mw": 15618.8,
+      "operational_h100e": 14172190.537806928,
+      "operational_capex_usd_b": 481.1782947250001,
+      "operational_n_sites": 27
+    },
+    "2027-08-31": {
+      "operational_power_mw": 15753.2,
+      "operational_h100e": 14288107.667670496,
+      "operational_capex_usd_b": 484.85829472500006,
+      "operational_n_sites": 27
+    },
+    "2027-09-17": {
+      "operational_power_mw": 16223.2,
+      "operational_h100e": 15025854.004204098,
+      "operational_capex_usd_b": 497.73829472500006,
+      "operational_n_sites": 28
+    },
+    "2027-09-21": {
+      "operational_power_mw": 16958.2,
+      "operational_h100e": 15487526.928763647,
+      "operational_capex_usd_b": 521.202905962,
+      "operational_n_sites": 28
+    },
+    "2027-10-01": {
+      "operational_power_mw": 17780.800000000003,
+      "operational_h100e": 16896337.917995796,
+      "operational_capex_usd_b": 545.699998341,
+      "operational_n_sites": 28
+    },
+    "2027-10-03": {
+      "operational_power_mw": 18889.800000000003,
+      "operational_h100e": 18933264.850790136,
+      "operational_capex_usd_b": 581.1099983409999,
+      "operational_n_sites": 28
+    },
+    "2027-11-11": {
+      "operational_power_mw": 19360.800000000003,
+      "operational_h100e": 19676064.24442328,
+      "operational_capex_usd_b": 593.969998341,
+      "operational_n_sites": 28
+    },
+    "2027-11-15": {
+      "operational_power_mw": 20320.800000000003,
+      "operational_h100e": 22207911.8016691,
+      "operational_capex_usd_b": 620.2299983409999,
+      "operational_n_sites": 28
+    },
+    "2027-11-24": {
+      "operational_power_mw": 20424.800000000003,
+      "operational_h100e": 22420140.19985,
+      "operational_capex_usd_b": 623.569998341,
+      "operational_n_sites": 28
+    },
+    "2028-01-01": {
+      "operational_power_mw": 24575.800000000003,
+      "operational_h100e": 28850254.444452845,
+      "operational_capex_usd_b": 752.6399983409999,
+      "operational_n_sites": 29
+    },
+    "2028-05-22": {
+      "operational_power_mw": 24680.800000000003,
+      "operational_h100e": 29006899.214538746,
+      "operational_capex_usd_b": 755.9799983409998,
+      "operational_n_sites": 29
+    },
+    "2028-11-18": {
+      "operational_power_mw": 24784.800000000003,
+      "operational_h100e": 29446515.18219918,
+      "operational_capex_usd_b": 759.3099983409999,
+      "operational_n_sites": 29
+    },
+    "2028-12-31": {
+      "operational_power_mw": 32641.800000000003,
+      "operational_h100e": 45904322.155417986,
+      "operational_capex_usd_b": 973.2799983409999,
+      "operational_n_sites": 33
+    },
+    "2029-01-01": {
+      "operational_power_mw": 32841.8,
+      "operational_h100e": 46063873.92365484,
+      "operational_capex_usd_b": 978.3299983410001,
+      "operational_n_sites": 33
+    },
+    "2030-01-01": {
+      "operational_power_mw": 33031.8,
+      "operational_h100e": 46177921.42239158,
+      "operational_capex_usd_b": 986.629998341,
+      "operational_n_sites": 33
+    }
+  },
+  "global_totals_current": {
+    "peak_h100e": 4742128.6626827335,
+    "effective_h100e_33pct": 1580709.5542275778,
+    "power_mw": 6671.8,
+    "capex_usd_b_2025": 210.59386088600002
+  },
+  "global_totals_buildout": {
+    "peak_h100e": 46177921.42239158,
+    "effective_h100e_33pct": 15392640.474130526,
+    "power_mw": 33048.8,
+    "capex_usd_b_2025": 986.629998341
+  },
+  "epoch_context_prose": {
+    "share_of_global_ai_compute_pct": 15,
+    "share_as_of": "2025-11",
+    "global_install_base_h100e_ex_china_millions": 11.5,
+    "global_install_base_h100e_incl_other_accelerators_millions_range": [
+      15,
+      17
+    ],
+    "confidence_factor_power": 1.4,
+    "confidence_factor_compute": 1.5,
+    "confidence_factor_cost": 1.6,
+    "confidence_timing_months": 6
+  }
+}

@@ -1,0 +1,214 @@
+================================================================================================
+EPOCH AI — FRONTIER DATA CENTERS : COMPILED VIEWS
+dataset: 2026-04-20   retrieved: 2026-04-22   sites: 34   timeline_rows: 193
+license: CC BY 4.0  |  url: https://epoch.ai/data/data-centers
+================================================================================================
+
+### 1. PHYSICAL COMPUTE BY SITE ###
+    current_* = snapshot as of dataset date (2026-04-20)
+    buildout_* = max across the site's full timeline (end-state capacity)
+
+SITE                                         OP? FIRST_OP        CUR_H100e  CUR_MW     BO_H100e   BO_MW  BO_CAPEX$B  OWNER -> USERS
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Microsoft Fairwater Wisconsin                Y   2026-04-16        558,828     555    5,191,509   3,328      106.25  Microsoft -> OpenAI, Microsoft
+OpenAI Stargate New Mexico                   N   2028-12-31              -       -    4,598,282   2,210       60.46  Oracle -> OpenAI
+OpenAI Stargate Shackelford                  N   2027-01-01              -       -    4,163,719   1,960       53.63  Oracle -> OpenAI
+Meta Hyperion                                N   2028-01-01              -       -    4,152,951   2,262       72.21  Meta -> Meta
+QTS Cedar Rapids                             N   2026-11-15              -       -    3,518,580   1,587       43.42   -> 
+OpenAI Stargate Michigan                     N   2028-12-31              -       -    2,880,243   1,383       37.84  Oracle -> OpenAI
+OpenAI Stargate Wisconsin                    N   2028-12-31              -       -    2,627,590   1,300       34.56  Oracle -> OpenAI
+OpenAI Stargate Milam                        N   2028-12-31              -       -    2,496,210   1,200       32.84  Softbank -> OpenAI
+OpenAI Stargate UAE                          N   2026-12-01              -       -    2,021,223   1,400       38.31  G42 -> OpenAI
+Goodnight                                    N   2026-06-15              -       -    1,657,837   1,088       32.39  Google -> Google DeepMind
+Crusoe Abilene Expansion                     N   2027-09-17              -       -    1,480,546     941       25.74  Microsoft -> Microsoft
+xAI Colossus 2                               Y   2025-10-19              -       -    1,389,591   1,494       44.04  xAI -> xAI
+Google Cedar Rapids                          Y   2026-03-29         71,248     105    1,121,779     627       20.02  Google -> Google DeepMind
+Meta Prometheus                              Y   2025-10-14        493,684     531    1,030,824   1,110       32.71  Meta -> Meta
+OpenAI Stargate Abilene                      Y   2025-06-28        510,359     590    1,020,718   1,180       32.28  Oracle -> OpenAI
+Anthropic-Amazon New Carlisle                Y   2025-06-23        685,914   1,092      771,653   1,229       39.22  Amazon -> Anthropic
+Microsoft Fairwater Atlanta                  Y   2025-10-14        374,125     433      741,313     859       23.49  Microsoft -> OpenAI
+Coreweave Helios                             N   2026-06-30              -       -      638,207     800       20.22  Coreweave -> Microsoft
+Amazon Ridgeland                             N   2026-05-19              -       -      633,151   1,008       32.18  Amazon -> Anthropic
+QTS Richmond                                 Y   2023-10-01        492,168     854      550,783     921       35.29   -> 
+Amazon Madison Mega Site                     Y   2025-06-23        214,348     341      514,436     819       26.15  Amazon -> Anthropic
+Fluidstack Lake Mariner                      Y   2025-10-01         71,753      68      469,429     509       16.70  Fluidstack -> Anthropic, G42
+Google New Albany                            Y   2024-04-20        207,175     407      327,943     543       17.34  Google -> Google DeepMind
+Google Omaha                                 Y   2024-04-08         65,184     189      320,364     474       15.12  Google -> Google DeepMind
+Google Pryor (North)                         Y   2024-07-19         17,938      65      308,236     454       14.49  Google -> Google DeepMind
+xAI Colossus 1                               Y   2024-08-11        275,796     425      275,796     442       11.43  xAI -> xAI
+STACK Infrastructure NVA02                   Y   2024-10-01         61,142     118      250,632     487       21.28   -> 
+Meta Temple                                  Y   2025-12-09        173,248     198      208,318     238        7.00  Meta -> Meta
+Microsoft Goodyear                           Y   2023-04-24        205,145     263      205,145     263        7.90  Microsoft -> OpenAI
+Google Council Bluffs (East)                 Y   2024-11-19         92,471     190      163,214     284        9.08  Google -> Google DeepMind
+Stream Phoenix                               N   2026-05-01              -       -      160,182     267       11.66   -> 
+Vantage TX1                                  Y   2026-02-15         38,706      45      154,624     179        4.90   -> 
+Alibaba Zhangbei                             Y   2025-09-17        132,895     203      132,895     203        6.48  Alibaba -> Alibaba
+OpenAI Stargate Lordstown                    N   -                       -       -            -       -           -  Softbank -> OpenAI
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                            4,742,129   6,672   46,177,921  33,049       986.6
+
+### 2a. PHYSICAL COMPUTE BY OWNER — CURRENT (2026-04-20) ###
+OWNER                                       H100e       MW    CAPEX$B   #sites
+------------------------------------------------------------------------------
+Microsoft                               1,138,098    1,251       37.5      4.0
+Amazon                                    900,262    1,433       45.8      3.0
+Meta                                      666,931      729       21.5      3.0
+(unspecified)                             592,016    1,017       39.1      5.0
+Oracle                                    510,359      590       16.1      5.0
+Google                                    454,017      956       30.5      6.0
+xAI                                       275,796      425       11.4      2.0
+Alibaba                                   132,895      203        6.5      1.0
+Fluidstack                                 71,753       68        2.2      1.0
+G42                                             0        0        0.0      1.0
+Coreweave                                       0        0        0.0      1.0
+Softbank                                        0        0        0.0      2.0
+
+### 2b. PHYSICAL COMPUTE BY OWNER — END-OF-BUILDOUT (planned endstate) ###
+OWNER                                       H100e       MW    CAPEX$B   #sites
+------------------------------------------------------------------------------
+Oracle                                 15,290,551    8,033      218.8      5.0
+Microsoft                               7,618,513    5,391      163.4      4.0
+Meta                                    5,392,093    3,610      111.9      3.0
+(unspecified)                           4,634,800    3,441      116.5      5.0
+Google                                  3,899,373    3,470      108.4      6.0
+Softbank                                2,496,210    1,200       32.8      2.0
+G42                                     2,021,223    1,400       38.3      1.0
+Amazon                                  1,919,240    3,056       97.5      3.0
+xAI                                     1,665,387    1,936       55.5      2.0
+Coreweave                                 638,207      800       20.2      1.0
+Fluidstack                                469,429      509       16.7      1.0
+Alibaba                                   132,895      203        6.5      1.0
+
+### 2c. PHYSICAL COMPUTE BY USER (workload tenant) — CURRENT ###
+USER                                        H100e       MW    CAPEX$B   #sites
+------------------------------------------------------------------------------
+OpenAI                                  1,369,043    1,564       44.8     10.5
+Anthropic                                 936,139    1,467       46.9      3.5
+Meta                                      666,931      729       21.5      3.0
+(unspecified)                             592,016    1,017       39.1      5.0
+Google DeepMind                           454,017      956       30.5      6.0
+Microsoft                                 279,414      278        8.9      2.5
+xAI                                       275,796      425       11.4      2.0
+Alibaba                                   132,895      203        6.5      1.0
+G42                                        35,877       34        1.1      0.5
+
+### 2d. PHYSICAL COMPUTE BY USER — END-OF-BUILDOUT ###
+USER                                        H100e       MW    CAPEX$B   #sites
+------------------------------------------------------------------------------
+OpenAI                                 23,350,196   13,419      374.4     10.5
+Meta                                    5,392,093    3,610      111.9      3.0
+Microsoft                               4,714,507    3,405       99.1      2.5
+(unspecified)                           4,634,800    3,441      116.5      5.0
+Google DeepMind                         3,899,373    3,470      108.4      6.0
+Anthropic                               2,153,955    3,310      105.9      3.5
+xAI                                     1,665,387    1,936       55.5      2.0
+G42                                       234,715      254        8.3      0.5
+Alibaba                                   132,895      203        6.5      1.0
+
+### 3. OPERATIONAL vs COMMITTED  (as of 2026-04-22) ###
+operational_today: 20   committed_not_yet_online: 14
+
+--- Operational today (at least partial build online) ---
+SITE                                         first_op        cur_H100e   cur_MW  buildout_H100e  buildout_date
+-------------------------------------------------------------------------------------------------------------------
+Microsoft Goodyear                           2023-04-24        205,145      263         205,145     2025-11-12
+QTS Richmond                                 2023-10-01        492,168      854         550,783     2026-06-15
+Google Omaha                                 2024-04-08         65,184      189         320,364     2027-07-26
+Google New Albany                            2024-04-20        207,175      407         327,943     2026-12-18
+Google Pryor (North)                         2024-07-19         17,938       65         308,236     2026-05-17
+xAI Colossus 1                               2024-08-11        275,796      425         275,796     2026-02-11
+STACK Infrastructure NVA02                   2024-10-01         61,142      118         250,632     2028-01-01
+Google Council Bluffs (East)                 2024-11-19         92,471      190         163,214     2026-06-10
+Anthropic-Amazon New Carlisle                2025-06-23        685,914    1,092         771,653     2026-06-21
+Amazon Madison Mega Site                     2025-06-23        214,348      341         514,436     2026-09-18
+OpenAI Stargate Abilene                      2025-06-28        510,359      590       1,020,718     2026-07-01
+Alibaba Zhangbei                             2025-09-17        132,895      203         132,895     2026-01-03
+Fluidstack Lake Mariner                      2025-10-01         71,753       68         469,429     2027-03-31
+Meta Prometheus                              2025-10-14        493,684      531       1,030,824     2026-10-01
+Microsoft Fairwater Atlanta                  2025-10-14        374,125      433         741,313     2026-05-14
+xAI Colossus 2                               2025-10-19              0        0       1,389,591     2026-05-13
+Meta Temple                                  2025-12-09        173,248      198         208,318     2026-09-30
+Vantage TX1                                  2026-02-15         38,706       45         154,624     2027-08-31
+Google Cedar Rapids                          2026-03-29         71,248      105       1,121,779     2028-11-18
+Microsoft Fairwater Wisconsin                2026-04-16        558,828      555       5,191,509     2027-10-03
+
+--- Committed / under construction / planned (no physical capacity online today) ---
+SITE                                         first_op      buildout_H100e  buildout_MW  buildout_date
+--------------------------------------------------------------------------------------------------------------
+OpenAI Stargate Lordstown                    -                          0            0     2026-02-27
+Amazon Ridgeland                             2026-05-19           633,151        1,008     2027-09-21
+Goodnight                                    2026-06-15         1,657,837        1,088     2027-10-01
+Crusoe Abilene Expansion                     2027-09-17         1,480,546          941     2027-11-11
+QTS Cedar Rapids                             2026-11-15         3,518,580        1,587     2027-11-15
+OpenAI Stargate UAE                          2026-12-01         2,021,223        1,400     2028-01-01
+Meta Hyperion                                2028-01-01         4,152,951        2,262     2028-01-01
+OpenAI Stargate Shackelford                  2027-01-01         4,163,719        1,960     2028-12-31
+OpenAI Stargate New Mexico                   2028-12-31         4,598,282        2,210     2028-12-31
+OpenAI Stargate Wisconsin                    2028-12-31         2,627,590        1,300     2028-12-31
+OpenAI Stargate Michigan                     2028-12-31         2,880,243        1,383     2028-12-31
+OpenAI Stargate Milam                        2028-12-31         2,496,210        1,200     2028-12-31
+Coreweave Helios                             2026-06-30           638,207          800     2029-01-01
+Stream Phoenix                               2026-05-01           160,182          267     2030-01-01
+
+### 4. GLOBAL SCALE-UP — OPERATIONAL CAPACITY OVER TIME ###
+(Forward-filled per-site, aggregated across all tracked frontier sites.
+ Physical-peak H100e figures; apply the 33% haircut for effective compute.)
+
+DATE         OP_SITES      OP_MW         OP_H100e   OP_CAPEX$B  EFF_H100e_33%
+------------------------------------------------------------------------------------------
+2023-01-01          0          0                0          0.0               0
+2024-01-01          2        119           48,555          4.1          16,185
+2025-01-01          8      1,312          493,072         44.9         164,357
+2025-06-01          8      1,706          735,412         56.8         245,137
+2025-12-01         16      4,594        3,016,192        134.2       1,005,397
+2026-01-01         17      5,065        3,360,918        148.7       1,120,306
+2026-04-22         20      6,974        5,022,966        219.5       1,674,322
+2026-06-30         24     10,394        7,883,949        322.9       2,627,983
+2026-12-31         26     13,164       10,646,168        403.5       3,548,723
+2027-06-30         27     15,524       14,072,140        478.2       4,690,713
+2027-12-31         28     20,425       22,420,140        623.6       7,473,380
+2028-06-30         29     24,681       29,006,899        756.0       9,668,966
+2028-12-31         33     32,642       45,904,322        973.3      15,301,441
+2029-06-30         33     32,842       46,063,874        978.3      15,354,625
+2029-12-31         33     32,842       46,063,874        978.3      15,354,625
+2030-06-30         33     33,032       46,177,921        986.6      15,392,640
+
+### 5. EFFECTIVE COMPUTE AFTER UTILIZATION HAIRCUT ###
+Epoch methodology (verbatim): 'theoretical peak capacity ... typically
+about one third of that, due to inefficiencies'
+Utilization factor applied: 1/3 = 0.3333
+(Compute can be further haircut for PUE, power delivery, training-vs-
+ inference split, precision-mode conversion — not modeled here.)
+
+OWNER                           RAW_H100e_cur  EFF_H100e_cur   RAW_H100e_bo   EFF_H100e_bo
+--------------------------------------------------------------------------------------------
+Oracle                                510,359        170,120     15,290,551      5,096,850
+Microsoft                           1,138,098        379,366      7,618,513      2,539,504
+Meta                                  666,931        222,310      5,392,093      1,797,364
+(unspecified)                         592,016        197,339      4,634,800      1,544,933
+Google                                454,017        151,339      3,899,373      1,299,791
+Softbank                                    0              0      2,496,210        832,070
+G42                                         0              0      2,021,223        673,741
+Amazon                                900,262        300,087      1,919,240        639,747
+xAI                                   275,796         91,932      1,665,387        555,129
+Coreweave                                   0              0        638,207        212,736
+Fluidstack                             71,753         23,918        469,429        156,476
+Alibaba                               132,895         44,298        132,895         44,298
+
+### GLOBAL TOTALS (sum across all 34 tracked frontier sites) ###
+  CURRENT (2026-04-20 snapshot)
+    peak H100e:                4,742,129
+    effective H100e 33%:       1,580,710
+    power (MW):                    6,672
+    capex (2025 USD B):            210.6
+  END-OF-BUILDOUT (planned endstate across entire timeline)
+    peak H100e:               46,177,921
+    effective H100e 33%:      15,392,640
+    power (MW):                   33,049
+    capex (2025 USD B):            986.6
+
+### EPOCH CONTEXT (from /data/data-centers page, prose) ###
+  Dataset covers ~15% of global AI compute delivered as of Nov 2025
+  Global install base (ex-China): ~11.5M H100e (chip shipments basis)
+  Global install base (incl TPU/AMD/Trainium): ~15-17M H100e
+  Confidence bands: power ×1.4   compute ×1.5   cost ×1.6   timing ±6mo

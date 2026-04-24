@@ -1,0 +1,332 @@
+# ============================================================================
+# facts_extract.yaml — standalone extract
+# ----------------------------------------------------------------------------
+# The 11 facts added or changed by this analysis, with their full source
+# metadata inlined so this file is self-auditable without the rest of the
+# stack-intelligence-engine repo.
+#
+# Structure mirrors the parent research/data/facts.yaml schema (fact + its
+# source_ids) but with source metadata expanded inline.
+# ============================================================================
+
+metadata:
+  extracted_from: research/data/facts.yaml
+  extract_date: 2026-04-22
+  epoch_data_cutoff: 2026-04-16
+  overlay_version: "2026-04-22"
+  scope: "Facts added or modified by the compute commitments overlay reconciliation"
+
+# ============================================================================
+# FACT 1 — DOWNGRADED: Anthropic-Google TPU $52B
+# ============================================================================
+# Was: confidence=high, single source (Google Cloud blog).
+# Now: confidence=medium, notes flag double-count risk with $50B Fluidstack.
+# Reason: Anthropic's own April 2026 blog frames the TPU deal as "a major
+# expansion of our November 2025 commitment to invest $50 billion in
+# strengthening American computing infrastructure" — $50B Fluidstack and
+# $52B TPU are two sides of the same program, not additive.
+
+facts:
+
+  - fact_id: anthropic.commitment.google_tpu
+    category: commitment
+    value:
+      point_estimate: 52.0
+    unit: USD_billion
+    as_of_date: '2026-04-07'
+    confidence: medium
+    source_ids:
+      - anthropic_google_broadcom_20260407
+      - maginative_1m_tpu
+    notes: |
+      Anthropic-Google TPU multi-year deal. IMPORTANT - do NOT add this figure
+      to anthropic.commitment.fluidstack_jv ($50B). Anthropic's own April 2026
+      blog frames the TPU deal as "a major expansion of our November 2025
+      commitment to invest $50 billion in strengthening American computing
+      infrastructure" - infrastructure ($50B Fluidstack) and silicon
+      (TPU/Broadcom) are the two sides of the SAME program, not additive. The
+      $52B dollar figure itself is secondary (Maginative analyst aggregation
+      of 400K Broadcom direct + 600K Google Cloud rental); Anthropic has not
+      confirmed $52B as a primary total.
+
+  # ==========================================================================
+  # NEW FACTS — Anthropic-AWS Apr 20 2026 announcement
+  # ==========================================================================
+
+  - fact_id: anthropic.commitment.aws_2026_04_rainier_5gw
+    category: commitment
+    value:
+      point_estimate: 100.0
+    unit: USD_billion
+    as_of_date: '2026-04-20'
+    confidence: high
+    source_ids:
+      - anthropic_aws_rainier_5gw_20260420
+      - amazon_anthropic_5gw_20260420
+    notes: |
+      Anthropic committed "more than $100 billion over the next ten years on
+      AWS technologies" in the April 20 2026 announcement, alongside "up to 5
+      gigawatts (GW) of new capacity" and an additional $5B Amazon equity
+      tranche (with up to $20B more in future tranches).
+
+  - fact_id: anthropic.commitment.aws_2026_04_rainier_5gw_capacity
+    category: commitment
+    value:
+      point_estimate: 5.0
+      range_low: 2.5
+      range_high: 5.0
+    unit: gigawatts
+    as_of_date: '2026-04-20'
+    confidence: high
+    source_ids:
+      - anthropic_aws_rainier_5gw_20260420
+      - amazon_anthropic_5gw_20260420
+    notes: |
+      Anthropic-AWS April 20 2026: "up to 5 gigawatts (GW) of new capacity"
+      via Project Rainier expansion. Near-term: "nearly 1 GW total of Trainium2
+      and Trainium3 capacity coming online by the end of 2026." Overlay
+      reconciliation attributes 1.83 GW to Epoch-tracked Madison+Ridgeland
+      sites and 3.17 GW as genuinely-new capacity (point estimate); range
+      [2.50, 5.00] reflects uncertainty on whether Madison/Ridgeland and
+      future New Carlisle expansion sit inside or outside the "5 GW new"
+      envelope.
+
+  # ==========================================================================
+  # NEW FACTS — Sovereign-AI sidebar (UAE, Saudi, India, UK)
+  # ==========================================================================
+
+  - fact_id: sovereign_ai.commitment.microsoft_g42_uae_khazna_200mw
+    category: commitment
+    value:
+      point_estimate: 0.20
+    unit: gigawatts
+    as_of_date: '2025-11-01'
+    confidence: high
+    source_ids:
+      - microsoft_g42_uae_2025_11
+    notes: |
+      Microsoft-G42 Nov 2025 announcement: 200 MW expansion via Khazna Data
+      Centers in UAE. Part of Microsoft's $15.2B UAE commitment ($5.5B for
+      AI/cloud infra). Distinct from Stargate UAE 1 GW program (G42 + OpenAI
+      + Oracle + SoftBank + Cerebras). Sovereign-AI sidebar; do not add to
+      Western total.
+
+  - fact_id: sovereign_ai.commitment.humain_amd_saudi_500mw
+    category: commitment
+    value:
+      point_estimate: 0.50
+      range_low: 0.30
+      range_high: 0.70
+    unit: gigawatts
+    as_of_date: '2025-05-13'
+    confidence: medium
+    source_ids:
+      - amd_humain_jv_20250513
+    notes: |
+      HUMAIN (Saudi PIF) + AMD + Cisco JV announced May 13, 2025: "500 MW of
+      AI infrastructure deployment over the next 5 years" with $10B joint
+      investment. Twin campuses Riyadh + Dammam (Phase 1 Q2 2026, 100 MW
+      each). Distinct from xAI-HUMAIN 500 MW Nvidia project (Nov 2025).
+      Sovereign-AI sidebar; do not add to Western total.
+
+  - fact_id: sovereign_ai.commitment.reliance_jio_jamnagar_gwscale
+    category: commitment
+    value:
+      point_estimate: 1.00
+      range_low: 0.12
+      range_high: 3.00
+    unit: gigawatts
+    as_of_date: '2024-08-29'
+    confidence: medium
+    source_ids:
+      - reliance_ambani_agm_2024
+      - reliance_110bn_ai_plan_20260219
+    notes: |
+      Reliance Industries Jio Jamnagar (Gujarat, India). Ambani at RIL 47th
+      AGM (Aug 29, 2024) announced "gigawatt-scale AI-ready data centre"
+      powered by Reliance Green Energy. Phase 1 120 MW online H2 2026. $110B
+      AI investment plan disclosed Feb 2026. Range: low (0.12) = Phase 1 only;
+      point (1.00) = Ambani "gigawatt-scale" verbatim; high (3.00) = secondary
+      ceiling. Execution risk: India grid + land-acquisition materially higher
+      than US/EU. Sovereign-AI sidebar; do not add to Western total.
+
+  - fact_id: sovereign_ai.commitment.uk_culham_ai_growth_zone_500mw
+    category: commitment
+    value:
+      point_estimate: 0.25
+      range_low: 0.10
+      range_high: 0.50
+    unit: gigawatts
+    as_of_date: '2025-01-13'
+    confidence: medium
+    source_ids:
+      - uk_gov_ai_opportunities_action_plan_20250113
+    notes: |
+      UK Government AI Opportunities Action Plan (Jan 13, 2025): Culham AI
+      Growth Zone, Oxfordshire. "100 MW initial expandable to 500 MW." Anchor
+      tenant not yet named. UK grid-connection queue is material execution
+      risk. Sovereign-AI sidebar; do not add to Western total.
+
+  # ==========================================================================
+  # NEW FACTS — Industry aggregate commitment surface
+  # ==========================================================================
+
+  - fact_id: industry.physical_commitment_surface.operational_today_gw
+    category: commitment
+    value:
+      point_estimate: 8.16
+    unit: gigawatts
+    as_of_date: '2026-04-22'
+    confidence: high
+    source_ids:
+      - epoch_frontier_data_centers_20260416
+      - stack_compute_commitments_overlay_20260422
+    notes: |
+      Operational AI compute as of 2026-Q2: Epoch evidenced current snapshot
+      (6.67 GW) + neocloud ex-Epoch operational (1.49 GW). Verifiable from
+      permits + satellite imagery + 10-K disclosures. Low uncertainty.
+
+  - fact_id: industry.physical_commitment_surface.western_horizon_2027_2030_gw
+    category: commitment
+    value:
+      point_estimate: 50.61
+      range_low: 45.74
+      range_high: 53.48
+    unit: gigawatts
+    as_of_date: '2026-04-22'
+    confidence: medium
+    source_ids:
+      - epoch_frontier_data_centers_20260416
+      - stack_compute_commitments_overlay_20260422
+    notes: |
+      Western-scope 2027-2030 full-buildout horizon. Components: Epoch
+      full-buildout (33.05 GW) + Class A Western-only incremental (8.17 GW
+      point / [3.30, 11.04]) + neocloud ex-Epoch operational+contracted
+      (9.39 GW). Excludes Sovereign-AI sidebar. 84% of this surface is NOT
+      YET operational - falsification risk sits in 2028-2030 timeline
+      slippage.
+
+  - fact_id: industry.physical_commitment_surface.sovereign_ai_sidebar_gw
+    category: commitment
+    value:
+      point_estimate: 1.95
+      range_low: 0.72
+      range_high: 4.40
+    unit: gigawatts
+    as_of_date: '2026-04-22'
+    confidence: medium
+    source_ids:
+      - stack_compute_commitments_overlay_20260422
+    notes: |
+      Sovereign-AI sidebar, 2027-2030 horizon. Sum of four non-Western Class A
+      commitments: UAE (0.20), Saudi (0.50), India (1.00), UK (0.25).
+      Reported separately from Western total.
+
+  - fact_id: industry.physical_commitment_surface.class_b_chips_gw
+    category: commitment
+    value:
+      point_estimate: 26.0
+    unit: gigawatts
+    as_of_date: '2026-04-22'
+    confidence: high
+    source_ids:
+      - stack_compute_commitments_overlay_20260422
+    notes: |
+      Class B chip procurement: AMD 6 GW + Broadcom 10 GW + NVIDIA 10 GW =
+      26 GW @ ~$138B. Chips deploy INTO Class A shells Epoch already tracks
+      (Stargate, Fairwater, CoreWeave, AWS). Adding this to physical
+      commitment surface would triple-count.
+
+# ============================================================================
+# SOURCE REGISTRY — all source_ids referenced above with full metadata
+# ============================================================================
+
+sources:
+
+  anthropic_google_broadcom_20260407:
+    type: primary
+    publisher: Google Cloud
+    title: "Anthropic's multi-year partnership with Google Cloud"
+    url: "https://cloud.google.com/blog/products/ai-machine-learning/anthropic-partnership-google-cloud-2026"
+    publication_date: 2026-04-07
+    access_date: 2026-04-16
+
+  maginative_1m_tpu:
+    type: secondary
+    publisher: Maginative
+    title: "Anthropic's $52B TPU Play: 400K Broadcom Direct + 600K Google Cloud"
+    url: "https://www.maginative.com/article/anthropic-1m-tpu-52b-deal-2026-04/"
+    publication_date: 2026-04-08
+    access_date: 2026-04-22
+
+  anthropic_aws_rainier_5gw_20260420:
+    type: primary
+    publisher: Anthropic
+    title: "Anthropic and Amazon expand collaboration for up to 5 gigawatts of new compute"
+    url: "https://www.anthropic.com/news/anthropic-amazon-compute"
+    publication_date: 2026-04-20
+    access_date: 2026-04-22
+
+  amazon_anthropic_5gw_20260420:
+    type: primary
+    publisher: Amazon
+    title: "Amazon and Anthropic expand strategic collaboration"
+    url: "https://www.aboutamazon.com/news/company-news/amazon-invests-additional-5-billion-anthropic-ai"
+    publication_date: 2026-04-20
+    access_date: 2026-04-22
+
+  microsoft_g42_uae_2025_11:
+    type: primary
+    publisher: Microsoft News Center
+    title: "Microsoft and G42 break ground on UAE-based AI data center with Khazna"
+    url: "https://news.microsoft.com/source/features/ai/microsoft-g42-uae-khazna-ai-data-center/"
+    publication_date: 2025-11-01
+    access_date: 2026-04-22
+
+  amd_humain_jv_20250513:
+    type: primary
+    publisher: AMD Investor Relations
+    title: "AMD and HUMAIN Announce Strategic Collaboration to Advance Global AI"
+    url: "https://ir.amd.com/news-events/press-releases/detail/1249/amd-and-humain-announce-strategic-collaboration-to-advance"
+    publication_date: 2025-05-13
+    access_date: 2026-04-22
+
+  reliance_ambani_agm_2024:
+    type: primary
+    publisher: Reliance Industries Ltd
+    title: "Chairman's Statement - 47th Annual General Meeting"
+    url: "https://www.ril.com/ar2023-24/pdf/RIL-47th-AGM-Chairman-Statement.pdf"
+    publication_date: 2024-08-29
+    access_date: 2026-04-22
+
+  reliance_110bn_ai_plan_20260219:
+    type: secondary
+    publisher: Reuters
+    title: "Reliance plans up to $110 billion AI and data center buildout"
+    url: "https://www.reuters.com/technology/artificial-intelligence/reliance-110bn-ai-plan-2026/"
+    publication_date: 2026-02-19
+    access_date: 2026-04-22
+
+  uk_gov_ai_opportunities_action_plan_20250113:
+    type: primary
+    publisher: UK Government (DSIT)
+    title: "AI Opportunities Action Plan"
+    url: "https://www.gov.uk/government/publications/ai-opportunities-action-plan"
+    publication_date: 2025-01-13
+    access_date: 2026-04-22
+
+  epoch_frontier_data_centers_20260416:
+    type: primary
+    publisher: Epoch AI
+    title: "Frontier Data Centers (dataset snapshot)"
+    url: "https://epoch.ai/data/frontier-data-centers"
+    publication_date: 2026-04-16
+    access_date: 2026-04-16
+
+  stack_compute_commitments_overlay_20260422:
+    type: tertiary
+    publisher: Stack Intelligence (internal)
+    title: "Compute Commitments Overlay - Layered commitment reconciliation on Epoch AI Frontier Data Centers"
+    url: "file://compute_commitments_overlay.yaml"
+    publication_date: 2026-04-22
+    access_date: 2026-04-22
