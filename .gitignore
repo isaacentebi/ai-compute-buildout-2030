@@ -15,6 +15,7 @@
 *.vrb
 *.bak
 *.bak.*
+*.ent
 
 # Python
 __pycache__/
