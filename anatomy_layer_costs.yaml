@@ -161,6 +161,8 @@ layers:
         basis: facility_mw
         vintage: 2025
         evidence_tier: T1
+        count_in_layer_sum: false  # alternate to land_tier_2_3 (representative Tier-2/3 default)
+        alternate_to: land_tier_2_3
         derivation: "5-8 ac/100 MW × $3-6M/ac"
         primary_sources:
           - publisher: "Loudoun Now"
@@ -203,6 +205,8 @@ layers:
         basis: facility_mw
         vintage: 2025
         evidence_tier: T1
+        count_in_layer_sum: false  # alternate to land_tier_2_3 (representative Tier-2/3 default)
+        alternate_to: land_tier_2_3
         derivation: "Rural farmland $150-750k/ac × 7-10 ac/100 MW; Hyperion-class < $30M total land vs $27B JV"
         primary_sources:
           - publisher: "Urban Milwaukee"
@@ -312,7 +316,7 @@ layers:
     layer_share_legacy_pre_ai_pct: [15, 20]
     layer_total_usd_m_per_mw_low: 2.0
     layer_total_usd_m_per_mw_high: 3.5
-    layer_total_usd_m_per_mw_central: 2.75
+    layer_total_usd_m_per_mw_central: 3.0
     layer_basis: facility_mw
     layer_vintage: 2026
     layer_reference_platform: "GB200/GB300 NVL72; 120-132 kW/rack"
@@ -652,17 +656,23 @@ layers:
 # ============================================================================
 
   - layer_id: networking_fabric
-    layer_label: "Networking fabric (NVLink + back-end + front-end + inter-DC)"
+    layer_label: "Networking fabric (out-of-rack: back-end + front-end + inter-DC)"
     layer_short: "Networking"
     layer_share_of_cluster_capex_pct: [13, 18]
     layer_share_legacy_cloud_pct: [5, 10]
-    layer_total_usd_m_per_mw_low: 3.0
-    layer_total_usd_m_per_mw_high: 7.5
-    layer_total_usd_m_per_mw_central: 5.0
+    layer_total_usd_m_per_mw_low: 2.5
+    layer_total_usd_m_per_mw_high: 5.0
+    layer_total_usd_m_per_mw_central: 4.0
     layer_basis: facility_mw
     layer_vintage: 2026
     layer_ai_vs_cloud_premium_x: [3, 6]
     layer_reference_platform: "GB200/GB300 NVL72; 3-layer InfiniBand or RoCE/UEC Ethernet"
+    layer_scope_note: |
+      This layer scope is OUT-OF-RACK networking only (back-end fabric switches,
+      optics, NICs/DPUs, front-end, inter-DC). Intra-rack NVLink scale-up
+      (~$1.3M/MW) is accounted inside accelerator_server_bom.rack_complete and
+      is listed below as a sub-component flagged count_in_layer_sum=false to
+      avoid double-counting.
 
     sub_components:
       - sub_id: nvlink_nvswitch
@@ -673,6 +683,8 @@ layers:
         basis: facility_mw
         vintage: 2025
         evidence_tier: T4
+        count_in_layer_sum: false  # already counted inside accelerator_server_bom rack-complete
+        included_in: accelerator_server_bom.rack_complete
         derivation: "$300-500k/NVL72 rack; ~7 racks/MW NVL72"
         copper_savings_per_rack_usd_m: [1.5, 2.0]
         primary_sources:
@@ -1167,17 +1179,17 @@ aggregate_rollup_facility_mw_2026:
 
   it_bom_at_customer:
     accelerator_server_rack_complete_central: 19.5
-    networking_out_of_rack_central: 3.5
+    networking_out_of_rack_central: 4.0
     storage_central: 0.55
     subtotal_low: 19.0
-    subtotal_high: 28.0
-    subtotal_central: 23.55
+    subtotal_high: 28.5
+    subtotal_central: 24.05
 
   total_all_in_facility_gw_2026:
     low: 30.0
-    high: 47.0
-    central_grid_tied: 36.7
-    central_btm_gas: 38.95
+    high: 47.5
+    central_grid_tied: 37.2
+    central_btm_gas: 39.45
     central_adopted_in_paper: 37.0
     capital_envelope_at_raw_horizon_51_9_gw_usd_t_low: 1.6
     capital_envelope_at_raw_horizon_51_9_gw_usd_t_high: 2.4

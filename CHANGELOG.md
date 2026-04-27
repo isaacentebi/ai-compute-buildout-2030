@@ -83,6 +83,33 @@ envelope to **~$1.9 trillion (range $1.6-2.4T)**.
 - `forecaster_capex_comparison.yaml` (18 sources)
 - `research/` (8 per-agent primary-source notes)
 
+**Rev-4 follow-up: structural restructure (PDF 37 pages, was 30)**
+
+The §2 anatomy section drafted in `rev4_section2_anatomy.tex` is now integrated into `report.tex`. Section count goes from 10 → 11, ordering changes per the unit-economics-first proposal:
+
+| # | Old (rev-3) | New (rev-4) |
+|---|---|---|
+| 1 | The scale of what is being built | The scale of what is being built (now thesis-only opening + Figure 1 + forward pointer to §2) |
+| 2 | Geographic concentration | **The anatomy of one AI facility gigawatt** (NEW; basis cheat sheet, 6-layer BOM, Crusoe worked example, chips/MW counterintuition, $30-47B/GW reconciliation, scaling table) |
+| 3 | The operators: who owns the horizon | **Scaling the unit: power, compute capacity, and operators** (former §1 subsections promoted: PUE/two-axes/operator-concentration) |
+| 4 | The silicon | Where the gigawatts can be delivered (was §2, renamed) |
+| 5 | The $1.5T question | The operators and counterparties: who controls the gigawatts (merge of old §3 + §6) |
+| 6 | The counterparty graph | The silicon (no rename) |
+| 7 | Execution risk | The $2 trillion question (no rename) |
+| 8 | Sovereign AI | What prevents a gigawatt from becoming operational? (was §7, renamed) |
+| 9 | Known unknowns | Sovereign AI |
+| 10 | Conclusion | Known unknowns |
+| 11 | — | Conclusion |
+
+**Audit extension**: `audit_totals.py` gains `--basis anatomy` (and `--basis all`) modes that re-sum sub-component centrals against layer rollups, validate the aggregate facility-GW capex, and reconcile the capital envelope at the raw 51.9 GW horizon. Sub-components flagged `count_in_layer_sum: false` (alternates like Tier-1/Tier-4 land, or rack-internal NVLink already counted in accelerator BOM) are excluded from layer sums to prevent double-counting. Both audit modes pass on the rev-4 data layer.
+
+**Data layer fixes from audit**:
+- shell_civil_land: Tier-1 NoVA and Tier-4 rural land flagged as alternates to Tier-2/3 (representative default)
+- networking_fabric: NVLink/NVSwitch flagged as `included_in: accelerator_server_bom.rack_complete`; layer scope tightened to out-of-rack only ($4.0M/MW central)
+- cooling: layer central tightened from $2.75 → $3.0M/MW to match sub-component sum
+- IT BOM subtotal: $23.5M → $24.0M central (after networking adjustment)
+- Total facility-GW central: $36.7 → $37.2M/MW (rounds to $37; capital envelope $1.93T at raw horizon)
+
 **What did NOT change in rev-4**:
 - Horizon GW figures (operational today 7.56 tier-clean; raw 51.9 facility; weighted 36.8;
   MC median 31.8; p10/p90 24.6/37.4; non-stretch 45.2; conservative 27.9; ceiling 55.3;
