@@ -1,0 +1,1192 @@
+# ---------------------------------------------------------------------------
+# anatomy_layer_costs.yaml
+#
+# Per-layer / per-sub-component cost decomposition for one AI facility GW
+# (2026 vintage). Feeds the rev-4 §2 "Anatomy of one AI facility gigawatt"
+# section. Companion to compute_commitments_overlay.yaml, which tracks the
+# horizon side; this file tracks the unit-economics side.
+#
+# Each sub-component row carries:
+#   - cost_usd_m_per_mw_{low,high,central}
+#   - basis (facility_mw | it_load_mw | server_power_mw)
+#   - vintage (year the cost figure represents)
+#   - evidence_tier (T1-T6, mirroring the horizon framework)
+#   - primary_sources[] with publisher + url + retrieval_date
+#   - inflation_flag (notable 2024->2026 cost moves)
+#   - notes (caveats, derivation, hearsay flags)
+#
+# Six physical layers + one cross-cutting basis-conventions block:
+#   1. shell_civil_land
+#   2. cooling
+#   3. power_infrastructure
+#   4. networking_fabric
+#   5. accelerator_server_bom
+#   6. grid_interconnect
+#
+# Companion files:
+#   anatomy_layer_costs.csv               - flat per-row table
+#   anatomy_named_projects.yaml           - project-level disclosed capex anchors
+#   forecaster_capex_comparison.yaml      - cross-forecaster $/GW reconciliation
+#
+# Build / audit hook (TODO): extend audit_totals.py with --basis anatomy mode
+# to validate sum(layer_central) reconciles to total_facility_gw_central.
+#
+# Data cutoff: 2026-04-27
+# ---------------------------------------------------------------------------
+
+metadata:
+  schema_version: "2026-04-27"
+  data_cutoff: "2026-04-27"
+  reference_vintage: 2026
+  basis_default: facility_mw
+  geography_scope: "Western (US-led) hyperscale AI training campus"
+  reference_platform: "NVIDIA GB200/GB300 NVL72 baseline; ~120 kW/rack"
+  reference_pue: 1.15
+  author: anatomy-research-pipeline
+  research_inputs:
+    - research/01_forecasters.md
+    - research/02_power.md
+    - research/03_cooling.md
+    - research/04_shell_land.md
+    - research/05_networking.md
+    - research/06_accelerator.md
+    - research/07_grid.md
+    - research/08_crusoe.md
+
+  evidence_tier_definitions: |
+    T1 - Operationally verified at named hyperscale site (10-K disclosure or
+         vendor-confirmed installation cost on a real campus).
+    T2 - Vendor list price or distributor quote for in-volume product, current
+         year, with named vendor (Schneider, Vertiv, GE Vernova, etc.).
+    T3 - Independent industry-tracker average (Dell'Oro, JLL, Cushman, CBRE,
+         Turner & Townsend, Wood Mackenzie). Multi-source convergent.
+    T4 - Single-source analyst estimate (SemiAnalysis, Bernstein, Goldman,
+         Morgan Stanley, Crehan, 650 Group) - useful but not corroborated.
+    T5 - Inferred from MEP-share or component-arithmetic. Construct, not
+         disclosure.
+    T6 - Hearsay / trade press without primary citation. Use as boundary
+         only.
+
+  basis_definitions:
+    facility_mw: |
+      Total facility power including IT load + cooling + lighting + losses.
+      Matches Epoch AI's MW convention. Primary basis for this paper.
+    it_load_mw: |
+      IT (server-power) MW only. Equals facility_mw / PUE. Used by JLL,
+      Cushman, most colocation analysts.
+    server_power_mw: |
+      Same as it_load_mw in modern usage; some forecasters (Epoch headline,
+      Nvidia/Jensen) use this as the denominator on $/GW headlines.
+
+# ============================================================================
+# CROSS-CUTTING: BASIS CONVENTIONS CHEAT SHEET
+# ----------------------------------------------------------------------------
+# Apparent disagreements between forecasters of 3-5x in $/GW almost always
+# disappear once you align on which row each is using.
+# ============================================================================
+
+basis_conventions:
+  - convention_id: server_power_gw_all_in
+    label: "Per server-power GW, full all-in (IT + infra + power)"
+    typical_usd_b_per_gw_low: 40
+    typical_usd_b_per_gw_high: 55
+    used_by:
+      - Epoch AI (headline $44B server-GW figure)
+      - "NVIDIA / Jensen Huang ($50-60B/GW 'AI factory')"
+      - "Stargate aggregate ($500B / 10 GW = $50B/GW)"
+    note: "Smaller denominator (IT only); largest $/GW number."
+
+  - convention_id: facility_power_gw_all_in
+    label: "Per facility-power GW, full all-in"
+    typical_usd_b_per_gw_low: 25
+    typical_usd_b_per_gw_high: 35
+    used_by:
+      - "Epoch AI facility figure ($29-30B)"
+      - "McKinsey (~$33B derived)"
+      - "Bernstein (~$28B if PUE-adjusted from $35B IT-load)"
+      - "THIS PAPER: $23-30B/GW Western 2026 horizon"
+    note: |
+      Larger denominator (facility power); paper sits at the LOW end of this
+      band - defensible only if (a) IT hardware included, (b) BTM generation
+      excluded, (c) custom-silicon mix material.
+
+  - convention_id: shell_me_only_no_it
+    label: "Per IT-load GW, shell + M&E only, IT excluded"
+    typical_usd_b_per_gw_low: 10
+    typical_usd_b_per_gw_high: 15
+    used_by:
+      - "Cushman & Wakefield ($11.7M/MW avg critical-load)"
+      - "JLL ($11.3M/MW shell-and-core 2026)"
+      - "Meta Hyperion JV ($27B / 2 GW = $13.5B/GW shell-only)"
+      - "Crusoe Abilene ($15B / 1.2 GW = $12.5M/MW shell+power+cooling)"
+    note: "OFCI / tenant equipment excluded. Cleanest disclosed anchor class."
+
+  - convention_id: ai_fitout_delta_only
+    label: "AI fit-out delta over standard hyperscale (incremental)"
+    typical_usd_b_per_gw_low: 20
+    typical_usd_b_per_gw_high: 30
+    used_by:
+      - "JLL (+$25M/MW AI fit-out)"
+      - "ConstructElements (+$20M/MW)"
+    note: "Captures liquid cooling, dense distribution, monitoring, controls."
+
+# ============================================================================
+# LAYER 1 - SHELL + CIVIL + LAND
+# ============================================================================
+
+layers:
+  - layer_id: shell_civil_land
+    layer_label: "Building shell + civil + land + base/AI fit-out"
+    layer_short: "Shell"
+    layer_share_of_facility_capex_pct: [40, 55]
+    layer_total_usd_m_per_mw_low: 4.4
+    layer_total_usd_m_per_mw_high: 9.7
+    layer_total_usd_m_per_mw_central: 6.5
+    layer_basis: facility_mw
+    layer_vintage: 2026
+    layer_geography_default: "Tier-2/3 US (TX/OH/MS/IA/WI)"
+    layer_geography_alternates:
+      tier_1_nova: { low: 5.5, high: 11.0 }
+      tier_4_rural: { low: 4.0, high: 6.0 }
+    layer_construction_cycle_months_typical: [30, 48]
+    layer_construction_cycle_months_record_fast: 12
+    layer_construction_cycle_months_legacy_2019: [24, 30]
+
+    sub_components:
+      - sub_id: land_tier_1_nova
+        label: "Land - Tier 1 Northern Virginia (Loudoun + PWC)"
+        cost_usd_m_per_mw_low: 0.30
+        cost_usd_m_per_mw_high: 1.50
+        cost_usd_m_per_mw_central: 0.80
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T1
+        derivation: "5-8 ac/100 MW × $3-6M/ac"
+        primary_sources:
+          - publisher: "Loudoun Now"
+            url: "https://www.loudounnow.com/news/loudoun-land-data-center-values-soar-while-home-assessments-hold-steady/article_d7977ab6-f33b-4dc2-8203-d53bc9a8ebc4.html"
+            retrieval_date: "2026-04-27"
+            note: "Loudoun avg DC-zoned land 2025 = $3.76M/acre"
+          - publisher: "Northern Virginia Magazine"
+            url: "https://northernvirginiamag.com/news/2025/11/04/amazon-buys-northern-virginia-data-center-site-for-record-700-million/"
+            retrieval_date: "2026-04-27"
+            note: "Amazon NoVA Nov 2025 = $700M / ~189 ac = $3.7M/acre"
+          - publisher: "Loudoun Now"
+            url: "https://www.loudounnow.com/business/data-center-sale-sets-new-loudoun-price-record/article_d392a250-e672-46c2-b2d2-f0ad3424a100.html"
+            retrieval_date: "2026-04-27"
+            note: "SDC Capital Leesburg Q4'25 record: $615M for 97 acres = $6.3M/acre"
+
+      - sub_id: land_tier_2_3
+        label: "Land - Tier 2/3 (PHX/ATL/OH/TX/AZ)"
+        cost_usd_m_per_mw_low: 0.05
+        cost_usd_m_per_mw_high: 0.40
+        cost_usd_m_per_mw_central: 0.15
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T1
+        derivation: "5-10 ac/100 MW × $0.2-1.7M/ac"
+        primary_sources:
+          - publisher: "Phoenix Metro Home Search"
+            url: "https://www.phoenixmetrohomesearch.com/blog/global-data-center-giant-pays-300-million-for-land-in-east-valley"
+            retrieval_date: "2026-04-27"
+            note: "NTT Mesa: $300M / 174 ac = $1.7M/acre (record)"
+          - publisher: "Bisnow / NAMC Atlanta"
+            url: "https://namcatlanta.org/2024/05/31/microsoft-grabs-another-160-acres-south-of-atlanta-for-data-centers/"
+            retrieval_date: "2026-04-27"
+            note: "Microsoft Douglas County 2021: $148k/acre"
+
+      - sub_id: land_tier_4_rural
+        label: "Land - Tier 4 rural (LA/MS/Mt Pleasant/Iowa)"
+        cost_usd_m_per_mw_low: 0.01
+        cost_usd_m_per_mw_high: 0.075
+        cost_usd_m_per_mw_central: 0.03
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T1
+        derivation: "Rural farmland $150-750k/ac × 7-10 ac/100 MW; Hyperion-class < $30M total land vs $27B JV"
+        primary_sources:
+          - publisher: "Urban Milwaukee"
+            url: "https://urbanmilwaukee.com/2024/07/30/microsoft-buys-more-land-in-mount-pleasant-for-data-center/"
+            retrieval_date: "2026-04-27"
+            note: "Microsoft Mt Pleasant: $225.8M / 1,363 ac = $165,700/acre"
+          - publisher: "Cushman & Wakefield"
+            url: "https://www.cushmanwakefield.com/en/united-states/insights/data-center-development-cost-guide"
+            retrieval_date: "2026-04-27"
+            note: "2024 weighted-average DC land sale price = $244,000/acre"
+
+      - sub_id: site_civil_utilities_permitting
+        label: "Site civil + utilities + permitting"
+        cost_usd_m_per_mw_low: 0.30
+        cost_usd_m_per_mw_high: 1.20
+        cost_usd_m_per_mw_central: 0.70
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T3
+        primary_sources:
+          - publisher: "Cushman & Wakefield"
+            url: "https://www.cushmanwakefield.com/en/united-states/insights/data-center-development-cost-guide"
+            retrieval_date: "2026-04-27"
+          - publisher: "Construct Elements"
+            url: "https://www.constructelements.com/post/cost-to-build-modern-data-center-2026"
+            retrieval_date: "2026-04-27"
+        notes: |
+          Includes earthwork, mass grading, stormwater detention, utility
+          trenching, access roads, perimeter, dry/wet utility duct banks. Heavy
+          fill / rock / extended utility tie-ins push to upper bound.
+
+      - sub_id: building_shell
+        label: "Building shell (tilt-up concrete / structural steel hybrid)"
+        cost_usd_m_per_mw_low: 1.4
+        cost_usd_m_per_mw_high: 2.5
+        cost_usd_m_per_mw_central: 1.9
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T3
+        derivation: "7,000 sq ft/MW × $200-350/sq ft Tier-2"
+        density_change_note: |
+          AI density compressed gross sq ft/MW from ~10-12k (2019) to ~6-8k
+          (2025-26 AI), partially offsetting unit-cost inflation.
+        primary_sources:
+          - publisher: "DPR Construction"
+            url: "https://www.dpr.com/media/blog/digital-realty-tilt-up"
+            retrieval_date: "2026-04-27"
+            note: "Tilt-up panel install rate 8-10/day, ~45 min/panel"
+          - publisher: "Datacentre Magazine"
+            url: "https://datacentremagazine.com/articles/the-role-of-steel-in-todays-data-centre-industry"
+            retrieval_date: "2026-04-27"
+            note: "Hyperscale builds ~20,000 tonnes steel/facility, 30-40 lb/sq ft"
+
+      - sub_id: base_fitout
+        label: "Base fit-out (raised floor, fire suppression, BMS, DCIM, security)"
+        cost_usd_m_per_mw_low: 1.5
+        cost_usd_m_per_mw_high: 2.5
+        cost_usd_m_per_mw_central: 2.0
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T3
+        derivation: "20-25% of total construction capex; $100-200/sq ft"
+        primary_sources:
+          - publisher: "Cushman & Wakefield"
+            url: "https://www.cushmanwakefield.com/en/united-states/insights/data-center-development-cost-guide"
+            retrieval_date: "2026-04-27"
+          - publisher: "Construct Elements"
+            url: "https://www.constructelements.com/post/cost-to-build-modern-data-center-2026"
+            retrieval_date: "2026-04-27"
+
+      - sub_id: ai_fitout_delta
+        label: "AI fit-out delta (high-density busway, in-row CDU, leak det, advanced BMS)"
+        cost_usd_m_per_mw_low: 1.0
+        cost_usd_m_per_mw_high: 3.0
+        cost_usd_m_per_mw_central: 1.8
+        basis: facility_mw
+        vintage: 2026
+        evidence_tier: T3
+        primary_sources:
+          - publisher: "Turner & Townsend"
+            url: "https://reports.turnerandtownsend.com/data-centre-construction-cost-index-2025/data-centre-cost-trends"
+            retrieval_date: "2026-04-27"
+            note: "AI-DC cost premium 7-10% above air-cooled cloud builds"
+
+    inflation_flags_2024_2026:
+      - "Turner Building Cost Index +5-6%/yr through 2025"
+      - "ENR Building Cost Index +4.2% / Construction Cost Index +3.6% full-year 2025"
+      - "Turner & Townsend DC Cost Index +5.5%/yr 2025 (vs +9.0% 2024)"
+      - "AGC: ~439k construction worker shortage; 80%+ firms can't fill craft roles"
+      - "Loudoun DC-zoned land +59% in single year (2024 -> 2025)"
+      - "DC trades wage premium 25-30% (electricians, pipefitters, controls)"
+
+    layer_construction_cycle_notes: |
+      Long pole has shifted from civil/structural to transformer + switchgear
+      lead times (now up to 4 yrs for large MV transformers vs ~40 weeks
+      pre-2020) plus grid interconnection studies. PJM/ERCOT now require
+      20% non-refundable interconnection deposits = $50-200M for 1 GW.
+
+# ============================================================================
+# LAYER 2 - COOLING
+# ============================================================================
+
+  - layer_id: cooling
+    layer_label: "Cooling stack (DLC + chillers + heat rejection + residual air)"
+    layer_short: "Cooling"
+    layer_share_of_facility_capex_pct: [20, 30]
+    layer_share_legacy_pre_ai_pct: [15, 20]
+    layer_total_usd_m_per_mw_low: 2.0
+    layer_total_usd_m_per_mw_high: 3.5
+    layer_total_usd_m_per_mw_central: 2.75
+    layer_basis: facility_mw
+    layer_vintage: 2026
+    layer_reference_platform: "GB200/GB300 NVL72; 120-132 kW/rack"
+
+    sub_components:
+      - sub_id: dlc_cold_plates_manifolds
+        label: "DLC cold plates + manifolds (rack-level)"
+        cost_usd_m_per_mw_low: 0.25
+        cost_usd_m_per_mw_high: 0.50
+        cost_usd_m_per_mw_central: 0.35
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T2
+        derivation: "CoolIT in-rack ~$20k/rack × ~7 racks/MW NVL72 density"
+        primary_sources:
+          - publisher: "Deep Fundamental"
+            url: "https://deepfundamental.substack.com/p/deep-dive-liquid-cooling"
+            retrieval_date: "2026-04-27"
+
+      - sub_id: cdus
+        label: "CDUs (coolant distribution units)"
+        cost_usd_m_per_mw_low: 0.30
+        cost_usd_m_per_mw_high: 0.70
+        cost_usd_m_per_mw_central: 0.50
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T2
+        primary_sources:
+          - publisher: "Schneider Electric / Motivair"
+            url: "https://www.se.com/us/en/about-us/newsroom/news/press-releases/schneider-electric-unveils-liquid-cooling-portfolio-with-motivair-featuring-dedicated-solutions-and-services-for-hpc-and-ai-workloads-68da975376d417f4a10de42c/"
+            retrieval_date: "2026-04-27"
+            note: "MCDU-70 family scales 105 kW to 2.5 MW; 2.5 MW unit list low-millions"
+
+      - sub_id: facility_water_loop_tcs
+        label: "Facility water loop / TCS piping"
+        cost_usd_m_per_mw_low: 0.15
+        cost_usd_m_per_mw_high: 0.30
+        cost_usd_m_per_mw_central: 0.22
+        basis: facility_mw
+        vintage: 2024
+        evidence_tier: T5
+        primary_sources:
+          - publisher: "ASHRAE TC9.9 / Data Center Dynamics"
+            url: "https://www.datacenterdynamics.com/en/news/ashrae-publishes-liquid-cooling-guidelines-as-chip-power-moves-into-uncharted-territory/"
+            retrieval_date: "2026-04-27"
+
+      - sub_id: chillers_water_cooled_centrifugal
+        label: "Chillers (water-cooled centrifugal, 300+ tons)"
+        cost_usd_m_per_mw_low: 0.40
+        cost_usd_m_per_mw_high: 0.90
+        cost_usd_m_per_mw_central: 0.65
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T2
+        derivation: "$300-800/ton × ~285 tons/MW thermal at full load"
+        primary_sources:
+          - publisher: "LNEYA 2025 chiller price guide"
+            url: "https://www.lneya-online.com/en/chiller-price-guide-2025-cost-breakdown-by-type-capacity-and-application.html"
+            retrieval_date: "2026-04-27"
+
+      - sub_id: cooling_towers_evap
+        label: "Cooling towers + condenser-water (wet/evap baseline)"
+        cost_usd_m_per_mw_low: 0.15
+        cost_usd_m_per_mw_high: 0.35
+        cost_usd_m_per_mw_central: 0.25
+        basis: facility_mw
+        vintage: 2024
+        evidence_tier: T3
+        primary_sources:
+          - publisher: "DOE FEMP"
+            url: "https://www.energy.gov/cmei/femp/cooling-water-efficiency-opportunities-federal-data-centers"
+            retrieval_date: "2026-04-27"
+            note: "855 gpm/MW design flow"
+
+      - sub_id: dry_coolers_adiabatic
+        label: "Dry coolers + adiabatic hybrid (water-constrained sites)"
+        cost_usd_m_per_mw_low: 0.30
+        cost_usd_m_per_mw_high: 0.60
+        cost_usd_m_per_mw_central: 0.45
+        basis: facility_mw
+        vintage: 2024
+        evidence_tier: T1
+        primary_sources:
+          - publisher: "Microsoft Cloud Blog"
+            url: "https://www.microsoft.com/en-us/microsoft-cloud/blog/2024/12/09/sustainable-by-design-next-generation-datacenters-consume-zero-water-for-cooling/"
+            retrieval_date: "2026-04-27"
+            note: "Microsoft Aug 2024 zero-water design pivot; Phoenix + Mt Pleasant pilots"
+
+      - sub_id: pumps_piping_central_plant
+        label: "Pumps + piping + valves (central plant)"
+        cost_usd_m_per_mw_low: 0.10
+        cost_usd_m_per_mw_high: 0.25
+        cost_usd_m_per_mw_central: 0.17
+        basis: facility_mw
+        vintage: 2024
+        evidence_tier: T5
+
+      - sub_id: residual_air_side
+        label: "Residual air-side (CRAH, RDHx, fan walls, containment)"
+        cost_usd_m_per_mw_low: 0.20
+        cost_usd_m_per_mw_high: 0.50
+        cost_usd_m_per_mw_central: 0.35
+        basis: facility_mw
+        vintage: 2024
+        evidence_tier: T2
+        primary_sources:
+          - publisher: "Vertiv press release"
+            url: "https://www.vertiv.com/en-emea/about/news-and-insights/news-releases/vertiv-codevelops-with-nvidia-complete-power-and-cooling-blueprint-for--nvidia-gb200-nvl72-platform/"
+            retrieval_date: "2026-04-27"
+            note: "Even NVL72 reference is hybrid liquid-air; 20-30% rack load + 100% switching gear stays air-cooled"
+
+      - sub_id: bms_controls_monitoring
+        label: "BMS / controls / monitoring"
+        cost_usd_m_per_mw_low: 0.05
+        cost_usd_m_per_mw_high: 0.15
+        cost_usd_m_per_mw_central: 0.10
+        basis: facility_mw
+        vintage: 2024
+        evidence_tier: T5
+
+    ai_density_transition:
+      - era: "A100 (~2020-2022)"
+        gpu_tdp_w: 400
+        rack_kw: [15, 25]
+        cooling_arch: "Air (CRAH + containment)"
+        cooling_capex_usd_m_per_mw: [0.8, 1.3]
+      - era: "H100 (~2022-2024)"
+        gpu_tdp_w: 700
+        rack_kw: [30, 50]
+        cooling_arch: "Air with rear-door HX, partial DLC"
+        cooling_capex_usd_m_per_mw: [1.2, 1.8]
+      - era: "B200/GB200 (2025-2027)"
+        gpu_tdp_w: [1000, 1200]
+        rack_kw: [80, 132]
+        cooling_arch: "DLC mandatory + air for residuals"
+        cooling_capex_usd_m_per_mw: [2.0, 3.5]
+      - era: "Rubin (2027+, projected)"
+        gpu_tdp_w: [1500, 2400]
+        rack_kw: [200, "200+"]
+        cooling_arch: "DLC + possible 2-phase / immersion uplift"
+        cooling_capex_usd_m_per_mw: [3.0, 5.0]
+        evidence_tier: T6
+        note: "Rubin TDP/density specs not officially published"
+
+    pue_disclosed_2024:
+      - operator: Google
+        pue: 1.09
+        source: "Google 2024 Environmental Report"
+      - operator: Meta
+        pue: 1.08
+        source: "Meta 2024 Sustainability Report"
+      - operator: Microsoft
+        pue: 1.12
+        source: "Microsoft 2024 ESR"
+      - operator: AWS
+        pue: 1.15
+        source: "AWS Sustainability disclosures (industry-implied)"
+      - operator: "Industry average"
+        pue: 1.56
+        source: "Uptime Institute 2024 Global DC Survey"
+
+    wue_disclosed_2024:
+      - operator: AWS
+        wue_l_per_kwh: 0.15
+        source: "Amazon 2024 Sustainability Report AWS Summary"
+      - operator: Meta
+        wue_l_per_kwh: 0.18
+        source: "Meta 2024 Sustainability Report"
+      - operator: Microsoft
+        wue_l_per_kwh: 0.30
+        source: "Microsoft 2024 ESR Data Fact Sheet"
+        note: "Legacy fleet; target = 0 for new builds"
+      - operator: Google
+        wue_l_per_kwh: 1.1
+        source: "Google 2024 Env Report (implied: 8.1B gallons fleet 2024)"
+
+# ============================================================================
+# LAYER 3 - POWER INFRASTRUCTURE
+# ============================================================================
+
+  - layer_id: power_infrastructure
+    layer_label: "Power infrastructure (substation, transformers, switchgear, UPS, backup gen)"
+    layer_short: "Power"
+    layer_share_of_facility_capex_pct: [5, 12]
+    layer_total_usd_m_per_mw_low_grid_tied: 1.9
+    layer_total_usd_m_per_mw_high_grid_tied: 3.7
+    layer_total_usd_m_per_mw_low_btm_gas: 2.5
+    layer_total_usd_m_per_mw_high_btm_gas: 5.5
+    layer_total_usd_m_per_mw_central_grid_tied: 2.8
+    layer_total_usd_m_per_mw_central_btm_gas: 4.0
+    layer_basis: facility_mw
+    layer_vintage: 2026
+
+    sub_components:
+      - sub_id: utility_substation_switchyard
+        label: "Utility substation + customer switchyard (138/230/345/500 kV)"
+        cost_usd_m_per_mw_low: 0.15
+        cost_usd_m_per_mw_high: 0.40
+        cost_usd_m_per_mw_central: 0.25
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T1
+        primary_sources:
+          - publisher: "Data Center Dynamics (Dominion 900 MW Chesterfield filing)"
+            url: "https://www.datacenterdynamics.com/en/news/dominion-to-build-new-high-voltage-lines-to-supply-proposed-900mw-data-center-in-chesterfield-county-virginia/"
+            retrieval_date: "2026-04-27"
+
+      - sub_id: main_power_transformers
+        label: "Main power transformers (HV + MV step-down + GSU)"
+        cost_usd_m_per_mw_low: 0.30
+        cost_usd_m_per_mw_high: 0.60
+        cost_usd_m_per_mw_central: 0.45
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T2
+        layer_dominating: true
+        inflation_flag: "Power transformer prices +77% since 2019 (Wood Mackenzie)"
+        lead_time_weeks_low: 80
+        lead_time_weeks_high: 144
+        primary_sources:
+          - publisher: "Wood Mackenzie via PowerMag"
+            url: "https://www.powermag.com/transformers-in-2026-shortage-scramble-or-self-inflicted-crisis/"
+            retrieval_date: "2026-04-27"
+            note: "Power transformer lead time 128 weeks; GSU 144 weeks; +77% prices since 2019"
+          - publisher: "DOE Large Power Transformer Resilience Report"
+            url: "https://www.energy.gov/sites/default/files/2024-10/EXEC-2022-001242%20-%20Large%20Power%20Transformer%20Resilience%20Report%20signed%20by%20Secretary%20Granholm%20on%207-10-24.pdf"
+            retrieval_date: "2026-04-27"
+          - publisher: "NERC 2025 Summer Reliability Assessment"
+            url: "https://www.nerc.com/globalassets/programs/rapa/ra/nerc_sra_2025.pdf"
+            retrieval_date: "2026-04-27"
+            note: "Average lead times ~120 weeks; large class 80-210 weeks"
+
+      - sub_id: switchgear_mv_lv
+        label: "MV + LV switchgear and bus"
+        cost_usd_m_per_mw_low: 0.25
+        cost_usd_m_per_mw_high: 0.40
+        cost_usd_m_per_mw_central: 0.32
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T3
+        lead_time_weeks_typical: 44
+        primary_sources:
+          - publisher: "Dell'Oro Q4'25"
+            url: "https://www.delloro.com/news/data-center-physical-infrastructure-market-reaches-10-9-billion-in-4q-2025-up-20-percent-y-y/"
+            retrieval_date: "2026-04-27"
+
+      - sub_id: ups_lithium_ion
+        label: "UPS systems + batteries (Li-ion mix)"
+        cost_usd_m_per_mw_low: 0.30
+        cost_usd_m_per_mw_high: 0.60
+        cost_usd_m_per_mw_central: 0.45
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T2
+        layer_dominating: true
+        primary_sources:
+          - publisher: "Vertiv Q3 2025 earnings"
+            url: "https://seekingalpha.com/article/4890719-vertiv-holdings-the-15-billion-backlog-liquid-cooling-dominance-and-the-ai-infrastructure-trade-wall-street-is-still-underpricing"
+            retrieval_date: "2026-04-27"
+            note: "Backlog $9.5B (+30% YoY); FY25 revenue guide $10.16-10.24B"
+
+      - sub_id: diesel_backup_gensets
+        label: "Diesel backup gensets (if used; declining for AI)"
+        cost_usd_m_per_mw_low: 0.70
+        cost_usd_m_per_mw_high: 1.20
+        cost_usd_m_per_mw_central: 0.95
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T2
+        primary_sources:
+          - publisher: "Cummins / CSDG"
+            url: "https://www.cummins.com/generators/diesel"
+            retrieval_date: "2026-04-27"
+            note: "DQKAN 2.5 MW @ $1.30M list = $519/kW; installed $700-1,200/kW"
+
+      - sub_id: behind_the_meter_gas
+        label: "Behind-the-meter gas generation (aero / frame / CCGT)"
+        cost_usd_m_per_mw_low: 1.0
+        cost_usd_m_per_mw_high: 2.5
+        cost_usd_m_per_mw_central: 1.6
+        basis: facility_mw
+        vintage: 2026
+        evidence_tier: T1
+        layer_dominating: true
+        applies_when: "BTM gas posture (Stargate Abilene, Meta Hyperion, etc.)"
+        inflation_flag: "CCGT installed $2.2-2.5M/MW = 2-3x EIA AEO2025 reference"
+        oem_backlog: "GE Vernova 80-100 GW backlog into 2029-2031; Siemens to 2030"
+        primary_sources:
+          - publisher: "GE Vernova / Crusoe (29-unit LM2500XPRESS deal)"
+            url: "https://www.crusoe.ai/resources/newsroom/ge-vernova-and-crusoe-announce-major-29-unit-gas-turbine-deal"
+            retrieval_date: "2026-04-27"
+          - publisher: "Gas Turbine World 2024 Handbook"
+            url: "https://gasturbineworld.com/capital-costs/"
+            retrieval_date: "2026-04-27"
+            note: "105 MW twin-aero SC: $1,175/kW; 237 MW F-class SC: $713/kW; 1,083 MW H-class CCGT: $950/kW"
+          - publisher: "GridLab Sept 2025"
+            url: "https://gridlab.org/wp-content/uploads/2025/09/GridLab_Gas-Turbine-Costs-Report-1.pdf"
+            retrieval_date: "2026-04-27"
+          - publisher: "Utility Dive on GE Vernova Q3 2025 earnings"
+            url: "https://www.utilitydive.com/news/ge-vernova-gas-turbine-investor/807662/"
+            retrieval_date: "2026-04-27"
+
+      - sub_id: in_building_distribution
+        label: "In-building distribution (busway, PDU, RPP, branch circuits)"
+        cost_usd_m_per_mw_low: 0.15
+        cost_usd_m_per_mw_high: 0.30
+        cost_usd_m_per_mw_central: 0.22
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T3
+
+      - sub_id: onsite_bess
+        label: "Onsite BESS (4-hr, ride-through + arbitrage)"
+        cost_usd_m_per_mw_low: 0.03
+        cost_usd_m_per_mw_high: 0.16
+        cost_usd_m_per_mw_central: 0.07
+        basis: facility_mw
+        vintage: 2024
+        evidence_tier: T1
+        primary_sources:
+          - publisher: "NREL ATB 2024"
+            url: "https://atb.nrel.gov/electricity/2024/utility-scale_battery_storage"
+            retrieval_date: "2026-04-27"
+            note: "4-hr utility-scale BESS $334/kWh installed; LFP best-in-class $125/kWh by Oct 2025"
+
+      - sub_id: onsite_solar_token
+        label: "Onsite solar (token / sustainability)"
+        cost_usd_m_per_mw_low: 0
+        cost_usd_m_per_mw_high: 0.025
+        cost_usd_m_per_mw_central: 0.005
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T3
+
+# ============================================================================
+# LAYER 4 - NETWORKING FABRIC
+# ============================================================================
+
+  - layer_id: networking_fabric
+    layer_label: "Networking fabric (NVLink + back-end + front-end + inter-DC)"
+    layer_short: "Networking"
+    layer_share_of_cluster_capex_pct: [13, 18]
+    layer_share_legacy_cloud_pct: [5, 10]
+    layer_total_usd_m_per_mw_low: 3.0
+    layer_total_usd_m_per_mw_high: 7.5
+    layer_total_usd_m_per_mw_central: 5.0
+    layer_basis: facility_mw
+    layer_vintage: 2026
+    layer_ai_vs_cloud_premium_x: [3, 6]
+    layer_reference_platform: "GB200/GB300 NVL72; 3-layer InfiniBand or RoCE/UEC Ethernet"
+
+    sub_components:
+      - sub_id: nvlink_nvswitch
+        label: "NVLink/NVSwitch (intra-rack scale-up domain)"
+        cost_usd_m_per_mw_low: 1.0
+        cost_usd_m_per_mw_high: 1.7
+        cost_usd_m_per_mw_central: 1.3
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T4
+        derivation: "$300-500k/NVL72 rack; ~7 racks/MW NVL72"
+        copper_savings_per_rack_usd_m: [1.5, 2.0]
+        primary_sources:
+          - publisher: "SemiAnalysis (CPO research, secondary)"
+            url: "https://newsletter.semianalysis.com/p/co-packaged-optics-cpo-book-scaling"
+            retrieval_date: "2026-04-27"
+            note: "All-optical NVL72 counterfactual = $2.2M/rack at NVIDIA 75% GM vs $220k copper"
+          - publisher: "Amphenol Paladin HD 224G"
+            url: "https://www.amphenol-cs.com/connectors/copper/paladin"
+            retrieval_date: "2026-04-27"
+
+      - sub_id: backend_fabric_switches
+        label: "Back-end fabric - switches (Spectrum-X / Quantum-X800 / Tomahawk 5/6)"
+        cost_usd_m_per_mw_low: 0.8
+        cost_usd_m_per_mw_high: 1.4
+        cost_usd_m_per_mw_central: 1.1
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T3
+        primary_sources:
+          - publisher: "Dell'Oro AI back-end forecast (Sep 2025)"
+            url: "https://www.delloro.com/news/data-center-switch-sales-in-ai-back-end-networks-to-exceed-100-b-over-the-next-five-years/"
+            retrieval_date: "2026-04-27"
+            note: ">$100B cumulative AI back-end switch sales 2025-2029"
+
+      - sub_id: backend_fabric_optics
+        label: "Back-end fabric - optics + DACs/AOCs (60% of fabric BOM)"
+        cost_usd_m_per_mw_low: 1.2
+        cost_usd_m_per_mw_high: 2.4
+        cost_usd_m_per_mw_central: 1.8
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T4
+        layer_dominating: true
+        primary_sources:
+          - publisher: "SemiAnalysis CPO (secondary)"
+            url: "https://newsletter.semianalysis.com/p/co-packaged-optics-cpo-book-scaling"
+            retrieval_date: "2026-04-27"
+            note: "Transceivers = 60% of networking cost / 45% of networking power on GB300 NVL72"
+
+      - sub_id: backend_fabric_nics_dpus
+        label: "Back-end fabric - NICs/DPUs (ConnectX-7/8, BlueField, Pollara)"
+        cost_usd_m_per_mw_low: 0.4
+        cost_usd_m_per_mw_high: 0.8
+        cost_usd_m_per_mw_central: 0.6
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T2
+        primary_sources:
+          - publisher: "NVIDIA Quantum-2 datasheet"
+            url: "https://www.nvidia.com/en-us/networking/quantum2/"
+            retrieval_date: "2026-04-27"
+
+      - sub_id: frontend_network
+        label: "Front-end network (storage + management)"
+        cost_usd_m_per_mw_low: 0.2
+        cost_usd_m_per_mw_high: 0.4
+        cost_usd_m_per_mw_central: 0.3
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T4
+
+      - sub_id: inter_dc_zr_pluggables_dwdm
+        label: "Inter-DC: ZR/ZR+ pluggables + DWDM line system"
+        cost_usd_m_per_mw_low: 0.1
+        cost_usd_m_per_mw_high: 0.4
+        cost_usd_m_per_mw_central: 0.2
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T2
+        primary_sources:
+          - publisher: "Ciena WaveLogic 6"
+            url: "https://www.ciena.com/products/wavelogic/wavelogic-6"
+            retrieval_date: "2026-04-27"
+            note: "800ZR market crosses $1B in 2026 (Cignal AI); 800G ZR/ZR+ ~$20-35k/unit OEM"
+
+      - sub_id: inter_dc_owned_fiber_amortized
+        label: "Inter-DC: amortized owned fiber (per MW supported)"
+        cost_usd_m_per_mw_low: 0.1
+        cost_usd_m_per_mw_high: 0.4
+        cost_usd_m_per_mw_central: 0.2
+        basis: facility_mw
+        vintage: 2025
+        evidence_tier: T1
+        primary_sources:
+          - publisher: "Microsoft Source (Fairwater Wisconsin <-> Atlanta)"
+            url: "https://news.microsoft.com/source/features/ai/from-wisconsin-to-atlanta-microsoft-connects-datacenters-to-build-its-first-ai-superfactory/"
+            retrieval_date: "2026-04-27"
+            note: "120,000 miles dedicated fiber for AI WAN; MRC protocol"
+
+    fabric_architecture_transition:
+      ib_to_ethernet:
+        - "Ethernet surpassed InfiniBand in 2025 (Dell'Oro)"
+        - ">2/3 of AI back-end switch sales by 3Q25 (Dell'Oro)"
+        - "Spectrum-X >$10B annualized by 2Q FY26 (NVIDIA)"
+        - "UEC 1.0 spec released June 11, 2025; 562 pages"
+        - "Merchant Ethernet fabric 20-35% cheaper than NVIDIA-IB (SemiAnalysis estimate)"
+
+# ============================================================================
+# LAYER 5 - ACCELERATOR + SERVER BOM
+# ============================================================================
+
+  - layer_id: accelerator_server_bom
+    layer_label: "Accelerator + server BOM (the dominant capex bucket)"
+    layer_short: "Accelerator+Server"
+    layer_share_of_cluster_capex_pct: [60, 70]
+    layer_total_chip_silicon_only_usd_m_per_mw_low: 13
+    layer_total_chip_silicon_only_usd_m_per_mw_high: 18
+    layer_total_chip_silicon_only_usd_m_per_mw_central: 15.5
+    layer_total_rack_complete_usd_m_per_mw_low: 16
+    layer_total_rack_complete_usd_m_per_mw_high: 23
+    layer_total_rack_complete_usd_m_per_mw_central: 19.5
+    layer_total_it_bom_at_customer_usd_m_per_mw_low: 19
+    layer_total_it_bom_at_customer_usd_m_per_mw_high: 28
+    layer_total_it_bom_at_customer_usd_m_per_mw_central: 23.5
+    layer_basis: facility_mw
+    layer_vintage: 2026
+    layer_reference_platform: "GB200/GB300 NVL72 all-NVIDIA mix"
+
+    paper_reconciliation:
+      paper_assumed_usd_b_per_gw_low: 13
+      paper_assumed_usd_b_per_gw_high: 17
+      bottoms_up_2026_all_nvidia_usd_b_per_gw_low: 19
+      bottoms_up_2026_all_nvidia_usd_b_per_gw_high: 22
+      tension_flag: |
+        Paper's $13-17B/GW is too tight for 2026 all-NVIDIA build. Reconciles
+        cleanly only if (a) restated as chip-silicon-only (no Grace, NVSwitch,
+        NIC, rack mech), or (b) build assumes 40-50% custom-silicon mix
+        (Trainium, TPU, MTIA, Maia at lower $/H100e).
+      recommendations:
+        - "Restate band as chip-silicon-only and add total IT BOM line ~$23B/GW"
+        - "OR widen to $15-22B/GW with explicit mix sensitivity note"
+        - "OR tighten to $19-22B/GW for all-NVIDIA bottoms-up (raises facility-GW total ~$5B)"
+
+    chips_per_facility_mw_by_vintage:
+      - vintage: 2024
+        platform: "HGX H100 (8-GPU air-cooled)"
+        chips_per_facility_mw: 570
+        evidence_tier: T1
+        h100e_per_chip: 1.0
+        h100e_per_facility_mw_m: 0.57
+      - vintage: 2025
+        platform: "HGX B200 8-GPU air-cooled"
+        chips_per_facility_mw_low: 470
+        chips_per_facility_mw_high: 530
+        evidence_tier: T3
+      - vintage: "2025-26"
+        platform: "GB200 NVL72 (liquid)"
+        chips_per_facility_mw_low: 430
+        chips_per_facility_mw_high: 460
+        chips_per_facility_mw_central: 440
+        evidence_tier: T2
+        h100e_per_chip: 2.5
+        h100e_per_facility_mw_m: 1.10
+      - vintage: 2026
+        platform: "GB300 NVL72"
+        chips_per_facility_mw_low: 400
+        chips_per_facility_mw_high: 430
+        chips_per_facility_mw_central: 415
+        evidence_tier: T2
+        h100e_per_chip: 3.75
+        h100e_per_facility_mw_m: 1.55
+      - vintage: "2H'2026-2027"
+        platform: "Vera Rubin NVL144"
+        chips_per_facility_mw_low: 800
+        chips_per_facility_mw_high: 900
+        evidence_tier: T4
+        h100e_per_chip: 7.5
+      - vintage: 2028
+        platform: "Realistic deployed mix (Rubin/Rubin Ultra on Blackwell-Ultra installed base)"
+        h100e_per_facility_mw_m_low: 1.5
+        h100e_per_facility_mw_m_high: 2.5
+        evidence_tier: T5
+        note: "Installed-base-weighted; matches paper's stated 1.5-2.0M assumption"
+
+    counterintuitive_finding: |
+      Chips per facility-MW DECREASES with each generation (570 -> 440 -> 415 ->
+      ~850 Rubin) because power per chip rises faster than performance per watt
+      at the rack level. The compute story is not 'more chips per watt' - it is
+      'more H100e per chip'.
+
+    accelerator_unit_costs:
+      - chip: "NVIDIA H100 SXM"
+        vintage: "2023-24"
+        usd_per_chip_volume_low: 25000
+        usd_per_chip_volume_high: 30000
+        usd_per_chip_street_high: 40000
+        tdp_w: 700
+        evidence_tier: T2
+      - chip: "NVIDIA H200 SXM"
+        vintage: 2024
+        usd_per_chip_low: 30000
+        usd_per_chip_high: 40000
+        tdp_w: 700
+        evidence_tier: T2
+      - chip: "NVIDIA B200 (HGX)"
+        vintage: 2025
+        usd_per_chip_low: 30000
+        usd_per_chip_high: 40000
+        rack_8gpu_server_usd_k: 500
+        tdp_w_low: 1000
+        tdp_w_high: 1200
+        evidence_tier: T2
+      - chip: "NVIDIA GB200 superchip (2x B200 + Grace)"
+        vintage: 2025
+        usd_per_superchip_low: 60000
+        usd_per_superchip_high: 70000
+        nvl72_rack_usd_m_low: 3.0
+        nvl72_rack_usd_m_high: 3.4
+        nvl72_rack_loaded_usd_m: 3.9
+        rack_kw: 120
+        evidence_tier: T3
+      - chip: "NVIDIA GB300 (Blackwell Ultra)"
+        vintage: "2H'25-2026"
+        nvl72_rack_usd_m_low: 3.7
+        nvl72_rack_usd_m_high: 4.0
+        nvl72_inference_variant_usd_m_high: 6.0
+        tdp_w: 1400
+        evidence_tier: T4
+      - chip: "NVIDIA Vera Rubin (R200, NVL144)"
+        vintage: "2H'2026"
+        nvl144_rack_usd_m_low: 7.2
+        nvl144_rack_usd_m_high: 8.8
+        rack_kw_low: 120
+        rack_kw_high: 130
+        evidence_tier: T4
+        primary_source_url: "https://www.tomshardware.com/tech-industry/artificial-intelligence/price-of-nvidias-vera-rubin-nvl72-racks-skyrockets-to-as-much-as-usd8-8-million-apiece"
+      - chip: "NVIDIA Rubin Ultra (Kyber NVL576)"
+        vintage: "2H'2027"
+        nvl576_rack_usd_m_low: 15
+        nvl576_rack_usd_m_high: 25
+        rack_kw: 600
+        evidence_tier: T6
+      - chip: "AMD MI300X"
+        vintage: 2024
+        usd_per_chip_msft: 10000
+        usd_per_chip_street: 15000
+        tdp_w: 750
+        evidence_tier: T2
+      - chip: "AMD MI355X (CDNA4)"
+        vintage: "2H'2025"
+        usd_per_chip_low: 20000
+        usd_per_chip_high: 25000
+        hbm_gb: 288
+        tdp_w: 1400
+        evidence_tier: T4
+      - chip: "AMD MI400"
+        vintage: 2026
+        usd_per_chip_low: 25000
+        usd_per_chip_high: 35000
+        hbm_gb: 432
+        evidence_tier: T5
+      - chip: "Google TPU v5p"
+        vintage: 2024
+        usd_per_chip_low: 8000
+        usd_per_chip_high: 10000
+        tdp_w: 700
+        evidence_tier: T4
+      - chip: "Google Ironwood (v7p)"
+        vintage: "2025-26"
+        usd_per_chip_low: 10000
+        usd_per_chip_high: 15000
+        peak_fp8_pf: 4.6
+        evidence_tier: T4
+      - chip: "AWS Trainium 2"
+        vintage: "2024-25"
+        usd_per_chip_low: 6000
+        usd_per_chip_high: 10000
+        evidence_tier: T4
+      - chip: "AWS Trainium 3"
+        vintage: "Dec 2025"
+        usd_per_chip_low: 10000
+        usd_per_chip_high: 15000
+        peak_fp8_pf: 2.52
+        hbm_gb: 144
+        evidence_tier: T4
+      - chip: "Microsoft Maia 200"
+        vintage: 2026
+        usd_per_chip_low: 10000
+        usd_per_chip_high: 14000
+        hbm_gb: 216
+        tdp_w: 750
+        evidence_tier: T4
+
+    h100e_relative_fp8:
+      H100: 1.0
+      B200: 2.5
+      GB200_per_b200: 2.5
+      B300_GB300: 3.75
+      Rubin_R200: 7.75
+      Rubin_Ultra: 11
+      MI300X: 0.8
+      MI355X: 2.5
+      MI400: 5.5
+      TPU_v5p: 0.45
+      TPU_Trillium_v6e: 0.25
+      TPU_Ironwood_v7p: 1.2
+      Trainium2: 0.3
+      Trainium3: 0.65
+      Maia_200: 1.3
+
+    rack_bom_split_gb200_nvl72:
+      total_rack_loaded_usd_m: 3.9
+      compute_pct: 57
+      infra_pct: 43
+      networking_pct_of_total_facility: 13
+      mech_elec_pct: 30
+      storage_pct_low: 1.0
+      storage_pct_high: 1.5
+      source: "Bernstein per-rack BOM (cited via Investing.com Nov 2025)"
+
+    refresh_cycle_disclosures_10k:
+      - operator: Microsoft
+        change_year: "FY23 10-K"
+        useful_life_change: "4 -> 6 years"
+        p_l_benefit_usd_b: 3.7
+        ai_subset_status: "Re-shortened a subset of GPU servers back toward 4 years post-2024"
+      - operator: Meta
+        change_year: "Jan 2025 (FY24 10-K)"
+        useful_life_change: "4-5 -> 5.5 years"
+        p_l_benefit_fy25_usd_b: 2.9
+      - operator: Amazon
+        change_year: "Q4'24 10-K (Feb 2025)"
+        useful_life_change: "6 -> 5 years (subset, AI/ML)"
+        p_l_hit_fy25_usd_b: 0.7
+        primary: true
+        note: "Best primary-source evidence for 4-year effective AI accelerator refresh assumption"
+      - operator: Google
+        change_year: "FY23 10-K"
+        useful_life_change: "4 -> 6 years"
+
+# ============================================================================
+# LAYER 6 - GRID INTERCONNECT + LONG-LEAD-TIME
+# ============================================================================
+
+  - layer_id: grid_interconnect
+    layer_label: "Grid interconnect + long-lead-time (substation-to-fence + assigned upgrades)"
+    layer_short: "Grid"
+    layer_basis: facility_mw
+    layer_vintage: 2026
+
+    posture_envelopes:
+      - posture: "Best (ERCOT fast-track, small upgrade)"
+        substation_to_fence_low: 0.3
+        substation_to_fence_high: 0.5
+        network_upgrades_low: 0.0
+        network_upgrades_high: 0.2
+        btm_gen_low: 0
+        btm_gen_high: 0
+        total_low: 0.3
+        total_high: 0.7
+      - posture: "Median (PJM/MISO with assigned upgrades)"
+        substation_to_fence_low: 0.4
+        substation_to_fence_high: 0.7
+        network_upgrades_low: 0.3
+        network_upgrades_high: 0.8
+        btm_gen_low: 0
+        btm_gen_high: 0
+        total_low: 0.7
+        total_high: 1.5
+      - posture: "Constrained (full BTM gas + grid backstop)"
+        substation_to_fence_low: 0.4
+        substation_to_fence_high: 0.7
+        network_upgrades_low: 0.2
+        network_upgrades_high: 0.5
+        btm_gen_low: 1.0
+        btm_gen_high: 1.5
+        total_low: 1.6
+        total_high: 2.7
+      - posture: "Worst (heavy bespoke transmission + BTM gen)"
+        substation_to_fence_low: 0.6
+        substation_to_fence_high: 1.0
+        network_upgrades_low: 1.5
+        network_upgrades_high: 2.5
+        btm_gen_low: 1.0
+        btm_gen_high: 1.5
+        total_low: 3.1
+        total_high: 5.0
+
+    iso_rto_queue_state_2025:
+      - iso: PJM
+        active_gen_queue_gw: 280
+        median_ir_to_cod_yrs: 4
+        capacity_2025_26_per_mw_day_usd: 269.92
+        capacity_2026_27_per_mw_day_usd: 329.17
+        notes: "TC1 done Sept 2024; FERC ordered colocation rules Dec 2025"
+        primary_source: "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2026-2027/2026-2027-bra-report.pdf"
+      - iso: MISO
+        active_gen_queue_gw: 215
+        median_ir_to_cod_yrs: 4
+        notes: "ERAS expedited process; MISO-South PRA spiked 2024-25"
+      - iso: ERCOT
+        active_large_load_irs_gw: 226
+        large_load_irs_growth_yoy_pct: 259
+        share_data_centers_pct: 73
+        notes: "No central capacity market; Batch Zero large-load review late 2025"
+        primary_source: "https://www.ercot.com/files/docs/2025/12/02/16.2-System-Planning-and-Weatherization-Update_Revised.pdf"
+      - iso: SPP
+        active_gen_queue_gw: 150
+        notes: "FERC accepted Provisional Load Process Aug 2025"
+      - iso: CAISO
+        active_gen_queue_gw: 126
+        median_ir_to_cod_yrs: 4
+        notes: "2025 IPP effective Jun 25, 2025; reduced from 350 GW Cluster 15"
+
+    long_lead_equipment:
+      - equipment: "Large power transformer (LPT, >=100 MVA)"
+        lead_time_weeks_low: 80
+        lead_time_weeks_high: 210
+        usd_per_unit_low_m: 2
+        usd_per_unit_high_m: 10
+        evidence_tier: T2
+        primary_source: "Wood Mackenzie via PowerMag"
+      - equipment: "GSU transformer (200-900 MVA)"
+        lead_time_weeks_avg: 144
+        usd_per_unit_low_m: 5
+        usd_per_unit_high_m: 15
+        evidence_tier: T2
+      - equipment: "HV circuit breaker (230-500 kV)"
+        lead_time_weeks_avg: 151
+        evidence_tier: T2
+      - equipment: "MV/HV switchgear"
+        lead_time_weeks_avg: 44
+        evidence_tier: T2
+      - equipment: "GE Vernova HA-class gas turbine (350-570 MW)"
+        backlog_status: "Sold out through 2028; reservations to 2029-2031"
+        usd_per_kw_list_low: 700
+        usd_per_kw_list_high: 1000
+        evidence_tier: T1
+        primary_source: "GE Vernova Q3 2025 earnings"
+      - equipment: "Siemens Energy SGT-9000HL (593 SC / 880 CC MW)"
+        backlog_status: "Backlog to 2030; new orders 3-5 yrs out"
+        evidence_tier: T1
+        primary_source: "Siemens Energy FY2025 annual report"
+      - equipment: "Mitsubishi M501JAC (448 SC MW)"
+        lead_time_yrs_low: 5
+        lead_time_yrs_high: 7
+        evidence_tier: T2
+
+    nerc_2025_ltra_warning: |
+      Summer peak demand forecast +224 GW over 10 years (+24% on 2025 peak,
+      +69% over 2024 LTRA baseline). 13 of 23 assessment areas at elevated/high
+      resource adequacy risk. MISO, PJM, ERCOT, WECC-NW, WECC-Basin, SERC-Central
+      flagged red. Even if every queue reform succeeds and every gas turbine slot
+      delivers on time, NERC's own bulk-system planners expect the resource gap
+      to widen, not close, through the decade.
+
+    primary_sources:
+      - publisher: "LBNL Queued Up 2025 Edition"
+        url: "https://emp.lbl.gov/publications/queued-2025-edition-characteristics"
+      - publisher: "LBNL PJM Interconnection Cost Analysis"
+        url: "https://emp.lbl.gov/publications/interconnection-cost-analysis-pjm"
+      - publisher: "NERC 2025 State of Reliability"
+        url: "https://www.nerc.com/globalassets/programs/rapa/pa/nerc_sor_2025_overview.pdf"
+      - publisher: "NERC 2024 LTRA (corrected July 2025)"
+        url: "https://www.nerc.com/globalassets/our-work/assessments/2024-ltra_corrected_july_2025.pdf"
+
+# ============================================================================
+# AGGREGATE ROLLUP - one facility GW, 2026 vintage, all-NVIDIA mid-case
+# ============================================================================
+
+aggregate_rollup_facility_mw_2026:
+  facility_only_no_it:
+    shell_civil_land_central: 6.5
+    cooling_central: 2.75
+    power_grid_tied_central: 2.8
+    grid_interface_median_central: 1.1
+    subtotal_low: 11.0
+    subtotal_high: 19.0
+    subtotal_central: 13.15
+    note: "Independently reconciles to Crusoe Abilene's $12.5M/MW disclosed shell+power+cooling envelope"
+
+  facility_with_btm_gas:
+    shell_civil_land_central: 6.5
+    cooling_central: 2.75
+    power_btm_gas_central: 4.0
+    grid_interface_constrained_central: 2.15
+    subtotal_low: 13.0
+    subtotal_high: 22.5
+    subtotal_central: 15.4
+
+  it_bom_at_customer:
+    accelerator_server_rack_complete_central: 19.5
+    networking_out_of_rack_central: 3.5
+    storage_central: 0.55
+    subtotal_low: 19.0
+    subtotal_high: 28.0
+    subtotal_central: 23.55
+
+  total_all_in_facility_gw_2026:
+    low: 30.0
+    high: 47.0
+    central_grid_tied: 36.7
+    central_btm_gas: 38.95
+    sits_in_band: "Bernstein $35B/GW central case"
+    above_paper_assumption_b_per_gw: [6.7, 9.0]
+    note: |
+      Paper currently quotes $23-30B/GW total (2026 facility basis). Bottoms-up
+      reconstruction lands $30-47B/GW central. Reconciles to paper only at the
+      LOW end if accelerator+server BOM is restated as chip-silicon-only and
+      BTM generation is excluded.
+
+  reconciliation_to_external_anchors:
+    - anchor: "Crusoe Abilene (shell+power+cooling, no IT)"
+      disclosed_usd_m_per_mw: 12.5
+      our_facility_only_central: 13.15
+      delta_pct: 5
+    - anchor: "Bernstein (~$35B/GW IT-load)"
+      pue_adjusted_facility_basis_usd_b_per_gw: 28
+      our_central_grid_tied: 36.7
+      note: "Bernstein under-counts BTM gas + grid upgrades; if added closes gap"
+    - anchor: "Epoch facility-GW $29-30B"
+      our_central_grid_tied: 36.7
+      delta: "Our number $7B/GW higher; consistent with Epoch using lower IT mix"
+    - anchor: "JLL fully built-out $45-55B/GW"
+      our_high: 47.0
+      delta: "Our high end aligns with JLL low end"
