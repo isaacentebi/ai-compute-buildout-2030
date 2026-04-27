@@ -9,8 +9,8 @@ resolves to a row in the data layer, every row carries an evidence tier
 a Monte Carlo distribution rather than a point estimate.
 
 - **Paper**: [`report.pdf`](report.pdf) (30 pages)
-- **Latest revision**: 2026-04-24 (rev-3, facility-basis reconciliation + Figure 8 rebuild)
-- **Data cutoff**: 2026-04-24
+- **Latest revision**: 2026-04-27 (rev-4, bottoms-up unit-economics anatomy + capital envelope reset to ~$1.9T)
+- **Data cutoff**: 2026-04-27
 - **Primary data**: [Epoch AI Frontier Data Centers](https://epoch.ai/data/data-centers) (CC BY 4.0)
 
 ---
@@ -28,7 +28,7 @@ a Monte Carlo distribution rather than a point estimate.
 | Conservative case (T1+T2+T3 only) | **27.9 GW facility** | |
 | Full-realization ceiling | **54.7 GW facility** | Arithmetic high |
 | Sovereign-AI sidebar (separate) | **2.56 GW facility** (1.91 GW IT-load) | UAE + Saudi + India + UK; not in Western denom. |
-| Capital envelope | **~$1.2–1.5T** | Capex requirement; distinct from RPO |
+| Capital envelope | **~$1.9T (range $1.5–2.4T)** | Bottoms-up unit-economics × 51.4 GW raw; central $37B/facility-GW. Distinct from RPO. |
 | RPO (revenue underwriting, not capex) | **~$550B** | Oracle–OpenAI, Anthropic–AWS, Meta–Nebius, CoreWeave |
 | 2030 H100-equivalents (Western) | **78.2M** | vs. 4.2M operational today — 18.7× growth (basis-invariant) |
 

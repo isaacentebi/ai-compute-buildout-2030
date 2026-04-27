@@ -1,0 +1,167 @@
+% ============================================================================
+% rev4_section2_anatomy.tex
+%
+% Draft §2 "Anatomy of one AI facility gigawatt" for the rev-4 restructure.
+% Standalone — not yet inserted into report.tex. Once approved, the rev-4
+% restructure will renumber and reflow downstream sections.
+%
+% Every number resolves to a row in anatomy_layer_costs.yaml,
+% anatomy_named_projects.yaml, or forecaster_capex_comparison.yaml.
+% ============================================================================
+\section{The anatomy of one AI facility gigawatt}
+\label{sec:anatomy}
+
+\textbf{Why a unit primitive.} Section~\ref{sec:scale} reports the headline aggregates: 7.56~GW operational, 51.9~GW raw 2030 horizon, 31.8~GW Monte~Carlo median, approximately \$1.9~trillion capital envelope, 78.2~million H100-equivalents. These quantities are scale numbers --- multiplications. The multiplicand is a single facility gigawatt of AI compute, and the answers to four small questions about that unit set the credibility of every aggregate downstream:
+
+\begin{itemize}\itemsep2pt
+\item What does one facility GW physically contain?
+\item What does it cost to build, line item by line item?
+\item What compute payload does it carry, and how does that change with each chip generation?
+\item And against which denominator are the headline \$/GW numbers being quoted?
+\end{itemize}
+
+The last question is load-bearing. Apparent disagreements between forecasters of three to five times in \$/GW almost always disappear once the basis is reconciled. We dispatch it first.
+
+\subsection{Reading every \$/GW figure: the four conventions}
+\label{subsec:basis-conventions}
+
+External forecasters quote AI data center capex in four distinct units. They are not interchangeable. Cross-source comparisons that ignore the basis distinction are arithmetic noise.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}L{4.6cm}R{1.7cm}R{1.7cm}L{6.0cm}@{}}
+\toprule
+\textbf{Convention} & \textbf{Low \$B/GW} & \textbf{High \$B/GW} & \textbf{Used by (representative)} \\
+\midrule
+Server-power GW, full all-in & 40 & 55 & Epoch AI headline (\$44B); NVIDIA / Jensen Huang (\$50--60B); Stargate (\$50B) \\
+\textbf{Facility-power GW, full all-in} & \textbf{30} & \textbf{47} & \textbf{Epoch facility (\$29--30B); McKinsey (\$33B); Bernstein (\$28B PUE-adj.); \emph{this paper, central \$37B}} \\
+IT-load GW, shell + M\&E only (no IT) & 10 & 15 & Cushman \& Wakefield (\$11.7M/MW); JLL (\$11.3M/MW); Meta Hyperion JV (\$13.5B/GW); Crusoe Abilene (\$12.5M/MW) \\
+AI fit-out delta (incremental over standard hyperscale) & +20 & +30 & JLL (+\$25M/MW); ConstructElements (+\$20M/MW) \\
+\bottomrule
+\end{tabular}
+\caption{The four conventions in which AI data center capex is quoted in 2025--2026. The first two differ only in denominator (server-power MW vs.\ facility-power MW, related by the PUE ratio of roughly 1.10--1.30). The last two exclude either the IT hardware or the entire base hyperscale envelope. \emph{This paper uses the second convention throughout}: per facility-power GW, with IT hardware included and behind-the-meter generation reported separately. All eighteen sources canvassed and their decompositions appear in \texttt{forecaster\_capex\_comparison.yaml}.\protect\footnotemark}
+\label{tab:basis-conventions}
+\end{table}
+\footnotetext{Sources canvassed: Epoch AI \emph{Frontier Data Centers Hub} (Nov.~2025); Bernstein (Stacy Rasgon, Nov.~2025, via Investing.com); McKinsey \emph{Cost of Compute} (Apr.~2025); Bain \emph{Compute Power Report} (Sep.~2025); JLL \emph{2026 Global Data Center Outlook}; Cushman \& Wakefield \emph{2025 Cost Guide}; Goldman Sachs (Sheridan/Davenport, 2025); Morgan Stanley (Stephen Byrd, 2025); JP Morgan; BloombergNEF; Synergy Research; Dell'Oro Group; IEA \emph{Energy and AI}; LBNL \emph{2024 US Data Center Energy Usage Report}; Aschenbrenner \emph{Trillion-Dollar Cluster}; NVIDIA Q2 FY26 earnings; Barclays; OpenAI/Oracle Stargate; Meta--Blue Owl Hyperion JV; CoreWeave 10-K FY25; Nebius Q4 FY25. Full URLs and retrieval dates in \texttt{forecaster\_capex\_comparison.yaml}.}
+
+The basis confusion is not academic. Epoch AI's headline \$44~B/GW figure (server-power basis) and McKinsey's \$33~B/GW figure (facility-power, incl.\ infrastructure) differ by roughly the PUE ratio --- they are saying close to the same thing in different units.\footnote{Epoch AI, \emph{Frontier Data Centers Hub}, retrieved 2026-04-27, \url{https://epoch.ai/blog/introducing-the-frontier-data-centers-hub/}. The Epoch documentation breaks the \$44B/GW into \$30B IT hardware plus \$14B other; the facility-GW figure is approximately \$29--30B at PUE~1.20. McKinsey \& Company, \emph{The Cost of Compute: A \$7~Trillion Race to Scale Data Centers}, April~2025, \url{https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-cost-of-compute-a-7-trillion-dollar-race-to-scale-data-centers}.} NVIDIA's \$50--60~B/GW ``AI factory'' figure is server-power basis and self-interested but inside the same band. The Crusoe--Oracle--OpenAI Stargate Abilene disclosure of \$15~B for 1.2~GW (\$12.5M/MW) is correctly an order of magnitude smaller because it excludes the IT hardware --- Oracle funds the GPU layer separately, on its own balance sheet, at an additional reported \$40~B for approximately 400{,}000 GB200s.\footnote{Crusoe Energy Systems, ``Crusoe expands AI data center campus in Abilene to 1.2 gigawatts'', 2025-05, \url{https://www.crusoe.ai/resources/newsroom/crusoe-expands-ai-data-center-campus-in-abilene-to-1-2-gigawatts}; Bloomberg, ``JPMorgan leads \$7.1~billion loan for Blue Owl-tied data center'', 2025-05-22; Data Center Dynamics, ``Crusoe secures \$11.6bn in debt and equity for OpenAI's Stargate data center campus'', 2025-05. The Oracle GPU figure (\$40B for ~400K GB200s) is reported via Spyglass/SemiAnalysis and not Crusoe-confirmed.}
+
+\subsection{The physical bill of materials}
+\label{subsec:physical-bom}
+
+A 2026-vintage 1~GW AI campus is not a building --- it is a power plant with computers attached. Six physical layers, each with a distinct supply chain, lead time, and inflation profile, share the construction-side ledger; the accelerator and server bill of materials sits on top.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}L{4.6cm}R{1.5cm}R{1.5cm}R{1.6cm}L{4.4cm}@{}}
+\toprule
+\textbf{Layer} & \textbf{Low \$M/MW} & \textbf{High \$M/MW} & \textbf{Central \$M/MW} & \textbf{Layer-dominating components} \\
+\midrule
+Shell + civil + land + base/AI fit-out & 4.4 & 9.7 & 6.5 & Building shell; AI fit-out delta (CDU plumbing, busway) \\
+Cooling stack & 2.0 & 3.5 & 2.75 & DLC cold plates and CDUs; chillers; dry coolers in water-stressed sites \\
+Power infrastructure (grid-tied) & 1.9 & 3.7 & 2.8 & Main transformers (long lead); UPS \\
+\quad\emph{or with behind-the-meter gas} & \emph{2.5} & \emph{5.5} & \emph{4.0} & \emph{Above plus 1.0--2.5 \$M/MW gas turbines} \\
+Networking fabric (rack-internal scale-up) & --- & --- & \emph{(in rack BOM)} & NVLink scale-up; copper cartridges \\
+Out-of-rack networking & 2.5 & 4.5 & 3.5 & Optics (60\% of out-of-rack BOM); back-end fabric \\
+Accelerator + server BOM (rack-complete) & 16 & 23 & 19.5 & Accelerator silicon; HBM \\
+Storage & 0.3 & 0.8 & 0.55 & NVMe arrays; controllers \\
+Grid interface (substation-to-fence + assigned upgrades) & 0.3 & 5.0 & 1.1 & Wide range by ISO posture; see \S\ref{subsec:scaling-the-unit} \\
+\midrule
+\textbf{Subtotal: facility-only (no IT)} & \textbf{11} & \textbf{19} & \textbf{13.2} & Reconciles to Crusoe Abilene \$12.5M/MW disclosed \\
+\textbf{Subtotal: IT BOM at customer} & \textbf{19} & \textbf{28} & \textbf{23.5} & Accel + server + out-of-rack networking + storage \\
+\textbf{Total all-in facility-GW (2026)} & \textbf{30} & \textbf{47} & \textbf{37} & Bernstein \$35B central; JLL \$45--55B fully built \\
+\bottomrule
+\end{tabular}
+\caption{Cost decomposition for one 2026-vintage AI facility gigawatt, by physical layer. Central case is grid-tied with diesel backup; the BTM-gas alternative adds \$1.0--2.5M/MW. Every sub-component breakdown, with primary citations and evidence tier (T1--T6) per row, lives in \texttt{anatomy\_layer\_costs.yaml}.}
+\label{tab:layer-bom}
+\end{table}
+
+\textbf{Where the cost moves the most}: the cooling layer ratio rose from a historical 15--20\% of facility capex to 20--30\% for 2026 builds, almost entirely driven by the GB200/GB300 transition from 30--50~kW air-cooled racks to 80--132~kW direct-liquid-cooled racks.\footnote{Direct liquid cooling (DLC) revenue surged 156\% year-over-year in 2Q~2025 (Dell'Oro Group); the total liquid cooling market exceeded \$2.5~B in 2025 and is forecast above \$8~B by 2030. NVIDIA's NVL72 reference architecture mandates 25--45\textdegree C inlet liquid, 80~L/min flow, junction temp $<$75\textdegree C --- physically incapable of being held by air at 1.2~kW per GPU. Schneider Electric's \$850M acquisition of Motivair (October~2024) and AWS's launch of in-house IRHX direct-to-chip cooling (July~2025) are the two most significant supply-chain moves. Sources: Vertiv press release on the NVL72 7~MW reference architecture (October~2024); Dell'Oro DCPI Q4 2025; ASHRAE TC9.9 liquid cooling bulletin (September~2024).} Power transformers --- a single line item of \$300--600k per MW --- have \emph{prices up 77\% since 2019} and \emph{lead times of 80--128 weeks for power transformers and 144 weeks for generator step-up units} (Wood Mackenzie 2025).\footnote{Wood Mackenzie via PowerMag, ``Transformers in 2026: shortage, scramble, or self-inflicted crisis?'', August~2025, \url{https://www.powermag.com/transformers-in-2026-shortage-scramble-or-self-inflicted-crisis/}. NERC 2025 Summer Reliability Assessment confirms 2024 average lead times of approximately 120 weeks with large-class units at 80--210 weeks.} Behind-the-meter gas, when installed, doubles the power-infrastructure layer cost on its own --- \$1.0--2.5M/MW capex plus the supply-chain reality that GE Vernova ended 2025 with an 80~GW gas-turbine backlog stretching into 2029, with reservation slots out to 2031.\footnote{GE Vernova Q3 2025 earnings call, October~22, 2025; Utility Dive, ``GE Vernova's gas turbine backlog stretches into 2029'', September~2025, \url{https://www.utilitydive.com/news/ge-vernova-gas-turbine-investor/807662/}. Siemens Energy reports a similar backlog into 2030 in its FY2025 annual report.}
+
+\textbf{Worked example: Stargate Abilene.} Crusoe Energy's disclosed all-in capital for the 1.2~GW Abilene campus is \$15~billion (\$12.5M/MW), composed of \$9.6~B JPMorgan-led senior debt (a \$2.3~B initial facility plus a \$7.1~B construction loan announced May~2025) and approximately \$5~B equity from Crusoe, Blue~Owl Real~Assets, and Primary~Digital~Infrastructure. This figure represents shell + power + cooling + site infrastructure only. Oracle, the offtake tenant on a 15-year lease, funds the IT layer separately at a reported additional \$40~B for approximately 400{,}000 GB200 GPUs. The campus runs closed-loop direct-to-chip liquid cooling with approximately one million gallons per building of initial water fill and approximately 50{,}000 gallons per building per year for water-quality maintenance --- effectively zero evaporative consumption --- with twenty-nine GE Vernova LM2500XPRESS aeroderivative gas turbines (\textasciitilde35~MW each, \textasciitilde1~GW combined) providing behind-the-meter generation that supplements ERCOT power. Phase~1 was delivered twelve months from groundbreaking, against an industry-standard bid of two-and-a-half years.\footnote{Crusoe Energy Systems newsroom releases (2024--2026); Madrona ``Founded \& Funded'' interview with Chase Lochmiller (CEO), retrieved 2026-04-27, \url{https://www.madrona.com/the-infrastructure-of-intelligence-inside-crusoes-ai-factory-in-texas/}. The 15-year Oracle lease and OpenAI sub-tenancy structure are confirmed by Lochmiller in DCD: ``Our customer is Oracle. OpenAI is Oracle's customer.'' Annual rent of approximately \$1~billion is reported by SemiAnalysis (secondary; not Crusoe-confirmed).}
+
+The Crusoe disclosure is the cleanest landlord/tenant capex split publicly available and \emph{independently reconciles} to the \$13.2M/MW central case for the facility-only-no-IT subtotal in Table~\ref{tab:layer-bom}. Behind-the-meter gas at Abilene is amortized through the lease structure rather than landed in shell capex, which is why Crusoe's disclosed number sits slightly below the bottoms-up table's BTM-inclusive central case of \$15.4M/MW.
+
+\subsection{The compute payload: chips per gigawatt is falling, compute per gigawatt is rising}
+\label{subsec:compute-payload}
+
+The single most counterintuitive finding from the bottoms-up reconstruction is that \textbf{the number of chips per facility-MW \emph{decreases} with each chip generation}. Power per chip is rising faster than performance per watt at the rack level: an H100 SXM is 700~W, a GB200 superchip is 2{,}700~W including the Grace partner, and a Rubin Ultra die is rumored above 1.5~kW.\footnote{NVIDIA \emph{H100 Tensor Core GPU} datasheet (700~W TDP); Tom's Hardware on GB200 NVL72 architecture (2025-03-21); NVIDIA GTC 2026 keynote on Vera Rubin and Rubin Ultra (Kyber NVL576) generation. The 600~kW Kyber rack target was disclosed at GTC March~2026.}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}L{4.0cm}R{2.4cm}R{1.6cm}R{2.0cm}R{2.0cm}@{}}
+\toprule
+\textbf{Vintage / platform} & \textbf{Power per chip (system-allocated)} & \textbf{Chips / facility-MW} & \textbf{H100e per chip} & \textbf{H100e / facility-MW} \\
+\midrule
+2024 — HGX H100 (8-GPU air-cooled) & 1{,}389~W & \textasciitilde570 & 1.00 & \textasciitilde0.57M \\
+2025--26 — GB200 NVL72 (liquid) & \textasciitilde1{,}900~W & \textasciitilde440 & 2.50 & \textasciitilde1.10M \\
+2026 — GB300 NVL72 & \textasciitilde2{,}100~W & \textasciitilde415 & 3.75 & \textasciitilde1.55M \\
+2H'2026--2027 — Vera Rubin NVL144 & \textasciitilde1{,}050~W & \textasciitilde850 & 7.50 & 6.4M (theoretical pure) \\
+2028 (realistic deployed mix) & --- & 700--800 & 8--10 & 1.5--2.5M (installed-base wgt.) \\
+\bottomrule
+\end{tabular}
+\caption{Chip and compute density per facility-MW by silicon vintage, at PUE~1.15 with 10\% network/storage overhead. The 2028 row reflects an installed-base-weighted mix (Blackwell-Ultra installed base with a Rubin tail), which is the appropriate forecasting unit; pure-Rubin theoretical density is roughly 4$\times$ higher but will not characterize deployed fleets before 2029. SemiAnalysis's reported 100k-H100 cluster benchmark of 1{,}389~W per H100 system-allocated (20{,}480 GPUs in 28.4~MW critical-IT) reconciles to approximately 720 H100/IT-MW and 600 H100/facility-MW. Per-chip H100e ratios from NVIDIA-published peak FP8 throughput.\protect\footnotemark}
+\label{tab:chips-per-mw}
+\end{table}
+\footnotetext{SemiAnalysis ``100,000 H100 Clusters: power, network topology, ethernet vs.\ infiniband, reliability'' (cluster benchmark 28.4~MW for 20{,}480 GPUs); NVIDIA datasheets for H100, B200, GB200, GB300; NVIDIA GTC 2026 disclosures for Rubin and Rubin Ultra. Full per-chip table with 18 accelerators (NVIDIA, AMD MI300X--MI400, Google TPU v5p--Ironwood, AWS Trainium 2--3, Microsoft Maia 100--200, Meta MTIA v2--v4) lives in \texttt{anatomy\_layer\_costs.yaml}, layer \texttt{accelerator\_server\_bom}.}
+
+The compute story is therefore not ``more chips per watt'', it is ``more H100-equivalents per chip''. Holding the buildout constant, the H100e-per-facility-MW figure roughly triples between 2024 and 2026 and rises by another 50\% to 2028. Section~\ref{sec:silicon} traces this through the chip roadmap and validates the per-vintage densities against deployed clusters.
+
+\textbf{The accelerator capex line.} The bottoms-up reconstruction --- approximately 440 GB200-class chips per MW at \textasciitilde\$45k all-in chip-plus-rack-share --- yields approximately \$19--22~B/GW for the accelerator and server bill of materials on a 2026 all-NVIDIA build. A hyperscaler-mix build with 40--50\% custom-silicon share (Trainium~3 at approximately \$0.65 per H100e of FP8 throughput, TPU Ironwood at approximately \$1.20 per H100e, Maia~200 at approximately \$1.30 per H100e, all compared to GB200's approximately \$2.50 per H100e) lands in the \$15--18~B/GW range. The blended Western 2026 horizon, weighting the operator mix (Microsoft / Amazon / Google / Meta custom-silicon-heavy at 40--50\%; OpenAI / xAI / neoclouds at all-NVIDIA), sits at approximately \textbf{\$18--21~B/GW for the rack-complete accelerator+server BOM}, with the headline central case of \$19.5~M per facility-MW.
+
+\subsection{The financial bill of materials}
+\label{subsec:financial-bom}
+
+Aggregating Table~\ref{tab:layer-bom} for a typical 2026-vintage Tier-2/3 build (Texas, Ohio, Mississippi, Iowa, Wisconsin) gives a \textbf{central all-in facility-GW capex of approximately \$37~billion}, with a defensible band of \$30--47~B/GW spanning the realistic configuration space. This number sits at the center of the external literature distribution.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}L{5.4cm}R{2.4cm}L{6.0cm}@{}}
+\toprule
+\textbf{External anchor} & \textbf{\$B/facility-GW} & \textbf{Reconciliation} \\
+\midrule
+Crusoe Abilene (shell + power + cooling, no IT) & 12.5 & Matches our facility-only-no-IT central (\$13.2M/MW) within 5\% \\
+Meta Hyperion / Blue Owl JV (shell + M\&E only) & 13.5 & Matches our facility-only-no-IT central directly; IT and Entergy gas separate \\
+Bernstein (Stacy Rasgon, IT-load basis) & 35 & PUE-adjusted to \$28B/facility-GW; below our central; under-counts BTM gas \\
+Epoch AI facility-GW & 29--30 & Below our central; consistent with Epoch using lower-density chip mix \\
+McKinsey \emph{Cost of Compute} (derived) & 33 & Within rounding distance of our central \\
+JLL fully-built ecosystem (high) & 45--55 & Aligns with our high-end at \$47B \\
+NVIDIA / Jensen ``AI factory'' (server-power basis) & 50--60 & Translates to \$40--48B/facility-GW; self-interested high \\
+\bottomrule
+\end{tabular}
+\caption{Reconciliation of the bottoms-up \$30--47~B/facility-GW range to seven external anchors. The Crusoe Abilene and Meta Hyperion JV disclosures are the cleanest direct anchors because both are \emph{actual closed financings} and both explicitly exclude the IT layer, which makes them directly comparable to the facility-only-no-IT subtotal in Table~\ref{tab:layer-bom}. All anchor URLs in \texttt{forecaster\_capex\_comparison.yaml}.}
+\label{tab:capex-reconciliation}
+\end{table}
+
+\subsection{Scaling the unit}
+\label{subsec:scaling-the-unit}
+
+Multiplying one facility GW by the announced horizon resolves the headline numbers. The Western 2026--2030 capital envelope at the raw 51.9~GW announced horizon is approximately \textbf{\$1.9~trillion central, with a defensible range of \$1.6--2.4~trillion} depending on operator mix, BTM-generation share, and silicon-vintage assumptions.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}L{6.4cm}R{2.0cm}R{3.6cm}@{}}
+\toprule
+\textbf{Horizon point} & \textbf{Facility GW} & \textbf{Capex-equivalent at \$30--47B/GW} \\
+\midrule
+Monte~Carlo p10 (\S\ref{subsec:monte-carlo}) & 24.6 & \$0.74--1.16T \\
+Scenario-adjusted median (Monte~Carlo p50) & 31.8 & \$0.95--1.49T \\
+Deterministic tier-weighted point & 36.8 & \$1.10--1.73T \\
+Monte~Carlo p90 & 37.4 & \$1.12--1.76T \\
+Raw non-stretch horizon (announced minus T5) & 45.2 & \$1.36--2.12T \\
+\textbf{Raw announced horizon} & \textbf{51.9} & \textbf{\$1.56--2.44T (central \$1.9T)} \\
+Full-realization ceiling & 55.3 & \$1.66--2.60T \\
+\bottomrule
+\end{tabular}
+\caption{Capex-equivalent at the bottoms-up \$30--47~B/facility-GW range across the seven horizon points used elsewhere in this paper. The figures are \emph{capex commitments implied by the announced build}, not \emph{cash energized by 2030}. A campus that slips its commercial operating date may still consume equipment, shell, and grid capex before 2030 even if it is not energized; conversely, the \$30--47~B/GW figure assumes 2026-vintage component prices and a Tier-2/3 build that may not generalize to extreme cases (Northern Virginia land, behind-the-meter nuclear PPAs, or pure-Rubin builds).}
+\label{tab:scaling-the-unit}
+\end{table}
+
+\textbf{Capex-equivalent versus realized energized capacity.} The \textbf{\$1.9~trillion (range \$1.6--2.4~T) capital envelope} is the capex commitment implied by the raw 51.9~GW announced horizon at the central \$/GW. The Monte~Carlo median realized horizon of 31.8~GW implies, at the same per-GW range, a smaller realized energized-capacity capital base of approximately \$1.0--1.5~T --- but this is not necessarily a smaller cash spend, because campuses that slip their commercial operating dates may still absorb equipment, shell, and grid capex before 2030. The two numbers measure different things: announced build envelope versus realized energized capacity. The capital envelope is therefore best read as a commitment surface, not an energized-by-2030 fleet, and is one of several places in this paper where headline aggregates and probability-weighted realizations diverge.
+
+\textbf{What this section anchors for the rest of the paper.} Section~\ref{sec:scale} reports the GW aggregates; Section~\ref{sec:geography} asks where one such GW can be physically delivered; Section~\ref{sec:operators} asks who controls them; Section~\ref{sec:silicon} asks what compute payload each one carries; Section~\ref{sec:capital} asks who funds the multiplication and who underwrites the revenue (the \$1.9~T total against \$550~B of contracted RPO); Section~\ref{sec:execution-risk} asks what prevents a gigawatt from becoming operational. Each of those sections is now multiplying or interrogating a unit that has been priced and assembled here.

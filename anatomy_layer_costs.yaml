@@ -792,20 +792,31 @@ layers:
     layer_vintage: 2026
     layer_reference_platform: "GB200/GB300 NVL72 all-NVIDIA mix"
 
-    paper_reconciliation:
-      paper_assumed_usd_b_per_gw_low: 13
-      paper_assumed_usd_b_per_gw_high: 17
-      bottoms_up_2026_all_nvidia_usd_b_per_gw_low: 19
-      bottoms_up_2026_all_nvidia_usd_b_per_gw_high: 22
-      tension_flag: |
-        Paper's $13-17B/GW is too tight for 2026 all-NVIDIA build. Reconciles
-        cleanly only if (a) restated as chip-silicon-only (no Grace, NVSwitch,
-        NIC, rack mech), or (b) build assumes 40-50% custom-silicon mix
-        (Trainium, TPU, MTIA, Maia at lower $/H100e).
-      recommendations:
-        - "Restate band as chip-silicon-only and add total IT BOM line ~$23B/GW"
-        - "OR widen to $15-22B/GW with explicit mix sensitivity note"
-        - "OR tighten to $19-22B/GW for all-NVIDIA bottoms-up (raises facility-GW total ~$5B)"
+    model_central_2026:
+      all_nvidia_rack_complete_usd_b_per_gw_low: 19
+      all_nvidia_rack_complete_usd_b_per_gw_high: 22
+      all_nvidia_rack_complete_usd_b_per_gw_central: 19.5
+      custom_silicon_mix_40_50_pct_usd_b_per_gw_low: 15
+      custom_silicon_mix_40_50_pct_usd_b_per_gw_high: 18
+      blended_western_horizon_usd_b_per_gw_low: 18
+      blended_western_horizon_usd_b_per_gw_high: 21
+      blended_western_horizon_usd_b_per_gw_central: 19.5
+      basis: rack_complete_in_rack_BOM
+      adopted_in_paper: rev-4 2026-04-27
+      derivation: |
+        Bottoms-up: 415-440 GB200/GB300-class chips per facility-MW at ~$45k
+        all-in chip-plus-rack-share = $19-22B/GW for an all-NVIDIA 2026 build.
+        Custom-silicon-heavy hyperscaler builds (Trainium, TPU, MTIA, Maia at
+        materially lower $/H100e) land at $15-18B/GW. The Western 2026 horizon
+        blends both (Microsoft / Amazon / Google / Meta custom-silicon-heavy
+        at 40-50%; OpenAI / xAI / neoclouds at all-NVIDIA), giving a blended
+        central of $19.5M per facility-MW = $19.5B/GW for the rack-complete
+        accelerator+server BOM.
+      supersedes_prior_framing: |
+        Earlier paper framings used $17-20M per facility-MW for accelerators
+        (rev-3 footnote at Figure 8A). That figure under-counted in-rack
+        non-accelerator silicon (Grace, NVSwitch, NICs) and AI networking.
+        Rev-4 standardizes on rack-complete BOM at $19.5M/MW central.
 
     chips_per_facility_mw_by_vintage:
       - vintage: 2024
@@ -1167,13 +1178,20 @@ aggregate_rollup_facility_mw_2026:
     high: 47.0
     central_grid_tied: 36.7
     central_btm_gas: 38.95
+    central_adopted_in_paper: 37.0
+    capital_envelope_at_raw_horizon_51_9_gw_usd_t_low: 1.6
+    capital_envelope_at_raw_horizon_51_9_gw_usd_t_high: 2.4
+    capital_envelope_at_raw_horizon_51_9_gw_usd_t_central: 1.9
+    arithmetic_layer_extreme_low: 1.4
+    arithmetic_layer_extreme_high: 2.7
     sits_in_band: "Bernstein $35B/GW central case"
-    above_paper_assumption_b_per_gw: [6.7, 9.0]
+    adopted_in_paper: rev-4 2026-04-27
     note: |
-      Paper currently quotes $23-30B/GW total (2026 facility basis). Bottoms-up
-      reconstruction lands $30-47B/GW central. Reconciles to paper only at the
-      LOW end if accelerator+server BOM is restated as chip-silicon-only and
-      BTM generation is excluded.
+      The $30-47B/GW range is the bottoms-up reconstruction. The $1.6-2.4T
+      capital envelope at the raw 51.9 GW announced horizon is the rev-4
+      headline figure (was rev-3 $1.2-1.5T). The defensible band sits inside
+      the arithmetic layer-extreme bounds because not all layers hit their
+      extreme simultaneously.
 
   reconciliation_to_external_anchors:
     - anchor: "Crusoe Abilene (shell+power+cooling, no IT)"

@@ -17,15 +17,22 @@ metadata:
   data_cutoff: "2026-04-27"
   reference_vintage: 2026
   scope: "Western (US-led) hyperscale AI compute capex"
-  paper_assumption_to_validate:
-    range_low_usd_b_per_gw: 23
-    range_high_usd_b_per_gw: 30
+  paper_central_rev_4:
+    range_low_usd_b_per_gw: 30
+    range_high_usd_b_per_gw: 47
+    central_usd_b_per_gw: 37
+    capital_envelope_raw_horizon_51_9_gw_usd_t_low: 1.6
+    capital_envelope_raw_horizon_51_9_gw_usd_t_high: 2.4
+    capital_envelope_raw_horizon_51_9_gw_usd_t_central: 1.9
     basis: facility_mw
-    verdict: |
-      Sits at the LOW end of the credible facility-GW range. Defensible if and
-      only if the basis is explicitly facility-power GW with IT hardware
-      included and behind-the-meter generation excluded. Below $29B (Epoch's
-      facility figure) is the optimistic edge.
+    adopted_in_paper: rev-4 2026-04-27
+    rev_3_prior_figure_superseded:
+      range_usd_b_per_gw: [23, 30]
+      capital_envelope_usd_t: [1.2, 1.5]
+      reason: |
+        The rev-3 $23-30B/GW band sat at the LOW end of the credible facility-GW
+        range and below all bottoms-up reconstructions. Rev-4 adopts the
+        bottoms-up central as the model truth.
 
 # ============================================================================
 # THE BASIS-CONFUSION CHEAT SHEET (the rosetta stone)
@@ -513,22 +520,25 @@ reconciliation:
 # VERDICT ON PAPER'S $23-30B/GW
 # ============================================================================
 
-verdict:
+verdict_rev_4:
   summary: |
-    Sits at the LOW end of the credible facility-GW basis range, but defensible
-    if and only if the basis is explicitly facility-power GW with IT included
-    and BTM gen excluded.
-  reasoning:
-    - "Epoch's facility-GW figure is $29B. Paper's range overlaps directly at the high end."
-    - "McKinsey's derived $33B/GW (incl power) is ~10-30% higher; backing out McKinsey's $300B power line gets $31B/GW (IT+infra, facility-GW)."
-    - "Bernstein ~$35B/GW (IT-load basis) translates to ~$28B/GW on facility-GW basis at PUE 1.25. Inside paper's band."
-    - "JLL's $45-55B/GW for fully-built ecosystems is materially higher but includes IT fit-out at saturation + BTM power."
-    - "Stargate ($50B/GW) and NVIDIA ($50-60B/GW) are 2x paper's number — server-GW or AI-factory bases for most aggressive deployments, may embed multi-year service economics."
-  recommendations:
-    - "State explicitly the $23-30B is per facility-power GW (not server-power GW); this lowers $/GW vs Epoch's $44B headline by ~30-35%."
-    - "Disclose what is included (IT hardware? networking? grid interconnect? BTM generation?)."
-    - "Note Epoch's facility-GW figure of $29-30B is the closest direct analog. If paper's number is below $29B, it is at the optimistic edge."
-    - "Include the basis cheat sheet verbatim in §1 conversion-policy paragraph."
+    Adopted: $30-47B/facility-GW with central $37B/GW. Capital envelope at the
+    raw 51.9 GW Western 2030 horizon = $1.9T central, range $1.6-2.4T. Sits at
+    the center of the external literature distribution.
+  reconciliation_to_external_anchors:
+    - "Crusoe Abilene $12.5M/MW (shell+power+cooling no IT): matches our facility-only-no-IT central $13.2M/MW within 5%"
+    - "Meta Hyperion JV $13.5B/GW (shell+M&E only): matches our facility-only-no-IT central directly"
+    - "Bernstein ~$35B/GW (IT-load basis): PUE-adjusted to ~$28B/facility-GW; below our central; under-counts BTM gas"
+    - "Epoch facility-GW $29-30B: below our central; consistent with Epoch using lower-density chip mix"
+    - "McKinsey derived $33B/GW: within rounding distance of our central"
+    - "JLL fully-built ecosystem $45-55B/GW: aligns with our high-end at $47B"
+    - "NVIDIA / Jensen $50-60B/GW (server-power basis): translates to $40-48B/facility-GW; self-interested high"
+    - "Stargate ($50B/GW server-power): translates to ~$40B/facility-GW; consistent with our central given mostly all-NVIDIA build"
+  basis_declaration_in_paper: |
+    The paper uses convention 2 (facility-power GW, full all-in) throughout,
+    with IT hardware included and BTM generation reported separately. The
+    basis cheat sheet (Table 1 of §2) declares the four conventions and
+    notes the convention used.
 
 # ============================================================================
 # COVERAGE GAPS

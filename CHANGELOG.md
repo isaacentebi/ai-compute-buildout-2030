@@ -1,9 +1,98 @@
-# CHANGELOG — Revisions of 2026-04-23 (rev-1), 2026-04-24 (rev-2), and 2026-04-24 (rev-3)
+# CHANGELOG — Revisions of 2026-04-23 (rev-1), 2026-04-24 (rev-2 and rev-3), and 2026-04-27 (rev-4)
 
 Revisions of "The AI Compute Build-Out, 2026--2030". This changelog documents every
-headline number that moved across four PDF generations: pre-revision (17 pages),
-rev-1 2026-04-23 (27 pages), rev-2 2026-04-24 (Epoch drift incorporation), and
-rev-3 2026-04-24 (facility-basis reconciliation).
+headline number that moved across five PDF generations: pre-revision (17 pages),
+rev-1 2026-04-23 (27 pages), rev-2 2026-04-24 (Epoch drift incorporation),
+rev-3 2026-04-24 (facility-basis reconciliation), and rev-4 2026-04-27
+(bottoms-up unit-economics anatomy + capital envelope reset).
+
+## REV-4 (2026-04-27) — Anatomy of one facility GW + capital envelope reset
+
+The load-bearing correction: rev-3's $1.2-1.5T capital envelope was derived from
+the older Epoch-style $30B hardware + $14B infrastructure benchmark applied to the
+51.9 GW horizon, with an implicit $17-20M per facility-MW accelerator line that
+under-counted in-rack non-accelerator silicon (Grace, NVSwitch, NICs) and AI
+networking. A bottoms-up unit-economics decomposition of one facility gigawatt
+across six physical layers — feeding the new §2 "Anatomy of one AI facility
+gigawatt" section — lands $30-47B per facility-GW (central $37B/GW). Multiplied
+against the unchanged 51.9 GW raw announced horizon, this resets the capital
+envelope to **~$1.9 trillion (range $1.6-2.4T)**.
+
+| Metric | Rev-3 | Rev-4 | Delta |
+|--------|-------|-------|-------|
+| Capital envelope at raw 51.9 GW horizon | $1.2-1.5T | **$1.6-2.4T (central $1.9T)** | +27% central |
+| $/facility-GW (capex) | $23-30B implicit | **$30-47B (central $37B)** | +24% central |
+| Accelerator + server BOM line | $17-20M/MW implicit (chip-only-leaning) | **$19.5M/MW central rack-complete** ($16-23M range) | restated to rack-complete BOM |
+| Cooling stack share of facility capex | implicit ~15-20% | **20-30%** (post-DLC) | +50% share |
+| Networking $/MW (AI vs cloud premium) | implicit ~5-7% of capex | **3-6× legacy cloud per MW** | restated explicitly |
+| Capex bridge category split (5 buckets) | accel/shell/power/networking/land | **accel-rack / shell+civil+land+fitout / cooling+power / networking / grid** | reorganized to layer-based |
+| Section 5 title | "The $1.5 trillion question" | **"The $2 trillion question"** | retitled |
+| Horizon GW figures (51.9 raw, 36.8 weighted, 31.8 MC median, etc.) | unchanged | unchanged | none — these are physical-capacity numbers |
+| H100e (78.2M Western 2030) | unchanged | unchanged | none — chip counts are basis-invariant |
+
+**Six fixes landed in rev-4**:
+
+1. **§2 anatomy section (new).** Bottoms-up decomposition of one facility GW across six
+   physical layers (shell + civil + land + AI fit-out, cooling, power infrastructure,
+   networking fabric, accelerator + server BOM, grid interface) with primary citations
+   and evidence tier on every sub-component. Anchored to the Crusoe Abilene disclosed
+   $12.5M/MW shell+power+cooling worked example. New unit-economics data layer:
+   `anatomy_layer_costs.yaml` (40+ sub-component rows), `anatomy_layer_costs.csv` (flat),
+   `anatomy_named_projects.yaml` (11 disclosed projects with capex splits),
+   `forecaster_capex_comparison.yaml` (18-source $/GW reconciliation).
+
+2. **Basis-conventions cheat sheet.** New Table 1 in §2 declares the four conventions
+   in which external forecasters quote AI capex (server-power GW, facility-power GW,
+   shell-only, AI-fit-out delta) so cross-source comparisons are unit-aware. The paper
+   adopts facility-power GW with IT included throughout.
+
+3. **Capital envelope reset.** Headline figure updated $1.2-1.5T → $1.6-2.4T (central
+   $1.9T) across abstract, §5 opener, §5 capex table, §5 financing table, Figure 8A
+   bars and caption, Figure 8B bars and caption, and conclusion stress-scenario
+   downside numbers ($300-350B → $370-440B for the correlated 10-12 GW removal case).
+
+4. **Capex bridge restructure.** Five categories now reflect the layer-based unit
+   economics: accelerator + server BOM (rack-complete, ~53% of central) / shell + civil
+   + land + AI fit-out (~18%) / cooling + power infrastructure (~15%) / out-of-rack
+   networking + storage (~11%) / grid interface + LPT (~3%). Replaces the rev-3 split
+   that under-counted networking and over-counted "operational/personnel/contingency".
+
+5. **Financing bridge proportional rebuild.** Five sources scaled to $1.9T central:
+   hyperscaler operating cash $800-950B (47%) / corporate debt $250-380B / SPV/project
+   debt $250-380B / sovereign $200-320B / equity $150-220B.
+
+6. **§5 title update.** "The $1.5 trillion question" → **"The $2 trillion question"**
+   in TOC, section heading, and prose.
+
+**Files touched in rev-4**:
+- `report.tex`: abstract envelope, TOC entry, §5 section heading + opener, capex bridge
+  table, financing bridge table, Figure 8A bars + caption, Figure 8B bars + caption,
+  stress scenario delta numbers, title-page revision label, rev-changes paragraph.
+- `anatomy_layer_costs.yaml`: removed `paper_reconciliation` tension framing; replaced
+  with `model_central_2026` block stating the rev-4 truth.
+- `forecaster_capex_comparison.yaml`: replaced `paper_assumption_to_validate` with
+  `paper_central_rev_4` and `verdict_rev_4` blocks.
+- `README.md`: revision label rev-3 → rev-4; capital envelope row updated.
+- `CHANGELOG.md`: this entry.
+- `rev3_snapshot.md` → `rev4_snapshot.md`: numerical snapshot updated.
+
+**Files NEW in rev-4** (committed in prior rev-4-prep commit):
+- `anatomy_layer_costs.yaml` (~40 sub-component rows)
+- `anatomy_layer_costs.csv` (flat companion)
+- `anatomy_named_projects.yaml` (11 disclosed projects)
+- `forecaster_capex_comparison.yaml` (18 sources)
+- `research/` (8 per-agent primary-source notes)
+
+**What did NOT change in rev-4**:
+- Horizon GW figures (operational today 7.56 tier-clean; raw 51.9 facility; weighted 36.8;
+  MC median 31.8; p10/p90 24.6/37.4; non-stretch 45.2; conservative 27.9; ceiling 55.3;
+  sovereign 2.06).
+- H100-equivalent counts (78.2M Western 2030; 4.2M operational today).
+- Six-tier evidence framework, realization probabilities, Monte Carlo design.
+- $550B contracted RPO figure and decomposition (Oracle-OpenAI $300B, Anthropic-Amazon
+  $100B+, Anthropic-Google $52-60B, Nebius-Meta $27B, Nebius-Microsoft $19.4B,
+  CoreWeave-MS/OAI $50B).
+- All cross-references to overlay YAML, neocloud YAML, audit_totals.py logic.
 
 ## REV-3 (2026-04-24) — Facility-basis reconciliation
 
