@@ -31,6 +31,7 @@ Seven canonical totals emitted:
 from __future__ import annotations
 
 import argparse
+import math
 import sys
 from pathlib import Path
 
@@ -71,6 +72,8 @@ SOVEREIGN_IDS = {
 }
 
 TOL = 0.02  # GW tolerance for rounding (20 MW)
+CAPEX_CENTRAL_USD_B_PER_GW = 37.0
+CAPEX_TOL_USD_B = 1.5
 
 # Tier-default realization probabilities (midpoints of plan-specified ranges)
 TIER_DEFAULTS = {
@@ -391,7 +394,7 @@ def print_seven_canonical_totals(doc: dict, neocloud: dict) -> None:
     # ------------------------------------------------------------------
     print()
     print("=" * 70)
-    print("SEVEN CANONICAL TOTALS  (facility basis — PRIMARY, rev-3)")
+    print("SEVEN CANONICAL TOTALS  (facility basis — PRIMARY, Rev-4.1)")
     print("=" * 70)
 
     framework_fac = compute_probability_weighted_western_facility(doc)
@@ -417,8 +420,10 @@ def print_seven_canonical_totals(doc: dict, neocloud: dict) -> None:
           f"(T1+T2+T3 only)")
     print(f"  6. full_realization_gw          = {full_real_fac:>6.2f} GW facility  "
           f"(arithmetic ceiling)")
-    print(f"  7. capital_envelope_usd_b       = {capital['capex_envelope_usd_b_rough']:>6.1f} $B  "
-          f"(rough; A.7 will refine)")
+    print(f"  7. named_dollar_commitments_subtotal_usd_b = {capital['capex_envelope_usd_b_rough']:>6.1f} $B")
+    print("     anatomy_capital_envelope_usd_t_central = 1.9")
+    print("     anatomy_capital_envelope_usd_t_range   = [1.5, 2.4]")
+    print("     basis = \"$30-47B/facility-GW × 51.427 GW\"")
 
     print()
     print("  Sovereign sidebar facility (not in Western denominator):")
@@ -458,7 +463,7 @@ def print_seven_canonical_totals(doc: dict, neocloud: dict) -> None:
           f"(T1+T2+T3 only)")
     print(f"  5. full_realization_gw          = {west_range[1]:>6.2f} GW  "
           f"(arithmetic ceiling)")
-    print(f"  6. capital_envelope_usd_b       = {capital['capex_envelope_usd_b_rough']:>6.1f} $B")
+    print(f"  6. named_dollar_commitments_subtotal_usd_b = {capital['capex_envelope_usd_b_rough']:>6.1f} $B")
     print(f"  7. rpo_obligations_usd_b_rough  = {capital['rpo_contracted_usd_b_rough']:>6.1f} $B")
 
     print()
@@ -639,6 +644,63 @@ def audit_anatomy_layer_costs() -> bool:
     return all_ok
 
 
+def audit_stress_scenario_capex(doc: dict) -> bool:
+    scenarios = doc.get("stress_scenarios", {})
+    all_ok = True
+    print()
+    print("Stress scenario capex basis check:")
+    for key, scenario in scenarios.items():
+        if not isinstance(scenario, dict):
+            continue
+        if "gw_delta_2030" not in scenario or "capex_delta_usd_b" not in scenario:
+            continue
+        if scenario.get("capex_delta_basis") and "37b_per_gw" not in str(scenario.get("capex_delta_basis")):
+            print(f"  [SKIP] {key:42s} declares alternate basis: {scenario.get('capex_delta_basis')}")
+            continue
+        expected = scenario["gw_delta_2030"] * CAPEX_CENTRAL_USD_B_PER_GW
+        got = float(scenario["capex_delta_usd_b"])
+        ok = abs(got - expected) <= CAPEX_TOL_USD_B
+        mark = "OK  " if ok else "FAIL"
+        print(f"  [{mark}] {key:42s} capex={got:7.1f} expected={expected:7.1f}")
+        all_ok &= ok
+    return all_ok
+
+
+def audit_neocloud_tier_crossfile(doc: dict, neocloud: dict) -> bool:
+    main = doc.get("totals", {}).get("evidence_tier_rollup_western_facility", {})
+    cloud = neocloud.get("aggregate_rollup_facility", {}).get("evidence_tier_rollup_facility", {})
+    expected_t3 = float(cloud.get("T3_firm_commercial_contract_gw", 0.0))
+    expected_t4_delta = float(cloud.get("T4_announced_private_co_gw", 0.0))
+    got_t3 = float(main.get("T3_firm_commercial", {}).get("components", {}).get("neocloud_rpo_take_or_pay_contracted", 0.0))
+    got_t4_delta = float(main.get("T4_announced_site_plan", {}).get("components", {}).get("neocloud_private_co_contracted", 0.0))
+    ok_t3 = abs(got_t3 - expected_t3) <= TOL
+    ok_t4 = abs(got_t4_delta - expected_t4_delta) <= TOL
+    print()
+    print("Neocloud cross-file tier check:")
+    print(f"  [{'OK  ' if ok_t3 else 'FAIL'}] T3 main={got_t3:.3f} neocloud_overlay={expected_t3:.3f}")
+    print(f"  [{'OK  ' if ok_t4 else 'FAIL'}] T4 main={got_t4_delta:.3f} neocloud_overlay={expected_t4_delta:.3f}")
+    return ok_t3 and ok_t4
+
+
+def audit_h100e_denominator(doc: dict) -> bool:
+    totals = doc.get("totals", {})
+    horizon = float(totals.get("western_horizon_2027_2030_facility", {}).get("total_gw_point", 0.0))
+    scenarios = doc.get("chip_density_scenarios", {})
+    all_ok = True
+    print()
+    print("H100e denominator check:")
+    for key, scenario in scenarios.items():
+        if not isinstance(scenario, dict) or "total_h100e_2030_m" not in scenario:
+            continue
+        expected = round(float(scenario["total_h100e_2030_m"]) * 1_000_000 / (horizon * 1000))
+        got = int(scenario.get("implied_per_mw_blend_2030", -1))
+        ok = math.isclose(got, expected, abs_tol=1)
+        mark = "OK  " if ok else "FAIL"
+        print(f"  [{mark}] {key:14s} implied={got:4d} expected={expected:4d}")
+        all_ok &= ok
+    return all_ok
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Audit compute_commitments_overlay.yaml + anatomy_layer_costs.yaml",
@@ -816,6 +878,10 @@ def main() -> int:
         print(f"         Σ sov rows facility:    {sov_fac_rows_sum:.3f}")
         print(f"         declared sov facility:  {sov_fac_declared:.3f}")
         all_ok &= mark == "OK  "
+
+    all_ok &= audit_stress_scenario_capex(doc)
+    all_ok &= audit_neocloud_tier_crossfile(doc, neocloud)
+    all_ok &= audit_h100e_denominator(doc)
 
     print("=" * 70)
     if all_ok:

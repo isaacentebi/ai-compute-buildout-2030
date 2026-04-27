@@ -72,16 +72,20 @@ T4_SENSITIVITY_PRIORS = {
 P_SYSTEMIC = 0.15
 P_DEMAND_RPO = 0.15
 
-# Conditional probabilities if systemic stress does not fire. These preserve
-# the current A/B/C priors before the demand-stress correlation is layered in.
+# Conditional probabilities if systemic stress does not fire. A and C preserve
+# their target probabilities under the convention that the systemic state
+# counts toward A/B/C. B additionally links to demand/RPO stress:
+#   0.25 = 0.15 + 0.85 * (0.15 * 0.60 + 0.85 * p_base)
 P_A_IF_NO_SYSTEMIC = (0.30 - P_SYSTEMIC) / (1.0 - P_SYSTEMIC)
-P_B_IF_NO_SYSTEMIC = (0.25 - P_SYSTEMIC) / (1.0 - P_SYSTEMIC)
 P_C_IF_NO_SYSTEMIC = (0.40 - P_SYSTEMIC) / (1.0 - P_SYSTEMIC)
+P_B_IF_NO_SYSTEMIC_NO_DEMAND = (
+    ((0.25 - P_SYSTEMIC) / (1.0 - P_SYSTEMIC)) - (P_DEMAND_RPO * 0.60)
+) / (1.0 - P_DEMAND_RPO)
 
 SCENARIOS = {
     "S_systemic_infrastructure_stress": {"gw_delta": -10.5, "prob": P_SYSTEMIC, "h100e_delta": -25.0},
     "A_stargate_12mo_slip": {"gw_delta": -3.5, "prob": P_A_IF_NO_SYSTEMIC, "h100e_delta": -8.0},
-    "B_neocloud_spread_300bps": {"gw_delta": -2.0, "prob": P_B_IF_NO_SYSTEMIC, "h100e_delta": -4.0},
+    "B_neocloud_spread_300bps": {"gw_delta": -2.0, "prob": P_B_IF_NO_SYSTEMIC_NO_DEMAND, "h100e_delta": -4.0},
     "C_grid_24mo_slip_ERCOT_MISO_PJM": {"gw_delta": -8.0, "prob": P_C_IF_NO_SYSTEMIC, "h100e_delta": -18.0},
     "D_chip_2Q_slip": {"gw_delta": -1.5, "prob": 0.50, "h100e_delta": -12.0},
     "E_inference_outpaces_training": {"gw_delta": 0.0, "prob": 0.55, "h100e_delta": -5.0},
@@ -212,7 +216,7 @@ def one_draw(tier_gw: dict, t4_prior=None):
         applied.append("F_lab_revenue_rpo_stress")
 
     if not systemic:
-        b_prob = 0.60 if demand else P_B_IF_NO_SYSTEMIC
+        b_prob = 0.60 if demand else P_B_IF_NO_SYSTEMIC_NO_DEMAND
         if random.random() < b_prob:
             sc = SCENARIOS["B_neocloud_spread_300bps"]
             realized += sc["gw_delta"]

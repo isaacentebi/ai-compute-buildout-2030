@@ -523,7 +523,7 @@ reconciliation:
 verdict_rev_4:
   summary: |
     Adopted: $30-47B/facility-GW with central $37B/GW. Capital envelope at the
-    raw 51.9 GW Western 2030 horizon = $1.9T central, range $1.6-2.4T. Sits at
+    raw 51.4 GW Western 2030 horizon = .9T central, range .5-2.4T. Sits at
     the center of the external literature distribution.
   reconciliation_to_external_anchors:
     - "Crusoe Abilene $12.5M/MW (shell+power+cooling no IT): matches our facility-only-no-IT central $13.2M/MW within 5%"

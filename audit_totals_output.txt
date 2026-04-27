@@ -1,0 +1,129 @@
+======================================================================
+AUDIT: compute_commitments_overlay.yaml `totals:` vs per-row sums
+======================================================================
+  [OK  ] Class A western subtotal
+         re-summed rows:  point=7.67  low=2.90  high=10.44
+         YAML totals:     point=7.67  low=2.90  high=10.44
+  [OK  ] Class A sovereign-AI sidebar subtotal
+         re-summed rows:  point=1.91  low=0.90  high=3.81
+         YAML totals:     point=1.91  low=0.90  high=3.81
+  [OK  ] Western horizon grand total (epoch + class_a_west + neocloud_ex_epoch)
+         re-summed rows:  point=43.93  low=39.16  high=46.70
+         YAML totals:     point=43.93  low=39.16  high=46.70
+  [OK  ] Global reference horizon total (western + sovereign)
+         re-summed rows:  point=45.84  low=40.06  high=50.51
+         YAML totals:     point=45.84  low=40.06  high=50.51
+  [OK  ] Operational-today total
+         epoch_current + neocloud_op = 7.81
+         YAML total_gw              = 7.81
+  [OK  ] Framing gap (western_horizon - operational_today)
+         re-computed: 43.62
+         YAML gap_gw: 43.62
+  [OK  ] Six-tier framework sum vs declared announced horizon (IT)
+         Σ tier GW:              43.94
+         declared announced:     43.93
+
+----------------------------------------------------------------------
+rev-3 FACILITY-BASIS audit
+----------------------------------------------------------------------
+  [OK  ] Class A western facility subtotal
+         re-summed rows:  point=8.88  low=3.46  high=12.18
+         YAML totals:     point=8.88  low=3.46  high=12.18
+  [OK  ] Western horizon facility grand total
+         re-summed rows:  point=51.42  low=46.00  high=54.72
+         YAML totals:     point=51.43  low=46.00  high=54.72
+  [OK  ] Six-tier framework sum vs declared announced horizon (facility)
+         Σ tier GW_facility:     51.427
+         declared announced:     51.427
+  [OK  ] Sovereign sidebar facility sum vs declared
+         Σ sov rows facility:    2.560
+         declared sov facility:  2.560
+
+Stress scenario capex basis check:
+  [OK  ] systemic_infrastructure_stress             capex= -389.0 expected= -388.5
+  [OK  ] scenario_A_openai_stargate_slip_12mo       capex= -130.0 expected= -129.5
+  [OK  ] scenario_B_neocloud_spread_widen_300bps    capex=  -74.0 expected=  -74.0
+  [OK  ] scenario_C_grid_ercot_miso_pjm_slip_24mo   capex= -296.0 expected= -296.0
+  [SKIP] scenario_D_chip_nextgen_slip_2q            declares alternate basis: chip_mix_timing_not_all_in_facility_power
+  [SKIP] scenario_E_inference_outpaces_training     declares alternate basis: chip_mix_shift_not_facility_power_delta
+  [OK  ] scenario_F_lab_revenue_rpo_stress          capex=  -93.0 expected=  -92.5
+  [OK  ] upside_U4_silicon_acceleration             capex=    0.0 expected=    0.0
+
+Neocloud cross-file tier check:
+  [OK  ] T3 main=6.480 neocloud_overlay=6.480
+  [OK  ] T4 main=1.470 neocloud_overlay=1.470
+
+H100e denominator check:
+  [OK  ] conservative   implied=1167 expected=1167
+  [OK  ] base           implied=1517 expected=1517
+  [OK  ] aggressive     implied=2139 expected=2139
+======================================================================
+AUDIT PASSED — `totals:` block matches per-row sums.
+
+======================================================================
+SEVEN CANONICAL TOTALS  (facility basis — PRIMARY, Rev-4.1)
+======================================================================
+  1. operational_today_gw         =   7.81 GW facility  (includes T6-inferred operational capacity; tier-clean T1 = 7.56 GW facility)
+  2. announced_horizon_gw         =  51.43 GW facility  [46.00, 54.72]
+  3. raw_non_stretch_gw           =  44.67 GW facility  (announced − T5; replaces retired 'bear' label)
+  4. probability_weighted_gw      =  36.16 GW facility  (tier-default midpoints)
+  5. conservative_case_gw         =  26.46 GW facility  (T1+T2+T3 only)
+  6. full_realization_gw          =  54.72 GW facility  (arithmetic ceiling)
+  7. named_dollar_commitments_subtotal_usd_b =  847.0 $B
+     anatomy_capital_envelope_usd_t_central = 1.9
+     anatomy_capital_envelope_usd_t_range   = [1.5, 2.4]
+     basis = "$30-47B/facility-GW × 51.427 GW"
+
+  Sovereign sidebar facility (not in Western denominator):
+    announced_horizon_sov_gw_fac  =   2.56 GW facility
+
+  Per-row Class A facility-basis probability-weighted detail (Western only):
+    [T4] anthropic_aws_2026_04_20                  gw_fac=3.800  prob=0.72  weighted=2.736
+    [T5] anthropic_azure_2025_11_18                gw_fac=1.180  prob=0.30  weighted=0.354
+    [T2] openai_microsoft_fairwater                gw_fac=0.805  prob=0.82  weighted=0.660
+    [T5] meta_hyperion_prometheus                  gw_fac=3.014  prob=0.28  weighted=0.844
+    [T6] xai_colossus2_full                        gw_fac=0.078  prob=0.25  weighted=0.019
+    SUM Class A Western facility weighted = 4.614 GW
+
+======================================================================
+SEVEN CANONICAL TOTALS  (IT-load bridge — SECONDARY)
+======================================================================
+  1. operational_today_gw         =   7.81 GW facility primary; see tier block for IT bridge
+  2. announced_horizon_gw         =  43.93 GW  [39.16, 46.70]  (IT-load bridge)
+  3. probability_weighted_gw      =  31.10 GW  (tier-default midpoints)
+  4. conservative_case_gw         =  23.69 GW  (T1+T2+T3 only)
+  5. full_realization_gw          =  46.70 GW  (arithmetic ceiling)
+  6. named_dollar_commitments_subtotal_usd_b =  847.0 $B
+  7. rpo_obligations_usd_b_rough  =   27.0 $B
+
+  Sovereign sidebar IT (not in Western denominator):
+    announced_horizon_sov_gw      =   1.91 GW
+    probability_weighted_sov_gw   =   0.97 GW
+
+
+======================================================================
+AUDIT: anatomy_layer_costs.yaml unit-economics consistency
+======================================================================
+
+Per-layer sub-component sum vs declared layer central:
+  [OK  ] shell_civil_land                Σ subs central:   6.55  declared:   6.50  Δ:  0.05
+  [OK  ] cooling                         Σ subs central:   3.04  declared:   3.00  Δ:  0.04
+  [SKIP] power_infrastructure            no single layer_total_..._central; variants: layer_total_usd_m_per_mw_central_grid_tied,layer_total_usd_m_per_mw_central_btm_gas
+  [OK  ] networking_fabric               Σ subs central:   4.20  declared:   4.00  Δ:  0.20
+
+Layer-block central vs aggregate-rollup component central:
+  [OK  ] shell_civil_land                layer-block:   6.50  rollup:   6.50  Δ:  0.00
+  [OK  ] cooling                         layer-block:   3.00  rollup:   3.00  Δ:  0.00
+  [OK  ] networking_fabric               layer-block:   4.00  rollup:   4.00  Δ:  0.00
+
+Aggregate rollup arithmetic:
+  [OK  ] facility_only (13.40) + it_bom (24.05) = 37.45M/MW
+         declared central_grid_tied: 37.45M/MW (Δ: 0.00)
+         (raw horizon read from overlay YAML: 51.427 GW facility)
+  [OK  ] capital envelope central: declared 1.90T vs computed 1.93T  (Δ: 0.03)
+         arithmetic range: [1.54T, 2.42T]
+         declared band:    [1.50T, 2.40T]
+
+======================================================================
+ANATOMY AUDIT PASSED
+======================================================================
