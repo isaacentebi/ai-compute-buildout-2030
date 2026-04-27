@@ -1,48 +1,49 @@
 #!/usr/bin/env python3
 """
-Source-freshness linter.
+Source-freshness publication gate.
 
-Walks compute_commitments_overlay.yaml (row_audit block) and neocloud_overlay.yaml
-(per-row as_of_date), computing days since last_checked / as_of_date against today.
+This gate checks the exact row_level_audit.csv shipped with the PDF. It treats
+source publication age and source verification age as separate fields:
 
-Flags:
-  GREEN  — stale ≤ 30 days
-  YELLOW — 31–60 days
-  RED    — 61+ days
-  MISSING — no last_checked / as_of_date field
+  source_publication_date  when the cited source was published
+  last_verified_date       when the source was rechecked for freshness
+  freshness_status         explicit audit status or waiver status
+  freshness_waiver_reason  row-level reason an old source remains acceptable
 
-This is a staleness check, not a re-fetch tool. It tells you which rows need
-manual source re-verification; it does not re-pull the underlying sources.
+An old source is not automatically invalid. It fails only when the row has not
+been recently verified and has not been explicitly waived.
 
 Usage
-  python3 check_source_freshness.py [--warn-days 30] [--fail-days 60]
-  python3 check_source_freshness.py --json            # machine-readable output
+  python3 check_source_freshness.py --today 2026-04-25
+  python3 check_source_freshness.py --json
 """
 
 import argparse
+import csv
 import datetime
 import json
 import sys
 from pathlib import Path
 
-try:
-    import yaml
-except ImportError:
-    print("ERROR: PyYAML required. pip install pyyaml", file=sys.stderr)
-    sys.exit(2)
 
-
-def parse_date(s):
-    """Accept datetime.date, ISO string, or None."""
-    if s is None:
+def parse_date(value):
+    """Accept ISO dates, YYYY-MM month strings, date objects, or blanks."""
+    if value is None:
         return None
-    if isinstance(s, datetime.date):
-        return s
-    if isinstance(s, datetime.datetime):
-        return s.date()
+    if isinstance(value, datetime.datetime):
+        return value.date()
+    if isinstance(value, datetime.date):
+        return value
+    raw = str(value).strip()
+    if not raw:
+        return None
     try:
-        return datetime.date.fromisoformat(str(s))
-    except (ValueError, TypeError):
+        return datetime.date.fromisoformat(raw)
+    except (TypeError, ValueError):
+        pass
+    try:
+        return datetime.date.fromisoformat(f"{raw}-01")
+    except (TypeError, ValueError):
         return None
 
 
@@ -56,109 +57,126 @@ def classify(days, warn_days, fail_days):
     return "RED"
 
 
-def collect_rows(overlay_path, neocloud_path, today):
-    rows = []
+def normalized_status(row, today, warn_days, fail_days):
+    source_date = parse_date(row.get("source_publication_date"))
+    verified_date = parse_date(row.get("last_verified_date") or row.get("last_checked"))
+    raw_status = (row.get("freshness_status") or "").strip()
+    waiver = (row.get("freshness_waiver_reason") or "").strip()
+    days = (today - verified_date).days if verified_date else None
 
-    # Class A / B / C commitments — last_checked sits in row_audit block
-    with open(overlay_path) as f:
-        ov = yaml.safe_load(f)
-    row_audit = ov.get("row_audit", {}) or {}
-    for bucket in ("commitments", "chip_procurement_commitments", "dollar_only_commitments"):
-        for c in ov.get(bucket, []):
-            cid = c["commitment_id"]
-            aud = row_audit.get(cid, {}) or {}
-            lc = parse_date(aud.get("last_checked"))
-            # fall back to announced_date as weak signal
-            announced = parse_date(c.get("announced_date"))
-            days = (today - lc).days if lc else None
-            rows.append({
-                "source_file": "compute_commitments_overlay.yaml",
-                "commitment_id": cid,
-                "bucket": bucket,
-                "last_checked": lc.isoformat() if lc else None,
-                "days_stale": days,
-                "announced_date": announced.isoformat() if announced else None,
-            })
+    computed = classify(days, warn_days, fail_days)
+    lowered = raw_status.lower()
+    if lowered.startswith("waived"):
+        gate_status = "WAIVED"
+    elif lowered in {"current_verified", "verified_current", "fresh"}:
+        gate_status = "GREEN"
+    elif lowered in {"green", "yellow", "red", "missing"}:
+        gate_status = raw_status.upper()
+    elif raw_status:
+        gate_status = raw_status
+    else:
+        gate_status = computed
 
-    # Neocloud rows — as_of_date per operator
-    with open(neocloud_path) as f:
-        nc = yaml.safe_load(f)
-    for op in nc.get("neoclouds", []):
-        aod = parse_date(op.get("as_of_date"))
-        days = (today - aod).days if aod else None
-        rows.append({
-            "source_file": "neocloud_overlay.yaml",
-            "commitment_id": f"neocloud_{op.get('neocloud','unknown').lower().replace(' ','_')}",
-            "bucket": "neocloud",
-            "last_checked": aod.isoformat() if aod else None,
-            "days_stale": days,
-            "announced_date": None,
-        })
+    if gate_status in {"RED", "YELLOW"} and waiver:
+        gate_status = "WAIVED"
 
-    return rows
+    return {
+        "file_path": None,
+        "commitment_id": row.get("commitment_id", ""),
+        "operator": row.get("operator", ""),
+        "source_publication_date": source_date.isoformat() if source_date else "",
+        "last_verified_date": verified_date.isoformat() if verified_date else "",
+        "days_since_verification": days,
+        "freshness_status": gate_status,
+        "freshness_waiver_reason": waiver,
+        "primary_source_url": row.get("primary_source_url", ""),
+        "western_denominator": row.get("western_denominator", ""),
+        "evidence_tier": row.get("evidence_tier", ""),
+    }
+
+
+def load_rows(audit_csv, today, warn_days, fail_days):
+    with audit_csv.open(newline="") as f:
+        rows = []
+        for row in csv.DictReader(f):
+            normalized = normalized_status(row, today, warn_days, fail_days)
+            normalized["file_path"] = str(audit_csv)
+            rows.append(normalized)
+        return rows
+
+
+def print_rows(title, rows):
+    if not rows:
+        return
+    print(f"  --- {title} ({len(rows)}) ---")
+    rows = sorted(rows, key=lambda r: (-(r["days_since_verification"] or -1), r["commitment_id"]))
+    for row in rows:
+        days = row["days_since_verification"]
+        days_text = f"{days:3d}d" if days is not None else "n/a "
+        print(
+            f"    [{row['freshness_status'][:3]}] {days_text}  "
+            f"{row['commitment_id']} | {row['operator']} | "
+            f"source={row['source_publication_date'] or 'unknown'} | "
+            f"verified={row['last_verified_date'] or 'NEVER'}"
+        )
+        if row["freshness_waiver_reason"]:
+            print(f"         waiver: {row['freshness_waiver_reason']}")
+    print()
 
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--warn-days", type=int, default=30)
-    ap.add_argument("--fail-days", type=int, default=60)
-    ap.add_argument("--json", action="store_true", help="Machine-readable output")
-    ap.add_argument("--overlay", default="compute_commitments_overlay.yaml")
-    ap.add_argument("--neocloud", default="neocloud_overlay.yaml")
-    ap.add_argument("--today", default=None, help="YYYY-MM-DD (default: real today)")
-    args = ap.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--audit-csv", default="row_level_audit.csv")
+    parser.add_argument("--warn-days", type=int, default=30)
+    parser.add_argument("--fail-days", type=int, default=60)
+    parser.add_argument("--today", default=None, help="YYYY-MM-DD; default is real today")
+    parser.add_argument("--json", action="store_true")
+    args = parser.parse_args()
 
     today = datetime.date.fromisoformat(args.today) if args.today else datetime.date.today()
-
     base = Path(__file__).resolve().parent
-    rows = collect_rows(base / args.overlay, base / args.neocloud, today)
+    audit_csv = (base / args.audit_csv).resolve()
+    if not audit_csv.exists():
+        print(f"ERROR: audit CSV not found: {audit_csv}", file=sys.stderr)
+        return 2
 
-    for r in rows:
-        r["status"] = classify(r["days_stale"], args.warn_days, args.fail_days)
+    rows = load_rows(audit_csv, today, args.warn_days, args.fail_days)
+    buckets = {"GREEN": [], "YELLOW": [], "RED": [], "MISSING": [], "WAIVED": []}
+    for row in rows:
+        buckets.setdefault(row["freshness_status"], []).append(row)
 
-    buckets = {"GREEN": [], "YELLOW": [], "RED": [], "MISSING": []}
-    for r in rows:
-        buckets[r["status"]].append(r)
+    failing = buckets.get("RED", []) + buckets.get("MISSING", [])
+
+    payload = {
+        "today": today.isoformat(),
+        "warn_days": args.warn_days,
+        "fail_days": args.fail_days,
+        "file_path": str(audit_csv),
+        "total_rows": len(rows),
+        "counts": {key: len(value) for key, value in buckets.items() if value or key in {"GREEN", "YELLOW", "RED", "MISSING", "WAIVED"}},
+        "rows": rows,
+    }
 
     if args.json:
-        print(json.dumps({
-            "today": today.isoformat(),
-            "warn_days": args.warn_days,
-            "fail_days": args.fail_days,
-            "total_rows": len(rows),
-            "counts": {k: len(v) for k, v in buckets.items()},
-            "rows": rows,
-        }, indent=2))
-        return 0
+        print(json.dumps(payload, indent=2, sort_keys=True))
+        return 1 if failing else 0
 
-    print("=" * 72)
-    print(f"SOURCE FRESHNESS  (today={today.isoformat()}, warn>{args.warn_days}d, fail>{args.fail_days}d)")
-    print("=" * 72)
+    print("=" * 80)
+    print(f"SOURCE FRESHNESS GATE  (today={today.isoformat()}, warn>{args.warn_days}d, fail>{args.fail_days}d)")
+    print("=" * 80)
+    print(f"  File path    : {audit_csv}")
     print(f"  Total rows   : {len(rows)}")
-    print(f"  GREEN   (≤{args.warn_days}d)  : {len(buckets['GREEN']):3d}")
-    print(f"  YELLOW  ({args.warn_days+1}–{args.fail_days}d)    : {len(buckets['YELLOW']):3d}")
-    print(f"  RED     (>{args.fail_days}d)    : {len(buckets['RED']):3d}")
-    print(f"  MISSING last_checked : {len(buckets['MISSING']):3d}")
+    print(f"  GREEN        : {len(buckets.get('GREEN', [])):3d}")
+    print(f"  YELLOW       : {len(buckets.get('YELLOW', [])):3d}")
+    print(f"  RED          : {len(buckets.get('RED', [])):3d}")
+    print(f"  MISSING      : {len(buckets.get('MISSING', [])):3d}")
+    print(f"  WAIVED       : {len(buckets.get('WAIVED', [])):3d}")
     print()
 
-    for status in ("RED", "YELLOW", "MISSING", "GREEN"):
-        group = buckets[status]
-        if not group:
-            continue
-        print(f"  --- {status} ({len(group)}) ---")
-        # Sort by days_stale desc (None last)
-        group.sort(key=lambda r: (-(r["days_stale"] or -1)))
-        for r in group:
-            days = r["days_stale"]
-            days_str = f"{days:3d}d" if days is not None else "n/a "
-            lc = r["last_checked"] or "NEVER"
-            print(f"    [{status[:3]}] {days_str} since {lc}  {r['commitment_id']}")
-        print()
+    for status in ("RED", "YELLOW", "MISSING", "WAIVED", "GREEN"):
+        print_rows(status, buckets.get(status, []))
 
-    # Exit code: 0 if clean, 1 if RED or MISSING exists
-    if buckets["RED"] or buckets["MISSING"]:
-        return 1
-    return 0
+    return 1 if failing else 0
 
 
 if __name__ == "__main__":

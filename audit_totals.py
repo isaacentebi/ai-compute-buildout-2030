@@ -40,6 +40,7 @@ NEOCLOUD = ROOT / "neocloud_overlay.yaml"
 # Sovereign-AI row ids. Anything not in this set is treated as Western.
 SOVEREIGN_IDS = {
     "microsoft_g42_uae_khazna_2025_11",
+    "xai_humain_saudi",
     "humain_amd_saudi_2025_05",
     "reliance_jio_jamnagar_2024_08",
     "uk_culham_ai_growth_zone_2025_01",
@@ -55,6 +56,12 @@ TIER_DEFAULTS = {
     "T4": 0.58,
     "T5": 0.32,
     "T6": 0.25,
+}
+
+ROW_BASIS_OVERRIDES = {
+    "xai_humain_saudi": ("facility", 1.35),
+    "humain_amd_saudi_2025_05": ("facility", 1.35),
+    "reliance_jio_jamnagar_2024_08": ("facility", 1.40),
 }
 
 # For the conservative-case rollup
@@ -76,7 +83,10 @@ def load_neocloud() -> dict:
 
 
 def sum_class_a(commitments: list, scope: str) -> tuple[float, float, float]:
-    """Re-sum Class A rows for a given scope. Returns (point, low, high)."""
+    """Re-sum Class A rows for a given scope on the true IT-load bridge.
+    Facility-basis rows are divided by pue_assumed; IT rows pass through.
+    Returns (point, low, high).
+    """
     point = low = high = 0.0
     for c in commitments:
         if c.get("announcement_class") != "A":
@@ -87,7 +97,17 @@ def sum_class_a(commitments: list, scope: str) -> tuple[float, float, float]:
         if row_scope != scope:
             continue
         p = c.get("incremental_gw_point")
-        r = c.get("incremental_gw_range") or [None, None]
+        r = list(c.get("incremental_gw_range") or [None, None])
+        basis, pue = ROW_BASIS_OVERRIDES.get(
+            cid, (c.get("mw_basis", "IT"), c.get("pue_assumed") or 1.0)
+        )
+        if basis == "facility":
+            if p is not None:
+                p = p / pue
+            if r[0] is not None:
+                r[0] = r[0] / pue
+            if r[1] is not None:
+                r[1] = r[1] / pue
         if p is not None:
             point += p
         if r[0] is not None:
@@ -361,8 +381,8 @@ def print_seven_canonical_totals(doc: dict, neocloud: dict) -> None:
     non_stretch_fac = tier_fac.get("total_gw_non_stretch_facility", 0.0)
     full_real_fac = tier_fac.get("total_gw_full_realization_facility", west_range_fac[1])
 
-    print(f"  1. operational_today_gw         = {op_today:>6.2f} GW IT-equiv (tier rollup T1 = 7.56 GW)")
-    print(f"                                     (~{op_today*1.16:.2f} GW facility-equivalent at blended PUE 1.16)")
+    print(f"  1. operational_today_gw         = {op_today:>6.2f} GW facility  "
+          f"(includes T6-inferred operational capacity; tier-clean T1 = 7.56 GW facility)")
     print(f"  2. announced_horizon_gw         = {west_horizon_fac:>6.2f} GW facility  "
           f"[{west_range_fac[0]:.2f}, {west_range_fac[1]:.2f}]")
     print(f"  3. raw_non_stretch_gw           = {non_stretch_fac:>6.2f} GW facility  "
@@ -396,7 +416,7 @@ def print_seven_canonical_totals(doc: dict, neocloud: dict) -> None:
     # ------------------------------------------------------------------
     print()
     print("=" * 70)
-    print("SEVEN CANONICAL TOTALS  (IT-load bridge — SECONDARY, rev-2 compat)")
+    print("SEVEN CANONICAL TOTALS  (IT-load bridge — SECONDARY)")
     print("=" * 70)
 
     framework = compute_probability_weighted_western(doc)
@@ -405,7 +425,7 @@ def print_seven_canonical_totals(doc: dict, neocloud: dict) -> None:
     west_horizon = totals["western_horizon_2027_2030"]["total_gw_point"]
     west_range = totals["western_horizon_2027_2030"]["total_gw_range"]
 
-    print(f"  1. operational_today_gw         = {op_today:>6.2f} GW  (T1 IT-basis)")
+    print(f"  1. operational_today_gw         = {op_today:>6.2f} GW facility primary; see tier block for IT bridge")
     print(f"  2. announced_horizon_gw         = {west_horizon:>6.2f} GW  "
           f"[{west_range[0]:.2f}, {west_range[1]:.2f}]  (IT-load bridge)")
     print(f"  3. probability_weighted_gw      = {framework['probability_weighted_gw']:>6.2f} GW  "

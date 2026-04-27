@@ -399,18 +399,18 @@
       "country": "United States",
       "project": "Stargate #confident",
       "address": "5502 Spinks Rd, Abilene, TX 79601",
-      "current_h100e": 510358.7670540677,
-      "current_power_mw": 590.0,
-      "current_capex_usd_b_2025": 16.14,
+      "current_h100e": 173002.9718827348,
+      "current_power_mw": 200.0,
+      "current_capex_usd_b_2025": 5.4712,
       "first_operational_date": "2025-06-28",
       "operational_today": true,
       "timeline_now": {
-        "power_mw": 590.0,
-        "h100e": 510358.7670540677,
-        "bldgs_op": 4.0,
-        "capex_usd_b": 16.14,
-        "status_text": "Building 3 and 4 operational, based on Building 4 construction [end date](https://www.tdlr.texas.gov/TABS/Search/Project/TABS2025014756).",
-        "last_update": "2026-04-01"
+        "power_mw": 200.0,
+        "h100e": 173002.9718827348,
+        "bldgs_op": 2.0,
+        "capex_usd_b": 5.4712,
+        "status_text": "Revision: roughly 200 MW operational by the April 2026 cutoff; the prior 590 MW April-1 milestone is treated as under construction pending a later commissioning milestone.",
+        "last_update": "2026-04-22"
       },
       "full_buildout": {
         "h100e_max": 1020717.5341081354,
@@ -947,9 +947,9 @@
       "n_sites": 4.0
     },
     "Oracle": {
-      "h100e": 510358.7670540677,
-      "power_mw": 590.0,
-      "capex_usd_b": 16.14,
+      "h100e": 173002.9718827348,
+      "power_mw": 200.0,
+      "capex_usd_b": 5.4712,
       "n_sites": 5.0
     },
     "Meta": {
@@ -1089,9 +1089,9 @@
       "n_sites": 3.5
     },
     "OpenAI": {
-      "h100e": 1369043.2446035633,
-      "power_mw": 1563.5,
-      "capex_usd_b": 44.755,
+      "h100e": 1031687.4494322306,
+      "power_mw": 1173.5,
+      "capex_usd_b": 34.0862,
       "n_sites": 10.5
     },
     "Microsoft": {
@@ -1255,18 +1255,18 @@
       "country": "United States",
       "project": "Stargate #confident",
       "address": "5502 Spinks Rd, Abilene, TX 79601",
-      "current_h100e": 510358.7670540677,
-      "current_power_mw": 590.0,
-      "current_capex_usd_b_2025": 16.14,
+      "current_h100e": 173002.9718827348,
+      "current_power_mw": 200.0,
+      "current_capex_usd_b_2025": 5.4712,
       "first_operational_date": "2025-06-28",
       "operational_today": true,
       "timeline_now": {
-        "power_mw": 590.0,
-        "h100e": 510358.7670540677,
-        "bldgs_op": 4.0,
-        "capex_usd_b": 16.14,
-        "status_text": "Building 3 and 4 operational, based on Building 4 construction [end date](https://www.tdlr.texas.gov/TABS/Search/Project/TABS2025014756).",
-        "last_update": "2026-04-01"
+        "power_mw": 200.0,
+        "h100e": 173002.9718827348,
+        "bldgs_op": 2.0,
+        "capex_usd_b": 5.4712,
+        "status_text": "Revision: roughly 200 MW operational by the April 2026 cutoff; the prior 590 MW April-1 milestone is treated as under construction pending a later commissioning milestone.",
+        "last_update": "2026-04-22"
       },
       "full_buildout": {
         "h100e_max": 1020717.5341081354,
@@ -2783,93 +2783,93 @@
       "operational_n_sites": 20
     },
     "2026-04-22": {
-      "operational_power_mw": 6973.8,
-      "operational_h100e": 5022966.4547143765,
-      "operational_capex_usd_b": 219.49375615800002,
+      "operational_power_mw": 6583.8,
+      "operational_h100e": 4685610.659543044,
+      "operational_capex_usd_b": 208.82495615800002,
       "operational_n_sites": 20
     },
     "2026-05-01": {
-      "operational_power_mw": 7050.8,
-      "operational_h100e": 5069100.866033224,
-      "operational_capex_usd_b": 222.85375615800004,
+      "operational_power_mw": 6660.8,
+      "operational_h100e": 4731745.070861892,
+      "operational_capex_usd_b": 212.18495615800003,
       "operational_n_sites": 21
     },
     "2026-05-08": {
-      "operational_power_mw": 7145.8,
-      "operational_h100e": 5139843.665426857,
-      "operational_capex_usd_b": 225.87827297000004,
+      "operational_power_mw": 6755.8,
+      "operational_h100e": 4802487.870255524,
+      "operational_capex_usd_b": 215.20947297000004,
       "operational_n_sites": 21
     },
     "2026-05-13": {
-      "operational_power_mw": 8337.8,
-      "operational_h100e": 6248596.575770151,
-      "operational_capex_usd_b": 261.01522769800005,
+      "operational_power_mw": 7947.8,
+      "operational_h100e": 5911240.780598818,
+      "operational_capex_usd_b": 250.346427698,
       "operational_n_sites": 21
     },
     "2026-05-14": {
-      "operational_power_mw": 8763.8,
-      "operational_h100e": 6615783.825902003,
-      "operational_capex_usd_b": 272.64522769800004,
+      "operational_power_mw": 8373.8,
+      "operational_h100e": 6278428.03073067,
+      "operational_capex_usd_b": 261.976427698,
       "operational_n_sites": 21
     },
     "2026-05-17": {
-      "operational_power_mw": 9152.8,
-      "operational_h100e": 6906081.956270875,
-      "operational_capex_usd_b": 285.067211196,
+      "operational_power_mw": 8762.8,
+      "operational_h100e": 6568726.161099543,
+      "operational_capex_usd_b": 274.39841119600004,
       "operational_n_sites": 21
     },
     "2026-05-18": {
-      "operational_power_mw": 9352.8,
-      "operational_h100e": 7089507.928984366,
-      "operational_capex_usd_b": 290.95721119600006,
+      "operational_power_mw": 8962.8,
+      "operational_h100e": 6752152.133813034,
+      "operational_capex_usd_b": 280.288411196,
       "operational_n_sites": 21
     },
     "2026-05-19": {
-      "operational_power_mw": 9625.8,
-      "operational_h100e": 7260986.443820771,
-      "operational_capex_usd_b": 299.67263822900003,
+      "operational_power_mw": 9235.8,
+      "operational_h100e": 6923630.648649438,
+      "operational_capex_usd_b": 289.00383822900005,
       "operational_n_sites": 22
     },
     "2026-05-28": {
-      "operational_power_mw": 9714.8,
-      "operational_h100e": 7346888.414513039,
-      "operational_capex_usd_b": 302.32263822900006,
+      "operational_power_mw": 9324.8,
+      "operational_h100e": 7009532.619341707,
+      "operational_capex_usd_b": 291.65383822900003,
       "operational_n_sites": 22
     },
     "2026-05-31": {
-      "operational_power_mw": 9763.8,
-      "operational_h100e": 7384786.342759629,
-      "operational_capex_usd_b": 303.9326382290001,
+      "operational_power_mw": 9373.8,
+      "operational_h100e": 7047430.547588296,
+      "operational_capex_usd_b": 293.26383822900004,
       "operational_n_sites": 22
     },
     "2026-06-01": {
-      "operational_power_mw": 9763.8,
-      "operational_h100e": 7384786.342759629,
-      "operational_capex_usd_b": 303.9326382290001,
+      "operational_power_mw": 9373.8,
+      "operational_h100e": 7047430.547588296,
+      "operational_capex_usd_b": 293.26383822900004,
       "operational_n_sites": 22
     },
     "2026-06-10": {
-      "operational_power_mw": 9857.8,
-      "operational_h100e": 7455529.142153261,
-      "operational_capex_usd_b": 306.9626382290001,
+      "operational_power_mw": 9467.8,
+      "operational_h100e": 7118173.346981929,
+      "operational_capex_usd_b": 296.2938382290001,
       "operational_n_sites": 22
     },
     "2026-06-15": {
-      "operational_power_mw": 10057.3,
-      "operational_h100e": 7638657.733994388,
-      "operational_capex_usd_b": 313.4785238750001,
+      "operational_power_mw": 9667.3,
+      "operational_h100e": 7301301.9388230555,
+      "operational_capex_usd_b": 302.80972387500003,
       "operational_n_sites": 23
     },
     "2026-06-21": {
-      "operational_power_mw": 10194.3,
-      "operational_h100e": 7724396.991412588,
-      "operational_capex_usd_b": 317.8362373850001,
+      "operational_power_mw": 9804.3,
+      "operational_h100e": 7387041.196241256,
+      "operational_capex_usd_b": 307.1674373850001,
       "operational_n_sites": 23
     },
     "2026-06-30": {
-      "operational_power_mw": 10394.3,
-      "operational_h100e": 7883948.759649443,
-      "operational_capex_usd_b": 322.8962373850001,
+      "operational_power_mw": 10004.3,
+      "operational_h100e": 7546592.964478111,
+      "operational_capex_usd_b": 312.2274373850001,
       "operational_n_sites": 24
     },
     "2026-07-01": {
@@ -3066,10 +3066,10 @@
     }
   },
   "global_totals_current": {
-    "peak_h100e": 4742128.6626827335,
-    "effective_h100e_33pct": 1580709.5542275778,
-    "power_mw": 6671.8,
-    "capex_usd_b_2025": 210.59386088600002
+    "peak_h100e": 4404772.867511401,
+    "effective_h100e_33pct": 1468257.6225038003,
+    "power_mw": 6281.8,
+    "capex_usd_b_2025": 199.925060886
   },
   "global_totals_buildout": {
     "peak_h100e": 46177921.42239158,

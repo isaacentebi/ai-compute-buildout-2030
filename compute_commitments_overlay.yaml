@@ -19,12 +19,15 @@
 #
 # Build with: python3 research/data/external/epoch_data_centers/compile.py --with-overlay
 #
-# Data cutoff: 2026-04-22
+# Epoch local snapshot: dataset updated 2026-04-20, retrieved 2026-04-22.
+# Supplemental disclosure cutoff: 2026-04-24.
 # ---------------------------------------------------------------------------
 
 metadata:
   overlay_version: "2026-04-24"
-  epoch_data_cutoff: "2026-04-16"
+  epoch_dataset_updated: "2026-04-20"
+  epoch_retrieved: "2026-04-22"
+  supplemental_disclosure_cutoff: "2026-04-24"
   author: stack-intelligence-engine
   methodology: |
     Each commitment row records the literal announcement language and then
@@ -1234,7 +1237,7 @@ excluded_with_reason:
     exclusion_reason: "Below our Class A threshold (<100 MW). Flagged for visibility but not added to the incremental rollup."
 
 # ============================================================================
-# AGGREGATE TOTALS — v3, computed by hand against Epoch snapshot 2026-04-16
+# AGGREGATE TOTALS — v3, computed by hand against Epoch snapshot retrieved 2026-04-22
 # ============================================================================
 # These are not a script output. Each number is the sum of its inputs above,
 # written out longhand below so the arithmetic can be audited line-by-line.
@@ -1258,28 +1261,27 @@ totals:
   # --------------------------------------------------------------------------
   evidence_tier_rollup_western:
     T1_operational:
-      gw: 7.56                         # Revised 2026-04-24: was 7.96; -0.40 per Epoch 2026-04-22 (Stargate Abilene 400 MW reclassified T1 -> T2 pending late-May milestone)
-      components: {epoch_current: 6.27, neocloud_directly_disclosed: 1.29}
+      gw: 6.52                         # true IT-load bridge: facility T1 7.56 / blended PUE 1.16
+      components: {facility_t1_gw: 7.56, pue_bridge: 1.16}
       realization_probability_default: 1.00
     T2_physically_evidenced:
-      gw: 12.32                        # Revised 2026-04-24: was 11.92; +0.40 per Epoch 2026-04-22 (Stargate Abilene 400 MW reclassified T1 -> T2)
-      components: {epoch_EOT_2026_2027: 11.62, fairwater_international: 0.70}
+      gw: 10.72                        # Epoch facility 11.62 / 1.16 + Fairwater IT 0.70
+      components: {epoch_EOT_2026_2027_it: 10.02, fairwater_international_it: 0.70}
       realization_probability_default: 0.88
     T3_firm_commercial:
-      gw: 7.90
-      components: {neocloud_contracted: 7.90}
+      gw: 6.45                         # neocloud facility commitments divided by row-level PUE
+      components: {neocloud_contracted_it: 6.45}
       realization_probability_default: 0.78
     T4_announced_site_plan:
-      gw: 16.28
-      components: {epoch_EOT_2028: 12.61, anthropic_aws_incremental: 3.17, xai_humain_saudi: 0.50}
+      gw: 14.04                        # Epoch facility 12.61 / 1.16 + Anthropic-AWS IT 3.17
+      components: {epoch_EOT_2028_it: 10.87, anthropic_aws_incremental_it: 3.17}
       realization_probability_default: 0.58
     T5_loi_or_stretch:
-      gw: 6.30
+      gw: 5.95
       components:
-        epoch_speculative_tagged: 1.49
-        epoch_EOT_2029_2030: 1.07
-        anthropic_azure: 1.00
-        meta_hyperion_stretch: 2.74
+        epoch_speculative_and_2029_2030_it: 2.21
+        anthropic_azure_it: 1.00
+        meta_hyperion_stretch_it: 2.74
       realization_probability_default: 0.32
     T6_analyst_inference:
       gw: 0.26
@@ -1288,15 +1290,15 @@ totals:
         voltage_park_inferred: 0.135
         together_inferred: 0.065
       realization_probability_default: 0.25
-    total_gw_announced: 50.62
-    total_gw_probability_weighted: 36.08  # Revised 2026-04-24: was 36.13; -0.05 reflecting T1->T2 reclassification of Stargate Abilene 400 MW at (1.00 - 0.88) probability delta
-    total_gw_conservative: 27.78  # T1 + T2 + T3 only (unchanged — shift is intra-conservative)
-    total_gw_full_realization: 53.48  # arithmetic ceiling from existing range
+    total_gw_announced: 43.93
+    total_gw_probability_weighted: 31.09
+    total_gw_conservative: 23.68  # T1 + T2 + T3 only, true IT-load bridge
+    total_gw_full_realization: 46.70  # arithmetic ceiling, true IT-load bridge
 
   # --------------------------------------------------------------------------
   # Six-tier framework rollup — FACILITY BASIS (rev-3 primary denominator)
   # --------------------------------------------------------------------------
-  # Parallel to evidence_tier_rollup_western above (IT-bridge). This block
+  # Parallel to evidence_tier_rollup_western above (true IT-load bridge). This block
   # is the rev-3 primary denominator, matching Epoch's Frontier Data Centers
   # convention (facility power = GPUs + cooling + lighting + losses).
   #
@@ -1309,8 +1311,8 @@ totals:
   #   voltage_park_inferred   IT × 1.25 (0.135 → 0.169 GW facility)
   #   together_inferred       IT × 1.25 (0.065 → 0.081 GW facility)
   #   together_contracted     IT × 1.25 (0.20 → 0.25 GW facility)
-  # Facility-declared rows pass through 1:1 (Epoch 33.05; xai_humain_saudi
-  # 0.50; all other neocloud operators per A.3 basis audit).
+  # Facility-declared rows pass through 1:1 for facility; the IT-load bridge
+  # divides them by row-level PUE in the sibling block above.
   # --------------------------------------------------------------------------
   evidence_tier_rollup_western_facility:
     T1_operational:
@@ -1326,8 +1328,8 @@ totals:
       components: {neocloud_contracted: 7.95}
       realization_probability_default: 0.78
     T4_announced_site_plan:
-      gw: 16.91                        # epoch_EOT_2028 12.61 (facility) + anthropic_aws_incremental 3.17×1.20 = 3.80 + xai_humain_saudi 0.50 (facility)
-      components: {epoch_EOT_2028: 12.61, anthropic_aws_incremental: 3.80, xai_humain_saudi: 0.50}
+      gw: 16.41                        # epoch_EOT_2028 12.61 (facility) + anthropic_aws_incremental 3.17×1.20 = 3.80
+      components: {epoch_EOT_2028: 12.61, anthropic_aws_incremental: 3.80}
       realization_probability_default: 0.58
     T5_loi_or_stretch:
       gw: 6.754                        # epoch_speculative_tagged 1.49 + epoch_EOT_2029_2030 1.07 + anthropic_azure 1.00×1.18 = 1.18 + meta_hyperion_stretch 2.74×1.10 = 3.014
@@ -1344,32 +1346,32 @@ totals:
         voltage_park_inferred: 0.169
         together_inferred: 0.081
       realization_probability_default: 0.25
-    total_gw_announced_facility: 51.927               # 7.56 + 12.425 + 7.95 + 16.91 + 6.754 + 0.328
-    total_gw_non_stretch_facility: 45.173             # announced - T5 (replaces retired "bear" label)
+    total_gw_announced_facility: 51.427               # 7.56 + 12.425 + 7.95 + 16.41 + 6.754 + 0.328
+    total_gw_non_stretch_facility: 44.673             # announced - T5 (replaces retired "bear" label)
     total_gw_conservative_facility_raw: 27.935        # T1 + T2 + T3 raw facility
     total_gw_conservative_facility_probweighted: 21.695  # T1×1.00 + T2×0.88 + T3×0.78 = 7.56 + 10.934 + 6.201
-    total_gw_probability_weighted_facility: 36.746    # Σ tier_gw_facility × tier_default_prob across all six tiers
-    total_gw_full_realization_facility: 55.324        # arithmetic ceiling from facility range (33.05 + 12.779 high + 9.49)
+    total_gw_probability_weighted_facility: 36.456    # Σ tier_gw_facility × tier_default_prob across all six tiers
+    total_gw_full_realization_facility: 54.724        # arithmetic ceiling from facility range, excluding sovereign xAI-HUMAIN Saudi
     basis_note: |
       rev-3 primary denominator. IT-load-equivalent capacity available in
       evidence_tier_rollup_western (sibling block above) as secondary bridge.
-      Raw announced facility 51.927 GW vs 50.62 GW IT (+1.30 GW delta from
-      IT→facility conversion of 7 Class A IT-declared rows + 3 neocloud
-      GPU-count-inferred rows).
+      Raw announced facility 51.427 GW vs 43.93 GW IT-load equivalent under
+      row-level PUE assumptions. xAI-HUMAIN Saudi is sovereign sidebar, not
+      Western.
 
   # --------------------------------------------------------------------------
   # Horizon A: operational TODAY (2026-Q2 snapshot)
   # --------------------------------------------------------------------------
   operational_today_2026_q2:
-    total_gw: 7.76                     # Revised 2026-04-24 per Epoch changelog 2026-04-22: Stargate Abilene operational is 200 MW (not 600 MW April-1 target). Prior figure 8.16 GW assumed April-1 milestone achievement.
+    total_gw: 7.81                     # Facility basis including T6-inferred operational/neocloud capacity. Tier-clean T1 facility remains 7.56 GW.
     components:
       epoch_current_gw: 6.27           # Revised 2026-04-24: was 6.67; Stargate Abilene -0.40 GW per Epoch 2026-04-22 (600 MW milestone pushed to late May; Oracle post confirms ~200 MW operational April 22)
-      neocloud_ex_epoch_op_gw: 1.49    # from neocloud_overlay.yaml op_mw sum (CRWV 0.85 + NBIS 0.17 + Nscale 0.02 + Crusoe 0.20 + Lambda 0.05 + Voltage 0.135 + Together 0.065) = 1.49
+      neocloud_ex_epoch_op_gw: 1.54    # facility basis; GPU-count-inferred Voltage/Together converted by PUE
     uncertainty: "Low. Evidenced by satellite imagery, permits, 10-Qs. 2026-04-24 revision: Stargate Abilene 400 MW moved from operational to under-construction (T1 -> T2) per Epoch 2026-04-22 changelog."
     epoch_capex_to_date_usd_b: 210.6   # Epoch's capex_usd_b_current
     last_updated: 2026-04-24
     changelog:
-      - "2026-04-24: total_gw 8.16 -> 7.76 (Stargate Abilene operational revised 600 MW -> 200 MW per Epoch 2026-04-22)"
+      - "2026-04-24: facility total_gw 8.21 -> 7.81 (Stargate Abilene operational revised 600 MW -> 200 MW per Epoch 2026-04-22)"
 
   # --------------------------------------------------------------------------
   # Horizon B: Western full-buildout (2027-2030, per announced timelines)
@@ -1378,18 +1380,18 @@ totals:
   # hyperscalers + Western neoclouds). Sovereign-AI is reported separately
   # below so it doesn't get tangled into Session 2's Western ratios.
   western_horizon_2027_2030:
-    total_gw_point: 50.61
-    total_gw_range: [45.74, 53.48]
+    total_gw_point: 43.93
+    total_gw_range: [39.16, 46.70]
     arithmetic:
-      epoch_buildout_gw: 33.05         # sum of full_buildout.power_mw_max across Epoch sites
-      class_a_western_incremental_point_gw: 8.17
-      class_a_western_incremental_range_gw: [3.30, 11.04]
-      neocloud_ex_epoch_total_gw: 9.39 # operational 1.49 + contracted 7.90
-      neocloud_operational_gw: 1.49
-      neocloud_contracted_gw: 7.90     # CRWV 2.3 + NBIS 2.0 + Nscale 0.9 + Crusoe 1.98 + Lambda 0.32 + APLD 0.2 + Together 0.2 = 7.90
-    # Point: 33.05 + 8.17 + 9.39 = 50.61
-    # Low:   33.05 + 3.30 + 9.39 = 45.74
-    # High:  33.05 + 11.04 + 9.39 = 53.48
+      epoch_buildout_gw: 28.49         # true IT-load bridge: Epoch facility 33.05 / blended PUE 1.16
+      class_a_western_incremental_point_gw: 7.67
+      class_a_western_incremental_range_gw: [2.90, 10.44]
+      neocloud_ex_epoch_total_gw: 7.77 # true IT-load bridge from row-level PUE assumptions
+      neocloud_operational_gw: 1.24
+      neocloud_contracted_gw: 6.45
+    # Point: 28.49 + 7.67 + 7.77 = 43.93
+    # Low:   28.49 + 2.90 + 7.77 = 39.16
+    # High:  28.49 + 10.44 + 7.77 = 46.70
     # (Neocloud contracted treated as a firm number — LOI/MSAs — not ranged.)
     uncertainty: "High. 84% of this is NOT yet operational. Falsification risk lives in whether the 2028-2030 pipeline materializes on announced timelines."
     class_a_western_row_sources:       # per-row Class A incremental point contributions
@@ -1397,7 +1399,6 @@ totals:
       anthropic_azure_2025_11_18: 1.00     # [0.00, 1.00]
       openai_microsoft_fairwater: 0.70     # [0.40, 1.50]
       meta_hyperion_prometheus: 2.74       # [0.00, 2.74]
-      xai_humain_saudi: 0.50               # [0.40, 0.60]
       xai_colossus2_full: 0.06             # [0.00, 0.20]
       # zero-incremental rows (fully overlapping with Epoch): anthropic_fluidstack,
       # anthropic_google_broadcom_tpu (Class B), openai_stargate_aggregate,
@@ -1411,68 +1412,68 @@ totals:
   # interconnection + facility capex).
   # --------------------------------------------------------------------------
   western_horizon_2027_2030_facility:
-    total_gw_point: 51.927
-    total_gw_range: [46.400, 55.319]
+    total_gw_point: 51.427
+    total_gw_range: [46.000, 54.719]
     arithmetic:
       epoch_buildout_gw: 33.05               # facility (Epoch-declared; unchanged)
-      class_a_western_incremental_point_gw: 9.377
-      class_a_western_incremental_range_gw: [3.86, 12.779]
+      class_a_western_incremental_point_gw: 8.877
+      class_a_western_incremental_range_gw: [3.46, 12.179]
       neocloud_ex_epoch_total_gw: 9.49       # operational 1.54 + contracted 7.95 (per A.3 aggregate_rollup_facility)
       neocloud_operational_gw: 1.54          # 1.49 IT + delta from Voltage Park 135→169, Together op 65→81 (IT×1.25)
       neocloud_contracted_gw: 7.95           # 7.90 IT + delta from Together contracted 200→250 (IT×1.25)
-    # Point: 33.05 + 9.377 + 9.49 = 51.917 (1-sig-fig sum 51.927 after per-row rounding)
-    # Low:   33.05 + 3.86 + 9.49 = 46.40
-    # High:  33.05 + 12.779 + 9.49 = 55.319
+    # Point: 33.05 + 8.877 + 9.49 = 51.417 (1-sig-fig sum 51.427 after per-row rounding)
+    # Low:   33.05 + 3.46 + 9.49 = 46.00
+    # High:  33.05 + 12.179 + 9.49 = 54.719
     uncertainty: "Same structural uncertainty as IT-bridge; basis conversion does not change the falsification risk on announced 2028-2030 pipeline timing."
     class_a_western_row_sources_facility:    # per-row Class A facility-basis incremental point contributions
       anthropic_aws_2026_04_20: 3.80         # IT 3.17 × 1.20
       anthropic_azure_2025_11_18: 1.18       # IT 1.00 × 1.18
       openai_microsoft_fairwater: 0.805      # IT 0.70 × 1.15
       meta_hyperion_prometheus: 3.014        # IT 2.74 × 1.10
-      xai_humain_saudi: 0.50                 # facility 1:1
       xai_colossus2_full: 0.078              # IT 0.06 × 1.30
     basis_note: |
       rev-3 primary. IT-bridge available in western_horizon_2027_2030
-      (sibling block above). Delta vs IT-basis: +1.31 GW (51.927 vs 50.61),
-      driven by 7 Class A IT-declared rows × row-specific PUE.
+      (sibling block above). True IT-load bridge is 43.93 GW after dividing facility-basis rows by row-level PUE. xAI-HUMAIN Saudi is sovereign sidebar, not Western.
 
   # --------------------------------------------------------------------------
   # Sovereign-AI sidebar (UAE, Saudi, India, UK) — NOT in Western denominator
   # --------------------------------------------------------------------------
   sovereign_ai_sidebar_horizon:
-    total_gw_point: 1.95
-    total_gw_range: [0.72, 4.40]
+    total_gw_point: 1.91
+    total_gw_range: [0.90, 3.81]
     rows:
       microsoft_g42_uae_khazna_2025_11: 0.20   # [0.20, 0.20] — firm
-      humain_amd_saudi_2025_05: 0.50           # [0.30, 0.70]
-      reliance_jio_jamnagar_2024_08: 1.00      # [0.12, 3.00] — widest range; Ambani stretch vs floor
+      xai_humain_saudi: 0.37                    # facility / PUE 1.35
+      humain_amd_saudi_2025_05: 0.37           # facility / PUE 1.35
+      reliance_jio_jamnagar_2024_08: 0.71      # facility / PUE 1.40; widest range
       uk_culham_ai_growth_zone_2025_01: 0.25   # [0.10, 0.50]
-    # Point: 0.20 + 0.50 + 1.00 + 0.25 = 1.95
-    # Low:   0.20 + 0.30 + 0.12 + 0.10 = 0.72
-    # High:  0.20 + 0.70 + 3.00 + 0.50 = 4.40
+    # Point: 0.20 + 0.37 + 0.37 + 0.71 + 0.25 = 1.91
+    # Low:   0.20 + 0.30 + 0.22 + 0.09 + 0.10 = 0.90
+    # High:  0.20 + 0.44 + 0.52 + 2.14 + 0.50 = 3.81
     note: "Reported as a sidebar. Do NOT add to Western capex-revenue denominator."
 
   # --------------------------------------------------------------------------
   # Sovereign-AI sidebar — FACILITY BASIS (rev-3 primary)
   # --------------------------------------------------------------------------
   sovereign_ai_sidebar_horizon_facility:
-    total_gw_point: 2.06                       # vs 1.95 IT bridge
-    total_gw_range: [0.82, 4.70]
+    total_gw_point: 2.56                       # vs 2.45 IT bridge
+    total_gw_range: [1.22, 5.30]
     rows:
       microsoft_g42_uae_khazna_2025_11: 0.26   # IT 0.20 × 1.30 (YAML mw_basis: IT, pue_assumed: 1.30)
+      xai_humain_saudi: 0.50                    # facility 1:1 (sovereign xAI-HUMAIN Saudi JV)
       humain_amd_saudi_2025_05: 0.50           # facility 1:1 (Humain facility disclosure)
       reliance_jio_jamnagar_2024_08: 1.00      # facility 1:1 (Reliance/Jio Jamnagar facility disclosure)
       uk_culham_ai_growth_zone_2025_01: 0.30   # IT 0.25 × 1.20
-    # Point: 0.26 + 0.50 + 1.00 + 0.30 = 2.06
+    # Point: 0.26 + 0.50 + 0.50 + 1.00 + 0.30 = 2.56
     basis_note: "Sovereign sidebar facility basis. Reported separately from Western denominator. IT-bridge in sovereign_ai_sidebar_horizon sibling block."
 
   # --------------------------------------------------------------------------
   # Global reference total (Western + Sovereign)
   # --------------------------------------------------------------------------
   global_reference_horizon_2027_2030:
-    total_gw_point: 52.56             # 50.61 + 1.95
-    total_gw_range: [46.46, 57.88]    # [45.74+0.72, 53.48+4.40]
-    note: "Reference only. Session 2's Western analysis uses western_horizon_2027_2030, not this."
+    total_gw_point: 45.84             # true IT bridge: 43.93 Western + 1.91 sovereign
+    total_gw_range: [40.06, 50.51]    # [39.16+0.90, 46.70+3.81]
+    note: "Reference only, IT-load bridge. Session 2's Western analysis uses western_horizon_2027_2030_facility, not this."
 
   # --------------------------------------------------------------------------
   # Epoch horizon distribution — WHEN does the 33 GW buildout actually land
@@ -1505,11 +1506,11 @@ totals:
   # Framing gap: how much of the Western horizon is NOT yet operational?
   # --------------------------------------------------------------------------
   framing_gap:
-    operational_today_gw: 8.16
-    western_horizon_gw: 50.61
-    gap_gw: 42.45
-    pct_not_built: 83.9     # 42.45 / 50.61
-    pct_built: 16.1         # 8.16 / 50.61
+    operational_today_gw: 7.81
+    western_horizon_gw: 51.427
+    gap_gw: 43.62
+    pct_not_built: 84.8
+    pct_built: 15.2
     interpretation: "~84% of the Western 2027-2030 horizon is NOT yet operational. The entire capex-revenue coverage analysis in Session 2 depends on this ~2028-2030 pipeline materializing on announced timelines."
 
 # ============================================================================
@@ -1525,12 +1526,13 @@ totals:
 #        financing_source, capex_bridge
 # ============================================================================
 # Notes on power-unit discipline (A.3):
-# Epoch uses IT-load MW as its reported basis. Primary-source announcements
-# vary: Anthropic / MSFT / Meta blogs use "GW of capacity" without specifying,
-# and we flag pue_source accordingly. Our conversion policy: if primary uses
-# unspecified "GW", we tag mw_basis=IT and pue_assumed=1.20. If primary uses
-# "facility power" explicitly, we tag mw_basis=facility and the PUE sensitivity
-# rollup scales the total upward.
+# Epoch uses total facility power as its reported basis. Primary-source
+# announcements vary: Anthropic / MSFT / Meta blogs use "GW of capacity"
+# without specifying, and we flag pue_source accordingly. Our conversion
+# policy: if a primary uses site/facility/campus power, we tag
+# mw_basis=facility; if it uses chip/server/load language, we tag mw_basis=IT
+# and convert to facility using pue_assumed. Unknown, interconnection, or
+# cooling-capacity rows require an explicit row-level note before inclusion.
 # ============================================================================
 
 row_audit:
@@ -1667,7 +1669,7 @@ row_audit:
     expected_online_year: 2028
     contributes_to: [gw_total, capex_future, rpo_total]
     last_checked: "2026-04-24"
-    revision_note: "2026-04-24: Per Epoch changelog 2026-04-22, Abilene operational is 200 MW IT (300 MW facility) as of April 22, not the 600 MW April-1 target. 600 MW milestone pushed to late May 2026; Buildings 7 and 8 pushed from July to November 2026. Source: Oracle post + Epoch FDC documentation. Operational_today_2026_q2 total_gw adjusted 8.16 -> 7.76."
+    revision_note: "2026-04-24: Per Epoch changelog 2026-04-22, Abilene operational is 200 MW IT (300 MW facility) as of April 22, not the 600 MW April-1 target. 600 MW milestone pushed to late May 2026; Buildings 7 and 8 pushed from July to November 2026. Source: Oracle post + Epoch FDC documentation. Operational_today_2026_q2 facility total_gw adjusted 8.21 -> 7.81."
     capex_actual_usd_b: 40.0             # Abilene Phase 1+2 construction spend
     capex_future_usd_b: 460.0
     rpo_or_take_or_pay_usd_b: 300.0      # Oracle-OpenAI 5-year $300B take-or-pay
@@ -2050,23 +2052,23 @@ chip_density_assumptions:
 
 chip_density_scenarios:
   description: |
-    Three silicon-uplift scenarios scale the 50.6 GW Western 2030 horizon
+    Three silicon-uplift scenarios scale the 51.4 GW facility Western 2030 horizon
     into an H100e-equivalent envelope. See §4D in the paper.
   conservative:
     description: "Hold 2026 H100e/MW density constant through 2030 (no post-Rubin gains assumed)"
     total_h100e_2030_m: 60
-    implied_per_mw_blend_2030: 1185  # 60M / 50.6 GW = 1185 H100e/MW
+    implied_per_mw_blend_2030: 1185  # 60M / 51.4 GW = 1167 H100e/facility-MW
   base:
     description: "Current published roadmap extrapolations (NVIDIA Rubin + Rubin Ultra, TPU v8, Trainium 4, MI450)"
     total_h100e_2030_m: 78
-    implied_per_mw_blend_2030: 1541  # 78M / 50.6 GW = 1541 H100e/MW
+    implied_per_mw_blend_2030: 1541  # 78M / 51.4 GW = 1517 H100e/facility-MW
   aggressive:
     description: "Straight-line extension of observed per-family curves to 2030 (Feynman / v9 / MI500 / MTIA v4)"
     total_h100e_2030_m: 110
-    implied_per_mw_blend_2030: 2174  # 110M / 50.6 GW
+    implied_per_mw_blend_2030: 2174  # 110M / 51.4 GW
 
 # ============================================================================
-# STRESS SCENARIOS (A.8) — 5 named counterparty / execution shocks
+# STRESS SCENARIOS (A.8) — downside, upside, and correlated states
 # ============================================================================
 
 stress_scenarios:
@@ -2074,8 +2076,20 @@ stress_scenarios:
     Each scenario names its transmission mechanism, affected
     commitment_ids, quantitative deltas (GW, capex, H100e),
     counterparty exposure concentrations, and a probability.
-    The 5 scenarios are not independent — a correlated-shock case
-    (A + C simultaneously) is out of scope per plan.
+    The Monte Carlo applies a simple mixture architecture: a systemic
+    infrastructure-stress state can replace independent A+B+C draws;
+    lab-revenue / RPO stress can raise the probability of neocloud
+    financing stress; upside scenarios are sampled separately. U4 affects
+    H100e only and does not move facility-power GW.
+
+  systemic_infrastructure_stress:
+    name: "Systemic infrastructure stress"
+    transmission: "Correlated Stargate delay + neocloud spread stress + grid queue stress"
+    gw_delta_2030: -10.5
+    capex_delta_usd_b: -300.0
+    h100e_delta_million: -25.0
+    probability_assigned: 0.15
+    monte_carlo_rule: "If this state fires, do not separately fire scenarios A, B, or C; still allow D, E, F, and upside states."
 
   scenario_A_openai_stargate_slip_12mo:
     name: "Stargate 12-month slip across Abilene Phase 3+ / Shackelford / NM"
@@ -2097,6 +2111,7 @@ stress_scenarios:
     h100e_delta_million: -4.0
     counterparty_exposure_affected: [CoreWeave, Nebius, Applied Digital, Crusoe, Lambda]
     probability_assigned: 0.25
+    monte_carlo_rule: "If no systemic stress and no lab-revenue stress, conditional probability is 0.118. If lab-revenue stress fires, conditional probability is 0.60."
 
   scenario_C_grid_ercot_miso_pjm_slip_24mo:
     name: "Grid interconnection 24-month slip across ERCOT / MISO / PJM"
@@ -2136,6 +2151,50 @@ stress_scenarios:
     probability_assigned: 0.55
     note: "Highest-probability scenario. Already underway."
 
-  # correlated-shock case (out of scope per plan, documented for completeness)
-  correlated_shock_ACE:
-    note: "A + C + E simultaneously. Out of scope for base-case modelling but the 'perfect storm' deserves a line. gw_delta_2030 ≈ -11.5 GW; probability < 0.05."
+  scenario_F_lab_revenue_rpo_stress:
+    name: "Lab revenue / RPO stress"
+    transmission: "Frontier-model revenue or API/inference gross margins disappoint; labs defer, renegotiate, or underutilize take-or-pay commitments"
+    affected_commitment_ids: [openai_stargate_aggregate, anthropic_aws_2026_04_20, meta_nebius_2026_03_16]
+    affected_neocloud_ids: [CoreWeave, Nebius, Applied_Digital, Crusoe]
+    gw_delta_2030: -2.5
+    capex_delta_usd_b_range: [-120.0, -80.0]
+    rpo_at_risk_usd_b_range: [100.0, 175.0]
+    h100e_delta_million: -5.0
+    counterparty_exposure_affected: [Oracle, OpenAI, CoreWeave, Microsoft, Nebius, Meta, Anthropic, AWS, Google]
+    probability_assigned: 0.15
+    monte_carlo_rule: "If this state fires outside systemic stress, raise scenario B probability to 0.60 in that draw."
+
+  upside_U1_grid_interconnection_acceleration:
+    name: "Grid / interconnection acceleration"
+    transmission: "Permitting reform, connect-and-manage rules, conditional interconnection, behind-the-meter generation, utility fast-track tariffs"
+    gw_delta_2030: 2.0
+    capex_delta_usd_b_range: [50.0, 70.0]
+    h100e_delta_million: 4.0
+    probability_assigned: 0.20
+
+  upside_U2_neocloud_financing_open:
+    name: "Neocloud financing remains open / spreads tighten"
+    transmission: "Private-credit appetite remains strong; RPO-backed SPVs price tighter; marginal neocloud projects finance earlier"
+    gw_delta_2030: 1.5
+    capex_delta_usd_b_range: [40.0, 60.0]
+    h100e_delta_million: 3.0
+    probability_assigned: 0.20
+
+  upside_U3_T4_announced_site_over_realization:
+    name: "T4 announced-site over-realization"
+    transmission: "Named-site T4 projects with capex-secured sponsors reach COD faster than tier-default assumptions"
+    gw_delta_2030_range: [2.0, 2.5]
+    monte_carlo_gw_delta_2030: 2.25
+    capex_delta_usd_b_range: [60.0, 90.0]
+    h100e_delta_million: 5.0
+    probability_assigned: 0.15
+
+  upside_U4_silicon_acceleration:
+    name: "Silicon acceleration / better H100e per watt"
+    transmission: "Rubin / Trainium / TPU roadmap arrives early or density per watt exceeds base curve"
+    gw_delta_2030: 0.0
+    h100e_delta_million_range: [8.0, 12.0]
+    monte_carlo_h100e_delta_million: 10.0
+    capex_delta_usd_b: 0.0
+    probability_assigned: 0.25
+    note: "H100e-only upside; does not move the facility-power Monte Carlo."
