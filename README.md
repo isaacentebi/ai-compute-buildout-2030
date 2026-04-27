@@ -8,9 +8,9 @@ resolves to a row in the data layer, every row carries an evidence tier
 (T1–T6) and a realization probability, and the 2030 horizon is reported as
 a Monte Carlo distribution rather than a point estimate.
 
-- **Paper**: [`report.pdf`](report.pdf) (30 pages)
-- **Latest revision**: 2026-04-24 (rev-3, facility-basis reconciliation + Figure 8 rebuild)
-- **Data cutoff**: 2026-04-24
+- **Paper**: [`report.pdf`](report.pdf) (37 pages)
+- **Latest revision**: 2026-04-27 (rev-4, bottoms-up unit-economics anatomy + capital envelope reset to ~$1.9T)
+- **Data cutoff**: 2026-04-27
 - **Primary data**: [Epoch AI Frontier Data Centers](https://epoch.ai/data/data-centers) (CC BY 4.0)
 
 ---
@@ -28,7 +28,7 @@ a Monte Carlo distribution rather than a point estimate.
 | Conservative case (T1+T2+T3 only) | **27.9 GW facility** | |
 | Full-realization ceiling | **54.7 GW facility** | Arithmetic high |
 | Sovereign-AI sidebar (separate) | **2.56 GW facility** (1.91 GW IT-load) | UAE + Saudi + India + UK; not in Western denom. |
-| Capital envelope | **~$1.2–1.5T** | Capex requirement; distinct from RPO |
+| Capital envelope | **~$1.9T (range $1.5–2.4T)** | Bottoms-up unit-economics × 51.4 GW raw; central $37B/facility-GW. Distinct from RPO. |
 | RPO (revenue underwriting, not capex) | **~$550B** | Oracle–OpenAI, Anthropic–AWS, Meta–Nebius, CoreWeave |
 | 2030 H100-equivalents (Western) | **78.2M** | vs. 4.2M operational today — 18.7× growth (basis-invariant) |
 
@@ -49,15 +49,24 @@ central IT-load bridge is ~43 GW at blended PUE 1.20.
 
 ### Paper
 - [`report.tex`](report.tex) — LaTeX source
-- [`report.pdf`](report.pdf) — 30-page PDF
+- [`report.pdf`](report.pdf) — 37-page PDF
 
 ### Data layer (the ledger)
+
+**Horizon side — what is being committed (one row per commitment)**
 - [`compute_commitments_overlay.yaml`](compute_commitments_overlay.yaml) — 14 Class A commitments + Class B chips + Class C $-only rows, each with primary-source verbatim, Epoch-overlap dedup reasoning, evidence tier, realization probability, row-level audit fields (PUE, mw_basis, ISO/RTO, interconnection status, chip family, capex split, RPO, financing source, capex bridge), plus top-level `stress_scenarios:` and `chip_density_assumptions:` blocks
 - [`neocloud_overlay.yaml`](neocloud_overlay.yaml) — CoreWeave, Nebius, Applied Digital, Crusoe, Lambda, Voltage Park, Together AI, Fermi, Nscale — operational + contracted capacity per operator with evidence-tier rollup
 - [`facts_extract.yaml`](facts_extract.yaml) — the 11 facts added or modified by the overlay with full source metadata inlined
 - [`compute_commitments_totals.csv`](compute_commitments_totals.csv) — flat per-row table (Excel-ready)
 - [`row_level_audit.csv`](row_level_audit.csv) — 33 rows × 40 columns, the companion to Appendix B in the paper
 - [`epoch_data_centers/`](epoch_data_centers/) — upstream Epoch AI Frontier Data Centers snapshot (CC BY 4.0) this overlay sits on top of
+
+**Unit-economics side — what 1 facility GW costs (added rev-4 prep, 2026-04-27)**
+- [`anatomy_layer_costs.yaml`](anatomy_layer_costs.yaml) — per-layer / per-sub-component cost decomposition for one 2026-vintage AI facility GW. Six physical layers (shell, cooling, power, networking, accelerator+server, grid), ~40 sub-components, each with `cost_usd_m_per_mw_{low,high,central}`, basis, vintage, evidence tier (T1–T6), primary sources with retrieval dates, and inflation flags. Includes the basis-conventions cheat sheet that resolves cross-forecaster disagreement.
+- [`anatomy_layer_costs.csv`](anatomy_layer_costs.csv) — flat companion (Excel-ready)
+- [`anatomy_named_projects.yaml`](anatomy_named_projects.yaml) — project-level disclosed capex anchors (Crusoe Abilene, Meta Hyperion, AEP/SB Energy Piketon, Microsoft Mt Pleasant, AWS Madison, Talen-AWS, etc.) with verbatim figures and reconciliation back to the bottoms-up layer ranges
+- [`forecaster_capex_comparison.yaml`](forecaster_capex_comparison.yaml) — 18-source cross-forecaster $/GW reconciliation (Epoch, Bernstein, McKinsey, Bain, JLL, Cushman, Goldman, Morgan Stanley, JPM, BNEF, Synergy, Dell'Oro, IEA, LBNL, Aschenbrenner, NVIDIA, Barclays, Stargate, Hyperion, CoreWeave, Nebius). Verdict on the paper's $23–30B/GW with explicit basis declaration.
+- [`research/`](research/) — eight per-agent research notes (one per layer + Crusoe + forecasters); intermediate scratchpad behind the structured YAML
 
 ### Framework docs
 - [`CONFIDENCE_DECOMPOSITION.md`](CONFIDENCE_DECOMPOSITION.md) — the six-tier evidence framework (T1 Operational through T6 Analyst inference) with per-tier realization-probability defaults and per-row override rules

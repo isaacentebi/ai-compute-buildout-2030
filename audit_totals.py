@@ -12,7 +12,9 @@ if the hand-written sums drift out of sync with the inputs.
 For the probability-weighted rollup, this script IS the source of truth.
 
 Usage:
-    python3 audit_totals.py
+    python3 audit_totals.py                    # horizon overlay audit (default)
+    python3 audit_totals.py --basis anatomy    # rev-4 unit-economics audit
+    python3 audit_totals.py --basis all        # both
 
 Exit code 0 if all sums match. Exit code 1 if any disagree (prints diff).
 
@@ -28,6 +30,7 @@ Seven canonical totals emitted:
 
 from __future__ import annotations
 
+import argparse
 import sys
 from pathlib import Path
 
@@ -36,6 +39,27 @@ import yaml  # type: ignore
 ROOT = Path(__file__).parent
 OVERLAY = ROOT / "compute_commitments_overlay.yaml"
 NEOCLOUD = ROOT / "neocloud_overlay.yaml"
+ANATOMY_LAYER_COSTS = ROOT / "anatomy_layer_costs.yaml"
+
+# Bottom-up unit-economics rollup fallback values (used only if the YAML
+# does not declare them; the audit reads canonical values from the YAML
+# at runtime to prevent drift between this file and the data layer).
+# anatomy_layer_costs.yaml#aggregate_rollup_facility_mw_2026.total_all_in_facility_gw_2026
+ANATOMY_TOTAL_LOW = 30.0
+ANATOMY_TOTAL_HIGH = 47.0
+ANATOMY_TOTAL_CENTRAL = 37.45
+ANATOMY_CAPEX_ENVELOPE_T_LOW = 1.5
+ANATOMY_CAPEX_ENVELOPE_T_HIGH = 2.4
+ANATOMY_CAPEX_ENVELOPE_T_CENTRAL = 1.9
+# Fallback only — the canonical raw Western 2027-2030 facility horizon
+# is read from compute_commitments_overlay.yaml#totals.western_horizon_2027_2030_facility
+# at runtime so it cannot drift from the data layer it audits.
+ANATOMY_RAW_HORIZON_GW_FALLBACK = 51.427
+
+# $/MW tolerance (0.5M = 500k drift on a layer line)
+ANATOMY_TOL_USD_M_PER_MW = 0.5
+# $T tolerance for capex envelope (0.05T = $50B)
+ANATOMY_TOL_USD_T = 0.05
 
 # Sovereign-AI row ids. Anything not in this set is treated as Western.
 SOVEREIGN_IDS = {
@@ -445,7 +469,192 @@ def print_seven_canonical_totals(doc: dict, neocloud: dict) -> None:
     print()
 
 
+def load_anatomy() -> dict:
+    """Load anatomy_layer_costs.yaml (rev-4 unit-economics data layer)."""
+    with open(ANATOMY_LAYER_COSTS, "r") as f:
+        return yaml.safe_load(f)
+
+
+def audit_anatomy_layer_costs() -> bool:
+    """Audit anatomy_layer_costs.yaml: validate per-sub-component centrals
+    sum within tolerance to the layer rollup, and that the aggregate rollup
+    × raw horizon reconciles to the rev-4 capital envelope.
+
+    Cross-checks added 2026-04-27 after ultrareview:
+    - Skipped layers (those without a single layer_total_..._central)
+      are now logged with [SKIP] markers rather than silently dropped.
+    - Layer-block centrals are cross-checked against the corresponding
+      aggregate_rollup component central, catching drift like
+      cooling.layer=3.0 vs rollup.cooling_central=2.75.
+    - YAML high/low/central are read from the rollup, not hardcoded
+      module-level constants, so the script cannot disagree with the
+      data layer it audits.
+
+    Returns True if all anatomy checks pass.
+    """
+    print("=" * 70)
+    print("AUDIT: anatomy_layer_costs.yaml unit-economics consistency")
+    print("=" * 70)
+
+    doc = load_anatomy()
+    layers = doc.get("layers", [])
+    rollup = doc.get("aggregate_rollup_facility_mw_2026", {})
+
+    # Pull canonical totals from the YAML rather than hardcoded constants
+    yaml_total_block = rollup.get("total_all_in_facility_gw_2026", {})
+    yaml_total_low = yaml_total_block.get("low", ANATOMY_TOTAL_LOW)
+    yaml_total_high = yaml_total_block.get("high", ANATOMY_TOTAL_HIGH)
+    yaml_total_central = yaml_total_block.get("central_grid_tied", ANATOMY_TOTAL_CENTRAL)
+
+    # Read the canonical Western raw 2027-2030 facility horizon from the
+    # overlay YAML — single source of truth, prevents drift between the
+    # script's constant and the actual data layer.
+    overlay_doc = load_overlay()
+    overlay_totals = overlay_doc.get("totals", {})
+    raw_horizon_gw = (
+        overlay_totals
+        .get("western_horizon_2027_2030_facility", {})
+        .get("total_gw_point", ANATOMY_RAW_HORIZON_GW_FALLBACK)
+    )
+
+    # Map of rollup component centrals (for cross-check against layer blocks)
+    facility_only_block = rollup.get("facility_only_no_it", {})
+    it_bom_block = rollup.get("it_bom_at_customer", {})
+    rollup_component_centrals = {
+        "shell_civil_land": facility_only_block.get("shell_civil_land_central"),
+        "cooling": facility_only_block.get("cooling_central"),
+        "power_infrastructure": facility_only_block.get("power_grid_tied_central"),
+        "grid_interconnect": facility_only_block.get("grid_interface_median_central"),
+        "accelerator_server_bom": it_bom_block.get("accelerator_server_rack_complete_central"),
+        "networking_fabric": it_bom_block.get("networking_out_of_rack_central"),
+    }
+
+    all_ok = True
+
+    # --- Per-layer sub-component sum vs declared layer central ---
+    print()
+    print("Per-layer sub-component sum vs declared layer central:")
+
+    for layer in layers:
+        lid = layer.get("layer_id", "?")
+        sub_components = layer.get("sub_components", [])
+        if not sub_components:
+            continue
+
+        # Skip sub-components flagged as alternates or already-counted-elsewhere
+        sub_central_sum = sum(
+            sc.get("cost_usd_m_per_mw_central", 0.0)
+            for sc in sub_components
+            if sc.get("count_in_layer_sum", True)
+        )
+
+        declared = layer.get("layer_total_usd_m_per_mw_central")
+        if declared is None:
+            # Layer carries variant centrals (grid-tied/BTM, chip-only/rack-complete, posture envelopes)
+            # rather than a single canonical layer_total_..._central. Show as SKIP so the user knows.
+            variants = [
+                k for k in layer.keys()
+                if k.startswith("layer_total_usd_m_per_mw_central_") or k == "posture_envelopes"
+            ]
+            print(f"  [SKIP] {lid:30s}  no single layer_total_..._central; variants: {','.join(variants) or 'none'}")
+            continue
+
+        diff = abs(sub_central_sum - declared)
+        ok = diff <= ANATOMY_TOL_USD_M_PER_MW
+        mark = "OK  " if ok else "FAIL"
+        print(f"  [{mark}] {lid:30s}  Σ subs central: {sub_central_sum:6.2f}  declared: {declared:6.2f}  Δ: {diff:5.2f}")
+        all_ok &= ok
+
+    # --- Layer-block central vs aggregate-rollup component central (drift detector) ---
+    print()
+    print("Layer-block central vs aggregate-rollup component central:")
+    for layer in layers:
+        lid = layer.get("layer_id", "?")
+        layer_central = layer.get("layer_total_usd_m_per_mw_central")
+        rollup_central = rollup_component_centrals.get(lid)
+        if layer_central is None or rollup_central is None:
+            continue
+        diff = abs(layer_central - rollup_central)
+        ok = diff <= ANATOMY_TOL_USD_M_PER_MW
+        mark = "OK  " if ok else "FAIL"
+        print(f"  [{mark}] {lid:30s}  layer-block: {layer_central:6.2f}  rollup: {rollup_central:6.2f}  Δ: {diff:5.2f}")
+        all_ok &= ok
+
+    # --- Aggregate rollup × raw horizon reconciles to capital envelope ---
+    facility_only_central = facility_only_block.get("subtotal_central", 0.0)
+    it_bom_central = it_bom_block.get("subtotal_central", 0.0)
+    total_central_declared = yaml_total_central
+    total_central_computed = facility_only_central + it_bom_central
+
+    print()
+    print("Aggregate rollup arithmetic:")
+    diff = abs(total_central_computed - total_central_declared)
+    ok = diff <= ANATOMY_TOL_USD_M_PER_MW
+    mark = "OK  " if ok else "FAIL"
+    print(f"  [{mark}] facility_only ({facility_only_central:.2f}) + it_bom ({it_bom_central:.2f}) = {total_central_computed:.2f}M/MW")
+    print(f"         declared central_grid_tied: {total_central_declared:.2f}M/MW (Δ: {diff:.2f})")
+    all_ok &= ok
+
+    # --- Capital envelope at raw horizon (cross-check declared vs computed at low/central/high) ---
+    declared_envelope_central = yaml_total_block.get(
+        "capital_envelope_at_raw_horizon_usd_t_central", 0.0
+    )
+    declared_envelope_low = yaml_total_block.get(
+        "capital_envelope_at_raw_horizon_usd_t_low", 0.0
+    )
+    declared_envelope_high = yaml_total_block.get(
+        "capital_envelope_at_raw_horizon_usd_t_high", 0.0
+    )
+
+    print(f"         (raw horizon read from overlay YAML: {raw_horizon_gw:.3f} GW facility)")
+    computed_envelope_central = (total_central_declared * raw_horizon_gw) / 1000.0
+    diff = abs(computed_envelope_central - declared_envelope_central)
+    ok = diff <= ANATOMY_TOL_USD_T
+    mark = "OK  " if ok else "FAIL"
+    print(f"  [{mark}] capital envelope central: declared {declared_envelope_central:.2f}T vs computed {computed_envelope_central:.2f}T  (Δ: {diff:.2f})")
+    all_ok &= ok
+
+    # Cross-check declared envelope_high against YAML's total_high × horizon
+    # (the merged_bug_001 case: yaml.high=47.5 implies $2.47T, not $2.4T)
+    computed_envelope_low = (yaml_total_low * raw_horizon_gw) / 1000.0
+    computed_envelope_high = (yaml_total_high * raw_horizon_gw) / 1000.0
+    high_consistent = abs(computed_envelope_high - declared_envelope_high) <= ANATOMY_TOL_USD_T
+    low_consistent = abs(computed_envelope_low - declared_envelope_low) <= ANATOMY_TOL_USD_T
+    if not high_consistent:
+        print(f"  [FAIL] envelope_high: yaml.high={yaml_total_high} implies {computed_envelope_high:.2f}T vs declared {declared_envelope_high:.2f}T")
+        all_ok = False
+    if not low_consistent:
+        print(f"  [FAIL] envelope_low: yaml.low={yaml_total_low} implies {computed_envelope_low:.2f}T vs declared {declared_envelope_low:.2f}T")
+        all_ok = False
+    print(f"         arithmetic range: [{computed_envelope_low:.2f}T, {computed_envelope_high:.2f}T]")
+    print(f"         declared band:    [{declared_envelope_low:.2f}T, {declared_envelope_high:.2f}T]")
+
+    print()
+    print("=" * 70)
+    if all_ok:
+        print("ANATOMY AUDIT PASSED")
+    else:
+        print("ANATOMY AUDIT FAILED — anatomy_layer_costs.yaml inconsistency")
+    print("=" * 70)
+    return all_ok
+
+
 def main() -> int:
+    parser = argparse.ArgumentParser(
+        description="Audit compute_commitments_overlay.yaml + anatomy_layer_costs.yaml",
+    )
+    parser.add_argument(
+        "--basis",
+        choices=["horizon", "anatomy", "all"],
+        default="horizon",
+        help="Which audit to run: horizon (default) | anatomy | all",
+    )
+    args = parser.parse_args()
+    basis = args.basis
+
+    if basis == "anatomy":
+        return 0 if audit_anatomy_layer_costs() else 1
+
     doc = load_overlay()
     neocloud = load_neocloud()
     commitments = doc.get("commitments", [])
@@ -616,6 +825,12 @@ def main() -> int:
 
     # Always print the seven canonical totals (informational)
     print_seven_canonical_totals(doc, neocloud)
+
+    # When --basis all, also run the anatomy audit
+    if basis == "all":
+        print()
+        anatomy_ok = audit_anatomy_layer_costs()
+        all_ok &= anatomy_ok
 
     return 0 if all_ok else 1
 

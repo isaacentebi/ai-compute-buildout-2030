@@ -1,0 +1,554 @@
+# ---------------------------------------------------------------------------
+# forecaster_capex_comparison.yaml
+#
+# Cross-forecaster $/GW reconciliation for 2026-vintage AI data center capex.
+# 18 sources canvassed; the basis-confusion cheat sheet at the top resolves
+# what otherwise looks like a 3-5x disagreement as a unit-mismatch problem.
+#
+# This file is the single most load-bearing artifact for the rev-4 §2 anatomy
+# section because it lets the paper land its $23-30B/GW number against the
+# external literature with a clear basis declaration.
+#
+# Data cutoff: 2026-04-27
+# ---------------------------------------------------------------------------
+
+metadata:
+  schema_version: "2026-04-27"
+  data_cutoff: "2026-04-27"
+  reference_vintage: 2026
+  scope: "Western (US-led) hyperscale AI compute capex"
+  paper_central_rev_4:
+    range_low_usd_b_per_gw: 30
+    range_high_usd_b_per_gw: 47
+    central_usd_b_per_gw: 37
+    capital_envelope_raw_horizon_51_9_gw_usd_t_low: 1.6
+    capital_envelope_raw_horizon_51_9_gw_usd_t_high: 2.4
+    capital_envelope_raw_horizon_51_9_gw_usd_t_central: 1.9
+    basis: facility_mw
+    adopted_in_paper: rev-4 2026-04-27
+    rev_3_prior_figure_superseded:
+      range_usd_b_per_gw: [23, 30]
+      capital_envelope_usd_t: [1.2, 1.5]
+      reason: |
+        The rev-3 $23-30B/GW band sat at the LOW end of the credible facility-GW
+        range and below all bottoms-up reconstructions. Rev-4 adopts the
+        bottoms-up central as the model truth.
+
+# ============================================================================
+# THE BASIS-CONFUSION CHEAT SHEET (the rosetta stone)
+# ----------------------------------------------------------------------------
+# Apparent disagreements between forecasters of 3-5x in $/GW almost always
+# disappear once you align on which row each is using.
+# ============================================================================
+
+basis_cheat_sheet:
+  - convention_id: server_power_gw_all_in
+    label: "Per server-power GW, full all-in (IT + infra + power)"
+    typical_usd_b_per_gw_low: 40
+    typical_usd_b_per_gw_high: 55
+    used_by: ["Epoch headline ($44B)", "NVIDIA/Jensen ($50-60B)", "Stargate ($50B)"]
+    note: "Smaller denominator (IT only); largest $/GW number"
+
+  - convention_id: facility_power_gw_all_in
+    label: "Per facility-power GW, full all-in"
+    typical_usd_b_per_gw_low: 25
+    typical_usd_b_per_gw_high: 35
+    used_by: ["Epoch facility ($29-30B)", "McKinsey (~$33B)", "Bernstein (~$28B PUE-adj)", "PAPER ($23-30B)"]
+    note: "Larger denominator (incl PUE overhead); paper sits at LOW end"
+
+  - convention_id: shell_me_only_no_it
+    label: "Per IT-load GW, shell + M&E only, IT excluded"
+    typical_usd_b_per_gw_low: 10
+    typical_usd_b_per_gw_high: 15
+    used_by:
+      - "Cushman & Wakefield ($11.7M/MW avg critical-load)"
+      - "JLL ($11.3M/MW shell-and-core 2026)"
+      - "Meta Hyperion JV ($27B / 2 GW = $13.5B/GW shell-only)"
+      - "Crusoe Abilene ($15B / 1.2 GW = $12.5M/MW shell+power+cooling)"
+    note: "OFCI/tenant equipment excluded. Cleanest disclosed anchor class."
+
+  - convention_id: ai_fitout_delta_only
+    label: "AI fit-out delta over standard hyperscale (incremental)"
+    typical_usd_b_per_gw_low: 20
+    typical_usd_b_per_gw_high: 30
+    used_by: ["JLL (+$25M/MW AI fit-out)", "ConstructElements (+$20M/MW)"]
+    note: "Captures liquid cooling, dense distribution, monitoring, controls"
+
+# ============================================================================
+# FORECASTERS
+# ============================================================================
+
+forecasters:
+
+  - source_id: epoch_ai
+    publisher: "Epoch AI"
+    publication: "Frontier Data Centers Hub + Documentation"
+    url: "https://epoch.ai/blog/introducing-the-frontier-data-centers-hub/"
+    publication_date: "2025-11-04"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T1
+    primary: true
+    figures:
+      usd_b_per_server_power_gw: 44
+      usd_b_per_facility_gw: 29
+      usd_b_per_facility_gw_high: 30
+      it_hardware_usd_b_per_gw: 30
+      other_usd_b_per_gw: 14
+      basis_primary: server_power_gw
+      basis_secondary: facility_power_gw
+    decomposition:
+      it_hardware_pct: 68
+      mech_elec_civil_other_pct: 32
+    notes: |
+      Two-basis disclosure makes Epoch the cleanest external anchor. Closest
+      direct comparison to the paper's facility-GW number. The paper's $23-30B
+      band overlaps Epoch's $29-30B facility figure at the high end only.
+
+  - source_id: bernstein_rasgon
+    publisher: "Bernstein (Stacy Rasgon)"
+    publication: "Sell-side note (cited via Investing.com)"
+    url: "https://www.investing.com/news/stock-market-news/how-much-does-a-gw-of-data-center-capacity-actually-cost-4314046"
+    publication_date: "2025-11-01"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T4
+    primary: false
+    primary_paywalled: true
+    figures:
+      usd_b_per_gw_total: 35
+      basis_primary: it_load_mw
+      pue_adjusted_facility_usd_b_per_gw: 28
+    decomposition:
+      gpus_pct: 39
+      cpu_pct: 3
+      networking_pct: 13
+      generators_pct: 6
+      transformers_pct: 5
+      ups_pct: 4
+      cooling_pct: 4
+      storage_pct_low: 1.0
+      storage_pct_high: 1.5
+      foundries_memory_pct_each: 4
+      mech_elec_share_pct: 33
+    notes: "Bernstein note is institutional; Investing.com quotes verbatim."
+
+  - source_id: mckinsey_cost_of_compute
+    publisher: "McKinsey & Company"
+    publication: "The Cost of Compute: A $7 Trillion Race to Scale Data Centers"
+    url: "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-cost-of-compute-a-7-trillion-dollar-race-to-scale-data-centers"
+    publication_date: "2025-04"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T1
+    primary: true
+    figures:
+      total_usd_t_2025_2030: 5.2
+      total_gw_2030: 156
+      derived_usd_b_per_gw: 33
+      it_usd_t: 3.3
+      infra_usd_t: 1.6
+      power_usd_t: 0.3
+      basis_primary: facility_power_gw
+    decomposition:
+      it_usd_b_per_gw: 21
+      infra_usd_b_per_gw: 10
+      power_usd_b_per_gw_low: 2.2
+      power_usd_b_per_gw_high: 3.2
+      it_pct: 67
+    scenario_range:
+      low_usd_t: 3.7
+      high_usd_t: 7.9
+    notes: "Most explicit four-line decomposition (IT + infra + power + total)."
+
+  - source_id: bain_compute_power
+    publisher: "Bain & Company"
+    publication: "How Can We Meet AI's Insatiable Demand for Compute Power?"
+    url: "https://www.bain.com/insights/how-can-we-meet-ais-insatiable-demand-for-compute-power-technology-report-2025/"
+    publication_date: "2025-09-23"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T1
+    figures:
+      annual_capex_usd_b_per_yr: 500
+      total_gw_2030_global: 200
+      derived_usd_b_per_gw: 25
+      basis_inferred: facility_power_gw
+    notes: "Per-GW derived from annual run-rate divided by gw/yr cadence."
+
+  - source_id: jll_2026_outlook
+    publisher: "JLL"
+    publication: "2026 Global Data Center Outlook"
+    url: "https://www.jll.com/en-us/insights/market-outlook/data-center-outlook"
+    publication_date: "2026-01-05"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T1
+    figures:
+      shell_and_core_2026_usd_m_per_mw: 11.3
+      shell_and_core_2025_usd_m_per_mw: 10.7
+      shell_and_core_2020_usd_m_per_mw: 7.7
+      ai_fitout_delta_usd_m_per_mw: 25
+      fully_built_ecosystem_usd_b_per_gw_low: 45
+      fully_built_ecosystem_usd_b_per_gw_high: 55
+      basis_primary: it_load_mw
+    notes: "Most explicit basis-segregated disclosure. Multi-row anchor."
+
+  - source_id: cushman_wakefield_cost_guide
+    publisher: "Cushman & Wakefield"
+    publication: "U.S. Data Center Development Cost Guide 2025"
+    url: "https://www.cushmanwakefield.com/en/united-states/insights/data-center-development-cost-guide"
+    publication_date: "2025"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T1
+    figures:
+      critical_load_usd_m_per_mw_low: 9.3
+      critical_load_usd_m_per_mw_high: 15.0
+      critical_load_usd_m_per_mw_avg: 11.7
+      basis_primary: it_load_mw
+      land_avg_usd_per_acre_2024: 244000
+      land_avg_usd_per_sq_ft_2024: 5.59
+    excludes: ["IT/OFCI/tenant equipment", "land", "soft costs", "owner contingencies"]
+    notes: "Shell + core + M&E only. Cleanest 'no-IT' anchor."
+
+  - source_id: goldman_ai_capex
+    publisher: "Goldman Sachs"
+    publication_pieces:
+      - "Why AI Companies May Invest More than $500B in 2026"
+      - "AI to drive 165% increase in data center power demand by 2030"
+    urls:
+      - "https://www.goldmansachs.com/insights/articles/why-ai-companies-may-invest-more-than-500-billion-in-2026"
+      - "https://www.goldmansachs.com/insights/articles/ai-to-drive-165-increase-in-data-center-power-demand-by-2030"
+    publication_date: "2025-09 / 2025-10"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T2
+    figures:
+      total_hyperscaler_capex_2025_2027_usd_t: 1.15
+      per_gw_disclosed: false
+    notes: "Goldman publishes totals, not $/GW. No per-GW headline."
+
+  - source_id: morgan_stanley_byrd
+    publisher: "Morgan Stanley (Stephen Byrd)"
+    publication: "AI Market Trends Institute 2026; Powering AI"
+    url: "https://www.morganstanley.com/insights/articles/ai-market-trends-institute-2026"
+    publication_date: "2025-2026"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T4
+    figures:
+      total_2025_2028_usd_t: 3
+      total_us_dc_gw_2028: 74
+      derived_implied_usd_b_per_gw_low: 50
+      derived_implied_usd_b_per_gw_high: 60
+    notes: "Implied $/GW; global vs US scope muddy. Hearsay-flagged."
+
+  - source_id: jp_morgan_ai_infra
+    publisher: "JP Morgan"
+    publication_pieces: ["DC+AI infra spend (cited via DCD)"]
+    url: "https://www.datacenterdynamics.com/en/news/jpmorgan-global-data-center-and-ai-infra-spend-to-hit-5-trillion-demand-for-compute-remains-astronomical/"
+    publication_date: "2025-2026"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T4
+    figures:
+      global_total_usd_t: 5
+      annual_run_rate_2030_usd_t: 1.4
+    notes: "No per-GW headline."
+
+  - source_id: bnef_data_center
+    publisher: "BloombergNEF (Lloyd Arnold)"
+    publication: "AI Data Center Build Advances at Full Speed"
+    url: "https://about.bnef.com/insights/commodities/ai-data-center-build-advances-at-full-speed-five-things-to-know/"
+    publication_date: "2026-03-24"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T1
+    figures:
+      total_2026_capex_top14_usd_b: 750
+      under_construction_gw: 23.1
+    notes: "Capacity disclosed; $/GW not calculated."
+
+  - source_id: synergy_research
+    publisher: "Synergy Research"
+    publication: "Hyperscale capex spree (Q3 2025)"
+    url: "https://www.srgresearch.com/articles/hyperscale-spending-spree-is-driving-dramatic-growth-in-data-center-capacity"
+    publication_date: "2025-Q3"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T1
+    figures:
+      q3_2025_capex_usd_b: 142
+      annualized_usd_b: 568
+      it_capacity_yoy_pct: 170
+    notes: "Aggregate only; no $/GW."
+
+  - source_id: dell_oro
+    publisher: "Dell'Oro Group"
+    publication: "DC capex >$1T by 2029"
+    url: "https://www.delloro.com/news/data-center-capex-to-surpass-1-trillion-by-2029/"
+    publication_date: "2025-08"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T1
+    figures:
+      cumulative_through_2029_usd_t: ">1.0"
+      cagr_pct: 21
+    notes: "Per-MW figures in subscription only; public releases don't have $/GW."
+
+  - source_id: iea_energy_and_ai
+    publisher: "IEA"
+    publication: "Energy and AI"
+    url: "https://www.iea.org/reports/energy-and-ai/executive-summary"
+    publication_date: "2025-04"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T1
+    figures:
+      dc_investment_2025_usd_b: 580
+      big_tech_2025_usd_b: 400
+      yoy_increase_2026_pct: 75
+    notes: "Aggregate only."
+
+  - source_id: lbnl_dc_energy
+    publisher: "LBNL"
+    publication: "2024 United States Data Center Energy Usage Report"
+    url: "https://eta-publications.lbl.gov/sites/default/files/2024-12/lbnl-2024-united-states-data-center-energy-usage-report_1.pdf"
+    publication_date: "2024-12"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T1
+    figures:
+      us_dc_power_demand_2028_gw_low: 74
+      us_dc_power_demand_2028_gw_high: 132
+    notes: "Energy report, not capex."
+
+  - source_id: aschenbrenner_situational_awareness
+    publisher: "Leopold Aschenbrenner"
+    publication: "Situational Awareness - Racing to the Trillion-Dollar Cluster"
+    url: "https://situational-awareness.ai/racing-to-the-trillion-dollar-cluster/"
+    publication_date: "2024-06"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T4
+    figures:
+      one_gw_2026_usd_b: "tens"
+      ten_gw_2028_usd_b: "hundreds"
+      hundred_gw_2030_usd_t_plus: 1
+      gpu_share_pct: 40
+      ib_networking_pct: 13
+      gas_gen_per_gw_usd_b: 1
+    notes: "Range $20-50B/GW depending on year."
+
+  - source_id: nvidia_jensen_ai_factory
+    publisher: "NVIDIA / Jensen Huang"
+    publication: "Q2 FY26 earnings call ('AI factory' framing)"
+    url: "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2025"
+    publication_date: "2025-08"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T2
+    primary: true
+    self_interested: true
+    figures:
+      total_usd_b_per_gw_low: 50
+      total_usd_b_per_gw_high: 60
+      nvidia_share_usd_b_per_gw: 35
+      basis_primary: server_power_gw
+    notes: "Self-interested. NVDA chips+systems = $35B of the $50-60B."
+
+  - source_id: barclays_jensen_counter
+    publisher: "Barclays"
+    publication: "Counter to Jensen math (cited via Yahoo Finance)"
+    url: "https://finance.yahoo.com/news/nvidias-jensen-math-50-billion-033104538.html"
+    publication_date: "2025-09-30"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T4
+    figures:
+      total_usd_b_per_gw_low: 50
+      total_usd_b_per_gw_high: 60
+      compute_networking_only_usd_b_per_gw_low: 32.5
+      compute_networking_only_usd_b_per_gw_high: 42
+      compute_networking_share_pct_low: 65
+      compute_networking_share_pct_high: 70
+    notes: "Implies $11-21B/GW non-compute. Secondary."
+
+  - source_id: stargate_aggregate
+    publisher: "OpenAI / Oracle / SoftBank"
+    publication_pieces:
+      - "Announcing the Stargate Project ($500B / 10 GW)"
+      - "Stargate advances with Oracle 4.5 GW partnership ($300B)"
+    urls:
+      - "https://openai.com/index/announcing-the-stargate-project/"
+      - "https://openai.com/index/stargate-advances-with-partnership-with-oracle/"
+    publication_date: "2025-01 / 2025-09-10"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T2
+    figures:
+      total_usd_b: [500, 300]
+      total_gw: [10, 4.5]
+      derived_usd_b_per_gw: [50, 67]
+      basis_unclear: true
+    notes: "Headline disclosures; basis unclear; may include OPEX/compute leases. Outlier high."
+
+  - source_id: meta_hyperion_blue_owl_jv
+    publisher: "Meta + Blue Owl"
+    publication: "Hyperion JV Oct 2025"
+    url: "https://www.globaldatacenterhub.com/p/meta-blue-owls-27b-bet-is-this-the"
+    publication_date: "2025-10-27"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T1
+    figures:
+      total_jv_usd_b: 27
+      jv_gw: 2
+      derived_usd_b_per_gw_shell_only: 13.5
+      basis_primary: shell_me_only
+    excludes: ["IT (Meta funds separately)", "Power generation (Entergy 5.2 GW gas separate)"]
+    notes: "Cleanest shell+M&E-only anchor. Maps to Cushman/JLL band."
+
+  - source_id: coreweave_10k_fy25
+    publisher: "CoreWeave"
+    publication: "10-K FY2025 + Q4 earnings"
+    url: "https://www.datacenterdynamics.com/en/news/coreweave-aims-to-add-5gw-more-data-center-capacity-by-2030-anticipates-capex-in-2026-to-double/"
+    publication_date: "2026-02"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T1
+    figures:
+      fy25_capex_usd_b: 14.9
+      fy25_active_mw: 850
+      fy25_implied_usd_m_per_mw: 17.5
+      fy26_capex_guide_usd_b_low: 30
+      fy26_capex_guide_usd_b_high: 35
+      fy26_added_mw: 850
+      fy26_marginal_usd_m_per_mw: 19
+      asset_light: true
+    notes: "NeoCloud, asset-light on power/shell (leases). Underestimates true facility-inclusive $/GW."
+
+  - source_id: nebius_q4_fy25
+    publisher: "Nebius"
+    publication: "Q4 FY25 earnings"
+    url: "https://www.datacenterdynamics.com/en/news/nebius-increases-projected-capex-for-2025-to-2bn/"
+    publication_date: "2026-02"
+    retrieval_date: "2026-04-27"
+    evidence_tier: T1
+    figures:
+      fy26_capex_usd_b_low: 16
+      fy26_capex_usd_b_high: 20
+      ye26_deployable_mw_low: 800
+      ye26_deployable_mw_high: 1000
+      fy26_marginal_usd_m_per_mw_low: 18
+      fy26_marginal_usd_m_per_mw_high: 22
+    decomposition:
+      gpus_pct: 79
+      dc_build_pct: 20
+      power_pct_lt: 1
+    notes: "Cleanest disclosed primary BOM split. Vertically integrated."
+
+# ============================================================================
+# RECONCILIATION CONCLUSIONS
+# ============================================================================
+
+reconciliation:
+
+  agreement_band_total_cluster_cost_usd_b_per_gw:
+    low: 30
+    high: 60
+    central: 35
+    central_high: 50
+    note: "AI-dense facilities incl IT. Convergent center $35-50B/GW."
+
+  agreement_it_hardware_share_pct:
+    low: 60
+    high: 70
+    examples:
+      bernstein: 52   # 39 + 13
+      epoch: 68       # 30/44
+      nebius: 79
+      mckinsey: 67    # 3.3/4.9
+
+  agreement_mech_elec_share_pct:
+    low: 25
+    high: 35
+    examples:
+      bernstein: 33
+      epoch: 32
+
+  agreement_shell_civil_only_usd_m_per_mw_it_load:
+    low: 10
+    high: 12
+    most_anchored: true
+    examples:
+      jll_2025: 10.7
+      jll_2026: 11.3
+      cushman_avg: 11.7
+      construct_elements: [10, 12]
+
+  agreement_ai_fitout_delta_usd_m_per_mw:
+    low: 20
+    high: 30
+    examples:
+      jll: 25
+      construct_elements: 20
+
+  agreement_power_gen_when_separate_usd_b_per_gw:
+    low: 1
+    high: 3.2
+    examples:
+      mckinsey: [2.2, 3.2]
+      aschenbrenner: 1
+    inside_dc_capex_when: "BTM gas"
+    outside_dc_capex_when: "grid-supplied"
+
+  divergence_basis:
+    server_vs_facility_pue_adj_pct: 25  # at PUE 1.25
+    note: "Single biggest source of cross-forecaster confusion"
+
+  divergence_power_inclusion:
+    swing_pct: 10
+    examples:
+      meta_hyperion: "EXCLUDES Entergy gas separately"
+      mckinsey: "ADDS $2.2-3.2B/GW for generation"
+      stargate_50_per_gw: "Likely INCLUDES BTM"
+
+  divergence_it_inclusion:
+    range_4x: true
+    examples:
+      cushman: "EXCLUDES OFCI"
+      coreweave: "INCLUDES GPUs / EXCLUDES leased shell"
+      epoch: "INCLUDES everything"
+
+  outliers:
+    high:
+      - source: "Stargate Oracle ($300B / 4.5 GW)"
+        usd_b_per_gw: 67
+        likely_explanation: "Multi-year service component (compute lease economics, not pure capex)"
+    low:
+      - source: "Meta Hyperion JV"
+        usd_b_per_gw: 13.5
+        explanation: "Shell + M&E only without IT; consistent with Cushman/JLL when reframed"
+    self_interested_mid_high:
+      - source: "NVIDIA / Jensen"
+        usd_b_per_gw: [50, 60]
+        delta_vs_bernstein_pct: 30
+
+# ============================================================================
+# VERDICT ON PAPER'S $23-30B/GW
+# ============================================================================
+
+verdict_rev_4:
+  summary: |
+    Adopted: $30-47B/facility-GW with central $37B/GW. Capital envelope at the
+    raw 51.9 GW Western 2030 horizon = $1.9T central, range $1.6-2.4T. Sits at
+    the center of the external literature distribution.
+  reconciliation_to_external_anchors:
+    - "Crusoe Abilene $12.5M/MW (shell+power+cooling no IT): matches our facility-only-no-IT central $13.2M/MW within 5%"
+    - "Meta Hyperion JV $13.5B/GW (shell+M&E only): matches our facility-only-no-IT central directly"
+    - "Bernstein ~$35B/GW (IT-load basis): PUE-adjusted to ~$28B/facility-GW; below our central; under-counts BTM gas"
+    - "Epoch facility-GW $29-30B: below our central; consistent with Epoch using lower-density chip mix"
+    - "McKinsey derived $33B/GW: within rounding distance of our central"
+    - "JLL fully-built ecosystem $45-55B/GW: aligns with our high-end at $47B"
+    - "NVIDIA / Jensen $50-60B/GW (server-power basis): translates to $40-48B/facility-GW; self-interested high"
+    - "Stargate ($50B/GW server-power): translates to ~$40B/facility-GW; consistent with our central given mostly all-NVIDIA build"
+  basis_declaration_in_paper: |
+    The paper uses convention 2 (facility-power GW, full all-in) throughout,
+    with IT hardware included and BTM generation reported separately. The
+    basis cheat sheet (Table 1 of §2) declares the four conventions and
+    notes the convention used.
+
+# ============================================================================
+# COVERAGE GAPS
+# ============================================================================
+
+coverage_gaps:
+  - "Could not retrieve full Goldman Sheridan/Davenport PDFs (paywalls)."
+  - "Could not retrieve full Morgan Stanley Byrd notes (institutional)."
+  - "Could not retrieve full JPM Kolanovic notes (institutional)."
+  - "Bernstein Rasgon Nov-2025 cited via Investing.com verbatim quote; original is institutional."
+  - "IEA 'Energy and AI' PDF returned binary; aggregates from exec summary page."
+  - "SemiAnalysis cluster BOM model is institutional-only; public newsletter pieces confirm categories but not totals."
+  - "CoreWeave $17-19M/MW is asset-light (leased shell); should not be read as 'facility-inclusive $/GW'."

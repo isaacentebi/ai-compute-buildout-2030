@@ -1,0 +1,443 @@
+# ---------------------------------------------------------------------------
+# anatomy_named_projects.yaml
+#
+# Project-level anchors for the unit-economics decomposition. Where named AI
+# campus deals have publicly disclosed dollar/MW splits, this file captures
+# the verbatim figures with primary citations. These are the empirical
+# checkpoints that the bottoms-up layer ranges in anatomy_layer_costs.yaml
+# must reconcile to.
+#
+# Each row carries:
+#   - operator + tenant + location
+#   - capacity (MW or GW)
+#   - acreage where disclosed
+#   - capex_usd_b (split into landlord_share / tenant_share / power_share)
+#   - implied_usd_m_per_mw (with explicit basis declaration)
+#   - what's included / excluded
+#   - primary_sources[]
+#   - evidence_tier
+#
+# Companion to anatomy_layer_costs.yaml (bottoms-up) and
+# forecaster_capex_comparison.yaml (cross-source). This file is the "real
+# project disclosures" anchor class.
+#
+# Data cutoff: 2026-04-27
+# ---------------------------------------------------------------------------
+
+metadata:
+  schema_version: "2026-04-27"
+  data_cutoff: "2026-04-27"
+  reference_vintage: "2025-2026"
+
+# ============================================================================
+# PROJECTS
+# ============================================================================
+
+projects:
+
+  - project_id: crusoe_stargate_abilene
+    operator: Crusoe
+    tenant: Oracle
+    end_user: OpenAI
+    location: "Abilene, TX"
+    iso_rto: ERCOT
+    utility: "ERCOT (regional wind/solar) + on-site BTM gas"
+    capacity:
+      phase_1_mw: 200
+      phase_1_2_gw: 1.2
+      phase_3_microsoft_mw: 900
+      total_with_microsoft_gw: 2.1
+    site:
+      total_acres: 1100
+      lancium_lease_acres: 90
+      buildings: 8
+      total_sq_ft_m: 4
+      sq_ft_per_building_k: 500
+      density_w_per_sq_ft: 300
+    capex_disclosed:
+      total_usd_b: 15
+      basis: shell_power_cooling_no_it
+      implied_usd_m_per_mw: 12.5
+      phase_1_jv_usd_b: 3.4
+      phase_1_implied_usd_m_per_mw: 16.5
+      phase_2_marginal_implied_usd_m_per_mw: 11.5
+      financing:
+        jpm_debt_total_usd_b: 9.6
+        jpm_initial_facility_usd_b: 2.3
+        jpm_construction_loan_usd_b: 7.1
+        equity_usd_b: 5
+        equity_partners: ["Crusoe", "Blue Owl Real Assets", "Primary Digital Infrastructure"]
+        jpm_terms_disclosed: false
+    capex_not_disclosed_in_above:
+      oracle_gpu_usd_b: 40
+      oracle_gpu_count_thousands: 400
+      oracle_gpu_chip_type: "GB200 NVL72"
+      note: "Oracle balance sheet, separate from Crusoe's $15B"
+    operating:
+      target_pue_low: 1.2
+      target_pue_high: 1.3
+      measured_pue: null
+      cooling: "Closed-loop, zero-water-evaporation, direct-to-chip liquid"
+      water_initial_fill_gal_per_building_m: 1
+      water_maintenance_gal_per_building_per_yr_k: 50
+      heat_rejection: "Air-cooled chillers on building perimeter"
+      btm_gas_units: 29
+      btm_gas_unit_type: "GE Vernova LM2500XPRESS"
+      btm_gas_unit_mw: 35
+      btm_gas_total_mw: 1015
+      gpus_per_building_microsoft_phase_k: 50
+      critical_it_per_building_microsoft_phase_mw: 336
+      rack_kw_pre_gb200: 50
+    lease_economics:
+      lease_term_yrs: 15
+      annual_rent_usd_b_estimate: ">1.0"
+      rent_disclosure_source: "SemiAnalysis (secondary, not Crusoe-confirmed)"
+      lease_structure_inferred: "take-or-pay or triple-net"
+      structure_disclosed: false
+    timeline:
+      groundbreaking: "2024-06"
+      phase_1_energized: "2025-09"
+      construction_months_phase_1: 15
+      industry_standard_bid_yrs: 2.5
+      delivered_in_yrs: 1.0
+    evidence_tier: T1
+    primary_sources:
+      - publisher: "Crusoe newsroom (Phase 1 live)"
+        url: "https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live"
+        retrieval_date: "2026-04-27"
+      - publisher: "Crusoe newsroom (1.2 GW expansion)"
+        url: "https://www.crusoe.ai/resources/newsroom/crusoe-expands-ai-data-center-campus-in-abilene-to-1-2-gigawatts"
+        retrieval_date: "2026-04-27"
+      - publisher: "Crusoe newsroom (900 MW Microsoft phase)"
+        url: "https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure"
+        retrieval_date: "2026-04-27"
+      - publisher: "Crusoe blog (inside look)"
+        url: "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center"
+        retrieval_date: "2026-04-27"
+      - publisher: "Bloomberg (JPMorgan $7.1B loan)"
+        url: "https://www.bloomberg.com/news/articles/2025-05-22/jpmorgan-leads-7-1-billion-loan-for-blue-owl-tied-data-center"
+        retrieval_date: "2026-04-27"
+      - publisher: "DCD ($11.6B debt+equity)"
+        url: "https://www.datacenterdynamics.com/en/news/crusoe-secures-116bn-in-debt-and-equity-for-openais-stargate-data-center-campus-in-abilene-texas/"
+        retrieval_date: "2026-04-27"
+      - publisher: "GE Vernova LM2500XPRESS case study"
+        url: "https://www.gevernova.com/gas-power/resources/case-studies/crusoe-ai-data-centers-lm2500xpress"
+        retrieval_date: "2026-04-27"
+      - publisher: "Madrona (Lochmiller interview)"
+        url: "https://www.madrona.com/the-infrastructure-of-intelligence-inside-crusoes-ai-factory-in-texas/"
+        retrieval_date: "2026-04-27"
+    notes: |
+      Cleanest disclosed lessor/tenant capex split in the industry. Use as the
+      worked example in §2 anatomy because the structure makes the financing-
+      vs-revenue distinction physical: Crusoe owns shell+power+cooling
+      ($12.5M/MW), Oracle owns the GPUs (~$40B), OpenAI is Oracle's tenant.
+
+  - project_id: meta_hyperion_blue_owl
+    operator: Meta
+    tenant: Meta
+    location: "Richland Parish, LA"
+    iso_rto: MISO-South
+    utility: "Entergy Louisiana"
+    capacity:
+      design_mw: 2230
+      ultimate_gw: 5
+    site:
+      original_holly_ridge_acres: 2250
+      expansion_acres: 1400
+      total_acres: 3650
+    capex_disclosed:
+      blue_owl_jv_usd_b: 27
+      jv_capacity_gw: 2
+      basis_jv: shell_me_only_no_it
+      implied_jv_usd_b_per_gw: 13.5
+      initial_meta_announce_usd_b: 10
+      trump_cited_total_usd_b: 50
+      entergy_gas_separate_usd_b: 11
+      entergy_gas_capacity_mw: 7000
+      entergy_gas_implied_usd_m_per_mw: 1.57
+      entergy_500kv_separate_usd_b: 1.2
+      entergy_500kv_miles: 100
+      entergy_500kv_implied_usd_k_per_mw_at_5gw: 240
+    excludes_from_jv:
+      - "IT hardware (Meta funds separately)"
+      - "Power generation (Entergy 5.2 GW gas in regulated rate base)"
+      - "500 kV transmission (Entergy)"
+    evidence_tier: T1
+    primary_sources:
+      - publisher: "Fortune (Hyperion expansion)"
+        url: "https://fortune.com/2026/02/04/meta-hyperion-ai-data-center-louisiana-expansion/"
+        retrieval_date: "2026-04-27"
+      - publisher: "DCD (1,400 acre expansion)"
+        url: "https://www.datacenterdynamics.com/en/news/meta-purchases-additional-1400-acres-for-hyperion-mega-data-center-expansion/"
+        retrieval_date: "2026-04-27"
+      - publisher: "Global Data Center Hub ($27B JV deep-dive)"
+        url: "https://www.globaldatacenterhub.com/p/meta-blue-owls-27b-bet-is-this-the"
+        retrieval_date: "2026-04-27"
+      - publisher: "DCD (Entergy 3 gas facilities approval)"
+        url: "https://www.datacenterdynamics.com/en/news/entergy-obtains-approval-to-construct-three-gas-facilities-to-serve-metas-2gw-data-center-in-louisiana/"
+        retrieval_date: "2026-04-27"
+
+  - project_id: aep_ohio_sb_energy_piketon
+    operator: SB Energy (SoftBank)
+    end_user_inferred: SoftBank/AI tenant TBD
+    location: "Piketon, OH"
+    iso_rto: PJM
+    utility: "AEP Ohio"
+    capacity:
+      total_gw: 10
+      colocated_gas_gw: 9.2
+    capex_disclosed:
+      transmission_usd_b: 4.2
+      transmission_voltage_kv: 765
+      implied_transmission_usd_k_per_mw: 420
+      tariff_status: "SB Energy committed to bear cost via dedicated DC tariff"
+    evidence_tier: T1
+    primary_sources:
+      - publisher: "AEP Ohio press release"
+        url: "https://www.aep.com/news/stories/view/10823/"
+        retrieval_date: "2026-04-27"
+      - publisher: "DOE Ohio Fact Sheet"
+        url: "https://www.energy.gov/articles/fact-sheet-department-energy-ensuring-affordable-energy-access-ohio-while-powering-future"
+        retrieval_date: "2026-04-27"
+    notes: |
+      The verifiable $4.2B Ohio transmission project is SB Energy/SoftBank, NOT
+      Microsoft. Recommend the paper drop or recharacterise any "Microsoft AEP
+      Ohio $2.7B" framing - could not verify against AEP/PUCO/FERC primary
+      filings.
+
+  - project_id: microsoft_mt_pleasant_wi
+    operator: Microsoft
+    tenant: Microsoft
+    location: "Mount Pleasant, WI (Foxconn site)"
+    iso_rto: MISO
+    utility: "WEC Energy + ATC"
+    capacity:
+      multi_gw: true
+      buildings_phase_2_approved: 15
+    site:
+      original_acres: 1190
+      add_on_july_2024_acres: 173
+      total_acres: 1363
+      add_on_2024_cost_usd_m: 33.89
+      add_on_2024_per_acre_usd: 196000
+      vacant_tract_70_9ac_per_acre_usd: 179800
+      total_land_cost_usd_m: 225.8
+      total_land_per_acre_usd: 165700
+    capex_disclosed:
+      phase_1_usd_b: 3.3
+      phase_2_usd_b: 13.3
+      total_usd_b: 16.6
+    timeline:
+      phase_1_announce: 2023
+      phase_2_approved: "2026-01"
+    evidence_tier: T1
+    primary_sources:
+      - publisher: "Urban Milwaukee (land purchases)"
+        url: "https://urbanmilwaukee.com/2024/07/30/microsoft-buys-more-land-in-mount-pleasant-for-data-center/"
+        retrieval_date: "2026-04-27"
+      - publisher: "Urban Milwaukee (Aug 2024)"
+        url: "https://urbanmilwaukee.com/2024/08/14/microsoft-buys-yet-more-land-in-racine-county/"
+        retrieval_date: "2026-04-27"
+      - publisher: "Construction Dive ($3.3B Phase 1)"
+        url: "https://www.constructiondive.com/news/microsoft-data-center-wisconsin-foxconn/716520/"
+        retrieval_date: "2026-04-27"
+      - publisher: "DCD (15 buildings Phase 2)"
+        url: "https://www.datacenterdynamics.com/en/news/microsoft-given-greenlight-for-15-more-data-center-buildings-in-mount-pleasant-wisconsin/"
+        retrieval_date: "2026-04-27"
+
+  - project_id: aws_madison_ms
+    operator: AWS
+    tenant: AWS
+    location: "Madison County, MS"
+    capacity:
+      multi_gw: true
+    site:
+      total_acres: 1750
+      highland_colony_acres: 750
+      mega_site_acres: 1000
+    capex_disclosed:
+      initial_usd_b: 10
+      total_usd_b: 25
+    evidence_tier: T1
+    primary_sources:
+      - publisher: "Amazon press release"
+        url: "https://www.aboutamazon.com/news/company-news/amazon-25-billion-mississippi-data-centers"
+        retrieval_date: "2026-04-27"
+      - publisher: "DCD ($10B disclosure)"
+        url: "https://www.datacenterdynamics.com/en/news/aws-confirmed-as-company-behind-10bn-mississippi-data-center-development/"
+        retrieval_date: "2026-04-27"
+
+  - project_id: amazon_talen_susquehanna
+    operator: Talen Energy
+    tenant: AWS
+    location: "Susquehanna nuclear plant, PA"
+    iso_rto: PJM
+    capacity:
+      btm_initial_mw: 300
+      btm_max_blocked_mw: 480
+      ftm_ppa_gw: 1.92
+    capex_disclosed:
+      initial_asset_purchase_usd_m: 650
+      ftm_ppa_total_usd_b: 18
+      ftm_ppa_term_yrs: 17
+      plant_cost_per_mwh_low: 24
+    regulatory:
+      btm_isa_rejected: "FERC 2-1, Nov 2024"
+      rehearing_denied: "Apr 2025"
+      appeal_court: "5th Circuit"
+    evidence_tier: T1
+    primary_sources:
+      - publisher: "Talen Energy IR"
+        url: "https://ir.talenenergy.com/news-releases/news-release-details/talen-energy-expands-nuclear-energy-relationship-amazon"
+        retrieval_date: "2026-04-27"
+      - publisher: "PowerMag ($18B PPA)"
+        url: "https://www.powermag.com/talen-amazon-launch-18b-nuclear-ppa-a-grid-connected-ipp-model-for-the-data-center-era/"
+        retrieval_date: "2026-04-27"
+      - publisher: "Utility Dive (FERC rejection)"
+        url: "https://www.utilitydive.com/news/ferc-interconnection-isa-talen-amazon-data-center-susquehanna-exelon/731841/"
+        retrieval_date: "2026-04-27"
+
+  - project_id: microsoft_constellation_tmi_restart
+    operator: Constellation
+    tenant: Microsoft
+    location: "Three Mile Island Unit 1 (Crane Clean Energy Center), PA"
+    iso_rto: PJM
+    capacity:
+      capacity_mw: 835
+      ppa_term_yrs: 20
+      target_online: 2028
+    capex_disclosed:
+      doe_loan_guarantee_usd_b: 1.0
+      morgan_stanley_estimated_ppa_usd_per_mwh: 98
+      pjm_market_baseline_usd_per_mwh: 50
+      ptc_uplift_usd_per_mwh: 30
+    hearsay_flag: "Morgan Stanley PPA estimate; not Constellation-confirmed"
+    evidence_tier: T2
+    primary_sources:
+      - publisher: "Constellation press release"
+        url: "https://www.constellationenergy.com/news/2024/Constellation-to-Launch-Crane-Clean-Energy-Center-Restoring-Jobs-and-Carbon-Free-Power-to-The-Grid.html"
+        retrieval_date: "2026-04-27"
+
+  - project_id: sdc_capital_leesburg
+    operator: "SDC Capital Partners"
+    location: "Leesburg, VA"
+    type: "Land acquisition (not yet built)"
+    site:
+      acres: 97
+    capex_disclosed:
+      land_only_usd_m: 615
+      land_per_acre_usd_m: 6.3
+      buildings_approved: 5
+    record_set: "Loudoun DC land price record Q4'25"
+    evidence_tier: T1
+    primary_sources:
+      - publisher: "Loudoun Now"
+        url: "https://www.loudounnow.com/business/data-center-sale-sets-new-loudoun-price-record/article_d392a250-e672-46c2-b2d2-f0ad3424a100.html"
+        retrieval_date: "2026-04-27"
+      - publisher: "DCD"
+        url: "https://www.datacenterdynamics.com/en/news/sdc-capital-partners-buys-97-acres-of-data-center-zoned-land-in-virginia-for-615-million/"
+        retrieval_date: "2026-04-27"
+
+  - project_id: ntt_mesa_az
+    operator: NTT
+    location: "Mesa, AZ"
+    type: "Land acquisition + multi-DC campus"
+    site:
+      acres: 174
+    capex_disclosed:
+      land_only_usd_m: 300
+      land_per_acre_usd_m: 1.7
+      land_per_sq_ft_usd: 40
+    record_set: "East Valley vacant land record"
+    evidence_tier: T1
+    primary_sources:
+      - publisher: "Phoenix Metro Home Search"
+        url: "https://www.phoenixmetrohomesearch.com/blog/global-data-center-giant-pays-300-million-for-land-in-east-valley"
+        retrieval_date: "2026-04-27"
+
+  - project_id: xai_colossus_memphis
+    operator: xAI
+    tenant: xAI
+    location: "Memphis, TN (former Electrolux factory)"
+    iso_rto: MISO
+    utility: "MLGW"
+    capacity:
+      phase_1_mw_it: 200
+    site:
+      shell: "Reused Electrolux factory shell - eliminates land+shell critical path"
+    timeline:
+      concept_to_mobilization_days: 19
+      groundbreaking_to_operational_days: 122
+      gpus_live_date: "2024-07"
+      gpu_count_phase_1_k: 100
+    capex_disclosed:
+      phase_1_usd_b: 3
+      implied_usd_m_per_mw: 15
+    regulatory_issues:
+      - "SELC appealed 15-turbine air permit on behalf of NAACP"
+      - "Operated dozens of unpermitted methane turbines for ~12 months (alleged)"
+      - ">2,000 public comments against draft permit"
+    evidence_tier: T1
+    primary_sources:
+      - publisher: "Bisnow"
+        url: "https://www.bisnow.com/national/news/data-center-development/musk-xai-building-memphis-data-center-bigger-faster-than-ai-rivals-131026"
+        retrieval_date: "2026-04-27"
+      - publisher: "Inside Climate News"
+        url: "https://insideclimatenews.org/news/17072025/elon-musk-xai-data-center-gas-turbines-memphis/"
+        retrieval_date: "2026-04-27"
+      - publisher: "SELC press release"
+        url: "https://www.selc.org/press-release/groups-appeal-permit-for-xais-south-memphis-data-center-decisions-around-unpermitted-methane-gas-turbines/"
+        retrieval_date: "2026-04-27"
+
+  - project_id: meta_gallatin_tn
+    operator: Meta
+    tenant: Meta
+    location: "Gallatin (Sumner County), TN"
+    utility: TVA
+    capacity:
+      mw: 500
+    site:
+      acres: 900
+    capex_disclosed:
+      total_usd_b_low: 1.5
+      implied_usd_m_per_mw: 3
+    timeline:
+      announce_year: 2020
+      cod_year: 2024
+      cycle_yrs: 4
+    evidence_tier: T1
+    primary_sources:
+      - publisher: "DCD"
+        url: "https://www.datacenterdynamics.com/en/news/meta-officially-launches-gallatin-data-center-campus-in-tennessee/"
+        retrieval_date: "2026-04-27"
+
+# ============================================================================
+# CROSS-PROJECT RECONCILIATION
+# ============================================================================
+
+reconciliation_to_layer_costs:
+  - anchor: crusoe_stargate_abilene
+    disclosed_usd_m_per_mw: 12.5
+    disclosed_basis: shell_power_cooling_no_it
+    layer_costs_facility_only_central_no_btm: 13.15
+    delta_pct: 5
+    note: "Tight reconciliation - Crusoe BTM gas amortizes through lease, not landed in shell capex"
+
+  - anchor: meta_hyperion_blue_owl
+    disclosed_usd_b_per_gw: 13.5
+    disclosed_basis: shell_me_only_no_it
+    layer_costs_facility_only_central_no_btm: 13.15
+    delta_pct: 3
+    note: "Direct anchor; matches our facility-only-no-IT central case"
+
+  - anchor: aep_ohio_sb_energy_piketon
+    disclosed_usd_k_per_mw_transmission_only: 420
+    layer_costs_grid_constrained_central: 2150
+    note: "Transmission-only ~20% of full grid-interface envelope; SB Energy bears transmission via dedicated tariff"
+
+  - anchor: amazon_talen_susquehanna_ppa
+    disclosed_usd_b_total: 18
+    disclosed_capacity_gw: 1.92
+    disclosed_term_yrs: 17
+    derived_usd_b_per_gw_yr: 0.55
+    note: "PPA is OPEX not capex; not directly comparable to $/GW facility build figures"
