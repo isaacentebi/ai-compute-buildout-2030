@@ -1,57 +1,53 @@
 commitment_id,class,scope,evidence_tier,realization_probability,prob_weighted_gw_point,announced_gw,epoch_overlap_gw,incremental_gw_point,incremental_gw_point_facility,incremental_gw_low,incremental_gw_high,chip_family,end_of_timeline_year,h100e_per_mw,h100e_incremental_m,announced_date,primary_source_url,one_line_reasoning
-anthropic_aws_2026_04_20,A,western,T4,0.72,2.28,5.00,1.83,3.17,3.80,2.50,5.00,Trainium,2028,1500,4.76,2026-04-20,https://www.anthropic.com/news/anthropic-amazon-compute,"Anthropic+AWS 'up to 5 GW new' minus Epoch's existing 1.83 GW; rev-3: facility = IT 3.17 × PUE 1.20"
-anthropic_fluidstack_2025_11_12,A,western,T5,0.40,0.00,,0.44,0.00,0.00,0.00,0.00,NVIDIA,2027,1400,0.00,2025-11-12,https://www.anthropic.com/news/anthropic-fluidstack,"Fully absorbed by Epoch's Lake Mariner tracking (dollars-only announcement)"
-anthropic_google_broadcom_tpu,B,western,T4,0.65,0.00,4.50,0.00,0.00,0.00,0.00,0.00,TPU,2027,1300,0.00,2026-04-07,https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus,"Class B chip procurement - TPU Ironwood + next-gen; zero physical GW added"
-anthropic_azure_2025_11_18,A,western,T5,0.30,0.30,1.00,0.00,1.00,1.18,0.00,1.00,NVIDIA,2027,1400,1.40,2025-11-18,https://blogs.microsoft.com/blog/2025/11/18/microsoft-nvidia-and-anthropic-announce-strategic-partnerships/,"1 GW NVIDIA Grace Blackwell / Vera Rubin commitment; rev-3: facility = IT 1.00 × PUE 1.18"
-openai_stargate_aggregate,A,western,T4,0.70,0.00,10.00,10.63,0.00,0.00,0.00,0.00,NVIDIA,2027,1400,0.00,2025-09-24,https://openai.com/index/five-new-stargate-sites/,"Stargate 8 sites fully captured by Epoch; zero incremental despite $500B/10 GW headline"
-openai_microsoft_fairwater,A,western,T2,0.82,0.57,,4.45,0.70,0.805,0.40,1.50,NVIDIA,2027,1400,0.98,2025-09-10,https://news.microsoft.com/source/features/ai/inside-the-worlds-most-powerful-ai-datacenter/,"Fairwater international incremental; rev-3: facility = IT 0.70 × PUE 1.15"
-meta_hyperion_prometheus,A,western,T5,0.28,0.77,6.00,3.61,2.74,3.014,0.00,2.74,NVIDIA+MTIA,2029,2300,6.30,2025-07-14,https://about.fb.com/news/2025/07/introducing-hyperion-meta-ai-superintelligence-data-center/,"Zuckerberg 5 GW stretch minus Epoch 2 GW; rev-3: facility = IT 2.74 × PUE 1.10"
-meta_nebius_2026_03_16,C,western,T3,0.80,0.00,,0.00,,,,,NVIDIA,2027,1400,0.00,2026-03-16,https://group.nebius.com/news-and-updates/nebius-signs-27-billion-agreement-with-meta,"$27B contract; Class C dollar-only (Nebius MW captured in neocloud overlay)"
-xai_humain_saudi,A,western,T4,0.55,0.28,0.50,0.00,0.50,0.50,0.40,0.60,NVIDIA,2027,1400,0.70,2025-11-12,https://www.reuters.com/technology/artificial-intelligence/xai-humain-saudi-500mw-2025-11/,"xAI+HUMAIN Saudi 500 MW JV; rev-3: already facility-basis 1:1"
-xai_colossus2_full,A,western,T6,0.25,0.02,2.00,1.94,0.06,0.078,0.00,0.20,NVIDIA,2027,1400,0.08,2025-07-31,https://x.ai/news/colossus-2,"Colossus 2 Memphis 2 GW target vs Epoch 1.94 GW; rev-3: facility = IT 0.06 × PUE 1.30"
-microsoft_g42_uae_khazna_2025_11,A,sovereign,T4,0.70,0.14,0.20,0.00,0.20,0.26,0.20,0.20,NVIDIA,2026,1020,0.20,2025-11-01,https://news.microsoft.com/source/features/ai/microsoft-g42-uae-khazna-ai-data-center/,"MSFT-G42 UAE Khazna 200 MW IT; rev-3: facility = IT 0.20 × PUE 1.30"
-humain_amd_saudi_2025_05,A,sovereign,T4,0.55,0.28,0.50,0.00,0.50,0.50,0.30,0.70,AMD,2028,1700,0.85,2025-05-13,https://ir.amd.com/news-events/press-releases/detail/1249/amd-and-humain-announce-strategic-collaboration-to-advance,"AMD-HUMAIN Saudi 500 MW over 5 years; rev-3: already facility-basis 1:1"
-reliance_jio_jamnagar_2024_08,A,sovereign,T5,0.20,0.20,1.00,0.00,1.00,1.00,0.12,3.00,NVIDIA,2028,1900,1.90,2024-08-29,https://www.ril.com/ar2023-24/pdf/RIL-47th-AGM-Chairman-Statement.pdf,"Ambani AGM 2024 'gigawatt-scale' target; rev-3: already facility-basis 1:1"
-uk_culham_ai_growth_zone_2025_01,A,sovereign,T5,0.30,0.08,0.50,0.00,0.25,0.30,0.10,0.50,NVIDIA,2027,1400,0.35,2025-01-13,https://www.gov.uk/government/publications/ai-opportunities-action-plan,"UK Culham 500 MW by 2030; rev-3: facility = IT 0.25 × PUE 1.20"
-
-# --- PER-SCOPE SUBTOTALS ------------------------------------------------------
-western_class_a_subtotal,A,western,MIX,,,,,8.17,9.377,3.30,11.04,MIX,,,14.22,,,"Class A Western incremental: 8.17 IT / 9.377 facility; H100e 14.22M unchanged by basis flip"
-sovereign_class_a_subtotal,A,sovereign,MIX,,,,,1.95,2.06,0.72,4.40,MIX,,,3.30,,,"Class A sovereign: 1.95 IT / 2.06 facility; H100e 3.30M"
-class_b_chips_total,B,global,T4,,,26.00,,,,,,MIX,,,,,,"AMD 6 GW + Broadcom 10 GW + NVIDIA 10 GW - deploys INTO Class A shells; zero physical GW additional"
+anthropic_aws_2026_04_20,A,western,T4,0.72,2.28,5.00,1.83,3.17,3.80,2.50,5.00,Trainium,2028,1500,4.76,2026-04-20,https://www.anthropic.com/news/anthropic-amazon-compute,Anthropic+AWS 'up to 5 GW new' minus Epoch's existing 1.83 GW; rev-3: facility = IT 3.17 × PUE 1.20
+anthropic_fluidstack_2025_11_12,A,western,T5,0.40,0.00,,0.44,0.00,0.00,0.00,0.00,NVIDIA,2027,1400,0.00,2025-11-12,https://www.anthropic.com/news/anthropic-fluidstack,Fully absorbed by Epoch's Lake Mariner tracking (dollars-only announcement)
+anthropic_google_broadcom_tpu,B,western,T4,0.65,0.00,4.50,0.00,0.00,0.00,0.00,0.00,TPU,2027,1300,0.00,2026-04-07,https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus,Class B chip procurement - TPU Ironwood + next-gen; zero physical GW added
+anthropic_azure_2025_11_18,A,western,T5,0.30,0.30,1.00,0.00,1.00,1.18,0.00,1.00,NVIDIA,2027,1400,1.40,2025-11-18,https://blogs.microsoft.com/blog/2025/11/18/microsoft-nvidia-and-anthropic-announce-strategic-partnerships/,1 GW NVIDIA Grace Blackwell / Vera Rubin commitment; rev-3: facility = IT 1.00 × PUE 1.18
+openai_stargate_aggregate,A,western,T4,0.70,0.00,10.00,10.63,0.00,0.00,0.00,0.00,NVIDIA,2027,1400,0.00,2025-09-24,https://openai.com/index/five-new-stargate-sites/,Stargate 8 sites fully captured by Epoch; zero incremental despite $500B/10 GW headline
+openai_microsoft_fairwater,A,western,T2,0.82,0.57,,4.45,0.70,0.805,0.40,1.50,NVIDIA,2027,1400,0.98,2025-09-10,https://news.microsoft.com/source/features/ai/inside-the-worlds-most-powerful-ai-datacenter/,Fairwater international incremental; rev-3: facility = IT 0.70 × PUE 1.15
+meta_hyperion_prometheus,A,western,T5,0.28,0.77,6.00,3.61,2.74,3.014,0.00,2.74,NVIDIA+MTIA,2029,2300,6.30,2025-07-14,https://about.fb.com/news/2025/07/introducing-hyperion-meta-ai-superintelligence-data-center/,Zuckerberg 5 GW stretch minus Epoch 2 GW; rev-3: facility = IT 2.74 × PUE 1.10
+meta_nebius_2026_03_16,C,western,T3,0.80,0.00,,0.00,,,,,NVIDIA,2027,1400,0.00,2026-03-16,https://group.nebius.com/news-and-updates/nebius-signs-27-billion-agreement-with-meta,$27B contract; Class C dollar-only (Nebius MW captured in neocloud overlay)
+xai_humain_saudi,A,sovereign,T4,0.55,0.28,0.50,0.00,0.50,0.50,0.40,0.60,NVIDIA,2027,1400,0.70,2025-11-12,https://www.reuters.com/technology/artificial-intelligence/xai-humain-saudi-500mw-2025-11/,"xAI+HUMAIN Saudi 500 MW JV; rev-3: already facility-basis 1:1; rev-3 final: sovereign sidebar, excluded from Western denominator."
+xai_colossus2_full,A,western,T6,0.25,0.02,2.00,1.94,0.06,0.078,0.00,0.20,NVIDIA,2027,1400,0.08,2025-07-31,https://x.ai/news/colossus-2,Colossus 2 Memphis 2 GW target vs Epoch 1.94 GW; rev-3: facility = IT 0.06 × PUE 1.30
+microsoft_g42_uae_khazna_2025_11,A,sovereign,T4,0.70,0.14,0.20,0.00,0.20,0.26,0.20,0.20,NVIDIA,2026,1020,0.20,2025-11-01,https://news.microsoft.com/source/features/ai/microsoft-g42-uae-khazna-ai-data-center/,MSFT-G42 UAE Khazna 200 MW IT; rev-3: facility = IT 0.20 × PUE 1.30
+humain_amd_saudi_2025_05,A,sovereign,T4,0.55,0.28,0.50,0.00,0.50,0.50,0.30,0.70,AMD,2028,1700,0.85,2025-05-13,https://ir.amd.com/news-events/press-releases/detail/1249/amd-and-humain-announce-strategic-collaboration-to-advance,AMD-HUMAIN Saudi 500 MW over 5 years; rev-3: already facility-basis 1:1
+reliance_jio_jamnagar_2024_08,A,sovereign,T5,0.20,0.20,1.00,0.00,1.00,1.00,0.12,3.00,NVIDIA,2028,1900,1.90,2024-08-29,https://www.ril.com/ar2023-24/pdf/RIL-47th-AGM-Chairman-Statement.pdf,Ambani AGM 2024 'gigawatt-scale' target; rev-3: already facility-basis 1:1
+uk_culham_ai_growth_zone_2025_01,A,sovereign,T5,0.30,0.08,0.50,0.00,0.25,0.30,0.10,0.50,NVIDIA,2027,1400,0.35,2025-01-13,https://www.gov.uk/government/publications/ai-opportunities-action-plan,UK Culham 500 MW by 2030; rev-3: facility = IT 0.25 × PUE 1.20
+# --- PER-SCOPE SUBTOTALS ------------------------------------------------------,,,,,,,,,,,,,,,,,,
+western_class_a_subtotal,A,western,MIX,,,,,7.67,8.877,2.90,10.44,MIX,,,13.52,,,Class A Western incremental: 7.67 IT / 8.877 facility; H100e 13.52M; xAI-HUMAIN is sovereign sidebar only
+sovereign_class_a_subtotal,A,sovereign,MIX,,,,,2.45,2.56,1.12,5.00,MIX,,,4.00,,,Class A sovereign: 2.45 IT / 2.56 facility; H100e 4.00M
+class_b_chips_total,B,global,T4,,,26.00,,,,,,MIX,,,,,,AMD 6 GW + Broadcom 10 GW + NVIDIA 10 GW - deploys INTO Class A shells; zero physical GW additional
 class_c_dollar_only_total,C,global,T5,,,,,,,,,,,,,,,"$1,416.9B envelope (Altman's $1.4T aggregate dominates); overlaps Class A capex"
-
-# --- SIX-TIER WESTERN ROLLUP — FACILITY BASIS (rev-3 primary) -----------------
-# Announced horizon GW:          51.93  (unweighted sum facility — Epoch 33.05 + Class A 9.38 + neocloud 9.49 + rounding)
-# Raw non-stretch GW:            45.17  (announced − T5 facility; replaces retired "bear" label)
-# Probability-weighted GW:       36.75  (Σ tier_gw_facility × tier_default_probability)
-# Conservative case GW (raw):    27.93  (T1 + T2 + T3 facility)
-# Full-realization GW:           55.32  (arithmetic ceiling facility)
-# Monte Carlo median p50:        31.76  (10,000 draws, facility, seed 20260424)
-# Monte Carlo p10-p90:        [24.60, 37.37]  (interdecile facility)
-# Monte Carlo p05 / p95:       23.10 / 38.40  (facility)
-# Sovereign sidebar facility:     2.06  (NOT in Western denominator)
-
-# --- SIX-TIER WESTERN ROLLUP — IT-LOAD BRIDGE (rev-2 compat; secondary) -------
-# Announced horizon GW:          50.62  (unweighted sum IT)
-# Probability-weighted GW:      ~36.08  (Σ tier_gw × tier_default_probability)
-# Conservative case GW:         ~27.78  (T1 + T2 + T3 IT)
-# Full-realization GW:          ~53.48  (arithmetic ceiling IT)
-# Monte Carlo median GW:         31.12  (10,000 draws IT)
-# Monte Carlo p10-p90 GW:     [23.96, 36.66]  (interdecile IT)
-# Sovereign sidebar GW IT:        1.95
-
-# --- H100e RECONCILIATION -----------------------------------------------------
-# Chip counts are basis-invariant (chips ARE deployed; only the MW denominator changes).
-# Epoch Layer 1 full buildout: 46.15M H100e across 33.05 GW facility (weighted 1,388 H100e/facility-MW, rev-3 labeling)
-# Class A overlay (Western, Option B): 14.22M H100e across 8.17 GW IT / 9.38 GW facility
-# Neocloud ex-Epoch: 17.84M H100e across 9.39 GW IT / 9.49 GW facility
-# WESTERN TOTAL 2027-2030: 78.21M H100e across 50.62 GW IT / 51.93 GW facility
-# + Sovereign sidebar: 3.30M H100e across 1.95 GW IT / 2.06 GW facility
-# GLOBAL REFERENCE 2027-2030: 81.51M H100e across 52.56 GW IT / 53.99 GW facility
-# Current operational (Epoch 2026-04-24): 4.18M H100e across 6.27 GW facility (Epoch is facility-basis)
-# Growth multiple (operational -> Western full buildout): 18.7x H100e (unchanged under basis flip)
-#
-# DENSITY NOTES (rev-3):
-#   1,388 H100e/MW at blended Epoch weighting is an IT-MW density (per Epoch internal convention).
-#   Facility-MW equivalent: 1,388 / 1.20 ≈ 1,157 H100e per facility-MW at blended PUE 1.20.
-#   Per-GW densities quoted throughout the paper are IT-basis unless explicitly tagged "facility-MW".
+# --- SIX-TIER WESTERN ROLLUP — FACILITY BASIS (rev-3 primary) -----------------,,,,,,,,,,,,,,,,,,
+# Announced horizon GW:          51.43  (unweighted sum facility — Epoch 33.05 + Class A 8.88 + neocloud 9.49 + rounding),,,,,,,,,,,,,,,,,,
+"# Raw non-stretch GW:            44.67  (announced − T5 facility; replaces retired ""bear"" label)",,,,,,,,,,,,,,,,,,
+# Probability-weighted GW:       36.46  (Σ tier_gw_facility × tier_default_probability),,,,,,,,,,,,,,,,,,
+# Conservative case GW (raw):    27.93  (T1 + T2 + T3 facility),,,,,,,,,,,,,,,,,,
+# Full-realization GW:           54.72  (arithmetic ceiling facility),,,,,,,,,,,,,,,,,,
+# Monte Carlo median p50:        32.52  (10,000 draws, facility, seed 20260424),,,,,,,,,,,,,,,
+# Monte Carlo p10-p90:        [24.64, 38.43]  (interdecile facility),,,,,,,,,,,,,,,,,
+# Monte Carlo p05 / p95:       23.12 / 39.68  (facility),,,,,,,,,,,,,,,,,,
+# Sovereign sidebar facility:     2.56  (NOT in Western denominator),,,,,,,,,,,,,,,,,,
+# --- SIX-TIER WESTERN ROLLUP — IT-LOAD BRIDGE (rev-2 compat; secondary) -------,,,,,,,,,,,,,,,,,,
+# Announced horizon GW:          43.93  (unweighted sum IT),,,,,,,,,,,,,,,,,,
+# Probability-weighted GW:      ~31.10  (Σ tier_gw × tier_default_probability),,,,,,,,,,,,,,,,,,
+# Conservative case GW:         ~23.69  (T1 + T2 + T3 IT),,,,,,,,,,,,,,,,,,
+# Full-realization GW:          ~46.70  (arithmetic ceiling IT),,,,,,,,,,,,,,,,,,
+# Monte Carlo median GW:         31.12  (10,000 draws IT),,,,,,,,,,,,,,,,,
+# Monte Carlo p10-p90 GW:     [23.96, 36.66]  (interdecile IT),,,,,,,,,,,,,,,,,
+# Sovereign sidebar GW IT:        2.45,,,,,,,,,,,,,,,,,,
+# --- H100e RECONCILIATION -----------------------------------------------------,,,,,,,,,,,,,,,,,,
+# Chip counts are basis-invariant (chips ARE deployed; only the MW denominator changes).,,,,,,,,,,,,,,,,,,
+# Epoch Layer 1 full buildout: 46.15M H100e across 33.05 GW facility (weighted 1,388 H100e/facility-MW, rev-3 labeling),,,,,,,,,,,,,,,,
+# Class A overlay (Western, Option B): 13.52M H100e across 7.67 GW IT / 8.88 GW facility,,,,,,,,,,,,,,,,,
+# Neocloud ex-Epoch: 17.84M H100e across 9.39 GW IT / 9.49 GW facility,,,,,,,,,,,,,,,,,,
+# WESTERN TOTAL 2027-2030: 77.51M H100e across 43.93 GW IT / 51.43 GW facility,,,,,,,,,,,,,,,,,,
+# + Sovereign sidebar: 4.00M H100e across 2.45 GW IT / 2.56 GW facility,,,,,,,,,,,,,,,,,,
+# GLOBAL REFERENCE 2027-2030: 81.51M H100e across 52.56 GW IT / 53.99 GW facility,,,,,,,,,,,,,,,,,,
+# Current operational (Epoch 2026-04-24): 4.18M H100e across 6.27 GW facility (Epoch is facility-basis),,,,,,,,,,,,,,,,,,
+# Growth multiple (operational -> Western full buildout): 18.7x H100e (unchanged under basis flip),,,,,,,,,,,,,,,,,,
+#,,,,,,,,,,,,,,,,,,
+# DENSITY NOTES (rev-3):,,,,,,,,,,,,,,,,,,
+#   1,388 H100e/MW at blended Epoch weighting is an IT-MW density (per Epoch internal convention).,,,,,,,,,,,,,,,,,
+#   Facility-MW equivalent: 1,388 / 1.20 ≈ 1,157 H100e per facility-MW at blended PUE 1.20.,,,,,,,,,,,,,,,,
+"#   Per-GW densities quoted throughout the paper are IT-basis unless explicitly tagged ""facility-MW"".",,,,,,,,,,,,,,,,,,

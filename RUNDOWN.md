@@ -1,6 +1,6 @@
 # AI Compute Commitment Surface — Rundown
 
-**Data cutoff:** Epoch AI 2026-04-16  |  Overlay closed 2026-04-24 (rev-3)
+**Data cutoff:** Epoch AI dataset updated 2026-04-20 / retrieved 2026-04-22  |  Overlay closed 2026-04-24 (rev-3)
 **Scope:** Western AI program (primary) + Sovereign-AI sidebar (UAE, Saudi, India, UK)
 **Basis:** Facility power (primary) / IT-load (secondary bridge)
 
@@ -13,16 +13,16 @@
 | Epoch evidenced floor (facility) | 6.27 GW | 33.05 GW |
 | Our Class A overlay (Western, facility) | — | +9.38 GW |
 | Our neocloud ex-Epoch overlay (facility) | +1.54 GW | +9.49 GW |
-| **Western total (facility)** | **7.81 GW** (7.56 tier-clean + 0.25 T6-inferred) | **51.93 GW** [46.40, 55.32] |
-| Sovereign-AI sidebar (facility) | — | +2.06 GW |
+| **Western total (facility)** | **7.81 GW** (7.56 tier-clean + 0.25 T6-inferred) | **51.43 GW** [46.00, 54.72] |
+| Sovereign-AI sidebar (facility) | — | +2.56 GW |
 | Global reference (facility) | ~7.8 GW | 53.99 GW |
 
 | Layer | Operational today (IT-load bridge) | Full buildout (IT-load bridge) |
 |---|---:|---:|
-| **Western total (IT)** | **7.76 GW** | **50.62 GW** |
-| Sovereign (IT) | — | +1.95 GW |
+| **Western total (IT)** | **7.81 GW facility** | **43.93 GW** |
+| Sovereign (IT) | — | +1.91 GW |
 
-Epoch captures **~64% of the Western horizon on its own** (33.05 / 51.93 facility). Our overlay adds the remaining ~36% — 18.87 GW facility — split between announced-but-unphotographed Class A commitments (9.38 GW facility) and neocloud fleets Epoch barely touches (9.49 GW facility).
+Epoch captures **~64% of the Western horizon on its own** (33.05 / 51.43 facility). Our overlay adds the remaining ~36% — 18.37 GW facility — split between announced-but-unphotographed Class A commitments (8.88 GW facility) and neocloud fleets Epoch barely touches (9.49 GW facility).
 
 ---
 
@@ -49,11 +49,11 @@ This is where the "we avoided double-counting" claim actually lives. **Announced
 
 | # | Commitment | Announced | Epoch had | We add | Range |
 |---|---|---:|---:|---:|---|
-| 10 | Microsoft–G42 UAE (Khazna) | 0.20 GW | 0 | 0.20 GW | [0.20, 0.20] |
+| 10 | Microsoft–G42 UAE (Khazna) | 0.25 GW facility | 0 | 0.25 GW facility | [0.20, 0.20] |
 | 11 | HUMAIN–AMD Saudi | 0.50 GW | 0 | 0.50 GW | [0.30, 0.70] |
 | 12 | Reliance Jio Jamnagar | 1.00 GW | 0 | 1.00 GW | [0.12, 3.00] |
 | 13 | UK Culham AI Growth Zone | 0.50 GW | 0 | 0.25 GW | [0.10, 0.50] |
-|   | **Sovereign subtotal** |   |   | **1.95 GW** | **[0.72, 4.40]** |
+|   | **Sovereign subtotal** |   |   | **1.91 GW** | **[0.72, 4.40]** |
 
 ---
 
@@ -98,11 +98,11 @@ Three rows where the headline number shrinks the most under dedup:
 ## 6. The framing number that matters most
 
 ```
-Operational today:       8.16 GW
-Western horizon target: 50.61 GW
+Operational today:       7.81 GW
+Western horizon target: 51.43 GW
 ─────────────────────────────────
-Gap (not yet built):    42.45 GW    (83.9% of target)
-Built:                   8.16 GW    (16.1% of target)
+Gap (not yet built):    42.45 GW    (84.8% of target)
+Built:                   7.81 GW    (15.2% of target)
 ```
 
 **84% of the Western capex-revenue story lives in capacity that doesn't exist yet.** The entire flywheel / coverage-ratio thesis rides on whether this 2028-2030 pipeline materializes on announced timelines. That's the number to put a falsification date on.

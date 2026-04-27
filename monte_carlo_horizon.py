@@ -2,24 +2,29 @@
 """
 Monte Carlo over the 2030 Western AI-compute horizon.
 
-rev-3 (2026-04-24): facility basis primary; IT-load bridge secondary.
-
 Inputs
   - Six-tier GW partition (loaded from compute_commitments_overlay.yaml
     via `evidence_tier_rollup_western_facility` (facility, default) or
     `evidence_tier_rollup_western` (IT, via --basis it).
   - Tier-default realization priors (CONFIDENCE_DECOMPOSITION.md)
   - Per-row realization_probability overrides (compute_commitments_overlay.yaml)
-  - Stress-scenario deltas + scenario probabilities (overlay stress_scenarios block)
+  - Downside, upside, demand-stress, and systemic-infrastructure scenarios
 
 Model
   - Tier realization rate ~ Beta fitted so that the tier-default sits at the
     mean and the 5th/95th percentile bracket the tier-documented range.
   - Each tier's realized GW = tier_gw × sampled_rate.
   - T1 is treated as deterministic (operational MW online Q2 2026).
-  - Stress scenarios applied additively: each draws Bernoulli(scenario_prob);
-    if realized, subtract the scenario gw_delta_2030 (negative number → subtract
-    negative = add magnitude to the loss side).
+  - A systemic infrastructure-stress state fires first. If it fires, A+B+C are
+    represented by a single -10.5 GW combined delta and are not independently
+    sampled in that draw.
+  - If systemic stress does not fire, A and C fire independently with conditional
+    probabilities calibrated to preserve their approximate unconditional priors.
+  - Demand/RPO stress F is sampled separately. If F fires, it subtracts -2.5 GW
+    and raises the standalone B neocloud-financing probability to 0.60 in that
+    draw; otherwise B uses the normal non-systemic conditional probability.
+  - Upside scenarios U1-U3 add facility GW. U4 affects H100e only and is tracked
+    but does not change facility-power GW.
   - 10,000 draws by default.
 
 Outputs
@@ -31,11 +36,12 @@ Usage
   python3 monte_carlo_horizon.py [--basis facility|it] [--draws N] [--seed S]
 
 Basis
-  facility (default) — rev-3 primary denominator (matches Epoch convention)
-  it                 — IT-load bridge (rev-2 legacy; kept for audit parity)
+  facility (default) — primary denominator (matches Epoch convention)
+  it                 — IT-load bridge (kept for audit parity)
 """
 
 import argparse
+import json
 import random
 import statistics
 import sys
@@ -57,16 +63,33 @@ TIER_PRIOR = {
     "T6": (0.25, 0.10, 0.40),
 }
 
-# Stress scenarios from overlay stress_scenarios block. Basis-invariant
-# to leading order (gw_delta magnitudes refer to absolute capacity loss
-# — the same grid-interconnect slip loses the same physical MW regardless
-# of whether we denominate in IT or facility terms).
-STRESS_SCENARIOS = {
-    "A_stargate_12mo_slip":       {"gw_delta": -3.5, "prob": 0.30},
-    "B_neocloud_spread_300bps":   {"gw_delta": -2.0, "prob": 0.25},
-    "C_grid_24mo_slip_ERCOT_MISO_PJM": {"gw_delta": -8.0, "prob": 0.40},
-    "D_chip_2Q_slip":             {"gw_delta": -1.5, "prob": 0.50},
-    "E_inference_outpaces_training": {"gw_delta": 0.0, "prob": 0.55},  # no GW impact, chip-mix only
+T4_SENSITIVITY_PRIORS = {
+    0.45: (0.45, 0.30, 0.60),
+    0.58: (0.58, 0.40, 0.75),
+    0.70: (0.70, 0.55, 0.85),
+}
+
+P_SYSTEMIC = 0.15
+P_DEMAND_RPO = 0.15
+
+# Conditional probabilities if systemic stress does not fire. These preserve
+# the current A/B/C priors before the demand-stress correlation is layered in.
+P_A_IF_NO_SYSTEMIC = (0.30 - P_SYSTEMIC) / (1.0 - P_SYSTEMIC)
+P_B_IF_NO_SYSTEMIC = (0.25 - P_SYSTEMIC) / (1.0 - P_SYSTEMIC)
+P_C_IF_NO_SYSTEMIC = (0.40 - P_SYSTEMIC) / (1.0 - P_SYSTEMIC)
+
+SCENARIOS = {
+    "S_systemic_infrastructure_stress": {"gw_delta": -10.5, "prob": P_SYSTEMIC, "h100e_delta": -25.0},
+    "A_stargate_12mo_slip": {"gw_delta": -3.5, "prob": P_A_IF_NO_SYSTEMIC, "h100e_delta": -8.0},
+    "B_neocloud_spread_300bps": {"gw_delta": -2.0, "prob": P_B_IF_NO_SYSTEMIC, "h100e_delta": -4.0},
+    "C_grid_24mo_slip_ERCOT_MISO_PJM": {"gw_delta": -8.0, "prob": P_C_IF_NO_SYSTEMIC, "h100e_delta": -18.0},
+    "D_chip_2Q_slip": {"gw_delta": -1.5, "prob": 0.50, "h100e_delta": -12.0},
+    "E_inference_outpaces_training": {"gw_delta": 0.0, "prob": 0.55, "h100e_delta": -5.0},
+    "F_lab_revenue_rpo_stress": {"gw_delta": -2.5, "prob": P_DEMAND_RPO, "h100e_delta": -5.0},
+    "U1_grid_interconnection_acceleration": {"gw_delta": 2.0, "prob": 0.20, "h100e_delta": 4.0},
+    "U2_neocloud_financing_open": {"gw_delta": 1.5, "prob": 0.20, "h100e_delta": 3.0},
+    "U3_t4_over_realization": {"gw_delta": 2.25, "prob": 0.15, "h100e_delta": 5.0},
+    "U4_silicon_acceleration": {"gw_delta": 0.0, "prob": 0.25, "h100e_delta": 10.0},
 }
 
 
@@ -146,8 +169,8 @@ def fit_beta_from_quantiles(mean, p05, p95):
     return alpha, beta
 
 
-def sample_tier_rate(tier):
-    mean, p05, p95 = TIER_PRIOR[tier]
+def sample_tier_rate(tier, t4_prior=None):
+    mean, p05, p95 = t4_prior if tier == "T4" and t4_prior else TIER_PRIOR[tier]
     params = fit_beta_from_quantiles(mean, p05, p95)
     if params is None:
         return mean
@@ -155,19 +178,63 @@ def sample_tier_rate(tier):
     return random.betavariate(alpha, beta)
 
 
-def one_draw(tier_gw: dict):
-    """Return (realized_gw, applied_stress_names_list)."""
+def one_draw(tier_gw: dict, t4_prior=None):
+    """Return (realized_gw, applied_scenario_names_list, h100e_delta_m)."""
     realized = 0.0
     for tier, gw in tier_gw.items():
-        rate = sample_tier_rate(tier)
+        rate = sample_tier_rate(tier, t4_prior=t4_prior)
         realized += gw * rate
     applied = []
-    for name, sc in STRESS_SCENARIOS.items():
+    h100e_delta = 0.0
+
+    systemic = random.random() < P_SYSTEMIC
+    if systemic:
+        sc = SCENARIOS["S_systemic_infrastructure_stress"]
+        realized += sc["gw_delta"]
+        h100e_delta += sc["h100e_delta"]
+        applied.append("S_systemic_infrastructure_stress")
+    else:
+        for name, prob in (
+            ("A_stargate_12mo_slip", P_A_IF_NO_SYSTEMIC),
+            ("C_grid_24mo_slip_ERCOT_MISO_PJM", P_C_IF_NO_SYSTEMIC),
+        ):
+            if random.random() < prob:
+                sc = SCENARIOS[name]
+                realized += sc["gw_delta"]
+                h100e_delta += sc["h100e_delta"]
+                applied.append(name)
+
+    demand = random.random() < P_DEMAND_RPO
+    if demand:
+        sc = SCENARIOS["F_lab_revenue_rpo_stress"]
+        realized += sc["gw_delta"]
+        h100e_delta += sc["h100e_delta"]
+        applied.append("F_lab_revenue_rpo_stress")
+
+    if not systemic:
+        b_prob = 0.60 if demand else P_B_IF_NO_SYSTEMIC
+        if random.random() < b_prob:
+            sc = SCENARIOS["B_neocloud_spread_300bps"]
+            realized += sc["gw_delta"]
+            h100e_delta += sc["h100e_delta"]
+            applied.append("B_neocloud_spread_300bps")
+
+    for name in (
+        "D_chip_2Q_slip",
+        "E_inference_outpaces_training",
+        "U1_grid_interconnection_acceleration",
+        "U2_neocloud_financing_open",
+        "U3_t4_over_realization",
+        "U4_silicon_acceleration",
+    ):
+        sc = SCENARIOS[name]
         if random.random() < sc["prob"]:
-            realized += sc["gw_delta"]  # gw_delta is negative → subtract magnitude
+            realized += sc["gw_delta"]
+            h100e_delta += sc["h100e_delta"]
             applied.append(name)
+
     realized = max(realized, 0.0)
-    return realized, applied
+    return realized, applied, h100e_delta
 
 
 def percentile(sorted_list, q):
@@ -179,9 +246,12 @@ def percentile(sorted_list, q):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--basis", choices=["facility", "it"], default="facility",
-                    help="'facility' (rev-3 primary, default) or 'it' (IT-load bridge, rev-2 compat)")
+                    help="'facility' (primary, default) or 'it' (IT-load bridge)")
     ap.add_argument("--draws", type=int, default=10000)
     ap.add_argument("--seed", type=int, default=20260424)
+    ap.add_argument("--t4-prob", type=float, default=0.58,
+                    help="T4 default mean for sensitivity runs; common values: 0.45, 0.58, 0.70")
+    ap.add_argument("--json", action="store_true", help="Machine-readable output")
     ap.add_argument("--verbose", action="store_true")
     args = ap.parse_args()
 
@@ -200,23 +270,64 @@ def main():
         print(f"WARNING: tier partition sums to {partition_sum} but "
               f"declared announced is {declared} (basis={args.basis})", file=sys.stderr)
 
-    basis_label = "FACILITY (rev-3 primary)" if args.basis == "facility" else "IT-LOAD (rev-2 bridge)"
+    if args.t4_prob in T4_SENSITIVITY_PRIORS:
+        t4_prior = T4_SENSITIVITY_PRIORS[args.t4_prob]
+    else:
+        spread_low, spread_high = 0.18, 0.17
+        t4_prior = (args.t4_prob, max(0.05, args.t4_prob - spread_low), min(0.95, args.t4_prob + spread_high))
+
+    t4_base = TIER_PRIOR["T4"][0]
+    t4_gw = tier_gw.get("T4", 0.0)
+    scalars["prob_weighted_point_gw"] = (
+        float(scalars["prob_weighted_point_gw"]) + t4_gw * (args.t4_prob - t4_base)
+    )
+
+    basis_label = "FACILITY (primary)" if args.basis == "facility" else "IT-LOAD bridge"
 
     results = []
-    stress_counts = {name: 0 for name in STRESS_SCENARIOS}
+    h100e_deltas = []
+    scenario_counts = {name: 0 for name in SCENARIOS}
     for _ in range(args.draws):
-        gw, applied = one_draw(tier_gw)
+        gw, applied, h100e_delta = one_draw(tier_gw, t4_prior=t4_prior)
         results.append(gw)
+        h100e_deltas.append(h100e_delta)
         for name in applied:
-            stress_counts[name] += 1
+            scenario_counts[name] += 1
     results.sort()
 
     mean = statistics.mean(results)
     std = statistics.stdev(results)
 
+    summary = {
+        "basis": args.basis,
+        "draws": args.draws,
+        "seed": args.seed,
+        "t4_prob": args.t4_prob,
+        "t4_prior": t4_prior,
+        "tier_gw": tier_gw,
+        "mean": mean,
+        "std": std,
+        "p05": percentile(results, 0.05),
+        "p10": percentile(results, 0.10),
+        "p25": percentile(results, 0.25),
+        "p50": percentile(results, 0.50),
+        "p75": percentile(results, 0.75),
+        "p90": percentile(results, 0.90),
+        "p95": percentile(results, 0.95),
+        "h100e_delta_mean_m": statistics.mean(h100e_deltas),
+        "h100e_delta_p50_m": percentile(sorted(h100e_deltas), 0.50),
+        "scalars": scalars,
+        "scenario_frequency": {name: n / args.draws for name, n in scenario_counts.items()},
+    }
+
+    if args.json:
+        print(json.dumps(summary, indent=2, sort_keys=True))
+        return 0
+
     print("=" * 72)
     print(f"MONTE CARLO — 2030 Western realized GW  (N={args.draws:,}, seed={args.seed})")
     print(f"  Basis: {basis_label}")
+    print(f"  T4 default mean: {args.t4_prob:.2f}  (p05={t4_prior[1]:.2f}, p95={t4_prior[2]:.2f})")
     print("=" * 72)
     print("  Six-tier GW partition (from YAML):")
     for tier in sorted(tier_gw.keys()):
@@ -236,7 +347,7 @@ def main():
     print("  Reference point estimates (deterministic):")
     print(f"    announced_horizon  : {scalars['announced_horizon_gw']:6.2f} GW   (raw sum)")
     print(f"    prob_weighted      : {scalars['prob_weighted_point_gw']:6.2f} GW   (Σ tier_gw × tier_prior)")
-    print(f"    raw_non_stretch    : {scalars['raw_non_stretch_gw']:6.2f} GW   (announced − T5; rev-3 replacement for retired 'bear')")
+    print(f"    raw_non_stretch    : {scalars['raw_non_stretch_gw']:6.2f} GW   (announced - T5; accounting total, not a bear case)")
     print(f"    conservative       : {scalars['conservative_gw']:6.2f} GW   (T1+T2+T3 only)")
     print()
     print("  Tail probabilities (from the sim):")
@@ -250,19 +361,17 @@ def main():
         p = sum(1 for x in results if x < threshold) / len(results)
         print(f"    P(realized {label})        = {p:5.1%}")
     print()
-    print("  Stress scenario realization frequency (should match priors):")
-    for name, n in stress_counts.items():
-        target = STRESS_SCENARIOS[name]["prob"]
+    print("  Scenario realization frequency:")
+    for name, n in scenario_counts.items():
+        target = SCENARIOS[name]["prob"]
         actual = n / args.draws
         print(f"    {name:44s}: prior={target:.2f}  empirical={actual:.3f}")
     print()
     print("  Reading")
-    print("    The Monte Carlo median (p50) is the probabilistically-honest")
-    print(f"    central estimate; the p50 landing below the deterministic")
-    print(f"    tier-weighted {scalars['prob_weighted_point_gw']:.2f} GW reflects the stress-scenario")
-    print("    downside tail (A+B+C+D carry combined negative expected value of")
-    print("    approximately -5.9 GW). The p10-p90 interdecile range is the")
-    print("    relevant LP sensitivity band.")
+    print("    The Monte Carlo is a probability-weighted realization distribution:")
+    print("    it combines tier-level realization uncertainty, named downside shocks,")
+    print("    named upside shocks, demand/RPO stress, and a correlated infrastructure")
+    print("    stress state. U4 changes H100e only and does not move facility GW.")
     print("=" * 72)
 
 

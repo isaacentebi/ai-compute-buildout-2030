@@ -19,20 +19,20 @@ a Monte Carlo distribution rather than a point estimate.
 
 | Metric | Value | Notes |
 |---|---|---|
-| Operational today (Q2 2026) | **7.56 GW tier-clean** (~8.7–9.0 GW facility-equiv) | T1; +0.20 GW T6-inferred |
-| 2030 raw announced horizon (Western) | **51.9 GW facility** (50.6 GW IT-load bridge) | Unweighted sum across T1–T6 |
-| 2030 tier-weighted point | **36.8 GW facility** | Σ tier_GW × tier_default_probability |
-| **2030 Monte Carlo median** | **31.8 GW facility** | 10,000 draws; our probability-honest central estimate |
+| Operational today (Q2 2026) | **7.56 GW tier-clean** (~7.81 GW facility including T6-inferred) | T1; +0.25 GW facility T6-inferred |
+| 2030 raw announced horizon (Western) | **51.4 GW facility** (43.9 GW IT-load bridge) | Unweighted sum across T1–T6 |
+| 2030 tier-weighted point | **36.5 GW facility** | Σ tier_GW × tier_default_probability |
+| **2030 Monte Carlo median** | **31.5 GW facility** | 10,000 draws; our probability-honest central estimate |
 | Monte Carlo p10–p90 | **[24.6, 37.4] GW facility** | Interdecile range — the relevant LP sensitivity band |
-| Raw non-stretch (replaces retired "bear") | **45.2 GW facility** | Announced minus T5 stretch targets |
+| Raw non-stretch (replaces retired "bear") | **44.7 GW facility** | Announced minus T5 stretch targets |
 | Conservative case (T1+T2+T3 only) | **27.9 GW facility** | |
-| Full-realization ceiling | **55.3 GW facility** | Arithmetic high |
-| Sovereign-AI sidebar (separate) | **2.06 GW facility** (1.95 GW IT-load) | UAE + Saudi + India + UK; not in Western denom. |
+| Full-realization ceiling | **54.7 GW facility** | Arithmetic high |
+| Sovereign-AI sidebar (separate) | **2.56 GW facility** (1.91 GW IT-load) | UAE + Saudi + India + UK; not in Western denom. |
 | Capital envelope | **~$1.2–1.5T** | Capex requirement; distinct from RPO |
 | RPO (revenue underwriting, not capex) | **~$550B** | Oracle–OpenAI, Anthropic–AWS, Meta–Nebius, CoreWeave |
 | 2030 H100-equivalents (Western) | **78.2M** | vs. 4.2M operational today — 18.7× growth (basis-invariant) |
 
-**The central fact**: approximately 85% of the 51.9 GW facility raw 2030 horizon is
+**The central fact**: approximately 85% of the 51.4 GW facility raw 2030 horizon is
 not yet operational. The forecast stands or falls on whether the 2028–2030
 pipeline materializes on announced timelines — which is why every number
 here carries an evidence tier and a realization probability.
@@ -56,7 +56,7 @@ central IT-load bridge is ~43 GW at blended PUE 1.20.
 - [`neocloud_overlay.yaml`](neocloud_overlay.yaml) — CoreWeave, Nebius, Applied Digital, Crusoe, Lambda, Voltage Park, Together AI, Fermi, Nscale — operational + contracted capacity per operator with evidence-tier rollup
 - [`facts_extract.yaml`](facts_extract.yaml) — the 11 facts added or modified by the overlay with full source metadata inlined
 - [`compute_commitments_totals.csv`](compute_commitments_totals.csv) — flat per-row table (Excel-ready)
-- [`row_level_audit.csv`](row_level_audit.csv) — 33 rows × 25 columns, the companion to Appendix B in the paper
+- [`row_level_audit.csv`](row_level_audit.csv) — 33 rows × 40 columns, the companion to Appendix B in the paper
 - [`epoch_data_centers/`](epoch_data_centers/) — upstream Epoch AI Frontier Data Centers snapshot (CC BY 4.0) this overlay sits on top of
 
 ### Framework docs
@@ -101,12 +101,12 @@ realization probabilities; individual rows can override via the
 | Tier | Label | GW (Western) | Default P(realize) | Documented range |
 |------|-------|-------------:|-------------------:|------------------|
 | T1 | Operational | 7.56 | 1.00 | n/a |
-| T2 | Under construction / physically evidenced | 12.32 | 0.88 | 0.80–0.95 |
-| T3 | Firm commercial commitment | 7.90 | 0.78 | 0.65–0.90 |
-| T4 | Announced site-level plan | 16.28 | 0.58 | 0.40–0.75 |
-| T5 | LOI / stretch target | 6.30 | 0.32 | 0.15–0.50 |
-| T6 | Analyst inference | 0.26 | 0.25 | 0.10–0.40 |
-| **Total** | | **50.62** | | |
+| T2 | Under construction / physically evidenced | 12.43 | 0.88 | 0.80–0.95 |
+| T3 | Firm commercial commitment | 7.95 | 0.78 | 0.65–0.90 |
+| T4 | Announced site-level plan | 16.41 | 0.58 | 0.40–0.75 |
+| T5 | LOI / stretch target | 6.75 | 0.32 | 0.15–0.50 |
+| T6 | Analyst inference | 0.33 | 0.25 | 0.10–0.40 |
+| **Total** | | **43.93** | | |
 
 The full tier definitions and per-row assignment rules are in
 [`CONFIDENCE_DECOMPOSITION.md`](CONFIDENCE_DECOMPOSITION.md).
@@ -116,9 +116,9 @@ The full tier definitions and per-row assignment rules are in
 ## Scope decisions
 
 1. **Western-aligned vs. sovereign-AI reported separately.** The Western
-   subtotal (50.6 GW) is the capex-revenue denominator for any analysis
+   subtotal (43.9 GW) is the capex-revenue denominator for any analysis
    of OpenAI / Anthropic / Google / Meta / Microsoft / xAI. The sovereign
-   sidebar (1.95 GW — UAE, Saudi, India, UK) is reported but NOT added
+   sidebar (1.91 GW — UAE, Saudi, India, UK) is reported but NOT added
    to the Western denominator.
 2. **Class B (chip procurement) adds zero physical GW.** AMD 6 GW +
    Broadcom 10 GW + NVIDIA 10 GW = 26 GW in chip nameplate, but those
@@ -174,7 +174,7 @@ The full tier definitions and per-row assignment rules are in
   (A Stargate slip, B neocloud spread, C grid slip, D chip slip,
   E inference > training) fire independently as Bernoulli(scenario_prob);
   their combined unconditional EV is approximately −5.9 GW, which is
-  why the Monte Carlo median (31 GW) sits ~5 GW below the deterministic
+  why the Monte Carlo median (31.5 GW) sits ~5 GW below the deterministic
   tier-weighted point (36 GW).
 - **What we don't forecast** is enumerated in §9 of the paper: PUE
   ambiguity, interconnection-queue opacity, chip-roadmap uncertainty
