@@ -661,7 +661,7 @@ layers:
     layer_share_of_cluster_capex_pct: [13, 18]
     layer_share_legacy_cloud_pct: [5, 10]
     layer_total_usd_m_per_mw_low: 2.5
-    layer_total_usd_m_per_mw_high: 5.0
+    layer_total_usd_m_per_mw_high: 4.5
     layer_total_usd_m_per_mw_central: 4.0
     layer_basis: facility_mw
     layer_vintage: 2026
@@ -799,7 +799,7 @@ layers:
     layer_total_rack_complete_usd_m_per_mw_central: 19.5
     layer_total_it_bom_at_customer_usd_m_per_mw_low: 19
     layer_total_it_bom_at_customer_usd_m_per_mw_high: 28
-    layer_total_it_bom_at_customer_usd_m_per_mw_central: 23.5
+    layer_total_it_bom_at_customer_usd_m_per_mw_central: 24.05
     layer_basis: facility_mw
     layer_vintage: 2026
     layer_reference_platform: "GB200/GB300 NVL72 all-NVIDIA mix"
@@ -1160,36 +1160,36 @@ layers:
 aggregate_rollup_facility_mw_2026:
   facility_only_no_it:
     shell_civil_land_central: 6.5
-    cooling_central: 2.75
+    cooling_central: 3.0
     power_grid_tied_central: 2.8
     grid_interface_median_central: 1.1
     subtotal_low: 11.0
     subtotal_high: 19.0
-    subtotal_central: 13.15
+    subtotal_central: 13.4
     note: "Independently reconciles to Crusoe Abilene's $12.5M/MW disclosed shell+power+cooling envelope"
 
   facility_with_btm_gas:
     shell_civil_land_central: 6.5
-    cooling_central: 2.75
+    cooling_central: 3.0
     power_btm_gas_central: 4.0
     grid_interface_constrained_central: 2.15
     subtotal_low: 13.0
     subtotal_high: 22.5
-    subtotal_central: 15.4
+    subtotal_central: 15.65
 
   it_bom_at_customer:
     accelerator_server_rack_complete_central: 19.5
     networking_out_of_rack_central: 4.0
     storage_central: 0.55
     subtotal_low: 19.0
-    subtotal_high: 28.5
+    subtotal_high: 28.0
     subtotal_central: 24.05
 
   total_all_in_facility_gw_2026:
     low: 30.0
-    high: 47.5
-    central_grid_tied: 37.2
-    central_btm_gas: 39.45
+    high: 47.0
+    central_grid_tied: 37.45
+    central_btm_gas: 39.7
     central_adopted_in_paper: 37.0
     capital_envelope_at_raw_horizon_51_9_gw_usd_t_low: 1.6
     capital_envelope_at_raw_horizon_51_9_gw_usd_t_high: 2.4
@@ -1208,15 +1208,15 @@ aggregate_rollup_facility_mw_2026:
   reconciliation_to_external_anchors:
     - anchor: "Crusoe Abilene (shell+power+cooling, no IT)"
       disclosed_usd_m_per_mw: 12.5
-      our_facility_only_central: 13.15
-      delta_pct: 5
+      our_facility_only_central: 13.4
+      delta_pct: 7
     - anchor: "Bernstein (~$35B/GW IT-load)"
       pue_adjusted_facility_basis_usd_b_per_gw: 28
-      our_central_grid_tied: 36.7
+      our_central_grid_tied: 37.45
       note: "Bernstein under-counts BTM gas + grid upgrades; if added closes gap"
     - anchor: "Epoch facility-GW $29-30B"
-      our_central_grid_tied: 36.7
-      delta: "Our number $7B/GW higher; consistent with Epoch using lower IT mix"
+      our_central_grid_tied: 37.45
+      delta: "Our number ~$8B/GW higher; consistent with Epoch using lower IT mix"
     - anchor: "JLL fully built-out $45-55B/GW"
       our_high: 47.0
       delta: "Our high end aligns with JLL low end"

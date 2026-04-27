@@ -8,7 +8,7 @@ resolves to a row in the data layer, every row carries an evidence tier
 (T1–T6) and a realization probability, and the 2030 horizon is reported as
 a Monte Carlo distribution rather than a point estimate.
 
-- **Paper**: [`report.pdf`](report.pdf) (30 pages)
+- **Paper**: [`report.pdf`](report.pdf) (37 pages)
 - **Latest revision**: 2026-04-27 (rev-4, bottoms-up unit-economics anatomy + capital envelope reset to ~$1.9T)
 - **Data cutoff**: 2026-04-27
 - **Primary data**: [Epoch AI Frontier Data Centers](https://epoch.ai/data/data-centers) (CC BY 4.0)
@@ -49,7 +49,7 @@ central IT-load bridge is ~43 GW at blended PUE 1.20.
 
 ### Paper
 - [`report.tex`](report.tex) — LaTeX source
-- [`report.pdf`](report.pdf) — 30-page PDF
+- [`report.pdf`](report.pdf) — 37-page PDF
 
 ### Data layer (the ledger)
 

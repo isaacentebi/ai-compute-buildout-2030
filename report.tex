@@ -289,17 +289,17 @@ A 2026-vintage 1~GW AI campus is not a building --- it is a power plant with com
 \textbf{Layer} & \textbf{Low \$M/MW} & \textbf{High \$M/MW} & \textbf{Central \$M/MW} & \textbf{Layer-dominating components} \\
 \midrule
 Shell + civil + land + base/AI fit-out & 4.4 & 9.7 & 6.5 & Building shell; AI fit-out delta (CDU plumbing, busway) \\
-Cooling stack & 2.0 & 3.5 & 2.75 & DLC cold plates and CDUs; chillers; dry coolers in water-stressed sites \\
+Cooling stack & 2.0 & 3.5 & 3.0 & DLC cold plates and CDUs; chillers; dry coolers in water-stressed sites \\
 Power infrastructure (grid-tied) & 1.9 & 3.7 & 2.8 & Main transformers (long lead); UPS \\
 \quad\emph{or with behind-the-meter gas} & \emph{2.5} & \emph{5.5} & \emph{4.0} & \emph{Above plus 1.0--2.5 \$M/MW gas turbines} \\
 Networking fabric (rack-internal scale-up) & --- & --- & \emph{(in rack BOM)} & NVLink scale-up; copper cartridges \\
-Out-of-rack networking & 2.5 & 5.0 & 4.0 & Optics (60\% of out-of-rack BOM); back-end fabric \\
+Out-of-rack networking & 2.5 & 4.5 & 4.0 & Optics (60\% of out-of-rack BOM); back-end fabric \\
 Accelerator + server BOM (rack-complete) & 16 & 23 & 19.5 & Accelerator silicon; HBM \\
 Storage & 0.3 & 0.8 & 0.55 & NVMe arrays; controllers \\
-Grid interface (substation-to-fence + assigned upgrades) & 0.3 & 5.0 & 1.1 & Wide range by ISO posture; see \S\ref{subsec:scaling-the-unit} \\
+Grid interface (substation-to-fence + assigned upgrades) & 0.3 & 5.0 & 1.1 & Wide range by ISO posture; see \S\ref{sec:execution-risk} \\
 \midrule
-\textbf{Subtotal: facility-only (no IT)} & \textbf{11} & \textbf{19} & \textbf{13.2} & Reconciles to Crusoe Abilene \$12.5M/MW disclosed \\
-\textbf{Subtotal: IT BOM at customer} & \textbf{19} & \textbf{28.5} & \textbf{24.0} & Accel + server + out-of-rack networking + storage \\
+\textbf{Subtotal: facility-only (no IT)} & \textbf{11} & \textbf{19} & \textbf{13.4} & Reconciles to Crusoe Abilene \$12.5M/MW disclosed \\
+\textbf{Subtotal: IT BOM at customer} & \textbf{19} & \textbf{28} & \textbf{24.0} & Accel + server + out-of-rack networking + storage \\
 \textbf{Total all-in facility-GW (2026)} & \textbf{30} & \textbf{47} & \textbf{37} & Bernstein \$35B central; JLL \$45--55B fully built \\
 \bottomrule
 \end{tabular}
@@ -933,7 +933,7 @@ Grid interface + assigned upgrades & 15 & 260 & ISO/RTO queue, customer-funded t
 \subsection{Financing bridge: sources of funds}
 \label{subsec:financing-bridge}
 
-The same capital envelope can be equivalently decomposed by source-of-funds. The capex bridge and the financing bridge are distinct accounting questions: the first asks what the money pays for, the second asks whose balance sheet it flows off. They must balance in aggregate.
+The same capital envelope can be equivalently decomposed by source-of-funds. The capex bridge and the financing bridge are distinct accounting questions: the first asks what the money pays for, the second asks whose balance sheet it flows off. They reconcile at the central but use different convention bounds (arithmetic-extreme for capex, credible-source for financing); see Figure~8A and 8B captions for the respective range derivations.
 
 \begin{table}[htbp]
 \centering
@@ -958,7 +958,7 @@ The important conceptual separation: the \textbf{\$550B of contracted RPO} (Orac
 
 \subsection{The aggregate: capex bridge and financing bridge}
 
-The \$1.9~T capital envelope has two equally valid aggregate views. Figure~8A shows \emph{what the money physically buys}; Figure~8B shows \emph{whose balance sheet the money flows off}. They must balance in aggregate but answer different accounting questions. The \$550B of contracted remaining performance obligations (RPO) is \emph{neither} --- it is the revenue underwriting that \emph{enables} the debt-financing channel (Oracle's \$300B from OpenAI, Anthropic's \$100B+ from Amazon, Nebius's \$27B from Meta, etc.\ are lab \emph{revenue} commitments, not capex channels; rev-2 mis-depicted RPO as a stand-alone funding source and is corrected here).
+The \$1.9~T capital envelope has two equally valid aggregate views. Figure~8A shows \emph{what the money physically buys}; Figure~8B shows \emph{whose balance sheet the money flows off}. The two views reconcile at the \$1.9~T central but use different convention bounds (arithmetic layer-extreme for the capex bridge \$1.4--2.7~T, credible-source range for the financing bridge \$1.65--2.25~T; both sit inside the headline defensible band \$1.6--2.4~T). The \$550B of contracted remaining performance obligations (RPO) is \emph{neither} --- it is the revenue underwriting that \emph{enables} the debt-financing channel (Oracle's \$300B from OpenAI, Anthropic's \$100B+ from Amazon, Nebius's \$27B from Meta, etc.\ are lab \emph{revenue} commitments, not capex channels; rev-2 mis-depicted RPO as a stand-alone funding source and is corrected here).
 
 \begin{figure}[htbp]
 \centering
@@ -1044,7 +1044,7 @@ The \$1.9~T capital envelope has two equally valid aggregate views. Figure~8A sh
 \addplot[draw=none,fill=none,forget plot,nodes near coords={}] coordinates {(0,dummy)};
 \end{axis}
 \end{tikzpicture}
-\caption{Figure 8B. Financing bridge for the same \$1.9~T capital envelope, decomposed by source of funds. Hyperscaler operating cash flow is the dominant channel (approximately 47\%) because Microsoft, Amazon, Google, and Meta collectively generate roughly \$400B of annual free cash flow before capex; combined 2025 actual capex was approximately \$400~B and 2026 guidance is approximately \$500~B (75\%+ AI-attributable). Corporate and SPV debt together add approximately 32\%; the SPV channel is structured against 15-year take-or-pay RPO, wrapped to investment-grade at the SPV level, and issued into private-credit markets. Sovereign capital from MGX, HUMAIN, UK DSIT, and Reliance contributes approximately 13\%. Equity (public markets + private rounds) absorbs the remaining 8\%. The \$550B RPO does \emph{not} appear as a stand-alone channel here --- it is the revenue underwriting that enables the SPV/project-finance debt channel.\protect\footnotemark}
+\caption{Figure 8B. Financing bridge for the same \$1.9~T capital envelope, decomposed by source of funds. Hyperscaler operating cash flow is the dominant channel (approximately 47\%) because Microsoft, Amazon, Google, and Meta collectively generate roughly \$400B of annual free cash flow before capex; combined 2025 actual capex was approximately \$400~B and 2026 guidance is approximately \$500~B (75\%+ AI-attributable). Corporate and SPV debt together add approximately 32\%; the SPV channel is structured against 15-year take-or-pay RPO, wrapped to investment-grade at the SPV level, and issued into private-credit markets. Sovereign capital from MGX, HUMAIN, UK DSIT, and Reliance contributes approximately 13\%. Equity (public markets + private rounds) absorbs the remaining 8\%. The \$550B RPO does \emph{not} appear as a stand-alone channel here --- it is the revenue underwriting that enables the SPV/project-finance debt channel. \emph{Range note}: as with the capex-bridge view, the financing range \$1.65--2.25~T is narrower than the headline defensible band \$1.6--2.4~T; financing-source bounds reflect credible-source ranges (e.g.\ hyperscaler operating-cash floor and ceiling) rather than arithmetic layer extremes. The two views collapse to the same \$1.9~T central but use different convention bounds (arithmetic-extreme for capex, credible-source for financing).\protect\footnotemark}
 \end{figure}
 \footnotetext{Author's aggregation. Hyperscaler channel: Big-Four CY2025 actual (~\$400~B) + CY2026 guidance (~\$500~B) times 75\% AI share, extended 2027--2030 at roughly flat dollar levels per current capex-cycle commentary. Corporate debt: hyperscaler balance-sheet additions plus CoreWeave, Nebius, Applied Digital, Crusoe corporate issuance. SPV / project-finance: Applied Digital--CoreWeave SPV (\$2.15~B 6.75\% senior secured 2031, A3), CoreWeave Blackstone facility, Nebius ABS, Crusoe \$9.6~B JPMorgan-led debt + Blue Owl JV --- all wrapped to investment-grade via lab-revenue RPO. Sovereign: MGX \$100--200B per OpenAI Stargate announcement + HUMAIN \$10B AMD JV + UK DSIT £5B + RIL estimated \$30--50B Jamnagar phase-one. Equity: OpenAI secondary rounds, Anthropic Series F/G, CoreWeave public-float, Nebius AMS float, Crusoe Series E (\$1.375B at \textgreater\$10B valuation, October 2025).}
 
@@ -1161,14 +1161,14 @@ The 51.4~GW facility announced horizon, 36.5~GW facility deterministic tier-weig
 \toprule
 \textbf{Physical-capacity scenario} & \textbf{$\Delta$GW} & \textbf{$\Delta$\$B capex} & \textbf{Mechanism / counterparties} & \textbf{Prob.} \\
 \midrule
-Systemic infrastructure stress & $-10.5$ & $-300$ & Correlated grid, financing, and Stargate slippage; replaces Stargate slip, neocloud financing stress, and grid delay in that draw & 15\% \\
-Stargate slip & $-3.5$ & $-120$ & Oracle, Microsoft, CoreWeave, SoftBank; conditional probability 17.6\% if systemic stress does not fire & 30\% target \\
-Neocloud financing stress & $-2.0$ & $-60$ & CoreWeave, Nebius, Applied Digital, Crusoe; conditional probability 11.8\% if systemic and RPO stress do not fire, 60\% if RPO stress fires & 25\% target \\
-Grid delay & $-8.0$ & $-180$ & ERCOT, MISO, and PJM delay across xAI, Meta, Stargate, and related large-load sites; conditional probability 29.4\% if systemic stress does not fire & 40\% target \\
-Demand/RPO stress & $-2.5$ & $-80$--$120$ & Oracle/OpenAI, CoreWeave/Microsoft/OpenAI, Nebius/Meta/Microsoft, Anthropic/AWS/Google; \$100--175B RPO at risk & 15\% \\
-Grid/interconnection acceleration & $+2.0$ & $+50$--$70$ & Permitting reform, connect-and-manage rules, behind-the-meter generation, and fast-track tariffs & 20\% \\
-Neocloud financing upside & $+1.5$ & $+40$--$60$ & Tighter SPV and private-credit spreads finance marginal projects earlier & 20\% \\
-T4 over-realization & $+2.0$--$2.5$ & $+60$--$90$ & Named-site projects with capex-secured sponsors reach COD faster than tier-default assumptions & 15\% \\
+Systemic infrastructure stress & $-10.5$ & $-389$ & Correlated grid, financing, and Stargate slippage; replaces Stargate slip, neocloud financing stress, and grid delay in that draw & 15\% \\
+Stargate slip & $-3.5$ & $-130$ & Oracle, Microsoft, CoreWeave, SoftBank; conditional probability 17.6\% if systemic stress does not fire & 30\% target \\
+Neocloud financing stress & $-2.0$ & $-74$ & CoreWeave, Nebius, Applied Digital, Crusoe; conditional probability 11.8\% if systemic and RPO stress do not fire, 60\% if RPO stress fires & 25\% target \\
+Grid delay & $-8.0$ & $-296$ & ERCOT, MISO, and PJM delay across xAI, Meta, Stargate, and related large-load sites; conditional probability 29.4\% if systemic stress does not fire & 40\% target \\
+Demand/RPO stress & $-2.5$ & $-93$ & Oracle/OpenAI, CoreWeave/Microsoft/OpenAI, Nebius/Meta/Microsoft, Anthropic/AWS/Google; \$100--175B RPO at risk & 15\% \\
+Grid/interconnection acceleration & $+2.0$ & $+74$ & Permitting reform, connect-and-manage rules, behind-the-meter generation, and fast-track tariffs & 20\% \\
+Neocloud financing upside & $+1.5$ & $+56$ & Tighter SPV and private-credit spreads finance marginal projects earlier & 20\% \\
+T4 over-realization & $+2.0$--$2.5$ & $+74$--$93$ & Named-site projects with capex-secured sponsors reach COD faster than tier-default assumptions & 15\% \\
 \bottomrule
 \end{tabular}
 \captionof*{table}{\textbf{Table 5A.} Physical-capacity scenarios used in the Monte Carlo. \textbf{Unit:} GW of 2030 Western facility power. Target probabilities for Stargate slip, neocloud financing stress, and grid delay preserve their unconditional priors, but the simulation samples them conditionally around the systemic state.}
@@ -1190,7 +1190,7 @@ Silicon acceleration & $0.0$ & neutral / mildly positive & Rubin, Trainium, TPU,
 \captionof*{table}{\textbf{Table 5B.} Silicon and workload-mix scenarios. These cases affect chip dollars or H100-equivalent capacity more than utility-meter facility power. Silicon acceleration increases compute supported inside a fixed facility-power envelope and therefore does not move the Western facility-power Monte Carlo.}
 \end{center}
 
-In isolation, the original downside shocks imply an unconditional expected loss of 5.5~GW before correlation adjustments: $-3.5 \cdot 0.30 - 2.0 \cdot 0.25 - 8.0 \cdot 0.40 - 1.5 \cdot 0.50$. The simulation no longer treats Stargate slip, neocloud financing stress, and grid delay as fully independent in bad infrastructure states. A systemic stress variable fires with 15\% probability; if it fires, the draw applies a combined $-10.5$~GW / $-300$B hit and does not separately fire those three physical-capacity shocks. If it does not fire, those shocks fire at conditional probabilities calibrated to keep their target unconditional priors close to 30\%, 25\%, and 40\%, with neocloud financing additionally linked to lab-revenue/RPO stress.
+In isolation, the original downside shocks imply an unconditional expected loss of 5.5~GW before correlation adjustments: $-3.5 \cdot 0.30 - 2.0 \cdot 0.25 - 8.0 \cdot 0.40 - 1.5 \cdot 0.50$. The simulation no longer treats Stargate slip, neocloud financing stress, and grid delay as fully independent in bad infrastructure states. A systemic stress variable fires with 15\% probability; if it fires, the draw applies a combined $-10.5$~GW / $-389$B hit (10.5 GW $\times$ \$37B/GW central) and does not separately fire those three physical-capacity shocks. If it does not fire, those shocks fire at conditional probabilities calibrated to keep their target unconditional priors close to 30\%, 25\%, and 40\%, with neocloud financing additionally linked to lab-revenue/RPO stress.
 
 Scenario F moves RPO enforceability into the realization model. If frontier-lab revenue, API/inference margins, or utilization disappoint, labs may defer, renegotiate, or underutilize take-or-pay commitments. The draw subtracts 2.5~GW from the 2030 facility horizon, flags \$100--175B of RPO at risk, and raises the standalone neocloud-financing shock probability to 60\% in that draw.
 
