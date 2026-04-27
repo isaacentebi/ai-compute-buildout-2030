@@ -1191,9 +1191,12 @@ aggregate_rollup_facility_mw_2026:
     central_grid_tied: 37.45
     central_btm_gas: 39.7
     central_adopted_in_paper: 37.0
-    capital_envelope_at_raw_horizon_51_9_gw_usd_t_low: 1.6
-    capital_envelope_at_raw_horizon_51_9_gw_usd_t_high: 2.4
-    capital_envelope_at_raw_horizon_51_9_gw_usd_t_central: 1.9
+    # Capital envelope at the canonical raw Western 2027-2030 facility horizon
+    # (read at audit time from compute_commitments_overlay.yaml; currently 51.43 GW
+    # after codex's xAI-HUMAIN reclassification merged 2026-04-27).
+    capital_envelope_at_raw_horizon_usd_t_low: 1.5
+    capital_envelope_at_raw_horizon_usd_t_high: 2.4
+    capital_envelope_at_raw_horizon_usd_t_central: 1.9
     arithmetic_layer_extreme_low: 1.4
     arithmetic_layer_extreme_high: 2.7
     sits_in_band: "Bernstein $35B/GW central case"

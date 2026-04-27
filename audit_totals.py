@@ -42,16 +42,19 @@ NEOCLOUD = ROOT / "neocloud_overlay.yaml"
 ANATOMY_LAYER_COSTS = ROOT / "anatomy_layer_costs.yaml"
 
 # Bottom-up unit-economics rollup fallback values (used only if the YAML
-# does not declare them; the audit now reads canonical values from the YAML
+# does not declare them; the audit reads canonical values from the YAML
 # at runtime to prevent drift between this file and the data layer).
 # anatomy_layer_costs.yaml#aggregate_rollup_facility_mw_2026.total_all_in_facility_gw_2026
 ANATOMY_TOTAL_LOW = 30.0
 ANATOMY_TOTAL_HIGH = 47.0
 ANATOMY_TOTAL_CENTRAL = 37.45
-ANATOMY_CAPEX_ENVELOPE_T_LOW = 1.6
+ANATOMY_CAPEX_ENVELOPE_T_LOW = 1.5
 ANATOMY_CAPEX_ENVELOPE_T_HIGH = 2.4
 ANATOMY_CAPEX_ENVELOPE_T_CENTRAL = 1.9
-ANATOMY_RAW_HORIZON_GW = 51.927  # matches compute_commitments_overlay.yaml western total
+# Fallback only — the canonical raw Western 2027-2030 facility horizon
+# is read from compute_commitments_overlay.yaml#totals.western_horizon_2027_2030_facility
+# at runtime so it cannot drift from the data layer it audits.
+ANATOMY_RAW_HORIZON_GW_FALLBACK = 51.427
 
 # $/MW tolerance (0.5M = 500k drift on a layer line)
 ANATOMY_TOL_USD_M_PER_MW = 0.5
@@ -503,6 +506,17 @@ def audit_anatomy_layer_costs() -> bool:
     yaml_total_high = yaml_total_block.get("high", ANATOMY_TOTAL_HIGH)
     yaml_total_central = yaml_total_block.get("central_grid_tied", ANATOMY_TOTAL_CENTRAL)
 
+    # Read the canonical Western raw 2027-2030 facility horizon from the
+    # overlay YAML — single source of truth, prevents drift between the
+    # script's constant and the actual data layer.
+    overlay_doc = load_overlay()
+    overlay_totals = overlay_doc.get("totals", {})
+    raw_horizon_gw = (
+        overlay_totals
+        .get("western_horizon_2027_2030_facility", {})
+        .get("total_gw_point", ANATOMY_RAW_HORIZON_GW_FALLBACK)
+    )
+
     # Map of rollup component centrals (for cross-check against layer blocks)
     facility_only_block = rollup.get("facility_only_no_it", {})
     it_bom_block = rollup.get("it_bom_at_customer", {})
@@ -583,16 +597,17 @@ def audit_anatomy_layer_costs() -> bool:
 
     # --- Capital envelope at raw horizon (cross-check declared vs computed at low/central/high) ---
     declared_envelope_central = yaml_total_block.get(
-        "capital_envelope_at_raw_horizon_51_9_gw_usd_t_central", 0.0
+        "capital_envelope_at_raw_horizon_usd_t_central", 0.0
     )
     declared_envelope_low = yaml_total_block.get(
-        "capital_envelope_at_raw_horizon_51_9_gw_usd_t_low", 0.0
+        "capital_envelope_at_raw_horizon_usd_t_low", 0.0
     )
     declared_envelope_high = yaml_total_block.get(
-        "capital_envelope_at_raw_horizon_51_9_gw_usd_t_high", 0.0
+        "capital_envelope_at_raw_horizon_usd_t_high", 0.0
     )
 
-    computed_envelope_central = (total_central_declared * ANATOMY_RAW_HORIZON_GW) / 1000.0
+    print(f"         (raw horizon read from overlay YAML: {raw_horizon_gw:.3f} GW facility)")
+    computed_envelope_central = (total_central_declared * raw_horizon_gw) / 1000.0
     diff = abs(computed_envelope_central - declared_envelope_central)
     ok = diff <= ANATOMY_TOL_USD_T
     mark = "OK  " if ok else "FAIL"
@@ -601,8 +616,8 @@ def audit_anatomy_layer_costs() -> bool:
 
     # Cross-check declared envelope_high against YAML's total_high × horizon
     # (the merged_bug_001 case: yaml.high=47.5 implies $2.47T, not $2.4T)
-    computed_envelope_low = (yaml_total_low * ANATOMY_RAW_HORIZON_GW) / 1000.0
-    computed_envelope_high = (yaml_total_high * ANATOMY_RAW_HORIZON_GW) / 1000.0
+    computed_envelope_low = (yaml_total_low * raw_horizon_gw) / 1000.0
+    computed_envelope_high = (yaml_total_high * raw_horizon_gw) / 1000.0
     high_consistent = abs(computed_envelope_high - declared_envelope_high) <= ANATOMY_TOL_USD_T
     low_consistent = abs(computed_envelope_low - declared_envelope_low) <= ANATOMY_TOL_USD_T
     if not high_consistent:
