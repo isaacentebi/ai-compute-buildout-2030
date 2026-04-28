@@ -771,7 +771,7 @@ layers:
         evidence_tier: T1
         primary_sources:
           - publisher: "Microsoft Source (Fairwater Wisconsin <-> Atlanta)"
-            url: "https://news.microsoft.com/source/features/ai/from-wisconsin-to-atlanta-microsoft-connects-datacenters-to-build-its-first-ai-superfactory/"
+            url: "https://blogs.microsoft.com/blog/2025/09/18/inside-the-worlds-most-powerful-ai-datacenter/"
             retrieval_date: "2026-04-27"
             note: "120,000 miles dedicated fiber for AI WAN; MRC protocol"
 
@@ -1203,7 +1203,7 @@ aggregate_rollup_facility_mw_2026:
     adopted_in_paper: rev-4 2026-04-27
     note: |
       The $30-47B/GW range is the bottoms-up reconstruction. The $1.6-2.4T
-      capital envelope at the raw 51.9 GW announced horizon is the rev-4
+      capital envelope at the raw 51.4 GW announced horizon is the rev-4
       headline figure (was rev-3 $1.2-1.5T). The defensible band sits inside
       the arithmetic layer-extreme bounds because not all layers hit their
       extreme simultaneously.

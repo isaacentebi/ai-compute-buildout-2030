@@ -33,7 +33,7 @@ facts:
     value:
       point_estimate: 52.0
     unit: USD_billion
-    as_of_date: '2026-04-07'
+    as_of_date: '2026-04-06'
     confidence: medium
     source_ids:
       - anthropic_google_broadcom_20260407
@@ -191,7 +191,7 @@ facts:
     value:
       point_estimate: 50.61
       range_low: 45.74
-      range_high: 53.48
+      range_high: 54.724
     unit: gigawatts
     as_of_date: '2026-04-22'
     confidence: medium
@@ -248,7 +248,7 @@ sources:
     publisher: Google Cloud
     title: "Anthropic's multi-year partnership with Google Cloud"
     url: "https://cloud.google.com/blog/products/ai-machine-learning/anthropic-partnership-google-cloud-2026"
-    publication_date: 2026-04-07
+    publication_date: 2026-04-06
     access_date: 2026-04-16
 
   maginative_1m_tpu:
@@ -279,7 +279,7 @@ sources:
     type: primary
     publisher: Microsoft News Center
     title: "Microsoft and G42 break ground on UAE-based AI data center with Khazna"
-    url: "https://news.microsoft.com/source/features/ai/microsoft-g42-uae-khazna-ai-data-center/"
+    url: "https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/"
     publication_date: 2025-11-01
     access_date: 2026-04-22
 

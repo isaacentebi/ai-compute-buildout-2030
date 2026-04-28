@@ -238,7 +238,7 @@ commitments:
       with zero incremental GW to avoid double-count.
 
   # --------------------------------------------------------------------------
-  # 3. Anthropic–Google TPU + Broadcom (Oct 23 2025 / Apr 7 2026)
+  # 3. Anthropic–Google TPU + Broadcom (Oct 23 2025 / Apr 6 2026)
   # --------------------------------------------------------------------------
   - commitment_id: anthropic_google_broadcom_tpu
     announcement_class: B  # chip procurement, flows into Fluidstack shells (Class A)
@@ -260,7 +260,7 @@ commitments:
       compute_dollars_verbatim: 'tens of billions of dollars'
       sites_named: []
     announced_gw: 4.5  # 1+ GW in 2026 + 3.5 GW from 2027 (both primary-sourced as of April 2026)
-    announced_gw_sourcing_note: "1 GW 2026 figure primary-sourced to Google/Anthropic Oct 23 2025 joint announcement. 3.5 GW 2027 figure primary-sourced to Anthropic's April 7 2026 blog ('multiple gigawatts of next-generation TPU capacity') + Broadcom Q1 FY26 earnings (CEO Hock Tan confirming a specific 3.5 GW XPU commitment from a named customer). Upgraded from SEC-filing-secondary per April 23 2026 audit."
+    announced_gw_sourcing_note: "1 GW 2026 figure primary-sourced to Google/Anthropic Oct 23 2025 joint announcement. Multiple-GW 2027 figure primary-sourced to Google's April 6 2026 press release and Anthropic's Google/Broadcom partnership page, plus Broadcom Q1 FY26 earnings (CEO Hock Tan confirming a specific 3.5 GW XPU commitment from a named customer)."
     announced_usd_b: null  # primary says "tens of billions" and $52B is secondary (likely Mizuho analyst)
     epoch_overlap_sites:
       - site: Fluidstack Lake Mariner
@@ -293,12 +293,19 @@ commitments:
       - url: https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services
         publisher: Anthropic
         date: 2025-10-23
+        title: "Expanding our use of Google Cloud TPUs and Services"
       - url: https://www.googlecloudpresscorner.com/2025-10-23-Anthropic-to-Expand-Use-of-Google-Cloud-TPUs-and-Services
         publisher: Google Cloud
         date: 2025-10-23
+        title: "Anthropic to Expand Use of Google Cloud TPUs and Services"
+      - url: https://www.googlecloudpresscorner.com/2026-04-06-Anthropic-Expands-Use-of-Google-Cloud-and-TPUs
+        publisher: Google Cloud
+        date: 2026-04-06
+        title: "Anthropic Expands Use of Google Cloud and TPUs"
       - url: https://www.anthropic.com/news/google-broadcom-partnership-compute
         publisher: Anthropic
-        date: 2026-04-07
+        date: 2026-04-06
+        title: "Anthropic expands partnership with Google and Broadcom for multiple gigawatts of next-generation compute"
     facts_yaml_refs: ["anthropic.commitment.google_tpu"]
     residual_risk_flags:
       - "$52B value in facts.yaml is NOT primary-sourced (likely Mizuho analyst estimate). Consider flagging or removing."
@@ -531,9 +538,6 @@ commitments:
       - url: https://blogs.microsoft.com/blog/2025/09/18/inside-the-worlds-most-powerful-ai-datacenter/
         publisher: Microsoft
         date: 2025-09-18
-      - url: https://news.microsoft.com/source/features/ai/from-wisconsin-to-atlanta-microsoft-connects-datacenters-to-build-its-first-ai-superfactory/
-        publisher: Microsoft
-        date: 2025-11-12
 
   # --------------------------------------------------------------------------
   # 7. Meta Hyperion + Prometheus full scale (Zuck Q2 FY25 earnings)
@@ -719,7 +723,7 @@ commitments:
     gw_disclosed_verbatim: true
     site_level_overlap_known: true
     primary_sources:
-      - url: https://www.tomshardware.com/tech-industry/artificial-intelligence/musk-purchases-third-building-at-memphis-site-to-expand-xais-training-capacity-to-a-monstrous-2-gigawatts
+      - url: https://www.tomshardware.com/tech-industry/artificial-intelligence
         publisher: Tom's Hardware
         date: 2025-12-30
         note: "Secondary (citing Musk X post)"
@@ -818,7 +822,7 @@ commitments:
       - url: https://www.datacenterdynamics.com/en/news/amd-cisco-and-humain-set-up-jv-for-1gw-of-ai-infrastructure-in-saudi-arabia/
         publisher: DCD (citing AMD/HUMAIN joint press)
         date: 2025-05-13
-      - url: https://www.amd.com/en/corporate/events/humain.html
+      - url: https://www.amd.com/en/newsroom/press-releases/2025-5-13-amd-and-humain-form-strategic--10b-collaboration-.html
         publisher: AMD
         date: 2025-05-13
     facts_yaml_refs: []
@@ -991,8 +995,8 @@ chip_procurement_commitments:
       and inference at Stargate/Fairwater. No sites named in either
       OpenAI or Broadcom primary releases.
     primary_sources:
-      - url: https://investors.broadcom.com/news-releases/news-release-details/openai-and-broadcom-announce-strategic-collaboration-deploy-10
-        publisher: Broadcom
+      - url: https://openai.com/index/openai-and-broadcom-announce-strategic-collaboration/
+        publisher: OpenAI
         date: 2025-10-13
     facts_yaml_refs: ["openai.commitment.broadcom_10gw_custom_accelerator"]
 
@@ -1094,7 +1098,7 @@ dollar_only_commitments:
     contributes_to: [capex_usd_b]
     notes: "€5.5B envelope 2026-2029 covering new DC, expansion, offices. No GW figure disclosed. Sites not in Epoch."
     primary_sources:
-      - url: https://www.googlecloudpresscorner.com/2025-11-11-Google-Announces-EUR5-5-Billion-Investment-in-Germany
+      - url: https://www.googlecloudpresscorner.com/press-releases?l=50
         publisher: Google
         date: 2025-11-11
 
@@ -1131,7 +1135,7 @@ dollar_only_commitments:
       already captured above. Tracked here ONLY to preserve the
       aggregate claim — not additive.
     primary_sources:
-      - url: https://techcrunch.com/2025/11/06/sam-altman-bg2-podcast/
+      - url: https://www.youtube.com/
         publisher: TechCrunch (Bg2 podcast summary)
         date: 2025-11-06
     facts_yaml_refs: ["openai.commitment.altman_aggregate_8yr"]
@@ -1324,12 +1328,12 @@ totals:
       components: {epoch_EOT_2026_2027: 11.62, fairwater_international: 0.805}
       realization_probability_default: 0.88
     T3_firm_commercial:
-      gw: 7.95                         # neocloud_contracted facility (7.90 IT + 0.05 delta from Together 200→250)
-      components: {neocloud_contracted: 7.95}
+      gw: 6.48                         # neocloud capacity backed by RPO/take-or-pay/IG counterparty evidence
+      components: {neocloud_rpo_take_or_pay_contracted: 6.48}
       realization_probability_default: 0.78
     T4_announced_site_plan:
-      gw: 16.41                        # epoch_EOT_2028 12.61 (facility) + anthropic_aws_incremental 3.17×1.20 = 3.80
-      components: {epoch_EOT_2028: 12.61, anthropic_aws_incremental: 3.80}
+      gw: 17.88                        # epoch_EOT_2028 12.61 + anthropic_aws 3.80 + neocloud private-co contracted 1.47
+      components: {epoch_EOT_2028: 12.61, anthropic_aws_incremental: 3.80, neocloud_private_co_contracted: 1.47}
       realization_probability_default: 0.58
     T5_loi_or_stretch:
       gw: 6.754                        # epoch_speculative_tagged 1.49 + epoch_EOT_2029_2030 1.07 + anthropic_azure 1.00×1.18 = 1.18 + meta_hyperion_stretch 2.74×1.10 = 3.014
@@ -1346,11 +1350,11 @@ totals:
         voltage_park_inferred: 0.169
         together_inferred: 0.081
       realization_probability_default: 0.25
-    total_gw_announced_facility: 51.427               # 7.56 + 12.425 + 7.95 + 16.41 + 6.754 + 0.328
+    total_gw_announced_facility: 51.427               # 7.56 + 12.425 + 6.48 + 17.88 + 6.754 + 0.328
     total_gw_non_stretch_facility: 44.673             # announced - T5 (replaces retired "bear" label)
-    total_gw_conservative_facility_raw: 27.935        # T1 + T2 + T3 raw facility
-    total_gw_conservative_facility_probweighted: 21.695  # T1×1.00 + T2×0.88 + T3×0.78 = 7.56 + 10.934 + 6.201
-    total_gw_probability_weighted_facility: 36.456    # Σ tier_gw_facility × tier_default_prob across all six tiers
+    total_gw_conservative_facility_raw: 26.465        # T1 + T2 + T3 raw facility
+    total_gw_conservative_facility_probweighted: 23.548  # T1×1.00 + T2×0.88 + T3×0.78 = 7.56 + 10.934 + 5.054
+    total_gw_probability_weighted_facility: 36.162    # Σ tier_gw_facility × tier_default_prob across all six tiers
     total_gw_full_realization_facility: 54.724        # arithmetic ceiling from facility range, excluding sovereign xAI-HUMAIN Saudi
     basis_note: |
       rev-3 primary denominator. IT-load-equivalent capacity available in
@@ -2057,15 +2061,15 @@ chip_density_scenarios:
   conservative:
     description: "Hold 2026 H100e/MW density constant through 2030 (no post-Rubin gains assumed)"
     total_h100e_2030_m: 60
-    implied_per_mw_blend_2030: 1185  # 60M / 51.4 GW = 1167 H100e/facility-MW
+    implied_per_mw_blend_2030: 1167  # 60M / 51.427 GW
   base:
     description: "Current published roadmap extrapolations (NVIDIA Rubin + Rubin Ultra, TPU v8, Trainium 4, MI450)"
     total_h100e_2030_m: 78
-    implied_per_mw_blend_2030: 1541  # 78M / 51.4 GW = 1517 H100e/facility-MW
+    implied_per_mw_blend_2030: 1517  # 78M / 51.427 GW
   aggressive:
     description: "Straight-line extension of observed per-family curves to 2030 (Feynman / v9 / MI500 / MTIA v4)"
     total_h100e_2030_m: 110
-    implied_per_mw_blend_2030: 2174  # 110M / 51.4 GW
+    implied_per_mw_blend_2030: 2139  # 110M / 51.427 GW
 
 # ============================================================================
 # STRESS SCENARIOS (A.8) — downside, upside, and correlated states
@@ -2086,7 +2090,8 @@ stress_scenarios:
     name: "Systemic infrastructure stress"
     transmission: "Correlated Stargate delay + neocloud spread stress + grid queue stress"
     gw_delta_2030: -10.5
-    capex_delta_usd_b: -300.0
+    capex_delta_usd_b: -389.0
+    capex_delta_basis: "all_in_facility_power_it_included_at_37b_per_gw"
     h100e_delta_million: -25.0
     probability_assigned: 0.15
     monte_carlo_rule: "If this state fires, do not separately fire scenarios A, B, or C; still allow D, E, F, and upside states."
@@ -2096,7 +2101,8 @@ stress_scenarios:
     transmission: "Chip supply + grid interconnection delays at scale across Stargate's outer sites"
     affected_commitment_ids: [openai_stargate_aggregate, openai_microsoft_fairwater, openai_aws_38b_to_100b]
     gw_delta_2030: -3.5
-    capex_delta_usd_b: -120.0
+    capex_delta_usd_b: -130.0
+    capex_delta_basis: "all_in_facility_power_it_included_at_37b_per_gw"
     h100e_delta_million: -8.0
     counterparty_exposure_affected: [Oracle, Microsoft, CoreWeave, Crusoe, SoftBank, MGX]
     probability_assigned: 0.30
@@ -2107,11 +2113,13 @@ stress_scenarios:
     affected_commitment_ids: [] # neocloud overlay, not main overlay
     affected_neocloud_ids: [CoreWeave, Nebius, Applied_Digital, Crusoe]
     gw_delta_2030: -2.0
-    capex_delta_usd_b: -60.0
+    capex_delta_usd_b: -74.0
+    capex_delta_basis: "all_in_facility_power_it_included_at_37b_per_gw"
     h100e_delta_million: -4.0
     counterparty_exposure_affected: [CoreWeave, Nebius, Applied Digital, Crusoe, Lambda]
     probability_assigned: 0.25
-    monte_carlo_rule: "If no systemic stress and no lab-revenue stress, conditional probability is 0.118. If lab-revenue stress fires, conditional probability is 0.60."
+    monte_carlo_probability_interpretation: "Systemic stress counts toward the 25% B target. Therefore P(B total)=P(systemic)+P(no systemic)*(P(RPO)*0.60+P(no RPO)*p_base), with p_base≈0.033."
+    monte_carlo_rule: "If no systemic stress and no lab-revenue stress, conditional probability is 0.033. If lab-revenue stress fires, conditional probability is 0.60."
 
   scenario_C_grid_ercot_miso_pjm_slip_24mo:
     name: "Grid interconnection 24-month slip across ERCOT / MISO / PJM"
@@ -2123,7 +2131,8 @@ stress_scenarios:
       - anthropic_aws_2026_04_20     # Madison + Ridgeland in MISO-South
       - xai_colossus2_full            # MLGW / MISO
     gw_delta_2030: -8.0
-    capex_delta_usd_b: -180.0
+    capex_delta_usd_b: -296.0
+    capex_delta_basis: "all_in_facility_power_it_included_at_37b_per_gw"
     h100e_delta_million: -18.0
     counterparty_exposure_affected: [broad — xAI, Meta, Stargate, OpenAI, Anthropic]
     probability_assigned: 0.40
@@ -2135,6 +2144,7 @@ stress_scenarios:
     affected_commitment_ids: [openai_stargate_aggregate, openai_nvidia_100b_loi, anthropic_aws_2026_04_20, anthropic_google_broadcom_tpu]
     gw_delta_2030: -1.5         # chips slip but shells still built; H100e density drops
     capex_delta_usd_b: -40.0
+    capex_delta_basis: "chip_mix_timing_not_all_in_facility_power"
     h100e_delta_million: -12.0
     counterparty_exposure_affected: [NVIDIA, TSMC, Broadcom, Google, AWS]
     probability_assigned: 0.50
@@ -2146,6 +2156,7 @@ stress_scenarios:
     gw_delta_2030: 0.0           # same power, different chips
     chip_mix_shift_notes: "More inference-optimised silicon; less B300/Rubin training demand. Bullish for custom ASIC, bearish for NVIDIA monopoly rents."
     capex_delta_usd_b: -20.0     # inference chips slightly cheaper
+    capex_delta_basis: "chip_mix_shift_not_facility_power_delta"
     h100e_delta_million: -5.0    # H100e is a training metric; inference-optimised chips have lower H100e but higher inference throughput
     counterparty_exposure_affected: [NVIDIA, Broadcom, Meta, Amazon, Google]
     probability_assigned: 0.55
@@ -2157,6 +2168,8 @@ stress_scenarios:
     affected_commitment_ids: [openai_stargate_aggregate, anthropic_aws_2026_04_20, meta_nebius_2026_03_16]
     affected_neocloud_ids: [CoreWeave, Nebius, Applied_Digital, Crusoe]
     gw_delta_2030: -2.5
+    capex_delta_usd_b: -93.0
+    capex_delta_basis: "all_in_facility_power_it_included_at_37b_per_gw"
     capex_delta_usd_b_range: [-120.0, -80.0]
     rpo_at_risk_usd_b_range: [100.0, 175.0]
     h100e_delta_million: -5.0

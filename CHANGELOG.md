@@ -1,10 +1,38 @@
-# CHANGELOG — Revisions of 2026-04-23 (rev-1), 2026-04-24 (rev-2 and rev-3), and 2026-04-27 (rev-4)
+# CHANGELOG — Revisions of 2026-04-23 through 2026-04-27 (Rev-4.1 current)
 
 Revisions of "The AI Compute Build-Out, 2026--2030". This changelog documents every
 headline number that moved across five PDF generations: pre-revision (17 pages),
 rev-1 2026-04-23 (27 pages), rev-2 2026-04-24 (Epoch drift incorporation),
 rev-3 2026-04-24 (facility-basis reconciliation), and rev-4 2026-04-27
-(bottoms-up unit-economics anatomy + capital envelope reset).
+(bottoms-up unit-economics anatomy + capital envelope reset), and Rev-4.1
+2026-04-27 (reproducibility and manuscript-repair pass).
+
+## REV-4.1 (2026-04-27) — Reproducibility and canonical-number repair
+
+Rev-4.1 adopts the neocloud tier split already present in `neocloud_overlay.yaml`.
+Nscale, Lambda, and Together contracted capacity move from T3 firm commercial to
+T4 announced private-company capacity unless future primary evidence supports
+T3 treatment.
+
+Current canonical values:
+
+| Metric | Rev-4.1 |
+|--------|---------|
+| Raw announced Western horizon | **51.4 GW facility** |
+| Deterministic tier-weighted | **36.2 GW facility** |
+| Conservative T1+T2+T3 raw | **26.5 GW facility** |
+| Monte Carlo p50 | **32.4 GW facility** |
+| Monte Carlo p10--p90 | **24.4--38.3 GW facility** |
+| Capital envelope | **$1.9T [$1.5--2.4T]** |
+
+Other fixes:
+
+- Regenerated `monte_carlo_output_facility_seed20260424.json` and `monte_carlo_output_it_seed20260424.json`.
+- Added `CANONICAL_CONSTANTS.md`, `MANIFEST.md`, `PROMPT.md`, `check_urls.py`, `url_check_report.json`, and `regression_checks.py`.
+- Renamed the audit's rough dollar subtotal to `named_dollar_commitments_subtotal_usd_b` and separately emitted the anatomy capital envelope.
+- Added audit checks for stress-scenario capex deltas, neocloud tier agreement, and H100e denominator arithmetic.
+- Fixed source citations for Anthropic/Google TPU, OpenAI Stargate sites date, Microsoft Fairwater, Meta Hyperion, Nebius/Meta, and xAI Colossus 2 evidence status.
+- Rebuilt the manuscript tier figures, MC table, stress matrix prose, sovereign sidebar paragraph, Table 8 layout, README, and confidence decomposition against the same constants.
 
 ## REV-4 (2026-04-27) — Anatomy of one facility GW + capital envelope reset
 

@@ -1,0 +1,50 @@
+{
+  "basis": "it",
+  "draws": 10000,
+  "h100e_delta_mean_m": -14.6256,
+  "h100e_delta_p50_m": -14.0,
+  "mean": 26.699847419429418,
+  "p05": 18.093414320943012,
+  "p10": 19.510166330186845,
+  "p25": 22.41317459089954,
+  "p50": 27.440158403136145,
+  "p75": 30.953217563532156,
+  "p90": 32.9998293124827,
+  "p95": 34.123790371007274,
+  "scalars": {
+    "announced_horizon_gw": 43.93,
+    "conservative_gw": 23.68,
+    "full_realization_gw": 46.7,
+    "prob_weighted_point_gw": 31.09,
+    "raw_non_stretch_gw": 37.98
+  },
+  "scenario_frequency": {
+    "A_stargate_12mo_slip": 0.1531,
+    "B_neocloud_spread_300bps": 0.1002,
+    "C_grid_24mo_slip_ERCOT_MISO_PJM": 0.2505,
+    "D_chip_2Q_slip": 0.4979,
+    "E_inference_outpaces_training": 0.55,
+    "F_lab_revenue_rpo_stress": 0.152,
+    "S_systemic_infrastructure_stress": 0.1461,
+    "U1_grid_interconnection_acceleration": 0.1959,
+    "U2_neocloud_financing_open": 0.1994,
+    "U3_t4_over_realization": 0.1511,
+    "U4_silicon_acceleration": 0.2509
+  },
+  "seed": 20260424,
+  "std": 5.188051264403177,
+  "t4_prior": [
+    0.58,
+    0.4,
+    0.75
+  ],
+  "t4_prob": 0.58,
+  "tier_gw": {
+    "T1": 6.52,
+    "T2": 10.72,
+    "T3": 6.45,
+    "T4": 14.04,
+    "T5": 5.95,
+    "T6": 0.26
+  }
+}

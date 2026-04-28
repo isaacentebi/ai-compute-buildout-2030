@@ -1,0 +1,2350 @@
+{
+  "broken_urls": [],
+  "redirected_urls": [
+    {
+      "error": "",
+      "final_url": "https://epoch.ai/blog/introducing-the-frontier-data-centers-hub",
+      "ok": true,
+      "redirected": true,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://epoch.ai/blog/introducing-the-frontier-data-centers-hub/"
+        },
+        {
+          "date": "",
+          "publisher": "Epoch AI",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://epoch.ai/blog/introducing-the-frontier-data-centers-hub/"
+        }
+      ],
+      "status": 200,
+      "url": "https://epoch.ai/blog/introducing-the-frontier-data-centers-hub/"
+    },
+    {
+      "error": "",
+      "final_url": "https://ir.amd.com/news-events/press-releases/detail/1230/tim-keating-joins-amd-as-senior-vice-president-government-relations-and-regulatory-affairs",
+      "ok": true,
+      "redirected": true,
+      "references": [
+        {
+          "date": "2025-10-06",
+          "publisher": "AMD",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://ir.amd.com/news-events/press-releases/detail/1230/amd-and-openai-announce-strategic-partnership-to-deploy-6-gigawatts-of-amd-gpus"
+        }
+      ],
+      "status": 200,
+      "url": "https://ir.amd.com/news-events/press-releases/detail/1230/amd-and-openai-announce-strategic-partnership-to-deploy-6-gigawatts-of-amd-gpus"
+    },
+    {
+      "error": "",
+      "final_url": "https://ir.amd.com/news-events/press-releases/detail/1276/amd-reports-fourth-quarter-and-full-year-2025-financial-results",
+      "ok": true,
+      "redirected": true,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://ir.amd.com/news-events/press-releases/detail/1276/amd-and-openai-announce-strategic-partnership"
+        }
+      ],
+      "status": 200,
+      "url": "https://ir.amd.com/news-events/press-releases/detail/1276/amd-and-openai-announce-strategic-partnership"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.businesstoday.in/technology/news/story/ril-agm-2024-jamnagar-to-get-gigawatt-scale-ai-ready-data-centre-powered-by-reliance-green-energy-443516-2024-08-29",
+      "ok": true,
+      "redirected": true,
+      "references": [
+        {
+          "date": "2024-08-29",
+          "publisher": "BusinessToday (citing Ambani AGM)",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://www.businesstoday.in/latest/corporate/story/ril-agm-2024-jamnagar-to-get-gigawatt-scale-ai-ready-data-centre-powered-by-reliance-green-energy-443516-2024-08-29"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.businesstoday.in/latest/corporate/story/ril-agm-2024-jamnagar-to-get-gigawatt-scale-ai-ready-data-centre-powered-by-reliance-green-energy-443516-2024-08-29"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.coreweave.com/newsroom",
+      "ok": true,
+      "redirected": true,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.coreweave.com/news"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.coreweave.com/news"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.microsoft.com/en-us/investor/default",
+      "ok": true,
+      "redirected": true,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.microsoft.com/en-us/investor"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.microsoft.com/en-us/investor"
+    }
+  ],
+  "results": [
+    {
+      "error": "",
+      "final_url": "https://about.bnef.com/insights/commodities/ai-data-center-build-advances-at-full-speed-five-things-to-know/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "BloombergNEF (Lloyd Arnold)",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://about.bnef.com/insights/commodities/ai-data-center-build-advances-at-full-speed-five-things-to-know/"
+        }
+      ],
+      "status": 200,
+      "url": "https://about.bnef.com/insights/commodities/ai-data-center-build-advances-at-full-speed-five-things-to-know/"
+    },
+    {
+      "error": "",
+      "final_url": "https://about.fb.com/news/2025/10/meta-blue-owl-capital-develop-hyperion-data-center/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://about.fb.com/news/2025/10/meta-blue-owl-capital-develop-hyperion-data-center/"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://about.fb.com/news/2025/10/meta-blue-owl-capital-develop-hyperion-data-center/"
+        }
+      ],
+      "status": 200,
+      "url": "https://about.fb.com/news/2025/10/meta-blue-owl-capital-develop-hyperion-data-center/"
+    },
+    {
+      "error": "",
+      "final_url": "https://atb.nrel.gov/electricity/2024/utility-scale_battery_storage",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "NREL ATB 2024",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://atb.nrel.gov/electricity/2024/utility-scale_battery_storage"
+        }
+      ],
+      "status": 200,
+      "url": "https://atb.nrel.gov/electricity/2024/utility-scale_battery_storage"
+    },
+    {
+      "error": "",
+      "final_url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/waltham-cross-data-centre/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-01",
+          "publisher": "Google",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/waltham-cross-data-centre/"
+        }
+      ],
+      "status": 200,
+      "url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/waltham-cross-data-centre/"
+    },
+    {
+      "error": "",
+      "final_url": "https://blogs.microsoft.com/blog/2025/09/18/inside-the-worlds-most-powerful-ai-datacenter/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://blogs.microsoft.com/blog/2025/09/18/inside-the-worlds-most-powerful-ai-datacenter/"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://blogs.microsoft.com/blog/2025/09/18/inside-the-worlds-most-powerful-ai-datacenter/"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://blogs.microsoft.com/blog/2025/09/18/inside-the-worlds-most-powerful-ai-datacenter/"
+        },
+        {
+          "date": "2025-09-18",
+          "publisher": "Microsoft",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://blogs.microsoft.com/blog/2025/09/18/inside-the-worlds-most-powerful-ai-datacenter/"
+        },
+        {
+          "date": "",
+          "publisher": "Microsoft Source (Fairwater Wisconsin <-> Atlanta)",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://blogs.microsoft.com/blog/2025/09/18/inside-the-worlds-most-powerful-ai-datacenter/"
+        }
+      ],
+      "status": 200,
+      "url": "https://blogs.microsoft.com/blog/2025/09/18/inside-the-worlds-most-powerful-ai-datacenter/"
+    },
+    {
+      "error": "",
+      "final_url": "https://blogs.microsoft.com/blog/2025/11/18/microsoft-nvidia-and-anthropic-announce-strategic-partnerships/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-11-18",
+          "publisher": "Microsoft",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://blogs.microsoft.com/blog/2025/11/18/microsoft-nvidia-and-anthropic-announce-strategic-partnerships/"
+        }
+      ],
+      "status": 200,
+      "url": "https://blogs.microsoft.com/blog/2025/11/18/microsoft-nvidia-and-anthropic-announce-strategic-partnerships/"
+    },
+    {
+      "error": "",
+      "final_url": "https://cloud.google.com/blog/products/compute",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://cloud.google.com/blog/products/compute"
+        }
+      ],
+      "status": 200,
+      "url": "https://cloud.google.com/blog/products/compute"
+    },
+    {
+      "error": "",
+      "final_url": "https://datacenters.atmeta.com/richland-parish-data-center/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2024-12-04",
+          "publisher": "Meta",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://datacenters.atmeta.com/richland-parish-data-center/"
+        }
+      ],
+      "status": 200,
+      "url": "https://datacenters.atmeta.com/richland-parish-data-center/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Datacentre Magazine",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://datacentremagazine.com/articles/the-role-of-steel-in-todays-data-centre-industry"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://datacentremagazine.com/articles/the-role-of-steel-in-todays-data-centre-industry"
+    },
+    {
+      "error": "",
+      "final_url": "https://deepfundamental.substack.com/p/deep-dive-liquid-cooling",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Deep Fundamental",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://deepfundamental.substack.com/p/deep-dive-liquid-cooling"
+        }
+      ],
+      "status": 200,
+      "url": "https://deepfundamental.substack.com/p/deep-dive-liquid-cooling"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "LBNL PJM Interconnection Cost Analysis",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://emp.lbl.gov/publications/interconnection-cost-analysis-pjm"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://emp.lbl.gov/publications/interconnection-cost-analysis-pjm"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "LBNL Queued Up 2025 Edition",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://emp.lbl.gov/publications/queued-2025-edition-characteristics"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://emp.lbl.gov/publications/queued-2025-edition-characteristics"
+    },
+    {
+      "error": "",
+      "final_url": "https://epoch.ai/blog/introducing-the-frontier-data-centers-hub",
+      "ok": true,
+      "redirected": true,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://epoch.ai/blog/introducing-the-frontier-data-centers-hub/"
+        },
+        {
+          "date": "",
+          "publisher": "Epoch AI",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://epoch.ai/blog/introducing-the-frontier-data-centers-hub/"
+        }
+      ],
+      "status": 200,
+      "url": "https://epoch.ai/blog/introducing-the-frontier-data-centers-hub/"
+    },
+    {
+      "error": "",
+      "final_url": "https://epoch.ai/data/data-centers",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://epoch.ai/data/data-centers"
+        }
+      ],
+      "status": 200,
+      "url": "https://epoch.ai/data/data-centers"
+    },
+    {
+      "error": "",
+      "final_url": "https://epoch.ai/data/data-centers-documentation",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://epoch.ai/data/data-centers-documentation"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://epoch.ai/data/data-centers-documentation"
+        }
+      ],
+      "status": 200,
+      "url": "https://epoch.ai/data/data-centers-documentation"
+    },
+    {
+      "error": "",
+      "final_url": "https://eta-publications.lbl.gov/sites/default/files/2024-12/lbnl-2024-united-states-data-center-energy-usage-report_1.pdf",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "LBNL",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://eta-publications.lbl.gov/sites/default/files/2024-12/lbnl-2024-united-states-data-center-energy-usage-report_1.pdf"
+        }
+      ],
+      "status": 200,
+      "url": "https://eta-publications.lbl.gov/sites/default/files/2024-12/lbnl-2024-united-states-data-center-energy-usage-report_1.pdf"
+    },
+    {
+      "error": "",
+      "final_url": "https://finance.yahoo.com/news/nvidias-jensen-math-50-billion-033104538.html",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Barclays",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://finance.yahoo.com/news/nvidias-jensen-math-50-billion-033104538.html"
+        }
+      ],
+      "status": 200,
+      "url": "https://finance.yahoo.com/news/nvidias-jensen-math-50-billion-033104538.html"
+    },
+    {
+      "error": "",
+      "final_url": "https://gasturbineworld.com/capital-costs/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Gas Turbine World 2024 Handbook",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://gasturbineworld.com/capital-costs/"
+        }
+      ],
+      "status": 200,
+      "url": "https://gasturbineworld.com/capital-costs/"
+    },
+    {
+      "error": "",
+      "final_url": "https://gridlab.org/wp-content/uploads/2025/09/GridLab_Gas-Turbine-Costs-Report-1.pdf",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "GridLab Sept 2025",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://gridlab.org/wp-content/uploads/2025/09/GridLab_Gas-Turbine-Costs-Report-1.pdf"
+        }
+      ],
+      "status": 200,
+      "url": "https://gridlab.org/wp-content/uploads/2025/09/GridLab_Gas-Turbine-Costs-Report-1.pdf"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://investor.fb.com/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://investor.fb.com/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://ir.aboutamazon.com/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://ir.aboutamazon.com/"
+    },
+    {
+      "error": "",
+      "final_url": "https://ir.amd.com/news-events/press-releases/detail/1230/tim-keating-joins-amd-as-senior-vice-president-government-relations-and-regulatory-affairs",
+      "ok": true,
+      "redirected": true,
+      "references": [
+        {
+          "date": "2025-10-06",
+          "publisher": "AMD",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://ir.amd.com/news-events/press-releases/detail/1230/amd-and-openai-announce-strategic-partnership-to-deploy-6-gigawatts-of-amd-gpus"
+        }
+      ],
+      "status": 200,
+      "url": "https://ir.amd.com/news-events/press-releases/detail/1230/amd-and-openai-announce-strategic-partnership-to-deploy-6-gigawatts-of-amd-gpus"
+    },
+    {
+      "error": "",
+      "final_url": "https://ir.amd.com/news-events/press-releases/detail/1276/amd-reports-fourth-quarter-and-full-year-2025-financial-results",
+      "ok": true,
+      "redirected": true,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://ir.amd.com/news-events/press-releases/detail/1276/amd-and-openai-announce-strategic-partnership"
+        }
+      ],
+      "status": 200,
+      "url": "https://ir.amd.com/news-events/press-releases/detail/1276/amd-and-openai-announce-strategic-partnership"
+    },
+    {
+      "error": "",
+      "final_url": "https://ir.applieddigital.com/news-events/press-releases/detail/128/applied-digital-finalizes-additional-150mw-lease-with",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025",
+          "publisher": "Applied Digital",
+          "source_file": "neocloud_overlay.yaml",
+          "title": "",
+          "url": "https://ir.applieddigital.com/news-events/press-releases/detail/128/applied-digital-finalizes-additional-150mw-lease-with"
+        }
+      ],
+      "status": 200,
+      "url": "https://ir.applieddigital.com/news-events/press-releases/detail/128/applied-digital-finalizes-additional-150mw-lease-with"
+    },
+    {
+      "error": "",
+      "final_url": "https://ir.applieddigital.com/news-events/press-releases/detail/132/applied-digital-announces-5-billion-ai-factory-lease-with",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025",
+          "publisher": "Applied Digital",
+          "source_file": "neocloud_overlay.yaml",
+          "title": "",
+          "url": "https://ir.applieddigital.com/news-events/press-releases/detail/132/applied-digital-announces-5-billion-ai-factory-lease-with"
+        }
+      ],
+      "status": 200,
+      "url": "https://ir.applieddigital.com/news-events/press-releases/detail/132/applied-digital-announces-5-billion-ai-factory-lease-with"
+    },
+    {
+      "error": "",
+      "final_url": "https://namcatlanta.org/2024/05/31/microsoft-grabs-another-160-acres-south-of-atlanta-for-data-centers/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Bisnow / NAMC Atlanta",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://namcatlanta.org/2024/05/31/microsoft-grabs-another-160-acres-south-of-atlanta-for-data-centers/"
+        }
+      ],
+      "status": 200,
+      "url": "https://namcatlanta.org/2024/05/31/microsoft-grabs-another-160-acres-south-of-atlanta-for-data-centers/"
+    },
+    {
+      "error": "",
+      "final_url": "https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta"
+        },
+        {
+          "date": "2026-03-16",
+          "publisher": "Nebius",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta"
+        },
+        {
+          "date": "2026-03-16",
+          "publisher": "Nebius",
+          "source_file": "neocloud_overlay.yaml",
+          "title": "",
+          "url": "https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta"
+        }
+      ],
+      "status": 200,
+      "url": "https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta"
+    },
+    {
+      "error": "",
+      "final_url": "https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-11",
+          "publisher": "Microsoft",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/"
+        }
+      ],
+      "status": 200,
+      "url": "https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/"
+    },
+    {
+      "error": "",
+      "final_url": "https://newsletter.semianalysis.com/p/co-packaged-optics-cpo-book-scaling",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "SemiAnalysis (CPO research, secondary)",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://newsletter.semianalysis.com/p/co-packaged-optics-cpo-book-scaling"
+        },
+        {
+          "date": "",
+          "publisher": "SemiAnalysis CPO (secondary)",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://newsletter.semianalysis.com/p/co-packaged-optics-cpo-book-scaling"
+        }
+      ],
+      "status": 200,
+      "url": "https://newsletter.semianalysis.com/p/co-packaged-optics-cpo-book-scaling"
+    },
+    {
+      "error": "",
+      "final_url": "https://northernvirginiamag.com/news/2025/11/04/amazon-buys-northern-virginia-data-center-site-for-record-700-million/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Northern Virginia Magazine",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://northernvirginiamag.com/news/2025/11/04/amazon-buys-northern-virginia-data-center-site-for-record-700-million/"
+        }
+      ],
+      "status": 200,
+      "url": "https://northernvirginiamag.com/news/2025/11/04/amazon-buys-northern-virginia-data-center-site-for-record-700-million/"
+    },
+    {
+      "error": "",
+      "final_url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2025",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "NVIDIA / Jensen Huang",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2025"
+        }
+      ],
+      "status": 200,
+      "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2025"
+    },
+    {
+      "error": "",
+      "final_url": "https://nvidianews.nvidia.com/news/nvidia-openai-partnership",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-openai-partnership"
+        }
+      ],
+      "status": 200,
+      "url": "https://nvidianews.nvidia.com/news/nvidia-openai-partnership"
+    },
+    {
+      "error": "",
+      "final_url": "https://nvidianews.nvidia.com/news/openai-and-nvidia-announce-strategic-partnership-to-deploy-10gw-of-nvidia-systems",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-09-22",
+          "publisher": "NVIDIA",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://nvidianews.nvidia.com/news/openai-and-nvidia-announce-strategic-partnership-to-deploy-10gw-of-nvidia-systems"
+        }
+      ],
+      "status": 200,
+      "url": "https://nvidianews.nvidia.com/news/openai-and-nvidia-announce-strategic-partnership-to-deploy-10gw-of-nvidia-systems"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://openai.com/index/announcing-the-stargate-project"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://openai.com/index/announcing-the-stargate-project"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://openai.com/index/announcing-the-stargate-project"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://openai.com/index/announcing-the-stargate-project"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-01-21",
+          "publisher": "OpenAI",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://openai.com/index/announcing-the-stargate-project/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://openai.com/index/announcing-the-stargate-project/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://openai.com/index/five-new-stargate-sites/"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://openai.com/index/five-new-stargate-sites/"
+        },
+        {
+          "date": "2025-09-23",
+          "publisher": "OpenAI",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://openai.com/index/five-new-stargate-sites/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://openai.com/index/five-new-stargate-sites/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-05-22",
+          "publisher": "OpenAI",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://openai.com/index/introducing-stargate-uae/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://openai.com/index/introducing-stargate-uae/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-10-13",
+          "publisher": "OpenAI",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://openai.com/index/openai-and-broadcom-announce-strategic-collaboration/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://openai.com/index/openai-and-broadcom-announce-strategic-collaboration/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-07-22",
+          "publisher": "OpenAI",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://openai.com/index/stargate-advances-with-partnership-with-oracle/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://openai.com/index/stargate-advances-with-partnership-with-oracle/"
+    },
+    {
+      "error": "",
+      "final_url": "https://reports.turnerandtownsend.com/data-centre-construction-cost-index-2025/data-centre-cost-trends",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Turner & Townsend",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://reports.turnerandtownsend.com/data-centre-construction-cost-index-2025/data-centre-cost-trends"
+        }
+      ],
+      "status": 200,
+      "url": "https://reports.turnerandtownsend.com/data-centre-construction-cost-index-2025/data-centre-cost-trends"
+    },
+    {
+      "error": "",
+      "final_url": "https://sacra.com/c/together-ai/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025",
+          "publisher": "Sacra",
+          "source_file": "neocloud_overlay.yaml",
+          "title": "",
+          "url": "https://sacra.com/c/together-ai/"
+        }
+      ],
+      "status": 200,
+      "url": "https://sacra.com/c/together-ai/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Vertiv Q3 2025 earnings",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://seekingalpha.com/article/4890719-vertiv-holdings-the-15-billion-backlog-liquid-cooling-dominance-and-the-ai-infrastructure-trade-wall-street-is-still-underpricing"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://seekingalpha.com/article/4890719-vertiv-holdings-the-15-billion-backlog-liquid-cooling-dominance-and-the-ai-infrastructure-trade-wall-street-is-still-underpricing"
+    },
+    {
+      "error": "",
+      "final_url": "https://siliconangle.com/2025/10/15/nscale-inks-200000-gpu-data-center-contract-microsoft/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-10-15",
+          "publisher": "SiliconANGLE",
+          "source_file": "neocloud_overlay.yaml",
+          "title": "",
+          "url": "https://siliconangle.com/2025/10/15/nscale-inks-200000-gpu-data-center-contract-microsoft/"
+        }
+      ],
+      "status": 200,
+      "url": "https://siliconangle.com/2025/10/15/nscale-inks-200000-gpu-data-center-contract-microsoft/"
+    },
+    {
+      "error": "",
+      "final_url": "https://siliconangle.com/2025/11/18/ai-cloud-operator-lambda-raises-1-5b-build-data-centers/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-11-18",
+          "publisher": "SiliconANGLE",
+          "source_file": "neocloud_overlay.yaml",
+          "title": "",
+          "url": "https://siliconangle.com/2025/11/18/ai-cloud-operator-lambda-raises-1-5b-build-data-centers/"
+        }
+      ],
+      "status": 200,
+      "url": "https://siliconangle.com/2025/11/18/ai-cloud-operator-lambda-raises-1-5b-build-data-centers/"
+    },
+    {
+      "error": "",
+      "final_url": "https://situational-awareness.ai/racing-to-the-trillion-dollar-cluster/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Leopold Aschenbrenner",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://situational-awareness.ai/racing-to-the-trillion-dollar-cluster/"
+        }
+      ],
+      "status": 200,
+      "url": "https://situational-awareness.ai/racing-to-the-trillion-dollar-cluster/"
+    },
+    {
+      "error": "",
+      "final_url": "https://techcrunch.com/2026/02/19/reliance-unveils-110b-ai-investment-plan-as-india-ramps-up-tech-ambitions/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2026-02-19",
+          "publisher": "TechCrunch",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://techcrunch.com/2026/02/19/reliance-unveils-110b-ai-investment-plan-as-india-ramps-up-tech-ambitions/"
+        }
+      ],
+      "status": 200,
+      "url": "https://techcrunch.com/2026/02/19/reliance-unveils-110b-ai-investment-plan-as-india-ramps-up-tech-ambitions/"
+    },
+    {
+      "error": "",
+      "final_url": "https://urbanmilwaukee.com/2024/07/30/microsoft-buys-more-land-in-mount-pleasant-for-data-center/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Urban Milwaukee",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://urbanmilwaukee.com/2024/07/30/microsoft-buys-more-land-in-mount-pleasant-for-data-center/"
+        }
+      ],
+      "status": 200,
+      "url": "https://urbanmilwaukee.com/2024/07/30/microsoft-buys-more-land-in-mount-pleasant-for-data-center/"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-11-03",
+          "publisher": "Amazon",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.aboutamazon.com/news/company-news/amazon-invests-additional-5-billion-anthropic-ai",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.aboutamazon.com/news/company-news/amazon-invests-additional-5-billion-anthropic-ai"
+        },
+        {
+          "date": "2026-04-20",
+          "publisher": "Amazon",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "Amazon and Anthropic expand strategic collaboration",
+          "url": "https://www.aboutamazon.com/news/company-news/amazon-invests-additional-5-billion-anthropic-ai"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.aboutamazon.com/news/company-news/amazon-invests-additional-5-billion-anthropic-ai"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.amd.com/en/newsroom/press-releases/2025-5-13-amd-and-humain-form-strategic--10b-collaboration-.html",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-05-13",
+          "publisher": "AMD",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://www.amd.com/en/newsroom/press-releases/2025-5-13-amd-and-humain-form-strategic--10b-collaboration-.html"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.amd.com/en/newsroom/press-releases/2025-5-13-amd-and-humain-form-strategic--10b-collaboration-.html"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Amphenol Paladin HD 224G",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.amphenol-cs.com/connectors/copper/paladin"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.amphenol-cs.com/connectors/copper/paladin"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.anthropic.com/news/anthropic-amazon-compute",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.anthropic.com/news/anthropic-amazon-compute"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://www.anthropic.com/news/anthropic-amazon-compute"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://www.anthropic.com/news/anthropic-amazon-compute"
+        },
+        {
+          "date": "2026-04-20",
+          "publisher": "Anthropic",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "Anthropic and Amazon expand collaboration for up to 5 gigawatts of new compute",
+          "url": "https://www.anthropic.com/news/anthropic-amazon-compute"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.anthropic.com/news/anthropic-amazon-compute"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.anthropic.com/news/anthropic-invests-50-billion-in-american-ai-infrastructure",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-11-12",
+          "publisher": "Anthropic",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://www.anthropic.com/news/anthropic-invests-50-billion-in-american-ai-infrastructure"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.anthropic.com/news/anthropic-invests-50-billion-in-american-ai-infrastructure"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services"
+        },
+        {
+          "date": "2025-10-23",
+          "publisher": "Anthropic",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "Expanding our use of Google Cloud TPUs and Services",
+          "url": "https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.anthropic.com/news/google-broadcom-partnership-compute",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2026-04-06",
+          "publisher": "Anthropic",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "Anthropic expands partnership with Google and Broadcom for multiple gigawatts of next-generation compute",
+          "url": "https://www.anthropic.com/news/google-broadcom-partnership-compute"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.anthropic.com/news/google-broadcom-partnership-compute"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.bain.com/insights/how-can-we-meet-ais-insatiable-demand-for-compute-power-technology-report-2025/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Bain & Company",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://www.bain.com/insights/how-can-we-meet-ais-insatiable-demand-for-compute-power-technology-report-2025/"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.bain.com/insights/how-can-we-meet-ais-insatiable-demand-for-compute-power-technology-report-2025/"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.businesstoday.in/technology/news/story/ril-agm-2024-jamnagar-to-get-gigawatt-scale-ai-ready-data-centre-powered-by-reliance-green-energy-443516-2024-08-29",
+      "ok": true,
+      "redirected": true,
+      "references": [
+        {
+          "date": "2024-08-29",
+          "publisher": "BusinessToday (citing Ambani AGM)",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://www.businesstoday.in/latest/corporate/story/ril-agm-2024-jamnagar-to-get-gigawatt-scale-ai-ready-data-centre-powered-by-reliance-green-energy-443516-2024-08-29"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.businesstoday.in/latest/corporate/story/ril-agm-2024-jamnagar-to-get-gigawatt-scale-ai-ready-data-centre-powered-by-reliance-green-energy-443516-2024-08-29"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.ciena.com/products/wavelogic/wavelogic-6",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Ciena WaveLogic 6",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.ciena.com/products/wavelogic/wavelogic-6"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.ciena.com/products/wavelogic/wavelogic-6"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.cnbc.com/2025/11/19/musks-xai-will-be-customer-for-nvidia-data-center-in-saudi-arabia.html",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-11-19",
+          "publisher": "CNBC",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://www.cnbc.com/2025/11/19/musks-xai-will-be-customer-for-nvidia-data-center-in-saudi-arabia.html"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.cnbc.com/2025/11/19/musks-xai-will-be-customer-for-nvidia-data-center-in-saudi-arabia.html"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.constellationenergy.com/news/2024/Constellation-to-Launch-Crane-Clean-Energy-Center-Restoring-Jobs-and-Carbon-Free-Power-to-The-Grid.html",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.constellationenergy.com/news/2024/Constellation-to-Launch-Crane-Clean-Energy-Center-Restoring-Jobs-and-Carbon-Free-Power-to-The-Grid.html"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.constellationenergy.com/news/2024/Constellation-to-Launch-Crane-Clean-Energy-Center-Restoring-Jobs-and-Carbon-Free-Power-to-The-Grid.html"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.constructelements.com/post/cost-to-build-modern-data-center-2026",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Construct Elements",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.constructelements.com/post/cost-to-build-modern-data-center-2026"
+        },
+        {
+          "date": "",
+          "publisher": "Construct Elements",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.constructelements.com/post/cost-to-build-modern-data-center-2026"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.constructelements.com/post/cost-to-build-modern-data-center-2026"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.coreweave.com/newsroom",
+      "ok": true,
+      "redirected": true,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.coreweave.com/news"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.coreweave.com/news"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2026-03",
+          "publisher": "Crusoe",
+          "source_file": "neocloud_overlay.yaml",
+          "title": "",
+          "url": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.crusoe.ai/resources/newsroom/crusoe-expands-ai-data-center-campus-in-abilene-to-1-2-gigawatts",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.crusoe.ai/resources/newsroom/crusoe-expands-ai-data-center-campus-in-abilene-to-1-2-gigawatts"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.crusoe.ai/resources/newsroom/crusoe-expands-ai-data-center-campus-in-abilene-to-1-2-gigawatts"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.crusoe.ai/resources/newsroom/ge-vernova-and-crusoe-announce-major-29-unit-gas-turbine-deal",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "GE Vernova / Crusoe (29-unit LM2500XPRESS deal)",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.crusoe.ai/resources/newsroom/ge-vernova-and-crusoe-announce-major-29-unit-gas-turbine-deal"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.crusoe.ai/resources/newsroom/ge-vernova-and-crusoe-announce-major-29-unit-gas-turbine-deal"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Cummins / CSDG",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.cummins.com/generators/diesel"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.cummins.com/generators/diesel"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.cushmanwakefield.com/en/united-states/insights/data-center-development-cost-guide",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Cushman & Wakefield",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.cushmanwakefield.com/en/united-states/insights/data-center-development-cost-guide"
+        },
+        {
+          "date": "",
+          "publisher": "Cushman & Wakefield",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.cushmanwakefield.com/en/united-states/insights/data-center-development-cost-guide"
+        },
+        {
+          "date": "",
+          "publisher": "Cushman & Wakefield",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.cushmanwakefield.com/en/united-states/insights/data-center-development-cost-guide"
+        },
+        {
+          "date": "",
+          "publisher": "Cushman & Wakefield",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://www.cushmanwakefield.com/en/united-states/insights/data-center-development-cost-guide"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.cushmanwakefield.com/en/united-states/insights/data-center-development-cost-guide"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-05-13",
+          "publisher": "DCD (citing AMD/HUMAIN joint press)",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://www.datacenterdynamics.com/en/news/amd-cisco-and-humain-set-up-jv-for-1gw-of-ai-infrastructure-in-saudi-arabia/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.datacenterdynamics.com/en/news/amd-cisco-and-humain-set-up-jv-for-1gw-of-ai-infrastructure-in-saudi-arabia/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "ASHRAE TC9.9 / Data Center Dynamics",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.datacenterdynamics.com/en/news/ashrae-publishes-liquid-cooling-guidelines-as-chip-power-moves-into-uncharted-territory/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.datacenterdynamics.com/en/news/ashrae-publishes-liquid-cooling-guidelines-as-chip-power-moves-into-uncharted-territory/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2026-02-28",
+          "publisher": "DCD",
+          "source_file": "neocloud_overlay.yaml",
+          "title": "",
+          "url": "https://www.datacenterdynamics.com/en/news/coreweave-aims-to-add-5gw-more-data-center-capacity-by-2030-anticipates-capex-in-2026-to-double/"
+        },
+        {
+          "date": "",
+          "publisher": "CoreWeave",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://www.datacenterdynamics.com/en/news/coreweave-aims-to-add-5gw-more-data-center-capacity-by-2030-anticipates-capex-in-2026-to-double/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.datacenterdynamics.com/en/news/coreweave-aims-to-add-5gw-more-data-center-capacity-by-2030-anticipates-capex-in-2026-to-double/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2026-03",
+          "publisher": "DCD",
+          "source_file": "neocloud_overlay.yaml",
+          "title": "",
+          "url": "https://www.datacenterdynamics.com/en/news/crusoe-gets-go-ahead-for-18gw-data-center-campus-and-power-plant-in-cheyenne-wyoming/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.datacenterdynamics.com/en/news/crusoe-gets-go-ahead-for-18gw-data-center-campus-and-power-plant-in-cheyenne-wyoming/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Data Center Dynamics (Dominion 900 MW Chesterfield filing)",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.datacenterdynamics.com/en/news/dominion-to-build-new-high-voltage-lines-to-supply-proposed-900mw-data-center-in-chesterfield-county-virginia/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.datacenterdynamics.com/en/news/dominion-to-build-new-high-voltage-lines-to-supply-proposed-900mw-data-center-in-chesterfield-county-virginia/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025",
+          "publisher": "DCD",
+          "source_file": "neocloud_overlay.yaml",
+          "title": "",
+          "url": "https://www.datacenterdynamics.com/en/news/fermi-secures-natural-gas-pipeline-connection-for-up-to-11gw-data-center-project-in-amarillo-texas/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.datacenterdynamics.com/en/news/fermi-secures-natural-gas-pipeline-connection-for-up-to-11gw-data-center-project-in-amarillo-texas/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-02",
+          "publisher": "Data Center Dynamics",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://www.datacenterdynamics.com/en/news/groq-1-5-billion-commitment-saudi-arabia/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.datacenterdynamics.com/en/news/groq-1-5-billion-commitment-saudi-arabia/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "JP Morgan",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://www.datacenterdynamics.com/en/news/jpmorgan-global-data-center-and-ai-infra-spend-to-hit-5-trillion-demand-for-compute-remains-astronomical/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.datacenterdynamics.com/en/news/jpmorgan-global-data-center-and-ai-infra-spend-to-hit-5-trillion-demand-for-compute-remains-astronomical/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-11",
+          "publisher": "DCD",
+          "source_file": "neocloud_overlay.yaml",
+          "title": "",
+          "url": "https://www.datacenterdynamics.com/en/news/microsoft-signs-multi-billion-dollar-cloud-capacity-deal-with-lambda/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.datacenterdynamics.com/en/news/microsoft-signs-multi-billion-dollar-cloud-capacity-deal-with-lambda/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Nebius",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://www.datacenterdynamics.com/en/news/nebius-increases-projected-capex-for-2025-to-2bn/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.datacenterdynamics.com/en/news/nebius-increases-projected-capex-for-2025-to-2bn/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-11",
+          "publisher": "DCD",
+          "source_file": "neocloud_overlay.yaml",
+          "title": "",
+          "url": "https://www.datacenterdynamics.com/en/news/nebius-signs-3bn-deal-with-meta-says-current-available-capacity-is-sold-out-as-it-targets-25gw-by-end-of-2026/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.datacenterdynamics.com/en/news/nebius-signs-3bn-deal-with-meta-says-current-available-capacity-is-sold-out-as-it-targets-25gw-by-end-of-2026/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2023-11",
+          "publisher": "Data Center Dynamics",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://www.datacenterdynamics.com/en/news/uk-microsoft-plans-25bn-investment-in-ai-data-centers/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.datacenterdynamics.com/en/news/uk-microsoft-plans-25bn-investment-in-ai-data-centers/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-11-19",
+          "publisher": "Data Center Dynamics",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://www.datacenterdynamics.com/en/news/xai-humain-data-center-elon-musk/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.datacenterdynamics.com/en/news/xai-humain-data-center-elon-musk/"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.delloro.com/news/data-center-capex-to-surpass-1-trillion-by-2029/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Dell'Oro Group",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://www.delloro.com/news/data-center-capex-to-surpass-1-trillion-by-2029/"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.delloro.com/news/data-center-capex-to-surpass-1-trillion-by-2029/"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.delloro.com/news/data-center-physical-infrastructure-market-reaches-10-9-billion-in-4q-2025-up-20-percent-y-y/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Dell'Oro Q4'25",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.delloro.com/news/data-center-physical-infrastructure-market-reaches-10-9-billion-in-4q-2025-up-20-percent-y-y/"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.delloro.com/news/data-center-physical-infrastructure-market-reaches-10-9-billion-in-4q-2025-up-20-percent-y-y/"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.delloro.com/news/data-center-switch-sales-in-ai-back-end-networks-to-exceed-100-b-over-the-next-five-years/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Dell'Oro AI back-end forecast (Sep 2025)",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.delloro.com/news/data-center-switch-sales-in-ai-back-end-networks-to-exceed-100-b-over-the-next-five-years/"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.delloro.com/news/data-center-switch-sales-in-ai-back-end-networks-to-exceed-100-b-over-the-next-five-years/"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.dominionenergy.com/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.dominionenergy.com/"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.dominionenergy.com/"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.dpr.com/media/blog/digital-realty-tilt-up",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "DPR Construction",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.dpr.com/media/blog/digital-realty-tilt-up"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.dpr.com/media/blog/digital-realty-tilt-up"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.energy.gov/cmei/femp/cooling-water-efficiency-opportunities-federal-data-centers",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "DOE FEMP",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.energy.gov/cmei/femp/cooling-water-efficiency-opportunities-federal-data-centers"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.energy.gov/cmei/femp/cooling-water-efficiency-opportunities-federal-data-centers"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.energy.gov/sites/default/files/2024-10/EXEC-2022-001242%20-%20Large%20Power%20Transformer%20Resilience%20Report%20signed%20by%20Secretary%20Granholm%20on%207-10-24.pdf",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "DOE Large Power Transformer Resilience Report",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.energy.gov/sites/default/files/2024-10/EXEC-2022-001242%20-%20Large%20Power%20Transformer%20Resilience%20Report%20signed%20by%20Secretary%20Granholm%20on%207-10-24.pdf"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.energy.gov/sites/default/files/2024-10/EXEC-2022-001242%20-%20Large%20Power%20Transformer%20Resilience%20Report%20signed%20by%20Secretary%20Granholm%20on%207-10-24.pdf"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.ercot.com/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.ercot.com/"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.ercot.com/"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.fluidstack.io/about-us/blog/fluidstack-selected-by-anthropic-to-deliver-custom-data-centers-in-the-us",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-11-12",
+          "publisher": "Fluidstack",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://www.fluidstack.io/about-us/blog/fluidstack-selected-by-anthropic-to-deliver-custom-data-centers-in-the-us"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.fluidstack.io/about-us/blog/fluidstack-selected-by-anthropic-to-deliver-custom-data-centers-in-the-us"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.fool.com/earnings/call-transcripts/2026/02/27/coreweave-crwv-q4-2025-earnings-call-transcript/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2026-02-27",
+          "publisher": "CoreWeave (via Motley Fool transcript)",
+          "source_file": "neocloud_overlay.yaml",
+          "title": "",
+          "url": "https://www.fool.com/earnings/call-transcripts/2026/02/27/coreweave-crwv-q4-2025-earnings-call-transcript/"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/02/27/coreweave-crwv-q4-2025-earnings-call-transcript/"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.g42.ai/resources/news/microsoft-and-g42-accelerate-uaes-digital-future-major-data-centre-expansion",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-11",
+          "publisher": "G42",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://www.g42.ai/resources/news/microsoft-and-g42-accelerate-uaes-digital-future-major-data-centre-expansion"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.g42.ai/resources/news/microsoft-and-g42-accelerate-uaes-digital-future-major-data-centre-expansion"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.globaldatacenterhub.com/p/meta-blue-owls-27b-bet-is-this-the",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Meta + Blue Owl",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://www.globaldatacenterhub.com/p/meta-blue-owls-27b-bet-is-this-the"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.globaldatacenterhub.com/p/meta-blue-owls-27b-bet-is-this-the"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.googlecloudpresscorner.com/2025-10-23-Anthropic-to-Expand-Use-of-Google-Cloud-TPUs-and-Services",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.googlecloudpresscorner.com/2025-10-23-Anthropic-to-Expand-Use-of-Google-Cloud-TPUs-and-Services"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://www.googlecloudpresscorner.com/2025-10-23-Anthropic-to-Expand-Use-of-Google-Cloud-TPUs-and-Services"
+        },
+        {
+          "date": "2025-10-23",
+          "publisher": "Google Cloud",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "Anthropic to Expand Use of Google Cloud TPUs and Services",
+          "url": "https://www.googlecloudpresscorner.com/2025-10-23-Anthropic-to-Expand-Use-of-Google-Cloud-TPUs-and-Services"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.googlecloudpresscorner.com/2025-10-23-Anthropic-to-Expand-Use-of-Google-Cloud-TPUs-and-Services"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.googlecloudpresscorner.com/2026-04-06-Anthropic-Expands-Use-of-Google-Cloud-and-TPUs",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.googlecloudpresscorner.com/2026-04-06-Anthropic-Expands-Use-of-Google-Cloud-and-TPUs"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://www.googlecloudpresscorner.com/2026-04-06-Anthropic-Expands-Use-of-Google-Cloud-and-TPUs"
+        },
+        {
+          "date": "2026-04-06",
+          "publisher": "Google Cloud",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "Anthropic Expands Use of Google Cloud and TPUs",
+          "url": "https://www.googlecloudpresscorner.com/2026-04-06-Anthropic-Expands-Use-of-Google-Cloud-and-TPUs"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.googlecloudpresscorner.com/2026-04-06-Anthropic-Expands-Use-of-Google-Cloud-and-TPUs"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.googlecloudpresscorner.com/press-releases?l=50",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-11-11",
+          "publisher": "Google",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://www.googlecloudpresscorner.com/press-releases?l=50"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.googlecloudpresscorner.com/press-releases?l=50"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan"
+        },
+        {
+          "date": "2025-01-13",
+          "publisher": "UK Government",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.iea.org/reports/energy-and-ai/executive-summary",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "IEA",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://www.iea.org/reports/energy-and-ai/executive-summary"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.iea.org/reports/energy-and-ai/executive-summary"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Bernstein (Stacy Rasgon)",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://www.investing.com/news/stock-market-news/how-much-does-a-gw-of-data-center-capacity-actually-cost-4314046"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.investing.com/news/stock-market-news/how-much-does-a-gw-of-data-center-capacity-actually-cost-4314046"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.jll.com/en-us/insights/market-outlook/data-center-outlook",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "JLL",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://www.jll.com/en-us/insights/market-outlook/data-center-outlook"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.jll.com/en-us/insights/market-outlook/data-center-outlook"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "LNEYA 2025 chiller price guide",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.lneya-online.com/en/chiller-price-guide-2025-cost-breakdown-by-type-capacity-and-application.html"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.lneya-online.com/en/chiller-price-guide-2025-cost-breakdown-by-type-capacity-and-application.html"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.loudounnow.com/business/data-center-sale-sets-new-loudoun-price-record/article_d392a250-e672-46c2-b2d2-f0ad3424a100.html",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Loudoun Now",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.loudounnow.com/business/data-center-sale-sets-new-loudoun-price-record/article_d392a250-e672-46c2-b2d2-f0ad3424a100.html"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.loudounnow.com/business/data-center-sale-sets-new-loudoun-price-record/article_d392a250-e672-46c2-b2d2-f0ad3424a100.html"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.loudounnow.com/news/loudoun-land-data-center-values-soar-while-home-assessments-hold-steady/article_d7977ab6-f33b-4dc2-8203-d53bc9a8ebc4.html",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Loudoun Now",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.loudounnow.com/news/loudoun-land-data-center-values-soar-while-home-assessments-hold-steady/article_d7977ab6-f33b-4dc2-8203-d53bc9a8ebc4.html"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.loudounnow.com/news/loudoun-land-data-center-values-soar-while-home-assessments-hold-steady/article_d7977ab6-f33b-4dc2-8203-d53bc9a8ebc4.html"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.madrona.com/the-infrastructure-of-intelligence-inside-crusoes-ai-factory-in-texas/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.madrona.com/the-infrastructure-of-intelligence-inside-crusoes-ai-factory-in-texas/"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.madrona.com/the-infrastructure-of-intelligence-inside-crusoes-ai-factory-in-texas/"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.microsoft.com/en-us/investor/default",
+      "ok": true,
+      "redirected": true,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.microsoft.com/en-us/investor"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.microsoft.com/en-us/investor"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.microsoft.com/en-us/microsoft-cloud/blog/2024/12/09/sustainable-by-design-next-generation-datacenters-consume-zero-water-for-cooling/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Microsoft Cloud Blog",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.microsoft.com/en-us/microsoft-cloud/blog/2024/12/09/sustainable-by-design-next-generation-datacenters-consume-zero-water-for-cooling/"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.microsoft.com/en-us/microsoft-cloud/blog/2024/12/09/sustainable-by-design-next-generation-datacenters-consume-zero-water-for-cooling/"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.morganstanley.com/insights/articles/ai-market-trends-institute-2026",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Morgan Stanley (Stephen Byrd)",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://www.morganstanley.com/insights/articles/ai-market-trends-institute-2026"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.morganstanley.com/insights/articles/ai-market-trends-institute-2026"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.nerc.com/globalassets/our-work/assessments/2024-ltra_corrected_july_2025.pdf",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "NERC 2024 LTRA (corrected July 2025)",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.nerc.com/globalassets/our-work/assessments/2024-ltra_corrected_july_2025.pdf"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.nerc.com/globalassets/our-work/assessments/2024-ltra_corrected_july_2025.pdf"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.nerc.com/globalassets/programs/rapa/pa/nerc_sor_2025_overview.pdf",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "NERC 2025 State of Reliability",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.nerc.com/globalassets/programs/rapa/pa/nerc_sor_2025_overview.pdf"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.nerc.com/globalassets/programs/rapa/pa/nerc_sor_2025_overview.pdf"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.nerc.com/globalassets/programs/rapa/ra/nerc_sra_2025.pdf",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "NERC 2025 Summer Reliability Assessment",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.nerc.com/globalassets/programs/rapa/ra/nerc_sra_2025.pdf"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.nerc.com/globalassets/programs/rapa/ra/nerc_sra_2025.pdf"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.nvidia.com/en-us/networking/quantum2/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "NVIDIA Quantum-2 datasheet",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.nvidia.com/en-us/networking/quantum2/"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.nvidia.com/en-us/networking/quantum2/"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.nvidia.com/gtc/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.nvidia.com/gtc/"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.nvidia.com/gtc/"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.phoenixmetrohomesearch.com/blog/global-data-center-giant-pays-300-million-for-land-in-east-valley",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Phoenix Metro Home Search",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.phoenixmetrohomesearch.com/blog/global-data-center-giant-pays-300-million-for-land-in-east-valley"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.phoenixmetrohomesearch.com/blog/global-data-center-giant-pays-300-million-for-land-in-east-valley"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.powermag.com/transformers-in-2026-shortage-scramble-or-self-inflicted-crisis/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.powermag.com/transformers-in-2026-shortage-scramble-or-self-inflicted-crisis/"
+        },
+        {
+          "date": "",
+          "publisher": "Wood Mackenzie via PowerMag",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.powermag.com/transformers-in-2026-shortage-scramble-or-self-inflicted-crisis/"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.powermag.com/transformers-in-2026-shortage-scramble-or-self-inflicted-crisis/"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.ril.com/sites/default/files/2024-09/RIL-47th-AGM-Transcripts.pdf",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.ril.com/sites/default/files/2024-09/RIL-47th-AGM-Transcripts.pdf"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.ril.com/sites/default/files/2024-09/RIL-47th-AGM-Transcripts.pdf"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.se.com/us/en/about-us/newsroom/news/press-releases/schneider-electric-unveils-liquid-cooling-portfolio-with-motivair-featuring-dedicated-solutions-and-services-for-hpc-and-ai-workloads-68da975376d417f4a10de42c/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Schneider Electric / Motivair",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.se.com/us/en/about-us/newsroom/news/press-releases/schneider-electric-unveils-liquid-cooling-portfolio-with-motivair-featuring-dedicated-solutions-and-services-for-hpc-and-ai-workloads-68da975376d417f4a10de42c/"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.se.com/us/en/about-us/newsroom/news/press-releases/schneider-electric-unveils-liquid-cooling-portfolio-with-motivair-featuring-dedicated-solutions-and-services-for-hpc-and-ai-workloads-68da975376d417f4a10de42c/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar"
+        },
+        {
+          "source_file": "report.tex",
+          "url": "https://www.sec.gov/cgi-bin/browse-edgar"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.srgresearch.com/articles/hyperscale-spending-spree-is-driving-dramatic-growth-in-data-center-capacity",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Synergy Research",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://www.srgresearch.com/articles/hyperscale-spending-spree-is-driving-dramatic-growth-in-data-center-capacity"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.srgresearch.com/articles/hyperscale-spending-spree-is-driving-dramatic-growth-in-data-center-capacity"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.talenenergy.com/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.talenenergy.com/"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.talenenergy.com/"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.tomshardware.com/tech-industry/artificial-intelligence",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-12-30",
+          "publisher": "Tom's Hardware",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.utilitydive.com/news/ge-vernova-gas-turbine-investor/807662/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.utilitydive.com/news/ge-vernova-gas-turbine-investor/807662/"
+        },
+        {
+          "date": "",
+          "publisher": "Utility Dive on GE Vernova Q3 2025 earnings",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.utilitydive.com/news/ge-vernova-gas-turbine-investor/807662/"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.utilitydive.com/news/ge-vernova-gas-turbine-investor/807662/"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.vertiv.com/en-emea/about/news-and-insights/news-releases/vertiv-codevelops-with-nvidia-complete-power-and-cooling-blueprint-for--nvidia-gb200-nvl72-platform/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "",
+          "publisher": "Vertiv press release",
+          "source_file": "anatomy_layer_costs.yaml",
+          "title": "",
+          "url": "https://www.vertiv.com/en-emea/about/news-and-insights/news-releases/vertiv-codevelops-with-nvidia-complete-power-and-cooling-blueprint-for--nvidia-gb200-nvl72-platform/"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.vertiv.com/en-emea/about/news-and-insights/news-releases/vertiv-codevelops-with-nvidia-complete-power-and-cooling-blueprint-for--nvidia-gb200-nvl72-platform/"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.voltagepark.com/blog/lightning-ai-voltage-park-merger-to-create-the-first-cloud-built-for-ai",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2026-01",
+          "publisher": "BusinessWire / Voltage Park",
+          "source_file": "neocloud_overlay.yaml",
+          "title": "",
+          "url": "https://www.voltagepark.com/blog/lightning-ai-voltage-park-merger-to-create-the-first-cloud-built-for-ai"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.voltagepark.com/blog/lightning-ai-voltage-park-merger-to-create-the-first-cloud-built-for-ai"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.youtube.com/",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-11-06",
+          "publisher": "TechCrunch (Bg2 podcast summary)",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://www.youtube.com/"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.youtube.com/"
+    }
+  ],
+  "total_urls": 123
+}

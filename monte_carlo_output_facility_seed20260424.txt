@@ -1,0 +1,55 @@
+========================================================================
+MONTE CARLO — 2030 Western realized GW  (N=10,000, seed=20260424)
+  Basis: FACILITY (primary)
+  T4 default mean: 0.58  (p05=0.40, p95=0.75)
+========================================================================
+  Six-tier GW partition (from YAML):
+    T1:  7.560 GW
+    T2: 12.425 GW
+    T3:  6.480 GW
+    T4: 17.880 GW
+    T5:  6.754 GW
+    T6:  0.328 GW
+    Σ   : 51.427 GW
+
+  Mean                 :  31.76 GW
+  Std dev              :   5.34 GW
+  p05                  :  22.83 GW
+  p10                  :  24.36 GW
+  p25                  :  27.46 GW
+  p50 (median)         :  32.38 GW
+  p75                  :  36.06 GW
+  p90                  :  38.33 GW
+  p95                  :  39.55 GW
+
+  Reference point estimates (deterministic):
+    announced_horizon  :  51.43 GW   (raw sum)
+    prob_weighted      :  36.16 GW   (Σ tier_gw × tier_prior)
+    raw_non_stretch    :  44.67 GW   (announced - T5; accounting total, not a bear case)
+    conservative       :  26.46 GW   (T1+T2+T3 only)
+
+  Tail probabilities (from the sim):
+    P(realized < conservative 26.46)        = 19.9%
+    P(realized < prob-weighted 36.16)        = 75.8%
+    P(realized < raw_non_stretch 44.67)        = 100.0%
+    P(realized < announced 51.43)        = 100.0%
+
+  Scenario realization frequency:
+    S_systemic_infrastructure_stress            : prior=0.15  empirical=0.146
+    A_stargate_12mo_slip                        : prior=0.18  empirical=0.153
+    B_neocloud_spread_300bps                    : prior=0.03  empirical=0.100
+    C_grid_24mo_slip_ERCOT_MISO_PJM             : prior=0.29  empirical=0.251
+    D_chip_2Q_slip                              : prior=0.50  empirical=0.498
+    E_inference_outpaces_training               : prior=0.55  empirical=0.550
+    F_lab_revenue_rpo_stress                    : prior=0.15  empirical=0.152
+    U1_grid_interconnection_acceleration        : prior=0.20  empirical=0.196
+    U2_neocloud_financing_open                  : prior=0.20  empirical=0.199
+    U3_t4_over_realization                      : prior=0.15  empirical=0.151
+    U4_silicon_acceleration                     : prior=0.25  empirical=0.251
+
+  Reading
+    The Monte Carlo is a probability-weighted realization distribution:
+    it combines tier-level realization uncertainty, named downside shocks,
+    named upside shocks, demand/RPO stress, and a correlated infrastructure
+    stress state. U4 changes H100e only and does not move facility GW.
+========================================================================
