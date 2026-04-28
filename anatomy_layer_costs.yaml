@@ -1192,18 +1192,18 @@ aggregate_rollup_facility_mw_2026:
     central_btm_gas: 39.7
     central_adopted_in_paper: 37.0
     # Capital envelope at the canonical raw Western 2027-2030 facility horizon
-    # (read at audit time from compute_commitments_overlay.yaml; currently 49.813 GW
-    # after the 2026-04-27 atom-ledger scope reconciliation).
-    capital_envelope_at_raw_horizon_usd_t_low: 1.49
-    capital_envelope_at_raw_horizon_usd_t_high: 2.34
-    capital_envelope_at_raw_horizon_usd_t_central: 1.84
+    # (read at audit time from compute_commitments_overlay.yaml; currently 46.641 GW
+    # after the Rev-4.2 dedupe adjudication).
+    capital_envelope_at_raw_horizon_usd_t_low: 1.40
+    capital_envelope_at_raw_horizon_usd_t_high: 2.19
+    capital_envelope_at_raw_horizon_usd_t_central: 1.75
     arithmetic_layer_extreme_low: 1.4
     arithmetic_layer_extreme_high: 2.7
     sits_in_band: "Bernstein $35B/GW central case"
     adopted_in_paper: rev-4 2026-04-27
     note: |
-      The $30-47B/GW range is the bottoms-up reconstruction. The $1.5-2.3T
-      capital envelope at the raw 49.8 GW announced horizon is the rev-4
+      The $30-47B/GW range is the bottoms-up reconstruction. The $1.4-2.2T
+      capital envelope at the raw 46.6 GW announced horizon is the Rev-4.2
       headline figure (was rev-3 $1.2-1.5T). The defensible band sits inside
       the arithmetic layer-extreme bounds because not all layers hit their
       extreme simultaneously.

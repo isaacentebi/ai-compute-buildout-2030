@@ -1,12 +1,12 @@
 # compute_commitments_totals.csv regenerated from canonical_totals.json and generated_overlay_totals.yaml
-# Raw Western facility horizon: 49.813 GW
-# Raw Western facility range: [44.396, 53.115] GW
-# Deterministic probability-weighted facility: 35.143 GW
-# Conservative raw facility: 26.262 GW
-# Full-realization ceiling facility: 53.115 GW
+# Raw Western facility horizon: 46.641 GW
+# Raw Western facility range: [40.370, 49.660] GW
+# Deterministic probability-weighted facility: 32.757 GW
+# Conservative raw facility: 23.777 GW
+# Full-realization ceiling facility: 49.660 GW
 # Sovereign sidebar facility: 3.960 GW
-# Raw Western IT bridge: 42.467 GW
-# Monte Carlo p50 facility: 31.406 GW
+# Raw Western IT bridge: 39.808 GW
+# Monte Carlo p50 facility: 29.029 GW
 atom_id,operator,scope,status,evidence_tier,capacity_mw_facility,capacity_mw_it,realization_probability,included_raw_horizon,included_probability_weighted,notes
 epoch_microsoft_fairwater_wisconsin_operational,Microsoft,western,operational,T1,555.0,478.448,1.0,True,True,Epoch current facility power for Microsoft Fairwater Wisconsin; project=Microsoft AI WAN #confident; country=United States.
 epoch_microsoft_fairwater_wisconsin_buildout_remaining,Microsoft,western,announced,T2,2773.0,2390.517,0.88,True,True,Epoch remaining buildout to 3328.0 MW facility by 2027-10-03; project=Microsoft AI WAN #confident; country=United States.
@@ -58,9 +58,9 @@ epoch_stream_phoenix_buildout_remaining,(unspecified),western,speculative,T5,267
 epoch_vantage_tx1_operational,(unspecified),western,operational,T1,44.8,38.621,1.0,True,True,Epoch current facility power for Vantage TX1; project=n/a; country=United States.
 epoch_vantage_tx1_buildout_remaining,(unspecified),western,announced,T2,134.4,115.862,0.88,True,True,Epoch remaining buildout to 179.2 MW facility by 2027-08-31; project=n/a; country=United States.
 epoch_alibaba_zhangbei_operational,Alibaba,excluded,operational,T1,203.0,175.0,1.0,False,False,Epoch current facility power for Alibaba Zhangbei; project=n/a; country=China.
-anthropic_aws_incremental_new_capacity,Amazon,western,announced,T4,3800,3170,0.72,True,True,5 GW announced less Epoch Madison/Ridgeland overlap; residual carried as Western incremental facility capacity.
+anthropic_aws_incremental_new_capacity,Amazon,western,announced,T4,1973,1644.167,0.58,True,True,Rev-4.2 partial dedupe: prior 3.800 GW residual is reduced by 0.819 GW Madison and 1.008 GW Ridgeland Epoch Rainier candidates; remaining 1.973 GW is site-unallocated Anthropic/AWS capacity.
 anthropic_azure_incremental_capacity,Microsoft Azure,western,announced,T5,1180,1000,0.3,True,True,"1 GW Azure compute commitment; no sites named, so range floors at zero."
-openai_microsoft_fairwater_international,Microsoft,western,announced,T2,805,700,0.82,True,True,International Fairwater sites named; MW estimated from disclosed site-scale range and nScale/Microsoft partnership.
+openai_microsoft_fairwater_international,Microsoft,western,announced,T2,300,260.87,0.82,True,True,Rev-4.2 source replacement: current primary sources support 230 MW Narvik plus 50-90 MW Loughton; central carried at 300 MW facility instead of the prior 805 MW midpoint.
 meta_hyperion_stretch_incremental,Meta,western,speculative,T5,3014,2740,0.28,True,True,CEO 5 GW Hyperion stretch less Epoch Hyperion evidenced buildout; firm 2 GW floor is already in Epoch.
 xai_colossus2_residual,xAI,western,inferred,T6,78,60,0.25,True,True,Residual between Musk 2 GW claim and Epoch Colossus buildout; nearly all capacity already in Epoch.
 anthropic_fluidstack_undisclosed_mw,Fluidstack,western,contracted,T5,,,0.4,False,False,Anthropic/Fluidstack primary discloses $50B and sites but no MW; no MW assigned and excluded from totals.
@@ -71,11 +71,11 @@ coreweave_applied_digital_pf1_overlap_adjustment,Applied Digital / CoreWeave,wes
 nebius_operational_disclosed,Nebius,western,operational,T1,170,141.667,1.0,True,True,Operational capacity disclosed in Nebius public materials.
 nebius_meta_microsoft_contract_capacity,Nebius,western,contracted,T3,2000,1666.667,0.78,True,True,Contracted backlog with Microsoft and Meta; T3 because named IG counterparties and revenue contract evidence exist.
 nscale_operational_seed_capacity,Nscale,western,operational,T1,20,16.667,1.0,True,True,First US site online; retained but secondary-source flagged.
-nscale_microsoft_contract_capacity,Nscale,western,contracted,T4,900,750,0.6,True,True,Private-company contracted capacity after subtracting Fairwater Narvik/Loughton overlap; T4 because no public RPO/take-or-pay disclosure and source is secondary.
+nscale_microsoft_contract_capacity,Nscale,western,contracted,T4,240,200,0.58,True,True,Rev-4.2 partial dedupe/source replacement: keep Ward County/Cedarvale at the primary-supported ~240 MW floor; remove Narvik/Loughton to Fairwater and carry the 700 MW Texas second phase only as high/option.
 nscale_fairwater_overlap_adjustment,Nscale / Microsoft,western,excluded,excluded,600,500,0.0,False,False,Nscale Narvik/Loughton capacity is attributed to the Fairwater atom; excluded here to avoid double-count.
 crusoe_norway_iceland_operational,Crusoe,western,operational,T1,200,160,1.0,True,True,Operational ex-Epoch Crusoe capacity in Norway/Iceland and Abilene phase context.
 crusoe_abilene_epoch_overlap,Crusoe / Oracle / Microsoft,western,excluded,excluded,2120,1696,0.0,False,False,Abilene Phase 1+2 and Microsoft Abilene expansion are already counted in Epoch; excluded from Crusoe incremental neocloud capacity.
-crusoe_cheyenne_or_other_future_capacity,Crusoe,western,contracted,T3,1980,1584,0.7,True,True,4.1 GW contracted less Epoch Abilene overlaps; mostly Cheyenne 1.8 GW with permit and anchor evidence.
+crusoe_cheyenne_or_other_future_capacity,Crusoe,western,announced,T4,1800,1440,0.58,True,True,Rev-4.2 split: Cheyenne/Project Jade retained at 1.8 GW site-plan capacity; extra 0.18 GW residual removed and Abilene remains excluded as Epoch overlap.
 lambda_operational,Lambda,western,operational,T1,50,40,1.0,True,True,Operational estimate retained from neocloud overlay; official financing refreshed but MW disclosure remains limited.
 lambda_microsoft_contract,Lambda,western,contracted,T4,320,256,0.58,True,True,Private pre-IPO capacity with Microsoft/NVIDIA anchors; T4 because no public RPO/take-or-pay capacity disclosure.
 applied_digital_pf2_leased_capacity,Applied Digital,western,contracted,T3,200,153.846,0.78,True,True,PF2 hyperscaler lease plus secured financing; PF1 excluded as CoreWeave overlap.
@@ -87,5 +87,7 @@ fermi_speculative_excluded_or_T5_only,Fermi America,excluded,speculative,T5,,,0.
 microsoft_g42_uae_khazna,Khazna Data Centers / G42,sovereign,announced,T4,260,200,0.7,False,False,"Sovereign UAE capacity; sidebar only, not Western denominator."
 xai_humain_saudi,HUMAIN,sovereign,announced,T4,500,370.37,0.55,False,False,"Saudi sovereign JV; sidebar only, not Western denominator."
 humain_amd_saudi,HUMAIN / AMD,sovereign,announced,T4,500,370.37,0.55,False,False,"Saudi AMD-HUMAIN sovereign JV; sidebar only, not Western denominator."
-reliance_jio_jamnagar,Reliance Industries / Jio,sovereign,speculative,T5,1000,714.286,0.2,False,False,"India sovereign/strategic capacity; sidebar only, not Western denominator."
-uk_culham_ai_growth_zone,UK Government / UKAEA,sovereign,speculative,T5,300,250,0.3,False,False,"UK sovereign AI Growth Zone; sidebar only, not Western denominator."
+reliance_jio_jamnagar,Reliance Industries / Jio,sovereign,speculative,T5,880,628.571,0.2,False,False,Rev-4.2 split: this row carries the Jamnagar sovereign stretch residual beyond the separately disclosed >120 MW near-term tranche.
+reliance_jio_jamnagar_near_term_120mw,Reliance Industries / Jio,sovereign,announced,T2,120,85.714,0.88,False,False,Rev-4.2 split: near-term Jamnagar tranche carried separately from the 1 GW sovereign stretch row.
+uk_culham_ai_growth_zone,UK Government / UKAEA,sovereign,speculative,T5,180,150,0.3,False,False,Rev-4.2 split: this row carries the Culham scale-out/stretch residual beyond the source-stated initial 100 MW opportunity; central preserves the prior 300 MW facility midpoint when combined with the initial row.
+uk_culham_ai_growth_zone_initial_100mw,UK Government / UKAEA,sovereign,announced,T4,120,100,0.58,False,False,Rev-4.2 split: initial 100 MW Culham opportunity converted to 120 MW facility at PUE 1.2 and separated from the scale-out stretch row.

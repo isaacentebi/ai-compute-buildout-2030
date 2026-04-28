@@ -105,6 +105,39 @@ def load_rows(audit_csv, today, warn_days, fail_days):
         return rows
 
 
+def temporal_monotonicity_gate(base):
+    """No atom's central energization date may precede its source publication date."""
+    try:
+        import yaml  # type: ignore
+    except ImportError:
+        print("ERROR: PyYAML is required for --temporal", file=sys.stderr)
+        return 2
+
+    atoms_path = base / "canonical_capacity_atoms.yaml"
+    with atoms_path.open() as f:
+        atoms = (yaml.safe_load(f) or {}).get("atoms") or []
+
+    errors = []
+    for atom in atoms:
+        atom_id = atom.get("atom_id", "<unknown>")
+        source_date = parse_date(atom.get("source_date") or atom.get("source_publication_date"))
+        window = atom.get("energization_window") or {}
+        central = None
+        if isinstance(window, dict):
+            central = parse_date(window.get("central"))
+        if source_date and central and central < source_date:
+            errors.append(f"{atom_id}: energization_window.central={central.isoformat()} precedes source_date={source_date.isoformat()}")
+
+    if errors:
+        print("TEMPORAL MONOTONICITY FAILED")
+        for error in errors:
+            print(f"  {error}")
+        return 1
+
+    print(f"temporal monotonicity gate passed: {len(atoms)} atoms checked")
+    return 0
+
+
 def print_rows(title, rows):
     if not rows:
         return
@@ -131,11 +164,15 @@ def main():
     parser.add_argument("--fail-days", type=int, default=60)
     parser.add_argument("--today", default=None, help="YYYY-MM-DD; default is real today")
     parser.add_argument("--json", action="store_true")
+    parser.add_argument("--temporal", action="store_true", help="check atom energization central dates against source publication dates")
     args = parser.parse_args()
 
     today = datetime.date.fromisoformat(args.today) if args.today else datetime.date.today()
     script_dir = Path(__file__).resolve().parent
     base = script_dir.parent if script_dir.name == "scripts" else script_dir
+    if args.temporal:
+        return temporal_monotonicity_gate(base)
+
     audit_csv = (base / args.audit_csv).resolve()
     if not audit_csv.exists():
         print(f"ERROR: audit CSV not found: {audit_csv}", file=sys.stderr)

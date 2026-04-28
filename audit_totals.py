@@ -87,6 +87,14 @@ TIER_DEFAULTS = {
     "T6": 0.25,
 }
 
+PROVENANCE_REQUIRED_FIELDS = [
+    "exact_quote",
+    "source_date",
+    "capacity_basis_original",
+    "basis_layer",
+    "tier_rationale",
+]
+
 ROW_BASIS_OVERRIDES = {
     "xai_humain_saudi": ("facility", 1.35),
     "humain_amd_saudi_2025_05": ("facility", 1.35),
@@ -770,6 +778,37 @@ def audit_h100e_denominator(doc: dict) -> bool:
     return all_ok
 
 
+def audit_atom_provenance() -> bool:
+    """Rev-4.2 atom provenance completeness gate."""
+    with CANONICAL_ATOMS.open() as f:
+        atoms_doc = yaml.safe_load(f) or {}
+    atoms = atoms_doc.get("atoms") or []
+    errors: list[str] = []
+
+    for idx, atom in enumerate(atoms, start=1):
+        atom_id = atom.get("atom_id") or f"atom #{idx}"
+        for field in PROVENANCE_REQUIRED_FIELDS:
+            if atom.get(field) in (None, "", []):
+                errors.append(f"{atom_id}: missing {field}")
+        if atom.get("basis_layer") and atom.get("basis_layer") not in {"facility_MW", "IT_MW", "ambiguous_compute"}:
+            errors.append(f"{atom_id}: invalid basis_layer {atom.get('basis_layer')!r}")
+        if atom.get("pue_assumed") in (None, "") and atom.get("capacity_basis_original") == "IT":
+            errors.append(f"{atom_id}: IT-basis atom missing pue_assumed")
+
+    print("=" * 70)
+    print("ATOM PROVENANCE COMPLETENESS GATE")
+    print("=" * 70)
+    if errors:
+        for error in errors[:250]:
+            print(f"  [FAIL] {error}")
+        if len(errors) > 250:
+            print(f"  ... {len(errors) - 250} more")
+        return False
+
+    print(f"  [OK] {len(atoms)} atoms carry required Rev-4.2 provenance fields.")
+    return True
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Audit compute_commitments_overlay.yaml + anatomy_layer_costs.yaml",
@@ -780,8 +819,16 @@ def main() -> int:
         default="horizon",
         help="Which audit to run: horizon (default) | anatomy | all",
     )
+    parser.add_argument(
+        "--provenance",
+        action="store_true",
+        help="Run the Rev-4.2 atom provenance completeness gate and exit",
+    )
     args = parser.parse_args()
     basis = args.basis
+
+    if args.provenance:
+        return 0 if audit_atom_provenance() else 1
 
     if basis == "anatomy":
         return 0 if audit_anatomy_layer_costs() else 1
@@ -819,10 +866,14 @@ def main() -> int:
 
     # --- Western horizon grand total ---
     arith = totals["western_horizon_2027_2030"]["arithmetic"]
+    neocloud_range = arith.get("neocloud_ex_epoch_range_gw", [
+        arith["neocloud_ex_epoch_total_gw"],
+        arith["neocloud_ex_epoch_total_gw"],
+    ])
     west_grand_computed = (
         round(arith["epoch_buildout_gw"] + west[0] + arith["neocloud_ex_epoch_total_gw"], 2),
-        round(arith["epoch_buildout_gw"] + west[1] + arith["neocloud_ex_epoch_total_gw"], 2),
-        round(arith["epoch_buildout_gw"] + west[2] + arith["neocloud_ex_epoch_total_gw"], 2),
+        round(arith["epoch_buildout_gw"] + west[1] + neocloud_range[0], 2),
+        round(arith["epoch_buildout_gw"] + west[2] + neocloud_range[1], 2),
     )
     west_grand_declared = (
         totals["western_horizon_2027_2030"]["total_gw_point"],
@@ -906,10 +957,14 @@ def main() -> int:
         )
 
         # Western horizon facility grand total
+        neocloud_fac_range = arith_fac.get("neocloud_ex_epoch_range_gw", [
+            arith_fac["neocloud_ex_epoch_total_gw"],
+            arith_fac["neocloud_ex_epoch_total_gw"],
+        ])
         west_grand_fac_computed = (
             round(arith_fac["epoch_buildout_gw"] + west_fac[0] + arith_fac["neocloud_ex_epoch_total_gw"], 3),
-            round(arith_fac["epoch_buildout_gw"] + west_fac[1] + arith_fac["neocloud_ex_epoch_total_gw"], 3),
-            round(arith_fac["epoch_buildout_gw"] + west_fac[2] + arith_fac["neocloud_ex_epoch_total_gw"], 3),
+            round(arith_fac["epoch_buildout_gw"] + west_fac[1] + neocloud_fac_range[0], 3),
+            round(arith_fac["epoch_buildout_gw"] + west_fac[2] + neocloud_fac_range[1], 3),
         )
         west_grand_fac_declared = (
             west_fac_block["total_gw_point"],

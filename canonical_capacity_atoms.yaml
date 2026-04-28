@@ -78,6 +78,30 @@ atoms:
   capacity_mw_facility_high: 555.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch current facility power for Microsoft Fairwater Wisconsin; project=Microsoft AI WAN #confident; country=United
+    States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch current facility power for Microsoft Fairwater Wisconsin; project=Microsoft AI WAN #confident; country=United
+    States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch current facility power for Microsoft Fairwater Wisconsin; project=Microsoft AI WAN #confident;
+    country=United States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_microsoft_fairwater_wisconsin_buildout_remaining
   parent_entity: Microsoft
   counterparty_or_anchor_tenant: OpenAI, Microsoft
@@ -110,6 +134,30 @@ atoms:
   capacity_mw_facility_high: 2773.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch remaining buildout to 3328.0 MW facility by 2027-10-03; project=Microsoft AI WAN #confident; country=United
+    States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch remaining buildout to 3328.0 MW facility by 2027-10-03; project=Microsoft AI WAN #confident; country=United
+    States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch remaining buildout to 3328.0 MW facility by 2027-10-03; project=Microsoft AI WAN #confident;
+    country=United States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_openai_stargate_new_mexico_buildout_remaining
   parent_entity: Oracle
   counterparty_or_anchor_tenant: OpenAI
@@ -141,6 +189,30 @@ atoms:
   capacity_mw_facility_high: 2210.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch remaining buildout to 2210.0 MW facility by 2028-12-31; project=Stargate #confident; country=United
+    States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch remaining buildout to 2210.0 MW facility by 2028-12-31; project=Stargate #confident; country=United
+    States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T4 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch remaining buildout to 2210.0 MW facility by 2028-12-31; project=Stargate #confident; country=United
+    States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_openai_stargate_shackelford_buildout_remaining
   parent_entity: Oracle
   counterparty_or_anchor_tenant: OpenAI
@@ -172,6 +244,30 @@ atoms:
   capacity_mw_facility_high: 1960.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch remaining buildout to 1960.0 MW facility by 2028-12-31; project=Stargate #confident; country=United
+    States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch remaining buildout to 1960.0 MW facility by 2028-12-31; project=Stargate #confident; country=United
+    States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T4 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch remaining buildout to 1960.0 MW facility by 2028-12-31; project=Stargate #confident; country=United
+    States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_meta_hyperion_buildout_remaining
   parent_entity: Meta
   counterparty_or_anchor_tenant: Meta
@@ -203,6 +299,30 @@ atoms:
   capacity_mw_facility_high: 2262.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch remaining buildout to 2262.0 MW facility by 2028-01-01; project=Hyperion #confident; country=United
+    States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch remaining buildout to 2262.0 MW facility by 2028-01-01; project=Hyperion #confident; country=United
+    States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T4 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch remaining buildout to 2262.0 MW facility by 2028-01-01; project=Hyperion #confident; country=United
+    States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_qts_cedar_rapids_buildout_remaining
   parent_entity: (unspecified)
   counterparty_or_anchor_tenant: (unspecified)
@@ -234,6 +354,27 @@ atoms:
   capacity_mw_facility_high: 1587.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch remaining buildout to 1587.0 MW facility by 2027-11-15; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch remaining buildout to 1587.0 MW facility by 2027-11-15; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch remaining buildout to 1587.0 MW facility by 2027-11-15; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_openai_stargate_michigan_buildout_remaining
   parent_entity: Oracle
   counterparty_or_anchor_tenant: OpenAI
@@ -265,6 +406,30 @@ atoms:
   capacity_mw_facility_high: 1383.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch remaining buildout to 1383.0 MW facility by 2028-12-31; project=Stargate #confident; country=United
+    States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch remaining buildout to 1383.0 MW facility by 2028-12-31; project=Stargate #confident; country=United
+    States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T4 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch remaining buildout to 1383.0 MW facility by 2028-12-31; project=Stargate #confident; country=United
+    States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_openai_stargate_wisconsin_buildout_remaining
   parent_entity: Oracle
   counterparty_or_anchor_tenant: OpenAI
@@ -296,6 +461,30 @@ atoms:
   capacity_mw_facility_high: 1300.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch remaining buildout to 1300.0 MW facility by 2028-12-31; project=Stargate #confident; country=United
+    States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch remaining buildout to 1300.0 MW facility by 2028-12-31; project=Stargate #confident; country=United
+    States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T4 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch remaining buildout to 1300.0 MW facility by 2028-12-31; project=Stargate #confident; country=United
+    States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_openai_stargate_milam_buildout_remaining
   parent_entity: Softbank
   counterparty_or_anchor_tenant: OpenAI
@@ -327,6 +516,30 @@ atoms:
   capacity_mw_facility_high: 1200.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch remaining buildout to 1200.0 MW facility by 2028-12-31; project=Stargate #confident; country=United
+    States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch remaining buildout to 1200.0 MW facility by 2028-12-31; project=Stargate #confident; country=United
+    States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T4 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch remaining buildout to 1200.0 MW facility by 2028-12-31; project=Stargate #confident; country=United
+    States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_openai_stargate_uae_buildout_remaining
   parent_entity: G42
   counterparty_or_anchor_tenant: OpenAI
@@ -358,6 +571,30 @@ atoms:
   capacity_mw_facility_high: 1400.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch remaining buildout to 1400.0 MW facility by 2028-01-01; project=Stargate #confident; country=United
+    Arab Emirates.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch remaining buildout to 1400.0 MW facility by 2028-01-01; project=Stargate #confident; country=United
+    Arab Emirates.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T4 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch remaining buildout to 1400.0 MW facility by 2028-01-01; project=Stargate #confident; country=United
+    Arab Emirates.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_goodnight_buildout_remaining
   parent_entity: Google
   counterparty_or_anchor_tenant: Google DeepMind
@@ -389,6 +626,27 @@ atoms:
   capacity_mw_facility_high: 1087.6
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch remaining buildout to 1087.6 MW facility by 2027-10-01; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch remaining buildout to 1087.6 MW facility by 2027-10-01; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch remaining buildout to 1087.6 MW facility by 2027-10-01; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_crusoe_abilene_expansion_buildout_remaining
   parent_entity: Microsoft
   counterparty_or_anchor_tenant: Microsoft
@@ -420,6 +678,27 @@ atoms:
   capacity_mw_facility_high: 941.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch remaining buildout to 941.0 MW facility by 2027-11-11; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch remaining buildout to 941.0 MW facility by 2027-11-11; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch remaining buildout to 941.0 MW facility by 2027-11-11; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_xai_colossus_2_buildout_remaining
   parent_entity: xAI
   counterparty_or_anchor_tenant: xAI
@@ -451,6 +730,27 @@ atoms:
   capacity_mw_facility_high: 1494.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch remaining buildout to 1494.0 MW facility by 2026-05-13; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch remaining buildout to 1494.0 MW facility by 2026-05-13; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch remaining buildout to 1494.0 MW facility by 2026-05-13; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_google_cedar_rapids_operational
   parent_entity: Google
   counterparty_or_anchor_tenant: Google DeepMind
@@ -482,6 +782,27 @@ atoms:
   capacity_mw_facility_high: 105.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch current facility power for Google Cedar Rapids; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch current facility power for Google Cedar Rapids; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch current facility power for Google Cedar Rapids; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_google_cedar_rapids_buildout_remaining
   parent_entity: Google
   counterparty_or_anchor_tenant: Google DeepMind
@@ -513,6 +834,27 @@ atoms:
   capacity_mw_facility_high: 522.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch remaining buildout to 627.0 MW facility by 2028-11-18; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch remaining buildout to 627.0 MW facility by 2028-11-18; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T4 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch remaining buildout to 627.0 MW facility by 2028-11-18; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_meta_prometheus_operational
   parent_entity: Meta
   counterparty_or_anchor_tenant: Meta
@@ -544,6 +886,27 @@ atoms:
   capacity_mw_facility_high: 531.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch current facility power for Meta Prometheus; project=Prometheus #confident; country=United States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch current facility power for Meta Prometheus; project=Prometheus #confident; country=United States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch current facility power for Meta Prometheus; project=Prometheus #confident; country=United States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_meta_prometheus_buildout_remaining
   parent_entity: Meta
   counterparty_or_anchor_tenant: Meta
@@ -575,6 +938,30 @@ atoms:
   capacity_mw_facility_high: 579.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch remaining buildout to 1110.0 MW facility by 2026-10-01; project=Prometheus #confident; country=United
+    States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch remaining buildout to 1110.0 MW facility by 2026-10-01; project=Prometheus #confident; country=United
+    States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch remaining buildout to 1110.0 MW facility by 2026-10-01; project=Prometheus #confident; country=United
+    States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_openai_stargate_abilene_operational
   parent_entity: Oracle
   counterparty_or_anchor_tenant: OpenAI
@@ -606,6 +993,28 @@ atoms:
   capacity_mw_facility_high: 200.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch current facility power for OpenAI Stargate Abilene; project=Stargate #confident; country=United States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch current facility power for OpenAI Stargate Abilene; project=Stargate #confident; country=United States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch current facility power for OpenAI Stargate Abilene; project=Stargate #confident; country=United
+    States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_openai_stargate_abilene_buildout_remaining
   parent_entity: Oracle
   counterparty_or_anchor_tenant: OpenAI
@@ -637,6 +1046,30 @@ atoms:
   capacity_mw_facility_high: 980.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch remaining buildout to 1180.0 MW facility by 2026-07-01; project=Stargate #confident; country=United
+    States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch remaining buildout to 1180.0 MW facility by 2026-07-01; project=Stargate #confident; country=United
+    States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch remaining buildout to 1180.0 MW facility by 2026-07-01; project=Stargate #confident; country=United
+    States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_anthropic_amazon_new_carlisle_operational
   parent_entity: Amazon
   counterparty_or_anchor_tenant: Anthropic
@@ -669,6 +1102,30 @@ atoms:
   capacity_mw_facility_high: 1092.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch current facility power for Anthropic-Amazon New Carlisle; project=Project Rainier #confident; country=United
+    States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch current facility power for Anthropic-Amazon New Carlisle; project=Project Rainier #confident; country=United
+    States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch current facility power for Anthropic-Amazon New Carlisle; project=Project Rainier #confident;
+    country=United States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_anthropic_amazon_new_carlisle_buildout_remaining
   parent_entity: Amazon
   counterparty_or_anchor_tenant: Anthropic
@@ -701,6 +1158,30 @@ atoms:
   capacity_mw_facility_high: 137.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch remaining buildout to 1229.0 MW facility by 2026-06-21; project=Project Rainier #confident; country=United
+    States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch remaining buildout to 1229.0 MW facility by 2026-06-21; project=Project Rainier #confident; country=United
+    States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch remaining buildout to 1229.0 MW facility by 2026-06-21; project=Project Rainier #confident;
+    country=United States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_microsoft_fairwater_atlanta_operational
   parent_entity: Microsoft
   counterparty_or_anchor_tenant: OpenAI
@@ -733,6 +1214,30 @@ atoms:
   capacity_mw_facility_high: 433.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch current facility power for Microsoft Fairwater Atlanta; project=Microsoft AI WAN #confident; country=United
+    States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch current facility power for Microsoft Fairwater Atlanta; project=Microsoft AI WAN #confident; country=United
+    States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch current facility power for Microsoft Fairwater Atlanta; project=Microsoft AI WAN #confident;
+    country=United States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_microsoft_fairwater_atlanta_buildout_remaining
   parent_entity: Microsoft
   counterparty_or_anchor_tenant: OpenAI
@@ -765,6 +1270,30 @@ atoms:
   capacity_mw_facility_high: 426.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch remaining buildout to 859.0 MW facility by 2026-05-14; project=Microsoft AI WAN #confident; country=United
+    States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch remaining buildout to 859.0 MW facility by 2026-05-14; project=Microsoft AI WAN #confident; country=United
+    States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch remaining buildout to 859.0 MW facility by 2026-05-14; project=Microsoft AI WAN #confident;
+    country=United States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_coreweave_helios_buildout_remaining
   parent_entity: Coreweave
   counterparty_or_anchor_tenant: Microsoft
@@ -796,6 +1325,27 @@ atoms:
   capacity_mw_facility_high: 800.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch remaining buildout to 800.0 MW facility by 2029-01-01; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch remaining buildout to 800.0 MW facility by 2029-01-01; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T5 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch remaining buildout to 800.0 MW facility by 2029-01-01; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_amazon_ridgeland_buildout_remaining
   parent_entity: Amazon
   counterparty_or_anchor_tenant: Anthropic
@@ -828,6 +1378,30 @@ atoms:
   capacity_mw_facility_high: 1008.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch remaining buildout to 1008.0 MW facility by 2027-09-21; project=Project Rainier #speculative; country=United
+    States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch remaining buildout to 1008.0 MW facility by 2027-09-21; project=Project Rainier #speculative; country=United
+    States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T5 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch remaining buildout to 1008.0 MW facility by 2027-09-21; project=Project Rainier #speculative;
+    country=United States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_qts_richmond_operational
   parent_entity: (unspecified)
   counterparty_or_anchor_tenant: (unspecified)
@@ -859,6 +1433,27 @@ atoms:
   capacity_mw_facility_high: 854.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch current facility power for QTS Richmond; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch current facility power for QTS Richmond; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch current facility power for QTS Richmond; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_qts_richmond_buildout_remaining
   parent_entity: (unspecified)
   counterparty_or_anchor_tenant: (unspecified)
@@ -890,6 +1485,27 @@ atoms:
   capacity_mw_facility_high: 67.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch remaining buildout to 921.0 MW facility by 2026-06-15; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch remaining buildout to 921.0 MW facility by 2026-06-15; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch remaining buildout to 921.0 MW facility by 2026-06-15; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_amazon_madison_mega_site_operational
   parent_entity: Amazon
   counterparty_or_anchor_tenant: Anthropic
@@ -922,6 +1538,30 @@ atoms:
   capacity_mw_facility_high: 341.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch current facility power for Amazon Madison Mega Site; project=Project Rainier #speculative; country=United
+    States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch current facility power for Amazon Madison Mega Site; project=Project Rainier #speculative; country=United
+    States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch current facility power for Amazon Madison Mega Site; project=Project Rainier #speculative;
+    country=United States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_amazon_madison_mega_site_buildout_remaining
   parent_entity: Amazon
   counterparty_or_anchor_tenant: Anthropic
@@ -954,6 +1594,30 @@ atoms:
   capacity_mw_facility_high: 478.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: 'Epoch remaining buildout to 819.0 MW facility by 2026-09-18; project=Project Rainier #speculative; country=United
+    States.'
+  source_publication_date: '2026-04-20'
+  exact_quote: 'Epoch remaining buildout to 819.0 MW facility by 2026-09-18; project=Project Rainier #speculative; country=United
+    States.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T5 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Epoch remaining buildout to 819.0 MW facility by 2026-09-18; project=Project Rainier #speculative;
+    country=United States.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_fluidstack_lake_mariner_operational
   parent_entity: Fluidstack
   counterparty_or_anchor_tenant: Anthropic, G42
@@ -985,6 +1649,27 @@ atoms:
   capacity_mw_facility_high: 68.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch current facility power for Fluidstack Lake Mariner; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch current facility power for Fluidstack Lake Mariner; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch current facility power for Fluidstack Lake Mariner; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_fluidstack_lake_mariner_buildout_remaining
   parent_entity: Fluidstack
   counterparty_or_anchor_tenant: Anthropic, G42
@@ -1016,6 +1701,27 @@ atoms:
   capacity_mw_facility_high: 441.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch remaining buildout to 509.0 MW facility by 2027-03-31; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch remaining buildout to 509.0 MW facility by 2027-03-31; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch remaining buildout to 509.0 MW facility by 2027-03-31; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_google_new_albany_operational
   parent_entity: Google
   counterparty_or_anchor_tenant: Google DeepMind
@@ -1047,6 +1753,27 @@ atoms:
   capacity_mw_facility_high: 407.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch current facility power for Google New Albany; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch current facility power for Google New Albany; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch current facility power for Google New Albany; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_google_new_albany_buildout_remaining
   parent_entity: Google
   counterparty_or_anchor_tenant: Google DeepMind
@@ -1078,6 +1805,27 @@ atoms:
   capacity_mw_facility_high: 136.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch remaining buildout to 543.0 MW facility by 2026-12-18; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch remaining buildout to 543.0 MW facility by 2026-12-18; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch remaining buildout to 543.0 MW facility by 2026-12-18; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_google_omaha_operational
   parent_entity: Google
   counterparty_or_anchor_tenant: Google DeepMind
@@ -1109,6 +1857,27 @@ atoms:
   capacity_mw_facility_high: 189.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch current facility power for Google Omaha; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch current facility power for Google Omaha; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch current facility power for Google Omaha; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_google_omaha_buildout_remaining
   parent_entity: Google
   counterparty_or_anchor_tenant: Google DeepMind
@@ -1140,6 +1909,27 @@ atoms:
   capacity_mw_facility_high: 285.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch remaining buildout to 474.0 MW facility by 2027-07-26; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch remaining buildout to 474.0 MW facility by 2027-07-26; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch remaining buildout to 474.0 MW facility by 2027-07-26; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_google_pryor_north_operational
   parent_entity: Google
   counterparty_or_anchor_tenant: Google DeepMind
@@ -1171,6 +1961,27 @@ atoms:
   capacity_mw_facility_high: 65.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch current facility power for Google Pryor (North); project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch current facility power for Google Pryor (North); project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch current facility power for Google Pryor (North); project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_google_pryor_north_buildout_remaining
   parent_entity: Google
   counterparty_or_anchor_tenant: Google DeepMind
@@ -1202,6 +2013,27 @@ atoms:
   capacity_mw_facility_high: 389.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch remaining buildout to 454.0 MW facility by 2026-05-17; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch remaining buildout to 454.0 MW facility by 2026-05-17; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch remaining buildout to 454.0 MW facility by 2026-05-17; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_xai_colossus_1_operational
   parent_entity: xAI
   counterparty_or_anchor_tenant: xAI
@@ -1233,6 +2065,27 @@ atoms:
   capacity_mw_facility_high: 425.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch current facility power for xAI Colossus 1; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch current facility power for xAI Colossus 1; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch current facility power for xAI Colossus 1; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_xai_colossus_1_buildout_remaining
   parent_entity: xAI
   counterparty_or_anchor_tenant: xAI
@@ -1264,6 +2117,27 @@ atoms:
   capacity_mw_facility_high: 17.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch remaining buildout to 442.0 MW facility by 2026-02-11; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch remaining buildout to 442.0 MW facility by 2026-02-11; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch remaining buildout to 442.0 MW facility by 2026-02-11; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_stack_infrastructure_nva02_operational
   parent_entity: (unspecified)
   counterparty_or_anchor_tenant: (unspecified)
@@ -1295,6 +2169,27 @@ atoms:
   capacity_mw_facility_high: 118.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch current facility power for STACK Infrastructure NVA02; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch current facility power for STACK Infrastructure NVA02; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch current facility power for STACK Infrastructure NVA02; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_stack_infrastructure_nva02_buildout_remaining
   parent_entity: (unspecified)
   counterparty_or_anchor_tenant: (unspecified)
@@ -1326,6 +2221,27 @@ atoms:
   capacity_mw_facility_high: 369.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch remaining buildout to 487.0 MW facility by 2028-01-01; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch remaining buildout to 487.0 MW facility by 2028-01-01; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T4 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch remaining buildout to 487.0 MW facility by 2028-01-01; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_meta_temple_operational
   parent_entity: Meta
   counterparty_or_anchor_tenant: Meta
@@ -1357,6 +2273,27 @@ atoms:
   capacity_mw_facility_high: 198.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch current facility power for Meta Temple; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch current facility power for Meta Temple; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch current facility power for Meta Temple; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_meta_temple_buildout_remaining
   parent_entity: Meta
   counterparty_or_anchor_tenant: Meta
@@ -1388,6 +2325,27 @@ atoms:
   capacity_mw_facility_high: 40.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch remaining buildout to 238.0 MW facility by 2026-09-30; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch remaining buildout to 238.0 MW facility by 2026-09-30; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch remaining buildout to 238.0 MW facility by 2026-09-30; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_microsoft_goodyear_operational
   parent_entity: Microsoft
   counterparty_or_anchor_tenant: OpenAI
@@ -1419,6 +2377,27 @@ atoms:
   capacity_mw_facility_high: 263.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch current facility power for Microsoft Goodyear; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch current facility power for Microsoft Goodyear; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch current facility power for Microsoft Goodyear; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_google_council_bluffs_east_operational
   parent_entity: Google
   counterparty_or_anchor_tenant: Google DeepMind
@@ -1450,6 +2429,27 @@ atoms:
   capacity_mw_facility_high: 190.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch current facility power for Google Council Bluffs (East); project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch current facility power for Google Council Bluffs (East); project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch current facility power for Google Council Bluffs (East); project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_google_council_bluffs_east_buildout_remaining
   parent_entity: Google
   counterparty_or_anchor_tenant: Google DeepMind
@@ -1481,6 +2481,27 @@ atoms:
   capacity_mw_facility_high: 94.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch remaining buildout to 284.0 MW facility by 2026-06-10; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch remaining buildout to 284.0 MW facility by 2026-06-10; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch remaining buildout to 284.0 MW facility by 2026-06-10; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_stream_phoenix_buildout_remaining
   parent_entity: (unspecified)
   counterparty_or_anchor_tenant: (unspecified)
@@ -1512,6 +2533,27 @@ atoms:
   capacity_mw_facility_high: 267.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch remaining buildout to 267.0 MW facility by 2030-01-01; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch remaining buildout to 267.0 MW facility by 2030-01-01; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T5 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch remaining buildout to 267.0 MW facility by 2030-01-01; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_vantage_tx1_operational
   parent_entity: (unspecified)
   counterparty_or_anchor_tenant: (unspecified)
@@ -1543,6 +2585,27 @@ atoms:
   capacity_mw_facility_high: 44.8
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch current facility power for Vantage TX1; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch current facility power for Vantage TX1; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch current facility power for Vantage TX1; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_vantage_tx1_buildout_remaining
   parent_entity: (unspecified)
   counterparty_or_anchor_tenant: (unspecified)
@@ -1574,6 +2637,27 @@ atoms:
   capacity_mw_facility_high: 134.4
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch remaining buildout to 179.2 MW facility by 2027-08-31; project=n/a; country=United States.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch remaining buildout to 179.2 MW facility by 2027-08-31; project=n/a; country=United States.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T2 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch remaining buildout to 179.2 MW facility by 2027-08-31; project=n/a; country=United States.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: epoch_alibaba_zhangbei_operational
   parent_entity: Alibaba
   counterparty_or_anchor_tenant: Alibaba
@@ -1605,39 +2689,97 @@ atoms:
   capacity_mw_facility_high: 203.0
   source_type: dataset
   source_support: primary_dataset
+  basis_layer: facility_MW
+  basis_quote: Epoch current facility power for Alibaba Zhangbei; project=n/a; country=China.
+  source_publication_date: '2026-04-20'
+  exact_quote: Epoch current facility power for Alibaba Zhangbei; project=n/a; country=China.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Epoch current facility power for Alibaba Zhangbei; project=n/a; country=China.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: anthropic_aws_incremental_new_capacity
   parent_entity: Amazon
   counterparty_or_anchor_tenant: Anthropic
-  site_or_region: Project Rainier residual / unidentified AWS sites
-  capacity_mw_original: 3170
-  capacity_basis_original: IT
+  site_or_region: Project Rainier residual after Madison/Ridgeland Epoch candidates
+  capacity_mw_original: 1973
+  capacity_basis_original: facility
   pue_assumed: 1.2
-  capacity_mw_it: 3170
-  capacity_mw_facility: 3800
+  capacity_mw_it: 1644.167
+  capacity_mw_facility: 1973
   scope: western
   status: announced
   evidence_tier: T4
-  realization_probability: 0.72
+  realization_probability: 0.58
   source_url: https://www.anthropic.com/news/anthropic-amazon-compute
   source_publisher: Anthropic
   source_date: '2026-04-20'
   last_checked: '2026-04-22'
   dedupe_group: anthropic_aws_rainier
-  dedupe_adjustment_mw: 0.0
-  dedupe_direction: none
+  dedupe_adjustment_mw: -1827
+  dedupe_direction: partial_dedupe_epoch_madison_ridgeland
   included_raw_horizon: true
   included_non_stretch: true
   included_conservative_T1_T2_T3: false
   included_probability_weighted: true
-  notes: 5 GW announced less Epoch Madison/Ridgeland overlap; residual carried as Western incremental facility capacity.
-  capacity_mw_it_low: 2500
-  capacity_mw_it_high: 5000
-  capacity_mw_facility_low: 3000
-  capacity_mw_facility_high: 6000
+  notes: 'Rev-4.2 partial dedupe: prior 3.800 GW residual is reduced by 0.819 GW Madison and 1.008 GW Ridgeland Epoch Rainier
+    candidates; remaining 1.973 GW is site-unallocated Anthropic/AWS capacity.'
+  capacity_mw_it_low: 0
+  capacity_mw_it_high: 3166.667
+  capacity_mw_facility_low: 0
+  capacity_mw_facility_high: 3800
   freshness_status: current_verified
   freshness_waiver_reason: null
   source_type: primary_announcement
-  source_support: primary_company
+  source_support: primary_company_but_site_allocation_ambiguous
+  basis_layer: facility_MW
+  basis_quote: 'Rev-4.2 partial dedupe: prior 3.800 GW residual is reduced by 0.819 GW Madison and 1.008 GW Ridgeland Epoch
+    Rainier candidates; remaining 1.973 GW is site-unallocated Anthropic/AWS capacity.'
+  source_publication_date: '2026-04-20'
+  exact_quote: Anthropic/AWS announce up to 5 GW of new compute; A1 found no public site allocation and flagged Madison/Ridgeland
+    Epoch Rainier candidates for partial dedupe.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates:
+  - epoch_site: epoch:amazon_madison_mega_site
+    epoch_attributed_to: 'Amazon -> Anthropic #speculative'
+    overlap_gw_facility: 0.819
+    overlap_evidence: Epoch tags Madison as speculative Rainier; primary AWS/Anthropic sources do not allocate the 5 GW headline
+      by site.
+  - epoch_site: epoch:amazon_ridgeland
+    epoch_attributed_to: 'Amazon -> Anthropic #speculative'
+    overlap_gw_facility: 1.008
+    overlap_evidence: Epoch tags Ridgeland as speculative Rainier; primary AWS/Anthropic sources do not allocate the 5 GW
+      headline by site.
+  tier_rationale: 'T4: primary announcement for up to 5 GW AWS/Anthropic compute, but final residual is site-unallocated and
+    overlap-adjusted; not T3 because no public take-or-pay/site MW schedule.'
+  tier_rationale_quote: Anthropic/AWS announce up to 5 GW of new compute; A1 found no public site allocation and flagged Madison/Ridgeland
+    Epoch Rainier candidates for partial dedupe.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: contracts/anthropic_aws.md
+  double_count_risk: 'high: Madison and Ridgeland Epoch Rainier candidates deducted from prior residual'
 - atom_id: anthropic_azure_incremental_capacity
   parent_entity: Microsoft Azure
   counterparty_or_anchor_tenant: Anthropic
@@ -1671,15 +2813,45 @@ atoms:
   freshness_waiver_reason: null
   source_type: primary_announcement
   source_support: primary_company
+  basis_layer: IT_MW
+  basis_quote: 1 GW Azure compute commitment; no sites named, so range floors at zero.
+  source_publication_date: '2025-11-18'
+  exact_quote: 1 GW Azure compute commitment; no sites named, so range floors at zero.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates:
+  - epoch_site: epoch:microsoft_fairwater_wisconsin
+    epoch_attributed_to: Microsoft -> OpenAI, Microsoft
+    overlap_gw_facility: 0.0
+    overlap_evidence: A2/A5 found Azure sites undisclosed; Fairwater is same-provider candidate only.
+  - epoch_site: epoch:microsoft_fairwater_atlanta
+    epoch_attributed_to: Microsoft -> OpenAI
+    overlap_gw_facility: 0.0
+    overlap_evidence: A2/A5 found no source tying Anthropic Azure to Atlanta.
+  tier_rationale: T5 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 1 GW Azure compute commitment; no sites named, so range floors at zero.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: contracts/anthropic_azure.md
+  double_count_risk: 'medium: same Microsoft Azure capacity pool but no site evidence'
 - atom_id: openai_microsoft_fairwater_international
   parent_entity: Microsoft
   counterparty_or_anchor_tenant: OpenAI / Microsoft
   site_or_region: Fairwater Narvik and Loughton
-  capacity_mw_original: 700
-  capacity_basis_original: IT
+  capacity_mw_original: 300
+  capacity_basis_original: facility
   pue_assumed: 1.15
-  capacity_mw_it: 700
-  capacity_mw_facility: 805
+  capacity_mw_it: 260.87
+  capacity_mw_facility: 300
   scope: western
   status: announced
   evidence_tier: T2
@@ -1689,22 +2861,50 @@ atoms:
   source_date: '2025-09-18'
   last_checked: '2026-04-22'
   dedupe_group: fairwater_international
-  dedupe_adjustment_mw: 0.0
-  dedupe_direction: none
+  dedupe_adjustment_mw: -505
+  dedupe_direction: source_replace_named_narvik_loughton_mw
   included_raw_horizon: true
   included_non_stretch: true
   included_conservative_T1_T2_T3: true
   included_probability_weighted: true
-  notes: International Fairwater sites named; MW estimated from disclosed site-scale range and nScale/Microsoft partnership.
-  capacity_mw_it_low: 400
-  capacity_mw_it_high: 1500
-  capacity_mw_facility_low: 460
-  capacity_mw_facility_high: 1725
+  notes: 'Rev-4.2 source replacement: current primary sources support 230 MW Narvik plus 50-90 MW Loughton; central carried
+    at 300 MW facility instead of the prior 805 MW midpoint.'
+  capacity_mw_it_low: 243.478
+  capacity_mw_it_high: 530.435
+  capacity_mw_facility_low: 280
+  capacity_mw_facility_high: 610
   freshness_status: current_verified
   freshness_waiver_reason: null
   source_type: primary_announcement
   source_support: primary_company
-  analyst_inference_method: Midpoint of Narvik + Loughton announced site-scale ranges; primary source does not disclose MW.
+  analyst_inference_method: 'Central point is named primary MW anchors: Narvik 230 MW plus Loughton 50-90 MW centralized at
+    70 MW; high includes Narvik queued/scale capacity and Loughton 90 MW.'
+  basis_layer: facility_MW
+  basis_quote: 'Rev-4.2 source replacement: current primary sources support 230 MW Narvik plus 50-90 MW Loughton; central
+    carried at 300 MW facility instead of the prior 805 MW midpoint.'
+  source_publication_date: '2025-09-18'
+  exact_quote: B4 found current primary sources support 0.280 GW named near-term capacity and up to 0.610 GW if stated scale-ups/queues
+    are counted.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: 'T2: named Microsoft/Nscale Fairwater sites with public construction/deployment schedules; not T3 because
+    public sources do not isolate full take-or-pay MW economics for both sites.'
+  tier_rationale_quote: B4 found current primary sources support 0.280 GW named near-term capacity and up to 0.610 GW if stated
+    scale-ups/queues are counted.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: contracts/microsoft_fairwater.md
+  double_count_risk: 'high: Narvik and Loughton overlap with Nscale Microsoft rows'
 - atom_id: meta_hyperion_stretch_incremental
   parent_entity: Meta
   counterparty_or_anchor_tenant: Meta
@@ -1738,6 +2938,27 @@ atoms:
   freshness_waiver_reason: null
   source_type: earnings_call
   source_support: local_cached_primary
+  basis_layer: IT_MW
+  basis_quote: CEO 5 GW Hyperion stretch less Epoch Hyperion evidenced buildout; firm 2 GW floor is already in Epoch.
+  source_publication_date: '2025-07-30'
+  exact_quote: CEO 5 GW Hyperion stretch less Epoch Hyperion evidenced buildout; firm 2 GW floor is already in Epoch.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T5 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: CEO 5 GW Hyperion stretch less Epoch Hyperion evidenced buildout; firm 2 GW floor is already in Epoch.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: xai_colossus2_residual
   parent_entity: xAI
   counterparty_or_anchor_tenant: xAI
@@ -1772,6 +2993,36 @@ atoms:
   source_type: secondary_media
   source_support: secondary_only
   analyst_inference_method: Residual MW after subtracting Epoch Colossus 1+2 buildout from the 2 GW claim.
+  basis_layer: IT_MW
+  basis_quote: Residual between Musk 2 GW claim and Epoch Colossus buildout; nearly all capacity already in Epoch.
+  source_publication_date: '2025-12-30'
+  exact_quote: Residual between Musk 2 GW claim and Epoch Colossus buildout; nearly all capacity already in Epoch.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates:
+  - epoch_site: epoch:xai_colossus_1
+    epoch_attributed_to: xAI
+    overlap_gw_facility: 0.442
+    overlap_evidence: Residual logic subtracts Colossus Epoch capacity; not independent site evidence.
+  - epoch_site: epoch:xai_colossus_2
+    epoch_attributed_to: xAI
+    overlap_gw_facility: 1.494
+    overlap_evidence: Residual logic subtracts Colossus 2 Epoch capacity; keep only residual T6.
+  tier_rationale: T6 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Residual between Musk 2 GW claim and Epoch Colossus buildout; nearly all capacity already in Epoch.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: contracts/xai_colossus.md
+  double_count_risk: 'high: residual depends on Epoch subtraction and secondary reporting'
 - atom_id: anthropic_fluidstack_undisclosed_mw
   parent_entity: Fluidstack
   counterparty_or_anchor_tenant: Anthropic
@@ -1806,6 +3057,28 @@ atoms:
   source_type: primary_announcement
   source_support: primary_company
   unknown_mw_reason: No direct MW disclosure; dollar-only conversion intentionally not used.
+  basis_layer: ambiguous_compute
+  basis_quote: Anthropic/Fluidstack primary discloses $50B and sites but no MW; no MW assigned and excluded from totals.
+  source_publication_date: '2025-11-12'
+  exact_quote: Anthropic/Fluidstack primary discloses $50B and sites but no MW; no MW assigned and excluded from totals.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T5 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Anthropic/Fluidstack primary discloses $50B and sites but no MW; no MW assigned and excluded from
+    totals.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: coreweave_operational_disclosed
   parent_entity: CoreWeave
   counterparty_or_anchor_tenant: multiple
@@ -1839,6 +3112,33 @@ atoms:
   freshness_waiver_reason: null
   source_type: sec_or_public_company
   source_support: primary_company
+  basis_layer: facility_MW
+  basis_quote: Operational fleet capacity disclosed by public company; counted once under CoreWeave, not Applied Digital.
+  source_publication_date: '2026-02-27'
+  exact_quote: Operational fleet capacity disclosed by public company; counted once under CoreWeave, not Applied Digital.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates:
+  - epoch_site: epoch:coreweave_helios
+    epoch_attributed_to: CoreWeave -> Microsoft
+    overlap_gw_facility: 0.0
+    overlap_evidence: Helios has no current operational MW in local Epoch snapshot; 850 MW active fleet retained.
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Operational fleet capacity disclosed by public company; counted once under CoreWeave, not Applied
+    Digital.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: contracts/coreweave_counterparty_stack.md
+  double_count_risk: 'low: active fleet does not overlap Helios current capacity in local Epoch snapshot'
 - atom_id: coreweave_contracted_ex_epoch
   parent_entity: CoreWeave
   counterparty_or_anchor_tenant: Microsoft / OpenAI / Meta / IBM
@@ -1872,6 +3172,32 @@ atoms:
   freshness_waiver_reason: null
   source_type: sec_or_public_company
   source_support: primary_company
+  basis_layer: facility_MW
+  basis_quote: 3.1 GW contracted less 0.8 GW Helios already counted in Epoch; T3 due RPO/backlog and named IG customers.
+  source_publication_date: '2026-02-27'
+  exact_quote: 3.1 GW contracted less 0.8 GW Helios already counted in Epoch; T3 due RPO/backlog and named IG customers.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates:
+  - epoch_site: epoch:coreweave_helios
+    epoch_attributed_to: CoreWeave -> Microsoft
+    overlap_gw_facility: 0.8
+    overlap_evidence: Helios 0.800 GW is already excluded through current ex-Epoch construction.
+  tier_rationale: T3 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 3.1 GW contracted less 0.8 GW Helios already counted in Epoch; T3 due RPO/backlog and named IG customers.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: contracts/coreweave_counterparty_stack.md
+  double_count_risk: 'medium: Helios already deducted; remaining customer-site overlap unresolved'
 - atom_id: coreweave_epoch_overlap_helios
   parent_entity: CoreWeave
   counterparty_or_anchor_tenant: Microsoft
@@ -1906,6 +3232,28 @@ atoms:
   source_type: dataset
   source_support: primary_dataset
   double_count_risk: Epoch/CoreWeave overlap
+  basis_layer: facility_MW
+  basis_quote: 'Overlap atom: Helios is already counted as an Epoch site and removed from CoreWeave contracted ex-Epoch capacity.'
+  source_publication_date: '2026-02-27'
+  exact_quote: 'Overlap atom: Helios is already counted as an Epoch site and removed from CoreWeave contracted ex-Epoch capacity.'
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: excluded per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 'Overlap atom: Helios is already counted as an Epoch site and removed from CoreWeave contracted ex-Epoch
+    capacity.'
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: coreweave_applied_digital_pf1_overlap_adjustment
   parent_entity: Applied Digital / CoreWeave
   counterparty_or_anchor_tenant: CoreWeave
@@ -1941,6 +3289,30 @@ atoms:
   source_type: primary_announcement
   source_support: primary_company
   double_count_risk: Applied Digital/CoreWeave leaseback
+  basis_layer: facility_MW
+  basis_quote: PF1 is Applied Digital real estate leased to CoreWeave; counted under CoreWeave fleet and excluded from Applied
+    Digital incremental capacity.
+  source_publication_date: '2026-04-01'
+  exact_quote: PF1 is Applied Digital real estate leased to CoreWeave; counted under CoreWeave fleet and excluded from Applied
+    Digital incremental capacity.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: excluded per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: PF1 is Applied Digital real estate leased to CoreWeave; counted under CoreWeave fleet and excluded
+    from Applied Digital incremental capacity.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: nebius_operational_disclosed
   parent_entity: Nebius
   counterparty_or_anchor_tenant: multiple
@@ -1974,6 +3346,27 @@ atoms:
   freshness_waiver_reason: null
   source_type: public_company
   source_support: primary_company
+  basis_layer: facility_MW
+  basis_quote: Operational capacity disclosed in Nebius public materials.
+  source_publication_date: '2026-03-16'
+  exact_quote: Operational capacity disclosed in Nebius public materials.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Operational capacity disclosed in Nebius public materials.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: nebius_meta_microsoft_contract_capacity
   parent_entity: Nebius
   counterparty_or_anchor_tenant: Microsoft / Meta
@@ -2007,6 +3400,30 @@ atoms:
   freshness_waiver_reason: null
   source_type: public_company
   source_support: primary_company
+  basis_layer: facility_MW
+  basis_quote: Contracted backlog with Microsoft and Meta; T3 because named IG counterparties and revenue contract evidence
+    exist.
+  source_publication_date: '2026-03-16'
+  exact_quote: Contracted backlog with Microsoft and Meta; T3 because named IG counterparties and revenue contract evidence
+    exist.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T3 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Contracted backlog with Microsoft and Meta; T3 because named IG counterparties and revenue contract
+    evidence exist.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: nscale_operational_seed_capacity
   parent_entity: Nscale
   counterparty_or_anchor_tenant: merchant
@@ -2041,41 +3458,96 @@ atoms:
     private-company / secondary-source row.
   source_type: secondary_media
   source_support: secondary_only
+  basis_layer: facility_MW
+  basis_quote: First US site online; retained but secondary-source flagged.
+  source_publication_date: '2025-10-15'
+  exact_quote: First US site online; retained but secondary-source flagged.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: First US site online; retained but secondary-source flagged.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: nscale_microsoft_contract_capacity
   parent_entity: Nscale
   counterparty_or_anchor_tenant: Microsoft / Google
-  site_or_region: Barstow, Ward County, West London and other ex-Fairwater sites
-  capacity_mw_original: 900
+  site_or_region: Ward County/Cedarvale Texas Microsoft floor; Narvik/Loughton deduped to Fairwater
+  capacity_mw_original: 240
   capacity_basis_original: facility
   pue_assumed: 1.2
-  capacity_mw_it: 750
-  capacity_mw_facility: 900
+  capacity_mw_it: 200
+  capacity_mw_facility: 240
   scope: western
   status: contracted
   evidence_tier: T4
-  realization_probability: 0.6
+  realization_probability: 0.58
   source_url: https://siliconangle.com/2025/10/15/nscale-inks-200000-gpu-data-center-contract-microsoft/
   source_publisher: SiliconANGLE
   source_date: '2025-10-15'
   last_checked: '2026-04-25'
   dedupe_group: nscale_microsoft_contract_capacity
-  dedupe_adjustment_mw: 0.0
-  dedupe_direction: none
+  dedupe_adjustment_mw: -660
+  dedupe_direction: partial_dedupe_fairwater_and_option_demote
   included_raw_horizon: true
   included_non_stretch: true
   included_conservative_T1_T2_T3: false
   included_probability_weighted: true
-  notes: Private-company contracted capacity after subtracting Fairwater Narvik/Loughton overlap; T4 because no public RPO/take-or-pay
-    disclosure and source is secondary.
-  capacity_mw_it_low: 750
-  capacity_mw_it_high: 750
-  capacity_mw_facility_low: 900
-  capacity_mw_facility_high: 900
+  notes: 'Rev-4.2 partial dedupe/source replacement: keep Ward County/Cedarvale at the primary-supported ~240 MW floor; remove
+    Narvik/Loughton to Fairwater and carry the 700 MW Texas second phase only as high/option.'
+  capacity_mw_it_low: 195
+  capacity_mw_it_high: 783.333
+  capacity_mw_facility_low: 234
+  capacity_mw_facility_high: 940
   freshness_status: waived_secondary_source_flagged
   freshness_waiver_reason: No newer primary MW disclosure found as of 2026-04-25; retained secondary source and flagged as
     private-company / secondary-source row.
-  source_type: secondary_media
-  source_support: secondary_only
+  source_type: primary_plus_secondary
+  source_support: primary_company_for_site_floor_secondary_for_old_900mw
+  basis_layer: facility_MW
+  basis_quote: 'Rev-4.2 partial dedupe/source replacement: keep Ward County/Cedarvale at the primary-supported ~240 MW floor;
+    remove Narvik/Loughton to Fairwater and carry the 700 MW Texas second phase only as high/option.'
+  source_publication_date: '2025-10-15'
+  exact_quote: C3 found no primary source stating a standalone 900 MW contract; strongest primary support is Ward County 234-240
+    MW plus a 700 MW Microsoft option.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates:
+  - epoch_site: repo:openai_microsoft_fairwater_international
+    epoch_attributed_to: Microsoft / OpenAI Fairwater Narvik and Loughton
+    overlap_gw_facility: 0.3
+    overlap_evidence: Narvik/Loughton are now carried in the Fairwater International atom at named primary MW anchors.
+  - epoch_site: epoch:none_ward_county_cedarvale
+    epoch_attributed_to: none
+    overlap_gw_facility: 0.0
+    overlap_evidence: No local Epoch row found for Ward County/Cedarvale.
+  tier_rationale: 'T4: primary company support for a named Microsoft deployment floor, but the old 900 MW point relied on
+    optional Texas expansion plus overlapping Fairwater sites.'
+  tier_rationale_quote: C3 found no primary source stating a standalone 900 MW contract; strongest primary support is Ward
+    County 234-240 MW plus a 700 MW Microsoft option.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: contracts/nscale_microsoft.md
+  double_count_risk: 'high: Narvik/Loughton are attributed to Fairwater International; 700 MW Texas second phase is optional'
 - atom_id: nscale_fairwater_overlap_adjustment
   parent_entity: Nscale / Microsoft
   counterparty_or_anchor_tenant: Microsoft
@@ -2111,6 +3583,27 @@ atoms:
   source_type: secondary_media
   source_support: secondary_only
   double_count_risk: Nscale/Fairwater overlap
+  basis_layer: facility_MW
+  basis_quote: Nscale Narvik/Loughton capacity is attributed to the Fairwater atom; excluded here to avoid double-count.
+  source_publication_date: '2025-10-15'
+  exact_quote: Nscale Narvik/Loughton capacity is attributed to the Fairwater atom; excluded here to avoid double-count.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: excluded per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Nscale Narvik/Loughton capacity is attributed to the Fairwater atom; excluded here to avoid double-count.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: crusoe_norway_iceland_operational
   parent_entity: Crusoe
   counterparty_or_anchor_tenant: merchant
@@ -2144,6 +3637,27 @@ atoms:
   freshness_waiver_reason: null
   source_type: primary_announcement
   source_support: primary_company
+  basis_layer: facility_MW
+  basis_quote: Operational ex-Epoch Crusoe capacity in Norway/Iceland and Abilene phase context.
+  source_publication_date: '2026-04-24'
+  exact_quote: Operational ex-Epoch Crusoe capacity in Norway/Iceland and Abilene phase context.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Operational ex-Epoch Crusoe capacity in Norway/Iceland and Abilene phase context.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: crusoe_abilene_epoch_overlap
   parent_entity: Crusoe / Oracle / Microsoft
   counterparty_or_anchor_tenant: OpenAI / Microsoft
@@ -2179,39 +3693,102 @@ atoms:
   source_type: dataset
   source_support: primary_dataset
   double_count_risk: Crusoe Abilene/Epoch overlap
+  basis_layer: facility_MW
+  basis_quote: Abilene Phase 1+2 and Microsoft Abilene expansion are already counted in Epoch; excluded from Crusoe incremental
+    neocloud capacity.
+  source_publication_date: '2026-04-24'
+  exact_quote: Abilene Phase 1+2 and Microsoft Abilene expansion are already counted in Epoch; excluded from Crusoe incremental
+    neocloud capacity.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: excluded per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Abilene Phase 1+2 and Microsoft Abilene expansion are already counted in Epoch; excluded from Crusoe
+    incremental neocloud capacity.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: crusoe_cheyenne_or_other_future_capacity
   parent_entity: Crusoe
   counterparty_or_anchor_tenant: Tallgrass / merchant
-  site_or_region: Cheyenne and residual ex-Epoch contracted capacity
-  capacity_mw_original: 1980
+  site_or_region: Project Jade / Cheyenne site-plan capacity ex-Abilene
+  capacity_mw_original: 1800
   capacity_basis_original: facility
   pue_assumed: 1.25
-  capacity_mw_it: 1584
-  capacity_mw_facility: 1980
+  capacity_mw_it: 1440
+  capacity_mw_facility: 1800
   scope: western
-  status: contracted
-  evidence_tier: T3
-  realization_probability: 0.7
+  status: announced
+  evidence_tier: T4
+  realization_probability: 0.58
   source_url: https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure
   source_publisher: Crusoe / DCD
   source_date: '2026-04-24'
   last_checked: '2026-04-25'
   dedupe_group: crusoe_cheyenne_or_other_future_capacity
-  dedupe_adjustment_mw: 0.0
-  dedupe_direction: none
+  dedupe_adjustment_mw: -180
+  dedupe_direction: split_cheyenne_from_abilene_overlap_and_demote_tier
   included_raw_horizon: true
   included_non_stretch: true
-  included_conservative_T1_T2_T3: true
+  included_conservative_T1_T2_T3: false
   included_probability_weighted: true
-  notes: 4.1 GW contracted less Epoch Abilene overlaps; mostly Cheyenne 1.8 GW with permit and anchor evidence.
-  capacity_mw_it_low: 1584
-  capacity_mw_it_high: 1584
-  capacity_mw_facility_low: 1980
-  capacity_mw_facility_high: 1980
+  notes: 'Rev-4.2 split: Cheyenne/Project Jade retained at 1.8 GW site-plan capacity; extra 0.18 GW residual removed and Abilene
+    remains excluded as Epoch overlap.'
+  capacity_mw_it_low: 1440
+  capacity_mw_it_high: 1440
+  capacity_mw_facility_low: 1800
+  capacity_mw_facility_high: 1800
   freshness_status: current_verified
   freshness_waiver_reason: null
   source_type: primary_plus_secondary
   source_support: primary_company
+  basis_layer: facility_MW
+  basis_quote: 'Rev-4.2 split: Cheyenne/Project Jade retained at 1.8 GW site-plan capacity; extra 0.18 GW residual removed
+    and Abilene remains excluded as Epoch overlap.'
+  source_publication_date: '2026-04-24'
+  exact_quote: C2 found Cheyenne is a real 1.8 GW initial AI data center campus candidate, but not publicly evidenced as a
+    firm hyperscaler take-or-pay contract.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates:
+  - epoch_site: epoch:openai_stargate_abilene
+    epoch_attributed_to: Oracle -> OpenAI
+    overlap_gw_facility: 0.0
+    overlap_evidence: Cheyenne/Project Jade is a distinct Wyoming site; Abilene is already carried separately in Epoch.
+  - epoch_site: epoch:crusoe_abilene_expansion
+    epoch_attributed_to: Microsoft
+    overlap_gw_facility: 0.0
+    overlap_evidence: Abilene Microsoft expansion is already an excluded overlap atom; Cheyenne point excludes it.
+  - epoch_site: epoch:none_cheyenne_project_jade
+    epoch_attributed_to: none
+    overlap_gw_facility: 0.0
+    overlap_evidence: No local Epoch row found for Cheyenne/Project Jade.
+  tier_rationale: 'T4: county/site-plan and Crusoe/Tallgrass evidence support an announced site plan; not T3 because no public
+    hyperscaler take-or-pay or project-finance close was found.'
+  tier_rationale_quote: C2 found Cheyenne is a real 1.8 GW initial AI data center campus candidate, but not publicly evidenced
+    as a firm hyperscaler take-or-pay contract.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: contracts/crusoe_tallgrass.md
+  double_count_risk: low for Cheyenne site; high for Abilene capacity already removed to Epoch
 - atom_id: lambda_operational
   parent_entity: Lambda
   counterparty_or_anchor_tenant: merchant
@@ -2246,6 +3823,30 @@ atoms:
     of 2026-04-25.
   source_type: primary_announcement
   source_support: primary_company
+  basis_layer: facility_MW
+  basis_quote: Operational estimate retained from neocloud overlay; official financing refreshed but MW disclosure remains
+    limited.
+  source_publication_date: '2025-11-18'
+  exact_quote: Operational estimate retained from neocloud overlay; official financing refreshed but MW disclosure remains
+    limited.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Operational estimate retained from neocloud overlay; official financing refreshed but MW disclosure
+    remains limited.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: lambda_microsoft_contract
   parent_entity: Lambda
   counterparty_or_anchor_tenant: Microsoft / NVIDIA
@@ -2280,6 +3881,37 @@ atoms:
     of 2026-04-25.
   source_type: primary_plus_secondary
   source_support: primary_company
+  basis_layer: facility_MW
+  basis_quote: Private pre-IPO capacity with Microsoft/NVIDIA anchors; T4 because no public RPO/take-or-pay capacity disclosure.
+  source_publication_date: '2025-11-18'
+  exact_quote: Private pre-IPO capacity with Microsoft/NVIDIA anchors; T4 because no public RPO/take-or-pay capacity disclosure.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates:
+  - epoch_site: epoch:microsoft_fairwater_wisconsin
+    epoch_attributed_to: Microsoft -> OpenAI, Microsoft
+    overlap_gw_facility: 0.0
+    overlap_evidence: C4 found no evidence Lambda operates Fairwater Wisconsin.
+  - epoch_site: epoch:crusoe_abilene_expansion
+    epoch_attributed_to: Microsoft
+    overlap_gw_facility: 0.0
+    overlap_evidence: C4 found no Lambda source naming Crusoe or Abilene.
+  tier_rationale: T4 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Private pre-IPO capacity with Microsoft/NVIDIA anchors; T4 because no public RPO/take-or-pay capacity
+    disclosure.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: contracts/lambda_microsoft.md
+  double_count_risk: 'medium: same Microsoft/NVIDIA ecosystem but no site overlap evidence'
 - atom_id: applied_digital_pf2_leased_capacity
   parent_entity: Applied Digital
   counterparty_or_anchor_tenant: undisclosed hyperscaler
@@ -2313,6 +3945,27 @@ atoms:
   freshness_waiver_reason: null
   source_type: primary_announcement
   source_support: primary_company
+  basis_layer: facility_MW
+  basis_quote: PF2 hyperscaler lease plus secured financing; PF1 excluded as CoreWeave overlap.
+  source_publication_date: '2026-04-01'
+  exact_quote: PF2 hyperscaler lease plus secured financing; PF1 excluded as CoreWeave overlap.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T3 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: PF2 hyperscaler lease plus secured financing; PF1 excluded as CoreWeave overlap.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: together_operational_inferred
   parent_entity: Together AI
   counterparty_or_anchor_tenant: merchant
@@ -2348,6 +4001,27 @@ atoms:
   source_type: primary_plus_secondary
   source_support: secondary_mw
   analyst_inference_method: MW inferred from GPU count/site footprint; no direct MW disclosure.
+  basis_layer: IT_MW
+  basis_quote: Operational MW inferred from GPU/site footprint; T6 in tier rollup.
+  source_publication_date: '2026-04-23'
+  exact_quote: Operational MW inferred from GPU/site footprint; T6 in tier rollup.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T6 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Operational MW inferred from GPU/site footprint; T6 in tier rollup.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: together_contracted_private_capacity
   parent_entity: Together AI
   counterparty_or_anchor_tenant: merchant + inference customers
@@ -2382,6 +4056,30 @@ atoms:
     flagged in Appendix B.
   source_type: primary_plus_secondary
   source_support: secondary_mw
+  basis_layer: IT_MW
+  basis_quote: Private-company contracted capacity; T4 because source support and MW conversion are weaker than public RPO
+    evidence.
+  source_publication_date: '2026-04-23'
+  exact_quote: Private-company contracted capacity; T4 because source support and MW conversion are weaker than public RPO
+    evidence.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T4 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Private-company contracted capacity; T4 because source support and MW conversion are weaker than public
+    RPO evidence.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: voltage_park_lightning_inferred
   parent_entity: Voltage Park / Lightning
   counterparty_or_anchor_tenant: merchant
@@ -2417,6 +4115,27 @@ atoms:
   source_type: primary_announcement
   source_support: primary_company_but_mw_inferred
   analyst_inference_method: GPU-count-to-IT-MW estimate from 35k GPU footprint, converted to facility at PUE 1.25.
+  basis_layer: IT_MW
+  basis_quote: MW inferred from roughly 35k GPU footprint across six sites; no direct MW disclosure.
+  source_publication_date: '2026-02-06'
+  exact_quote: MW inferred from roughly 35k GPU footprint across six sites; no direct MW disclosure.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T6 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: MW inferred from roughly 35k GPU footprint across six sites; no direct MW disclosure.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: fluidstack_anthropic_undisclosed_mw
   parent_entity: Fluidstack
   counterparty_or_anchor_tenant: Anthropic
@@ -2453,6 +4172,30 @@ atoms:
   source_type: primary_announcement
   source_support: primary_company
   unknown_mw_reason: No direct MW disclosure; no dollar-to-MW conversion used.
+  basis_layer: ambiguous_compute
+  basis_quote: No disclosed MW for full Anthropic/Fluidstack JV; Lake Mariner overlap counted in Epoch and dollar envelope
+    excluded from physical totals.
+  source_publication_date: '2025-11-12'
+  exact_quote: No disclosed MW for full Anthropic/Fluidstack JV; Lake Mariner overlap counted in Epoch and dollar envelope
+    excluded from physical totals.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T5 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: No disclosed MW for full Anthropic/Fluidstack JV; Lake Mariner overlap counted in Epoch and dollar
+    envelope excluded from physical totals.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: fermi_speculative_excluded_or_T5_only
   parent_entity: Fermi America
   counterparty_or_anchor_tenant: undisclosed
@@ -2487,6 +4230,27 @@ atoms:
   source_type: secondary_media
   source_support: secondary_only
   unknown_mw_reason: Permit aspiration only; no defensible included MW atom.
+  basis_layer: ambiguous_compute
+  basis_quote: 11-17 GW permit aspiration has no customer contract and no operational MW; excluded from Western denominator.
+  source_publication_date: '2025-12-18'
+  exact_quote: 11-17 GW permit aspiration has no customer contract and no operational MW; excluded from Western denominator.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T5 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: 11-17 GW permit aspiration has no customer contract and no operational MW; excluded from Western denominator.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: microsoft_g42_uae_khazna
   parent_entity: Khazna Data Centers / G42
   counterparty_or_anchor_tenant: Microsoft Azure sovereign cloud
@@ -2520,6 +4284,27 @@ atoms:
   freshness_waiver_reason: null
   source_type: primary_announcement
   source_support: primary_company
+  basis_layer: IT_MW
+  basis_quote: Sovereign UAE capacity; sidebar only, not Western denominator.
+  source_publication_date: '2025-11-01'
+  exact_quote: Sovereign UAE capacity; sidebar only, not Western denominator.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T4 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Sovereign UAE capacity; sidebar only, not Western denominator.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: xai_humain_saudi
   parent_entity: HUMAIN
   counterparty_or_anchor_tenant: xAI
@@ -2553,6 +4338,27 @@ atoms:
   freshness_waiver_reason: null
   source_type: secondary_media
   source_support: secondary_only
+  basis_layer: facility_MW
+  basis_quote: Saudi sovereign JV; sidebar only, not Western denominator.
+  source_publication_date: '2025-05-14'
+  exact_quote: Saudi sovereign JV; sidebar only, not Western denominator.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T4 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Saudi sovereign JV; sidebar only, not Western denominator.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: humain_amd_saudi
   parent_entity: HUMAIN / AMD
   counterparty_or_anchor_tenant: Saudi sovereign + merchant
@@ -2586,15 +4392,36 @@ atoms:
   freshness_waiver_reason: null
   source_type: primary_plus_secondary
   source_support: primary_company
+  basis_layer: facility_MW
+  basis_quote: Saudi AMD-HUMAIN sovereign JV; sidebar only, not Western denominator.
+  source_publication_date: '2025-05-14'
+  exact_quote: Saudi AMD-HUMAIN sovereign JV; sidebar only, not Western denominator.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: T4 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
+  tier_rationale_quote: Saudi AMD-HUMAIN sovereign JV; sidebar only, not Western denominator.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: null
 - atom_id: reliance_jio_jamnagar
   parent_entity: Reliance Industries / Jio
   counterparty_or_anchor_tenant: Reliance-owned + Indian enterprise
-  site_or_region: Jamnagar Gujarat AI data center
-  capacity_mw_original: 1000
+  site_or_region: Jamnagar Gujarat AI data center stretch beyond near-term tranche
+  capacity_mw_original: 880
   capacity_basis_original: facility
   pue_assumed: 1.4
-  capacity_mw_it: 714.286
-  capacity_mw_facility: 1000
+  capacity_mw_it: 628.571
+  capacity_mw_facility: 880
   scope: sovereign
   status: speculative
   evidence_tier: T5
@@ -2604,30 +4431,118 @@ atoms:
   source_date: '2024-08-29'
   last_checked: '2026-04-22'
   dedupe_group: reliance_jio_jamnagar
-  dedupe_adjustment_mw: 0.0
-  dedupe_direction: none
+  dedupe_adjustment_mw: -120
+  dedupe_direction: split_near_term_120mw_tranche
   included_raw_horizon: false
   included_non_stretch: false
   included_conservative_T1_T2_T3: false
   included_probability_weighted: false
-  notes: India sovereign/strategic capacity; sidebar only, not Western denominator.
-  capacity_mw_it_low: 85.714
-  capacity_mw_it_high: 2142.857
-  capacity_mw_facility_low: 120
-  capacity_mw_facility_high: 3000
+  notes: 'Rev-4.2 split: this row carries the Jamnagar sovereign stretch residual beyond the separately disclosed >120 MW
+    near-term tranche.'
+  capacity_mw_it_low: 0
+  capacity_mw_it_high: 2057.143
+  capacity_mw_facility_low: 0
+  capacity_mw_facility_high: 2880
   freshness_status: current_verified
   freshness_waiver_reason: null
   source_type: secondary_media
-  source_support: secondary_only
+  source_support: secondary_only_for_stretch
+  basis_layer: facility_MW
+  basis_quote: 'Rev-4.2 split: this row carries the Jamnagar sovereign stretch residual beyond the separately disclosed >120
+    MW near-term tranche.'
+  source_publication_date: '2024-08-29'
+  exact_quote: D1 found the 1 GW Jamnagar figure is a stretch/ambition; the evidenced near-term tranche is more than 120 MW.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: 'T5: gigawatt-scale Jamnagar ambition remains stretch until source-stated site MW, partner, planning and
+    energization evidence are public.'
+  tier_rationale_quote: D1 found the 1 GW Jamnagar figure is a stretch/ambition; the evidenced near-term tranche is more than
+    120 MW.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: contracts/reliance_jio.md
+  double_count_risk: low versus Epoch; stretch row separated from near-term 120 MW tranche
+- atom_id: reliance_jio_jamnagar_near_term_120mw
+  parent_entity: Reliance Industries / Jio
+  counterparty_or_anchor_tenant: Reliance-owned + Indian enterprise
+  site_or_region: Jamnagar Gujarat near-term AI data center tranche
+  capacity_mw_original: 120
+  capacity_basis_original: facility
+  pue_assumed: 1.4
+  capacity_mw_it: 85.714
+  capacity_mw_facility: 120
+  scope: sovereign
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://techcrunch.com/2026/02/19/reliance-unveils-110b-ai-investment-plan-as-india-ramps-up-tech-ambitions/
+  source_publisher: TechCrunch citing India AI Impact Summit / Reliance
+  source_date: '2026-02-19'
+  last_checked: '2026-04-28'
+  dedupe_group: reliance_jio_jamnagar
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: split_from_stretch_row
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: 'Rev-4.2 split: near-term Jamnagar tranche carried separately from the 1 GW sovereign stretch row.'
+  capacity_mw_it_low: 85.714
+  capacity_mw_it_high: 85.714
+  capacity_mw_facility_low: 120
+  capacity_mw_facility_high: 120
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: secondary_media
+  source_support: secondary_only_but_near_term_tranche_disclosed
+  basis_layer: facility_MW
+  basis_quote: 'Rev-4.2 split: near-term Jamnagar tranche carried separately from the 1 GW sovereign stretch row.'
+  source_publication_date: '2026-02-19'
+  exact_quote: D1 reports a first Jamnagar tranche of more than 120 MW coming online in H2 2026, while source basis remains
+    media-reported rather than a Reliance filing.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates:
+  - epoch_site: epoch:none_jamnagar
+    epoch_attributed_to: none
+    overlap_gw_facility: 0.0
+    overlap_evidence: D1 found no Reliance/Jio/Jamnagar row in local Epoch snapshot.
+  tier_rationale: 'T2: specific near-term >120 MW tranche with reported H2 2026 timing; not T3 because no public take-or-pay/tenant
+    economics.'
+  tier_rationale_quote: D1 reports a first Jamnagar tranche of more than 120 MW coming online in H2 2026, while source basis
+    remains media-reported rather than a Reliance filing.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: contracts/reliance_jio.md
+  double_count_risk: 'low: no local Epoch Reliance/Jamnagar row found'
 - atom_id: uk_culham_ai_growth_zone
   parent_entity: UK Government / UKAEA
   counterparty_or_anchor_tenant: UK sovereign + TBD tenant
-  site_or_region: Culham AI Growth Zone
-  capacity_mw_original: 250
+  site_or_region: Culham AI Growth Zone scale-out beyond initial 100 MW
+  capacity_mw_original: 150
   capacity_basis_original: IT
   pue_assumed: 1.2
-  capacity_mw_it: 250
-  capacity_mw_facility: 300
+  capacity_mw_it: 150
+  capacity_mw_facility: 180
   scope: sovereign
   status: speculative
   evidence_tier: T5
@@ -2637,18 +4552,109 @@ atoms:
   source_date: '2025-01-13'
   last_checked: '2026-04-22'
   dedupe_group: uk_culham_ai_growth_zone
-  dedupe_adjustment_mw: 0.0
-  dedupe_direction: none
+  dedupe_adjustment_mw: -120
+  dedupe_direction: split_initial_100mw_tranche
   included_raw_horizon: false
   included_non_stretch: false
   included_conservative_T1_T2_T3: false
   included_probability_weighted: false
-  notes: UK sovereign AI Growth Zone; sidebar only, not Western denominator.
-  capacity_mw_it_low: 100
-  capacity_mw_it_high: 500
-  capacity_mw_facility_low: 120
-  capacity_mw_facility_high: 600
+  notes: 'Rev-4.2 split: this row carries the Culham scale-out/stretch residual beyond the source-stated initial 100 MW opportunity;
+    central preserves the prior 300 MW facility midpoint when combined with the initial row.'
+  capacity_mw_it_low: 0
+  capacity_mw_it_high: 400
+  capacity_mw_facility_low: 0
+  capacity_mw_facility_high: 480
   freshness_status: current_verified
   freshness_waiver_reason: null
   source_type: government_publication
   source_support: primary_government
+  basis_layer: IT_MW
+  basis_quote: 'Rev-4.2 split: this row carries the Culham scale-out/stretch residual beyond the source-stated initial 100
+    MW opportunity; central preserves the prior 300 MW facility midpoint when combined with the initial row.'
+  source_publication_date: '2025-01-13'
+  exact_quote: D3 found primary sources state 100 MW initial capacity and scale/aspiration up to 500 MW; no reviewed primary
+    source states 300 MW for Culham.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates: []
+  tier_rationale: 'T5: 500 MW scale is official policy/site-readiness aspiration, not a contracted build; no named operator,
+    tenant, planning consent, or grid schedule found.'
+  tier_rationale_quote: D3 found primary sources state 100 MW initial capacity and scale/aspiration up to 500 MW; no reviewed
+    primary source states 300 MW for Culham.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: contracts/uk_culham.md
+  double_count_risk: low versus Epoch; scale-out separated from initial 100 MW public opportunity
+- atom_id: uk_culham_ai_growth_zone_initial_100mw
+  parent_entity: UK Government / UKAEA
+  counterparty_or_anchor_tenant: UK sovereign + TBD tenant
+  site_or_region: Culham AI Growth Zone initial 100 MW opportunity
+  capacity_mw_original: 100
+  capacity_basis_original: IT
+  pue_assumed: 1.2
+  capacity_mw_it: 100
+  capacity_mw_facility: 120
+  scope: sovereign
+  status: announced
+  evidence_tier: T4
+  realization_probability: 0.58
+  source_url: https://culham.org.uk/invest-at-culham-campus/expression-of-interest/
+  source_publisher: UKAEA / Culham Campus
+  source_date: '2025-08-12'
+  last_checked: '2026-04-28'
+  dedupe_group: uk_culham_ai_growth_zone
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: split_from_scaleout_row
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: 'Rev-4.2 split: initial 100 MW Culham opportunity converted to 120 MW facility at PUE 1.2 and separated from the
+    scale-out stretch row.'
+  capacity_mw_it_low: 100
+  capacity_mw_it_high: 100
+  capacity_mw_facility_low: 120
+  capacity_mw_facility_high: 120
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: government_publication
+  source_support: primary_government
+  basis_layer: IT_MW
+  basis_quote: 'Rev-4.2 split: initial 100 MW Culham opportunity converted to 120 MW facility at PUE 1.2 and separated from
+    the scale-out stretch row.'
+  source_publication_date: '2025-08-12'
+  exact_quote: UKAEA identifies roughly 100 MW of steady-state, dual-resilient power available for a mission-led AI data centre;
+    D3 found no 300 MW source-stated figure.
+  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  energization_window:
+    earliest: null
+    central: null
+    latest: null
+  epoch_overlap_candidates:
+  - epoch_site: epoch:none_culham
+    epoch_attributed_to: none
+    overlap_gw_facility: 0.0
+    overlap_evidence: D3 found no Culham/UKAEA/AI Growth Zone row in local Epoch data.
+  tier_rationale: 'T4: designated site and UKAEA expression-of-interest with approximately 100 MW available; not T3 because
+    no signed private partner, anchor tenant, or contract economics were found.'
+  tier_rationale_quote: UKAEA identifies roughly 100 MW of steady-state, dual-resilient power available for a mission-led
+    AI data centre; D3 found no 300 MW source-stated figure.
+  risks:
+    counterparty: Pending Rev-4.2 contract drilldown.
+    regulatory: Pending Rev-4.2 contract drilldown.
+    power_interconnect: Pending Rev-4.2 contract drilldown.
+    supply_chain: Pending Rev-4.2 contract drilldown.
+    technology: Pending Rev-4.2 contract drilldown.
+    financing: Pending Rev-4.2 contract drilldown.
+    structural_optionality: Pending Rev-4.2 contract drilldown.
+  contract_page: contracts/uk_culham.md
+  double_count_risk: 'low: no local Epoch Culham row found'

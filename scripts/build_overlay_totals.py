@@ -683,7 +683,7 @@ The neocloud T3/T4 split in latest `main` is already corrected to the expected s
    - Raw non-stretch facility: **{canonical['raw_non_stretch_gw_facility']:.3f} GW**
    - Conservative T1+T2+T3 raw: **{canonical['conservative_T1_T2_T3_raw_gw_facility']:.3f} GW**
    - Probability-weighted facility: **{canonical['deterministic_probability_weighted_gw_facility']:.3f} GW**
-   - Full-realization ceiling facility: **{canonical['full_realization_ceiling_gw_facility']:.3f} GW**
+   - Row-uncertainty high envelope facility: **{canonical['full_realization_ceiling_gw_facility']:.3f} GW**
    - Sovereign sidebar facility: **{canonical['sovereign_sidebar_gw_facility']:.3f} GW**
    - Capital envelope central: **${canonical['capital_envelope_usd_t_central']:.3f}T** (**${canonical['capital_envelope_usd_t_low']:.3f}T-${canonical['capital_envelope_usd_t_high']:.3f}T**)
 
@@ -733,7 +733,7 @@ def check_overlay(payload: dict[str, Any], tolerance: float) -> bool:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--check-only", action="store_true", help="validate and compare without writing artifacts")
+    parser.add_argument("--check-only", "--check", dest="check_only", action="store_true", help="validate and compare without writing artifacts")
     parser.add_argument("--check-overlay", action="store_true", help="fail if overlay totals drift from canonical atoms")
     parser.add_argument("--tolerance-gw", type=float, default=0.02)
     args = parser.parse_args()

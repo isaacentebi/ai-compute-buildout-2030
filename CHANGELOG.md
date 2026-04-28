@@ -298,7 +298,7 @@ Epoch published two changelog entries that affect our numbers:
 | P(realized < conservative 27.78 GW) | 30% |
 | P(realized < tier-weighted 36.13 GW) | 86% |
 | Conservative case (T1+T2+T3 only) | ~27.8 GW |
-| Full-realization ceiling | ~53.5 GW |
+| Row-uncertainty high envelope | ~53.5 GW |
 | Contracted RPO envelope (separated from capex) | ~$550B |
 | T1 segment | 8.16 GW / 16% / prob=1.00 |
 | T2 segment | 11.92 GW / 24% / prob=0.88 |

@@ -275,9 +275,9 @@ neoclouds:
     incremental_operational_mw: 200
     incremental_contracted_mw: 1980  # 4.1 GW - 2.12 GW = 1.98 GW (mostly Cheyenne WY 1.8)
     evidence_tier_operational: T1
-    evidence_tier_contracted: T3  # Cheyenne 1.8 GW is permitted + anchor-contracted; Crusoe's Abilene work is already T2 in Epoch
+    evidence_tier_contracted: T4  # Rev-4.2: Cheyenne is permitted/site-plan evidenced, not public take-or-pay contracted
     realization_probability_operational: 1.00
-    realization_probability_contracted: 0.70  # below T3 default (0.78) — private co; no public RPO disclosure
+    realization_probability_contracted: 0.58  # Rev-4.2 T4 default; no public hyperscaler take-or-pay disclosure
     primary_sources:
       - url: https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure
         publisher: Crusoe
@@ -526,25 +526,23 @@ aggregate_rollup:
 
   evidence_tier_rollup:
     note: |
-      Six-tier partition of the 9.39 GW neocloud contribution to the
+      Six-tier partition of the Rev-4.2 neocloud contribution to the
       Western horizon. T1 = directly-disclosed operational; T6 = MW
       inferred from GPU count or fleet estimate; T3/T4 = contracted
       capacity split by whether IG-counterparty RPO backs it (T3) or
       private-co named deal (T4).
     T1_operational_directly_disclosed_gw: 1.29   # CoreWeave 0.85 + Nebius 0.17 + Crusoe 0.20 + Nscale 0.02 + Lambda 0.05
-    T3_firm_commercial_contract_gw: 6.48         # CoreWeave 2.30 + Nebius 2.00 + Crusoe 1.98 + Applied Digital 0.20
-    T4_announced_private_co_gw: 1.42             # Nscale 0.90 + Lambda 0.32 + Together 0.20
+    T3_firm_commercial_contract_gw: 4.50         # CoreWeave + Nebius + Applied Digital after Crusoe demotion
+    T4_announced_private_co_gw: 2.10             # Nscale floor + Crusoe Cheyenne site plan + Lambda + Together
     T6_analyst_inference_gw: 0.20                # Voltage Park 0.135 + Together operational 0.065
-    total_gw: 9.39
-    # Note: T3 sums 6.48 here but 7.90 in main overlay rollup because prior
-    # v1 classification lumped Nscale + Lambda into "contracted" generally.
-    # Per 6-tier discipline, only RPO/IFRS-backed goes to T3 (CoreWeave,
-    # Nebius, Applied Digital PF2, Crusoe Cheyenne anchor). Nscale and
-    # Lambda private-co deals are T4.
+    total_gw: 7.20
+    # Per 6-tier discipline, only RPO/IFRS-backed rows remain in T3. Crusoe
+    # Cheyenne is demoted to T4 because the public record supports a site plan
+    # rather than a take-or-pay hyperscaler contract.
     probability_weighted_gw:
       # T1 × 1.00 + T3 × 0.78 + T4 × 0.58 + T6 × 0.25
-      weighted: 6.42  # 1.29×1.00 + 6.48×0.78 + 1.42×0.58 + 0.20×0.25
-      note: "Conservative (T1+T3 only): 7.77 GW. Full-realization: 9.39 GW."
+      weighted: 5.81
+      note: "Conservative (T1+T3 only): 5.79 GW. Full-realization: 7.20 GW."
 
 
   neocloud_operational_mw:
@@ -572,8 +570,8 @@ aggregate_rollup:
     voltage_park: 0
     together: 200
     fermi: 0
-    total_contracted_ex_epoch_mw: 7900
-    total_contracted_ex_epoch_gw: 7.90
+    total_contracted_ex_epoch_mw: 5755
+    total_contracted_ex_epoch_gw: 5.755
 
   total_neocloud_incremental_gw: 7.90  # vs Epoch 2.25 GW (3-site sum Helios+CW Abilene Exp+Lake Mariner) already evidenced
   # Note: Applied Digital PF2 is 200 MW additional beyond CoreWeave's 3.1 GW.
@@ -613,14 +611,14 @@ aggregate_rollup_facility:
       because Together AI (T4 contracted + T6 operational) and Voltage Park
       (T6 operational) disclose GPU-count inferred MW (IT basis).
     T1_operational_directly_disclosed_gw: 1.29   # unchanged — CoreWeave 0.85 + Nebius 0.17 + Crusoe 0.20 + Nscale 0.02 + Lambda 0.05 (all facility)
-    T3_firm_commercial_contract_gw: 6.48         # unchanged — CoreWeave 2.30 + Nebius 2.00 + Crusoe 1.98 + Applied Digital 0.20 (all facility)
-    T4_announced_private_co_gw: 1.47             # Nscale 0.90 facility + Lambda 0.32 facility + Together 0.20×1.25 = 0.25 facility
+    T3_firm_commercial_contract_gw: 4.50         # unchanged — CoreWeave 2.30 + Nebius 2.00 + Crusoe 1.98 + Applied Digital 0.20 (all facility)
+    T4_announced_private_co_gw: 2.61             # Nscale 0.90 facility + Lambda 0.32 facility + Together 0.20×1.25 = 0.25 facility
     T6_analyst_inference_gw: 0.25                # Voltage Park 0.135×1.25 = 0.169 + Together op 0.065×1.25 = 0.081
     total_gw: 9.49                               # vs 9.39 IT — +0.10 GW delta from IT→facility conversion
     probability_weighted_gw:
       # T1 × 1.00 + T3 × 0.78 + T4 × 0.58 + T6 × 0.25
       weighted: 7.26   # 1.29×1.00 + 6.48×0.78 + 1.47×0.58 + 0.25×0.25
-      note: "Conservative (T1+T3 only): 7.77 GW facility. Full-realization: 9.49 GW facility."
+      note: "Conservative (T1+T3 only): 7.77 GW facility. Full-realization: 8.65 GW facility."
 
   neocloud_operational_mw_facility:
     coreweave: 850        # facility (unchanged)
@@ -647,8 +645,7 @@ aggregate_rollup_facility:
     voltage_park: 0
     together: 250         # 200 IT × 1.25
     fermi: 0
-    total_contracted_ex_epoch_mw: 7950
-    total_contracted_ex_epoch_gw: 7.95   # vs 7.90 IT
+    total_contracted_ex_epoch_mw: 7110
+    total_contracted_ex_epoch_gw: 7.11   # vs 7.90 IT
 
   total_neocloud_incremental_gw_facility: 7.95   # vs 7.90 IT bridge
-

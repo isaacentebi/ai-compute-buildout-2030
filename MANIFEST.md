@@ -1,7 +1,9 @@
-# Rev-4.1 Bundle Manifest
+# Rev-4.2 Bundle Manifest
 
 Included:
 
+- `MANIFEST.md`
+- `sha256_manifest.txt`
 - `report.tex`
 - `report.pdf`
 - `README.md`
@@ -13,6 +15,8 @@ Included:
 - `canonical_totals.json`
 - `generated_overlay_totals.yaml`
 - `overlay_reconciliation_report.md`
+- `dedupe_audit.csv`
+- `row_delta_ledger.csv`
 - `compute_commitments_overlay.yaml`
 - `neocloud_overlay.yaml`
 - `facts_extract.yaml`
@@ -28,14 +32,23 @@ Included:
 - `monte_carlo_output_it_seed20260424.json`
 - `audit_totals.py`
 - `check_source_freshness.py`
+- `check_stale_numbers.py`
+- `regression_checks.py`
 - `source_freshness_report.json`
 - `check_urls.py`
 - `url_check_report.json`
 - `validation_summary.md`
 - `broken_or_replaced_sources.md`
 - `citation_inventory.csv`
+- `docs/tier_table.md`
+- `docs/dedupe_audit_report.md`
+- `docs/research/`
+- `docs/adjudication/`
+- `contracts/`
+- `RESPONSE_TO_AUDIT.md`
 - `epoch_data_centers/`
 - `research/`
+- `scripts/`
 
 Deliberately not included:
 

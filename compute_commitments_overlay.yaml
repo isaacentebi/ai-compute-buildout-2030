@@ -120,10 +120,10 @@ commitments:
           2026-06-21). Anthropic's April 20 blog describes this as the
           "existing" Rainier deployment ("currently use over one million
           Trainium2 chips") that is distinct from the "5 GW new" commitment.
-    incremental_gw_point: 3.17
-    incremental_gw_range: [2.50, 5.00]
-    incremental_gw_facility_point: 3.80   # rev-3: IT 3.17 × PUE 1.20
-    incremental_gw_facility_range: [3.00, 6.00]   # rev-3: IT × PUE 1.20
+    incremental_gw_point: 1.644
+    incremental_gw_range: [0.00, 3.167]
+    incremental_gw_facility_point: 1.973   # rev-3: IT 3.17 × PUE 1.20
+    incremental_gw_facility_range: [0.00, 3.80]   # rev-3: IT × PUE 1.20
     evidence_tier: T4  # announced site-level plan; near-term 1 GW anchors the floor
     realization_probability: 0.72  # override above T4 default 0.58 — 1 GW near-term is higher-confidence than 5 GW ceiling
     incremental_gw_reasoning: |
@@ -521,10 +521,10 @@ commitments:
         rationale_for_estimate: >
           UK sovereign AI buildout, similar MSFT-nScale model to Narvik
           but smaller given UK power-grid constraints.
-    incremental_gw_point: 0.70  # midpoint of [300, 1000]+[100, 500] = ~400+300 = 700 MW
-    incremental_gw_range: [0.40, 1.50]
-    incremental_gw_facility_point: 0.805   # rev-3: IT 0.70 × PUE 1.15
-    incremental_gw_facility_range: [0.46, 1.725]   # rev-3: IT × PUE 1.15
+    incremental_gw_point: 0.261  # midpoint of [300, 1000]+[100, 500] = ~400+300 = 700 MW
+    incremental_gw_range: [0.243, 0.530]
+    incremental_gw_facility_point: 0.300   # rev-3: IT 0.70 × PUE 1.15
+    incremental_gw_facility_range: [0.280, 0.610]   # rev-3: IT × PUE 1.15
     evidence_tier: T2  # Fairwater intl (Narvik, Loughton) — sites named, leases signed, hydropower PPA evidenced
     realization_probability: 0.82  # slightly below T2 default 0.88 — MW still estimated, not MSFT-disclosed per site
     incremental_gw_reasoning: |
@@ -1285,15 +1285,15 @@ totals:
       components: {generated_from: canonical_capacity_atoms.yaml}
       realization_probability_default: 1.00
     T2_physically_evidenced:
-      gw: 10.707
+      gw: 10.268
       components: {generated_from: canonical_capacity_atoms.yaml}
       realization_probability_default: 0.88
     T3_firm_commercial:
-      gw: 5.245
+      gw: 3.661
       components: {generated_from: canonical_capacity_atoms.yaml}
       realization_probability_default: 0.78
     T4_announced_site_plan:
-      gw: 14.036
+      gw: 13.401
       components: {generated_from: canonical_capacity_atoms.yaml}
       realization_probability_default: 0.58
     T5_loi_or_stretch:
@@ -1307,10 +1307,10 @@ totals:
         voltage_park_inferred: 0.135
         together_inferred: 0.065
       realization_probability_default: 0.25
-    total_gw_announced: 42.467
-    total_gw_probability_weighted: 29.899
-    total_gw_conservative: 22.230  # T1 + T2 + T3 only, true IT-load bridge
-    total_gw_full_realization: 45.237  # arithmetic ceiling, true IT-load bridge
+    total_gw_announced: 39.808
+    total_gw_probability_weighted: 27.874
+    total_gw_conservative: 20.207  # T1 + T2 + T3 only, true IT-load bridge
+    total_gw_full_realization: 42.324  # arithmetic ceiling, true IT-load bridge
 
   # --------------------------------------------------------------------------
   # Six-tier framework rollup — FACILITY BASIS (rev-3 primary denominator)
@@ -1337,16 +1337,16 @@ totals:
       components: {epoch_current: 6.079, neocloud_directly_disclosed: 1.29}
       realization_probability_default: 1.00
     T2_physically_evidenced:
-      gw: 12.413                       # epoch_EOT_2026_2027 11.608 (facility) + fairwater_international 0.70×1.15 = 0.805
+      gw: 11.908                       # epoch_EOT_2026_2027 11.608 (facility) + fairwater_international 0.70×1.15 = 0.805
       components: {epoch_EOT_2026_2027: 11.608, fairwater_international: 0.805}
       realization_probability_default: 0.88
     T3_firm_commercial:
-      gw: 6.48                         # neocloud capacity backed by RPO/take-or-pay/IG counterparty evidence
-      components: {neocloud_rpo_take_or_pay_contracted: 6.48}
+      gw: 4.5                         # neocloud capacity backed by RPO/take-or-pay/IG counterparty evidence
+      components: {neocloud_rpo_take_or_pay_contracted: 4.50}
       realization_probability_default: 0.78
     T4_announced_site_plan:
-      gw: 16.476                       # epoch_EOT_2028 11.206 after Stargate UAE sovereign reclass + anthropic_aws 3.80 + neocloud private-co contracted 1.47
-      components: {epoch_EOT_2028: 11.206, anthropic_aws_incremental: 3.80, neocloud_private_co_contracted: 1.47}
+      gw: 15.789                       # epoch_EOT_2028 11.206 after Stargate UAE sovereign reclass + anthropic_aws 3.80 + neocloud private-co contracted 1.47
+      components: {epoch_EOT_2028: 11.206, anthropic_aws_incremental: 1.973, neocloud_private_co_contracted: 2.61}
       realization_probability_default: 0.58
     T5_loi_or_stretch:
       gw: 6.747                        # epoch_speculative_tagged 1.486 + epoch_EOT_2029_2030 1.067 + anthropic_azure 1.18 + meta_hyperion_stretch 3.014
@@ -1363,16 +1363,16 @@ totals:
         voltage_park_inferred: 0.169
         together_inferred: 0.081
       realization_probability_default: 0.25
-    total_gw_announced_facility: 49.813               # generated from canonical_capacity_atoms.yaml under strict Western scope
-    total_gw_non_stretch_facility: 43.066             # announced - T5 (replaces retired "bear" label)
-    total_gw_conservative_facility_raw: 26.262        # T1 + T2 + T3 raw facility
-    total_gw_conservative_facility_probweighted: 23.347  # T1×1.00 + T2×0.88 + T3×0.78
-    total_gw_probability_weighted_facility: 35.143    # Σ tier_gw_facility × tier_default_prob across all six tiers
-    total_gw_full_realization_facility: 53.115        # arithmetic ceiling from facility range, excluding sovereign and excluded atoms
+    total_gw_announced_facility: 46.641               # generated from canonical_capacity_atoms.yaml under strict Western scope
+    total_gw_non_stretch_facility: 39.894             # announced - T5 (replaces retired "bear" label)
+    total_gw_conservative_facility_raw: 23.777        # T1 + T2 + T3 raw facility
+    total_gw_conservative_facility_probweighted: 21.358  # T1×1.00 + T2×0.88 + T3×0.78
+    total_gw_probability_weighted_facility: 32.757    # Σ tier_gw_facility × tier_default_prob across all six tiers
+    total_gw_full_realization_facility: 49.660        # arithmetic ceiling from facility range, excluding sovereign and excluded atoms
     basis_note: |
       rev-3 primary denominator. IT-load-equivalent capacity available in
       evidence_tier_rollup_western (sibling block above) as secondary bridge.
-      Strict-scope raw announced facility is 49.813 GW vs 42.467 GW IT-load
+      Strict-scope raw announced facility is 46.641 GW vs 39.808 GW IT-load
       equivalent under row-level PUE assumptions. OpenAI Stargate UAE is
       sovereign sidebar and Alibaba Zhangbei is excluded, not Western.
 
@@ -1398,15 +1398,16 @@ totals:
   # hyperscalers + Western neoclouds). Sovereign-AI is reported separately
   # below so it doesn't get tangled into Session 2's Western ratios.
   western_horizon_2027_2030:
-    total_gw_point: 42.467
-    total_gw_range: [37.697, 45.237]
+    total_gw_point: 39.808
+    total_gw_range: [34.342, 42.324]
     arithmetic:
       epoch_buildout_gw: 27.108        # true IT-load bridge: strict-scope Epoch facility 31.446 / blended PUE 1.16
-      class_a_western_incremental_point_gw: 7.67
-      class_a_western_incremental_range_gw: [2.90, 10.44]
-      neocloud_ex_epoch_total_gw: 7.689 # true IT-load bridge from row-level PUE assumptions
+      class_a_western_incremental_point_gw: 5.705
+      class_a_western_incremental_range_gw: [0.243, 7.637]
+      neocloud_ex_epoch_total_gw: 6.995 # true IT-load bridge from row-level PUE assumptions
+      neocloud_ex_epoch_range_gw: [6.995, 7.579]
       neocloud_operational_gw: 1.24
-      neocloud_contracted_gw: 6.45
+      neocloud_contracted_gw: 5.755
     # Point: 27.108 + 7.67 + 7.689 = 42.467
     # Low:   27.108 + 2.90 + 7.689 = 37.697
     # High:  27.108 + 10.44 + 7.689 = 45.237
@@ -1430,28 +1431,29 @@ totals:
   # interconnection + facility capex).
   # --------------------------------------------------------------------------
   western_horizon_2027_2030_facility:
-    total_gw_point: 49.813
-    total_gw_range: [44.396, 53.115]
+    total_gw_point: 46.641
+    total_gw_range: [40.370, 49.660]
     arithmetic:
       epoch_buildout_gw: 31.446              # facility; strict Western scope excludes Stargate UAE (sovereign) and Alibaba Zhangbei (excluded)
-      class_a_western_incremental_point_gw: 8.877
-      class_a_western_incremental_range_gw: [3.46, 12.179]
-      neocloud_ex_epoch_total_gw: 9.49       # operational 1.54 + contracted 7.95 (per A.3 aggregate_rollup_facility)
+      class_a_western_incremental_point_gw: 6.545
+      class_a_western_incremental_range_gw: [0.280, 8.864]
+      neocloud_ex_epoch_total_gw: 8.65       # Rev-4.2 atom point; operational plus contracted/site-plan neocloud
+      neocloud_ex_epoch_range_gw: [8.65, 9.35]
       neocloud_operational_gw: 1.54          # 1.49 IT + delta from Voltage Park 135→169, Together op 65→81 (IT×1.25)
-      neocloud_contracted_gw: 7.95           # 7.90 IT + delta from Together contracted 200→250 (IT×1.25)
-    # Point: 31.446 + 8.877 + 9.49 = 49.813
-    # Low:   31.446 + 3.46 + 9.49 = 44.396
-    # High:  31.446 + 12.179 + 9.49 = 53.115
+      neocloud_contracted_gw: 7.11           # 7.90 IT + delta from Together contracted 200→250 (IT×1.25)
+    # Point: 31.446 + 6.545 + 8.65 = 46.641
+    # Low:   generated from atom ranges = 40.370
+    # High:  generated from atom ranges = 49.660
     uncertainty: "Same structural uncertainty as IT-bridge; strict atom scope moves OpenAI Stargate UAE to sovereign sidebar and excludes Alibaba Zhangbei."
     class_a_western_row_sources_facility:    # per-row Class A facility-basis incremental point contributions
-      anthropic_aws_2026_04_20: 3.80         # IT 3.17 × 1.20
+      anthropic_aws_2026_04_20: 1.973        # Rev-4.2 residual after Madison/Ridgeland dedupe
       anthropic_azure_2025_11_18: 1.18       # IT 1.00 × 1.18
-      openai_microsoft_fairwater: 0.805      # IT 0.70 × 1.15
+      openai_microsoft_fairwater: 0.300      # Rev-4.2 named Narvik/Loughton MW anchors
       meta_hyperion_prometheus: 3.014        # IT 2.74 × 1.10
       xai_colossus2_full: 0.078              # IT 0.06 × 1.30
     basis_note: |
       rev-3 primary. IT-bridge available in western_horizon_2027_2030
-      (sibling block above). True IT-load bridge is 42.467 GW after dividing facility-basis rows by row-level PUE. OpenAI Stargate UAE and xAI-HUMAIN Saudi are sovereign sidebar, not Western; Alibaba Zhangbei is excluded.
+      (sibling block above). True IT-load bridge is 39.808 GW after dividing facility-basis rows by row-level PUE. OpenAI Stargate UAE and xAI-HUMAIN Saudi are sovereign sidebar, not Western; Alibaba Zhangbei is excluded.
 
   # --------------------------------------------------------------------------
   # Sovereign-AI sidebar (UAE, Saudi, India, UK) — NOT in Western denominator
@@ -1491,8 +1493,8 @@ totals:
   # Global reference total (Western + Sovereign)
   # --------------------------------------------------------------------------
   global_reference_horizon_2027_2030:
-    total_gw_point: 45.584            # true IT bridge: 42.467 Western + 3.117 sovereign
-    total_gw_range: [39.804, 50.254]  # [37.697+2.107, 45.237+5.017]
+    total_gw_point: 42.925            # true IT bridge: 39.808 Western + 3.117 sovereign
+    total_gw_range: [36.449, 47.341]  # [34.342+2.107, 42.324+5.017]
     note: "Reference only, IT-load bridge. Session 2's Western analysis uses western_horizon_2027_2030_facility, not this."
 
   # --------------------------------------------------------------------------
@@ -1527,10 +1529,10 @@ totals:
   # --------------------------------------------------------------------------
   framing_gap:
     operational_today_gw: 7.619
-    western_horizon_gw: 49.813
-    gap_gw: 42.19
-    pct_not_built: 84.7
-    pct_built: 15.3
+    western_horizon_gw: 46.641
+    gap_gw: 39.02
+    pct_not_built: 83.7
+    pct_built: 16.3
     interpretation: "~85% of the strict-scope Western 2027-2030 horizon is NOT yet operational. The entire capex-revenue coverage analysis in Session 2 depends on this ~2028-2030 pipeline materializing on announced timelines."
 
 # ============================================================================
@@ -2072,20 +2074,20 @@ chip_density_assumptions:
 
 chip_density_scenarios:
   description: |
-    Three silicon-uplift scenarios scale the 49.8 GW facility Western 2030 horizon
+    Three silicon-uplift scenarios scale the 46.6 GW facility Western 2030 horizon
     into an H100e-equivalent envelope. See §4D in the paper.
   conservative:
     description: "Hold 2026 H100e/MW density constant through 2030 (no post-Rubin gains assumed)"
     total_h100e_2030_m: 60
-    implied_per_mw_blend_2030: 1204  # 60M / 49.813 GW
+    implied_per_mw_blend_2030: 1286  # 60M / 46.641 GW
   base:
     description: "Current published roadmap extrapolations (NVIDIA Rubin + Rubin Ultra, TPU v8, Trainium 4, MI450)"
     total_h100e_2030_m: 78
-    implied_per_mw_blend_2030: 1566  # 78M / 49.813 GW
+    implied_per_mw_blend_2030: 1672  # 78M / 46.641 GW
   aggressive:
     description: "Straight-line extension of observed per-family curves to 2030 (Feynman / v9 / MI500 / MTIA v4)"
     total_h100e_2030_m: 110
-    implied_per_mw_blend_2030: 2208  # 110M / 49.813 GW
+    implied_per_mw_blend_2030: 2358  # 110M / 46.641 GW
 
 # ============================================================================
 # STRESS SCENARIOS (A.8) — downside, upside, and correlated states
