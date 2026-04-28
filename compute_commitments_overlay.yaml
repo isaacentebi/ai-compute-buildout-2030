@@ -972,8 +972,15 @@ chip_procurement_commitments:
       (chip procurement), no data-center site named. Chips will populate
       Stargate buildings and other OpenAI-user shells Epoch already tracks.
     primary_sources:
-      - url: https://ir.amd.com/news-events/press-releases/detail/1230/amd-and-openai-announce-strategic-partnership-to-deploy-6-gigawatts-of-amd-gpus
-        publisher: AMD
+      - url: https://www.amd.com/en/newsroom/press-releases/2025-10-6-amd-and-openai-announce-strategic-partnership-to-d.html
+        publisher: AMD Newsroom
+        title: "AMD and OpenAI Announce Strategic Partnership to Deploy 6 Gigawatts of AMD GPUs"
+        expected_claim_keywords: ["6 gigawatts", "MI450", "second half of 2026"]
+        date: 2025-10-06
+      - url: https://openai.com/index/openai-amd-strategic-partnership/
+        publisher: OpenAI
+        title: "AMD and OpenAI announce strategic partnership to deploy 6 gigawatts of AMD GPUs"
+        expected_claim_keywords: ["6 gigawatts", "MI450", "2H 2026"]
         date: 2025-10-06
     facts_yaml_refs: ["amd.openai_commitment.6gw_instinct"]
 

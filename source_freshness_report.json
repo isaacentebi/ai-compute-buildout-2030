@@ -11,7 +11,7 @@
   "rows": [
     {
       "commitment_id": "epoch_microsoft_fairwater_wisconsin_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -24,7 +24,7 @@
     },
     {
       "commitment_id": "epoch_microsoft_fairwater_wisconsin_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -37,7 +37,7 @@
     },
     {
       "commitment_id": "epoch_openai_stargate_new_mexico_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T4",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -50,7 +50,7 @@
     },
     {
       "commitment_id": "epoch_openai_stargate_shackelford_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T4",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -63,7 +63,7 @@
     },
     {
       "commitment_id": "epoch_meta_hyperion_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T4",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -76,7 +76,7 @@
     },
     {
       "commitment_id": "epoch_qts_cedar_rapids_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -89,7 +89,7 @@
     },
     {
       "commitment_id": "epoch_openai_stargate_michigan_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T4",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -102,7 +102,7 @@
     },
     {
       "commitment_id": "epoch_openai_stargate_wisconsin_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T4",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -115,7 +115,7 @@
     },
     {
       "commitment_id": "epoch_openai_stargate_milam_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T4",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -128,7 +128,7 @@
     },
     {
       "commitment_id": "epoch_openai_stargate_uae_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T4",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -141,7 +141,7 @@
     },
     {
       "commitment_id": "epoch_goodnight_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -154,7 +154,7 @@
     },
     {
       "commitment_id": "epoch_crusoe_abilene_expansion_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -167,7 +167,7 @@
     },
     {
       "commitment_id": "epoch_xai_colossus_2_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -180,7 +180,7 @@
     },
     {
       "commitment_id": "epoch_google_cedar_rapids_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -193,7 +193,7 @@
     },
     {
       "commitment_id": "epoch_google_cedar_rapids_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T4",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -206,7 +206,7 @@
     },
     {
       "commitment_id": "epoch_meta_prometheus_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -219,7 +219,7 @@
     },
     {
       "commitment_id": "epoch_meta_prometheus_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -232,7 +232,7 @@
     },
     {
       "commitment_id": "epoch_openai_stargate_abilene_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -245,7 +245,7 @@
     },
     {
       "commitment_id": "epoch_openai_stargate_abilene_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -258,7 +258,7 @@
     },
     {
       "commitment_id": "epoch_anthropic_amazon_new_carlisle_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -271,7 +271,7 @@
     },
     {
       "commitment_id": "epoch_anthropic_amazon_new_carlisle_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -284,7 +284,7 @@
     },
     {
       "commitment_id": "epoch_microsoft_fairwater_atlanta_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -297,7 +297,7 @@
     },
     {
       "commitment_id": "epoch_microsoft_fairwater_atlanta_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -310,7 +310,7 @@
     },
     {
       "commitment_id": "epoch_coreweave_helios_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T5",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -323,7 +323,7 @@
     },
     {
       "commitment_id": "epoch_amazon_ridgeland_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T5",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -336,7 +336,7 @@
     },
     {
       "commitment_id": "epoch_qts_richmond_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -349,7 +349,7 @@
     },
     {
       "commitment_id": "epoch_qts_richmond_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -362,7 +362,7 @@
     },
     {
       "commitment_id": "epoch_amazon_madison_mega_site_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -375,7 +375,7 @@
     },
     {
       "commitment_id": "epoch_amazon_madison_mega_site_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T5",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -388,7 +388,7 @@
     },
     {
       "commitment_id": "epoch_fluidstack_lake_mariner_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -401,7 +401,7 @@
     },
     {
       "commitment_id": "epoch_fluidstack_lake_mariner_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -414,7 +414,7 @@
     },
     {
       "commitment_id": "epoch_google_new_albany_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -427,7 +427,7 @@
     },
     {
       "commitment_id": "epoch_google_new_albany_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -440,7 +440,7 @@
     },
     {
       "commitment_id": "epoch_google_omaha_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -453,7 +453,7 @@
     },
     {
       "commitment_id": "epoch_google_omaha_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -466,7 +466,7 @@
     },
     {
       "commitment_id": "epoch_google_pryor_north_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -479,7 +479,7 @@
     },
     {
       "commitment_id": "epoch_google_pryor_north_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -492,7 +492,7 @@
     },
     {
       "commitment_id": "epoch_xai_colossus_1_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -505,7 +505,7 @@
     },
     {
       "commitment_id": "epoch_xai_colossus_1_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -518,7 +518,7 @@
     },
     {
       "commitment_id": "epoch_stack_infrastructure_nva02_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -531,7 +531,7 @@
     },
     {
       "commitment_id": "epoch_stack_infrastructure_nva02_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T4",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -544,7 +544,7 @@
     },
     {
       "commitment_id": "epoch_meta_temple_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -557,7 +557,7 @@
     },
     {
       "commitment_id": "epoch_meta_temple_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -570,7 +570,7 @@
     },
     {
       "commitment_id": "epoch_microsoft_goodyear_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -583,7 +583,7 @@
     },
     {
       "commitment_id": "epoch_google_council_bluffs_east_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -596,7 +596,7 @@
     },
     {
       "commitment_id": "epoch_google_council_bluffs_east_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -609,7 +609,7 @@
     },
     {
       "commitment_id": "epoch_stream_phoenix_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T5",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -622,7 +622,7 @@
     },
     {
       "commitment_id": "epoch_vantage_tx1_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -635,7 +635,7 @@
     },
     {
       "commitment_id": "epoch_vantage_tx1_buildout_remaining",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -648,7 +648,7 @@
     },
     {
       "commitment_id": "epoch_alibaba_zhangbei_operational",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -661,7 +661,7 @@
     },
     {
       "commitment_id": "anthropic_aws_incremental_new_capacity",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T4",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -674,7 +674,7 @@
     },
     {
       "commitment_id": "anthropic_azure_incremental_capacity",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T5",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -687,7 +687,7 @@
     },
     {
       "commitment_id": "openai_microsoft_fairwater_international",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T2",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -700,7 +700,7 @@
     },
     {
       "commitment_id": "meta_hyperion_stretch_incremental",
-      "days_since_verification": 3,
+      "days_since_verification": 4,
       "evidence_tier": "T5",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -713,7 +713,7 @@
     },
     {
       "commitment_id": "xai_colossus2_residual",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T6",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -726,7 +726,7 @@
     },
     {
       "commitment_id": "anthropic_fluidstack_undisclosed_mw",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T5",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -739,7 +739,7 @@
     },
     {
       "commitment_id": "coreweave_operational_disclosed",
-      "days_since_verification": 2,
+      "days_since_verification": 3,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -752,7 +752,7 @@
     },
     {
       "commitment_id": "coreweave_contracted_ex_epoch",
-      "days_since_verification": 2,
+      "days_since_verification": 3,
       "evidence_tier": "T3",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -765,7 +765,7 @@
     },
     {
       "commitment_id": "coreweave_epoch_overlap_helios",
-      "days_since_verification": 2,
+      "days_since_verification": 3,
       "evidence_tier": "excluded",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -778,7 +778,7 @@
     },
     {
       "commitment_id": "coreweave_applied_digital_pf1_overlap_adjustment",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "excluded",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -791,7 +791,7 @@
     },
     {
       "commitment_id": "nebius_operational_disclosed",
-      "days_since_verification": 2,
+      "days_since_verification": 3,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -804,7 +804,7 @@
     },
     {
       "commitment_id": "nebius_meta_microsoft_contract_capacity",
-      "days_since_verification": 2,
+      "days_since_verification": 3,
       "evidence_tier": "T3",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -817,7 +817,7 @@
     },
     {
       "commitment_id": "nscale_operational_seed_capacity",
-      "days_since_verification": 2,
+      "days_since_verification": 3,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "WAIVED",
@@ -830,7 +830,7 @@
     },
     {
       "commitment_id": "nscale_microsoft_contract_capacity",
-      "days_since_verification": 2,
+      "days_since_verification": 3,
       "evidence_tier": "T4",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "WAIVED",
@@ -843,7 +843,7 @@
     },
     {
       "commitment_id": "nscale_fairwater_overlap_adjustment",
-      "days_since_verification": 2,
+      "days_since_verification": 3,
       "evidence_tier": "excluded",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "WAIVED",
@@ -856,7 +856,7 @@
     },
     {
       "commitment_id": "crusoe_norway_iceland_operational",
-      "days_since_verification": 2,
+      "days_since_verification": 3,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -869,7 +869,7 @@
     },
     {
       "commitment_id": "crusoe_abilene_epoch_overlap",
-      "days_since_verification": 2,
+      "days_since_verification": 3,
       "evidence_tier": "excluded",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -882,7 +882,7 @@
     },
     {
       "commitment_id": "crusoe_cheyenne_or_other_future_capacity",
-      "days_since_verification": 2,
+      "days_since_verification": 3,
       "evidence_tier": "T3",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -895,7 +895,7 @@
     },
     {
       "commitment_id": "lambda_operational",
-      "days_since_verification": 2,
+      "days_since_verification": 3,
       "evidence_tier": "T1",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "WAIVED",
@@ -908,7 +908,7 @@
     },
     {
       "commitment_id": "lambda_microsoft_contract",
-      "days_since_verification": 2,
+      "days_since_verification": 3,
       "evidence_tier": "T4",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "WAIVED",
@@ -921,7 +921,7 @@
     },
     {
       "commitment_id": "applied_digital_pf2_leased_capacity",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T3",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -934,7 +934,7 @@
     },
     {
       "commitment_id": "together_operational_inferred",
-      "days_since_verification": 2,
+      "days_since_verification": 3,
       "evidence_tier": "T6",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "WAIVED",
@@ -947,7 +947,7 @@
     },
     {
       "commitment_id": "together_contracted_private_capacity",
-      "days_since_verification": 2,
+      "days_since_verification": 3,
       "evidence_tier": "T4",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "WAIVED",
@@ -960,7 +960,7 @@
     },
     {
       "commitment_id": "voltage_park_lightning_inferred",
-      "days_since_verification": 2,
+      "days_since_verification": 3,
       "evidence_tier": "T6",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "WAIVED",
@@ -973,7 +973,7 @@
     },
     {
       "commitment_id": "fluidstack_anthropic_undisclosed_mw",
-      "days_since_verification": 2,
+      "days_since_verification": 3,
       "evidence_tier": "T5",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "WAIVED",
@@ -986,7 +986,7 @@
     },
     {
       "commitment_id": "fermi_speculative_excluded_or_T5_only",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T5",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -999,7 +999,7 @@
     },
     {
       "commitment_id": "microsoft_g42_uae_khazna",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T4",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -1012,7 +1012,7 @@
     },
     {
       "commitment_id": "xai_humain_saudi",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T4",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -1025,7 +1025,7 @@
     },
     {
       "commitment_id": "humain_amd_saudi",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T4",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -1038,7 +1038,7 @@
     },
     {
       "commitment_id": "reliance_jio_jamnagar",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T5",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -1051,7 +1051,7 @@
     },
     {
       "commitment_id": "uk_culham_ai_growth_zone",
-      "days_since_verification": 5,
+      "days_since_verification": 6,
       "evidence_tier": "T5",
       "file_path": "/Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv",
       "freshness_status": "GREEN",
@@ -1063,7 +1063,7 @@
       "western_denominator": "false"
     }
   ],
-  "today": "2026-04-27",
+  "today": "2026-04-28",
   "total_rows": 81,
   "warn_days": 30
 }

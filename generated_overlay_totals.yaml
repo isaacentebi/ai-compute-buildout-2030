@@ -55,11 +55,21 @@ canonical_totals:
   raw_non_stretch_gw_facility: 43.066
   deterministic_probability_weighted_gw_facility: 35.143
   conservative_T1_T2_T3_raw_gw_facility: 26.262
+  conservative_T1_T2_T3_probability_weighted_gw_facility: 23.347
   full_realization_ceiling_gw_facility: 53.115
   sovereign_sidebar_gw_facility: 3.96
   capital_envelope_usd_t_central: 1.843
   capital_envelope_usd_t_low: 1.494
   capital_envelope_usd_t_high: 2.341
+  monte_carlo_p05_gw_facility: 21.926
+  monte_carlo_p10_gw_facility: 23.445
+  monte_carlo_p25_gw_facility: 26.47
+  monte_carlo_p50_gw_facility: 31.406
+  monte_carlo_p75_gw_facility: 35.036
+  monte_carlo_p90_gw_facility: 37.234
+  monte_carlo_p95_gw_facility: 38.409
+  monte_carlo_mean_gw_facility: 30.743
+  monte_carlo_std_dev_gw_facility: 5.29
 comparisons:
   current_overlay:
     total_announced_facility: 49.813

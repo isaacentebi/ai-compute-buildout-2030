@@ -5,23 +5,23 @@ AUDIT: compute_commitments_overlay.yaml `totals:` vs per-row sums
          re-summed rows:  point=7.67  low=2.90  high=10.44
          YAML totals:     point=7.67  low=2.90  high=10.44
   [OK  ] Class A sovereign-AI sidebar subtotal
-         re-summed rows:  point=1.91  low=0.90  high=3.81
-         YAML totals:     point=1.91  low=0.90  high=3.81
+         re-summed rows:  point=3.12  low=2.11  high=5.02
+         YAML totals:     point=3.12  low=2.11  high=5.02
   [OK  ] Western horizon grand total (epoch + class_a_west + neocloud_ex_epoch)
-         re-summed rows:  point=43.93  low=39.16  high=46.70
-         YAML totals:     point=43.93  low=39.16  high=46.70
+         re-summed rows:  point=42.47  low=37.70  high=45.24
+         YAML totals:     point=42.47  low=37.70  high=45.24
   [OK  ] Global reference horizon total (western + sovereign)
-         re-summed rows:  point=45.84  low=40.06  high=50.51
-         YAML totals:     point=45.84  low=40.06  high=50.51
+         re-summed rows:  point=45.58  low=39.80  high=50.25
+         YAML totals:     point=45.58  low=39.80  high=50.25
   [OK  ] Operational-today total
-         epoch_current + neocloud_op = 7.81
-         YAML total_gw              = 7.81
+         epoch_current + neocloud_op = 7.62
+         YAML total_gw              = 7.619
   [OK  ] Framing gap (western_horizon - operational_today)
-         re-computed: 43.62
-         YAML gap_gw: 43.62
+         re-computed: 42.19
+         YAML gap_gw: 42.19
   [OK  ] Six-tier framework sum vs declared announced horizon (IT)
-         Σ tier GW:              43.94
-         declared announced:     43.93
+         Σ tier GW:              42.47
+         declared announced:     42.47
 
 ----------------------------------------------------------------------
 rev-3 FACILITY-BASIS audit
@@ -30,14 +30,14 @@ rev-3 FACILITY-BASIS audit
          re-summed rows:  point=8.88  low=3.46  high=12.18
          YAML totals:     point=8.88  low=3.46  high=12.18
   [OK  ] Western horizon facility grand total
-         re-summed rows:  point=51.42  low=46.00  high=54.72
-         YAML totals:     point=51.43  low=46.00  high=54.72
+         re-summed rows:  point=49.81  low=44.40  high=53.12
+         YAML totals:     point=49.81  low=44.40  high=53.12
   [OK  ] Six-tier framework sum vs declared announced horizon (facility)
-         Σ tier GW_facility:     51.427
-         declared announced:     51.427
+         Σ tier GW_facility:     49.813
+         declared announced:     49.813
   [OK  ] Sovereign sidebar facility sum vs declared
-         Σ sov rows facility:    2.560
-         declared sov facility:  2.560
+         Σ sov rows facility:    3.960
+         declared sov facility:  3.960
 
 Stress scenario capex basis check:
   [OK  ] systemic_infrastructure_stress             capex= -389.0 expected= -388.5
@@ -54,28 +54,28 @@ Neocloud cross-file tier check:
   [OK  ] T4 main=1.470 neocloud_overlay=1.470
 
 H100e denominator check:
-  [OK  ] conservative   implied=1167 expected=1167
-  [OK  ] base           implied=1517 expected=1517
-  [OK  ] aggressive     implied=2139 expected=2139
+  [OK  ] conservative   implied=1204 expected=1205
+  [OK  ] base           implied=1566 expected=1566
+  [OK  ] aggressive     implied=2208 expected=2208
 ======================================================================
 AUDIT PASSED — `totals:` block matches per-row sums.
 
 ======================================================================
 SEVEN CANONICAL TOTALS  (facility basis — PRIMARY, Rev-4.1)
 ======================================================================
-  1. operational_today_gw         =   7.81 GW facility  (includes T6-inferred operational capacity; tier-clean T1 = 7.56 GW facility)
-  2. announced_horizon_gw         =  51.43 GW facility  [46.00, 54.72]
-  3. raw_non_stretch_gw           =  44.67 GW facility  (announced − T5; replaces retired 'bear' label)
-  4. probability_weighted_gw      =  36.16 GW facility  (tier-default midpoints)
-  5. conservative_case_gw         =  26.46 GW facility  (T1+T2+T3 only)
-  6. full_realization_gw          =  54.72 GW facility  (arithmetic ceiling)
+  1. operational_today_gw         =   7.62 GW facility  (includes T6-inferred operational capacity; tier-clean T1 = 7.37 GW facility)
+  2. announced_horizon_gw         =  49.81 GW facility  [44.40, 53.12]
+  3. raw_non_stretch_gw           =  43.07 GW facility  (announced − T5; replaces retired 'bear' label)
+  4. probability_weighted_gw      =  35.14 GW facility  (tier-default midpoints)
+  5. conservative_case_gw         =  26.26 GW facility  (T1+T2+T3 only)
+  6. full_realization_gw          =  53.12 GW facility  (arithmetic ceiling)
   7. named_dollar_commitments_subtotal_usd_b =  847.0 $B
-     anatomy_capital_envelope_usd_t_central = 1.9
-     anatomy_capital_envelope_usd_t_range   = [1.5, 2.4]
-     basis = "$30-47B/facility-GW × 51.427 GW"
+     anatomy_capital_envelope_usd_t_central = 1.84
+     anatomy_capital_envelope_usd_t_range   = [1.49, 2.34]
+     basis = "$30-47B/facility-GW × 49.813 GW"
 
   Sovereign sidebar facility (not in Western denominator):
-    announced_horizon_sov_gw_fac  =   2.56 GW facility
+    announced_horizon_sov_gw_fac  =   3.96 GW facility
 
   Per-row Class A facility-basis probability-weighted detail (Western only):
     [T4] anthropic_aws_2026_04_20                  gw_fac=3.800  prob=0.72  weighted=2.736
@@ -88,17 +88,17 @@ SEVEN CANONICAL TOTALS  (facility basis — PRIMARY, Rev-4.1)
 ======================================================================
 SEVEN CANONICAL TOTALS  (IT-load bridge — SECONDARY)
 ======================================================================
-  1. operational_today_gw         =   7.81 GW facility primary; see tier block for IT bridge
-  2. announced_horizon_gw         =  43.93 GW  [39.16, 46.70]  (IT-load bridge)
-  3. probability_weighted_gw      =  31.10 GW  (tier-default midpoints)
-  4. conservative_case_gw         =  23.69 GW  (T1+T2+T3 only)
-  5. full_realization_gw          =  46.70 GW  (arithmetic ceiling)
+  1. operational_today_gw         =   7.62 GW facility primary; see tier block for IT bridge
+  2. announced_horizon_gw         =  42.47 GW  [37.70, 45.24]  (IT-load bridge)
+  3. probability_weighted_gw      =  29.90 GW  (tier-default midpoints)
+  4. conservative_case_gw         =  22.23 GW  (T1+T2+T3 only)
+  5. full_realization_gw          =  45.24 GW  (arithmetic ceiling)
   6. named_dollar_commitments_subtotal_usd_b =  847.0 $B
   7. rpo_obligations_usd_b_rough  =   27.0 $B
 
   Sovereign sidebar IT (not in Western denominator):
-    announced_horizon_sov_gw      =   1.91 GW
-    probability_weighted_sov_gw   =   0.97 GW
+    announced_horizon_sov_gw      =   3.12 GW
+    probability_weighted_sov_gw   =   1.67 GW
 
 
 ======================================================================
@@ -119,10 +119,10 @@ Layer-block central vs aggregate-rollup component central:
 Aggregate rollup arithmetic:
   [OK  ] facility_only (13.40) + it_bom (24.05) = 37.45M/MW
          declared central_grid_tied: 37.45M/MW (Δ: 0.00)
-         (raw horizon read from overlay YAML: 51.427 GW facility)
-  [OK  ] capital envelope central: declared 1.90T vs computed 1.93T  (Δ: 0.03)
-         arithmetic range: [1.54T, 2.42T]
-         declared band:    [1.50T, 2.40T]
+         (raw horizon read from overlay YAML: 49.813 GW facility)
+  [OK  ] capital envelope central: declared 1.84T vs computed 1.87T  (Δ: 0.03)
+         arithmetic range: [1.49T, 2.34T]
+         declared band:    [1.49T, 2.34T]
 
 ======================================================================
 ANATOMY AUDIT PASSED

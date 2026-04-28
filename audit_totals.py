@@ -37,7 +37,8 @@ from pathlib import Path
 
 import yaml  # type: ignore
 
-ROOT = Path(__file__).parent
+SCRIPT_DIR = Path(__file__).resolve().parent
+ROOT = SCRIPT_DIR.parent if SCRIPT_DIR.name == "scripts" else SCRIPT_DIR
 OVERLAY = ROOT / "compute_commitments_overlay.yaml"
 NEOCLOUD = ROOT / "neocloud_overlay.yaml"
 ANATOMY_LAYER_COSTS = ROOT / "anatomy_layer_costs.yaml"

@@ -1,0 +1,4 @@
+./generated_overlay_totals.yaml:83:    conservative_raw_facility: 27.935
+./generated_overlay_totals.yaml:85:    full_realization_facility: 54.724
+./CANONICAL_CONSTANTS.md:55:| full_realization_ceiling_gw_facility | 54.724 | 53.115 | -1.609 |
+./CANONICAL_CONSTANTS.md:56:| sovereign_sidebar_gw_facility | 2.560 | 3.960 | +1.400 |

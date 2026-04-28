@@ -1,3 +1,133 @@
+======================================================================
+AUDIT: compute_commitments_overlay.yaml `totals:` vs per-row sums
+======================================================================
+  [OK  ] Class A western subtotal
+         re-summed rows:  point=7.67  low=2.90  high=10.44
+         YAML totals:     point=7.67  low=2.90  high=10.44
+  [OK  ] Class A sovereign-AI sidebar subtotal
+         re-summed rows:  point=3.12  low=2.11  high=5.02
+         YAML totals:     point=3.12  low=2.11  high=5.02
+  [OK  ] Western horizon grand total (epoch + class_a_west + neocloud_ex_epoch)
+         re-summed rows:  point=42.47  low=37.70  high=45.24
+         YAML totals:     point=42.47  low=37.70  high=45.24
+  [OK  ] Global reference horizon total (western + sovereign)
+         re-summed rows:  point=45.58  low=39.80  high=50.25
+         YAML totals:     point=45.58  low=39.80  high=50.25
+  [OK  ] Operational-today total
+         epoch_current + neocloud_op = 7.62
+         YAML total_gw              = 7.619
+  [OK  ] Framing gap (western_horizon - operational_today)
+         re-computed: 42.19
+         YAML gap_gw: 42.19
+  [OK  ] Six-tier framework sum vs declared announced horizon (IT)
+         Σ tier GW:              42.47
+         declared announced:     42.47
+
+----------------------------------------------------------------------
+rev-3 FACILITY-BASIS audit
+----------------------------------------------------------------------
+  [OK  ] Class A western facility subtotal
+         re-summed rows:  point=8.88  low=3.46  high=12.18
+         YAML totals:     point=8.88  low=3.46  high=12.18
+  [OK  ] Western horizon facility grand total
+         re-summed rows:  point=49.81  low=44.40  high=53.12
+         YAML totals:     point=49.81  low=44.40  high=53.12
+  [OK  ] Six-tier framework sum vs declared announced horizon (facility)
+         Σ tier GW_facility:     49.813
+         declared announced:     49.813
+  [OK  ] Sovereign sidebar facility sum vs declared
+         Σ sov rows facility:    3.960
+         declared sov facility:  3.960
+
+Stress scenario capex basis check:
+  [OK  ] systemic_infrastructure_stress             capex= -389.0 expected= -388.5
+  [OK  ] scenario_A_openai_stargate_slip_12mo       capex= -130.0 expected= -129.5
+  [OK  ] scenario_B_neocloud_spread_widen_300bps    capex=  -74.0 expected=  -74.0
+  [OK  ] scenario_C_grid_ercot_miso_pjm_slip_24mo   capex= -296.0 expected= -296.0
+  [SKIP] scenario_D_chip_nextgen_slip_2q            declares alternate basis: chip_mix_timing_not_all_in_facility_power
+  [SKIP] scenario_E_inference_outpaces_training     declares alternate basis: chip_mix_shift_not_facility_power_delta
+  [OK  ] scenario_F_lab_revenue_rpo_stress          capex=  -93.0 expected=  -92.5
+  [OK  ] upside_U4_silicon_acceleration             capex=    0.0 expected=    0.0
+
+Neocloud cross-file tier check:
+  [OK  ] T3 main=6.480 neocloud_overlay=6.480
+  [OK  ] T4 main=1.470 neocloud_overlay=1.470
+
+H100e denominator check:
+  [OK  ] conservative   implied=1204 expected=1205
+  [OK  ] base           implied=1566 expected=1566
+  [OK  ] aggressive     implied=2208 expected=2208
+======================================================================
+AUDIT PASSED — `totals:` block matches per-row sums.
+
+======================================================================
+SEVEN CANONICAL TOTALS  (facility basis — PRIMARY, Rev-4.1)
+======================================================================
+  1. operational_today_gw         =   7.62 GW facility  (includes T6-inferred operational capacity; tier-clean T1 = 7.37 GW facility)
+  2. announced_horizon_gw         =  49.81 GW facility  [44.40, 53.12]
+  3. raw_non_stretch_gw           =  43.07 GW facility  (announced − T5; replaces retired 'bear' label)
+  4. probability_weighted_gw      =  35.14 GW facility  (tier-default midpoints)
+  5. conservative_case_gw         =  26.26 GW facility  (T1+T2+T3 only)
+  6. full_realization_gw          =  53.12 GW facility  (arithmetic ceiling)
+  7. named_dollar_commitments_subtotal_usd_b =  847.0 $B
+     anatomy_capital_envelope_usd_t_central = 1.84
+     anatomy_capital_envelope_usd_t_range   = [1.49, 2.34]
+     basis = "$30-47B/facility-GW × 49.813 GW"
+
+  Sovereign sidebar facility (not in Western denominator):
+    announced_horizon_sov_gw_fac  =   3.96 GW facility
+
+  Per-row Class A facility-basis probability-weighted detail (Western only):
+    [T4] anthropic_aws_2026_04_20                  gw_fac=3.800  prob=0.72  weighted=2.736
+    [T5] anthropic_azure_2025_11_18                gw_fac=1.180  prob=0.30  weighted=0.354
+    [T2] openai_microsoft_fairwater                gw_fac=0.805  prob=0.82  weighted=0.660
+    [T5] meta_hyperion_prometheus                  gw_fac=3.014  prob=0.28  weighted=0.844
+    [T6] xai_colossus2_full                        gw_fac=0.078  prob=0.25  weighted=0.019
+    SUM Class A Western facility weighted = 4.614 GW
+
+======================================================================
+SEVEN CANONICAL TOTALS  (IT-load bridge — SECONDARY)
+======================================================================
+  1. operational_today_gw         =   7.62 GW facility primary; see tier block for IT bridge
+  2. announced_horizon_gw         =  42.47 GW  [37.70, 45.24]  (IT-load bridge)
+  3. probability_weighted_gw      =  29.90 GW  (tier-default midpoints)
+  4. conservative_case_gw         =  22.23 GW  (T1+T2+T3 only)
+  5. full_realization_gw          =  45.24 GW  (arithmetic ceiling)
+  6. named_dollar_commitments_subtotal_usd_b =  847.0 $B
+  7. rpo_obligations_usd_b_rough  =   27.0 $B
+
+  Sovereign sidebar IT (not in Western denominator):
+    announced_horizon_sov_gw      =   3.12 GW
+    probability_weighted_sov_gw   =   1.67 GW
+
+
+======================================================================
+AUDIT: anatomy_layer_costs.yaml unit-economics consistency
+======================================================================
+
+Per-layer sub-component sum vs declared layer central:
+  [OK  ] shell_civil_land                Σ subs central:   6.55  declared:   6.50  Δ:  0.05
+  [OK  ] cooling                         Σ subs central:   3.04  declared:   3.00  Δ:  0.04
+  [SKIP] power_infrastructure            no single layer_total_..._central; variants: layer_total_usd_m_per_mw_central_grid_tied,layer_total_usd_m_per_mw_central_btm_gas
+  [OK  ] networking_fabric               Σ subs central:   4.20  declared:   4.00  Δ:  0.20
+
+Layer-block central vs aggregate-rollup component central:
+  [OK  ] shell_civil_land                layer-block:   6.50  rollup:   6.50  Δ:  0.00
+  [OK  ] cooling                         layer-block:   3.00  rollup:   3.00  Δ:  0.00
+  [OK  ] networking_fabric               layer-block:   4.00  rollup:   4.00  Δ:  0.00
+
+Aggregate rollup arithmetic:
+  [OK  ] facility_only (13.40) + it_bom (24.05) = 37.45M/MW
+         declared central_grid_tied: 37.45M/MW (Δ: 0.00)
+         (raw horizon read from overlay YAML: 49.813 GW facility)
+  [OK  ] capital envelope central: declared 1.84T vs computed 1.87T  (Δ: 0.03)
+         arithmetic range: [1.49T, 2.34T]
+         declared band:    [1.49T, 2.34T]
+
+======================================================================
+ANATOMY AUDIT PASSED
+======================================================================
+regression checks passed
 {
   "blocked_urls": [
     {
@@ -698,7 +828,7 @@
     "blocked_manual_review": 33,
     "failed": 7,
     "redirected_verified": 3,
-    "replaced": 2,
+    "replaced": 0,
     "verified_ok": 90
   },
   "failed_urls": [
@@ -908,18 +1038,6 @@
       "status_class": "redirected_verified",
       "title": "Home Page - Microsoft Investor Relations",
       "url": "https://www.microsoft.com/en-us/investor"
-    }
-  ],
-  "replaced_sources": [
-    {
-      "new": "https://www.amd.com/en/newsroom/press-releases/2025-10-6-amd-and-openai-announce-strategic-partnership-to-d.html",
-      "old": "https://ir.amd.com/news-events/press-releases/detail/1230/amd-and-openai-announce-strategic-partnership-to-deploy-6-gigawatts-of-amd-gpus",
-      "reason": "AMD IR URL redirected to unrelated AMD pages; replaced with AMD Newsroom official page."
-    },
-    {
-      "new": "https://www.amd.com/en/newsroom/press-releases/2025-5-13-amd-and-humain-form-strategic--10b-collaboration-.html",
-      "old": "https://ir.amd.com/news-events/press-releases/detail/1249/amd-and-humain-announce-strategic-collaboration-to-advance",
-      "reason": "AMD IR URL redirected to unrelated AMD pages; replaced with AMD Newsroom official page."
     }
   ],
   "results": [
@@ -4170,3 +4288,108 @@
   ],
   "total_urls": 133
 }
+================================================================================
+SOURCE FRESHNESS GATE  (today=2026-04-28, warn>30d, fail>60d)
+================================================================================
+  File path    : /Users/isaacentebi/Desktop/ai-compute-buildout-2030/row_level_audit.csv
+  Total rows   : 81
+  GREEN        :  72
+  YELLOW       :   0
+  RED          :   0
+  MISSING      :   0
+  WAIVED       :   9
+
+  --- WAIVED (9) ---
+    [WAI]   3d  fluidstack_anthropic_undisclosed_mw | Fluidstack | source=2025-11-12 | verified=2026-04-25
+         waiver: Zero-contribution rollup excluded from Western denominator; Anthropic dollar-only row carries the primary source.
+    [WAI]   3d  lambda_microsoft_contract | Lambda | source=2025-11-18 | verified=2026-04-25
+         waiver: Official financing disclosure refreshed on 2026-04-25; no newer primary MW disclosure found as of 2026-04-25.
+    [WAI]   3d  lambda_operational | Lambda | source=2025-11-18 | verified=2026-04-25
+         waiver: Official financing disclosure refreshed on 2026-04-25; no newer primary MW disclosure found as of 2026-04-25.
+    [WAI]   3d  nscale_fairwater_overlap_adjustment | Nscale / Microsoft | source=2025-10-15 | verified=2026-04-25
+         waiver: No newer primary MW disclosure found as of 2026-04-25; retained secondary source and flagged as private-company / secondary-source row.
+    [WAI]   3d  nscale_microsoft_contract_capacity | Nscale | source=2025-10-15 | verified=2026-04-25
+         waiver: No newer primary MW disclosure found as of 2026-04-25; retained secondary source and flagged as private-company / secondary-source row.
+    [WAI]   3d  nscale_operational_seed_capacity | Nscale | source=2025-10-15 | verified=2026-04-25
+         waiver: No newer primary MW disclosure found as of 2026-04-25; retained secondary source and flagged as private-company / secondary-source row.
+    [WAI]   3d  together_contracted_private_capacity | Together AI | source=2026-04-23 | verified=2026-04-25
+         waiver: Official GPU/capacity disclosure refreshed on 2026-04-25; row remains GPU-count inferred and is flagged in Appendix B.
+    [WAI]   3d  together_operational_inferred | Together AI | source=2026-04-23 | verified=2026-04-25
+         waiver: Official GPU/capacity disclosure refreshed on 2026-04-25; row remains GPU-count inferred and is flagged in Appendix B.
+    [WAI]   3d  voltage_park_lightning_inferred | Voltage Park / Lightning | source=2026-02-06 | verified=2026-04-25
+         waiver: Official merger disclosure refreshed on 2026-04-25; no newer primary capacity disclosure found as of 2026-04-25.
+
+  --- GREEN (72) ---
+    [GRE]   6d  anthropic_aws_incremental_new_capacity | Amazon | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  anthropic_azure_incremental_capacity | Microsoft Azure | source=2025-11-18 | verified=2026-04-22
+    [GRE]   6d  anthropic_fluidstack_undisclosed_mw | Fluidstack | source=2025-11-12 | verified=2026-04-22
+    [GRE]   6d  applied_digital_pf2_leased_capacity | Applied Digital | source=2026-04-01 | verified=2026-04-22
+    [GRE]   6d  coreweave_applied_digital_pf1_overlap_adjustment | Applied Digital / CoreWeave | source=2026-04-01 | verified=2026-04-22
+    [GRE]   6d  epoch_alibaba_zhangbei_operational | Alibaba | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_amazon_madison_mega_site_buildout_remaining | Amazon | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_amazon_madison_mega_site_operational | Amazon | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_amazon_ridgeland_buildout_remaining | Amazon | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_anthropic_amazon_new_carlisle_buildout_remaining | Amazon | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_anthropic_amazon_new_carlisle_operational | Amazon | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_coreweave_helios_buildout_remaining | Coreweave | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_crusoe_abilene_expansion_buildout_remaining | Microsoft | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_fluidstack_lake_mariner_buildout_remaining | Fluidstack | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_fluidstack_lake_mariner_operational | Fluidstack | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_goodnight_buildout_remaining | Google | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_google_cedar_rapids_buildout_remaining | Google | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_google_cedar_rapids_operational | Google | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_google_council_bluffs_east_buildout_remaining | Google | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_google_council_bluffs_east_operational | Google | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_google_new_albany_buildout_remaining | Google | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_google_new_albany_operational | Google | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_google_omaha_buildout_remaining | Google | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_google_omaha_operational | Google | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_google_pryor_north_buildout_remaining | Google | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_google_pryor_north_operational | Google | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_meta_hyperion_buildout_remaining | Meta | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_meta_prometheus_buildout_remaining | Meta | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_meta_prometheus_operational | Meta | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_meta_temple_buildout_remaining | Meta | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_meta_temple_operational | Meta | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_microsoft_fairwater_atlanta_buildout_remaining | Microsoft | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_microsoft_fairwater_atlanta_operational | Microsoft | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_microsoft_fairwater_wisconsin_buildout_remaining | Microsoft | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_microsoft_fairwater_wisconsin_operational | Microsoft | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_microsoft_goodyear_operational | Microsoft | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_openai_stargate_abilene_buildout_remaining | Oracle | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_openai_stargate_abilene_operational | Oracle | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_openai_stargate_michigan_buildout_remaining | Oracle | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_openai_stargate_milam_buildout_remaining | Softbank | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_openai_stargate_new_mexico_buildout_remaining | Oracle | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_openai_stargate_shackelford_buildout_remaining | Oracle | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_openai_stargate_uae_buildout_remaining | G42 | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_openai_stargate_wisconsin_buildout_remaining | Oracle | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_qts_cedar_rapids_buildout_remaining | (unspecified) | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_qts_richmond_buildout_remaining | (unspecified) | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_qts_richmond_operational | (unspecified) | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_stack_infrastructure_nva02_buildout_remaining | (unspecified) | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_stack_infrastructure_nva02_operational | (unspecified) | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_stream_phoenix_buildout_remaining | (unspecified) | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_vantage_tx1_buildout_remaining | (unspecified) | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_vantage_tx1_operational | (unspecified) | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_xai_colossus_1_buildout_remaining | xAI | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_xai_colossus_1_operational | xAI | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  epoch_xai_colossus_2_buildout_remaining | xAI | source=2026-04-20 | verified=2026-04-22
+    [GRE]   6d  fermi_speculative_excluded_or_T5_only | Fermi America | source=2025-12-18 | verified=2026-04-22
+    [GRE]   6d  humain_amd_saudi | HUMAIN / AMD | source=2025-05-14 | verified=2026-04-22
+    [GRE]   6d  microsoft_g42_uae_khazna | Khazna Data Centers / G42 | source=2025-11-01 | verified=2026-04-22
+    [GRE]   6d  openai_microsoft_fairwater_international | Microsoft | source=2025-09-18 | verified=2026-04-22
+    [GRE]   6d  reliance_jio_jamnagar | Reliance Industries / Jio | source=2024-08-29 | verified=2026-04-22
+    [GRE]   6d  uk_culham_ai_growth_zone | UK Government / UKAEA | source=2025-01-13 | verified=2026-04-22
+    [GRE]   6d  xai_colossus2_residual | xAI | source=2025-12-30 | verified=2026-04-22
+    [GRE]   6d  xai_humain_saudi | HUMAIN | source=2025-05-14 | verified=2026-04-22
+    [GRE]   4d  meta_hyperion_stretch_incremental | Meta | source=2025-07-30 | verified=2026-04-24
+    [GRE]   3d  coreweave_contracted_ex_epoch | CoreWeave | source=2026-02-27 | verified=2026-04-25
+    [GRE]   3d  coreweave_epoch_overlap_helios | CoreWeave | source=2026-02-27 | verified=2026-04-25
+    [GRE]   3d  coreweave_operational_disclosed | CoreWeave | source=2026-02-27 | verified=2026-04-25
+    [GRE]   3d  crusoe_abilene_epoch_overlap | Crusoe / Oracle / Microsoft | source=2026-04-24 | verified=2026-04-25
+    [GRE]   3d  crusoe_cheyenne_or_other_future_capacity | Crusoe | source=2026-04-24 | verified=2026-04-25
+    [GRE]   3d  crusoe_norway_iceland_operational | Crusoe | source=2026-04-24 | verified=2026-04-25
+    [GRE]   3d  nebius_meta_microsoft_contract_capacity | Nebius | source=2026-03-16 | verified=2026-04-25
+    [GRE]   3d  nebius_operational_disclosed | Nebius | source=2026-03-16 | verified=2026-04-25
+

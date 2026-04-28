@@ -134,7 +134,8 @@ def main():
     args = parser.parse_args()
 
     today = datetime.date.fromisoformat(args.today) if args.today else datetime.date.today()
-    base = Path(__file__).resolve().parent
+    script_dir = Path(__file__).resolve().parent
+    base = script_dir.parent if script_dir.name == "scripts" else script_dir
     audit_csv = (base / args.audit_csv).resolve()
     if not audit_csv.exists():
         print(f"ERROR: audit CSV not found: {audit_csv}", file=sys.stderr)

@@ -189,9 +189,9 @@ facts:
   - fact_id: industry.physical_commitment_surface.western_horizon_2027_2030_gw
     category: commitment
     value:
-      point_estimate: 50.61
-      range_low: 45.74
-      range_high: 54.724
+      point_estimate: 49.813
+      range_low: 44.396
+      range_high: 53.115
     unit: gigawatts
     as_of_date: '2026-04-22'
     confidence: medium
@@ -199,17 +199,15 @@ facts:
       - epoch_frontier_data_centers_20260416
       - stack_compute_commitments_overlay_20260422
     notes: |
-      Western-scope 2027-2030 full-buildout horizon. Components: Epoch
-      full-buildout (33.05 GW) + Class A Western-only incremental (8.17 GW
-      point / [3.30, 11.04]) + neocloud ex-Epoch operational+contracted
-      (9.39 GW). Excludes Sovereign-AI sidebar. 84% of this surface is NOT
-      YET operational - falsification risk sits in 2028-2030 timeline
-      slippage.
+      Western-scope 2027-2030 full-buildout horizon, regenerated from
+      canonical_capacity_atoms.yaml. Excludes Sovereign-AI sidebar. Roughly
+      85% of this surface is not yet operational - falsification risk sits in
+      2028-2030 timeline slippage.
 
   - fact_id: industry.physical_commitment_surface.sovereign_ai_sidebar_gw
     category: commitment
     value:
-      point_estimate: 1.95
+      point_estimate: 3.96
       range_low: 0.72
       range_high: 4.40
     unit: gigawatts
@@ -285,11 +283,23 @@ sources:
 
   amd_humain_jv_20250513:
     type: primary
-    publisher: AMD Investor Relations
-    title: "AMD and HUMAIN Announce Strategic Collaboration to Advance Global AI"
-    url: "https://ir.amd.com/news-events/press-releases/detail/1249/amd-and-humain-announce-strategic-collaboration-to-advance"
+    publisher: AMD Newsroom
+    title: "AMD and HUMAIN Form Strategic, $10B Collaboration to Advance Global AI"
+    url: "https://www.amd.com/en/newsroom/press-releases/2025-5-13-amd-and-humain-form-strategic--10b-collaboration-.html"
     publication_date: 2025-05-13
     access_date: 2026-04-22
+
+  openai_amd_6gw_20251006:
+    type: primary
+    publisher: AMD Newsroom / OpenAI
+    title: "AMD and OpenAI Announce Strategic Partnership to Deploy 6 Gigawatts of AMD GPUs"
+    url: "https://www.amd.com/en/newsroom/press-releases/2025-10-6-amd-and-openai-announce-strategic-partnership-to-d.html"
+    companion_url: "https://openai.com/index/openai-amd-strategic-partnership/"
+    supported_claims:
+      - "6 GW AMD GPU deployment partnership"
+      - "Initial 1 GW MI450 deployment beginning in the second half of 2026"
+    publication_date: 2025-10-06
+    access_date: 2026-04-28
 
   reliance_ambani_agm_2024:
     type: primary

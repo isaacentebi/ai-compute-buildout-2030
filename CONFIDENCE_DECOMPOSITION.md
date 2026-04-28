@@ -1,34 +1,34 @@
 # Confidence Decomposition (Rev-4.1)
 
-**Current denominator:** Western 2027-2030 horizon = **51.427 GW facility** (rounded to **51.4 GW**), with an IT-load bridge of **43.93 GW** and facility range **[46.00, 54.72] GW**.
+**Current denominator:** Western 2027-2030 horizon = **49.813 GW facility** (rounded to **49.8 GW**), with an IT-load bridge of **42.47 GW** and facility range **[44.40, 53.12] GW**.
 
-**Answer in one line:** **26.5 GW facility** is in T1+T2+T3 (operational, physically evidenced, or firm commercial); **17.9 GW facility** is T4 announced site-level plan; **7.1 GW facility** is T5+T6 stretch or analyst inference. Deterministic tier-weighted realization is **36.2 GW facility**.
+**Answer in one line:** **26.3 GW facility** is in T1+T2+T3 (operational, physically evidenced, or firm commercial); **16.5 GW facility** is T4 announced site-level plan; **7.1 GW facility** is T5+T6 stretch or analyst inference. Deterministic tier-weighted realization is **35.1 GW facility**.
 
 ## Tier Rollup
 
 | Tier | Interpretation | GW facility | Default realization | Weighted GW |
 |---|---|---:|---:|---:|
-| T1 | Operational | 7.56 | 1.00 | 7.56 |
-| T2 | Under construction / physically evidenced | 12.425 | 0.88 | 10.93 |
+| T1 | Operational | 7.37 | 1.00 | 7.37 |
+| T2 | Under construction / physically evidenced | 12.413 | 0.88 | 10.92 |
 | T3 | Firm commercial commitment | 6.48 | 0.78 | 5.05 |
-| T4 | Announced site-level plan | 17.88 | 0.58 | 10.37 |
-| T5 | LOI / stretch target | 6.754 | 0.32 | 2.16 |
+| T4 | Announced site-level plan | 16.48 | 0.58 | 9.56 |
+| T5 | LOI / stretch target | 6.747 | 0.32 | 2.16 |
 | T6 | Analyst inference | 0.328 | 0.25 | 0.08 |
-| **Total** |  | **51.427** |  | **36.162** |
+| **Total** |  | **49.813** |  | **35.143** |
 
 ## Canonical Totals
 
 | Metric | Value |
 |---|---:|
-| Operational today | 7.81 GW facility |
-| Tier-clean operational | 7.56 GW facility |
-| Raw announced horizon | 51.427 GW facility |
-| Raw non-stretch horizon | 44.673 GW facility |
-| Conservative T1+T2+T3 raw | 26.465 GW facility |
-| Conservative T1+T2+T3 weighted subset | 23.548 GW facility |
-| Deterministic tier-weighted | 36.162 GW facility |
-| Full-realization ceiling | 54.724 GW facility |
-| Sovereign sidebar | 2.56 GW facility |
+| Operational today | 7.62 GW facility |
+| Tier-clean operational | 7.37 GW facility |
+| Raw announced horizon | 49.813 GW facility |
+| Raw non-stretch horizon | 43.066 GW facility |
+| Conservative T1+T2+T3 raw | 26.262 GW facility |
+| Conservative T1+T2+T3 weighted subset | 23.347 GW facility |
+| Deterministic tier-weighted | 35.143 GW facility |
+| Full-realization ceiling | 53.115 GW facility |
+| Sovereign sidebar | 3.96 GW facility |
 
 ## Neocloud Correction
 
@@ -48,18 +48,18 @@ Seed-pinned run: `python3 monte_carlo_horizon.py --basis facility --draws 10000 
 
 | Statistic | GW facility |
 |---|---:|
-| p05 | 22.8 |
-| p10 | 24.4 |
-| p25 | 27.5 |
-| p50 | 32.4 |
-| p75 | 36.1 |
-| p90 | 38.3 |
-| p95 | 39.5 |
-| Mean | 31.76 |
-| Std dev | 5.34 |
+| p05 | 21.9 |
+| p10 | 23.4 |
+| p25 | 26.5 |
+| p50 | 31.4 |
+| p75 | 35.0 |
+| p90 | 37.2 |
+| p95 | 38.4 |
+| Mean | 30.74 |
+| Std dev | 5.29 |
 
-Tail probabilities: below conservative 26.465 GW = 19.9%; below deterministic weighted 36.162 GW = 75.8%; below raw non-stretch 44.673 GW = 100.0%; below raw announced 51.427 GW = 100.0%.
+Tail probabilities: below conservative 26.262 GW = 24.0%; below deterministic weighted 35.143 GW = 75.8%; below raw non-stretch 43.066 GW = 100.0%; below raw announced 49.813 GW = 100.0%.
 
 ## Sovereign Sidebar
 
-Sovereign rows are not part of the Western denominator. Microsoft/G42 Khazna is carried as a **0.26 GW facility-equivalent** T4 row at p=0.70. Stargate UAE is qualitative unless separately entered into the structured data layer.
+Sovereign rows are not part of the Western denominator. Stargate UAE is carried as a **1.40 GW facility** T4 row at p=0.58 in the sovereign sidebar, and Microsoft/G42 Khazna is carried as a **0.26 GW facility-equivalent** T4 row at p=0.70. Neither enters the Western denominator.

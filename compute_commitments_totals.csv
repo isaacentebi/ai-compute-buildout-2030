@@ -1,53 +1,91 @@
-commitment_id,class,scope,evidence_tier,realization_probability,prob_weighted_gw_point,announced_gw,epoch_overlap_gw,incremental_gw_point,incremental_gw_point_facility,incremental_gw_low,incremental_gw_high,chip_family,end_of_timeline_year,h100e_per_mw,h100e_incremental_m,announced_date,primary_source_url,one_line_reasoning
-anthropic_aws_2026_04_20,A,western,T4,0.72,2.28,5.00,1.83,3.17,3.80,2.50,5.00,Trainium,2028,1500,4.76,2026-04-20,https://www.anthropic.com/news/anthropic-amazon-compute,Anthropic+AWS 'up to 5 GW new' minus Epoch's existing 1.83 GW; rev-3: facility = IT 3.17 × PUE 1.20
-anthropic_fluidstack_2025_11_12,A,western,T5,0.40,0.00,,0.44,0.00,0.00,0.00,0.00,NVIDIA,2027,1400,0.00,2025-11-12,https://www.anthropic.com/news/anthropic-fluidstack,Fully absorbed by Epoch's Lake Mariner tracking (dollars-only announcement)
-anthropic_google_broadcom_tpu,B,western,T4,0.65,0.00,4.50,0.00,0.00,0.00,0.00,0.00,TPU,2027,1300,0.00,2026-04-07,https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus,Class B chip procurement - TPU Ironwood + next-gen; zero physical GW added
-anthropic_azure_2025_11_18,A,western,T5,0.30,0.30,1.00,0.00,1.00,1.18,0.00,1.00,NVIDIA,2027,1400,1.40,2025-11-18,https://blogs.microsoft.com/blog/2025/11/18/microsoft-nvidia-and-anthropic-announce-strategic-partnerships/,1 GW NVIDIA Grace Blackwell / Vera Rubin commitment; rev-3: facility = IT 1.00 × PUE 1.18
-openai_stargate_aggregate,A,western,T4,0.70,0.00,10.00,10.63,0.00,0.00,0.00,0.00,NVIDIA,2027,1400,0.00,2025-09-24,https://openai.com/index/five-new-stargate-sites/,Stargate 8 sites fully captured by Epoch; zero incremental despite $500B/10 GW headline
-openai_microsoft_fairwater,A,western,T2,0.82,0.57,,4.45,0.70,0.805,0.40,1.50,NVIDIA,2027,1400,0.98,2025-09-10,https://news.microsoft.com/source/features/ai/inside-the-worlds-most-powerful-ai-datacenter/,Fairwater international incremental; rev-3: facility = IT 0.70 × PUE 1.15
-meta_hyperion_prometheus,A,western,T5,0.28,0.77,6.00,3.61,2.74,3.014,0.00,2.74,NVIDIA+MTIA,2029,2300,6.30,2025-07-14,https://about.fb.com/news/2025/07/introducing-hyperion-meta-ai-superintelligence-data-center/,Zuckerberg 5 GW stretch minus Epoch 2 GW; rev-3: facility = IT 2.74 × PUE 1.10
-meta_nebius_2026_03_16,C,western,T3,0.80,0.00,,0.00,,,,,NVIDIA,2027,1400,0.00,2026-03-16,https://group.nebius.com/news-and-updates/nebius-signs-27-billion-agreement-with-meta,$27B contract; Class C dollar-only (Nebius MW captured in neocloud overlay)
-xai_humain_saudi,A,sovereign,T4,0.55,0.28,0.50,0.00,0.50,0.50,0.40,0.60,NVIDIA,2027,1400,0.70,2025-11-12,https://www.reuters.com/technology/artificial-intelligence/xai-humain-saudi-500mw-2025-11/,"xAI+HUMAIN Saudi 500 MW JV; rev-3: already facility-basis 1:1; rev-3 final: sovereign sidebar, excluded from Western denominator."
-xai_colossus2_full,A,western,T6,0.25,0.02,2.00,1.94,0.06,0.078,0.00,0.20,NVIDIA,2027,1400,0.08,2025-07-31,https://x.ai/news/colossus-2,Colossus 2 Memphis 2 GW target vs Epoch 1.94 GW; rev-3: facility = IT 0.06 × PUE 1.30
-microsoft_g42_uae_khazna_2025_11,A,sovereign,T4,0.70,0.14,0.20,0.00,0.20,0.26,0.20,0.20,NVIDIA,2026,1020,0.20,2025-11-01,https://news.microsoft.com/source/features/ai/microsoft-g42-uae-khazna-ai-data-center/,MSFT-G42 UAE Khazna 200 MW IT; rev-3: facility = IT 0.20 × PUE 1.30
-humain_amd_saudi_2025_05,A,sovereign,T4,0.55,0.28,0.50,0.00,0.50,0.50,0.30,0.70,AMD,2028,1700,0.85,2025-05-13,https://ir.amd.com/news-events/press-releases/detail/1249/amd-and-humain-announce-strategic-collaboration-to-advance,AMD-HUMAIN Saudi 500 MW over 5 years; rev-3: already facility-basis 1:1
-reliance_jio_jamnagar_2024_08,A,sovereign,T5,0.20,0.20,1.00,0.00,1.00,1.00,0.12,3.00,NVIDIA,2028,1900,1.90,2024-08-29,https://www.ril.com/ar2023-24/pdf/RIL-47th-AGM-Chairman-Statement.pdf,Ambani AGM 2024 'gigawatt-scale' target; rev-3: already facility-basis 1:1
-uk_culham_ai_growth_zone_2025_01,A,sovereign,T5,0.30,0.08,0.50,0.00,0.25,0.30,0.10,0.50,NVIDIA,2027,1400,0.35,2025-01-13,https://www.gov.uk/government/publications/ai-opportunities-action-plan,UK Culham 500 MW by 2030; rev-3: facility = IT 0.25 × PUE 1.20
-# --- PER-SCOPE SUBTOTALS ------------------------------------------------------,,,,,,,,,,,,,,,,,,
-western_class_a_subtotal,A,western,MIX,,,,,7.67,8.877,2.90,10.44,MIX,,,13.52,,,Class A Western incremental: 7.67 IT / 8.877 facility; H100e 13.52M; xAI-HUMAIN is sovereign sidebar only
-sovereign_class_a_subtotal,A,sovereign,MIX,,,,,2.45,2.56,1.12,5.00,MIX,,,4.00,,,Class A sovereign: 2.45 IT / 2.56 facility; H100e 4.00M
-class_b_chips_total,B,global,T4,,,26.00,,,,,,MIX,,,,,,AMD 6 GW + Broadcom 10 GW + NVIDIA 10 GW - deploys INTO Class A shells; zero physical GW additional
-class_c_dollar_only_total,C,global,T5,,,,,,,,,,,,,,,"$1,416.9B envelope (Altman's $1.4T aggregate dominates); overlaps Class A capex"
-# --- SIX-TIER WESTERN ROLLUP — FACILITY BASIS (rev-3 primary) -----------------,,,,,,,,,,,,,,,,,,
-# Announced horizon GW:          51.43  (unweighted sum facility — Epoch 33.05 + Class A 8.88 + neocloud 9.49 + rounding),,,,,,,,,,,,,,,,,,
-"# Raw non-stretch GW:            44.67  (announced − T5 facility; replaces retired ""bear"" label)",,,,,,,,,,,,,,,,,,
-# Probability-weighted GW:       36.46  (Σ tier_gw_facility × tier_default_probability),,,,,,,,,,,,,,,,,,
-# Conservative case GW (raw):    27.93  (T1 + T2 + T3 facility),,,,,,,,,,,,,,,,,,
-# Full-realization GW:           54.72  (arithmetic ceiling facility),,,,,,,,,,,,,,,,,,
-# Monte Carlo median p50:        32.52  (10,000 draws, facility, seed 20260424),,,,,,,,,,,,,,,
-# Monte Carlo p10-p90:        [24.64, 38.43]  (interdecile facility),,,,,,,,,,,,,,,,,
-# Monte Carlo p05 / p95:       23.12 / 39.68  (facility),,,,,,,,,,,,,,,,,,
-# Sovereign sidebar facility:     2.56  (NOT in Western denominator),,,,,,,,,,,,,,,,,,
-# --- SIX-TIER WESTERN ROLLUP — IT-LOAD BRIDGE (rev-2 compat; secondary) -------,,,,,,,,,,,,,,,,,,
-# Announced horizon GW:          43.93  (unweighted sum IT),,,,,,,,,,,,,,,,,,
-# Probability-weighted GW:      ~31.10  (Σ tier_gw × tier_default_probability),,,,,,,,,,,,,,,,,,
-# Conservative case GW:         ~23.69  (T1 + T2 + T3 IT),,,,,,,,,,,,,,,,,,
-# Full-realization GW:          ~46.70  (arithmetic ceiling IT),,,,,,,,,,,,,,,,,,
-# Monte Carlo median GW:         31.12  (10,000 draws IT),,,,,,,,,,,,,,,,,
-# Monte Carlo p10-p90 GW:     [23.96, 36.66]  (interdecile IT),,,,,,,,,,,,,,,,,
-# Sovereign sidebar GW IT:        2.45,,,,,,,,,,,,,,,,,,
-# --- H100e RECONCILIATION -----------------------------------------------------,,,,,,,,,,,,,,,,,,
-# Chip counts are basis-invariant (chips ARE deployed; only the MW denominator changes).,,,,,,,,,,,,,,,,,,
-# Epoch Layer 1 full buildout: 46.15M H100e across 33.05 GW facility (weighted 1,388 H100e/facility-MW, rev-3 labeling),,,,,,,,,,,,,,,,
-# Class A overlay (Western, Option B): 13.52M H100e across 7.67 GW IT / 8.88 GW facility,,,,,,,,,,,,,,,,,
-# Neocloud ex-Epoch: 17.84M H100e across 9.39 GW IT / 9.49 GW facility,,,,,,,,,,,,,,,,,,
-# WESTERN TOTAL 2027-2030: 77.51M H100e across 43.93 GW IT / 51.43 GW facility,,,,,,,,,,,,,,,,,,
-# + Sovereign sidebar: 4.00M H100e across 2.45 GW IT / 2.56 GW facility,,,,,,,,,,,,,,,,,,
-# GLOBAL REFERENCE 2027-2030: 81.51M H100e across 52.56 GW IT / 53.99 GW facility,,,,,,,,,,,,,,,,,,
-# Current operational (Epoch 2026-04-24): 4.18M H100e across 6.27 GW facility (Epoch is facility-basis),,,,,,,,,,,,,,,,,,
-# Growth multiple (operational -> Western full buildout): 18.7x H100e (unchanged under basis flip),,,,,,,,,,,,,,,,,,
-#,,,,,,,,,,,,,,,,,,
-# DENSITY NOTES (rev-3):,,,,,,,,,,,,,,,,,,
-#   1,388 H100e/MW at blended Epoch weighting is an IT-MW density (per Epoch internal convention).,,,,,,,,,,,,,,,,,
-#   Facility-MW equivalent: 1,388 / 1.20 ≈ 1,157 H100e per facility-MW at blended PUE 1.20.,,,,,,,,,,,,,,,,
-"#   Per-GW densities quoted throughout the paper are IT-basis unless explicitly tagged ""facility-MW"".",,,,,,,,,,,,,,,,,,
+# compute_commitments_totals.csv regenerated from canonical_totals.json and generated_overlay_totals.yaml
+# Raw Western facility horizon: 49.813 GW
+# Raw Western facility range: [44.396, 53.115] GW
+# Deterministic probability-weighted facility: 35.143 GW
+# Conservative raw facility: 26.262 GW
+# Full-realization ceiling facility: 53.115 GW
+# Sovereign sidebar facility: 3.960 GW
+# Raw Western IT bridge: 42.467 GW
+# Monte Carlo p50 facility: 31.406 GW
+atom_id,operator,scope,status,evidence_tier,capacity_mw_facility,capacity_mw_it,realization_probability,included_raw_horizon,included_probability_weighted,notes
+epoch_microsoft_fairwater_wisconsin_operational,Microsoft,western,operational,T1,555.0,478.448,1.0,True,True,Epoch current facility power for Microsoft Fairwater Wisconsin; project=Microsoft AI WAN #confident; country=United States.
+epoch_microsoft_fairwater_wisconsin_buildout_remaining,Microsoft,western,announced,T2,2773.0,2390.517,0.88,True,True,Epoch remaining buildout to 3328.0 MW facility by 2027-10-03; project=Microsoft AI WAN #confident; country=United States.
+epoch_openai_stargate_new_mexico_buildout_remaining,Oracle,western,announced,T4,2210.0,1905.172,0.58,True,True,Epoch remaining buildout to 2210.0 MW facility by 2028-12-31; project=Stargate #confident; country=United States.
+epoch_openai_stargate_shackelford_buildout_remaining,Oracle,western,announced,T4,1960.0,1689.655,0.58,True,True,Epoch remaining buildout to 1960.0 MW facility by 2028-12-31; project=Stargate #confident; country=United States.
+epoch_meta_hyperion_buildout_remaining,Meta,western,announced,T4,2262.0,1950.0,0.58,True,True,Epoch remaining buildout to 2262.0 MW facility by 2028-01-01; project=Hyperion #confident; country=United States.
+epoch_qts_cedar_rapids_buildout_remaining,(unspecified),western,announced,T2,1587.0,1368.103,0.88,True,True,Epoch remaining buildout to 1587.0 MW facility by 2027-11-15; project=n/a; country=United States.
+epoch_openai_stargate_michigan_buildout_remaining,Oracle,western,announced,T4,1383.0,1192.241,0.58,True,True,Epoch remaining buildout to 1383.0 MW facility by 2028-12-31; project=Stargate #confident; country=United States.
+epoch_openai_stargate_wisconsin_buildout_remaining,Oracle,western,announced,T4,1300.0,1120.69,0.58,True,True,Epoch remaining buildout to 1300.0 MW facility by 2028-12-31; project=Stargate #confident; country=United States.
+epoch_openai_stargate_milam_buildout_remaining,Softbank,western,announced,T4,1200.0,1034.483,0.58,True,True,Epoch remaining buildout to 1200.0 MW facility by 2028-12-31; project=Stargate #confident; country=United States.
+epoch_openai_stargate_uae_buildout_remaining,G42,sovereign,announced,T4,1400.0,1206.897,0.58,False,False,Epoch remaining buildout to 1400.0 MW facility by 2028-01-01; project=Stargate #confident; country=United Arab Emirates.
+epoch_goodnight_buildout_remaining,Google,western,announced,T2,1087.6,937.586,0.88,True,True,Epoch remaining buildout to 1087.6 MW facility by 2027-10-01; project=n/a; country=United States.
+epoch_crusoe_abilene_expansion_buildout_remaining,Microsoft,western,announced,T2,941.0,811.207,0.88,True,True,Epoch remaining buildout to 941.0 MW facility by 2027-11-11; project=n/a; country=United States.
+epoch_xai_colossus_2_buildout_remaining,xAI,western,announced,T2,1494.0,1287.931,0.88,True,True,Epoch remaining buildout to 1494.0 MW facility by 2026-05-13; project=n/a; country=United States.
+epoch_google_cedar_rapids_operational,Google,western,operational,T1,105.0,90.517,1.0,True,True,Epoch current facility power for Google Cedar Rapids; project=n/a; country=United States.
+epoch_google_cedar_rapids_buildout_remaining,Google,western,announced,T4,522.0,450.0,0.58,True,True,Epoch remaining buildout to 627.0 MW facility by 2028-11-18; project=n/a; country=United States.
+epoch_meta_prometheus_operational,Meta,western,operational,T1,531.0,457.759,1.0,True,True,Epoch current facility power for Meta Prometheus; project=Prometheus #confident; country=United States.
+epoch_meta_prometheus_buildout_remaining,Meta,western,announced,T2,579.0,499.138,0.88,True,True,Epoch remaining buildout to 1110.0 MW facility by 2026-10-01; project=Prometheus #confident; country=United States.
+epoch_openai_stargate_abilene_operational,Oracle,western,operational,T1,200.0,172.414,1.0,True,True,Epoch current facility power for OpenAI Stargate Abilene; project=Stargate #confident; country=United States.
+epoch_openai_stargate_abilene_buildout_remaining,Oracle,western,announced,T2,980.0,844.828,0.88,True,True,Epoch remaining buildout to 1180.0 MW facility by 2026-07-01; project=Stargate #confident; country=United States.
+epoch_anthropic_amazon_new_carlisle_operational,Amazon,western,operational,T1,1092.0,941.379,1.0,True,True,Epoch current facility power for Anthropic-Amazon New Carlisle; project=Project Rainier #confident; country=United States.
+epoch_anthropic_amazon_new_carlisle_buildout_remaining,Amazon,western,announced,T2,137.0,118.103,0.88,True,True,Epoch remaining buildout to 1229.0 MW facility by 2026-06-21; project=Project Rainier #confident; country=United States.
+epoch_microsoft_fairwater_atlanta_operational,Microsoft,western,operational,T1,433.0,373.276,1.0,True,True,Epoch current facility power for Microsoft Fairwater Atlanta; project=Microsoft AI WAN #confident; country=United States.
+epoch_microsoft_fairwater_atlanta_buildout_remaining,Microsoft,western,announced,T2,426.0,367.241,0.88,True,True,Epoch remaining buildout to 859.0 MW facility by 2026-05-14; project=Microsoft AI WAN #confident; country=United States.
+epoch_coreweave_helios_buildout_remaining,Coreweave,western,speculative,T5,800.0,689.655,0.32,True,True,Epoch remaining buildout to 800.0 MW facility by 2029-01-01; project=n/a; country=United States.
+epoch_amazon_ridgeland_buildout_remaining,Amazon,western,speculative,T5,1008.0,868.966,0.32,True,True,Epoch remaining buildout to 1008.0 MW facility by 2027-09-21; project=Project Rainier #speculative; country=United States.
+epoch_qts_richmond_operational,(unspecified),western,operational,T1,854.0,736.207,1.0,True,True,Epoch current facility power for QTS Richmond; project=n/a; country=United States.
+epoch_qts_richmond_buildout_remaining,(unspecified),western,announced,T2,67.0,57.759,0.88,True,True,Epoch remaining buildout to 921.0 MW facility by 2026-06-15; project=n/a; country=United States.
+epoch_amazon_madison_mega_site_operational,Amazon,western,operational,T1,341.0,293.966,1.0,True,True,Epoch current facility power for Amazon Madison Mega Site; project=Project Rainier #speculative; country=United States.
+epoch_amazon_madison_mega_site_buildout_remaining,Amazon,western,speculative,T5,478.0,412.069,0.32,True,True,Epoch remaining buildout to 819.0 MW facility by 2026-09-18; project=Project Rainier #speculative; country=United States.
+epoch_fluidstack_lake_mariner_operational,Fluidstack,western,operational,T1,68.0,58.621,1.0,True,True,Epoch current facility power for Fluidstack Lake Mariner; project=n/a; country=United States.
+epoch_fluidstack_lake_mariner_buildout_remaining,Fluidstack,western,announced,T2,441.0,380.172,0.88,True,True,Epoch remaining buildout to 509.0 MW facility by 2027-03-31; project=n/a; country=United States.
+epoch_google_new_albany_operational,Google,western,operational,T1,407.0,350.862,1.0,True,True,Epoch current facility power for Google New Albany; project=n/a; country=United States.
+epoch_google_new_albany_buildout_remaining,Google,western,announced,T2,136.0,117.241,0.88,True,True,Epoch remaining buildout to 543.0 MW facility by 2026-12-18; project=n/a; country=United States.
+epoch_google_omaha_operational,Google,western,operational,T1,189.0,162.931,1.0,True,True,Epoch current facility power for Google Omaha; project=n/a; country=United States.
+epoch_google_omaha_buildout_remaining,Google,western,announced,T2,285.0,245.69,0.88,True,True,Epoch remaining buildout to 474.0 MW facility by 2027-07-26; project=n/a; country=United States.
+epoch_google_pryor_north_operational,Google,western,operational,T1,65.0,56.034,1.0,True,True,Epoch current facility power for Google Pryor (North); project=n/a; country=United States.
+epoch_google_pryor_north_buildout_remaining,Google,western,announced,T2,389.0,335.345,0.88,True,True,Epoch remaining buildout to 454.0 MW facility by 2026-05-17; project=n/a; country=United States.
+epoch_xai_colossus_1_operational,xAI,western,operational,T1,425.0,366.379,1.0,True,True,Epoch current facility power for xAI Colossus 1; project=n/a; country=United States.
+epoch_xai_colossus_1_buildout_remaining,xAI,western,announced,T2,17.0,14.655,0.88,True,True,Epoch remaining buildout to 442.0 MW facility by 2026-02-11; project=n/a; country=United States.
+epoch_stack_infrastructure_nva02_operational,(unspecified),western,operational,T1,118.0,101.724,1.0,True,True,Epoch current facility power for STACK Infrastructure NVA02; project=n/a; country=United States.
+epoch_stack_infrastructure_nva02_buildout_remaining,(unspecified),western,announced,T4,369.0,318.103,0.58,True,True,Epoch remaining buildout to 487.0 MW facility by 2028-01-01; project=n/a; country=United States.
+epoch_meta_temple_operational,Meta,western,operational,T1,198.0,170.69,1.0,True,True,Epoch current facility power for Meta Temple; project=n/a; country=United States.
+epoch_meta_temple_buildout_remaining,Meta,western,announced,T2,40.0,34.483,0.88,True,True,Epoch remaining buildout to 238.0 MW facility by 2026-09-30; project=n/a; country=United States.
+epoch_microsoft_goodyear_operational,Microsoft,western,operational,T1,263.0,226.724,1.0,True,True,Epoch current facility power for Microsoft Goodyear; project=n/a; country=United States.
+epoch_google_council_bluffs_east_operational,Google,western,operational,T1,190.0,163.793,1.0,True,True,Epoch current facility power for Google Council Bluffs (East); project=n/a; country=United States.
+epoch_google_council_bluffs_east_buildout_remaining,Google,western,announced,T2,94.0,81.034,0.88,True,True,Epoch remaining buildout to 284.0 MW facility by 2026-06-10; project=n/a; country=United States.
+epoch_stream_phoenix_buildout_remaining,(unspecified),western,speculative,T5,267.0,230.172,0.32,True,True,Epoch remaining buildout to 267.0 MW facility by 2030-01-01; project=n/a; country=United States.
+epoch_vantage_tx1_operational,(unspecified),western,operational,T1,44.8,38.621,1.0,True,True,Epoch current facility power for Vantage TX1; project=n/a; country=United States.
+epoch_vantage_tx1_buildout_remaining,(unspecified),western,announced,T2,134.4,115.862,0.88,True,True,Epoch remaining buildout to 179.2 MW facility by 2027-08-31; project=n/a; country=United States.
+epoch_alibaba_zhangbei_operational,Alibaba,excluded,operational,T1,203.0,175.0,1.0,False,False,Epoch current facility power for Alibaba Zhangbei; project=n/a; country=China.
+anthropic_aws_incremental_new_capacity,Amazon,western,announced,T4,3800,3170,0.72,True,True,5 GW announced less Epoch Madison/Ridgeland overlap; residual carried as Western incremental facility capacity.
+anthropic_azure_incremental_capacity,Microsoft Azure,western,announced,T5,1180,1000,0.3,True,True,"1 GW Azure compute commitment; no sites named, so range floors at zero."
+openai_microsoft_fairwater_international,Microsoft,western,announced,T2,805,700,0.82,True,True,International Fairwater sites named; MW estimated from disclosed site-scale range and nScale/Microsoft partnership.
+meta_hyperion_stretch_incremental,Meta,western,speculative,T5,3014,2740,0.28,True,True,CEO 5 GW Hyperion stretch less Epoch Hyperion evidenced buildout; firm 2 GW floor is already in Epoch.
+xai_colossus2_residual,xAI,western,inferred,T6,78,60,0.25,True,True,Residual between Musk 2 GW claim and Epoch Colossus buildout; nearly all capacity already in Epoch.
+anthropic_fluidstack_undisclosed_mw,Fluidstack,western,contracted,T5,,,0.4,False,False,Anthropic/Fluidstack primary discloses $50B and sites but no MW; no MW assigned and excluded from totals.
+coreweave_operational_disclosed,CoreWeave,western,operational,T1,850,680,1.0,True,True,"Operational fleet capacity disclosed by public company; counted once under CoreWeave, not Applied Digital."
+coreweave_contracted_ex_epoch,CoreWeave,western,contracted,T3,2300,1840,0.82,True,True,3.1 GW contracted less 0.8 GW Helios already counted in Epoch; T3 due RPO/backlog and named IG customers.
+coreweave_epoch_overlap_helios,CoreWeave,western,excluded,excluded,800,640,0.0,False,False,Overlap atom: Helios is already counted as an Epoch site and removed from CoreWeave contracted ex-Epoch capacity.
+coreweave_applied_digital_pf1_overlap_adjustment,Applied Digital / CoreWeave,western,excluded,excluded,400,307.692,0.0,False,False,PF1 is Applied Digital real estate leased to CoreWeave; counted under CoreWeave fleet and excluded from Applied Digital incremental capacity.
+nebius_operational_disclosed,Nebius,western,operational,T1,170,141.667,1.0,True,True,Operational capacity disclosed in Nebius public materials.
+nebius_meta_microsoft_contract_capacity,Nebius,western,contracted,T3,2000,1666.667,0.78,True,True,Contracted backlog with Microsoft and Meta; T3 because named IG counterparties and revenue contract evidence exist.
+nscale_operational_seed_capacity,Nscale,western,operational,T1,20,16.667,1.0,True,True,First US site online; retained but secondary-source flagged.
+nscale_microsoft_contract_capacity,Nscale,western,contracted,T4,900,750,0.6,True,True,Private-company contracted capacity after subtracting Fairwater Narvik/Loughton overlap; T4 because no public RPO/take-or-pay disclosure and source is secondary.
+nscale_fairwater_overlap_adjustment,Nscale / Microsoft,western,excluded,excluded,600,500,0.0,False,False,Nscale Narvik/Loughton capacity is attributed to the Fairwater atom; excluded here to avoid double-count.
+crusoe_norway_iceland_operational,Crusoe,western,operational,T1,200,160,1.0,True,True,Operational ex-Epoch Crusoe capacity in Norway/Iceland and Abilene phase context.
+crusoe_abilene_epoch_overlap,Crusoe / Oracle / Microsoft,western,excluded,excluded,2120,1696,0.0,False,False,Abilene Phase 1+2 and Microsoft Abilene expansion are already counted in Epoch; excluded from Crusoe incremental neocloud capacity.
+crusoe_cheyenne_or_other_future_capacity,Crusoe,western,contracted,T3,1980,1584,0.7,True,True,4.1 GW contracted less Epoch Abilene overlaps; mostly Cheyenne 1.8 GW with permit and anchor evidence.
+lambda_operational,Lambda,western,operational,T1,50,40,1.0,True,True,Operational estimate retained from neocloud overlay; official financing refreshed but MW disclosure remains limited.
+lambda_microsoft_contract,Lambda,western,contracted,T4,320,256,0.58,True,True,Private pre-IPO capacity with Microsoft/NVIDIA anchors; T4 because no public RPO/take-or-pay capacity disclosure.
+applied_digital_pf2_leased_capacity,Applied Digital,western,contracted,T3,200,153.846,0.78,True,True,PF2 hyperscaler lease plus secured financing; PF1 excluded as CoreWeave overlap.
+together_operational_inferred,Together AI,western,inferred,T6,81.25,65,0.5,True,True,Operational MW inferred from GPU/site footprint; T6 in tier rollup.
+together_contracted_private_capacity,Together AI,western,contracted,T4,250,200,0.45,True,True,Private-company contracted capacity; T4 because source support and MW conversion are weaker than public RPO evidence.
+voltage_park_lightning_inferred,Voltage Park / Lightning,western,inferred,T6,168.75,135,0.6,True,True,MW inferred from roughly 35k GPU footprint across six sites; no direct MW disclosure.
+fluidstack_anthropic_undisclosed_mw,Fluidstack,western,contracted,T5,,,0.4,False,False,No disclosed MW for full Anthropic/Fluidstack JV; Lake Mariner overlap counted in Epoch and dollar envelope excluded from physical totals.
+fermi_speculative_excluded_or_T5_only,Fermi America,excluded,speculative,T5,,,0.1,False,False,11-17 GW permit aspiration has no customer contract and no operational MW; excluded from Western denominator.
+microsoft_g42_uae_khazna,Khazna Data Centers / G42,sovereign,announced,T4,260,200,0.7,False,False,"Sovereign UAE capacity; sidebar only, not Western denominator."
+xai_humain_saudi,HUMAIN,sovereign,announced,T4,500,370.37,0.55,False,False,"Saudi sovereign JV; sidebar only, not Western denominator."
+humain_amd_saudi,HUMAIN / AMD,sovereign,announced,T4,500,370.37,0.55,False,False,"Saudi AMD-HUMAIN sovereign JV; sidebar only, not Western denominator."
+reliance_jio_jamnagar,Reliance Industries / Jio,sovereign,speculative,T5,1000,714.286,0.2,False,False,"India sovereign/strategic capacity; sidebar only, not Western denominator."
+uk_culham_ai_growth_zone,UK Government / UKAEA,sovereign,speculative,T5,300,250,0.3,False,False,"UK sovereign AI Growth Zone; sidebar only, not Western denominator."
