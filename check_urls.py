@@ -56,6 +56,19 @@ REPLACED_SOURCES = [
         "reason": "AMD IR URL redirected to unrelated AMD pages; replaced with AMD Newsroom official page.",
     },
 ]
+DEFAULT_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36 "
+        "ai-compute-buildout-url-audit/4.1"
+    ),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,application/pdf;q=0.8,*/*;q=0.7",
+    "Accept-Language": "en-US,en;q=0.9",
+}
+SEC_HEADERS = {
+    **DEFAULT_HEADERS,
+    "User-Agent": "ai-compute-buildout-url-audit/4.1 isaacentebi@example.com",
+}
 
 
 def normalize_url(url: str) -> str:
@@ -153,8 +166,10 @@ def classify(url: str, final_url: str, status: int, body: bytes, refs: list[dict
 
 def check_url(url: str, refs: list[dict]) -> dict:
     last_error = ""
+    parsed = urlparse(url)
+    headers = SEC_HEADERS if parsed.netloc.endswith("sec.gov") else DEFAULT_HEADERS
     for method in ("HEAD", "GET"):
-        req = Request(url, method=method, headers={"User-Agent": "ai-compute-buildout-url-audit/4.1"})
+        req = Request(url, method=method, headers=headers)
         for attempt in range(2):
             try:
                 with urlopen(req, timeout=30, context=SSL_CONTEXT) as response:

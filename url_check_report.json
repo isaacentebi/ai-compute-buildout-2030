@@ -283,6 +283,25 @@
     },
     {
       "error": "HTTP Error 403: Forbidden",
+      "final_url": "https://www.bain.com/insights/how-can-we-meet-ais-insatiable-demand-for-compute-power-technology-report-2025/",
+      "ok": false,
+      "redirected": false,
+      "references": [
+        {
+          "expected_claim_keywords": [],
+          "publisher": "Bain & Company",
+          "source_file": "forecaster_capex_comparison.yaml",
+          "title": "",
+          "url": "https://www.bain.com/insights/how-can-we-meet-ais-insatiable-demand-for-compute-power-technology-report-2025/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked_manual_review",
+      "title": "",
+      "url": "https://www.bain.com/insights/how-can-we-meet-ais-insatiable-demand-for-compute-power-technology-report-2025/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
       "final_url": "https://www.cummins.com/es-la/generators/diesel",
       "ok": false,
       "redirected": false,
@@ -634,64 +653,22 @@
     },
     {
       "error": "HTTP Error 403: Forbidden",
-      "final_url": "https://www.sec.gov/Archives/edgar/data/1839341/000162828026013305/core-20251231.htm",
+      "final_url": "https://www.se.com/us/en/about-us/newsroom/news/press-releases/schneider-electric-unveils-liquid-cooling-portfolio-with-motivair-featuring-dedicated-solutions-and-services-for-hpc-and-ai-workloads-68da975376d417f4a10de42c/",
       "ok": false,
       "redirected": false,
       "references": [
         {
           "expected_claim_keywords": [],
-          "publisher": "CoreWeave / SEC",
-          "source_file": "canonical_capacity_atoms.yaml",
+          "publisher": "Schneider Electric / Motivair",
+          "source_file": "anatomy_layer_costs.yaml",
           "title": "",
-          "url": "https://www.sec.gov/Archives/edgar/data/1839341/000162828026013305/core-20251231.htm"
-        },
-        {
-          "expected_claim_keywords": [],
-          "publisher": "CoreWeave / SEC",
-          "source_file": "canonical_capacity_atoms.yaml",
-          "title": "",
-          "url": "https://www.sec.gov/Archives/edgar/data/1839341/000162828026013305/core-20251231.htm"
-        },
-        {
-          "expected_claim_keywords": [],
-          "publisher": "Epoch AI / CoreWeave",
-          "source_file": "canonical_capacity_atoms.yaml",
-          "title": "",
-          "url": "https://www.sec.gov/Archives/edgar/data/1839341/000162828026013305/core-20251231.htm"
+          "url": "https://www.se.com/us/en/about-us/newsroom/news/press-releases/schneider-electric-unveils-liquid-cooling-portfolio-with-motivair-featuring-dedicated-solutions-and-services-for-hpc-and-ai-workloads-68da975376d417f4a10de42c/"
         }
       ],
       "status": 403,
       "status_class": "blocked_manual_review",
       "title": "",
-      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000162828026013305/core-20251231.htm"
-    },
-    {
-      "error": "HTTP Error 403: Forbidden",
-      "final_url": "https://www.sec.gov/cgi-bin/browse-edgar",
-      "ok": false,
-      "redirected": false,
-      "references": [
-        {
-          "source_file": "report.tex",
-          "url": "https://www.sec.gov/cgi-bin/browse-edgar"
-        },
-        {
-          "source_file": "report.tex",
-          "url": "https://www.sec.gov/cgi-bin/browse-edgar"
-        },
-        {
-          "source_file": "report.tex",
-          "url": "https://www.sec.gov/cgi-bin/browse-edgar"
-        },
-        {
-          "source_file": "report.tex",
-          "url": "https://www.sec.gov/cgi-bin/browse-edgar"
-        }
-      ],
-      "status": 403,
-      "status_class": "blocked_manual_review",
-      "title": "",
-      "url": "https://www.sec.gov/cgi-bin/browse-edgar"
+      "url": "https://www.se.com/us/en/about-us/newsroom/news/press-releases/schneider-electric-unveils-liquid-cooling-portfolio-with-motivair-featuring-dedicated-solutions-and-services-for-hpc-and-ai-workloads-68da975376d417f4a10de42c/"
     }
   ],
   "counts": {
@@ -2504,9 +2481,9 @@
       "url": "https://www.anthropic.com/news/google-broadcom-partnership-compute"
     },
     {
-      "error": "",
+      "error": "HTTP Error 403: Forbidden",
       "final_url": "https://www.bain.com/insights/how-can-we-meet-ais-insatiable-demand-for-compute-power-technology-report-2025/",
-      "ok": true,
+      "ok": false,
       "redirected": false,
       "references": [
         {
@@ -2517,9 +2494,9 @@
           "url": "https://www.bain.com/insights/how-can-we-meet-ais-insatiable-demand-for-compute-power-technology-report-2025/"
         }
       ],
-      "status": 200,
-      "status_class": "verified_ok",
-      "title": "How Can We Meet AI\u2019s Insatiable Demand for Compute Power? | Bain & Company",
+      "status": 403,
+      "status_class": "blocked_manual_review",
+      "title": "",
       "url": "https://www.bain.com/insights/how-can-we-meet-ais-insatiable-demand-for-compute-power-technology-report-2025/"
     },
     {
@@ -3765,9 +3742,9 @@
       "url": "https://www.ril.com/sites/default/files/2024-09/RIL-47th-AGM-Transcripts.pdf"
     },
     {
-      "error": "",
+      "error": "HTTP Error 403: Forbidden",
       "final_url": "https://www.se.com/us/en/about-us/newsroom/news/press-releases/schneider-electric-unveils-liquid-cooling-portfolio-with-motivair-featuring-dedicated-solutions-and-services-for-hpc-and-ai-workloads-68da975376d417f4a10de42c/",
-      "ok": true,
+      "ok": false,
       "redirected": false,
       "references": [
         {
@@ -3778,15 +3755,15 @@
           "url": "https://www.se.com/us/en/about-us/newsroom/news/press-releases/schneider-electric-unveils-liquid-cooling-portfolio-with-motivair-featuring-dedicated-solutions-and-services-for-hpc-and-ai-workloads-68da975376d417f4a10de42c/"
         }
       ],
-      "status": 200,
-      "status_class": "verified_ok",
-      "title": "Schneider Electric Unveils Liquid Cooling Portfolio with Motivair Featuring Dedicated Solutions and Services for HPC and AI Workloads | Schneider Electric United States",
+      "status": 403,
+      "status_class": "blocked_manual_review",
+      "title": "",
       "url": "https://www.se.com/us/en/about-us/newsroom/news/press-releases/schneider-electric-unveils-liquid-cooling-portfolio-with-motivair-featuring-dedicated-solutions-and-services-for-hpc-and-ai-workloads-68da975376d417f4a10de42c/"
     },
     {
-      "error": "HTTP Error 403: Forbidden",
+      "error": "",
       "final_url": "https://www.sec.gov/Archives/edgar/data/1839341/000162828026013305/core-20251231.htm",
-      "ok": false,
+      "ok": true,
       "redirected": false,
       "references": [
         {
@@ -3811,15 +3788,15 @@
           "url": "https://www.sec.gov/Archives/edgar/data/1839341/000162828026013305/core-20251231.htm"
         }
       ],
-      "status": 403,
-      "status_class": "blocked_manual_review",
-      "title": "",
+      "status": 200,
+      "status_class": "verified_ok",
+      "title": "core-20251231",
       "url": "https://www.sec.gov/Archives/edgar/data/1839341/000162828026013305/core-20251231.htm"
     },
     {
-      "error": "HTTP Error 403: Forbidden",
+      "error": "",
       "final_url": "https://www.sec.gov/cgi-bin/browse-edgar",
-      "ok": false,
+      "ok": true,
       "redirected": false,
       "references": [
         {
@@ -3839,9 +3816,9 @@
           "url": "https://www.sec.gov/cgi-bin/browse-edgar"
         }
       ],
-      "status": 403,
-      "status_class": "blocked_manual_review",
-      "title": "",
+      "status": 200,
+      "status_class": "verified_ok",
+      "title": "EDGAR Search Results",
       "url": "https://www.sec.gov/cgi-bin/browse-edgar"
     },
     {

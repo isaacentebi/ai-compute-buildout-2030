@@ -27,6 +27,7 @@ Generated from `url_check_report.json`.
 - `403` https://openai.com/index/stargate-advances-with-partnership-with-oracle/
 - `403` https://seekingalpha.com/article/4890719-vertiv-holdings-the-15-billion-backlog-liquid-cooling-dominance-and-the-ai-infrastructure-trade-wall-street-is-still-underpricing
 - `403` https://www.amphenol-cs.com/connectors/copper/paladin
+- `403` https://www.bain.com/insights/how-can-we-meet-ais-insatiable-demand-for-compute-power-technology-report-2025/
 - `403` https://www.cummins.com/generators/diesel
 - `403` https://www.datacenterdynamics.com/en/news/amd-cisco-and-humain-set-up-jv-for-1gw-of-ai-infrastructure-in-saudi-arabia/
 - `403` https://www.datacenterdynamics.com/en/news/ashrae-publishes-liquid-cooling-guidelines-as-chip-power-moves-into-uncharted-territory/
@@ -44,5 +45,4 @@ Generated from `url_check_report.json`.
 - `403` https://www.investing.com/news/stock-market-news/how-much-does-a-gw-of-data-center-capacity-actually-cost-4314046
 - `403` https://www.lneya-online.com/en/chiller-price-guide-2025-cost-breakdown-by-type-capacity-and-application.html
 - `401` https://www.reuters.com/technology/artificial-intelligence/reliance-110bn-ai-plan-2026/
-- `403` https://www.sec.gov/Archives/edgar/data/1839341/000162828026013305/core-20251231.htm
-- `403` https://www.sec.gov/cgi-bin/browse-edgar
+- `403` https://www.se.com/us/en/about-us/newsroom/news/press-releases/schneider-electric-unveils-liquid-cooling-portfolio-with-motivair-featuring-dedicated-solutions-and-services-for-hpc-and-ai-workloads-68da975376d417f4a10de42c/
