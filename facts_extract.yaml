@@ -189,9 +189,9 @@ facts:
   - fact_id: industry.physical_commitment_surface.western_horizon_2027_2030_gw
     category: commitment
     value:
-      point_estimate: 50.61
-      range_low: 45.74
-      range_high: 54.724
+      point_estimate: 49.813
+      range_low: 44.396
+      range_high: 53.115
     unit: gigawatts
     as_of_date: '2026-04-22'
     confidence: medium
@@ -199,17 +199,15 @@ facts:
       - epoch_frontier_data_centers_20260416
       - stack_compute_commitments_overlay_20260422
     notes: |
-      Western-scope 2027-2030 full-buildout horizon. Components: Epoch
-      full-buildout (33.05 GW) + Class A Western-only incremental (8.17 GW
-      point / [3.30, 11.04]) + neocloud ex-Epoch operational+contracted
-      (9.39 GW). Excludes Sovereign-AI sidebar. 84% of this surface is NOT
-      YET operational - falsification risk sits in 2028-2030 timeline
-      slippage.
+      Western-scope 2027-2030 full-buildout horizon, regenerated from
+      canonical_capacity_atoms.yaml. Excludes Sovereign-AI sidebar. Roughly
+      85% of this surface is not yet operational - falsification risk sits in
+      2028-2030 timeline slippage.
 
   - fact_id: industry.physical_commitment_surface.sovereign_ai_sidebar_gw
     category: commitment
     value:
-      point_estimate: 1.95
+      point_estimate: 3.96
       range_low: 0.72
       range_high: 4.40
     unit: gigawatts
@@ -245,9 +243,10 @@ sources:
 
   anthropic_google_broadcom_20260407:
     type: primary
-    publisher: Google Cloud
-    title: "Anthropic's multi-year partnership with Google Cloud"
-    url: "https://cloud.google.com/blog/products/ai-machine-learning/anthropic-partnership-google-cloud-2026"
+    publisher: Anthropic
+    title: "Expanding our use of Google Cloud TPUs and Services"
+    url: "https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services"
+    expected_claim_keywords: ["one million TPUs", "gigawatt", "2026"]
     publication_date: 2026-04-06
     access_date: 2026-04-16
 
@@ -255,7 +254,8 @@ sources:
     type: secondary
     publisher: Maginative
     title: "Anthropic's $52B TPU Play: 400K Broadcom Direct + 600K Google Cloud"
-    url: "https://www.maginative.com/article/anthropic-1m-tpu-52b-deal-2026-04/"
+    url: "https://www.maginative.com/anthropic-secures-1m-google-tpus-while-keeping-amazon-as-primary-training-partner/"
+    expected_claim_keywords: ["1M Google TPUs", "Amazon"]
     publication_date: 2026-04-08
     access_date: 2026-04-22
 
@@ -278,24 +278,37 @@ sources:
   microsoft_g42_uae_2025_11:
     type: primary
     publisher: Microsoft News Center
-    title: "Microsoft and G42 break ground on UAE-based AI data center with Khazna"
+    title: "Microsoft and G42 Accelerate UAE's Digital Future with Major Data Centre Expansion"
     url: "https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/"
+    expected_claim_keywords: ["Microsoft", "G42", "Major Data Centre Expansion"]
     publication_date: 2025-11-01
     access_date: 2026-04-22
 
   amd_humain_jv_20250513:
     type: primary
-    publisher: AMD Investor Relations
-    title: "AMD and HUMAIN Announce Strategic Collaboration to Advance Global AI"
-    url: "https://ir.amd.com/news-events/press-releases/detail/1249/amd-and-humain-announce-strategic-collaboration-to-advance"
+    publisher: AMD Newsroom
+    title: "AMD and HUMAIN Form Strategic, $10B Collaboration to Advance Global AI"
+    url: "https://www.amd.com/en/newsroom/press-releases/2025-5-13-amd-and-humain-form-strategic--10b-collaboration-.html"
     publication_date: 2025-05-13
     access_date: 2026-04-22
+
+  openai_amd_6gw_20251006:
+    type: primary
+    publisher: AMD Newsroom / OpenAI
+    title: "AMD and OpenAI Announce Strategic Partnership to Deploy 6 Gigawatts of AMD GPUs"
+    url: "https://www.amd.com/en/newsroom/press-releases/2025-10-6-amd-and-openai-announce-strategic-partnership-to-d.html"
+    companion_url: "https://openai.com/index/openai-amd-strategic-partnership/"
+    supported_claims:
+      - "6 GW AMD GPU deployment partnership"
+      - "Initial 1 GW MI450 deployment beginning in the second half of 2026"
+    publication_date: 2025-10-06
+    access_date: 2026-04-28
 
   reliance_ambani_agm_2024:
     type: primary
     publisher: Reliance Industries Ltd
     title: "Chairman's Statement - 47th Annual General Meeting"
-    url: "https://www.ril.com/ar2023-24/pdf/RIL-47th-AGM-Chairman-Statement.pdf"
+    url: "https://rilstaticasset.akamaized.net/sites/default/files/2024-08/Chairmans-statement-delievered-at-47th-AGM.pdf"
     publication_date: 2024-08-29
     access_date: 2026-04-22
 
@@ -319,7 +332,8 @@ sources:
     type: primary
     publisher: Epoch AI
     title: "Frontier Data Centers (dataset snapshot)"
-    url: "https://epoch.ai/data/frontier-data-centers"
+    url: "https://epoch.ai/data/data-centers"
+    expected_claim_keywords: ["Frontier Data Centers"]
     publication_date: 2026-04-16
     access_date: 2026-04-16
 

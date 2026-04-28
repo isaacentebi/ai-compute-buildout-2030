@@ -29,7 +29,8 @@ from typing import Any
 import yaml  # type: ignore
 
 
-ROOT = Path(__file__).resolve().parents[1]
+SCRIPT_DIR = Path(__file__).resolve().parent
+ROOT = SCRIPT_DIR.parent if SCRIPT_DIR.name == "scripts" else SCRIPT_DIR
 ATOMS = ROOT / "canonical_capacity_atoms.yaml"
 NEOCLOUD = ROOT / "neocloud_overlay.yaml"
 EPOCH = ROOT / "epoch_data_centers" / "compiled.json"
@@ -40,17 +41,19 @@ GENERATED_TOTALS = ROOT / "generated_overlay_totals.yaml"
 ROW_AUDIT = ROOT / "row_level_audit.csv"
 CANONICAL_JSON = ROOT / "canonical_totals.json"
 REPORT = ROOT / "overlay_reconciliation_report.md"
+MONTE_CARLO_FACILITY = ROOT / "monte_carlo_output_facility_seed20260424.json"
+COMPUTE_TOTALS_CSV = ROOT / "compute_commitments_totals.csv"
 
-CURRENT_RAW_WESTERN_FACILITY_GW = 51.427
-CURRENT_NON_STRETCH_FACILITY_GW = 44.673
-CURRENT_CONSERVATIVE_RAW_FACILITY_GW = 27.935
-CURRENT_PROB_WEIGHTED_FACILITY_GW = 36.456
-CURRENT_FULL_REALIZATION_FACILITY_GW = 54.724
+COMPARISON_BASELINE_RAW_WESTERN_FACILITY_GW = 51.427
+COMPARISON_BASELINE_NON_STRETCH_FACILITY_GW = 44.673
+COMPARISON_BASELINE_CONSERVATIVE_RAW_FACILITY_GW = 27.935
+COMPARISON_BASELINE_PROB_WEIGHTED_FACILITY_GW = 36.456
+COMPARISON_BASELINE_FULL_REALIZATION_FACILITY_GW = 54.724
 
-EXPECTED_POST_NEO_T3_GW = 6.48
-EXPECTED_POST_NEO_T4_GW = 17.88
-EXPECTED_POST_CONSERVATIVE_GW = 26.465
-EXPECTED_POST_PROB_WEIGHTED_GW = 36.162
+COMPARISON_BASELINE_POST_NEO_T3_GW = 6.48
+COMPARISON_BASELINE_POST_NEO_T4_GW = 17.88
+COMPARISON_BASELINE_POST_NEO_CONSERVATIVE_GW = 26.465
+COMPARISON_BASELINE_POST_NEO_PROB_WEIGHTED_GW = 36.162
 
 TIER_DEFAULTS = {
     "T1": 1.00,
@@ -263,8 +266,26 @@ def capital_envelope(anatomy: dict[str, Any], raw_gw: float) -> dict[str, float]
     }
 
 
+def load_monte_carlo_facility() -> dict[str, Any]:
+    if not MONTE_CARLO_FACILITY.exists():
+        return {}
+    with MONTE_CARLO_FACILITY.open() as f:
+        summary = json.load(f)
+    return {
+        "monte_carlo_p05_gw_facility": round(float(summary.get("p05", 0.0)), 3),
+        "monte_carlo_p10_gw_facility": round(float(summary.get("p10", 0.0)), 3),
+        "monte_carlo_p25_gw_facility": round(float(summary.get("p25", 0.0)), 3),
+        "monte_carlo_p50_gw_facility": round(float(summary.get("p50", 0.0)), 3),
+        "monte_carlo_p75_gw_facility": round(float(summary.get("p75", 0.0)), 3),
+        "monte_carlo_p90_gw_facility": round(float(summary.get("p90", 0.0)), 3),
+        "monte_carlo_p95_gw_facility": round(float(summary.get("p95", 0.0)), 3),
+        "monte_carlo_mean_gw_facility": round(float(summary.get("mean", 0.0)), 3),
+        "monte_carlo_std_dev_gw_facility": round(float(summary.get("std", 0.0)), 3),
+    }
+
+
 def classify_raw_delta(raw_gw: float) -> str:
-    delta = abs(raw_gw - CURRENT_RAW_WESTERN_FACILITY_GW)
+    delta = abs(raw_gw - COMPARISON_BASELINE_RAW_WESTERN_FACILITY_GW)
     if delta <= 0.5:
         return "GREEN"
     if delta <= 2.0:
@@ -304,6 +325,7 @@ def build(atoms: list[dict[str, Any]], neocloud: dict[str, Any], epoch: dict[str
 
     raw_gw = round_gw(raw_mw)
     envelope = capital_envelope(anatomy, raw_gw)
+    monte_carlo = load_monte_carlo_facility()
 
     current_overlay = overlay.get("totals", {}).get("evidence_tier_rollup_western_facility", {})
     overlay_fac = overlay.get("totals", {}).get("western_horizon_2027_2030_facility", {})
@@ -330,8 +352,8 @@ def build(atoms: list[dict[str, Any]], neocloud: dict[str, Any], epoch: dict[str
             "raw_western_it_bridge_gw": round_gw(raw_it_mw),
             "sovereign_sidebar_facility_gw": round_gw(sum_mw(sovereign_rows)),
             "excluded_capacity_gw_or_null": round_gw(sum_mw(excluded_rows)) if excluded_rows else None,
-            "current_overlay_raw_western_facility_gw": CURRENT_RAW_WESTERN_FACILITY_GW,
-            "delta_vs_current_overlay_gw": round(raw_gw - CURRENT_RAW_WESTERN_FACILITY_GW, 3),
+            "current_overlay_raw_western_facility_gw": COMPARISON_BASELINE_RAW_WESTERN_FACILITY_GW,
+            "delta_vs_current_overlay_gw": round(raw_gw - COMPARISON_BASELINE_RAW_WESTERN_FACILITY_GW, 3),
             "classification": classify_raw_delta(raw_gw),
             "legacy_all_epoch_scope_raw_western_facility_gw": legacy_all_epoch_scope_gw,
         },
@@ -371,11 +393,13 @@ def build(atoms: list[dict[str, Any]], neocloud: dict[str, Any], epoch: dict[str
             "raw_non_stretch_gw_facility": round_gw(sum_mw(western_non_stretch_rows)),
             "deterministic_probability_weighted_gw_facility": overall["probability_weighted"],
             "conservative_T1_T2_T3_raw_gw_facility": round_gw(sum_mw(western_conservative_rows)),
+            "conservative_T1_T2_T3_probability_weighted_gw_facility": overall["conservative_T1_T2_T3_probweighted"],
             "full_realization_ceiling_gw_facility": round_gw(raw_high_mw),
             "sovereign_sidebar_gw_facility": round_gw(sum_mw(sovereign_rows)),
             "capital_envelope_usd_t_central": envelope["capital_envelope_usd_t_central"],
             "capital_envelope_usd_t_low": envelope["capital_envelope_usd_t_low"],
             "capital_envelope_usd_t_high": envelope["capital_envelope_usd_t_high"],
+            **monte_carlo,
         },
         "comparisons": {
             "current_overlay": {
@@ -386,17 +410,17 @@ def build(atoms: list[dict[str, Any]], neocloud: dict[str, Any], epoch: dict[str
                 "full_realization_facility": current_overlay.get("total_gw_full_realization_facility"),
             },
             "prior_current_values_from_addendum": {
-                "total_announced_facility": CURRENT_RAW_WESTERN_FACILITY_GW,
-                "non_stretch_facility": CURRENT_NON_STRETCH_FACILITY_GW,
-                "conservative_raw_facility": CURRENT_CONSERVATIVE_RAW_FACILITY_GW,
-                "probability_weighted_facility": CURRENT_PROB_WEIGHTED_FACILITY_GW,
-                "full_realization_facility": CURRENT_FULL_REALIZATION_FACILITY_GW,
+                "total_announced_facility": COMPARISON_BASELINE_RAW_WESTERN_FACILITY_GW,
+                "non_stretch_facility": COMPARISON_BASELINE_NON_STRETCH_FACILITY_GW,
+                "conservative_raw_facility": COMPARISON_BASELINE_CONSERVATIVE_RAW_FACILITY_GW,
+                "probability_weighted_facility": COMPARISON_BASELINE_PROB_WEIGHTED_FACILITY_GW,
+                "full_realization_facility": COMPARISON_BASELINE_FULL_REALIZATION_FACILITY_GW,
             },
             "expected_post_neocloud_split_only": {
-                "T3": EXPECTED_POST_NEO_T3_GW,
-                "T4": EXPECTED_POST_NEO_T4_GW,
-                "conservative_raw": EXPECTED_POST_CONSERVATIVE_GW,
-                "probability_weighted": EXPECTED_POST_PROB_WEIGHTED_GW,
+                "T3": COMPARISON_BASELINE_POST_NEO_T3_GW,
+                "T4": COMPARISON_BASELINE_POST_NEO_T4_GW,
+                "conservative_raw": COMPARISON_BASELINE_POST_NEO_CONSERVATIVE_GW,
+                "probability_weighted": COMPARISON_BASELINE_POST_NEO_PROB_WEIGHTED_GW,
             },
         },
     }
@@ -491,6 +515,53 @@ def write_row_audit(atoms: list[dict[str, Any]]) -> None:
             for key in optional:
                 row[key] = atom.get(key, "")
             writer.writerow(row)
+
+
+def write_compute_totals(payload: dict[str, Any], atoms: list[dict[str, Any]]) -> None:
+    canonical = payload["canonical_totals"]
+    rows = [
+        "# compute_commitments_totals.csv regenerated from canonical_totals.json and generated_overlay_totals.yaml",
+        f"# Raw Western facility horizon: {canonical['raw_western_horizon_gw_facility']:.3f} GW",
+        f"# Raw Western facility range: [{canonical['raw_western_horizon_range_gw_facility'][0]:.3f}, {canonical['raw_western_horizon_range_gw_facility'][1]:.3f}] GW",
+        f"# Deterministic probability-weighted facility: {canonical['deterministic_probability_weighted_gw_facility']:.3f} GW",
+        f"# Conservative raw facility: {canonical['conservative_T1_T2_T3_raw_gw_facility']:.3f} GW",
+        f"# Full-realization ceiling facility: {canonical['full_realization_ceiling_gw_facility']:.3f} GW",
+        f"# Sovereign sidebar facility: {canonical['sovereign_sidebar_gw_facility']:.3f} GW",
+        f"# Raw Western IT bridge: {canonical['raw_western_horizon_gw_it_bridge']:.3f} GW",
+        f"# Monte Carlo p50 facility: {canonical.get('monte_carlo_p50_gw_facility', 0.0):.3f} GW",
+        "",
+    ]
+    fieldnames = [
+        "atom_id",
+        "operator",
+        "scope",
+        "status",
+        "evidence_tier",
+        "capacity_mw_facility",
+        "capacity_mw_it",
+        "realization_probability",
+        "included_raw_horizon",
+        "included_probability_weighted",
+        "notes",
+    ]
+    with COMPUTE_TOTALS_CSV.open("w", newline="") as f:
+        f.write("\n".join(rows))
+        writer = csv.DictWriter(f, fieldnames=fieldnames, lineterminator="\n")
+        writer.writeheader()
+        for atom in atoms:
+            writer.writerow({
+                "atom_id": atom["atom_id"],
+                "operator": atom["parent_entity"],
+                "scope": atom["scope"],
+                "status": atom["status"],
+                "evidence_tier": atom["evidence_tier"],
+                "capacity_mw_facility": atom.get("capacity_mw_facility", ""),
+                "capacity_mw_it": atom.get("capacity_mw_it", ""),
+                "realization_probability": atom.get("realization_probability", ""),
+                "included_raw_horizon": atom.get("included_raw_horizon", ""),
+                "included_probability_weighted": atom.get("included_probability_weighted", ""),
+                "notes": atom.get("notes", ""),
+            })
 
 
 def source_lists(atoms: list[dict[str, Any]], today: dt.date) -> dict[str, list[dict[str, Any]]]:
@@ -674,13 +745,14 @@ def main() -> int:
     if not args.check_only:
         write_generated_totals(payload)
         write_row_audit(atoms)
+        write_compute_totals(payload, atoms)
         write_report(payload, atoms)
 
     if args.check_overlay:
         return 0 if check_overlay(payload, args.tolerance_gw) else 1
 
     print(json.dumps(payload["canonical_totals"], indent=2, sort_keys=True))
-    print(f"wrote {GENERATED_TOTALS.name}, {ROW_AUDIT.name}, {CANONICAL_JSON.name}, {REPORT.name}")
+    print(f"wrote {GENERATED_TOTALS.name}, {ROW_AUDIT.name}, {CANONICAL_JSON.name}, {COMPUTE_TOTALS_CSV.name}, {REPORT.name}")
     return 0
 
 

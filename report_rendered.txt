@@ -3,25 +3,25 @@ A Data-Driven Survey
 The AI Compute Build-Out
 Scale, capex, silicon, and counterparty geography, 2026–2030
 
-At the end of Q2 2026, the six-tier framework places approximately 7.56 GW of
+At the end of Q2 2026, the six-tier framework places approximately 7.37 GW of
 directly-disclosed operational AI compute at Tier 1 (tier-clean; corresponding
-to approximately 7.81 GW at facility power including T6 analyst-inferred operational
+to approximately 7.62 GW at facility power including T6 analyst-inferred operational
 capacity from Voltage Park / Lightning and the xAI Colossus 2 residual). Announced
-commitments through 2030 imply a raw horizon of approximately 51.4 GW facility power across Western-aligned operators — equivalent to approximately 43.9 GW
+commitments through 2030 imply a raw horizon of approximately 49.8 GW facility power across Western-aligned operators — equivalent to approximately 42.5 GW
 on the IT-load bridge. Under our realization-probability framework (T1 at 100%
 through T6 at 25%) the deterministic tier-weighted point estimate is approximately
-36.2 GW facility; a 10,000-draw Monte Carlo that samples tier realization rates from
+35.1 GW facility; a 10,000-draw Monte Carlo that samples tier realization rates from
 Beta-fitted distributions and applies named downside shocks, named upside shocks, demand/RPO stress, and a correlated infrastructure-stress state (§8.4) produces a median
-2030 realized horizon of approximately 32.4 GW facility with an interdecile
-range of [24.4, 38.3] GW — our probability-weighted realization base case. The raw
-non-stretch horizon (announced minus T5 stretch targets) is approximately 44.7 GW
-facility. The conservative case raw (Tiers 1+2+3 only) is approximately 26.5 GW facility; the full-realization ceiling is approximately 54.7 GW facility. The associated
-capital envelope is approximately $1.9 trillion (range $1.5–2.4 trillion), separately
-underwritten by approximately $550 billion in contracted remaining performance obligations (RPO) — revenue commitments that enable project-finance debt, not a funding
-channel in their own right. A separate approximately 2.56 GW facility sovereign-AI
-pipeline in the UAE, Saudi Arabia, India, and the UK is reported as a sidebar. Every
-cited number is paired with an evidence tier (T1–T6) and resolvable to a row in the
-companion row_level_audit.csv shipped alongside this PDF.
+2030 realized horizon of approximately 31.4 GW facility with an interdecile
+range of [23.4, 37.2] GW — our probability-weighted realization base case. The raw
+non-stretch horizon (announced minus T5 stretch targets) is approximately 43.1 GW
+facility. The conservative case raw (Tiers 1+2+3 only) is approximately 26.3 GW
+facility; the full-realization ceiling is approximately 53.1 GW facility. The associated capital envelope is approximately $1.84 trillion (range $1.49–2.34 trillion),
+separately underwritten by approximately $550 billion in contracted remaining performance obligations (RPO) — revenue commitments that enable project-finance debt,
+not a funding channel in their own right. A separate approximately 3.96 GW facility
+sovereign-AI pipeline in the UAE, Saudi Arabia, India, and the UK is reported as a
+sidebar. Every cited number is paired with an evidence tier (T1–T6) and resolvable to
+a row in the companion row_level_audit.csv shipped alongside this PDF.
 
 Data cutoff: April 27, 2026 • Publication: April 27, 2026 (revision 4)
 Primary data: Epoch AI, Frontier Data Centers (snapshot 2026-04-24, incorporating the 2026-04-22 changelog
@@ -29,7 +29,7 @@ revision to Stargate Abilene and the 2026-04-10 revision to Meta Prometheus).1 S
 footnotes throughout.
 
 Rev-4 changes (2026-04-27). The capital envelope is updated from rev-3’s $1.2–1.5 trillion to approximately
-$1.9 trillion (range $1.5–2.4 T) on the basis of a bottoms-up unit-economics decomposition of one facility
+$1.84 trillion (range $1.49–2.34 T) on the basis of a bottoms-up unit-economics decomposition of one facility
 gigawatt across six physical layers (shell + civil + land + AI fit-out, cooling, power infrastructure, networking,
 accelerator + server BOM, grid interface), with primary citations and evidence tier on every sub-component
 (anatomy_layer_costs.yaml). The accelerator + server BOM line is restated to rack-complete $19.5 M
@@ -43,13 +43,13 @@ so cross-source comparison is unit-aware; the paper adopts facility-power GW wit
 Cross-forecaster reconciliation against eighteen anchors (Epoch, Bernstein, McKinsey, JLL, Cushman, NVIDIA,
 Stargate, Meta Hyperion, Crusoe Abilene, etc.) is recorded in forecaster_capex_comparison.yaml.
 Horizon numbers also reflect the xAI-HUMAIN reclassification from Western to sovereign sidebar (rev-3 cleanup
-pass merged 2026-04-27): raw Western 51.4 GW facility (was 51-point-9), sovereign sidebar 2.56 GW (was 2.06).
+pass merged 2026-04-27): raw Western 49.8 GW facility (was 51-point-4), sovereign sidebar 3.96 GW (was 2.06).
 Rev-3 changes (2026-04-24). The physical denominator is standardized to facility power (matching Epoch’s Frontier
 Data Centers convention and the basis most relevant to grid interconnection and facility capex), with
 IT-load-equivalent capacity reported separately as a secondary bridge against chip-nameplate commitments.
 The PUE sensitivity table is now direction-correct (facility → IT rather than the reversed IT → facility of
 revision 2). The retired bear-case label is replaced with the raw non-stretch horizon (announced minus T5 stretch
-targets, approximately 44.7 GW facility). The T1 tier partition is corrected to 7.56 GW (tier-clean: Epoch 6.27 +
+targets, approximately 43.1 GW facility). The T1 tier partition is corrected to 7.37 GW (tier-clean: Epoch 6.27 +
 neocloud directly-disclosed 1.29), with the 0.25 GW T6 analyst-inferred operational facility capacity (Voltage Park /
 Lightning plus the xAI Colossus 2 residual) held in T6 throughout the Monte Carlo and the rollup. Grid-region
 attribution is corrected: Meta Hyperion (Richland Parish, Louisiana) is MISO-South via Entergy, not ERCOT; xAI
@@ -113,21 +113,21 @@ headline number in this paper is paired with an evidence tier (T1 Operational, T
 under construction, T3 Firm commercial commitment, T4 Announced site-level plan, T5 LOI / stretch
 target, T6 Analyst inference) and a realization probability. The companion audit table provides row-level
 source, basis, tier, probability, and inclusion flags.
-In Q2 2026, the Western-aligned tier-clean operational AI compute fleet totals approximately 7.56 GW
+In Q2 2026, the Western-aligned tier-clean operational AI compute fleet totals approximately 7.37 GW
 facility power (T1), with a further approximately 0.25 GW facility T6-inferred from neocloud sources
 (Voltage Park / Lightning and the xAI Colossus 2 residual). The chip footprint is approximately 4.2 million H100-equivalent.2 Announced commitments through 2030 across the same operators, including
-hyperscalers, frontier labs, and the independent neoclouds, imply a raw 51.4 GW facility horizon across
-the Western-aligned operator set (43.9 GW IT-load bridge), with a further approximately 2.56 GW facility in the sovereign-AI sidebar. Under tier-default probability weighting, the expected 2030 realization is
-approximately 36.2 GW facility; the T1+T2+T3 conservative case is approximately 26.5 GW facility;
-and the full-realization ceiling is approximately 54.7 GW facility.
-The central fact is that approximately 85% of the 51.4 GW facility raw 2030 horizon is not yet operational.
-On a probability-weighted basis, the expected realization of approximately 36.2 GW facility leaves
-approximately 78% still to build, and the Monte Carlo median of approximately 32.4 GW facility (§8.5)
+hyperscalers, frontier labs, and the independent neoclouds, imply a raw 49.8 GW facility horizon across
+the Western-aligned operator set (42.5 GW IT-load bridge), with a further approximately 3.96 GW facility in the sovereign-AI sidebar. Under tier-default probability weighting, the expected 2030 realization is
+approximately 35.1 GW facility; the T1+T2+T3 conservative case is approximately 26.3 GW facility;
+and the full-realization ceiling is approximately 53.1 GW facility.
+The central fact is that approximately 85% of the 49.8 GW facility raw 2030 horizon is not yet operational.
+On a probability-weighted basis, the expected realization of approximately 35.1 GW facility leaves
+approximately 78% still to build, and the Monte Carlo median of approximately 31.4 GW facility (§8.5)
 implies that even in the base realization case approximately 75% of the 2030 horizon remains to be built.
 The AI compute stack of the late 2020s is overwhelmingly a forward commitment, not an in-place fleet.
-Where this section ends and the next begins. Section 1 states the headline aggregates — 7.56 GW
-tier-clean operational capacity, 51.4 GW raw 2030 horizon, 32.4 GW Monte Carlo median, approximately
-$1.9 trillion capital envelope, 78.2 million H100-equivalents. These are scale numbers, multiplications.
+Where this section ends and the next begins. Section 1 states the headline aggregates — 7.37 GW
+tier-clean operational capacity, 49.8 GW raw 2030 horizon, 31.4 GW Monte Carlo median, approximately
+$1.84 trillion capital envelope, 78.0 million H100-equivalents. These are scale numbers, multiplications.
 
 Cumulative GW (facility power)
 
@@ -142,7 +142,7 @@ The AI Compute Build-Out, 2026–2030
 10
 0
 
-Operational today: 7.56 GW facility tier-clean (T1); 7.81 GW including T6-inferred capacity
+Operational today: 7.37 GW facility tier-clean (T1); 7.62 GW including T6-inferred capacity
 
 2023
 
@@ -169,7 +169,7 @@ overlay + neocloud-ex-Epoch (ochre). Excluded: Class B chip-procurement GW
 that deploys into existing shells; sovereign sidebar (reported separately in §8).
 Epistemic status: blue is T1+T2 realized + T2/T3 near-term; ochre is the raw
 announced horizon (unweighted sum of T1–T5). The probability-weighted horizon
-(approximately 36.2 GW facility at 2030) sits between the two lines at the right
+(approximately 35.1 GW facility at 2030) sits between the two lines at the right
 edge. What moves it: stress scenarios A–D in §8.4 each shift the 2030 point by
 1.5–8 GW.3
 
@@ -531,12 +531,12 @@ literature distribution.
 
 2.5 Scaling the unit
 Multiplying one facility GW by the announced horizon resolves the headline numbers. The Western
-2026–2030 capital envelope at the raw 51.4 GW announced horizon is approximately $1.9 trillion central,
-with a defensible range of $1.5–2.4 trillion depending on operator mix, BTM-generation share, and
-silicon-vintage assumptions.
-Capex-equivalent versus realized energized capacity. The $1.9 trillion (range $1.5–2.4 T) capital
-envelope is the capex commitment implied by the raw 51.4 GW announced horizon at the central $/GW.
-The Monte Carlo median realized horizon of 32.4 GW implies, at the same per-GW range, a smaller
+2026–2030 capital envelope at the raw 49.8 GW announced horizon is approximately $1.84 trillion
+central, with a defensible range of $1.49–2.34 trillion depending on operator mix, BTM-generation
+share, and silicon-vintage assumptions.
+Capex-equivalent versus realized energized capacity. The $1.84 trillion (range $1.49–2.34 T)
+capital envelope is the capex commitment implied by the raw 49.8 GW announced horizon at the central
+$/GW. The Monte Carlo median realized horizon of 31.4 GW implies, at the same per-GW range, a smaller
 realized energized-capacity capital base of approximately $1.0–1.5 T — but this is not necessarily a smaller
 cash spend, because campuses that slip their commercial operating dates may still absorb equipment,
 shell, and grid capex before 2030. The two numbers measure different things: announced build envelope
@@ -592,16 +592,15 @@ What this section anchors for the rest of the paper. Section 3 returns to the GW
 (PUE conventions, compute-vs-physical-capacity bridge, operator concentration); Section 4 asks where
 one such GW can be physically delivered; Section 5 asks who controls them; Section 6 asks what compute
 payload each one carries; Section 7 asks who funds the multiplication and who underwrites the revenue
-(the $1.9 T total against $550 B of contracted RPO); Section 8 asks what prevents a gigawatt from becoming
-operational. Each of those sections is now multiplying or interrogating a unit that has been priced and
-assembled here.
+(the $1.84 T total against $550 B of contracted RPO); Section 8 asks what prevents a gigawatt from
+becoming operational. Each of those sections is now multiplying or interrogating a unit that has been
+priced and assembled here.
 
 3. Scaling the unit: power, compute capacity, and operators
-From one GW to fifty-two. Section 2 defined the unit; this section returns to the scale machinery.
-Three subsections: the PUE conventions that bridge facility-power GW to IT-load GW (the basis the
-paper uses for chip-nameplate comparisons), the dual-axis growth in physical-capacity gigawatts versus
-compute-capacity H100-equivalents (where the silicon-density multiplier sits on top of the physicalbuild multiplier), and the operator concentration that already characterizes the 2030 horizon at the
-announcement stage.
+From one GW to fifty. Section 2 defined the unit; this section returns to the scale machinery. Three
+subsections: the PUE conventions that bridge facility-power GW to IT-load GW (the basis the paper uses
+for chip-nameplate comparisons), the dual-axis growth in physical-capacity gigawatts versus computecapacity H100-equivalents (where the silicon-density multiplier sits on top of the physical-build multiplier),
+and the operator concentration that already characterizes the 2030 horizon at the announcement stage.
 
 3.1 Power units and PUE sensitivity
 This report standardizes the physical denominator to facility power, matching Epoch AI’s Frontier Data
@@ -612,6 +611,7 @@ should keep five distinct power concepts in mind:
 quote (e.g. “1 400 watts per Blackwell GB300”) and what cluster architects size racks against.
 • Facility power: IT load multiplied by the Power Usage Effectiveness (PUE) ratio, which captures
 cooling, lighting, power-conversion losses, and auxiliary building load. Hyperscale AI campuses
+typically report PUE between 1.10 (aggressive liquid cooling) and 1.35 (air-cooled retrofits); older
 
 The AI Compute Build-Out, 2026–2030
 
@@ -632,27 +632,27 @@ Raw non-stretch horizon (announced minus
 T5)
 Raw announced horizon
 
-24.4
-32.4
-36.2
-38.3
-44.7
+23.4
+31.4
+35.1
+37.2
+43.1
 
-$0.73–1.15T
-$0.97–1.52T
-$1.08–1.70T
-$1.15–1.80T
-$1.34–2.10T
+$0.70–1.10T
+$0.94–1.48T
+$1.05–1.65T
+$1.12–1.75T
+$1.29–2.02T
 
-51.4
+49.8
 
 Full-realization ceiling
 
-54.7
+53.1
 
-$1.54–2.42T (central
-$1.9T)
-$1.64–2.57T
+$1.49–2.34T (central
+$1.84T)
+$1.59–2.50T
 
 Table 5. Capex-equivalent at the bottoms-up $30–47 B/facility-GW range across
 the seven horizon points used elsewhere in this paper. The figures are capex
@@ -663,7 +663,6 @@ figure assumes 2026-vintage component prices and a Tier-2/3 build that may not
 generalize to extreme cases (Northern Virginia land, behind-the-meter nuclear
 PPAs, or pure-Rubin builds).
 
-typically report PUE between 1.10 (aggressive liquid cooling) and 1.35 (air-cooled retrofits); older
 builds run 1.50–1.70.
 • Grid interconnection capacity: the contracted-firm megawatt allocation at the substation. This
 can exceed facility power when operators reserve headroom for future phases, or fall short when
@@ -681,16 +680,16 @@ the basis is unknown, the paper applies a default PUE of 1.25. For Class A Weste
 assumed PUE range is 1.10–1.30, reflecting liquid-cooled new builds at the low end and air-cooled retrofits
 at the high end. Most material neocloud rows publish facility MW directly; the GPU-count-inferred rows
 use the same IT-to-facility conversion policy. Full per-row disclosure appears in Appendix B.
-PUE sensitivity. The facility-basis 51.4 GW point estimate maps to IT-load-equivalent capacity by
+PUE sensitivity. The facility-basis 49.8 GW point estimate maps to IT-load-equivalent capacity by
 dividing by the blended PUE; this is the relevant bridge for comparison against chip-nameplate aggregates
 (NVIDIA’s 10 GW LOI, Broadcom’s 10 GW XPU commitment).
-At facility baseline 51.4 GW, the IT-load-equivalent capacity falls in the range roughly [39, 47] GW
-depending on PUE, with a row-level central bridge of 43.9 GW. The PUE range 1.10–1.35 captures where
+At facility baseline 49.8 GW, the IT-load-equivalent capacity falls in the range roughly [38, 45] GW
+depending on PUE, with a row-level central bridge of 42.5 GW. The PUE range 1.10–1.35 captures where
 every currently-announced frontier-AI campus operates at scheduled commissioning.
 
 3.2 The two axes: physical capacity and compute capacity
 Physical capacity is measured in gigawatts of facility power, the binding constraint that determines how
-much grid connection, land, water, and permits are required. Compute capacity is measured in H100-
+much grid connection, land, water, and permits are required. Compute capacity is measured in H100equivalents, the relevant quantity for training and serving frontier models. The two grow at different
 
 The AI Compute Build-Out, 2026–2030
 
@@ -703,17 +702,17 @@ Western 2030 GW
 Change vs. facility
 baseline
 
-47.2
+45.3
 
 −9.1%
 
-43.3
+41.5
 
-−16.6%
+−16.7%
 
-39.9
-34.6
-32.4
+38.3
+33.2
+31.1
 
 −23.1%
 −33.3%
@@ -727,19 +726,18 @@ baseline)
 1.50 (older hyperscale retrofits)
 1.60 (legacy colocation)
 
-Table 6. IT-load-equivalent capacity mapped from the 51.4 GW facility-basis
+Table 6. IT-load-equivalent capacity mapped from the 49.8 GW facility-basis
 Western 2030 horizon under five PUE assumptions. The central IT-load bridge is
-43.9 GW under row-level PUE assumptions. Comparisons against utility-contractedMW or grid-interconnect datasets should use the facility figures; comparisons
+42.5 GW under row-level PUE assumptions. Comparisons against utility-contractedMW or grid-interconnect datasets should use the facility figures; comparisons
 against chip-nameplate aggregates should use the IT-load equivalents.
 
 H100-equivalents (millions)
 
-equivalents, the relevant quantity for training and serving frontier models. The two grow at different
 rates because chip-generation improvements drop roughly every two years, and each generation delivers
 substantially more 8-bit throughput per watt than the last.13
 110
 100
-78.2
+78
 60
 50
 
@@ -757,7 +755,7 @@ silicon
 Aggressive
 silicon
 
-Figure 2. Compute capacity measured in H100-equivalents, today vs. 2030 Western horizon. Point estimate of 78.2M H100e implies a 18.6-fold expansion of
+Figure 2. Compute capacity measured in H100-equivalents, today vs. 2030 Western horizon. Point estimate of 78.0M H100e implies a 18.6-fold expansion of
 frontier-training compute between operational-today 4.2M H100e and the 2030
 horizon, versus the 6.5-fold expansion in physical GW. Conservative and aggressive
 silicon bounds imply 14.3× and 26.2× growth, respectively, and reflect sensitivity
@@ -771,23 +769,23 @@ nineteen times as many H100-equivalent chips. The conservative silicon case yiel
 analysis that holds silicon constant understates the 2030 compute base by a factor of two to three.
 
 3.3 Operator concentration is extreme
-The 7.56 GW tier-clean operational facility base is held by approximately ten entities. Within the United
+The 7.37 GW tier-clean operational facility base is held by approximately ten entities. Within the United
 States, which accounts for approximately 6.08 GW of the current 6.28 GW Epoch-evidenced floor
 (97%),15 six counterparties each command more than 400 MW of operational capacity: Amazon (1,433
 MW, including the 1.09 GW Anthropic-dedicated New Carlisle campus16 ), Microsoft (1,251 MW), Google
+(956 MW), Meta (729 MW), Oracle (approximately 200 MW operational at OpenAI Stargate Abilene, with
 
 The AI Compute Build-Out, 2026–2030
 
 10
 
-(956 MW), Meta (729 MW), Oracle (approximately 200 MW operational at OpenAI Stargate Abilene, with
 the prior higher Abilene milestone reclassified as under construction), and xAI (425 MW at the original
 Memphis Colossus).17 The frontier neoclouds, including CoreWeave, Nebius, Crusoe, Lambda, Fluidstack,
 Nscale, Applied Digital, Voltage Park / Lightning, and Together AI, collectively hold approximately 1.54
 GW facility of operational capacity outside the Epoch-tracked set.18
-By 2030 on an announced-horizon basis, the same operator set expands to approximately 51.4 GW facility
-aggregate (raw; 43.9 GW IT-load bridge); to approximately 36.2 GW facility probability-weighted; and
-to approximately 26.5 GW facility under the conservative T1+T2+T3 case. The three largest operators
+By 2030 on an announced-horizon basis, the same operator set expands to approximately 49.8 GW facility
+aggregate (raw; 42.5 GW IT-load bridge); to approximately 35.1 GW facility probability-weighted; and
+to approximately 26.3 GW facility under the conservative T1+T2+T3 case. The three largest operators
 (Microsoft, Amazon-including-Anthropic, OpenAI-Stargate) each individually carry more than 10 GW
 of announced buildout. Amazon/Anthropic’s 12.9 GW is dominated by the T4 Anthropic expansion
 announcement (3.17 GW incremental at 72% realization), OpenAI/Stargate’s 10.6 GW is dominated by T4
@@ -1193,10 +1191,9 @@ at Anthropic, on AWS silicon. The “NVIDIA has won AI” framing understates ho
 has already travelled at the lab tier.
 
 6.4 H100e sensitivity: conservative, base, aggressive silicon uplift
-The paper’s headline figure of 78.2M H100-equivalents by 2030 (revised 2026-04-24 from 78.4M) assumes
-per-family chip-density trajectories drawn from disclosed roadmaps through 2027 and extrapolations of
-observed per-generation uplift curves for 2028–2030. That extrapolation is load-bearing: small shifts in
-the 2028–2030 density assumption move the aggregate H100e count by tens of millions.
+The paper’s headline figure of 78.0M H100-equivalents by 2030 assumes per-family chip-density trajectories drawn from disclosed roadmaps through 2027 and extrapolations of observed per-generation
+uplift curves for 2028–2030. The rounded 78.0M manuscript convention is distinct from the separate
+78.2M chip-layer estimate used in sensitivity notes. That extrapolation is load-bearing: small shifts in the
 
 The AI Compute Build-Out, 2026–2030
 
@@ -1243,6 +1240,7 @@ Figure 7. Approximate share of committed chip-capital dollars by vendor, 2024
 snapshot vs. 2030 Western horizon. NVIDIA retains majority share but loses roughly
 30 percentage points to the combined AWS+Google+AMD+Broadcom+Meta diversification. Shares estimated from published commitments and roadmap volumes.52
 
+2028–2030 density assumption move the aggregate H100e count by tens of millions.
 What H100-equivalents miss. Before presenting the sensitivity range, three caveats: (i) H100e normalizes
 8-bit dense FLOP/s but understates gains in sparsity, lower-precision (FP4/FP6) inference, and memorybandwidth throughput that matter disproportionately for reasoning-dominated workloads; (ii) networking
 fabric (NVLink/NVSwitch generations, InfiniBand NDR/XDR, AWS EFAv3) contributes 10–30% of effectivethroughput differences between nominally-equivalent chips; (iii) compiler maturity (CUDA vs XLA vs
@@ -1258,7 +1256,7 @@ Aggressive (straight-line Epoch per-family curve)
 Growth vs. 2026 Q2
 
 60.0
-78.2
+78.0
 110.0
 
 14.3×
@@ -1278,7 +1276,7 @@ AMD MI300X/MI325X are disclosed; MI400 is roadmap-disclosed; MI450 is inferred. 
 ASIC (Anthropic XPU, OpenAI XPU, Meta MTIA): disclosed at GW-commitment level, not chip-count or
 per-chip-throughput level; the silicon-layer contribution from Broadcom programs is the single largest
 source of aggressive-case upside (and the largest unknown).
-The ±30% uncertainty band around the 78.2M H100e base reading is not precision-inflation: it reflects
+The ±30% uncertainty band around the 78.0M H100e base reading is not precision-inflation: it reflects
 honest extrapolation risk across six chip families, three foundries (TSMC, Samsung, Intel-foundry), and
 five compressed cycles of 2-year generational cadence. Anyone forecasting a single H100e number for
 2030 without a sensitivity band is overconfident.
@@ -1288,10 +1286,11 @@ five compressed cycles of 2-year generational cadence. Anyone forecasting a sing
 17
 
 7. The $2 trillion question: where the money comes from
-The 51.4 GW facility Western horizon (43.9 GW IT-load bridge) carries an estimated capital envelope
-of approximately $1.9 trillion between 2026 and 2030 (range $1.5–2.4 T across operator mix and
-BTM-generation share; per-layer derivation in anatomy_layer_costs.yaml). A separate approximately $550 billion of contracted remaining performance obligations (RPO) underwrites but
-does not constitute this capex — see §7.6. The build-out therefore has three distinct financial ledgers:
+The 49.8 GW facility Western horizon (42.5 GW IT-load bridge) carries an estimated capital envelope
+of approximately $1.84 trillion between 2026 and 2030 (range $1.49–2.34 T across operator mix
+and BTM-generation share; per-layer derivation in anatomy_layer_costs.yaml). A separate
+approximately $550 billion of contracted remaining performance obligations (RPO) underwrites
+but does not constitute this capex — see §7.6. The build-out therefore has three distinct financial ledgers:
 capex requirements, financing sources, and revenue-underwriting commitments.
 
 7.1 Bucket 1: hyperscaler operating cash flow (actual spend and guided)
@@ -1469,10 +1468,10 @@ transmission
 central $1,900
 
 Table 8. Western 2026–2030 capital envelope by capex category, derived from the
-per-facility-MW unit-economics decomposition multiplied by the 51.4 GW raw announced horizon. Accelerator + server BOM is the dominant share (approximately
-53% of central) because per-chip ASPs in the B300/Rubin/Trainium-3 era are $30–
-50k+ per unit at densities of 415–440 chips per facility-MW for GB200/GB300 platforms (§6). The defensible range $1.5–2.4 T sits inside the arithmetic layer-extreme
-bounds of $1.4–2.7 T because not all layers hit their extreme bounds simultaneously. Ranges reflect operator-mix sensitivity (custom-silicon-heavy hyperscalers
+per-facility-MW unit-economics decomposition multiplied by the 49.8 GW raw
+announced horizon. Accelerator + server BOM is the dominant share (approximately 53% of central) because per-chip ASPs in the B300/Rubin/Trainium-3 era are
+$30–50k+ per unit at densities of 415–440 chips per facility-MW for GB200/GB300
+platforms (§6). The defensible range $1.49–2.34 T sits inside the arithmetic layerextreme bounds of $1.4–2.7 T because not all layers hit their extreme bounds simultaneously. Ranges reflect operator-mix sensitivity (custom-silicon-heavy hyperscalers
 vs. all-NVIDIA neoclouds), BTM-generation share, and silicon-vintage assumptions.
 Per-component build-up in anatomy_layer_costs.yaml; cross-forecaster
 reconciliation in forecaster_capex_comparison.yaml.
@@ -1570,8 +1569,8 @@ Grid interface + LPT ∼$60B
 Shell + civil + land + AI fit-out ∼$340B
 Out-of-rack networking + storage ∼$210B
 
-Figure 9. Capex bridge for the Western 2026–2030 $1.9 T envelope (range $1.5–
-2.4 T). Accelerator + server BOM (rack-complete: silicon, in-rack non-accel silicon,
+Figure 9. Capex bridge for the Western 2026–2030 $1.84 T envelope (range $1.49–
+2.34 T). Accelerator + server BOM (rack-complete: silicon, in-rack non-accel silicon,
 in-rack mechanical) is the dominant share (approximately 53%) because per-chip
 ASPs in the B300/Rubin/Trainium-3 era are $30–50k+ per unit at densities of 415–
 440 chips per facility-MW (§6). Shell + civil + land + AI fit-out is approximately
@@ -1590,19 +1589,19 @@ SPV or corporate debt to be wrapped to investment grade; it is the credit-enhanc
 channel, not a stand-alone funding bucket.
 
 8. What prevents a gigawatt from becoming operational?
-Approximately 85% of the 51.4 GW facility raw horizon is not yet operational; probabilityweighted expected realization by 2030 is approximately 36.2 GW facility, of which roughly
+Approximately 85% of the 49.8 GW facility raw horizon is not yet operational; probabilityweighted expected realization by 2030 is approximately 35.1 GW facility, of which roughly
 78% is not yet operational today. The build-out is therefore a forward execution bet, not an in-place
 compute base. The principal risks are concentrated in four categories: grid interconnection, chip delivery,
 counterparty concentration, and the realization of outer-year stretch targets (particularly Meta Hyperion,
 Reliance Jamnagar, and the Anthropic–Amazon full 5 GW). Each is priced into the scenario matrix in §8.4.
 
 8.1 Confidence decomposition of the 2030 horizon
-Of the 51.4 GW facility Western horizon, the six-tier evidence split is: T1 Operational 15% (7.56 GW,
-100% realization), T2 Under construction / physically evidenced 24% (12.43 GW, 88% default), T3
-Firm commercial 13% (6.48 GW, 78% default), T4 Announced site-level plan 35% (17.88 GW, 58%
-default), T5 LOI / stretch target 13% (6.75 GW, 32% default), and T6 Analyst inference 1% (0.33 GW,
-25% default). Probability weighting across the six tiers yields approximately 36.2 GW facility as the
-deterministic expected 2030 realization, materially below the 51.4 GW announced horizon and materially
+Of the 49.8 GW facility Western horizon, the six-tier evidence split is: T1 Operational 15% (7.37 GW,
+100% realization), T2 Under construction / physically evidenced 25% (12.41 GW, 88% default), T3
+Firm commercial 13% (6.48 GW, 78% default), T4 Announced site-level plan 33% (16.48 GW, 58%
+default), T5 LOI / stretch target 14% (6.75 GW, 32% default), and T6 Analyst inference 1% (0.33 GW,
+25% default). Probability weighting across the six tiers yields approximately 35.1 GW facility as the
+deterministic expected 2030 realization, materially below the 49.8 GW announced horizon and materially
 
 The AI Compute Build-Out, 2026–2030
 
@@ -1645,7 +1644,7 @@ Equity (public + private) ∼$150B
 Corporate debt (hyperscaler + neocloud) ∼$300B
 Sovereign (MGX, HUMAIN, UK DSIT, RIL) ∼$250B
 
-Figure 10. Financing bridge for the same $1.9 T capital envelope, decomposed
+Figure 10. Financing bridge for the same $1.84 T capital envelope, decomposed
 by source of funds. Hyperscaler operating cash flow is the dominant channel
 (approximately 47%) because Microsoft, Amazon, Google, and Meta collectively
 generate roughly $400B of annual free cash flow before capex; combined 2025 actual
@@ -1656,14 +1655,14 @@ from MGX, HUMAIN, UK DSIT, and Reliance contributes approximately 13%.
 Equity (public markets + private rounds) absorbs the remaining 8%. The $550B RPO
 does not appear as a stand-alone channel here — it is the revenue underwriting that
 enables the SPV/project-finance debt channel. Range note: as with the capex-bridge
-view, the financing range $1.65–2.25 T is narrower than the headline defensible band
-$1.5–2.4 T; financing-source bounds reflect credible-source ranges (e.g. hyperscaler
-operating-cash floor and ceiling) rather than arithmetic layer extremes. The two
-views collapse to the same $1.9 T central but use different convention bounds
-(arithmetic-extreme for capex, credible-source for financing).66
+view, the financing range $1.65–2.25 T is narrower than the headline defensible
+band $1.49–2.34 T; financing-source bounds reflect credible-source ranges (e.g.
+hyperscaler operating-cash floor and ceiling) rather than arithmetic layer extremes.
+The two views collapse to the same $1.84 T central but use different convention
+bounds (arithmetic-extreme for capex, credible-source for financing).66
 
-above the 26.5 GW conservative case (T1+T2+T3 only). The Monte Carlo median (§8.5) at approximately
-32.4 GW facility is the base realization case.
+above the 26.3 GW conservative case (T1+T2+T3 only). The Monte Carlo median (§8.5) at approximately
+31.4 GW facility is the base realization case.
 
 0
 
@@ -1693,17 +1692,17 @@ T5 LOI / stretch target (prob=0.32)
 T3 Firm commercial (prob=0.78)
 T6 Analyst inference (prob=0.25)
 
-Figure 11. Distribution of the 51.4 GW facility Western horizon across six evidence
+Figure 11. Distribution of the 49.8 GW facility Western horizon across six evidence
 tiers. Per-tier realization probability is the tier-default midpoint with per-row
 override possible. Probability-weighted sum across the six tiers = approximately
-36.2 GW facility; the next figure shows the same segments re-scaled by tier-default
+35.1 GW facility; the next figure shows the same segments re-scaled by tier-default
 probability.67
 
-8.2 Scenario ranges: non-stretch 44.7 GW to full-realization 54.7 GW (facility)
-Stripping the stretch-target-only tier (T5) and compressing speculative completions yields a raw nonstretch reading of approximately 44.7 GW facility (announced minus T5). Realising every stretch on
-disclosed timeline yields a full-realization ceiling of approximately 54.7 GW facility. The deterministic
-tier-weighted base of 36.2 GW facility sits between the two because tier-default probabilities discount
-each tier. The Monte Carlo median (§8.5) falls lower still at approximately 32.4 GW facility, reflecting
+8.2 Scenario ranges: non-stretch 43.1 GW to full-realization 53.1 GW (facility)
+Stripping the stretch-target-only tier (T5) and compressing speculative completions yields a raw nonstretch reading of approximately 43.1 GW facility (announced minus T5). Realising every stretch on
+disclosed timeline yields a full-realization ceiling of approximately 53.1 GW facility. The deterministic
+tier-weighted base of 35.1 GW facility sits between the two because tier-default probabilities discount
+each tier. The Monte Carlo median (§8.5) falls lower still at approximately 31.4 GW facility, reflecting
 per-tier variance, correlated downside states, demand/RPO stress, and upside cases.
 
 The AI Compute Build-Out, 2026–2030
@@ -1723,11 +1722,10 @@ per-tier variance, correlated downside states, demand/RPO stress, and upside cas
 35
 40
 GW (probability-weighted, facility power)
+T1 × 1.00 = 7.37
+T4 × 0.58 = 9.56
 
-T1 × 1.00 = 7.56
-T4 × 0.58 = 10.37
-
-T2 × 0.88 = 10.93
+T2 × 0.88 = 10.92
 T5 × 0.32 = 2.16
 
 45
@@ -1739,11 +1737,11 @@ T6 × 0.25 = 0.08
 
 Figure 12. Same six tiers as the preceding figure, with each segment re-scaled
 by its tier-default realization probability. The expected 2030 Western realization
-is approximately 36.2 GW facility, the right-hand edge of the stacked bar. The
-Monte Carlo median is approximately 32.4 GW facility after the two-sided scenario
-engine (§8.5). The T1+T2+T3 conservative subset (7.56 + 10.93 + 5.05 = 23.5 GW
-expected, or 26.5 GW announced facility) sits as the conservative reading; the
-54.7 GW facility arithmetic ceiling as the full-realization case. Basis is facility
+is approximately 35.1 GW facility, the right-hand edge of the stacked bar. The
+Monte Carlo median is approximately 31.4 GW facility after the two-sided scenario
+engine (§8.5). The T1+T2+T3 conservative subset (7.37 + 10.92 + 5.05 = 23.3 GW
+expected, or 26.3 GW announced facility) sits as the conservative reading; the
+53.1 GW facility arithmetic ceiling as the full-realization case. Basis is facility
 power; see §3.1.
 
 8.3 The grid is the binding constraint in the out-years
@@ -1757,8 +1755,8 @@ for the 8–9 GW of the horizon sited in grid-constrained footprints (Northern V
 West Texas queue, the MISO large-load queue in Wisconsin and Ohio).
 
 8.4 Scenario architecture: downside, upside, and correlated states
-The 51.4 GW facility announced horizon, 36.2 GW facility deterministic tier-weighted horizon, and
-26.5 GW facility conservative horizon are single-path point estimates. The simulation treats them as
+The 49.8 GW facility announced horizon, 35.1 GW facility deterministic tier-weighted horizon, and
+26.3 GW facility conservative horizon are single-path point estimates. The simulation treats them as
 inputs, not outcomes. It combines tier-level realization uncertainty, named downside shocks, named
 upside shocks, lab-revenue/RPO stress, and a correlated infrastructure-stress state.
 
@@ -1813,10 +1811,13 @@ and grid delay in that draw
 30% target
 conditional probability 17.6% if systemic stress does
 not fire
-−74 CoreWeave, Nebius, Applied Digital, Crusoe;
 25% target
-conditional probability 11.8% if systemic and RPO
-stress do not fire, 60% if RPO stress fires
+−74 CoreWeave, Nebius, Applied Digital, Crusoe;
+conditional on neither systemic stress nor RPO
+stress firing, the residual neocloud financing
+probability is 3.3%; conditional on RPO stress firing,
+it is 60%. Counting systemic stress as including B
+gives a 25% total neocloud financing stress target.
 −296 ERCOT, MISO, and PJM delay across xAI, Meta,
 40% target
 Stargate, and related large-load sites; conditional
@@ -1883,12 +1884,12 @@ Scenario F moves RPO enforceability into the realization model. If frontier-lab 
 margins, or utilization disappoint, labs may defer, renegotiate, or underutilize take-or-pay commitments.
 The draw subtracts 2.5 GW from the 2030 facility horizon, flags $100–175B of RPO at risk, and raises the
 standalone neocloud-financing shock probability to 60% in that draw.
-Scenario D (Chip vendor 2-quarter slip, 50% prob). NVIDIA Rubin, AWS Trainium 4, or Google
 
 The AI Compute Build-Out, 2026–2030
 
 24
 
+Scenario D (Chip vendor 2-quarter slip, 50% prob). NVIDIA Rubin, AWS Trainium 4, or Google
 TPU v8 slips from the currently-guided availability by two quarters. GW impact is small (1.5 GW,
 concentrated in outer-phase 2029–2030 cluster commissioning) but H100e impact is larger (12M H100e,
 or roughly 15% of the base silicon-uplift reading). This is priced at 50% probability because chip-vendor
@@ -1906,7 +1907,7 @@ physical-capacity shocks. This creates a fatter left tail than a purely independ
 double-counting the same grid and financing failure channels.
 
 8.5 Monte Carlo: distribution of the 2030 realized horizon
-The 36.2 GW facility tier-weighted horizon is a single point. The realization distribution combines tierlevel uncertainty with the scenario architecture above. Each draw samples realization rates by tier, applies
+The 35.1 GW facility tier-weighted horizon is a single point. The realization distribution combines tierlevel uncertainty with the scenario architecture above. Each draw samples realization rates by tier, applies
 the systemic infrastructure state, samples conditional physical-capacity shocks, applies demand/RPO
 stress, and then applies the independent silicon, mix, and upside cases.
 Percentile of 2030 realized GW (facility)
@@ -1921,41 +1922,41 @@ p75
 p90
 p95
 
-22.8
-24.4
-27.5
-32.4
-36.1
-38.3
-39.5
+21.9
+23.4
+26.5
+31.4
+35.0
+37.2
+38.4
 
 Mean
 Std. dev.
 
-31.76
+30.74
 5.3
 
-Table 10. Monte Carlo distribution of the 2030 Western realized horizon (facility basis), 10,000 draws. Seed 20260424, tier rollup T1=7.56, T2=12.43, T3=6.48,
-T4=17.88, T5=6.75, T6=0.33 facility. The median (32.4 GW facility) sits below
-the 36.2 GW facility tier-weighted point because downside mechanisms remain
+Table 10. Monte Carlo distribution of the 2030 Western realized horizon (facility basis), 10,000 draws. Seed 20260424, tier rollup T1=7.37, T2=12.41, T3=6.48,
+T4=16.48, T5=6.75, T6=0.33 facility. The median (31.4 GW facility) sits below
+the 35.1 GW facility tier-weighted point because downside mechanisms remain
 larger than the modeled upside states. This is a realization distribution, not an
 accounting horizon. IT-load bridge at blended PUE 1.20: approximately 27.4 GW
 IT (see §3.1).
 
 Tail probabilities from the simulation (facility basis):
-• 𝑃 (realized 2030 GW < 26.5 conservative case) ≈ 19.9%
-• 𝑃 (realized 2030 GW < 36.2 tier-weighted point) ≈ 75.8%
-• 𝑃 (realized 2030 GW < 44.7 raw non-stretch) = 100%
-• 𝑃 (realized 2030 GW < 51.4 announced horizon) = 100%
-We treat the Monte Carlo median of approximately 32.4 GW facility as the base realization case,
-with a p10–p90 interdecile range of [24.4, 38.3] GW facility. The announced 51.4 GW and raw non-
+• 𝑃 (realized 2030 GW < 26.3 conservative case) ≈ 24.0%
+• 𝑃 (realized 2030 GW < 35.1 tier-weighted point) ≈ 75.8%
+• 𝑃 (realized 2030 GW < 43.1 raw non-stretch) = 100%
+• 𝑃 (realized 2030 GW < 49.8 announced horizon) = 100%
+We treat the Monte Carlo median of approximately 31.4 GW facility as the base realization case,
+with a p10–p90 interdecile range of [23.4, 37.2] GW facility. The announced 49.8 GW and raw non-
 
 The AI Compute Build-Out, 2026–2030
 
 25
 
-stretch 44.7 GW horizons are accounting totals, not expected realized outcomes. For stress testing, p10
-(approximately 24.4 GW facility) is the downside case.
+stretch 43.1 GW horizons are accounting totals, not expected realized outcomes. For stress testing, p10
+(approximately 23.4 GW facility) is the downside case.
 The announced horizon is an accounting ceiling. The simulation estimates realized capacity by applying
 tier-level execution risk and scenario shocks. Because the largest downside mechanisms, grid delay,
 financing stress, and lab-revenue stress, are positively correlated, the left tail is fatter than a purely
@@ -1978,85 +1979,72 @@ MC p10–p90 GW
 70%
 
 34.3
-36.2
-38.3
+35.1
+37.2
 
 30.7
-32.4
+31.4
 34.7
 
-22.6–36.2
-24.4–38.3
+22.6–35.1
+23.4–37.2
 26.8–40.3
 
 Table 11. T4 realization-probability sensitivity, facility basis. T4 is the most
-judgment-sensitive tier. A 13-point reduction in the T4 default realization probability moves the deterministic horizon by approximately 2.3 GW before scenario
-states (16.41 × 0.13 ≈ 2.13). Monte Carlo rows use the same two-sided scenario
+judgment-sensitive tier. A 13-point reduction in the T4 default realization probability moves the deterministic horizon by approximately 2.1 GW before scenario
+states (16.48 × 0.13 ≈ 2.14). Monte Carlo rows use the same two-sided scenario
 architecture described above.
 
 9. Sovereign AI
 The sovereign-AI pipeline is reported separately from the Western-aligned horizon because state-backed
-programmes operate under different financing, revenue-model, and timeline dynamics. Five programmes
-dominate the 2030 sovereign pipeline, each labeled with its evidence tier and realization probability on
-the same 6-tier framework applied to the Western denominator. The UAE Microsoft/G42 Khazna row
-is carried as a 0.26 GW facility-equivalent sovereign-sidebar commitment, T4, p=0.70. Stargate UAE is
-discussed qualitatively unless separately entered into the data layer. The remaining quantified rows
-are Saudi HUMAIN–AMD, 500 MW over 5 years (T4, prob=0.55); Saudi HUMAIN–xAI, 500 MW
-JV, Phase 1 cluster (T4, prob=0.55); UK Culham AI Growth Zone, 500 MW by 2030, initial 100–
-250 MW by 2027 (T5 stretch, no anchor tenant disclosed yet, prob=0.30); and India Reliance
-Jamnagar, Phase 1 120 MW H2 2026 (T1–T2, prob=0.95) with a “gigawatt-scale” AGM target (T5 stretch,
-prob=0.20). Sovereign sum: 2.56 GW facility announced (1.91 GW IT-load bridge), 1.02 GW
-facility probability-weighted. This is not additive to the Western 51.4 GW facility denominator.
-Sovereign sensitivity. The disclosed floor is 2.56 GW facility and the probability-weighted base is
-1.02 GW facility. A sovereign upside case of 5–7 GW facility by 2030 is plausible if state-backed programmes scale ahead of disclosure, but that upside remains outside the Western denominator and does
+programmes operate under different financing, revenue-model, and timeline dynamics. Six programmes
+dominate the 2030 sovereign pipeline, each labeled with its evidence tier and realization probability
+on the same 6-tier framework applied to the Western denominator. The UAE rows are Stargate UAE
+(1.40 GW facility, T4, p=0.58) and Microsoft/G42 Khazna (0.26 GW facility-equivalent, T4, p=0.70). The
+remaining quantified rows are Saudi HUMAIN–AMD, 500 MW over 5 years (T4, prob=0.55); Saudi
+HUMAIN–xAI, 500 MW JV, Phase 1 cluster (T4, prob=0.55); UK Culham AI Growth Zone, 500 MW
+by 2030, initial 100–250 MW by 2027 (T5 stretch, no anchor tenant disclosed yet, prob=0.30); and
+India Reliance Jamnagar, Phase 1 120 MW H2 2026 (T1–T2, prob=0.95) with a “gigawatt-scale” AGM
+target (T5 stretch, prob=0.20). Sovereign sum: 3.96 GW facility announced (3.12 GW IT-load
+bridge), 1.83 GW facility probability-weighted. This is not additive to the Western 49.8 GW facility
+denominator.
+Sovereign sensitivity. The disclosed floor is 3.96 GW facility and the probability-weighted base is
+1.83 GW facility. A sovereign upside case of 5–7 GW facility by 2030 is plausible if state-backed programmes scale ahead of disclosure, but that upside remains outside the Western denominator and does
 not move the Western Monte Carlo.
 India Reliance Jamnagar
 
 1
 
 UK Culham Zone
+AMD–HUMAIN Saudi
+xAI–HUMAIN Saudi
+UAE G42 Khazna
+UAE Stargate
 
 0.3
-
-AMD–HUMAIN Saudi
-
 0.5
-
-xAI–HUMAIN Saudi
-
 0.5
-
-UAE G42 Khazna
-
 0.26
+1.4
 
 0
 
-0.1
-
 0.2
 
-0.3
-
 0.4
-0.5
 0.6
-0.7
 0.8
-0.9
-GW facility at 2030 target buildout
-
 1
-
-1.1
+GW facility at 2030 target buildout
 
 1.2
 
-Figure 13. Sovereign-AI pipeline, 2030 target GW. Unit: GW facility power at commissioning; IT-load bridge is reported separately from row-level PUE assumptions.
-Rows: UAE G42–Khazna / Stargate UAE (0.26 GW), xAI–HUMAIN Saudi (0.50 GW),
-AMD–HUMAIN Saudi (0.50 GW), UK Culham AI Growth Zone (0.30 GW), and Reliance Jamnagar (1.00 GW). Aggregate: 2.56 GW facility announced (approximately
-1.91 GW IT-load bridge), 1.02 GW facility probability-weighted. Not included in
-Western 51.4 GW facility denominator.69
+1.4
+
+Figure 13. Sovereign-AI pipeline, 2030 target GW. Unit: GW facility power at
+commissioning; IT-load bridge is reported separately from row-level PUE assumptions. Rows: Stargate UAE (1.40 GW), UAE G42–Khazna (0.26 GW), xAI–HUMAIN
+Saudi (0.50 GW), AMD–HUMAIN Saudi (0.50 GW), UK Culham AI Growth Zone
+(0.30 GW), and Reliance Jamnagar (1.00 GW). Aggregate: 3.96 GW facility announced (approximately 3.12 GW IT-load bridge), 1.83 GW facility probabilityweighted. Not included in Western 49.8 GW facility denominator.69
 
 9.1 Why the sovereign segment is reported separately
 Three reasons justify the separation. First, revenue models are different: sovereign AI builds are
@@ -2131,7 +2119,7 @@ either filing; (ii) overlap between Oracle-operated Stargate and Microsoft-opera
 workloads land at one site but are billed to the other; (iii) chip commitments where the shell has not
 yet been identified (e.g., Broadcom’s “10 GW XPU with a named customer” where press confirmation of
 Anthropic identity landed three weeks after the shell-level allocation had been modeled). We estimate
-the residual double-count risk at approximately 2 GW of the 51.4 GW facility horizon, or roughly 4%.
+the residual double-count risk at approximately 2 GW of the 49.8 GW facility horizon, or roughly 4%.
 
 10.7 Contract enforceability on take-or-pay
 The $550 billion of contracted RPO anchoring the Western 2030 horizon is not commercially tested at
@@ -2152,14 +2140,14 @@ probability when lab-revenue/RPO stress fires.
 Sovereign programs disclose less than Western hyperscalers and lab counterparties. UAE G42-Khazna
 uses press-release granularity; Saudi HUMAIN-AMD operates behind confidential PIF-AMD JV terms;
 India Reliance Jamnagar disclosure is limited to AGM oratory and the 47th AGM Chairman Statement.
-The 2.56 GW facility sovereign sidebar in this paper is the disclosed floor, not the commissioned ceiling;
-the probability-weighted base is 1.02 GW facility and an upside case of 5–7 GW facility by 2030 is plausible.
+The 3.96 GW facility sovereign sidebar in this paper is the disclosed floor, not the commissioned ceiling;
+the probability-weighted base is 1.83 GW facility and an upside case of 5–7 GW facility by 2030 is plausible.
 That upside is not priced into the Western horizon and does not enter the Western Monte Carlo.
 
 10.10 China undercount
-The paper deliberately restricts scope to Western-aligned operators and the four named sovereign
-programs. Chinese AI compute build-out, including Alibaba, ByteDance, Baidu, Tencent, Huawei Ascend,
-and the CAC-directed sovereign cluster, is acknowledged to be material (publicly reported intent is in the
+The paper deliberately restricts scope to Western-aligned operators and the six named sovereign rows.
+Chinese AI compute build-out, including Alibaba, ByteDance, Baidu, Tencent, Huawei Ascend, and
+the CAC-directed sovereign cluster, is acknowledged to be material (publicly reported intent is in the
 20–40 GW-by-2030 range) but we do not quantify it because primary-source disclosure is adversarial,
 Huawei Ascend chip normalization to H100e is unstable, and export-control-related supply constraints
 complicate extrapolation. Anyone reading this paper as a global total should add a qualitative Chinese
@@ -2176,11 +2164,11 @@ discounting announcements for execution risk, the Western frontier compute base 
 several multiples in facility power and by roughly an order of magnitude in H100-equivalent capacity by
 2030. That expansion turns AI competition into an infrastructure-execution problem: power procurement, interconnection rights, financing, construction, silicon access, and counterparty credit become as
 important as model architecture.
-The realization base case is the Monte Carlo median of approximately 32.4 GW facility, not the 51.4 GW
-raw announced horizon or the 36.2 GW deterministic tier-weighted point. The central claim is that
-enough of the announced and contracted build-out realizes, with a [24.4, 38.3] GW facility interdecile
+The realization base case is the Monte Carlo median of approximately 31.4 GW facility, not the 49.8 GW
+raw announced horizon or the 35.1 GW deterministic tier-weighted point. The central claim is that
+enough of the announced and contracted build-out realizes, with a [23.4, 37.2] GW facility interdecile
 range (§8.5), for the frontier compute base to expand by roughly an order of magnitude in H100-equivalent
-terms between 2026 Q2 and 2030. Even under the conservative T1+T2+T3 case of approximately 26.5 GW
+terms between 2026 Q2 and 2030. Even under the conservative T1+T2+T3 case of approximately 26.3 GW
 facility, the scale is large enough to reshape power markets, hyperscaler balance sheets, chip-vendor
 share, and the competitive structure of frontier AI. Training and inference capacity at that scale is not a
 continuation of the 2024–2026 trajectory; it is a phase change in the compute base.
@@ -2371,11 +2359,14 @@ immediately”.
 34 OpenAI, Five new Stargate sites, September 23, 2025. https:// openai.com/index/f ive-new-stargate-sites/
 35 NVIDIA Corporation and OpenAI, NVIDIA and OpenAI announce partnership of unprecedented scale, September
 
-22, 2025, ht tps:// nvid ianews.nvidia.com/ news/nvidia-openai-par tner ship; Advanced Micro Devices and
-OpenAI, AMD and OpenAI announce strategic partnership for 6 gigawatts of AMD Instinct, October 6, 2025, https:
-// ir.amd.com/news-events/ press-releases/ detail/1276/ amd-and-openai-announce-strategic-partnership; Broadcom
-Inc. and OpenAI, October 13, 2025. Note: the 26 GW aggregate across these three LOIs deploys into Stargate and
-Microsoft Azure shells already counted in the physical-site census.
+22, 2025, https:// nvidianews.nvidia.com/ news/nvidia-openai-partnership; Advanced Micro Devices and OpenAI,
+AMD and OpenAI Announce Strategic Partnership to Deploy 6 Gigawatts of AMD GPUs, October 6, 2025, https:// www.
+amd.com/ en/newsroom/ press-releases/ 2025-10-6-amd-and-openai-announce-strategic-partnership-to-d.html;
+OpenAI, AMD and OpenAI announce strategic partnership to deploy 6 gigawatts of AMD GPUs, October 6, 2025,
+https:// openai.com/index/openai-amd-strategic-partnership/ ; Broadcom Inc. and OpenAI, October 13, 2025.
+Note: the AMD/OpenAI sources support a 6 GW AMD GPU deployment partnership and an initial 1 GW MI450
+deployment beginning in the second half of 2026; the 26 GW aggregate across these three LOIs deploys into Stargate
+and Microsoft Azure shells already counted in the physical-site census.
 36 Meta Platforms, Meta Announces Joint Venture With Funds Managed by Blue Owl Capital to Develop Hyperion
 
 Data Center, October 2025, https:// about.fb.com/news/ 2025/10/ meta-blue-owl-capital-develop-hyperion-data-cen
@@ -2393,14 +2384,14 @@ shareholder letter, February 20, 2026.
 39 Meta Platforms, Q4 2025 earnings call, January 28, 2026. Discussion of MTIA v2 in-production deployment and
 
 MTIA v3 roadmap.
-40 Epoch AI Frontier Data Centers, Google sites. Council Bluffs (combined): 597 MW current; Omaha: 189 MW;
-
-New Albany: 407 MW; Cedar Rapids: 105 MW.
 
 The AI Compute Build-Out, 2026–2030
 
 33
 
+40 Epoch AI Frontier Data Centers, Google sites. Council Bluffs (combined): 597 MW current; Omaha: 189 MW;
+
+New Albany: 407 MW; Cedar Rapids: 105 MW.
 41 Anthropic, Expanding our use of Google Cloud TPUs and Services, October 23, 2025, https:// www.anthropic.com/
 
 news/expanding-our-use-of-google-cloud-tpus-and-services; Google Cloud Press Corner, Anthropic to Expand Use
@@ -2463,13 +2454,13 @@ Sources: respective Q4 2025 earnings calls and subsequent 10-K filings.
 55 CY2025 actuals: Microsoft FY2025 10-K; Amazon Q4 2025 earnings (FY = CY); Alphabet Q4 2025 earnings (FY =
 
 CY); Meta Q4 2025 earnings (FY = CY). CY2026 guidance: from respective Q4 2025 earnings calls and subsequent
-10-K filings as of April 2026. Microsoft FY2026 figures adjusted to a calendar-year basis by linear interpolation
-across the June-ending fiscal year.
 
 The AI Compute Build-Out, 2026–2030
 
 34
 
+10-K filings as of April 2026. Microsoft FY2026 figures adjusted to a calendar-year basis by linear interpolation
+across the June-ending fiscal year.
 56 Oracle Corporation, Form 10-Q for Q1 FY2026, filed September 10, 2025. Oracle disclosed “a $300 billion,
 
 five-year purchase commitment” from a named customer (subsequently confirmed as OpenAI in Oracle’s Q2 FY2026
@@ -2507,7 +2498,7 @@ the xAI sovereign 500 MW campus. UK DSIT’s AI Opportunities Action Plan commit
 Industries: Mukesh Ambani’s 47th AGM address, August 29, 2024, references “gigawatt-scale” capacity at Jamnagar.
 65 Bottoms-up aggregation: per-layer $/MW central case from anatomy_layer_costs.yaml multiplied
 
-by 51.4 GW raw announced facility horizon. Accelerator + server BOM: 440 GB200-class chips per facility-MW at
+by 49.8 GW raw announced facility horizon. Accelerator + server BOM: 440 GB200-class chips per facility-MW at
 $45k all-in chip-plus-rack-share ($19.5M/MW central rack-complete). Cross-anchored to Bernstein per-rack BOM
 ($3.9M loaded NVL72), Crusoe Abilene disclosed shell-only $12.5M/MW, and the cross-forecaster reconciliation in
 forecaster_capex_comparison.yaml.
@@ -2531,20 +2522,22 @@ Together AI 0.331 GW facility, and Epoch-tracked 2028 site plans; xAI-HUMAIN is 
 sidebar). T5 LOI / stretch target = Epoch 2029–2030 speculative plus the Meta Hyperion 2.74 GW stretch delta.
 T6 Analyst inference = Voltage Park / Lightning 0.169 GW facility plus the xAI Colossus 2 residual 0.078 GW
 facility, with the total T6 horizon rounded to 0.33 GW facility.
-68 NVIDIA Corporation, Q4 FY2026 earnings, February 26, 2026, Jensen Huang commentary on Rubin shipping
-commencement: “Rubin will begin revenue shipments in Q2 calendar 2026, in line with our prior guidance.”
 
 The AI Compute Build-Out, 2026–2030
 
 35
 
-69 UAE G42 Khazna: Microsoft, Microsoft and G42 break ground on UAE-based AI data center with Khazna,
+68 NVIDIA Corporation, Q4 FY2026 earnings, February 26, 2026, Jensen Huang commentary on Rubin shipping
 
-November 1, 2025. Saudi HUMAIN–xAI: xAI / HUMAIN 500 MW JV disclosure. Saudi HUMAIN–AMD: AMD,
-AMD and HUMAIN announce strategic collaboration, May 13, 2025, “500 MW of AI infrastructure deployment over
-the next 5 years”; $10 billion JV. UK Culham: UK Government, AI Opportunities Action Plan, January 13, 2025, £5
-billion commitment. Reliance Jamnagar: Mukesh Ambani, 47th AGM address, August 29, 2024, “gigawatt-scale
-AI-ready data centre”; Phase 1 120 MW online H2 2026 per 2026 investor disclosures.
+commencement: “Rubin will begin revenue shipments in Q2 calendar 2026, in line with our prior guidance.”
+69 Stargate UAE: Epoch AI, Frontier Data Centers, OpenAI Stargate UAE site row. UAE G42 Khazna: Microsoft,
+
+Microsoft and G42 break ground on UAE-based AI data center with Khazna, November 1, 2025. Saudi HUMAIN–xAI:
+xAI / HUMAIN 500 MW JV disclosure. Saudi HUMAIN–AMD: AMD, AMD and HUMAIN announce strategic
+collaboration, May 13, 2025, “500 MW of AI infrastructure deployment over the next 5 years”; $10 billion JV. UK
+Culham: UK Government, AI Opportunities Action Plan, January 13, 2025, £5 billion commitment. Reliance Jamnagar:
+Mukesh Ambani, 47th AGM address, August 29, 2024, “gigawatt-scale AI-ready data centre”; Phase 1 120 MW
+online H2 2026 per 2026 investor disclosures.
 
 The AI Compute Build-Out, 2026–2030
 
@@ -2572,8 +2565,8 @@ exceeds the Epoch buildout; otherwise the Epoch figure is retained. Chip procure
 (OpenAI–NVIDIA 10 GW, OpenAI–AMD 6 GW, OpenAI–Broadcom 10 GW, Anthropic–Google 4.5 GW
 TPU) are recorded as chip-vendor commitments rather than physical-site commitments, since the chips
 deploy into Stargate, Azure, Fluidstack, or Google-owned shells already accounted for at the site level.
-The resulting unduplicated physical-site census is the 51.4 GW facility Western 2030 horizon referenced
-throughout this paper; the corresponding IT-load bridge is 43.9 GW under row-level PUE assumptions.
+The resulting unduplicated physical-site census is the 49.8 GW facility Western 2030 horizon referenced
+throughout this paper; the corresponding IT-load bridge is 42.5 GW under row-level PUE assumptions.
 
 A.3 H100-equivalent methodology
 Chip normalisation uses Epoch AI’s H100-equivalent convention: a chip’s 8-bit OP/s throughput divided
@@ -2651,18 +2644,16 @@ the Monte Carlo realization distribution.
 
 Appendix B: Row-level audit (summary)
 The full row-level audit ships as the companion file row_level_audit.csv alongside this paper:
-33 rows × 44 columns covering every Class A site-level commitment, every Class B chip-procurement
-commitment, every Class C dollar-only envelope, and every merchant-neocloud operator rollup. Each
-row carries commitment ID, operator, tenant, site state/country, utility, ISO/RTO, interconnection
-status, evidence tier (T1–T6), realization probability, MW basis, PUE assumption, incremental GW,
-chip family, expected online year, capex-actual/capex-future/RPO split in USD billions, financing source, primary-source URL, source_publication_date, last_verified_date,
-freshness_status, freshness_waiver_reason, and notes. Aggregates in the paper can
-be reproduced by filtering the companion audit file on the relevant inclusion and denominator fields.
+row_level_audit.csv contains 81 capacity atoms × 40 columns. Each row carries commitment
+ID, operator, tenant, evidence tier (T1–T6), realization probability, MW basis, PUE assumption, source
+URL, source_publication_date, last_verified_date, freshness_status,
+freshness_waiver_reason, dedupe fields, and notes. Aggregates in the paper can be
+reproduced by filtering the companion audit file on the relevant inclusion and denominator fields.
 The summary tables below separate the Western denominator from the sovereign sidebar. Rows with
 western_denominator=false are not part of the Western 2030 horizon even when they are
 large physical commitments. The overlay incremental total of approximately 18.4 GW facility, combined
-with Epoch’s 33.05 GW physically-evidenced floor, yields the 51.4 GW facility Western 2030 horizon cited
-throughout the paper; the 2.56 GW sovereign sidebar is reported separately.
+with Epoch’s 31.45 GW physically-evidenced floor, yields the 49.8 GW facility Western 2030 horizon cited
+throughout the paper; the 3.96 GW sovereign sidebar is reported separately.
 Operator / commitment Site
 Amazon / Anthropic
 expansion
@@ -2797,10 +2788,11 @@ facility 2027–2028
 18.367
 
 Table 12. Western-denominator overlay rows by incremental facility-GW contribution. “Inc. GW” = incremental facility gigawatts beyond the Epoch-tracked
-physically-evidenced floor; sovereign rows and Class B chip-procurement rows are
-excluded. Nscale is retained as a secondary-source/private-company row after the
-2026-04-25 freshness search; Together AI remains GPU-count inferred. Full 33-row
-audit with 44 columns in row_level_audit.csv.
+physically-evidenced floor; sovereign rows and Class B chip-procurement rows
+are excluded. Nscale is retained as a secondary-source/private-company row after
+the 2026-04-25 freshness search; Together AI remains GPU-count inferred. Full
+atom-level audit: row_level_audit.csv contains 81 capacity atoms × 40
+columns.
 
 The AI Compute Build-Out, 2026–2030
 
@@ -2819,6 +2811,18 @@ Tier
 Prob.
 
 Western?
+
+OpenAI / Stargate UAE
+
+Abu Dhabi, UAE
+
+1.40
+
+T4
+
+0.58
+
+No
 
 Microsoft / G42 Khazna
 
@@ -2843,6 +2847,8 @@ Saudi Arabia
 Gujarat, India
 Oxfordshire, UK
 
+EWEC /
+non-ISO
 EWEC /
 non-ISO
 GCC non-ISO
@@ -2872,7 +2878,7 @@ No
 
 Sovereign sidebar total
 
-2.56
+3.96
 
 No
 

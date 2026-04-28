@@ -922,7 +922,7 @@ layers:
         rack_kw_low: 120
         rack_kw_high: 130
         evidence_tier: T4
-        primary_source_url: "https://www.tomshardware.com/tech-industry/artificial-intelligence/price-of-nvidias-vera-rubin-nvl72-racks-skyrockets-to-as-much-as-usd8-8-million-apiece"
+        primary_source_url: "https://www.tomshardware.com/tech-industry/artificial-intelligence/price-of-nvidias-vera-rubin-nvl72-racks-skyrockets-to-as-much-as-usd8-8-million-apiece-but-server-makers-margins-will-be-tight-nvidia-is-moving-closer-to-shipping-entire-full-scale-systems"
       - chip: "NVIDIA Rubin Ultra (Kyber NVL576)"
         vintage: "2H'2027"
         nvl576_rack_usd_m_low: 15

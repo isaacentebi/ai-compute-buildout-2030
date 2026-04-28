@@ -8,10 +8,16 @@ Included:
 - `CHANGELOG.md`
 - `CONFIDENCE_DECOMPOSITION.md`
 - `CANONICAL_CONSTANTS.md`
+- `canonical_capacity_atoms.yaml`
+- `canonical_capacity_atoms.csv`
+- `canonical_totals.json`
+- `generated_overlay_totals.yaml`
+- `overlay_reconciliation_report.md`
 - `compute_commitments_overlay.yaml`
 - `neocloud_overlay.yaml`
 - `facts_extract.yaml`
 - `row_level_audit.csv`
+- `source_claim_map.csv`
 - `compute_commitments_totals.csv`
 - `anatomy_layer_costs.yaml`
 - `anatomy_layer_costs.csv`
@@ -25,6 +31,9 @@ Included:
 - `source_freshness_report.json`
 - `check_urls.py`
 - `url_check_report.json`
+- `validation_summary.md`
+- `broken_or_replaced_sources.md`
+- `citation_inventory.csv`
 - `epoch_data_centers/`
 - `research/`
 

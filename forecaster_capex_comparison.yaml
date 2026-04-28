@@ -21,9 +21,9 @@ metadata:
     range_low_usd_b_per_gw: 30
     range_high_usd_b_per_gw: 47
     central_usd_b_per_gw: 37
-    capital_envelope_raw_horizon_51_9_gw_usd_t_low: 1.6
-    capital_envelope_raw_horizon_51_9_gw_usd_t_high: 2.4
-    capital_envelope_raw_horizon_51_9_gw_usd_t_central: 1.9
+    capital_envelope_raw_horizon_49_8_gw_usd_t_low: 1.494
+    capital_envelope_raw_horizon_49_8_gw_usd_t_high: 2.341
+    capital_envelope_raw_horizon_49_8_gw_usd_t_central: 1.843
     basis: facility_mw
     adopted_in_paper: rev-4 2026-04-27
     rev_3_prior_figure_superseded:
