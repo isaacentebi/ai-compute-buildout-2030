@@ -41,6 +41,7 @@ ROOT = Path(__file__).parent
 OVERLAY = ROOT / "compute_commitments_overlay.yaml"
 NEOCLOUD = ROOT / "neocloud_overlay.yaml"
 ANATOMY_LAYER_COSTS = ROOT / "anatomy_layer_costs.yaml"
+CANONICAL_ATOMS = ROOT / "canonical_capacity_atoms.yaml"
 
 # Bottom-up unit-economics rollup fallback values (used only if the YAML
 # does not declare them; the audit reads canonical values from the YAML
@@ -354,7 +355,68 @@ def compute_sovereign_probability_weighted(doc: dict) -> tuple[float, list]:
         rows.append(
             {"id": cid, "gw_point": p, "tier": tier, "prob": prob, "weighted": round(weighted, 3)}
         )
+    epoch_weighted, epoch_rows = compute_epoch_sovereign_probability_weighted(doc.get("totals", {}))
+    total_weighted += epoch_weighted
+    rows.extend(epoch_rows)
     return round(total_weighted, 2), rows
+
+
+def compute_epoch_sovereign_probability_weighted(totals: dict) -> tuple[float, list]:
+    rows = totals.get("sovereign_ai_sidebar_horizon", {}).get("rows", {})
+    epoch_keys = {str(k): float(v) for k, v in rows.items() if str(k).startswith("epoch_")}
+    if not epoch_keys:
+        return 0.0, []
+
+    atom_rows = []
+    if CANONICAL_ATOMS.exists():
+        with CANONICAL_ATOMS.open() as f:
+            atom_doc = yaml.safe_load(f) or {}
+        for atom in atom_doc.get("atoms", []):
+            atom_id = str(atom.get("atom_id", ""))
+            if not atom_id.startswith("epoch_") or atom.get("scope") != "sovereign":
+                continue
+            matching_key = next((key for key in epoch_keys if atom_id.startswith(key)), None)
+            if not matching_key:
+                continue
+            p = (atom.get("capacity_mw_it") or 0.0) / 1000.0
+            tier = atom.get("evidence_tier", "T4")
+            prob = atom.get("realization_probability", TIER_DEFAULTS.get(tier, 0.58))
+            weighted = p * prob
+            atom_rows.append(
+                {"id": atom_id, "gw_point": p, "tier": tier, "prob": prob, "weighted": round(weighted, 3)}
+            )
+
+    if atom_rows:
+        return sum(row["gw_point"] * row["prob"] for row in atom_rows), atom_rows
+
+    fallback_rows = []
+    for key, p in epoch_keys.items():
+        tier = "T4"
+        prob = TIER_DEFAULTS[tier]
+        weighted = p * prob
+        fallback_rows.append(
+            {"id": key, "gw_point": p, "tier": tier, "prob": prob, "weighted": round(weighted, 3)}
+        )
+    return sum(row["gw_point"] * row["prob"] for row in fallback_rows), fallback_rows
+
+
+def add_epoch_sovereign_sidebar_rows(sov: tuple[float, float, float], totals: dict) -> tuple[float, float, float]:
+    """Add fixed Epoch-origin sovereign sidebar rows to the IT bridge audit.
+
+    The Class A commitment rows cover supplemental sovereign commitments.
+    The atom-ledger reconciliation can also reclassify Epoch sites out of
+    the Western denominator. Those rows live in totals.sovereign_ai_sidebar
+    rather than in commitments, so the old audit needs to add them explicitly.
+    """
+    rows = totals.get("sovereign_ai_sidebar_horizon", {}).get("rows", {})
+    epoch_extra = sum(float(v) for k, v in rows.items() if str(k).startswith("epoch_"))
+    if not epoch_extra:
+        return sov
+    return (
+        round(sov[0] + epoch_extra, 3),
+        round(sov[1] + epoch_extra, 3),
+        round(sov[2] + epoch_extra, 3),
+    )
 
 
 def compute_capital_envelope(doc: dict) -> dict:
@@ -408,8 +470,9 @@ def print_seven_canonical_totals(doc: dict, neocloud: dict) -> None:
     non_stretch_fac = tier_fac.get("total_gw_non_stretch_facility", 0.0)
     full_real_fac = tier_fac.get("total_gw_full_realization_facility", west_range_fac[1])
 
+    tier_clean_t1 = tier_fac.get("T1_operational", {}).get("gw", 0.0)
     print(f"  1. operational_today_gw         = {op_today:>6.2f} GW facility  "
-          f"(includes T6-inferred operational capacity; tier-clean T1 = 7.56 GW facility)")
+          f"(includes T6-inferred operational capacity; tier-clean T1 = {tier_clean_t1:.2f} GW facility)")
     print(f"  2. announced_horizon_gw         = {west_horizon_fac:>6.2f} GW facility  "
           f"[{west_range_fac[0]:.2f}, {west_range_fac[1]:.2f}]")
     print(f"  3. raw_non_stretch_gw           = {non_stretch_fac:>6.2f} GW facility  "
@@ -421,9 +484,14 @@ def print_seven_canonical_totals(doc: dict, neocloud: dict) -> None:
     print(f"  6. full_realization_gw          = {full_real_fac:>6.2f} GW facility  "
           f"(arithmetic ceiling)")
     print(f"  7. named_dollar_commitments_subtotal_usd_b = {capital['capex_envelope_usd_b_rough']:>6.1f} $B")
-    print("     anatomy_capital_envelope_usd_t_central = 1.9")
-    print("     anatomy_capital_envelope_usd_t_range   = [1.5, 2.4]")
-    print("     basis = \"$30-47B/facility-GW × 51.427 GW\"")
+    anatomy_doc = load_anatomy() if ANATOMY_LAYER_COSTS.exists() else {}
+    anatomy_total = (
+        anatomy_doc.get("aggregate_rollup_facility_mw_2026", {})
+        .get("total_all_in_facility_gw_2026", {})
+    )
+    print(f"     anatomy_capital_envelope_usd_t_central = {anatomy_total.get('capital_envelope_at_raw_horizon_usd_t_central', 1.84)}")
+    print(f"     anatomy_capital_envelope_usd_t_range   = [{anatomy_total.get('capital_envelope_at_raw_horizon_usd_t_low', 1.49)}, {anatomy_total.get('capital_envelope_at_raw_horizon_usd_t_high', 2.34)}]")
+    print(f"     basis = \"$30-47B/facility-GW × {west_horizon_fac:.3f} GW\"")
 
     print()
     print("  Sovereign sidebar facility (not in Western denominator):")
@@ -739,7 +807,7 @@ def main() -> int:
     )
 
     # --- Sovereign Class A incrementals ---
-    sov = sum_class_a(commitments, "sovereign")
+    sov = add_epoch_sovereign_sidebar_rows(sum_class_a(commitments, "sovereign"), totals)
     sov_pt = totals["sovereign_ai_sidebar_horizon"]["total_gw_point"]
     sov_rng = totals["sovereign_ai_sidebar_horizon"]["total_gw_range"]
     all_ok &= compare(
