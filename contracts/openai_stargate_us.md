@@ -1,306 +1,128 @@
-# Openai Stargate Us
+# OpenAI Stargate US — Multi-Site Program (~10 GW Target by 2029)
 
 ## TL;DR
 
-This Rev-4.2 contract drilldown is generated from the research dispatch pending final adjudication into atoms, dedupe, and row deltas.
+OpenAI's Stargate U.S. program is a multi-party infrastructure platform launched January 21, 2025 with a **$500 billion, 10-gigawatt commitment** over four years. The U.S. site stack as of April 2026 spans Abilene TX (Crusoe/Oracle/Blue Owl/Primary Digital flagship), Shackelford County TX (Vantage), Dona Ana County NM (Project Jupiter), Port Washington WI (Vantage Lighthouse), Saline Township MI (Related Digital), Milam County TX (SoftBank/SB Energy), and Lordstown OH (SoftBank). OpenAI's milestone language progressed from "over 5 GW under development" (Jul 22, 2025 Oracle 4.5 GW agreement) to "nearly 7 GW" (Sep 23, 2025 five-site release) to "over 8 GW" (Oct 30, 2025 Michigan announcement) to a restated 10 GW by 2029 target (Jan 20, 2026 community page). Local Epoch already carries the named active Stargate sites (~9.233 GW summed), so most physical capacity is already in Epoch rows. The Crusoe-Stargate-Microsoft Abilene tripartite is documented separately: existing OpenAI/Oracle Abilene 1.18 GW remains under construction, and the adjacent 900 MW campus (Crusoe Mar 27, 2026 announcement) supports Microsoft AI infrastructure (different buildings, same broader campus).
 
-## Research Source
+## Counterparties
 
-- `docs/research/B2_openai_stargate_us.md`
+- **Operator**: Stargate JV (SoftBank Group + OpenAI lead partners; January 21, 2025 launch); Oracle (OCI cloud delivery, RPO-bearing); Crusoe (Abilene developer); Vantage (Shackelford, Wisconsin); SB Energy (Milam); Related Digital (Michigan).
+- **Anchor tenant / user**: OpenAI (operational responsibility per Jan 21, 2025 launch language).
+- **Financing partner(s)**: SoftBank (financial responsibility per Jan 21, 2025 launch; named as lead funder); Oracle (RPO $553B Q3 FY26, $50B financing program with $30B raised); Crusoe / Blue Owl Capital / Primary Digital ($15B Abilene JV); MGX (named initial Stargate equity funder); private investors / financial institutions (Saline Michigan).
 
-## Dispatch Content
+## Structure
 
-# Rev-4.2 Research Dispatch B2: OpenAI Stargate US
+- **Type**: Multi-party JV plus Oracle cloud-capacity offtake plus site-level project finance.
+- **Term**: Jan 21, 2025 launch language: "$500 billion over the next four years"; Oracle/OpenAI partnership "exceeds $300B over five years" (Sep 2025 OpenAI/SoftBank); Saline 1,383 MW supply contract approved with 19-year minimum term and 80% minimum billing demand (MPSC Dec 18, 2025).
+- **Announced contract value**: $500B / 4-year program; $100B immediate deployment; Oracle/OpenAI partnership $300B+; >$450B over three years (Oct 30, 2025).
+- **Equity cross-investments**: SoftBank, OpenAI, Oracle, MGX named initial equity funders (Jan 21, 2025).
+- **Take-or-pay coverage**: Saline DTE special contract approved with 80% minimum billing demand (MPSC Dec 18, 2025); other sites' take-or-pay terms not public. Oracle Q3 FY26 says AI contracts funded by prepayments / customer-supplied GPUs / financing.
+- **Optionality**: High. "Up to" 10 GW; site-by-site delivery cadence; Abilene 600 MW expansion explicitly redirected to Microsoft per AP Mar 27, 2026.
 
-```yaml
-counterparty: OpenAI / Oracle / SoftBank / Crusoe / Vantage / Related Digital
-contract_overview:
-  type: JV
-  term_years: null
-  announced_capex_usd_b: 500.0
-  delivery_window: {earliest: 2025-06-01, central: 2028-12-31, latest: 2029-12-31}
-  exclusivity_or_optionality: >
-    Stargate is a multi-party infrastructure platform rather than one clean
-    signed site lease. January 2025 launch language makes SoftBank and OpenAI
-    lead partners, with SoftBank holding financial responsibility and OpenAI
-    operational responsibility; Oracle, NVIDIA, Microsoft, Arm, and OpenAI were
-    named initial technology partners. Later disclosures split the surface into
-    Oracle capacity, SoftBank/OpenAI fast-build sites, CoreWeave capacity, and
-    Microsoft-provided OpenAI cloud capacity. Treat all site and GW claims as
-    overlap candidates, not additive adjudications.
-atoms:
-  - id: atom:b2_openai_stargate_us_program_envelope
-    site: "United States Stargate program, multi-site"
-    operator: "Stargate JV / Oracle / SoftBank / developers"
-    user_or_anchor: OpenAI
-    gw_facility: [7.0, 8.0, 10.0]
-    gw_it: null
-    basis: ambiguous_compute
-    pue_assumed: null
-    energization_window: {earliest: 2025-06-01, central: 2028-12-31, latest: 2029-12-31}
-    operational_status: T4
-    exact_quote: "$500 billion, 10-gigawatt commitment"
-    source_url: https://openai.com/index/five-new-stargate-sites/
-    source_publisher: OpenAI
-    source_publication_date: 2025-09-23
-    accessed_date: 2026-04-28
-    source_notes:
-      - "Jan. 21, 2025 launch: $500B over four years, $100B immediate deployment, starting in Texas."
-      - "Jul. 22, 2025 Oracle agreement: 4.5 GW additional U.S. capacity; with Abilene, over 5 GW under development."
-      - "Sep. 23, 2025: five new U.S. sites plus Abilene and CoreWeave bring Stargate to nearly 7 GW and over $400B over three years."
-      - "Oct. 30, 2025 Michigan announcement: over 8 GW planned capacity and more than $450B over three years."
-      - "Jan. 20, 2026 OpenAI community page: U.S. AI infrastructure target stated as 10 GW by 2029, with multiple sites under development."
-    epoch_site_overlap_candidates:
-      - epoch_site: OpenAI Stargate Abilene
-        epoch_attributed_to: "Oracle -> OpenAI, Stargate #confident"
-        overlap_gw_facility: 1.180
-        overlap_evidence: >
-          Local Epoch atoms carry 0.200 GW operational plus 0.980 GW remaining
-          facility buildout by 2026-07-01. Direct site/program match.
-      - epoch_site: OpenAI Stargate Shackelford
-        epoch_attributed_to: "Oracle -> OpenAI, Stargate #confident"
-        overlap_gw_facility: 1.960
-        overlap_evidence: >
-          Local Epoch atom carries 1.960 GW facility by 2028-12-31. Direct
-          match to OpenAI's Shackelford County site and Vantage Frontier campus.
-      - epoch_site: OpenAI Stargate New Mexico
-        epoch_attributed_to: "Oracle -> OpenAI, Stargate #confident"
-        overlap_gw_facility: 2.210
-        overlap_evidence: >
-          Local Epoch atom carries 2.210 GW facility by 2028-12-31. Direct
-          match to OpenAI's Dona Ana County site; public/local sources also use
-          Project Jupiter naming.
-      - epoch_site: OpenAI Stargate Wisconsin
-        epoch_attributed_to: "Oracle -> OpenAI, Stargate #confident"
-        overlap_gw_facility: 1.300
-        overlap_evidence: >
-          Local Epoch atom carries 1.300 GW facility by 2028-12-31. Direct
-          match to the Port Washington/Lighthouse site announced as the Midwest
-          Stargate site.
-      - epoch_site: OpenAI Stargate Michigan
-        epoch_attributed_to: "Oracle -> OpenAI, Stargate #confident"
-        overlap_gw_facility: 1.383
-        overlap_evidence: >
-          Local Epoch atom carries 1.383 GW facility by 2028-12-31. Direct
-          match to OpenAI/Oracle/Related Digital Saline Township announcement
-          and MPSC 1,383 MW approval.
-      - epoch_site: OpenAI Stargate Milam
-        epoch_attributed_to: "SoftBank -> OpenAI, Stargate #confident"
-        overlap_gw_facility: 1.200
-        overlap_evidence: >
-          Local Epoch atom carries 1.200 GW facility by 2028-12-31. Direct
-          match to OpenAI/SoftBank/SB Energy Milam County site.
-      - epoch_site: OpenAI Stargate Lordstown
-        epoch_attributed_to: "SoftBank -> OpenAI, Stargate #confident"
-        overlap_gw_facility: 0.0
-        overlap_evidence: >
-          Local Epoch data_centers.csv has a Stargate Lordstown row with zero
-          MW because no visible construction/capacity atom is yet carried; OpenAI
-          and SoftBank name Lordstown as a site that can scale within the
-          SoftBank/OpenAI 1.5 GW tranche.
-      - epoch_site: Crusoe Abilene Expansion
-        epoch_attributed_to: "Microsoft -> Microsoft"
-        overlap_gw_facility: 0.941
-        overlap_evidence: >
-          Candidate contradiction/adjacency only. Local Epoch treats the former
-          Abilene expansion as Microsoft, not OpenAI. Crusoe's Mar. 27, 2026
-          primary release says the adjacent 900 MW campus supports Microsoft AI
-          infrastructure.
-      - epoch_site: Microsoft Fairwater Mount Pleasant / Fairwater Wisconsin
-        epoch_attributed_to: "Microsoft -> OpenAI, Microsoft"
-        overlap_gw_facility: 3.328
-        overlap_evidence: >
-          OpenAI's Jan. 2026 community page refers to a latest AI campus with
-          Microsoft in Mount Pleasant, Wisconsin. Candidate only: it is not one
-          of the Oracle/SoftBank Stargate sites and is already a Microsoft AI WAN
-          Epoch site.
-    risks:
-      counterparty: "OpenAI is committing across Oracle, Microsoft, SoftBank, CoreWeave, AWS, NVIDIA, AMD, and Broadcom surfaces; obligation seniority and cancellation rights are not public."
-      regulatory: "Named sites face state/local utility, zoning, environmental, water, air, and bond approvals; Michigan and New Mexico already show public-opposition and cost-allocation scrutiny."
-      power_interconnect: "The public GW figures mix data-center capacity, IT/load, site potential, and power commitments; power-delivery responsibility varies by site."
-      supply_chain: "GB200/Rubin racks, HBM, liquid cooling, switchgear, turbines, substations, transformers, and skilled labor remain gating items."
-      technology: "OpenAI may change accelerator mix across NVIDIA, AMD, Broadcom/OpenAI ASICs, and Microsoft/Oracle cloud designs before all sites energize."
-      financing: "January JV language assigns SoftBank financial responsibility, but Abilene is separately project-financed; Oracle has major RPO/lease/capex exposure."
-      structural_optionality: "The same OpenAI demand can appear as Stargate, Oracle RPO, Microsoft capacity, CoreWeave capacity, and chip procurement; high double-count risk."
+## GW Shape Over Time
 
-  - id: atom:b2_stargate_abilene_flagship
-    site: "Stargate I, Abilene, Texas"
-    operator: "Crusoe developer / Oracle Cloud Infrastructure"
-    user_or_anchor: OpenAI
-    gw_facility: [0.200, 1.180, 1.200]
-    gw_it: null
-    basis: facility_MW
-    pue_assumed: 1.16
-    energization_window: {earliest: 2025-06-01, central: 2026-07-01, latest: 2026-12-31}
-    operational_status: T2
-    exact_quote: "first phase of Stargate's flagship data center campus"
-    source_url: https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live
-    source_publisher: Crusoe
-    source_publication_date: 2025-09-30
-    accessed_date: 2026-04-28
-    source_notes:
-      - "Crusoe says construction began in June 2024; first two buildings were energized within a year; Oracle began delivering NVIDIA GB200 racks in June 2025."
-      - "Crusoe/Blue Owl/Primary Digital May 2025 release describes a $15B JV, 1.2 GW AI data center, two-building first phase of 200+ MW, and six-building second phase expected in mid-2026."
-      - "Mortenson describes a 200 MW 138 kV substation, an expansion, and a Phase 2 1 GW 345 kV substation with five main power transformers."
-    epoch_site_overlap_candidates:
-      - epoch_site: OpenAI Stargate Abilene
-        epoch_attributed_to: "Oracle -> OpenAI, Stargate #confident"
-        overlap_gw_facility: 1.180
-        overlap_evidence: >
-          Direct site match. Local Epoch 2026-04-22 revision treats roughly
-          0.200 GW operational by the April 2026 cutoff and pushes prior 0.590
-          GW milestone back into under-construction pending commissioning.
-      - epoch_site: Crusoe Abilene Expansion
-        epoch_attributed_to: "Microsoft -> Microsoft"
-        overlap_gw_facility: 0.941
-        overlap_evidence: >
-          Adjacent/former expansion candidate. AP reports OpenAI declined to
-          pursue further Abilene expansion; Crusoe primary source now assigns
-          the new 900 MW campus to Microsoft.
-    risks:
-      counterparty: "Crusoe develops and Oracle provides OCI to OpenAI; financing involves Blue Owl and Primary Digital rather than a single OpenAI-owned asset."
-      regulatory: "Air, substation, turbine, and local construction approvals must be checked building-by-building."
-      power_interconnect: "Mortenson documents 200 MW existing substation plus 1 GW 345 kV phase; AP reports grid draw with on-site gas backup/plant complexity."
-      supply_chain: "Eight-building completion depends on GB200 rack delivery, electrical gear, direct-to-chip liquid cooling, and construction labor."
-      technology: "Early workload status is credible, but full eight-building commissioning and GPU installation can lag shell energization."
-      financing: "The $15B JV funds construction; OpenAI/Oracle lease/payment terms are not fully public."
-      structural_optionality: "The Abilene 1.2 GW campus and the adjacent Microsoft 900 MW campus should not be merged without adjudication."
+| Year | Facility GW (low / central / high) | Operational status | Notes |
+|------|-----------------------------------|---------------------|-------|
+| 2026 | 0.59 / 1.18 / 2.0 | T2/T3 | Abilene Phase 1 + Atlanta Vantage early commissioning; Mortenson 200 MW substation operational |
+| 2027 | 2.0 / 4.0 / 6.0 | T3/T4 | Mid-program; Abilene Phase 2 (six buildings); Vantage WI close to 1 GW by 2028 cadence start |
+| 2028 | 5.0 / 7.0 / 9.0 | T4 | Most Stargate sites Epoch-dated 2028-12-31; cumulative ~9.233 GW summed Epoch buildouts |
+| 2029 | 7.0 / 9.5 / 10.0 | T4 | OpenAI Jan 20, 2026 community page restates 10 GW by 2029 target |
+| 2030 | 8.0 / 10.0 / 10.0 | T4 | Saline DTE 19-year minimum term anchors 2029+ delivery |
 
-  - id: atom:b2_oracle_stargate_4_5gw_us_tranche
-    site: "Oracle-led Stargate sites: Shackelford TX, Dona Ana NM, Port Washington WI, Saline MI, Abilene-area expansion candidate"
-    operator: "Oracle / Vantage / Related Digital / other developers"
-    user_or_anchor: OpenAI
-    gw_facility: [4.5, 5.5]
-    gw_it: null
-    basis: ambiguous_compute
-    pue_assumed: null
-    energization_window: {earliest: 2026-01-01, central: 2028-12-31, latest: 2029-12-31}
-    operational_status: T4
-    exact_quote: "4.5 gigawatts of additional Stargate capacity"
-    source_url: https://openai.com/index/stargate-advances-with-partnership-with-oracle/
-    source_publisher: OpenAI
-    source_publication_date: 2025-07-22
-    accessed_date: 2026-04-28
-    source_notes:
-      - "Sep. 2025 OpenAI/SoftBank source says the Oracle/OpenAI partnership exceeds $300B over five years."
-      - "OpenAI later says Michigan is part of the 4.5 GW Oracle partnership and brings Stargate over 8 GW planned capacity."
-      - "Oracle Q1 FY26 RPO was $455B; Q3 FY26 RPO was $553B, with large-scale AI contracts and a $50B financing program disclosed."
-    epoch_site_overlap_candidates:
-      - epoch_site: OpenAI Stargate Shackelford
-        epoch_attributed_to: "Oracle -> OpenAI, Stargate #confident"
-        overlap_gw_facility: 1.960
-        overlap_evidence: "Direct match to OpenAI's Shackelford County site; Epoch buildout by 2028-12-31."
-      - epoch_site: OpenAI Stargate New Mexico
-        epoch_attributed_to: "Oracle -> OpenAI, Stargate #confident"
-        overlap_gw_facility: 2.210
-        overlap_evidence: "Direct match to OpenAI's Dona Ana County site; Epoch buildout by 2028-12-31."
-      - epoch_site: OpenAI Stargate Wisconsin
-        epoch_attributed_to: "Oracle -> OpenAI, Stargate #confident"
-        overlap_gw_facility: 1.300
-        overlap_evidence: "Direct match to Port Washington/Lighthouse; Vantage says close to 1 GW AI capacity by 2028."
-      - epoch_site: OpenAI Stargate Michigan
-        epoch_attributed_to: "Oracle -> OpenAI, Stargate #confident"
-        overlap_gw_facility: 1.383
-        overlap_evidence: "Direct match to Saline Township; MPSC approved 1,383 MW supply contracts."
-      - epoch_site: OpenAI Stargate Abilene
-        epoch_attributed_to: "Oracle -> OpenAI, Stargate #confident"
-        overlap_gw_facility: null
-        overlap_evidence: >
-          Sep. 2025 language included a potential 600 MW expansion near Abilene.
-          March 2026 evidence suggests the adjacent 900 MW campus is Microsoft,
-          so the 600 MW Abilene expansion component requires adjudication.
-    risks:
-      counterparty: "Oracle is central to the 4.5 GW tranche and to OpenAI's cloud RPO, but developers differ by site."
-      regulatory: "Michigan MPSC special-contract approval is conditional; New Mexico bond/permit litigation and environmental concerns remain open."
-      power_interconnect: "Large-load contracts and site power basis are not consistently public; Michigan has explicit curtailment/load-shed conditions."
-      supply_chain: "Oracle buildouts reportedly face labor/material delays; primary Oracle says AI contracts are funded by prepayments/customer-supplied GPUs or financing."
-      technology: "Accelerator generation could shift from GB200 to Rubin or other OpenAI-designed silicon across the delivery window."
-      financing: "Oracle RPO and financing disclosures do not isolate OpenAI/Stargate, but they are a material overlap surface."
-      structural_optionality: "The public 4.5 GW claim can overlap the same named sites already counted in Epoch's Stargate atoms."
+The aggregate Epoch-counted Stargate U.S. capacity is approximately 9.233 GW facility (Abilene 1.18 + Shackelford 1.96 + New Mexico 2.21 + Wisconsin 1.30 + Michigan 1.383 + Milam 1.20 + Lordstown 0.0 in Epoch). The program-level 10 GW by 2029 target is consistent with this sum plus modest near-term delivery and CoreWeave overlap.
 
-  - id: atom:b2_softbank_openai_fast_build_sites
-    site: "Lordstown, Ohio and Milam County, Texas"
-    operator: "SoftBank / SB Energy / OpenAI"
-    user_or_anchor: OpenAI
-    gw_facility: 1.5
-    gw_it: null
-    basis: ambiguous_compute
-    pue_assumed: null
-    energization_window: {earliest: 2026-01-01, central: 2028-12-31, latest: 2029-12-31}
-    operational_status: T4
-    exact_quote: "can scale to 1.5 gigawatts"
-    source_url: https://group.softbank/en/news/press/20250924
-    source_publisher: SoftBank Group
-    source_publication_date: 2025-09-24
-    accessed_date: 2026-04-28
-    source_notes:
-      - "SoftBank says Lordstown had broken ground and was on track to be operational next year as of Sep. 23/24, 2025."
-      - "SoftBank says Milam County will be developed with SB Energy, providing powered infrastructure for a fast-build site."
-    epoch_site_overlap_candidates:
-      - epoch_site: OpenAI Stargate Milam
-        epoch_attributed_to: "SoftBank -> OpenAI, Stargate #confident"
-        overlap_gw_facility: 1.200
-        overlap_evidence: "Direct match; local Epoch carries 1.200 GW facility by 2028-12-31."
-      - epoch_site: OpenAI Stargate Lordstown
-        epoch_attributed_to: "SoftBank -> OpenAI, Stargate #confident"
-        overlap_gw_facility: 0.0
-        overlap_evidence: >
-          Local Epoch has the named Lordstown row but no nonzero capacity atom
-          yet; public capacity is only paired with Milam in a combined 1.5 GW
-          SoftBank/OpenAI tranche.
-    risks:
-      counterparty: "SoftBank is a lead Stargate funder but the public site economics and lease/payments to OpenAI are opaque."
-      regulatory: "Lordstown is an industrial retrofit/manufacturing/data-center candidate; Milam depends on Texas local and power approvals."
-      power_interconnect: "SB Energy powered-infrastructure plan is not yet enough to validate delivered load or facility MW."
-      supply_chain: "Fast-build designs still depend on grid equipment, modular data center gear, AI racks, and labor."
-      technology: "SoftBank design may use Arm ecosystem assets or NVIDIA systems; site-level chip mix is undisclosed."
-      financing: "SoftBank's January financial-responsibility role does not specify how the Lordstown/Milam tranche is funded."
-      structural_optionality: "Combined 1.5 GW cannot be allocated between Lordstown and Milam without more evidence."
+## Sites
 
-contradictions:
-  - "Launch framing says Stargate is a new company with SoftBank financial responsibility and OpenAI operational responsibility; later site evidence shows Oracle, Crusoe/Blue Owl/Primary Digital, Vantage, Related Digital, SB Energy, and Microsoft-controlled surfaces with different economics."
-  - "OpenAI July 2025 says over 5 GW under development with Abilene plus Oracle's 4.5 GW; OpenAI September says nearly 7 GW with five new sites plus Abilene and CoreWeave; OpenAI October Michigan says over 8 GW. These are milestones in one program, not automatically additive."
-  - "The September 2025 five-site announcement named one Midwest site later updated to Wisconsin; Michigan was announced separately on October 30, 2025 as part of the Oracle 4.5 GW partnership, creating a site-count mismatch against the phrase 'five new sites.'"
-  - "OpenAI September included a potential 600 MW expansion near Abilene; AP/Crusoe March 2026 evidence says an adjacent 900 MW Abilene campus is for Microsoft after OpenAI declined further expansion, while existing OpenAI/Oracle Abilene remains under construction."
-  - "Local Epoch treats Abilene operational capacity as 0.200 GW facility after a 2026-04-22 revision, while older public reporting and local timeline rows referenced 0.590 GW or 1.2 GW milestones; use the revision as local context, not final adjudication."
-  - "OpenAI community language calls Microsoft Mount Pleasant an AI campus built for OpenAI alongside Stargate campuses, but Microsoft Fairwater is a separate Microsoft AI WAN Epoch surface and should remain a candidate overlap, not folded into Stargate."
-gaps:
-  - "Definitive Stargate JV capitalization table, debt stack, guarantees, recourse, and site-by-site ownership."
-  - "OpenAI payment obligations versus Oracle RPO, including how much of Oracle's $455B/$553B RPO is OpenAI/Stargate-specific."
-  - "Site-level facility MW versus IT MW basis for every public GW claim."
-  - "Whether the 600 MW Abilene expansion in September 2025 survives separately from the March 2026 Microsoft 900 MW campus."
-  - "Allocation of the SoftBank/OpenAI 1.5 GW between Lordstown and Milam."
-  - "Primary permits/interconnection filings for Shackelford, Dona Ana, Milam, Lordstown, and Wisconsin sufficient to validate delivered power and timing."
-  - "CoreWeave contribution to the September 2025 nearly-7-GW Stargate total and whether it overlaps separate neocloud/CoreWeave atoms."
-```
+| Site | Location | Operator | Epoch attribution | Overlap with this contract | Tier |
+|------|----------|----------|-------------------|----------------------------|------|
+| OpenAI Stargate Abilene | Abilene, TX | Crusoe (developer) / Oracle OCI | Oracle → OpenAI, Stargate #confident; 0.200 GW operational + 0.980 GW remaining = 1.180 GW by 2026-07-01 | Direct match | T1/T2 |
+| OpenAI Stargate Shackelford | Shackelford County, TX | Vantage / Oracle | Oracle → OpenAI, Stargate #confident; 1.960 GW by 2028-12-31 | Direct match | T4 |
+| OpenAI Stargate New Mexico (Project Jupiter) | Dona Ana County, NM | Oracle / Vantage | Oracle → OpenAI, Stargate #confident; 2.210 GW by 2028-12-31 | Direct match | T4 |
+| OpenAI Stargate Wisconsin (Lighthouse) | Port Washington, WI | Vantage / Oracle | Oracle → OpenAI, Stargate #confident; 1.300 GW by 2028-12-31 | Direct match | T4 |
+| OpenAI Stargate Michigan | Saline Township, MI | Related Digital / Oracle | Oracle → OpenAI, Stargate #confident; 1.383 GW by 2028-12-31 | Direct match; MPSC 1,383 MW DTE contract approved | T4 |
+| OpenAI Stargate Milam | Milam County, TX | SoftBank / SB Energy | SoftBank → OpenAI, Stargate #confident; 1.200 GW by 2028-12-31 | Direct match | T4 |
+| OpenAI Stargate Lordstown | Lordstown, OH | SoftBank | SoftBank → OpenAI, Stargate #confident; 0.0 GW (no nonzero capacity atom yet) | Combined SoftBank/OpenAI 1.5 GW tranche shared with Milam | T4 |
+| Crusoe Abilene Expansion | Abilene, TX (adjacent campus) | Crusoe → Microsoft | Microsoft → Microsoft; 0.941 GW by 2027-11-11 | NOT counted in Stargate; Mar 27, 2026 Crusoe release attributes to Microsoft AI infrastructure (different buildings, same broader campus) | T2 |
 
-## Evidence Register
+## Financing Stack
 
-| Source | Date | Type | Load-bearing evidence | Short quote | Accessed |
-| --- | --- | --- | --- | --- | --- |
-| [OpenAI/SoftBank, "Announcing The Stargate Project"](https://openai.com/index/announcing-the-stargate-project/) | 2025-01-21 | Primary company announcement | $500B/4-year program, $100B immediate deployment, initial equity funders, SoftBank/OpenAI roles, initial technology partners. | "SoftBank having financial responsibility" | 2026-04-28 |
-| [OpenAI, "Stargate advances with 4.5 GW partnership with Oracle"](https://openai.com/index/stargate-advances-with-partnership-with-oracle/) | 2025-07-22 | Primary company announcement | Oracle 4.5 GW U.S. Stargate capacity; Abilene parts up and running; first GB200 racks delivered June 2025. | "4.5 gigawatts of additional" | 2026-04-28 |
-| [OpenAI, "five new Stargate sites"](https://openai.com/index/five-new-stargate-sites/) | 2025-09-23 | Primary company announcement | Five new U.S. sites, nearly 7 GW planned, over $400B investment, $300B+ Oracle partnership, site list and Wisconsin update. | "nearly 7 gigawatts" | 2026-04-28 |
-| [SoftBank Group, five-site Stargate release](https://group.softbank/en/news/press/20250924) | 2025-09-24 | Primary company announcement | Same five-site announcement; SoftBank language for Lordstown/Milam 1.5 GW and Oracle/OpenAI $300B+ partnership. | "can scale to 1.5 gigawatts" | 2026-04-28 |
-| [OpenAI, "Expanding Stargate to Michigan"](https://openai.com/index/expanding-stargate-to-michigan/) | 2025-10-30 | Primary company announcement | Saline Township Michigan, more than 1 GW, part of Oracle 4.5 GW partnership, over 8 GW planned capacity. | "over 8 gigawatts" | 2026-04-28 |
-| [Crusoe, Abilene flagship live](https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live) | 2025-09-30 | Primary company announcement | First phase live on OCI; construction began June 2024; first two buildings energized; eight-building campus. | "first two buildings were energized" | 2026-04-28 |
-| [Crusoe/Blue Owl/Primary Digital Abilene JV](https://www.crusoe.ai/resources/newsroom/crusoe-blue-owl-capital-and-primary-digital-infrastructure-enter-joint-venture) | 2025-05-21 | Primary company announcement | $15B JV; 1.2 GW; first two buildings 200+ MW; six-building second phase expected mid-2026. | "1.2 gigawatt AI data center" | 2026-04-28 |
-| [Mortenson Abilene data center development](https://www.mortenson.com/projects/abilene-data-center-development) | n.d. | Primary contractor project page | 200 MW substation, AEP interconnect, Phase 2 1 GW 345 kV substation, Oct. 2026 estimated completion. | "1GW, 345kV Substation" | 2026-04-28 |
-| [Crusoe 900 MW Microsoft Abilene campus](https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure) | 2026-03-27 | Primary company announcement | Adjacent 900 MW Microsoft campus, first building mid-2027, total Abilene projected capacity 2.1 GW. | "support Microsoft AI Infrastructure" | 2026-04-28 |
-| [AP, Microsoft takes over Texas AI data center expansion](https://apnews.com/article/ai-stargate-microsoft-openai-crusoe-oracle-f4f74c3a4617d8cfab5b933fc31ccc6e) | 2026-03-27 | Secondary reporting | Reports OpenAI declined further Abilene expansion; Microsoft takes adjacent project; existing OpenAI/Oracle campus remains. | "OpenAI declined to pursue it" | 2026-04-28 |
-| [Vantage/Choose Milwaukee Wisconsin Stargate announcement](https://mkeregion.com/news/2025/10/22/press-releases/openai-oracle-and-vantage-data-centers-announce-stargate-data-center-site-in-wisconsin/) | 2025-10-22 | Primary/partner release | Port Washington/Lighthouse, close to 1 GW AI capacity, construction soon, scheduled completion 2028. | "close to a gigawatt" | 2026-04-28 |
-| [Related Digital Michigan Stargate announcement](https://www.related-digital.com/news/openai-oracle-and-related-digital-announce-stargate-data-center-site-in-michigan) | 2025-10-30 | Primary/partner release | Saline Township, more than 1 GW, construction expected early 2026, funded by private investors/financial institutions. | "more than a gigawatt" | 2026-04-28 |
-| [Michigan Public Service Commission DTE contract approval](https://www.michigan.gov/mpsc/commission/news-releases/2025/12/18/mpsc-approves-dte-electric-energy-contracts-for-data-center) | 2025-12-18 | Government/regulatory | 1,383 MW Saline data center, Green Chile Ventures/Oracle, 19-year minimum term and 80% minimum billing demand. | "1,383- megawatt" | 2026-04-28 |
-| [Oracle Q1 FY26 results](https://investor.oracle.com/investor-news/news-details/2025/Oracle-Announces-Fiscal-Year-2026-First-Quarter-Financial-Results/) | 2025-09-09 | Primary financial release | RPO $455B after four multibillion-dollar contracts; OCI revenue growth forecast. | "RPO contract backlog" | 2026-04-28 |
-| [Oracle Q3 FY26 results](https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Fiscal-Year-2026-Third-Quarter-Financial-Results/default.aspx) | 2026-03-10 | Primary financial release | RPO $553B; AI contracts funded by prepayments/customer-supplied GPUs; $50B financing plan and $30B raised. | "large scale AI contracts" | 2026-04-28 |
-| [OpenAI, "Stargate Community"](https://openai.com/index/stargate-community/) | 2026-01-20 | Primary company announcement | Current site-list language across Texas, New Mexico, Wisconsin, Michigan and Microsoft Mount Pleasant mention. | "well beyond halfway" | 2026-04-28 |
-| [Epoch AI Frontier Data Centers local snapshot](https://epoch.ai/data/data-centers) | 2026-04-20 | Local dataset context | Local overlap candidates from `epoch_data_centers/compiled.json`, `epoch_data_centers/data_centers.csv`, `epoch_data_centers/data_center_timelines.csv`, and `canonical_capacity_atoms.yaml`; repo snapshot retrieved 2026-04-22, reviewed 2026-04-28. | "OpenAI Stargate Abilene" | 2026-04-28 |
+- **Capex envelope**: $500B announced over four years (Jan 21, 2025); Oracle/OpenAI partnership $300B+ over five years; >$450B over three years (Oct 30, 2025).
+- **Equity / debt / RPO**: Crusoe/Blue Owl/Primary Digital $15B Abilene JV (May 21, 2025); Oracle Q1 FY26 RPO $455B (Sep 9, 2025); Q3 FY26 RPO $553B; Oracle $50B financing program with $30B raised; SoftBank financial responsibility (Jan 21, 2025).
+- **Public disclosures**: OpenAI/SoftBank Stargate launch Jan 21, 2025; OpenAI Oracle 4.5 GW Jul 22, 2025; OpenAI five-site release Sep 23, 2025; OpenAI Michigan Oct 30, 2025; Crusoe Abilene live Sep 30, 2025; Crusoe/Blue Owl/Primary Digital JV May 21, 2025; Mortenson Abilene project page; AP / Crusoe Mar 27, 2026 (Microsoft 900 MW adjacent campus); Vantage Wisconsin Oct 22, 2025; Related Digital Michigan Oct 30, 2025; MPSC DTE contract approval Dec 18, 2025; Oracle Q1/Q3 FY26 results.
 
-## Research Notes
+## Atoms Sourced (in canonical_capacity_atoms.yaml)
 
-- Site list as of this dispatch: Abilene TX, Shackelford County TX, Dona Ana County NM, Port Washington WI, Saline Township MI, Milam County TX, Lordstown OH. The Abilene-adjacent Microsoft/Crusoe campus and Microsoft Mount Pleasant/Fairwater are candidate overlaps, not Stargate-US additions in this dispatch.
-- GW shape over time: January 2025 launch set the 10 GW/$500B U.S. target; July Oracle deal took Abilene plus 4.5 GW to over 5 GW; September five-site release took the program to nearly 7 GW plus CoreWeave; October Michigan took planned capacity to over 8 GW; January 2026 community page restated the 10 GW by 2029 target.
-- Epoch posture: local Epoch already carries most active Stargate site capacity. Summed U.S. Epoch Stargate candidates excluding UAE and excluding Microsoft/Fairwater are 9.233 GW facility before Lordstown's zero-MW row; adding the Microsoft Abilene expansion would be a separate 0.941 GW candidate only.
-- Capacity basis: public claims generally say "capacity" or "AI capacity" rather than facility MW. Local Epoch rows are facility MW with PUE 1.16. Do not mix these bases without adjudication.
-- Financing structure: public primary sources support (1) SoftBank/OpenAI lead-partner role, (2) Oracle/OpenAI 4.5 GW partnership exceeding $300B over five years, (3) Abilene project finance through Crusoe/Blue Owl/Primary Digital, and (4) Oracle RPO/financing exposure. They do not expose site-level OpenAI take-or-pay terms.
+- `epoch_openai_stargate_abilene_operational` — 0.200 GW facility (T1).
+- `epoch_openai_stargate_abilene_buildout_remaining` — 0.980 GW facility by 2026-07-01 (T2).
+- `epoch_openai_stargate_shackelford_buildout_remaining` — 1.960 GW facility by 2028-12-31 (T4).
+- `epoch_openai_stargate_new_mexico_buildout_remaining` — 2.210 GW facility by 2028-12-31 (T4).
+- `epoch_openai_stargate_wisconsin_buildout_remaining` — 1.300 GW facility by 2028-12-31 (T4).
+- `epoch_openai_stargate_michigan_buildout_remaining` — 1.383 GW facility by 2028-12-31 (T4).
+- `epoch_openai_stargate_milam_buildout_remaining` — 1.200 GW facility by 2028-12-31 (T4).
 
+## Dedupe Notes
+
+The named Stargate sites are already counted in Epoch rows (Abilene, Shackelford, New Mexico, Wisconsin, Michigan, Milam, Lordstown). The summed local Epoch Stargate U.S. footprint is approximately 9.233 GW facility (Lordstown nonzero-MW pending). The OpenAI 10 GW by 2029 program target is consistent with that Epoch sum plus residual capacity. **Crusoe Abilene Expansion is NOT a Stargate addition**: Crusoe's March 27, 2026 release reassigns the adjacent 900 MW campus to Microsoft AI infrastructure (different buildings, same broader Abilene campus); AP reports OpenAI declined further Abilene expansion. The 600 MW Abilene expansion language from OpenAI's September 2025 release does not survive separately. Microsoft Mount Pleasant / Fairwater Wisconsin remains a distinct Microsoft AI WAN Epoch surface and should not be folded into Stargate. CoreWeave's contribution to the September 2025 nearly-7-GW total is acknowledged but no MW allocation is publicly documented. Customer-level OpenAI demand also appears at Microsoft Fairwater (`anthropic_azure_incremental_capacity` page lists Fairwater Wisconsin/Atlanta), and SoftBank/OpenAI 1.5 GW Lordstown+Milam combined tranche cannot be allocated without further evidence.
+
+## Risk Axes
+
+1. **Counterparty risk** — OpenAI is committing across Oracle, Microsoft, SoftBank, CoreWeave, AWS, NVIDIA, AMD, and Broadcom surfaces; obligation seniority and cancellation rights are not public. Oracle Q3 FY26 RPO $553B is heavily concentrated in OpenAI/Stargate. SoftBank financial responsibility (Jan 21, 2025) and Vision Fund liquidity remain monitorable.
+2. **Regulatory risk** — Named sites face state/local utility, zoning, environmental, water, air, and bond approvals. Michigan MPSC special-contract approval is conditional with curtailment/load-shed conditions. New Mexico bond/permit litigation and environmental concerns remain open. Wisconsin construction permits, Texas H&L permitting, and Ohio (Lordstown) industrial-retrofit approvals all active.
+3. **Power / interconnect risk** — Public GW figures mix data-center capacity, IT/load, site potential, and power commitments; power-delivery responsibility varies by site. Mortenson documents Abilene 200 MW substation operational; Phase 2 1 GW 345 kV substation pending. Saline DTE 1,383 MW contract approved by MPSC. Multi-GW utility load on tight ERCOT, MISO, MidAmerican, and DTE service territories.
+4. **Supply chain risk** — GB200/Rubin racks, HBM, liquid cooling, switchgear, turbines, substations, transformers, and skilled labor remain gating items. Oracle reportedly faces labor/material delays. Crusoe primary release describes eight-building Abilene completion dependent on GB200 rack delivery.
+5. **Technology obsolescence risk** — OpenAI may change accelerator mix across NVIDIA, AMD, Broadcom/OpenAI ASICs, and Microsoft/Oracle cloud designs before all sites energize. Multi-year construction window spans GB200 → Rubin → future generations.
+6. **Financing risk** — Jan 21, 2025 launch language assigns SoftBank financial responsibility, but Abilene is separately project-financed (Crusoe/Blue Owl/Primary Digital $15B). Oracle has major RPO/lease/capex exposure. Oracle's $50B financing program disclosure indicates aggressive funding stance; covenant and refinancing risk over multi-year delivery window.
+7. **Structural optionality** — High. Same OpenAI demand can appear as Stargate, Oracle RPO, Microsoft capacity, CoreWeave capacity, and chip procurement. Abilene 600 MW expansion was reassigned to Microsoft (Mar 27, 2026); illustrates allocation optionality. Lordstown remains 0 MW in Epoch despite being named in SoftBank/OpenAI 1.5 GW combined tranche.
+
+## Temporal Logic
+
+- **Earliest**: 2025-06 — Crusoe says construction began June 2024; first two Abilene buildings energized; Oracle began delivering NVIDIA GB200 racks June 2025.
+- **Central**: 2028-12-31 — most Epoch Stargate sites buildout-dated 2028-12-31.
+- **Latest**: 2029-12-31 — OpenAI Jan 20, 2026 community page restates 10 GW by 2029.
+- **Critical-path dependency**: Abilene 1 GW Phase 2 substation commissioning (Mortenson Oct 2026 estimated completion); Saline DTE generation/transmission delivery (19-year contract from MPSC Dec 18, 2025); New Mexico bond/permit litigation outcomes; Oracle $50B financing program execution; SoftBank lead-funder cash availability.
+
+## Reviewer Findings Addressed
+
+- **Crusoe-Stargate-Microsoft Abilene tripartite documented**: Existing OpenAI/Oracle Abilene 1.18 GW remains under construction; adjacent 900 MW campus is Microsoft AI infrastructure (Crusoe Mar 27, 2026); AP reports OpenAI declined further expansion. Different buildings, same broader Abilene campus. Microsoft 900 MW counted separately as Crusoe Abilene Expansion Epoch row.
+- **Multiple Epoch sites enumerated**: Abilene 1.18 + Shackelford 1.96 + New Mexico 2.21 + Wisconsin 1.30 + Michigan 1.383 + Milam 1.20 + Lordstown 0.0 = ~9.233 GW Epoch summed.
+- **CoreWeave overlap acknowledged**: Sep 23, 2025 nearly-7-GW Stargate total includes CoreWeave contribution per OpenAI; CoreWeave atoms separately tracked in `contracts/coreweave_counterparty_stack.md`.
+
+## Open Questions / Gaps
+
+- Definitive Stargate JV capitalization table, debt stack, guarantees, recourse, and site-by-site ownership.
+- OpenAI payment obligations versus Oracle RPO; how much of Oracle's $553B Q3 FY26 RPO is OpenAI/Stargate-specific.
+- Site-level facility MW versus IT MW basis for every public GW claim.
+- Whether the 600 MW Abilene expansion in September 2025 survives separately from the March 2026 Microsoft 900 MW campus (current adjudication: it does not).
+- Allocation of the SoftBank/OpenAI 1.5 GW between Lordstown and Milam.
+- Primary permits/interconnection filings for Shackelford, Dona Ana, Milam, Lordstown, and Wisconsin sufficient to validate delivered power and timing.
+- CoreWeave contribution to the September 2025 nearly-7-GW Stargate total and whether it overlaps separate neocloud/CoreWeave atoms.
+
+## Source Citations
+
+| Source | Date | Type | Load-bearing claim | Quote |
+|--------|------|------|---------------------|-------|
+| [OpenAI/SoftBank, "Announcing The Stargate Project"](https://openai.com/index/announcing-the-stargate-project/) | 2025-01-21 | Primary company announcement | $500B / 4-year program; SoftBank/OpenAI roles | "SoftBank having financial responsibility" |
+| [OpenAI, "Stargate advances with 4.5 GW partnership with Oracle"](https://openai.com/index/stargate-advances-with-partnership-with-oracle/) | 2025-07-22 | Primary company announcement | Oracle 4.5 GW; Abilene running; June 2025 GB200 delivery | "4.5 gigawatts of additional" |
+| [OpenAI, "five new Stargate sites"](https://openai.com/index/five-new-stargate-sites/) | 2025-09-23 | Primary company announcement | Five new U.S. sites; nearly 7 GW; >$400B; $300B+ Oracle | "nearly 7 gigawatts" |
+| [OpenAI, "Expanding Stargate to Michigan"](https://openai.com/index/expanding-stargate-to-michigan/) | 2025-10-30 | Primary company announcement | Saline; over 8 GW planned | "over 8 gigawatts" |
+| [SoftBank Group five-site release](https://group.softbank/en/news/press/20250924) | 2025-09-24 | Primary company announcement | SoftBank Lordstown/Milam 1.5 GW | "can scale to 1.5 gigawatts" |
+| [Crusoe, Abilene flagship live](https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live) | 2025-09-30 | Primary company announcement | Phase 1 live on OCI; eight-building campus | "first two buildings were energized" |
+| [Crusoe/Blue Owl/Primary Digital JV](https://www.crusoe.ai/resources/newsroom/crusoe-blue-owl-capital-and-primary-digital-infrastructure-enter-joint-venture) | 2025-05-21 | Primary company announcement | $15B JV; 1.2 GW Abilene | "1.2 gigawatt AI data center" |
+| [Crusoe 900 MW Microsoft Abilene](https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure) | 2026-03-27 | Primary company announcement | Adjacent 900 MW campus for Microsoft | "support Microsoft AI Infrastructure" |
+| [AP, Microsoft takes over Texas AI data center expansion](https://apnews.com/article/ai-stargate-microsoft-openai-crusoe-oracle-f4f74c3a4617d8cfab5b933fc31ccc6e) | 2026-03-27 | Secondary reporting | OpenAI declined further Abilene expansion | "OpenAI declined to pursue it" |
+| [Mortenson Abilene data center](https://www.mortenson.com/projects/abilene-data-center-development) | n.d. | Primary contractor page | 200 MW + 1 GW 345 kV substation | "1GW, 345kV Substation" |
+| [Vantage Wisconsin Stargate](https://mkeregion.com/news/2025/10/22/press-releases/openai-oracle-and-vantage-data-centers-announce-stargate-data-center-site-in-wisconsin/) | 2025-10-22 | Primary partner release | Lighthouse / close to 1 GW by 2028 | "close to a gigawatt" |
+| [Related Digital Michigan Stargate](https://www.related-digital.com/news/openai-oracle-and-related-digital-announce-stargate-data-center-site-in-michigan) | 2025-10-30 | Primary partner release | Saline >1 GW; early 2026 construction | "more than a gigawatt" |
+| [MPSC DTE contract approval](https://www.michigan.gov/mpsc/commission/news-releases/2025/12/18/mpsc-approves-dte-electric-energy-contracts-for-data-center) | 2025-12-18 | Government regulatory | 1,383 MW Saline; 19-year minimum | "1,383- megawatt" |
+| [Oracle Q3 FY26 results](https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Fiscal-Year-2026-Third-Quarter-Financial-Results/default.aspx) | 2026-03-10 | Primary financial release | RPO $553B; $50B financing; $30B raised | "large scale AI contracts" |
+| [OpenAI, "Stargate Community"](https://openai.com/index/stargate-community/) | 2026-01-20 | Primary company announcement | 10 GW by 2029 reaffirmed | "well beyond halfway" |
+| [Epoch AI Frontier Data Centers](https://epoch.ai/data/data-centers) | 2026-04-20 | Local dataset | Stargate site MW (Abilene 1.18, Shackelford 1.96, NM 2.21, WI 1.30, MI 1.383, Milam 1.20, Lordstown 0) | "OpenAI Stargate Abilene" |
+
+## Cross-Links
+
+- Research dispatch: `docs/research/B2_openai_stargate_us.md`
+- Atoms: `canonical_capacity_atoms.yaml` (epoch_openai_stargate_abilene/shackelford/new_mexico/wisconsin/michigan/milam rows)
+- Dedupe entries: `dedupe_audit.csv`
+- Audit response: `RESPONSE_TO_AUDIT.md`
+- Schema: `contracts/_schema.md`
+- Related: `contracts/openai_stargate_uae.md` (sovereign sidebar), `contracts/coreweave_counterparty_stack.md` (CoreWeave Stargate contribution), `contracts/microsoft_fairwater.md` (separate Microsoft AI WAN surface)

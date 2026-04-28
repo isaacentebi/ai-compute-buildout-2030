@@ -1,249 +1,109 @@
-# Anthropic Fluidstack
+# Anthropic / Fluidstack — $50B U.S. AI Infrastructure (No Disclosed MW)
 
 ## TL;DR
 
-This Rev-4.2 contract drilldown is generated from the research dispatch pending final adjudication into atoms, dedupe, and row deltas.
+Anthropic and Fluidstack announced on November 12, 2025 a **$50B "American computing infrastructure"** program covering custom-built data centers in Texas and New York, **"with more sites to come"** and capacity **"coming online throughout 2026"**. The announcement uses **"gigawatts of power"** language but discloses no megawatt figures, no term, no take-or-pay structure, no named site addresses, and no funding mechanism (whether Anthropic directly funds owned assets, leases Fluidstack-developed capacity, or underwrites Fluidstack project finance). Per Rev-4.3 policy, the canonical atom `anthropic_fluidstack_undisclosed_mw` is **intentionally excluded from all GW totals** to preserve disclosure-purity discipline; the $50B dollar magnitude is documented as a **material omission risk** because no mechanism converts dollars to MW without an analyst-inferred capex-density assumption. Site-level evidence at TeraWulf Lake Mariner (NY, 360 MW critical IT contracted to Fluidstack) and Cipher Mining Barber Lake (Colorado City, TX, 300 MW) suggests probable site mapping, but neither operator names Anthropic in primary releases.
 
-## Research Source
+## Counterparties
 
-- `docs/research/A4_anthropic_fluidstack.md`
+- **Operator**: Fluidstack (private; Google-backed). Cloud-capacity operator and lessee; developer of custom data-center capacity for Anthropic.
+- **Anchor tenant / user**: Anthropic, PBC.
+- **Financing partner(s)**: Google backstops Fluidstack lease obligations ($1.4B + $333M disclosed via TeraWulf and Cipher 8-K filings); Anthropic dollar magnitude $50B per its own announcement; physical-site landlords TeraWulf (Lake Mariner) and Cipher Mining (Barber Lake) finance shells.
 
-## Dispatch Content
+## Structure
 
-# Rev-4.2 Research Dispatch A4: Anthropic / Fluidstack
+- **Type**: Unknown — public announcement does not classify as lease, take-or-pay, equity-in-Fluidstack, project-finance underwriting, or framework agreement. Likely a hybrid of cloud capacity reservation plus capex-bearing site development.
+- **Term**: Not disclosed.
+- **Announced contract value**: $50B "American computing infrastructure" envelope. No site-level capex break-out.
+- **Equity cross-investments**: None disclosed in this transaction.
+- **Take-or-pay coverage**: Not disclosed.
+- **Optionality**: High. "More sites to come"; "gigawatts of power" without MW; "throughout 2026" without delivery curve.
 
-```yaml
-counterparty: Anthropic / Fluidstack
-contract_overview:
-  type: unknown
-  term_years: null
-  announced_capex_usd_b: 50.0
-  delivery_window: {earliest: 2026-01-01, central: 2026-12-31, latest: null}
-  exclusivity_or_optionality: >
-    Anthropic and Fluidstack announced a $50B American computing infrastructure
-    program covering data centers in Texas and New York, with more sites to
-    come. The public announcement does not disclose MW, term, take-or-pay
-    language, site names, or whether Anthropic is directly funding owned assets,
-    leasing Fluidstack capacity, or underwriting Fluidstack project finance.
-    Treat the announced program as a dollar-only physical-site envelope, not as
-    additive MW until site-level evidence resolves overlap.
-atoms:
-  - id: atom:a4_anthropic_fluidstack_50b_envelope
-    site: "Texas and New York Fluidstack sites, exact sites undisclosed"
-    operator: Fluidstack
-    user_or_anchor: Anthropic
-    gw_facility: null
-    gw_it: null
-    basis: ambiguous_compute
-    pue_assumed: null
-    energization_window: {earliest: 2026-01-01, central: 2026-12-31, latest: null}
-    operational_status: T5
-    exact_quote: "building data centers with Fluidstack in Texas and New York"
-    source_url: https://www.anthropic.com/news/anthropic-invests-50-billion-in-american-ai-infrastructure
-    source_publisher: Anthropic
-    source_publication_date: 2025-11-12
-    accessed_date: 2026-04-28
-    epoch_site_overlap_candidates:
-      - epoch_site: Fluidstack Lake Mariner
-        epoch_attributed_to: "Fluidstack -> Anthropic, G42"
-        overlap_gw_facility: 0.509
-        overlap_evidence: >
-          Epoch local snapshot carries Fluidstack Lake Mariner at 68 MW current
-          and 509 MW full-buildout facility power; Anthropic/Fluidstack names a
-          New York site but does not name Barker/Lake Mariner.
-      - epoch_site: Google sites, unspecified US
-        epoch_attributed_to: "Google -> Google DeepMind"
-        overlap_gw_facility: null
-        overlap_evidence: >
-          Anthropic's April 2026 Google/Broadcom announcement says the new TPU
-          compute is a major expansion of the November 2025 $50B American
-          infrastructure commitment; some capacity may sit in Google-owned shells
-          rather than Fluidstack-owned/leased shells.
-      - epoch_site: Microsoft Fairwater sites, unspecified
-        epoch_attributed_to: "Microsoft -> OpenAI, Microsoft"
-        overlap_gw_facility: null
-        overlap_evidence: >
-          Anthropic's Azure commitment is separate and site-undisclosed; no
-          evidence ties Fluidstack to Fairwater, but the same Anthropic demand
-          surface may be cited across announcements.
-      - epoch_site: Anthropic-Amazon New Carlisle / Amazon Madison / Amazon Ridgeland
-        epoch_attributed_to: "Amazon -> Anthropic"
-        overlap_gw_facility: null
-        overlap_evidence: >
-          AWS Project Rainier is Anthropic's primary training/cloud partnership;
-          it is a separate compute surface, but should be checked before adding
-          all Anthropic-announced GW claims.
-    risks:
-      counterparty: "Anthropic is a private lab with fast revenue growth but heavy forward compute commitments across Fluidstack, AWS, Google/Broadcom, and Azure."
-      regulatory: "No site permits are named in the Anthropic/Fluidstack announcement; local approvals must be checked at candidate sites."
-      power_interconnect: "The announcement says 'gigawatts of power' but gives no queue position, utility, interconnection, or grid-upgrade allocation."
-      supply_chain: "The likely TPU/NVIDIA/AI-rack bill of materials is exposed to HBM, advanced packaging, optical/networking, transformer, and switchgear bottlenecks."
-      technology: "Capacity may be Google TPU, NVIDIA GPU, or mixed hardware; no primary source ties a specific chip stack to the $50B envelope."
-      financing: "The public announcement does not state who funds construction debt or whether Anthropic obligations are unconditional."
-      structural_optionality: "Could be a branding layer over already-signed Fluidstack leases and Google-backed sites rather than net-new physical capacity."
+## GW Shape Over Time
 
-  - id: atom:a4_fluidstack_lake_mariner_candidate
-    site: "Lake Mariner, Barker, New York"
-    operator: "TeraWulf physical site / Fluidstack cloud tenant"
-    user_or_anchor: "Anthropic likely; G42/Core42 also likely"
-    gw_facility: [0.418, 0.450, 0.509]
-    gw_it: 0.360
-    basis: IT_MW
-    pue_assumed: 1.25
-    energization_window: {earliest: 2026-05-31, central: 2026-12-31, latest: 2027-03-31}
-    operational_status: T2
-    exact_quote: "total contracted critical IT load for Fluidstack at the campus increases to approximately 360 MW"
-    source_url: https://investors.terawulf.com/sec-filings/all-sec-filings/content/0001104659-25-079463/0001104659-25-079463.pdf
-    source_publisher: TeraWulf
-    source_publication_date: 2025-08-18
-    accessed_date: 2026-04-28
-    epoch_site_overlap_candidates:
-      - epoch_site: Fluidstack Lake Mariner
-        epoch_attributed_to: "Fluidstack -> Anthropic, G42"
-        overlap_gw_facility: 0.509
-        overlap_evidence: >
-          Direct site-name match in local Epoch snapshot. Epoch tracks 68 MW
-          current facility power and 509 MW full buildout by 2027-03-31; this
-          dispatch flags the full site as an overlap candidate, with the
-          Anthropic-specific share unresolved because G42/Core42 also appears in
-          the site user set.
-    risks:
-      counterparty: "Fluidstack is the lease/customer interface; TeraWulf owns/operates the physical campus and Google backstops Fluidstack obligations."
-      regulatory: "Lake Mariner reuse of a former power/crypto campus reduces greenfield risk but still depends on data center expansion permits and approvals."
-      power_interconnect: "TeraWulf cites dual 345 kV feeds and 500 MW available plus 250 MW pending regulatory approval; that is credible but not risk-free."
-      supply_chain: "TeraWulf filings flag construction, labor, equipment, tariff, and switchgear risk for the Lake Mariner expansion."
-      technology: "Epoch infers Google TPUs for Fluidstack buildings; Anthropic and TeraWulf do not directly disclose the chip mix."
-      financing: "Google backstop supports project-related debt, but TeraWulf discloses the backstop becomes effective only after lease commencement and specified defaults."
-      structural_optionality: "High double-count risk with the $50B Anthropic/Fluidstack announcement and with Anthropic-Google/Broadcom TPU capacity."
+| Year | Facility GW (low / central / high) | Operational status | Notes |
+|------|-----------------------------------|---------------------|-------|
+| 2026 | n/d | T5 | Anthropic and Fluidstack say "throughout 2026"; no MW disclosure |
+| 2027 | n/d | T5 | "More sites to come"; site-level evidence at Lake Mariner (full buildout 2027-03-31) and Barber Lake (Sep 2026 / Jan 2027 phasing) |
+| 2028 | n/d | T5 | No primary cadence |
+| 2029 | n/d | T5 | No primary cadence |
+| 2030 | n/d | T5 | No primary cadence |
 
-  - id: atom:a4_fluidstack_barber_lake_texas_candidate
-    site: "Barber Lake, Colorado City, Texas"
-    operator: "Cipher Mining physical site / Fluidstack cloud tenant"
-    user_or_anchor: "Fluidstack; Anthropic candidate; Google financial backstop"
-    gw_facility: 0.300
-    gw_it: 0.207
-    basis: IT_MW
-    pue_assumed: 1.449
-    energization_window: {earliest: 2026-09-30, central: 2026-10-31, latest: 2027-01-31}
-    operational_status: T3
-    exact_quote: "lease the entire 300 MW of capacity at Cipher's Barber Lake site"
-    source_url: https://www.globenewswire.com/news-release/2025/11/20/3191801/0/en/Cipher-Mining-Signs-Additional-56-MW-10-Year-AI-Hosting-Agreement-with-Fluidstack.html
-    source_publisher: Cipher Mining
-    source_publication_date: 2025-11-20
-    accessed_date: 2026-04-28
-    epoch_site_overlap_candidates:
-      - epoch_site: none found in local Epoch snapshot
-        epoch_attributed_to: null
-        overlap_gw_facility: 0.0
-        overlap_evidence: >
-          Local Epoch data_centers.csv has no Barber Lake/Cipher Fluidstack row
-          as of the available snapshot; candidate is ex-Epoch unless a newer
-          Epoch update has added it.
-      - epoch_site: Fluidstack Lake Mariner
-        epoch_attributed_to: "Fluidstack -> Anthropic, G42"
-        overlap_gw_facility: null
-        overlap_evidence: >
-          Same Fluidstack/Google financing pattern and same Anthropic Texas/New
-          York announcement; adjudication should decide whether Barber Lake is
-          the Texas site under the $50B envelope.
-    risks:
-      counterparty: "Cipher is the physical developer; Fluidstack is the customer; Anthropic is not named in Cipher's releases."
-      regulatory: "Texas site is a bitcoin-to-HPC pivot with local grid and site work still to be delivered."
-      power_interconnect: "Initial agreement supports 244 MW gross for 168 MW IT; later expansion uses the entire 300 MW site, with delivery not yet operational."
-      supply_chain: "Delivery by September 2026 and January 2027 requires data hall, cooling, substation, and AI rack procurement to stay on schedule."
-      technology: "No public source identifies whether Barber Lake will host Google TPUs, NVIDIA GPUs, or another mix."
-      financing: "Google backstops $1.4B plus an additional $333M of Fluidstack lease obligations; project-related debt still depends on construction and lease commencement."
-      structural_optionality: "Strong candidate for the Anthropic/Fluidstack Texas site, but not named by Anthropic or Fluidstack as Anthropic-dedicated."
+**No MW assigned. The atom is excluded from all totals.** Site-level candidates are tracked separately (Lake Mariner under Epoch row; Barber Lake ex-Epoch as of local snapshot). This page documents the $50B dollar magnitude and the material omission risk.
 
-  - id: atom:a4_anthropic_google_broadcom_tpu_overlap_candidate
-    site: "Google/Broadcom TPU capacity, sites undisclosed"
-    operator: "Google / Broadcom"
-    user_or_anchor: Anthropic
-    gw_facility: null
-    gw_it: 3.5
-    basis: ambiguous_compute
-    pue_assumed: null
-    energization_window: {earliest: 2027-01-01, central: 2027-12-31, latest: null}
-    operational_status: T5
-    exact_quote: "approximately 3.5 gigawatts"
-    source_url: https://www.sullcrom.com/About/News-and-Events/Highlights/2026/April/SC-Advises-Broadcom-3-5GW-TPU-Based-AI-Compute-Collaboration-Google-Anthropic
-    source_publisher: Sullivan & Cromwell
-    source_publication_date: 2026-04-08
-    accessed_date: 2026-04-28
-    epoch_site_overlap_candidates:
-      - epoch_site: Fluidstack Lake Mariner
-        epoch_attributed_to: "Fluidstack -> Anthropic, G42"
-        overlap_gw_facility: null
-        overlap_evidence: >
-          Epoch notes point to Fluidstack Lake Mariner buildings likely serving
-          Google TPUs for Anthropic; Anthropic says the Google/Broadcom compute
-          is an expansion of the November 2025 $50B American infrastructure
-          commitment.
-      - epoch_site: Google Cedar Rapids / Goodnight / New Albany / Omaha / Pryor / Council Bluffs
-        epoch_attributed_to: "Google -> Google DeepMind"
-        overlap_gw_facility: null
-        overlap_evidence: >
-          If the TPU capacity is hosted in Google-owned US sites, it could
-          overlap the Google Epoch fleet. No primary source names these sites
-          for Anthropic.
-    risks:
-      counterparty: "Anthropic, Google, and Broadcom are all named; the exact commercial obligation and site owner are not public."
-      regulatory: "Sites not disclosed, so permitting and local opposition cannot be evaluated."
-      power_interconnect: "3.5 GW appears to be compute/TPU capacity, not explicitly facility interconnect MW."
-      supply_chain: "TPU generations, Broadcom custom silicon, TSMC, HBM/packaging, and network components must scale through 2027."
-      technology: "Custom TPU roadmap risk and workload portability risk across Trainium, TPU, and NVIDIA."
-      financing: "No public RPO or capex funding schedule; industry dollar estimates are secondary."
-      structural_optionality: "Anthropic itself links this to the $50B Fluidstack-era US infrastructure commitment, so additive treatment is unsafe."
+## Sites
 
-  - id: atom:a4_anthropic_azure_overlap_candidate
-    site: "Microsoft Azure sites, undisclosed"
-    operator: Microsoft Azure
-    user_or_anchor: Anthropic
-    gw_facility: null
-    gw_it: 1.0
-    basis: ambiguous_compute
-    pue_assumed: null
-    energization_window: {earliest: null, central: 2028-12-31, latest: null}
-    operational_status: T5
-    exact_quote: "additional compute capacity up to one gigawatt"
-    source_url: https://blogs.microsoft.com/blog/2025/11/18/microsoft-nvidia-and-anthropic-announce-strategic-partnerships/
-    source_publisher: Microsoft
-    source_publication_date: 2025-11-18
-    accessed_date: 2026-04-28
-    epoch_site_overlap_candidates:
-      - epoch_site: Microsoft Fairwater Wisconsin / Atlanta / Goodyear
-        epoch_attributed_to: "Microsoft -> OpenAI, Microsoft"
-        overlap_gw_facility: null
-        overlap_evidence: >
-          Azure sites for Anthropic are not disclosed. Existing Epoch Microsoft
-          AI sites are possible but unproven hosting shells; no Fluidstack
-          involvement found.
-    risks:
-      counterparty: "Microsoft/NVIDIA/Anthropic agreement is primary, but site-level delivery is opaque."
-      regulatory: "No named sites."
-      power_interconnect: "1 GW is compute capacity and not linked to a facility interconnect."
-      supply_chain: "Depends on NVIDIA Grace Blackwell and Vera Rubin system availability."
-      technology: "NVIDIA architecture optimization could be additive to TPU/Trainium rather than replacing them."
-      financing: "Microsoft also invests up to $5B in Anthropic, creating circular commercial exposure."
-      structural_optionality: "Same Anthropic demand may be counted across Azure, Google/Broadcom, AWS, and Fluidstack announcements."
+| Site | Location | Operator | Epoch attribution | Overlap with this contract | Tier |
+|------|----------|----------|-------------------|----------------------------|------|
+| Fluidstack Lake Mariner | Barker, NY | TeraWulf (landlord) / Fluidstack (tenant) | Fluidstack → Anthropic, G42; 0.509 GW facility by 2027-03-31 | Strongest NY candidate; 360 MW critical IT contracted Fluidstack per TeraWulf 8-K | T2 |
+| Cipher Mining Barber Lake | Colorado City, TX | Cipher Mining (landlord) / Fluidstack (tenant) | Not in Epoch local snapshot | Strongest TX candidate; 300 MW lease per Cipher Nov 20, 2025 release | T3 |
+| Other Texas/New York sites | undisclosed | Fluidstack | Not in Epoch | "More sites to come" envelope | T5 |
 
-contradictions:
-  - "Anthropic/Fluidstack and Fluidstack press releases disclose $50B, Texas, New York, gigawatts of power, and 2026 starts, but disclose no MW, site names, or term."
-  - "TeraWulf and Cipher disclose concrete Fluidstack MW and Google backstops before the Anthropic announcement; neither primary source names Anthropic as the lease beneficiary."
-  - "Anthropic's April 2026 Google/Broadcom release says the new TPU compute expands the November 2025 $50B US infrastructure commitment, which conflicts with treating Google/Broadcom GW as wholly additive to Fluidstack GW."
-  - "Epoch local data attributes Lake Mariner to Fluidstack with Anthropic and G42 users; TeraWulf filings describe Fluidstack lease MW but do not allocate user shares between Anthropic, Google, or other Fluidstack customers."
-gaps:
-  - "Signed Anthropic-Fluidstack contract terms: lease, take-or-pay, capex contribution, debt support, guarantees, cancellation rights, and duration."
-  - "Named sites under the $50B announcement, especially whether New York equals Lake Mariner and Texas equals Barber Lake."
-  - "Anthropic-specific MW at Lake Mariner and Barber Lake, separated from G42/Core42, Google backstop exposure, and general Fluidstack cloud capacity."
-  - "Facility vs IT basis for all announced gigawatt figures; no primary source converts Anthropic's gigawatts of power to interconnection MW."
-  - "Utility interconnection records, PPAs, and grid upgrade cost allocation for the Texas sites."
-  - "Chip allocation by site: Google TPU vs NVIDIA GPU vs mixed hardware, and whether Broadcom/Google TPU capacity physically lands at Fluidstack sites or Google-operated sites."
-```
+## Financing Stack
 
-## Source Notes
+- **Capex envelope**: $50B Anthropic dollar magnitude (not site capex). Site capex absorbed by landlords (TeraWulf at Lake Mariner; Cipher Mining at Barber Lake) and Fluidstack debt with Google backstop.
+- **Equity / debt / RPO**: Google backstops $1.4B + $333M Fluidstack lease obligations per TeraWulf and Cipher SEC filings; Anthropic underwrites Fluidstack via $50B program but mechanism not disclosed.
+- **Public disclosures**: Anthropic Nov 12, 2025; Fluidstack Nov 12, 2025; TeraWulf 8-K Aug 18, 2025 (Fluidstack 360 MW critical IT contract); Cipher Mining Nov 20, 2025 (Barber Lake full 300 MW lease).
 
-- Primary company sources used: Anthropic (2025-11-12, 2026-04-06, 2026-04-20), Fluidstack (2025-11-12), TeraWulf 8-Ks/press releases (2025-08-14, 2025-08-18, 2025-10-14), Cipher Mining releases (2025-09-25, 2025-11-20), Microsoft (2025-11-18), Amazon (2026-04-20), and Epoch AI Frontier Data Centers (accessed 2026-04-28).
-- Secondary/legal-adviser source used only for the specific 3.5 GW Google/Broadcom figure: Sullivan & Cromwell client highlight (2026-04-08). Anthropic's own Google/Broadcom announcement supports "multiple gigawatts" starting in 2027 and explicitly links the deal to the November 2025 $50B infrastructure commitment.
-- Capacity discipline: the $50B Anthropic/Fluidstack envelope receives no direct MW assignment. Lake Mariner and Barber Lake are site candidates with separate operator-filed MW. The Google/Broadcom and Azure rows are overlap surfaces, not final incremental physical-site additions.
+## Atoms Sourced (in canonical_capacity_atoms.yaml)
 
+- `anthropic_fluidstack_undisclosed_mw` — null MW, T5, status `contracted`, **excluded from all totals** (`included_raw_horizon: false`, `included_non_stretch: false`, `included_conservative_T1_T2_T3: false`, `included_probability_weighted: false`). Documented `unknown_mw_reason: "No direct MW disclosure; dollar-only conversion intentionally not used."`
+- `fluidstack_anthropic_undisclosed_mw` — paired exclusion atom (overlay-side).
+- Cross-references: `epoch_fluidstack_lake_mariner_operational` (0.068 GW), `epoch_fluidstack_lake_mariner_buildout_remaining` (full buildout to 0.509 GW).
+
+## Dedupe Notes
+
+The Anthropic-Fluidstack $50B envelope is **deliberately not converted to MW** to avoid counting the same Anthropic demand multiple times across overlapping announcements. Anthropic's April 6, 2026 Google/Broadcom 3.5 GW release explicitly frames that deal as **"a major expansion of our November 2025 $50 billion American infrastructure commitment"**, raising same-program overlap risk against `anthropic_google_broadcom_physical_tpu` (which carries 2.700 GW central / 5.400 GW facility high). Lake Mariner is the only Epoch site explicitly carrying Anthropic-Fluidstack attribution and is treated as a candidate overlap with `anthropic_google_broadcom_physical_tpu` (0.509 GW credited to that atom's overlap dedupe). Barber Lake (Cipher) is ex-Epoch in the local snapshot and remains a candidate for adjudication. The $50B dollar magnitude is preserved on this page as a **material omission risk** so reviewers see the disclosure gap rather than a silent zero.
+
+## Risk Axes
+
+1. **Counterparty risk** — Anthropic is a private lab with fast revenue growth but heavy forward compute commitments stacked across Fluidstack ($50B), AWS (5 GW / $100B+), Google/Broadcom (4.5 GW IT), and Azure (1 GW / $30B). Fluidstack is private and Google-backed; no SEC RPO disclosure.
+2. **Regulatory risk** — No site permits named in the Anthropic/Fluidstack announcement. Lake Mariner relies on TeraWulf's existing crypto-to-AI conversion permits; Barber Lake similarly is a bitcoin-to-HPC pivot requiring local approvals; "more sites to come" exposes Anthropic to undisclosed local opposition and grid-study cadence at unannounced campuses.
+3. **Power / interconnect risk** — "Gigawatts of power" language with no queue position, utility, interconnection, or grid-upgrade allocation. TeraWulf cites dual 345 kV feeds and 500 MW available plus 250 MW pending regulatory approval at Lake Mariner; Cipher cites 300 MW Barber Lake delivery.
+4. **Supply chain risk** — TPU/NVIDIA/AI-rack bill of materials exposed to HBM, advanced packaging, optical/networking, transformer, and switchgear bottlenecks. Fluidstack chip mix not publicly tied to specific Anthropic workloads.
+5. **Technology obsolescence risk** — Capacity may be Google TPU, NVIDIA GPU, or mixed hardware; no primary source ties a specific chip stack to the $50B envelope. If TPU/Google-Broadcom architecture shifts (Broadcom 8-K supply through 2031), Fluidstack-built shells must remain chip-flexible.
+6. **Financing risk** — Public announcement does not state who funds construction debt or whether Anthropic obligations are unconditional. TeraWulf and Cipher both flag construction, financing, and principal-customer risks. Google backstop becomes effective only after lease commencement and specified defaults per TeraWulf disclosure.
+7. **Structural optionality** — Could be a branding layer over already-signed Fluidstack leases (Lake Mariner, Barber Lake) and Google-backed sites rather than net-new physical capacity. Anthropic's April 6, 2026 framing of Google/Broadcom as a $50B-program expansion supports same-program overlap interpretation; reviewer caution warranted before treating $50B as fully incremental.
+
+## Temporal Logic
+
+- **Earliest**: 2026-01-01 — Anthropic and Fluidstack say capacity comes online **"throughout 2026"**.
+- **Central**: 2026-12-31 — mid-year ramp aligned with Lake Mariner full buildout (2027-03-31) and Barber Lake delivery (Sep 2026 / Jan 2027 phasing).
+- **Latest**: Not disclosed; "more sites to come" implies post-2026 delivery.
+- **Critical-path dependency**: Site identification beyond Lake Mariner and Barber Lake; chip allocation (TPU vs GPU); Fluidstack project-finance closes; Anthropic enterprise revenue trajectory to support $50B obligation.
+
+## Reviewer Findings Addressed
+
+- **Material omission risk documented**: $50B "gigawatts of power" with no MW is preserved as a disclosure gap rather than silently zeroed. Atom carries `unknown_mw_reason` field; both `anthropic_fluidstack_undisclosed_mw` and `fluidstack_anthropic_undisclosed_mw` are excluded from totals.
+- **Same-program overlap with Anthropic-Google/Broadcom**: Anthropic Apr 6, 2026 release explicitly frames Google/Broadcom 3.5 GW as expansion of the Nov 2025 $50B commitment. Documented in `dedupe_audit.csv` and reflected in `anthropic_google_broadcom_physical_tpu` overlap dedupe (0.509 GW Lake Mariner credit).
+- **Site-level candidates flagged**: Lake Mariner (Epoch) and Barber Lake (ex-Epoch) carried as adjudication candidates with operator-side primary MW evidence.
+
+## Open Questions / Gaps
+
+- Signed Anthropic-Fluidstack contract terms: lease, take-or-pay, capex contribution, debt support, guarantees, cancellation rights, duration.
+- Named sites under the $50B announcement, especially whether New York equals Lake Mariner and Texas equals Barber Lake, plus the "more sites to come" envelope.
+- Anthropic-specific MW at Lake Mariner and Barber Lake, separated from G42/Core42, Google backstop exposure, and general Fluidstack cloud capacity.
+- Facility vs IT basis for all announced "gigawatt" figures; no primary source converts Anthropic's "gigawatts of power" to interconnection MW.
+- Utility interconnection records, PPAs, and grid upgrade cost allocation for the Texas sites.
+- Chip allocation by site: Google TPU vs NVIDIA GPU vs mixed hardware, and whether Broadcom/Google TPU capacity physically lands at Fluidstack sites or Google-operated sites.
+- Whether the $50B figure should be partially absorbed into `anthropic_google_broadcom_physical_tpu` overlap dedupe at higher fraction than the current Lake Mariner credit.
+
+## Source Citations
+
+| Source | Date | Type | Load-bearing claim | Quote |
+|--------|------|------|---------------------|-------|
+| [Anthropic, "$50 billion in American AI infrastructure"](https://www.anthropic.com/news/anthropic-invests-50-billion-in-american-ai-infrastructure) | 2025-11-12 | Primary company announcement | $50B; Texas and New York; throughout 2026 | "building data centers with Fluidstack in Texas and New York"; "$50 billion" |
+| [Fluidstack, "Selected by Anthropic to deliver custom data centers in the US"](https://www.fluidstack.io/about-us/blog/fluidstack-selected-by-anthropic-to-deliver-custom-data-centers-in-the-us) | 2025-11-12 | Primary company announcement | "Custom" Anthropic data centers; "gigawatts of power" framing | "gigawatts of power" |
+| [TeraWulf 8-K](https://investors.terawulf.com/sec-filings/all-sec-filings/content/0001104659-25-079463/0001104659-25-079463.pdf) | 2025-08-18 | SEC filing | Lake Mariner Fluidstack 360 MW critical IT contract; Google backstop | "total contracted critical IT load for Fluidstack at the campus increases to approximately 360 MW" |
+| [Cipher Mining, Barber Lake 300 MW lease](https://www.globenewswire.com/news-release/2025/11/20/3191801/0/en/Cipher-Mining-Signs-Additional-56-MW-10-Year-AI-Hosting-Agreement-with-Fluidstack.html) | 2025-11-20 | Primary company announcement | Fluidstack leases full 300 MW at Cipher Barber Lake site | "lease the entire 300 MW of capacity at Cipher's Barber Lake site" |
+| [Anthropic, "Google/Broadcom partnership"](https://www.anthropic.com/news/google-broadcom-partnership-compute) | 2026-04-06 | Primary company announcement | Frames Google/Broadcom as expansion of $50B Nov 2025 commitment | "major expansion of our November 2025 $50 billion American infrastructure commitment" |
+| [Epoch AI Frontier Data Centers](https://epoch.ai/data/data-centers) | 2026-04-20 | Local dataset | Lake Mariner facility MW; Anthropic/G42 user attribution | "Fluidstack Lake Mariner" |
+
+## Cross-Links
+
+- Research dispatch: `docs/research/A4_anthropic_fluidstack.md`
+- Atoms: `canonical_capacity_atoms.yaml` (`anthropic_fluidstack_undisclosed_mw`, `fluidstack_anthropic_undisclosed_mw`)
+- Dedupe entries: `dedupe_audit.csv` (rows for `fluidstack_anthropic_undisclosed_mw`)
+- Audit response: `RESPONSE_TO_AUDIT.md`
+- Schema: `contracts/_schema.md`
+- Related: `contracts/anthropic_google_broadcom.md` (same-program overlap), `contracts/anthropic_aws.md`, `contracts/anthropic_azure.md`

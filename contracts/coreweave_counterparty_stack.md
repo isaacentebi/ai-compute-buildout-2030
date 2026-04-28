@@ -1,308 +1,130 @@
-# Coreweave Counterparty Stack
+# CoreWeave Counterparty Stack
 
 ## TL;DR
 
-This Rev-4.2 contract drilldown is generated from the research dispatch pending final adjudication into atoms, dedupe, and row deltas.
+CoreWeave's FY2025 Form 10-K (filed 2026-03-02) discloses **43 data centers with over 850 MW of active power** and **approximately 3.1 GW of total contracted power capacity** as of December 31, 2025. **The 850 MW active fleet is a subset of the 3.1 GW contracted total, not additive** — this is the headline reviewer #5 fix in Rev-4.3 and is the load-bearing arithmetic for ex-Epoch attribution. CoreWeave reports $60.7B of remaining performance obligations (RPO) and $66.8B of total revenue backlog with a five-year weighted-average remaining contract term. The customer stack is concentrated but diversifying: Microsoft was 67% of FY2025 revenue, OpenAI agreements total up to approximately $22.4B, Meta is committed via a September 2025 $14.2B order plus an April 2026 $21B expansion through December 2032, and IBM is a named GB200 NVL72 supercomputer customer with no MW disclosure. Local ex-Epoch counted capacity is 2.300 GW (= 3.100 GW contracted − 0.800 GW Galaxy Helios already attributed to the Epoch row), with `coreweave_operational_disclosed` retained for T1 tier-table visibility but excluded from incremental totals.
 
-## Research Source
+## Counterparties
 
-- `docs/research/C1_coreweave_counterparty_stack.md`
+- **Operator:** CoreWeave, Inc. (NYSE: CRWV; SEC CIK 1769628). Operates 43 data centers across the United States and Europe per the FY2025 10-K. Acts as both colocation lessee (Galaxy Helios; Applied Digital Polaris Forge 1) and hyperscaler/AI cloud capacity provider.
+- **Anchor tenants:**
+  - **Microsoft** — 67% of FY2025 revenue per CoreWeave 10-K; MSA filed as SEC exhibit 2025-03-03 specifying U.S. default geography, dedicated fiber, and customer hardware requirements.
+  - **OpenAI** — total contract value up to approximately $22.4B (initial $11.9B March 2025 plus up-to-$6.5B September 2025 expansion); $350M OpenAI stock issuance to CoreWeave under the March 2025 agreement.
+  - **Meta** — September 2025 order for up to approximately $14.2B through December 2031 under the December 2023 MSA; April 9, 2026 expansion of approximately $21B through December 2032 across multiple locations including initial Vera Rubin deployments.
+  - **IBM** — GB200 Grace Blackwell supercomputer for IBM Granite model training, January 15, 2025 announcement; **MW not disclosed in any public source.**
+- **Financing partners:**
+  - Galaxy Digital — $1.4B Helios project financing close (August 15, 2025).
+  - Applied Digital — $2B 10-year triple-net lease structure for Polaris Forge 1.
+  - Public debt and asset-level project finance backed by customer take-or-pay contracts; specific lenders redacted in primary filings.
 
-## Dispatch Content
+## Structure
 
-# Rev-4.2 Research Dispatch C1: CoreWeave Counterparty Stack
+- **Type:** Cloud capacity (hyperscaler/AI customer take-or-pay style) over leased and developed colocation footprint.
+- **Term:** Five-year weighted-average remaining contract duration per FY2025 10-K. OpenAI contract structured to 2031-05-31 latest; Meta expansion through December 2032; Galaxy Helios financing on a 15-year revenue basis.
+- **Announced contract value (named):** $57.6B disclosed customer-order stack (OpenAI ~$22.4B + Meta $14.2B initial + Meta $21B expansion). This is named-customer aggregate, not additive capacity.
+- **Aggregate filed obligations:** $60.7B RPO; $66.8B total revenue backlog (FY2025 results, 2026-02-27).
+- **Take-or-pay coverage:** CoreWeave 10-K describes customer contracts generally as multi-year committed, take-or-pay capacity purchases. Order forms are heavily redacted; Microsoft, OpenAI, Meta, and IBM do not disclose MW allocations by site.
+- **Exclusivity:** None disclosed. Microsoft MSA is non-exclusive. OpenAI and Meta agreements are stated as "complementary" to other compute relationships (Microsoft, Oracle/Stargate).
+- **Optionality:** Order-form structure permits expansion (illustrated by OpenAI September 2025 $6.5B add-on and Meta April 2026 $21B expansion). Termination/walk-away provisions are redacted in SEC exhibits.
 
-accessed_date: 2026-04-28
+## GW Shape Over Time
 
-## TL;DR
+| Year | Facility GW low | Facility GW central | Facility GW high | Operational status | Notes |
+|---|---:|---:|---:|---|---|
+| 2025 | 0.850 | 0.850 | 0.850 | T1 | 10-K discloses "over 850 MW of active power" at 43 data centers as of 2025-12-31 |
+| 2026 | 1.30 | 1.50 | 1.80 | T2/T3 | PF1 building 1 RFS Q4 2025; PF1 building 2 mid-2026; Helios Phase I 200 MW gross 1H 2026 |
+| 2027 | 2.10 | 2.40 | 2.70 | T2/T3 | Helios Phase II 400 MW gross commencing 2027; PF1 building 3 RFS 2027 |
+| 2028 | 2.80 | 3.00 | 3.10 | T3 | Helios Phase III 200 MW gross commencing 2028 |
+| 2029 | 3.10 | 3.10 | 3.10 | T3 | Full contracted envelope per 10-K ($60.7B RPO supports five-year delivery) |
+| 2030 | 3.10 | 3.10 | 3.30 | T3/T4 | Galaxy 830 MW additional ERCOT approval is optional; Meta/OpenAI Vera Rubin expansions |
 
-CoreWeave is now primary-source verifiable as a large, public neocloud with 43 data centers, over 850 MW of active power, approximately 3.1 GW of total contracted power capacity, $60.7B of RPO, and $66.8B of broader revenue backlog as of December 31, 2025. The commercial stack is concentrated but diversifying: Microsoft was 67% of FY2025 revenue, OpenAI has agreements totaling up to about $22.4B, Meta had an initial $14.2B order and a newer April 2026 expansion for about $21B, and IBM is a named GB200/NVL72 supercomputer customer.
+## Sites
 
-For Rev-4.2, the strongest site-level overlap candidate is Galaxy Helios in West Texas: Galaxy discloses CoreWeave has committed to the full 800 MW gross approved capacity, while local Epoch already carries `epoch_coreweave_helios_buildout_remaining` as 0.800 GW facility by 2029-01-01 with Microsoft as speculative user. Polaris Forge 1 is not in the local Epoch snapshot, but it is a material leaseback/double-count candidate because Applied Digital discloses 400 MW of critical IT capacity leased to CoreWeave. Customer-level overlaps with Microsoft/OpenAI/Meta sites remain weak without site allocations, but should be carried as candidates because the same demand pools also appear in Epoch-attributed Fairwater, Stargate, Hyperion/Prometheus, and other hyperscaler rows.
+| Site | Location | Operator | Epoch attribution | Overlap with this contract | Tier |
+|---|---|---|---|---:|---|
+| Galaxy Helios | Dickens County, West Texas | Galaxy Digital (landlord); CoreWeave (AI/HPC operator) | Epoch row "Coreweave Helios" 0 MW current / 0.800 GW buildout by 2029-01-01 | 0.800 GW (excluded from coreweave_contracted_ex_epoch) | T3 |
+| Applied Digital Polaris Forge 1 | Ellendale, North Dakota | Applied Digital (landlord); CoreWeave (tenant) | Not in local Epoch snapshot | 0.400 GW critical IT (3 buildings under 10-yr lease) | T3 |
+| Other 41 disclosed data centers | U.S. + Europe (sites not fully disclosed) | CoreWeave / various lessors | Not individually mapped in Epoch | Embedded in 850 MW active fleet | T1 |
+| Lancaster / Kenilworth / European sites | Various | CoreWeave | Not in local Epoch snapshot | Subsumed under fleet 850 MW | T1 |
 
-```yaml
-counterparty: "CoreWeave / Microsoft / OpenAI / Meta / IBM"
-contract_overview:
-  type: cloud capacity
-  term_years: 5
-  announced_capex_usd_b: null
-  announced_contract_value_usd_b: 57.6
-  delivery_window: {earliest: 2026-01-01, central: 2027-12-31, latest: 2032-12-31}
-  exclusivity_or_optionality: "CoreWeave describes customer contracts generally as multi-year committed, take-or-pay capacity purchases. Customer/site order forms are heavily redacted; Microsoft, OpenAI, Meta, and IBM do not disclose MW allocations by site. The $57.6B value is a named disclosed customer-order stack, not an additive capacity estimate: OpenAI up to ~$22.4B plus Meta $14.2B and ~$21B expansion. CoreWeave's filed aggregate is $60.7B RPO / $66.8B revenue backlog; Microsoft is disclosed by revenue concentration rather than total contract value, and IBM value is undisclosed."
-atoms:
-  - id: atom:coreweave_fleet_active_power_disclosed
-    site: "CoreWeave 43-data-center fleet, United States and Europe; sites not fully disclosed"
-    operator: CoreWeave
-    user_or_anchor: "Microsoft / OpenAI / Meta / IBM / other AI customers"
-    gw_facility: 0.850
-    gw_it: 0.680
-    basis: facility_MW
-    pue_assumed: 1.25
-    energization_window: {earliest: 2025-12-31, central: 2025-12-31, latest: 2025-12-31}
-    operational_status: T1
-    exact_quote: "over 850 MW of active power"
-    source_url: "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/crwv-20251231.htm"
-    source_publisher: "CoreWeave FY2025 Form 10-K / SEC"
-    source_publication_date: 2026-03-02
-    accessed_date: 2026-04-28
-    epoch_site_overlap_candidates:
-      - epoch_site: "Coreweave Helios"
-        epoch_attributed_to: "CoreWeave owner; Microsoft user #speculative"
-        overlap_gw_facility: 0.0
-        overlap_evidence: "Local Epoch Helios row is 0 MW current / 800 MW buildout, so the 850 MW active fleet is likely ex-Epoch Helios unless later data-hall delivery is added."
-      - epoch_site: "Applied Digital Polaris Forge 1"
-        epoch_attributed_to: "not in local Epoch; local neocloud leaseback candidate"
-        overlap_gw_facility: 0.100
-        overlap_evidence: "Applied Digital says PF1 building one is scheduled/RFS around Q4 2025 in local context; if included in CoreWeave's active fleet, it should not also be counted under Applied Digital."
-    risks:
-      counterparty: "Medium: Microsoft remains the dominant revenue customer; OpenAI, Meta and IBM diversify backlog but add customer-concentration and credit exposure."
-      regulatory: "Medium: multi-state data center, export-control, privacy/security, and local power/tax scrutiny; individual fleet sites are not all disclosed."
-      power_interconnect: "High: active fleet growth from 360 MW to 850+ MW in one year depends on leased data-center providers and utility delivery."
-      supply_chain: "High: CoreWeave cites dependency on latest GPUs, networking, storage, liquid cooling, chillers and HVAC systems."
-      technology: "Medium-high: rapid transition from H100/GB200 to B300/Vera Rubin can strand or reprice older clusters."
-      financing: "High: asset-level debt is supported by customer take-or-pay contracts; delayed site delivery can push revenue."
-      structural_optionality: "Medium: committed contracts reduce demand risk, but order forms are redacted and site/customer fungibility is high."
-  - id: atom:coreweave_total_contracted_power_disclosed
-    site: "CoreWeave contracted fleet, site mix undisclosed"
-    operator: CoreWeave
-    user_or_anchor: "Microsoft / OpenAI / Meta / IBM / other AI customers"
-    gw_facility: 3.100
-    gw_it: 2.480
-    basis: facility_MW
-    pue_assumed: 1.25
-    energization_window: {earliest: 2026-01-01, central: 2027-12-31, latest: null}
-    operational_status: T3
-    exact_quote: "total contracted power capacity was approximately 3.1 GW"
-    source_url: "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/crwv-20251231.htm"
-    source_publisher: "CoreWeave FY2025 Form 10-K / SEC"
-    source_publication_date: 2026-03-02
-    accessed_date: 2026-04-28
-    epoch_site_overlap_candidates:
-      - epoch_site: "Coreweave Helios"
-        epoch_attributed_to: "CoreWeave owner; Microsoft user #speculative"
-        overlap_gw_facility: 0.800
-        overlap_evidence: "Local Epoch carries Helios as 800 MW facility buildout; Galaxy says CoreWeave committed to the full 800 MW approved power capacity."
-      - epoch_site: "Microsoft Fairwater Wisconsin"
-        epoch_attributed_to: "Microsoft -> OpenAI, Microsoft"
-        overlap_gw_facility: null
-        overlap_evidence: "Microsoft is both CoreWeave's largest FY2025 revenue customer and an Epoch hyperscaler anchor; no source ties CoreWeave capacity to Fairwater."
-      - epoch_site: "Microsoft Fairwater Atlanta"
-        epoch_attributed_to: "Microsoft -> OpenAI"
-        overlap_gw_facility: null
-        overlap_evidence: "Customer-level overlap only: Microsoft demand stack could substitute for or complement Azure/Fairwater capacity; no CoreWeave site allocation disclosed."
-      - epoch_site: "OpenAI Stargate Abilene / Shackelford / Milam / Michigan / Wisconsin / New Mexico"
-        epoch_attributed_to: OpenAI
-        overlap_gw_facility: null
-        overlap_evidence: "OpenAI says CoreWeave complements Microsoft, Oracle and Stargate; no evidence that CoreWeave physical sites are Stargate sites."
-      - epoch_site: "Meta Hyperion / Meta Prometheus / Meta Temple"
-        epoch_attributed_to: Meta
-        overlap_gw_facility: null
-        overlap_evidence: "Meta's CoreWeave orders are cloud capacity at multiple undisclosed CoreWeave locations, not identified with Meta-owned Epoch campuses."
-    risks:
-      counterparty: "Medium-high: filed 10-K says top-customer loss or reduced spend would materially affect CoreWeave."
-      regulatory: "Medium: location opacity prevents project-by-project permitting checks."
-      power_interconnect: "High: 3.1 GW contracted includes future deployments over coming years, likely across Helios, PF1 and other undisclosed leased sites."
-      supply_chain: "High: GPU, networking, storage, transformer, liquid-cooling and data-center-shell execution risk."
-      technology: "High: contract durations average roughly five years while accelerator generations turn faster."
-      financing: "High: RPO/backlog are bankable but dependent on delivery and availability requirements."
-      structural_optionality: "Medium: take-or-pay lowers optionality, but customer order forms and capacity substitutions are redacted."
-  - id: atom:coreweave_helios_galaxy_overlap_candidate
-    site: "Galaxy Helios data center campus, Dickens County / West Texas"
-    operator: "Galaxy Digital infrastructure; CoreWeave tenant/operator of AI/HPC workloads"
-    user_or_anchor: "CoreWeave; downstream user possibly Microsoft per Epoch #speculative"
-    gw_facility: 0.800
-    gw_it: 0.526
-    basis: facility_MW
-    pue_assumed: 1.52
-    energization_window: {earliest: 2026-06-30, central: 2027-12-31, latest: 2028-12-31}
-    operational_status: T3
-    exact_quote: "full 800 MW of approved power capacity"
-    source_url: "https://www.galaxy.com/newsroom/galaxy-closes-helios-project-financing"
-    source_publisher: "Galaxy Digital"
-    source_publication_date: 2025-08-15
-    accessed_date: 2026-04-28
-    source_notes:
-      - "Galaxy Q4 2025 results give 526 MW contracted critical IT load and 800 MW gross power: Phase I 133 MW critical / 200 MW gross in 1H26; Phase II 260 MW critical / 400 MW gross in 2027; Phase III 133 MW critical / 200 MW gross commencing 2028."
-      - "The pue_assumed field is just 800 gross divided by 526 critical IT. It is a gross-to-critical conversion from Galaxy's lease tables, not a disclosed operating PUE."
-      - "Galaxy also discloses 830 MW additional ERCOT approval and 2.7 GW under load study / 3.5 GW potential, but only the 800 MW CoreWeave commitment is counted as this atom's contracted candidate."
-    epoch_site_overlap_candidates:
-      - epoch_site: "Coreweave Helios"
-        epoch_attributed_to: "CoreWeave owner; Microsoft user #speculative"
-        overlap_gw_facility: 0.800
-        overlap_evidence: "Same Helios site and same 800 MW gross/approved-power scale as local Epoch's Coreweave Helios buildout row."
-    risks:
-      counterparty: "Medium: Galaxy's revenue depends on CoreWeave lease performance; CoreWeave's downstream user allocation is undisclosed."
-      regulatory: "Medium: ERCOT and Texas interconnection milestones are favorable but expansion beyond 800 MW requires further grid/load-study progress."
-      power_interconnect: "High: Phase I/II/III delivery runs 2026-2028 and depends on substation, transmission, commissioning and retrofit execution."
-      supply_chain: "Medium-high: retrofit from mining to AI/HPC needs dense power, cooling and high-voltage equipment."
-      technology: "Medium: site must support rapidly changing accelerator and liquid-cooling requirements."
-      financing: "Medium: $1.4B project financing covers initial retrofit/expansion; Galaxy flags financing-covenant and construction risks."
-      structural_optionality: "Medium: CoreWeave exercised options to reach 800 MW, but Galaxy's 2.7 GW additional load-study pipeline is optional and unleased in primary sources."
-  - id: atom:coreweave_applied_digital_polaris_forge_1_overlap_candidate
-    site: "Applied Digital Polaris Forge 1 Campus, Ellendale, North Dakota"
-    operator: Applied Digital
-    user_or_anchor: CoreWeave
-    gw_facility: null
-    gw_it: 0.400
-    basis: IT_MW
-    pue_assumed: null
-    energization_window: {earliest: 2025-12-31, central: 2026-12-31, latest: 2027-12-31}
-    operational_status: T3
-    exact_quote: "400MW in Total Critical IT Capacity"
-    source_url: "https://ir.applieddigital.com/news-events/press-releases/detail/128/applied-digital-finalizes-additional-150mw-lease-with"
-    source_publisher: "Applied Digital"
-    source_publication_date: 2025-08-29
-    accessed_date: 2026-04-28
-    source_notes:
-      - "Applied Digital discloses three long-term leases with CoreWeave: 100 MW ready-for-service target Q4 2025, 150 MW expected mid-2026, and 150 MW expected full capacity/RFS in 2027."
-      - "This is a leaseback/dedupe candidate against CoreWeave's fleet, not an Epoch overlap in the local canonical snapshot."
-    epoch_site_overlap_candidates:
-      - epoch_site: "None in local Epoch snapshot"
-        epoch_attributed_to: null
-        overlap_gw_facility: null
-        overlap_evidence: "Local neocloud overlay explicitly says Polaris Forge 1 is not in Epoch but should be deduped against CoreWeave."
-    risks:
-      counterparty: "Medium: Applied Digital depends on CoreWeave as anchor tenant for PF1."
-      regulatory: "Medium: North Dakota site approvals and local power arrangements need source-level refresh."
-      power_interconnect: "High: three-building delivery schedule spans Q4 2025, mid-2026 and 2027."
-      supply_chain: "High: high-density AI factory buildout depends on electrical and cooling equipment delivery."
-      technology: "Medium: CoreWeave workload density may change before building three is ready."
-      financing: "Medium-high: Applied Digital flags construction, financing and principal-customer risks."
-      structural_optionality: "Medium: signed leases are firm, but future 1 GW campus scale is not equivalent to the 400 MW CoreWeave commitment."
-  - id: atom:coreweave_openai_capacity_stack
-    site: "CoreWeave sites not disclosed"
-    operator: CoreWeave
-    user_or_anchor: OpenAI
-    gw_facility: null
-    gw_it: null
-    basis: ambiguous_compute
-    pue_assumed: null
-    energization_window: {earliest: 2025-03-10, central: 2027-12-31, latest: 2031-05-31}
-    operational_status: T3
-    exact_quote: "total contract value with OpenAI up to approximately $22.4 billion"
-    source_url: "https://investors.coreweave.com/news/news-details/2025/CoreWeave-Expands-Agreement-with-OpenAI-by-up-to-6-5B/default.aspx"
-    source_publisher: "CoreWeave"
-    source_publication_date: 2025-09-25
-    accessed_date: 2026-04-28
-    epoch_site_overlap_candidates:
-      - epoch_site: "OpenAI Stargate Abilene"
-        epoch_attributed_to: OpenAI
-        overlap_gw_facility: null
-        overlap_evidence: "OpenAI's March 2025 CoreWeave quote says the deal complements Microsoft, Oracle and Stargate; it does not identify CoreWeave sites as Stargate."
-      - epoch_site: "Microsoft Fairwater Wisconsin / Atlanta"
-        epoch_attributed_to: "Microsoft -> OpenAI"
-        overlap_gw_facility: null
-        overlap_evidence: "OpenAI also uses Microsoft/Fairwater capacity; CoreWeave capacity is a separate cloud agreement unless later site allocation proves otherwise."
-    risks:
-      counterparty: "Medium-high: OpenAI is private and large relative to CoreWeave; CoreWeave 10-K explicitly flags OpenAI credit exposure."
-      regulatory: "Medium: OpenAI model and compute regulation may affect demand, but site-specific permitting is undisclosed."
-      power_interconnect: "Unknown-high: no MW or site schedule disclosed."
-      supply_chain: "High: frontier training/inference workloads require latest NVIDIA platforms and network scale."
-      technology: "High: reserved capacity may need hardware refresh during contract life."
-      financing: "Medium-high: contracts support RPO/backlog and asset-level debt but depend on delivery."
-      structural_optionality: "Medium: stated as up-to contract values and reserved capacity orders; termination/order details are redacted."
-  - id: atom:coreweave_meta_capacity_stack
-    site: "CoreWeave multiple locations not disclosed"
-    operator: CoreWeave
-    user_or_anchor: Meta
-    gw_facility: null
-    gw_it: null
-    basis: ambiguous_compute
-    pue_assumed: null
-    energization_window: {earliest: 2026-04-09, central: 2029-12-31, latest: 2032-12-31}
-    operational_status: T3
-    exact_quote: "AI cloud capacity through December 2032"
-    source_url: "https://investors.coreweave.com/news/news-details/2026/CoreWeave-and-Meta-Announce-21-Billion-Expanded-AI-Infrastructure-Agreement/default.aspx"
-    source_publisher: "CoreWeave"
-    source_publication_date: 2026-04-09
-    accessed_date: 2026-04-28
-    source_notes:
-      - "CoreWeave FY2025 10-K also discloses a September 2025 Meta order under an existing MSA for up to approximately $14.2B through December 2031."
-      - "The April 2026 release says dedicated capacity will be across multiple locations and include initial NVIDIA Vera Rubin platform deployments."
-    epoch_site_overlap_candidates:
-      - epoch_site: "Meta Hyperion"
-        epoch_attributed_to: Meta
-        overlap_gw_facility: null
-        overlap_evidence: "Customer-level overlap only: Meta's own Hyperion campus is already Epoch-attributed; CoreWeave's Meta capacity is at multiple CoreWeave locations."
-      - epoch_site: "Meta Prometheus / Meta Temple"
-        epoch_attributed_to: Meta
-        overlap_gw_facility: null
-        overlap_evidence: "No primary source ties the CoreWeave Meta order to these Meta-owned/leased Epoch campuses."
-    risks:
-      counterparty: "Low-medium: Meta has strong credit, but customer-concentration and AI strategy reprioritization matter."
-      regulatory: "Medium: Meta AI/data-center scrutiny may affect both owned and leased AI capacity."
-      power_interconnect: "Unknown-high: multiple CoreWeave locations are not named."
-      supply_chain: "High: Vera Rubin early deployment creates platform and cooling readiness risk."
-      technology: "High: inference workload mix may alter capacity needs through 2032."
-      financing: "Medium: large Meta contract improves financing support; exact MW and asset collateral are not disclosed."
-      structural_optionality: "Medium: initial commitment and expansion language are firm commercially, but order form terms are redacted."
-  - id: atom:coreweave_ibm_granite_supercomputer
-    site: "CoreWeave site not disclosed"
-    operator: CoreWeave
-    user_or_anchor: IBM
-    gw_facility: null
-    gw_it: null
-    basis: ambiguous_compute
-    pue_assumed: null
-    energization_window: {earliest: 2025-01-15, central: 2025-12-31, latest: null}
-    operational_status: T4
-    exact_quote: "one of the first NVIDIA GB200 Grace Blackwell Superchip-enabled AI supercomputers"
-    source_url: "https://newsroom.ibm.com/2025-01-15-coreweave-partners-with-ibm-to-deliver-new-ai-supercomputer-for-ibm-granite-models"
-    source_publisher: "IBM Newsroom / CoreWeave"
-    source_publication_date: 2025-01-15
-    accessed_date: 2026-04-28
-    epoch_site_overlap_candidates:
-      - epoch_site: "No named Epoch overlap"
-        epoch_attributed_to: null
-        overlap_gw_facility: null
-        overlap_evidence: "IBM/CoreWeave disclosed platform and workload but not MW, facility, utility, or location."
-    risks:
-      counterparty: "Low: IBM is an investment-grade enterprise customer, but contract value is undisclosed."
-      regulatory: "Low-medium: enterprise AI and data handling requirements may constrain deployment."
-      power_interconnect: "Unknown: no site or MW disclosed."
-      supply_chain: "Medium-high: one of the first GB200 NVL72 supercomputers depends on early Blackwell supply."
-      technology: "Medium: IBM Granite training stack may shift as IBM evolves hybrid-cloud AI."
-      financing: "Low-medium: no disclosed dollar commitment, so financing relevance to CoreWeave RPO is unclear."
-      structural_optionality: "High: no term, MW, or minimum payment disclosed."
-contradictions:
-  - "CoreWeave reports 3.1 GW total contracted power capacity on a fleet basis, while Galaxy and Applied Digital disclose Helios/PF1 in gross power and/or critical IT load. Do not merge these bases without a conversion rule."
-  - "Local neocloud overlay subtracts only the 0.800 GW Helios Epoch overlap from CoreWeave's 3.1 GW to get 2.300 GW contracted ex-Epoch, while separately marking Polaris Forge 1 as a CoreWeave/Applied Digital leaseback. That is a local attribution convention, not a primary-source statement."
-  - "Epoch attributes Helios user to Microsoft on a speculative basis. CoreWeave primary filings show Microsoft is the largest customer, but no primary source maps Microsoft to Helios."
-  - "Galaxy's Helios Phase I/II/III schedule supports 2026-2028 delivery, while local Epoch stores Helios buildout by 2029-01-01. Treat the difference as schedule granularity, not a resolved contradiction."
-  - "CoreWeave's April 2026 Meta expansion adds a new $21B commitment but no MW; it should not mechanically increase the 3.1 GW contracted-power atom without a new capacity disclosure."
-gaps:
-  - "Named site allocation by customer for Microsoft, OpenAI, Meta and IBM."
-  - "Whether any Helios capacity is specifically assigned to Microsoft, OpenAI, Meta, IBM, or another customer."
-  - "CoreWeave Q1 2026 filing/results, if filed after this dispatch, to update 850 MW active and 3.1 GW contracted power."
-  - "Primary SEC 8-K text for the April 2026 Meta order form, including exact relationship to the September 2025 $14.2B order."
-  - "Polaris Forge 1 current RFS/energized status by building as of 2026-04-28 from Applied Digital 10-Q or site-specific utility evidence."
-  - "Full CoreWeave site list and crosswalk to Epoch rows, including Helios, Core Scientific/CoreWeave sites, Lancaster, Kenilworth, and European sites."
-  - "Power-basis reconciliation among CoreWeave 'active/contracted power', Galaxy gross power vs critical IT load, Applied Digital critical IT capacity, and Epoch facility MW."
-```
+## Financing Stack
 
-## Evidence Register
+- **Capex envelope:** Not disclosed as single figure. CoreWeave operates an asset-light/leased model; site-level capex is borne by lessors (Galaxy at Helios, Applied Digital at PF1) or financed via project debt.
+- **Equity:** Public-company common equity; OpenAI received $350M of CoreWeave stock under the March 2025 agreement.
+- **Project finance / debt:** $1.4B Galaxy Helios project financing closed August 15, 2025 (15-year revenue basis); CoreWeave 10-K discloses asset-level debt supported by customer take-or-pay contracts but redacts specific facilities.
+- **RPO / prepaid:** $60.7B remaining performance obligations; $66.8B total revenue backlog as of December 31, 2025; five-year weighted-average remaining contract duration.
+- **Public disclosures:** CoreWeave FY2025 Form 10-K (2026-03-02); Q4/FY2025 results press release (2026-02-27); SEC-filed Microsoft MSA exhibit (2025-03-03); SEC-filed Meta MSA exhibit (2025-09-30); company press releases for OpenAI March 2025 and September 2025 agreements, Meta April 2026 expansion, and IBM January 2025 supercomputer.
 
-| Source | Date | Type | Load-bearing evidence | Short quote | Accessed |
-| --- | --- | --- | --- | --- | --- |
-| [CoreWeave FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/crwv-20251231.htm) | 2026-03-02 | SEC filing | 43 data centers, 850+ MW active power, 3.1 GW contracted power, $60.7B RPO, five-year weighted-average committed contract duration, Microsoft/OpenAI/Meta concentration. | "43 data centers with over 850 MW" | 2026-04-28 |
-| [CoreWeave Q4/FY2025 results](https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Fourth-Quarter-and-Fiscal-Year-2025-Results/) | 2026-02-27 | Primary company release | $66.8B revenue backlog and operating update around active/contracted power. | "$66.8 billion" | 2026-04-28 |
-| [CoreWeave-Microsoft MSA exhibit](https://www.sec.gov/Archives/edgar/data/1769628/000119312525044231/d899798dex1023.htm) | 2025-03-03 | SEC contract exhibit | Microsoft MSA terms, U.S. default geography, dedicated fiber, customer hardware requirements, order-form structure. | "provided within the United States" | 2026-04-28 |
-| [CoreWeave OpenAI March 2025 agreement](https://coreweave.com/news/coreweave-announces-agreement-with-openai-to-deliver-ai-infrastructure) | 2025-03-10 | Primary company release | Initial OpenAI contract up to $11.9B and OpenAI $350M stock issuance. | "up to $11.9 billion" | 2026-04-28 |
-| [CoreWeave OpenAI September 2025 expansion](https://investors.coreweave.com/news/news-details/2025/CoreWeave-Expands-Agreement-with-OpenAI-by-up-to-6-5B/default.aspx) | 2025-09-25 | Primary company release | Additional up-to-$6.5B agreement and total OpenAI contract value up to ~$22.4B. | "up to approximately $22.4 billion" | 2026-04-28 |
-| [CoreWeave Meta April 2026 expansion](https://investors.coreweave.com/news/news-details/2026/CoreWeave-and-Meta-Announce-21-Billion-Expanded-AI-Infrastructure-Agreement/default.aspx) | 2026-04-09 | Primary company release | Meta expansion for about $21B through December 2032, multiple locations, Vera Rubin. | "approximately $21 billion" | 2026-04-28 |
-| [CoreWeave-Meta MSA exhibit](https://www.sec.gov/Archives/edgar/data/1769628/000176962825000050/redactedmetamsa929finald.htm) | 2025-09-30 | SEC contract exhibit | Existing Meta MSA, effective December 2023, under which later order forms were placed. | "Meta Platforms, Inc." | 2026-04-28 |
-| [IBM/CoreWeave Granite supercomputer release](https://newsroom.ibm.com/2025-01-15-coreweave-partners-with-ibm-to-deliver-new-ai-supercomputer-for-ibm-granite-models) | 2025-01-15 | Primary company release | IBM GB200 NVL72 supercomputer for Granite models and IBM Storage integration. | "train the next generations of its Granite models" | 2026-04-28 |
-| [Galaxy Helios project financing release](https://www.galaxy.com/newsroom/galaxy-closes-helios-project-financing) | 2025-08-15 | Primary company release | $1.4B financing, CoreWeave full 800 MW approved power commitment, 15-year revenue basis, 3.5 GW potential. | "full 800 MW" | 2026-04-28 |
-| [Galaxy Q4/FY2025 results](https://investor.galaxy.com/news-releases/news-release-details/galaxy-announces-fourth-quarter-and-full-year-2025-financial) | 2026-02-03 | Primary company release | Helios 526 MW critical IT / 800 MW gross schedule, 1.6 GW approved power after ERCOT approval. | "526MW" | 2026-04-28 |
-| [Applied Digital PF1 CoreWeave lease release](https://ir.applieddigital.com/news-events/press-releases/detail/128/applied-digital-finalizes-additional-150mw-lease-with) | 2025-08-29 | Primary company release | PF1 400 MW critical IT capacity leased to CoreWeave across three long-term leases and delivery schedule. | "400MW across" | 2026-04-28 |
-| [Applied Digital PF2 hyperscaler lease release](https://ir.applieddigital.com/news-events/press-releases/detail/132/applied-digital-announces-5-billion-ai-factory-lease-with) | 2025-10-22 | Primary company release | PF2 200 MW critical IT lease to undisclosed investment-grade hyperscaler; useful to separate from CoreWeave PF1. | "200 megawatts" | 2026-04-28 |
-| [Epoch AI Frontier Data Centers local snapshot](https://epoch.ai/data/data-centers) | 2026-04-20 | Local dataset context | Local overlap rows: Coreweave Helios 0.800 GW facility buildout by 2029-01-01; Microsoft/OpenAI/Meta Epoch site universe. | "Coreweave Helios" | 2026-04-28 |
+## Atoms Sourced
 
-## Research Notes
+- `atom:coreweave_operational_disclosed` (0.850 GW T1) — 850 MW active power across 43 data centers per FY2025 10-K. **Excluded from all totals as subset of `coreweave_contracted_ex_epoch` (Rev-4.3 reviewer #5 fix).**
+- `atom:coreweave_contracted_ex_epoch` (2.300 GW T3) — 3.100 GW total contracted per 10-K minus 0.800 GW Helios already attributed in Epoch.
+- `atom:coreweave_epoch_overlap_helios` (−0.800 GW) — Galaxy Helios subtraction; Helios sits in the Epoch row (`epoch_coreweave_helios_buildout_remaining`).
+- `atom:coreweave_applied_digital_pf1_overlap_adjustment` (−0.400 GW critical IT, dedupe_direction: attribute_to_coreweave_end_user) — PF1 leaseback; Applied Digital ground-lease counted under Applied Digital primary row, dedupe sends MW to CoreWeave end-user.
+- `atom:epoch_coreweave_helios_buildout_remaining` (0.800 GW; Epoch row, attributed_to: CoreWeave/Microsoft #speculative).
 
-- Capacity basis: CoreWeave's 850 MW and 3.1 GW are disclosed as active/contracted power capacity at fleet level; I map them to facility_MW to match local atom convention. Galaxy's Helios disclosure provides both gross power and critical IT load; Applied Digital PF1 is critical IT load only.
-- Incremental ex-Epoch candidate: if using local atom convention, the clean mechanical split is 3.1 GW CoreWeave contracted power less 0.8 GW Helios already in Epoch = 2.3 GW contracted ex-Epoch. This dispatch does not adjudicate whether to further adjust for PF1, because PF1 is not an Epoch row but is a leaseback/double-count candidate against Applied Digital.
-- Active incremental candidate: the 850 MW active fleet appears incremental to Epoch Helios because local Epoch Helios has 0 MW current. PF1 building one may be embedded in that 850 MW and should not also be counted under Applied Digital.
-- Customer-site mapping: Microsoft/OpenAI/Meta/IBM contracts are strong commercially but weak geographically. Without order-form site schedules, overlaps with Fairwater, Stargate, Hyperion, Prometheus and Temple are customer-demand candidates rather than physical site overlaps.
-- Latest-source caution: the April 9, 2026 Meta expansion is current as of this dispatch and adds contract value/duration evidence, but not a new MW disclosure.
+## Dedupe Notes
 
+- **Epoch overlap:** Galaxy Helios 0.800 GW is the only direct CoreWeave/Epoch site overlap. The local Epoch row carries Helios as 800 MW facility buildout by 2029-01-01; Galaxy primary disclosure says CoreWeave has committed to the full 800 MW approved power capacity. Subtracted via `coreweave_epoch_overlap_helios` to avoid double-counting.
+- **Cross-overlay overlap:** Applied Digital PF1 is not in Epoch but is a leaseback against the Applied Digital primary row in this overlay. Resolved via `coreweave_applied_digital_pf1_overlap_adjustment` (−0.400 MW critical IT) attributing the lease to CoreWeave end-use.
+- **Customer-level overlap (not site-level):** Microsoft/OpenAI/Meta also appear at Fairwater Wisconsin (3.328 GW Epoch), Fairwater Atlanta (0.859 GW Epoch), Stargate Abilene (1.18 GW Epoch), Hyperion/Prometheus/Temple. No primary source allocates CoreWeave physical capacity to these Epoch-attributed campuses; carried as customer-demand candidates only, no MW subtraction applied.
+- **Residual incremental GW:** 2.300 GW = 3.100 GW contracted − 0.800 GW Helios. The 850 MW active fleet is excluded from totals as a subset of the 3.1 GW contracted envelope.
+
+## Risk Axes
+
+1. **Counterparty:** Microsoft 67% FY2025 revenue concentration is the binding credit-and-renewal risk per the 10-K's explicit risk-factor language ("loss or reduction in spend by a top customer would materially affect us"). OpenAI ~$22.4B contract is private-counterparty risk; CoreWeave 10-K specifically flags OpenAI credit exposure. Meta's $14.2B + $21B is investment-grade but technology-strategy-sensitive.
+2. **Regulatory:** Multi-state data-center, export-control, privacy/security, and local power/tax scrutiny. Helios depends on ERCOT/Texas interconnection milestones; Galaxy discloses 830 MW additional ERCOT approval and 2.7 GW under load study, both contingent on grid/load-study progress. PF1 (Ellendale, ND) requires North Dakota site approvals and local power arrangements per Applied Digital filings.
+3. **Power / interconnect:** $1.4B Galaxy Helios financing covers initial retrofit/expansion; Phase I/II/III delivery runs 2026–2028 and depends on substation, transmission, commissioning, and retrofit execution. PF1 three-building delivery schedule spans Q4 2025, mid-2026, and 2027. Active fleet growth from 360 MW (FY2024) to 850+ MW in one year depends on leased-DC provider delivery cadence.
+4. **Supply chain:** CoreWeave 10-K cites dependency on latest GPUs, networking, storage, liquid cooling, chillers, and HVAC systems. GB200 Blackwell supply (IBM Granite supercomputer) and Vera Rubin deployment for the April 2026 Meta expansion create platform-readiness risk in 2026–2027.
+5. **Technology obsolescence:** Five-year weighted-average contract life vs faster accelerator generation cycles (H100 to GB200 to B300 to Vera Rubin) can strand or reprice older clusters before contract amortization.
+6. **Financing:** $1.4B Galaxy Helios project finance and CoreWeave's asset-level debt are supported by customer take-or-pay contracts; delayed site delivery can push revenue recognition. Galaxy flags financing-covenant and construction risks in Q4 2025 results. Applied Digital flags construction, financing, and principal-customer risks.
+7. **Structural optionality:** Take-or-pay reduces demand risk, but order forms are redacted and customer/site fungibility is high. Galaxy's 2.7 GW additional load-study pipeline is optional and unleased in primary sources. Meta April 2026 expansion adds contract value but no new MW disclosure.
+
+## Temporal Logic
+
+- **Earliest plausible energization:** Already energized — 850 MW active as of 2025-12-31.
+- **Central case:** 2.40 GW facility by year-end 2027 as Helios Phase II and PF1 buildings 2–3 deliver.
+- **Latest plausible:** 3.10 GW contracted envelope substantially delivered by 2029–2030, matching Helios Phase III 2028 commencement and Meta-expansion December 2032 contract end.
+- **Critical-path dependency:** Galaxy Helios ERCOT interconnect Phase II commissioning (260 MW critical IT, 2027); PF1 building 3 RFS 2027; GB200/Vera Rubin platform supply for IBM and Meta order forms.
+
+## Reviewer Findings Addressed
+
+- **Reviewer #5 (Rev-4.3 headline fix):** "850 MW active is additive to 3.1 GW contracted." Resolved. The 10-K verbatim quote — "We had 43 data centers with over 850 MW of active power… our total contracted power capacity was approximately 3.1 GW" — establishes the 850 MW active is a subset of the 3.1 GW contracted total. `coreweave_operational_disclosed` is retained for T1 tier-table visibility and explicitly excluded from all incremental totals. Net incremental ex-Epoch is `coreweave_contracted_ex_epoch` = 2.300 GW = 3.100 − 0.800 (Helios already in Epoch).
+- **Galaxy Helios attribution:** Galaxy primary disclosure of "full 800 MW of approved power capacity" for CoreWeave matches Epoch's Helios row (0.800 GW buildout by 2029-01-01); subtracted via `coreweave_epoch_overlap_helios`.
+- **PF1 leaseback double-count risk:** Resolved via `coreweave_applied_digital_pf1_overlap_adjustment` (−0.400 GW critical IT, attribute_to_coreweave_end_user); PF1 not in Epoch.
+- **Meta April 2026 expansion ($21B) MW:** Verified no new MW disclosure; $21B figure does not increase the 3.1 GW contracted-power atom.
+- **IBM MW disclosure:** Confirmed not disclosed; IBM January 2025 release describes platform ("one of the first NVIDIA GB200 Grace Blackwell Superchip-enabled AI supercomputers") and workload (IBM Granite model training) without facility/site/MW.
+
+## Open Questions / Gaps
+
+- Named site allocation by customer for Microsoft, OpenAI, Meta, and IBM (order-form schedules redacted in SEC exhibits).
+- Whether any Helios capacity is specifically assigned to Microsoft, OpenAI, Meta, IBM, or another customer (Epoch's Microsoft user attribution at Helios is marked #speculative).
+- CoreWeave Q1 2026 filing/results to update 850 MW active and 3.1 GW contracted power as of 2026-03-31.
+- Primary SEC 8-K text for the April 2026 Meta order form, including exact relationship to the September 2025 $14.2B order.
+- Polaris Forge 1 current RFS/energized status by building as of 2026-04-28 (Applied Digital 10-Q cadence).
+- Full CoreWeave site list and crosswalk to Epoch rows beyond Helios and PF1 (Lancaster, Kenilworth, European sites).
+- Power-basis reconciliation among CoreWeave "active/contracted power" (10-K), Galaxy gross power vs critical IT load (Q4 2025 results), Applied Digital critical IT capacity (press releases), and Epoch facility MW.
+
+## Source Citations
+
+| Source | Date | Type | Load-bearing claim | Quote (verbatim) |
+|---|---|---|---|---|
+| [CoreWeave FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/crwv-20251231.htm) | 2026-03-02 | SEC filing | 43 DCs, 850+ MW active, 3.1 GW contracted, $60.7B RPO, 5-yr WAL | "43 data centers with over 850 MW of active power"; "total contracted power capacity was approximately 3.1 GW" |
+| [CoreWeave Q4/FY2025 results](https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Fourth-Quarter-and-Fiscal-Year-2025-Results/) | 2026-02-27 | Primary release | Revenue backlog | "$66.8 billion" |
+| [CoreWeave-Microsoft MSA exhibit](https://www.sec.gov/Archives/edgar/data/1769628/000119312525044231/d899798dex1023.htm) | 2025-03-03 | SEC exhibit | U.S. default geography | "provided within the United States" |
+| [CoreWeave OpenAI March 2025 agreement](https://coreweave.com/news/coreweave-announces-agreement-with-openai-to-deliver-ai-infrastructure) | 2025-03-10 | Primary release | Initial $11.9B + $350M stock | "up to $11.9 billion" |
+| [CoreWeave OpenAI September 2025 expansion](https://investors.coreweave.com/news/news-details/2025/CoreWeave-Expands-Agreement-with-OpenAI-by-up-to-6-5B/default.aspx) | 2025-09-25 | Primary release | OpenAI total ~$22.4B | "total contract value with OpenAI up to approximately $22.4 billion" |
+| [CoreWeave Meta April 2026 expansion](https://investors.coreweave.com/news/news-details/2026/CoreWeave-and-Meta-Announce-21-Billion-Expanded-AI-Infrastructure-Agreement/default.aspx) | 2026-04-09 | Primary release | $21B Meta expansion through 2032 | "AI cloud capacity through December 2032"; "approximately $21 billion" |
+| [CoreWeave-Meta MSA exhibit](https://www.sec.gov/Archives/edgar/data/1769628/000176962825000050/redactedmetamsa929finald.htm) | 2025-09-30 | SEC exhibit | Existing Meta MSA effective Dec 2023 | "Meta Platforms, Inc." |
+| [IBM/CoreWeave Granite supercomputer](https://newsroom.ibm.com/2025-01-15-coreweave-partners-with-ibm-to-deliver-new-ai-supercomputer-for-ibm-granite-models) | 2025-01-15 | Primary release | GB200 NVL72; Granite training; MW not disclosed | "one of the first NVIDIA GB200 Grace Blackwell Superchip-enabled AI supercomputers" |
+| [Galaxy Helios project financing](https://www.galaxy.com/newsroom/galaxy-closes-helios-project-financing) | 2025-08-15 | Primary release | $1.4B financing; full 800 MW commitment | "full 800 MW of approved power capacity" |
+| [Galaxy Q4/FY2025 results](https://investor.galaxy.com/news-releases/news-release-details/galaxy-announces-fourth-quarter-and-full-year-2025-financial) | 2026-02-03 | Primary release | 526 MW critical IT; 800 MW gross; phasing | "526MW" |
+| [Applied Digital PF1 lease](https://ir.applieddigital.com/news-events/press-releases/detail/128/applied-digital-finalizes-additional-150mw-lease-with) | 2025-08-29 | Primary release | 400 MW critical IT in 3 leases | "400MW in Total Critical IT Capacity" |
+| [Epoch AI Frontier Data Centers](https://epoch.ai/data/data-centers) | 2026-04-20 | Local dataset | Helios 0.800 GW buildout 2029-01-01 | "Coreweave Helios" |
+
+## Cross-Links
+
+- Research dispatch: `docs/research/C1_coreweave_counterparty_stack.md`
+- Canonical atoms: `canonical_capacity_atoms.yaml` rows for `coreweave_operational_disclosed`, `coreweave_contracted_ex_epoch`, `coreweave_epoch_overlap_helios`, `coreweave_applied_digital_pf1_overlap_adjustment`, `epoch_coreweave_helios_buildout_remaining`.
+- Dedupe ledger: `dedupe_audit.csv` rows for the above atom IDs.
+- Schema: `contracts/_schema.md`.

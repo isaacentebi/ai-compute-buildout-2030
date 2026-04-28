@@ -2783,12 +2783,12 @@ atoms:
 - atom_id: anthropic_azure_incremental_capacity
   parent_entity: Microsoft Azure
   counterparty_or_anchor_tenant: Anthropic
-  site_or_region: Azure sites not disclosed
+  site_or_region: Azure sites not disclosed; central case assumes ~50% Fairwater overlap
   capacity_mw_original: 1000
   capacity_basis_original: IT
   pue_assumed: 1.18
-  capacity_mw_it: 1000
-  capacity_mw_facility: 1180
+  capacity_mw_it: 500
+  capacity_mw_facility: 590
   scope: western
   status: announced
   evidence_tier: T5
@@ -2796,15 +2796,15 @@ atoms:
   source_url: https://blogs.microsoft.com/blog/2025/11/18/microsoft-nvidia-and-anthropic-announce-strategic-partnerships/
   source_publisher: Microsoft
   source_date: '2025-11-18'
-  last_checked: '2026-04-22'
-  dedupe_group: anthropic_azure_incremental_capacity
-  dedupe_adjustment_mw: 0.0
-  dedupe_direction: none
+  last_checked: '2026-04-28'
+  dedupe_group: anthropic_azure_fairwater_overlap_central
+  dedupe_adjustment_mw: -590
+  dedupe_direction: partial_fairwater_overlap_50pct_central
   included_raw_horizon: true
   included_non_stretch: false
   included_conservative_T1_T2_T3: false
   included_probability_weighted: true
-  notes: 1 GW Azure compute commitment; no sites named, so range floors at zero.
+  notes: 'Rev-4.3 dedupe adjudication: Microsoft and NVIDIA both confirm Vera Rubin (the chip class Anthropic uses on Azure) deploys at Fairwater Wisconsin and Atlanta. Central case applies a 50% Fairwater overlap assumption (590 MW facility net-new), with low=0 (full overlap, all Anthropic Azure capacity carved from Fairwater Epoch rows) and high=1180 (no overlap, Anthropic gets net-new Microsoft sites). Documented as judgmental; sources do not disclose Anthropic site list.'
   capacity_mw_it_low: 0
   capacity_mw_it_high: 1000
   capacity_mw_facility_low: 0
@@ -2813,36 +2813,119 @@ atoms:
   freshness_waiver_reason: null
   source_type: primary_announcement
   source_support: primary_company
-  basis_layer: IT_MW
-  basis_quote: 1 GW Azure compute commitment; no sites named, so range floors at zero.
+  basis_layer: ambiguous_compute
+  basis_quote: '"purchase $30 billion of Azure compute capacity, and contract additional capacity up to one gigawatt of compute capacity" — Microsoft Official Blog, Nov 18, 2025.'
   source_publication_date: '2025-11-18'
-  exact_quote: 1 GW Azure compute commitment; no sites named, so range floors at zero.
-  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  exact_quote: 'up to one gigawatt of compute capacity'
+  pue_rationale: Microsoft language is "compute capacity" (not facility MW). 1.18 PUE is Fairwater-class hyperscaler convention applied for IT-to-facility conversion; documented as assumption.
   energization_window:
-    earliest: null
-    central: null
-    latest: null
+    earliest: '2026-01-01'
+    central: '2027-06-30'
+    latest: '2028-12-31'
   epoch_overlap_candidates:
   - epoch_site: epoch:microsoft_fairwater_wisconsin
     epoch_attributed_to: Microsoft -> OpenAI, Microsoft
-    overlap_gw_facility: 0.0
-    overlap_evidence: A2/A5 found Azure sites undisclosed; Fairwater is same-provider candidate only.
+    overlap_gw_facility: 0.295
+    overlap_evidence: 'Microsoft Azure Blog (2026-01-05) says current Fairwater Wisconsin and Atlanta are designed for Vera Rubin NVL72 deployments. NVIDIA IR (2026-01-05) says Microsoft will deploy Vera Rubin instances in 2026. Anthropic-Azure 1 GW commitment is Vera Rubin/Grace Blackwell. Central 50% overlap with Fairwater Wisconsin assumed because Wisconsin is the largest Fairwater site (3.328 GW); other 50% allocated to Atlanta or net-new sites.'
   - epoch_site: epoch:microsoft_fairwater_atlanta
     epoch_attributed_to: Microsoft -> OpenAI
-    overlap_gw_facility: 0.0
-    overlap_evidence: A2/A5 found no source tying Anthropic Azure to Atlanta.
-  tier_rationale: T5 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
-  tier_rationale_quote: 1 GW Azure compute commitment; no sites named, so range floors at zero.
+    overlap_gw_facility: 0.295
+    overlap_evidence: Atlanta operational from Oct 2025 (Microsoft Source feature, Nov 12, 2025); same Fairwater architecture as Wisconsin. Central 50% overlap with Atlanta assumed alongside Wisconsin.
+  tier_rationale: 'T5 because Microsoft press release names counterparty (Anthropic), states GW magnitude (up to 1 GW compute capacity), and gives broad delivery window (1 GW + Vera Rubin = 2026 onset); but no specific Azure region, site, utility, PPA, or contract tenor is disclosed. Source language is "compute capacity" not facility MW. Not T4 because no named site/project. Not T6 because the GW figure is source-disclosed, not analyst-inferred.'
+  tier_rationale_quote: '"up to one gigawatt of compute capacity" with no named sites'
   risks:
-    counterparty: Pending Rev-4.2 contract drilldown.
-    regulatory: Pending Rev-4.2 contract drilldown.
-    power_interconnect: Pending Rev-4.2 contract drilldown.
-    supply_chain: Pending Rev-4.2 contract drilldown.
-    technology: Pending Rev-4.2 contract drilldown.
-    financing: Pending Rev-4.2 contract drilldown.
-    structural_optionality: Pending Rev-4.2 contract drilldown.
+    counterparty: Anthropic remains AWS-primary (per Apr 20, 2026 release); Azure relationship is non-exclusive. Microsoft commitment is customer compute purchase, not site take-or-pay; no termination rights or minimum payment disclosed publicly.
+    regulatory: No Azure region disclosed; local permitting, utility tariff, state-level moratoria risk cannot be assessed without site disclosure.
+    power_interconnect: 1 GW compute capacity implies multi-GW power delivery if net-new; if Fairwater-allocated, grid risk is already embedded in Microsoft Epoch sites (LPSC, Wisconsin PSC, Georgia PSC).
+    supply_chain: NVIDIA Grace Blackwell and Vera Rubin systems; NVIDIA forward-looking-disclaims availability/timing. Liquid cooling, AI WAN readiness gating.
+    technology: Vera Rubin is next-generation rack-scale infrastructure (NVL576 at 600 kW per rack class); deployment depends on liquid cooling and power-density execution.
+    financing: $30B is Anthropic compute-purchase commitment; Microsoft equity ($5B) + NVIDIA equity ($10B) create circular funding optics; not site-level capex.
+    structural_optionality: '"Up to" language and absence of named sites create high optionality; if Microsoft allocates Anthropic onto existing Fairwater capacity (no net-new), incremental Western GW = 0.'
   contract_page: contracts/anthropic_azure.md
-  double_count_risk: 'medium: same Microsoft Azure capacity pool but no site evidence'
+  double_count_risk: 'high (partially deduped Rev-4.3): central case applies 50% Fairwater overlap assumption (590 MW of 1180 MW removed); low case = 0 incremental (full Fairwater carve-out), high case = 1180 MW (full net-new).'
+- atom_id: anthropic_google_broadcom_physical_tpu
+  parent_entity: Google Cloud / Broadcom
+  counterparty_or_anchor_tenant: Anthropic
+  site_or_region: '"vast majority" US-sited per Anthropic; physical shells unspecified (Google-owned campuses, Fluidstack TX/NY shells, or operational/financial partners per Broadcom 8-K)'
+  capacity_mw_original: 4500
+  capacity_basis_original: IT
+  pue_assumed: 1.2
+  capacity_mw_it: 2250
+  capacity_mw_facility: 2700
+  scope: western
+  status: announced
+  evidence_tier: T5
+  realization_probability: 0.3
+  source_url: https://www.sec.gov/Archives/edgar/data/1730168/000119312526144028/0001193125-26-144028-index.htm
+  source_publisher: Broadcom Form 8-K (SEC); corroborated by Anthropic and Google Cloud (Apr 6, 2026)
+  source_date: '2026-04-06'
+  last_checked: '2026-04-28'
+  dedupe_group: anthropic_google_broadcom_physical_tpu
+  dedupe_adjustment_mw: -2700
+  dedupe_direction: partial_overlap_50pct_central_against_google_epoch_plus_fluidstack
+  included_raw_horizon: true
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: 'Rev-4.3 NEW ATOM (per user direction: "Anthropic-Google deal should exist in the paper at appropriate tier"). Total Anthropic-Google/Broadcom TPU exposure = 1 GW IT (Anthropic Oct 23, 2025) + 3.5 GW IT (Broadcom 8-K Apr 6, 2026) = 4.5 GW IT. Central case assumes 50% physical-shell overlap with existing Google Epoch sites (Goodnight 1.09 GW + New Albany 0.54 + Cedar Rapids 0.63 + Council Bluffs E 0.28 + Pryor N 0.45 + Omaha 0.47 = 3.46 GW Google candidates) plus Fluidstack Lake Mariner (0.51 GW). Net-new central = 5.4 GW facility / 2 = 2.7 GW. Low = 0 (full overlap absorbed by Epoch + Fluidstack); high = 5.4 GW (no overlap, full net-new physical capacity).'
+  capacity_mw_it_low: 0
+  capacity_mw_it_high: 4500
+  capacity_mw_facility_low: 0
+  capacity_mw_facility_high: 5400
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: sec_filing
+  source_support: primary_company
+  basis_layer: ambiguous_compute
+  basis_quote: '"Anthropic will access approximately 3.5 gigawatts" (Broadcom Form 8-K, Apr 6, 2026); "well over a gigawatt" coming online in 2026 (Anthropic, Oct 23, 2025); "vast majority will be sited in the United States" (Anthropic, Apr 6, 2026).'
+  source_publication_date: '2026-04-06'
+  exact_quote: 'approximately 3.5 gigawatts'
+  pue_rationale: TPU/Broadcom-supplied capacity expected to deploy in hyperscaler-class campuses (Google-owned or Fluidstack shells); 1.20 PUE matches Google data center reporting (PUE 1.10 fleet average) plus margin for AI density. Documented as assumption.
+  energization_window:
+    earliest: '2026-01-01'
+    central: '2028-07-01'
+    latest: '2031-12-31'
+  epoch_overlap_candidates:
+  - epoch_site: epoch:fluidstack_lake_mariner
+    epoch_attributed_to: Fluidstack -> Anthropic, G42
+    overlap_gw_facility: 0.509
+    overlap_evidence: 'Anthropic links Apr 2026 Google/Broadcom expansion to Nov 2025 $50B Fluidstack US infrastructure commitment; Lake Mariner is the only Epoch site explicitly carrying Anthropic-Fluidstack attribution. Strongest single-site overlap candidate.'
+  - epoch_site: epoch:goodnight
+    epoch_attributed_to: Google
+    overlap_gw_facility: 0.544
+    overlap_evidence: 'Largest Google Epoch buildout candidate (1.088 GW by 2027-10-01 in Claude, TX); 50% allocation to Anthropic-Google demand pool central case.'
+  - epoch_site: epoch:google_new_albany
+    epoch_attributed_to: Google
+    overlap_gw_facility: 0.272
+    overlap_evidence: 'Google New Albany 543 MW buildout by 2026-12-18; could host TPU capacity for Google Cloud customers including Anthropic. 50% central allocation.'
+  - epoch_site: epoch:google_cedar_rapids
+    epoch_attributed_to: Google
+    overlap_gw_facility: 0.314
+    overlap_evidence: 'Google Cedar Rapids 627 MW buildout by 2028-11-18 fits 2027+ Broadcom window. 50% central allocation.'
+  - epoch_site: epoch:google_omaha
+    epoch_attributed_to: Google
+    overlap_gw_facility: 0.237
+    overlap_evidence: 'Google Omaha 474 MW buildout by 2027-07-26 fits 2027 start. 50% central allocation.'
+  - epoch_site: epoch:google_pryor_north
+    epoch_attributed_to: Google
+    overlap_gw_facility: 0.227
+    overlap_evidence: 'Google Pryor North 454 MW buildout by 2026-05-17. 50% central allocation.'
+  - epoch_site: epoch:google_council_bluffs_east
+    epoch_attributed_to: Google
+    overlap_gw_facility: 0.142
+    overlap_evidence: 'Google Council Bluffs East 284 MW buildout by 2026-06-10; smaller candidate. 50% central allocation.'
+  tier_rationale: 'T5 because all 3-of-3 source-content checks pass (counterparty: Google Cloud + Broadcom; magnitude: 4.5 GW IT total; window: 2026-2031), but no specific physical site is named. Anthropic explicitly says "vast majority will be sited in the United States" but does not name campuses. Not T4 because no named site/project. Not T6 because the GW figure is source-disclosed, not analyst-inferred. Per user direction, this row is now visible in the paper at T5 with explicit dedupe range, replacing the prior Class B chip-procurement zero treatment that violated the 3-of-3 inclusion test.'
+  tier_rationale_quote: '"approximately 3.5 gigawatts" (Broadcom 8-K) + "vast majority will be sited in the United States" (Anthropic Apr 6 2026) — counterparty + magnitude + broad window present, named site absent.'
+  risks:
+    counterparty: Anthropic must absorb a very large reservation while also expanding AWS Trainium ($100B+ commitment) and Microsoft Azure (1 GW) capacity; concentration in any one chip family is a credit/utilization risk.
+    regulatory: No named campus, so local land-use, air-permit, water-supply constraints cannot be checked. Anthropic-Google capacity does NOT have BIS export-control exposure since it is US-sited.
+    power_interconnect: 5.4 GW of TPU compute implies multi-GW power delivery across multiple Google regions and Fluidstack shells; no utility queue or PPA disclosed. Power deliverability is unresolved.
+    supply_chain: Depends on Google TPU availability (Ironwood and successors), Broadcom/TSMC custom ASIC fabrication, HBM packaging, networking optics, liquid cooling.
+    technology: '"Up to one million TPUs" does not disclose TPU generation mix, power per chip, rack density, or training-vs-inference allocation. Google does not publicly benchmark TPU performance against NVIDIA Blackwell at scale.'
+    financing: Sources disclose "tens of billions of dollars" but not RPO, lease structure, prepayment, or Alphabet/Google Cloud backlog accounting. Broadcom 8-K conditions consumption on Anthropic continued commercial success.
+    structural_optionality: '"Up to" chip language plus multi-party operational/financial-partner structure (per Broadcom 8-K) creates high optionality; capacity may be staged, cancelled, or workload-dependent.'
+  contract_page: contracts/anthropic_google_broadcom.md
+  double_count_risk: 'high (partially deduped Rev-4.3): central case removes 2.7 GW assumed Epoch overlap (Fluidstack 0.509 + 50% of Google Epoch sites); range 0-5.4 GW spans full overlap to no overlap.'
 - atom_id: openai_microsoft_fairwater_international
   parent_entity: Microsoft
   counterparty_or_anchor_tenant: OpenAI / Microsoft
@@ -2908,7 +2991,7 @@ atoms:
 - atom_id: meta_hyperion_stretch_incremental
   parent_entity: Meta
   counterparty_or_anchor_tenant: Meta
-  site_or_region: Hyperion stretch beyond Epoch evidenced 2.26 GW
+  site_or_region: Hyperion stretch beyond Epoch evidenced 2.262 GW
   capacity_mw_original: 2740
   capacity_basis_original: IT
   pue_assumed: 1.1
@@ -2918,10 +3001,10 @@ atoms:
   status: speculative
   evidence_tier: T5
   realization_probability: 0.28
-  source_url: file:///Users/isaacentebi/Desktop/stack-intelligence-engine/.claude/worktrees/upbeat-keller/fmp_data/companies_toon/META/transcripts/Q2_FY2025.toon
-  source_publisher: Meta
+  source_url: https://s21.q4cdn.com/399680738/files/doc_financials/2025/q2/META-Q2-2025-Earnings-Call-Transcript.pdf
+  source_publisher: Meta Platforms (Q2 2025 earnings call transcript)
   source_date: '2025-07-30'
-  last_checked: '2026-04-24'
+  last_checked: '2026-04-28'
   dedupe_group: meta_hyperion_stretch_incremental
   dedupe_adjustment_mw: 0.0
   dedupe_direction: none
@@ -2929,7 +3012,7 @@ atoms:
   included_non_stretch: false
   included_conservative_T1_T2_T3: false
   included_probability_weighted: true
-  notes: CEO 5 GW Hyperion stretch less Epoch Hyperion evidenced buildout; firm 2 GW floor is already in Epoch.
+  notes: 'Rev-4.3 source replacement (reviewer #7 fix): replaced local cached transcript URL with publicly hosted Meta Q2 2025 transcript PDF. Stretch = 5.0 GW Zuckerberg statement minus 2.262 GW Epoch Hyperion buildout floor. Engineering at Meta blog (2025-09-29) corroborates "scale up to 5 GW once finished". Meta FY2025 10-K corroborates Hyperion JV with $27B development cost and four-year initial lease (2029).'
   capacity_mw_it_low: 0
   capacity_mw_it_high: 2740
   capacity_mw_facility_low: 0
@@ -2937,28 +3020,32 @@ atoms:
   freshness_status: current_verified
   freshness_waiver_reason: null
   source_type: earnings_call
-  source_support: local_cached_primary
+  source_support: primary_company
   basis_layer: IT_MW
-  basis_quote: CEO 5 GW Hyperion stretch less Epoch Hyperion evidenced buildout; firm 2 GW floor is already in Epoch.
+  basis_quote: '"can scale up to 5GW over several years" — Mark Zuckerberg, Meta Q2 2025 earnings call (transcript published Jul 30, 2025).'
   source_publication_date: '2025-07-30'
-  exact_quote: CEO 5 GW Hyperion stretch less Epoch Hyperion evidenced buildout; firm 2 GW floor is already in Epoch.
-  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  exact_quote: 'scale up to 5GW over several years'
+  pue_rationale: Hyperion is hyperscaler-class campus with liquid cooling; 1.10 PUE follows Meta data-center reported convention (Engineering at Meta).
   energization_window:
-    earliest: null
-    central: null
-    latest: null
-  epoch_overlap_candidates: []
-  tier_rationale: T5 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
-  tier_rationale_quote: CEO 5 GW Hyperion stretch less Epoch Hyperion evidenced buildout; firm 2 GW floor is already in Epoch.
+    earliest: '2029-01-01'
+    central: '2030-12-31'
+    latest: '2032-12-31'
+  epoch_overlap_candidates:
+  - epoch_site: epoch:meta_hyperion
+    epoch_attributed_to: Meta
+    overlap_gw_facility: 2.262
+    overlap_evidence: 'Stretch defined as residual: 5.000 GW Zuckerberg stretch minus 2.262 GW Epoch Hyperion buildout floor = 2.738 GW IT (3.014 GW facility at PUE 1.10). Floor is already in Epoch; stretch is incremental to Epoch only above the floor.'
+  tier_rationale: 'T5 because the 5 GW figure is source-disclosed CEO statement and Engineering blog corroborates, but lacks: (a) named permits beyond LPSC U-37425 which supports ~2 GW initial generation; (b) firm site-plan beyond initial Hyperion campus; (c) hardware/financing JV expansion past current $27B Blue Owl envelope. Not T4 because no permitting/utility/JV amendment ties the stretch to specific additional MW. Not T6 because the GW figure is direct CEO disclosure.'
+  tier_rationale_quote: '"can scale up to 5GW over several years" — Zuckerberg Q2 2025'
   risks:
-    counterparty: Pending Rev-4.2 contract drilldown.
-    regulatory: Pending Rev-4.2 contract drilldown.
-    power_interconnect: Pending Rev-4.2 contract drilldown.
-    supply_chain: Pending Rev-4.2 contract drilldown.
-    technology: Pending Rev-4.2 contract drilldown.
-    financing: Pending Rev-4.2 contract drilldown.
-    structural_optionality: Pending Rev-4.2 contract drilldown.
-  contract_page: null
+    counterparty: Low for Meta credit; high for whether the 5 GW stretch is a committed contract (it is not — earnings call language).
+    regulatory: 5 GW stretch likely requires additional LPSC orders beyond U-37425 (which approves 3 CCCT plants for ~2 GW initial Hyperion service). Some 2026 reporting cites Entergy seeking 7 additional gas plants and >7 GW total supply, but primary docket extraction not yet completed.
+    power_interconnect: 5 GW exceeds the initial two-gigawatt power/generation package (Entergy Richland Parish + Waterford CCCTs); requires generation, transmission, and substation expansion.
+    supply_chain: Multi-GW accelerator (Vera Rubin and successors), liquid-cooling, electrical gear, and turbine delivery risk over the 5-year stretch window.
+    technology: '"over several years" timing makes future chip/rack power density and architecture uncertain; lease optionality (4-year initial + 16-year RVG) creates technology refresh path.'
+    financing: $27B Blue Owl JV covers ~2 GW campus development; additional stretch funding ($28B+) is not cleanly separated; depends on continued Blue Owl/PIMCO/bond investor appetite.
+    structural_optionality: CEO/engineering stretch language plus 4-year initial lease + RVG mechanics floor confidence at zero incremental firm capacity above the Epoch 2.262 GW Hyperion atom.
+  contract_page: contracts/meta_hyperion_blueowl.md
 - atom_id: xai_colossus2_residual
   parent_entity: xAI
   counterparty_or_anchor_tenant: xAI
@@ -3092,18 +3179,18 @@ atoms:
   status: operational
   evidence_tier: T1
   realization_probability: 1.0
-  source_url: https://www.sec.gov/Archives/edgar/data/1839341/000162828026013305/core-20251231.htm
+  source_url: https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/crwv-20251231.htm
   source_publisher: CoreWeave / SEC
   source_date: '2026-02-27'
   last_checked: '2026-04-25'
-  dedupe_group: coreweave_operational_disclosed
-  dedupe_adjustment_mw: 0.0
-  dedupe_direction: none
-  included_raw_horizon: true
-  included_non_stretch: true
-  included_conservative_T1_T2_T3: true
-  included_probability_weighted: true
-  notes: Operational fleet capacity disclosed by public company; counted once under CoreWeave, not Applied Digital.
+  dedupe_group: coreweave_total_contracted_envelope
+  dedupe_adjustment_mw: -850
+  dedupe_direction: subset_of_contracted_ex_epoch
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: 'Reviewer #5 fix (Rev-4.3): CoreWeave 10-K reports 43 DC with over 850 MW active power AND total contracted power capacity approximately 3.1 GW; the 850 MW active is a subset of the 3.1 GW contracted, not additive. Atom retained for tier-table T1 visibility but excluded from all totals to avoid double-counting against coreweave_contracted_ex_epoch (2.300 GW = 3.1 contracted - 0.8 Helios already in Epoch).'
   capacity_mw_it_low: 680
   capacity_mw_it_high: 680
   capacity_mw_facility_low: 850
@@ -3113,32 +3200,35 @@ atoms:
   source_type: sec_or_public_company
   source_support: primary_company
   basis_layer: facility_MW
-  basis_quote: Operational fleet capacity disclosed by public company; counted once under CoreWeave, not Applied Digital.
-  source_publication_date: '2026-02-27'
-  exact_quote: Operational fleet capacity disclosed by public company; counted once under CoreWeave, not Applied Digital.
-  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  basis_quote: '"43 data centers with over 850 MW of active power" — CoreWeave FY2025 Form 10-K, Item 1.'
+  source_publication_date: '2026-03-02'
+  exact_quote: '43 data centers with over 850 MW of active power'
+  pue_rationale: CoreWeave 10-K discloses fleet "active power" as facility-level operating power; 1.25 PUE estimate is fleet-level neocloud convention (high-density GPU clusters) and is documented as such for IT-MW conversion only.
   energization_window:
-    earliest: null
-    central: null
-    latest: null
+    earliest: '2026-03-02'
+    central: '2026-03-02'
+    latest: '2026-03-02'
   epoch_overlap_candidates:
   - epoch_site: epoch:coreweave_helios
     epoch_attributed_to: CoreWeave -> Microsoft
     overlap_gw_facility: 0.0
-    overlap_evidence: Helios has no current operational MW in local Epoch snapshot; 850 MW active fleet retained.
-  tier_rationale: T1 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
-  tier_rationale_quote: Operational fleet capacity disclosed by public company; counted once under CoreWeave, not Applied
-    Digital.
+    overlap_evidence: Helios has 0 MW current / 800 MW buildout in local Epoch; 850 MW active fleet does not overlap Helios current capacity. Note - 10-K reports as-of 2025-12-31; energization_window set to 2026-03-02 filing date for temporal gate compliance.
+  - epoch_site: applied_digital_polaris_forge_1
+    epoch_attributed_to: Applied Digital -> CoreWeave (leaseback, not in Epoch)
+    overlap_gw_facility: 0.1
+    overlap_evidence: PF1 building one ~100 MW RFS Q4 2025 may be embedded in CoreWeave 850 MW active fleet; deduped via coreweave_applied_digital_pf1_overlap_adjustment.
+  tier_rationale: 'T1 because CoreWeave 10-K discloses "active power" as currently energized fleet capacity. Not T2 because this is current load, not remaining buildout. The atom is excluded from totals (Rev-4.3 fix) because the 850 MW is a subset of the 3.1 GW total contracted power; counting both double-counts the active portion.'
+  tier_rationale_quote: '"43 data centers with over 850 MW of active power"'
   risks:
-    counterparty: Pending Rev-4.2 contract drilldown.
-    regulatory: Pending Rev-4.2 contract drilldown.
-    power_interconnect: Pending Rev-4.2 contract drilldown.
-    supply_chain: Pending Rev-4.2 contract drilldown.
-    technology: Pending Rev-4.2 contract drilldown.
-    financing: Pending Rev-4.2 contract drilldown.
-    structural_optionality: Pending Rev-4.2 contract drilldown.
+    counterparty: Microsoft 67% of FY2025 revenue concentrates the active fleet's downstream user; loss of top customer would materially affect CoreWeave per 10-K risk factors.
+    regulatory: Multi-state operations exposed to data-center moratoria, export controls (BIS), privacy/security, and local power/tax scrutiny; full fleet site list not publicly disclosed.
+    power_interconnect: Active fleet grew from 360 MW to 850+ MW in one year; growth depends on leased data-center providers and utility delivery cadence.
+    supply_chain: 10-K cites dependency on latest GPUs (NVIDIA Hopper/Blackwell), networking (NVLink, InfiniBand), liquid cooling, chillers, HVAC.
+    technology: Rapid transition from H100/GB200 to B300/Vera Rubin can strand or reprice older clusters mid-contract.
+    financing: Asset-level debt is supported by customer take-or-pay contracts; delayed site delivery can push revenue recognition.
+    structural_optionality: Take-or-pay reduces demand risk, but customer order forms are heavily redacted and capacity is fungible across sites.
   contract_page: contracts/coreweave_counterparty_stack.md
-  double_count_risk: 'low: active fleet does not overlap Helios current capacity in local Epoch snapshot'
+  double_count_risk: 'high (resolved Rev-4.3): atom is subset of coreweave_contracted_ex_epoch; excluded from all totals to avoid double-counting'
 - atom_id: coreweave_contracted_ex_epoch
   parent_entity: CoreWeave
   counterparty_or_anchor_tenant: Microsoft / OpenAI / Meta / IBM
@@ -3152,18 +3242,18 @@ atoms:
   status: contracted
   evidence_tier: T3
   realization_probability: 0.82
-  source_url: https://www.sec.gov/Archives/edgar/data/1839341/000162828026013305/core-20251231.htm
+  source_url: https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/crwv-20251231.htm
   source_publisher: CoreWeave / SEC
-  source_date: '2026-02-27'
-  last_checked: '2026-04-25'
+  source_date: '2026-03-02'
+  last_checked: '2026-04-28'
   dedupe_group: coreweave_contracted_ex_epoch
-  dedupe_adjustment_mw: 0.0
+  dedupe_adjustment_mw: -800
   dedupe_direction: none
   included_raw_horizon: true
   included_non_stretch: true
   included_conservative_T1_T2_T3: true
   included_probability_weighted: true
-  notes: 3.1 GW contracted less 0.8 GW Helios already counted in Epoch; T3 due RPO/backlog and named IG customers.
+  notes: 'Rev-4.3: 3.1 GW total contracted (CoreWeave 10-K) includes 850 MW active fleet AND 800 MW Helios buildout (already in Epoch). Net incremental ex-Epoch = 3.1 - 0.8 = 2.3 GW. This atom captures the full CoreWeave non-Epoch contracted footprint (active + future); coreweave_operational_disclosed is excluded as a subset to avoid double-counting (reviewer #5 fix).'
   capacity_mw_it_low: 1840
   capacity_mw_it_high: 1840
   capacity_mw_facility_low: 2300
@@ -3173,31 +3263,39 @@ atoms:
   source_type: sec_or_public_company
   source_support: primary_company
   basis_layer: facility_MW
-  basis_quote: 3.1 GW contracted less 0.8 GW Helios already counted in Epoch; T3 due RPO/backlog and named IG customers.
-  source_publication_date: '2026-02-27'
-  exact_quote: 3.1 GW contracted less 0.8 GW Helios already counted in Epoch; T3 due RPO/backlog and named IG customers.
-  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  basis_quote: '"total contracted power capacity was approximately 3.1 GW" — CoreWeave FY2025 Form 10-K, Item 1.'
+  source_publication_date: '2026-03-02'
+  exact_quote: 'total contracted power capacity was approximately 3.1 GW'
+  pue_rationale: CoreWeave 10-K reports "contracted power capacity" as facility-level. 1.25 PUE estimate is fleet-level neocloud convention for high-density GPU clusters; documented for IT-MW conversion only.
   energization_window:
-    earliest: null
-    central: null
-    latest: null
+    earliest: '2026-01-01'
+    central: '2027-12-31'
+    latest: '2032-12-31'
   epoch_overlap_candidates:
   - epoch_site: epoch:coreweave_helios
     epoch_attributed_to: CoreWeave -> Microsoft
     overlap_gw_facility: 0.8
-    overlap_evidence: Helios 0.800 GW is already excluded through current ex-Epoch construction.
-  tier_rationale: T3 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
-  tier_rationale_quote: 3.1 GW contracted less 0.8 GW Helios already counted in Epoch; T3 due RPO/backlog and named IG customers.
+    overlap_evidence: Galaxy Helios financing release confirms CoreWeave committed to full 800 MW approved power; matches local Epoch Helios buildout. Already excluded.
+  - epoch_site: epoch:microsoft_fairwater_wisconsin
+    epoch_attributed_to: Microsoft -> OpenAI, Microsoft
+    overlap_gw_facility: null
+    overlap_evidence: 'Customer-level overlap candidate only: Microsoft is CoreWeave 67% revenue customer AND Epoch Fairwater anchor. No primary source maps CoreWeave site to Fairwater. Carried as risk note, not subtracted.'
+  - epoch_site: epoch:openai_stargate_abilene_or_other
+    epoch_attributed_to: Oracle -> OpenAI
+    overlap_gw_facility: null
+    overlap_evidence: 'OpenAI says CoreWeave complements Microsoft, Oracle, and Stargate (i.e., separate). No evidence CoreWeave physical sites are Stargate sites.'
+  tier_rationale: 'T3 because CoreWeave 10-K discloses "total contracted power capacity" with $60.7B RPO and named investment-grade counterparties (Microsoft, OpenAI, Meta, IBM); five-year weighted-average committed contract duration. Not T2 because site-level allocation by customer is redacted (no per-site MW). Not T4 because contracted commercial commitment with RPO is stronger than announced-site-only.'
+  tier_rationale_quote: '"total contracted power capacity was approximately 3.1 GW" + "$60.7 billion of RPO"'
   risks:
-    counterparty: Pending Rev-4.2 contract drilldown.
-    regulatory: Pending Rev-4.2 contract drilldown.
-    power_interconnect: Pending Rev-4.2 contract drilldown.
-    supply_chain: Pending Rev-4.2 contract drilldown.
-    technology: Pending Rev-4.2 contract drilldown.
-    financing: Pending Rev-4.2 contract drilldown.
-    structural_optionality: Pending Rev-4.2 contract drilldown.
+    counterparty: 10-K explicit risk factor — top-customer loss or reduced spend would materially affect CoreWeave; Microsoft 67% concentration; OpenAI ~$22.4B order, Meta ~$14.2B + $21B expansion, IBM undisclosed.
+    regulatory: Site-level location opacity prevents project-by-project permitting checks; BIS export controls on chips; data-center moratoria risk in some states.
+    power_interconnect: 3.1 GW contracted spans 2026-2032 across Helios, PF1, and undisclosed leased sites; utility delivery cadence is the binding execution constraint.
+    supply_chain: GPU (Hopper/Blackwell/Vera Rubin), networking, transformers, liquid cooling, switchgear, data-center shells; multi-quarter lead times.
+    technology: Five-year weighted average contract duration vs. ~2 year accelerator generation cycle creates obsolescence/refresh risk.
+    financing: RPO/backlog are bankable but conditioned on delivery and availability requirements; covenant exposure to delayed sites.
+    structural_optionality: Take-or-pay reduces demand risk; customer order forms and capacity substitutions are heavily redacted; capacity fungibility is high.
   contract_page: contracts/coreweave_counterparty_stack.md
-  double_count_risk: 'medium: Helios already deducted; remaining customer-site overlap unresolved'
+  double_count_risk: 'medium: Helios deducted; customer-site overlap with Microsoft/OpenAI/Meta Epoch sites is candidate-only. PF1 (~400 MW) handled separately as Applied Digital leaseback.'
 - atom_id: coreweave_epoch_overlap_helios
   parent_entity: CoreWeave
   counterparty_or_anchor_tenant: Microsoft
@@ -4308,7 +4406,7 @@ atoms:
 - atom_id: xai_humain_saudi
   parent_entity: HUMAIN
   counterparty_or_anchor_tenant: xAI
-  site_or_region: Saudi HUMAIN xAI data center
+  site_or_region: Saudi Arabia, exact first site undisclosed; first of network per HUMAIN
   capacity_mw_original: 500
   capacity_basis_original: facility
   pue_assumed: 1.35
@@ -4319,50 +4417,63 @@ atoms:
   evidence_tier: T4
   realization_probability: 0.55
   source_url: https://www.datacenterdynamics.com/en/news/xai-humain-data-center-elon-musk/
-  source_publisher: Data Center Dynamics / CNBC
-  source_date: '2025-05-14'
-  last_checked: '2026-04-22'
-  dedupe_group: xai_humain_saudi
+  source_publisher: Data Center Dynamics citing US-Saudi Investment Forum + xAI framework agreement
+  source_date: '2025-11-20'
+  last_checked: '2026-04-28'
+  dedupe_group: xai_humain_saudi_500mw
   dedupe_adjustment_mw: 0.0
-  dedupe_direction: none
+  dedupe_direction: high_overlap_risk_with_nvidia_humain_500mw_not_summed
   included_raw_horizon: false
   included_non_stretch: false
   included_conservative_T1_T2_T3: false
   included_probability_weighted: false
-  notes: Saudi sovereign JV; sidebar only, not Western denominator.
+  notes: 'Rev-4.3 source date refresh (D2 research): updated source_date from May 2025 (stale) to Nov 20, 2025 — DCD reporting on US-Saudi Investment Forum + xAI Nov 19, 2025 framework agreement (https://x.ai/news/grok-goes-global). xAI 500 MW is Nvidia-powered per media context; potential overlap with NVIDIA-HUMAIN 500 MW Saudi AI factories program (May 13, 2025) — sources do not resolve whether same physical capacity. Sovereign sidebar only (not Western).'
   capacity_mw_it_low: 296.296
   capacity_mw_it_high: 444.444
   capacity_mw_facility_low: 400
   capacity_mw_facility_high: 600
   freshness_status: current_verified
   freshness_waiver_reason: null
-  source_type: secondary_media
-  source_support: secondary_only
+  source_type: primary_plus_secondary
+  source_support: primary_xai_framework_plus_dcd_size_disclosure
   basis_layer: facility_MW
-  basis_quote: Saudi sovereign JV; sidebar only, not Western denominator.
-  source_publication_date: '2025-05-14'
-  exact_quote: Saudi sovereign JV; sidebar only, not Western denominator.
-  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  basis_quote: '"build a 500MW data center in Saudi Arabia" (DCD, Nov 20, 2025); xAI Nov 19, 2025 confirms framework: "design, build, and operate hyperscale GPU data centers".'
+  source_publication_date: '2025-11-20'
+  exact_quote: 'build a 500MW data center in Saudi Arabia'
+  pue_rationale: Saudi hot-arid climate justifies higher PUE (1.35); matches existing humain_amd_saudi convention.
   energization_window:
-    earliest: null
-    central: null
-    latest: null
-  epoch_overlap_candidates: []
-  tier_rationale: T4 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
-  tier_rationale_quote: Saudi sovereign JV; sidebar only, not Western denominator.
+    earliest: '2026-07-01'
+    central: '2027-12-31'
+    latest: '2030-12-31'
+  epoch_overlap_candidates:
+  - epoch_site: epoch:none_saudi_humain
+    epoch_attributed_to: none
+    overlap_gw_facility: 0.0
+    overlap_evidence: No HUMAIN/Saudi/Riyadh/Dammam Epoch row in local snapshot.
+  - epoch_site: 'overlay:nvidia_humain_saudi_500mw_partnership'
+    epoch_attributed_to: HUMAIN / NVIDIA
+    overlap_gw_facility: 0.5
+    overlap_evidence: 'NVIDIA-HUMAIN May 13, 2025 release also says "up to 500 MW of Saudi AI factories" with first 18,000 GB300 phase. xAI Nov 2025 facility appears NVIDIA-powered. High dedupe risk; not summed with NVIDIA-HUMAIN row in sovereign annex.'
+  - epoch_site: 'overlay:humain_riyadh_dammam_initial_100mw_each'
+    epoch_attributed_to: HUMAIN
+    overlap_gw_facility: 0.2
+    overlap_evidence: 'DCD/Bloomberg context: HUMAIN broke ground on Riyadh and Dammam facilities with 100 MW initial each, Q2 2026 target. May host xAI capacity but not proven to equal full 500 MW.'
+  tier_rationale: 'T4 because xAI Nov 19, 2025 framework agreement names counterparty (HUMAIN/KSA) + magnitude (500 MW per DCD) + broad timing (first of network). Not T3 because no executed lease, PPA, take-or-pay, or financing close. Not T5 because the framework is more than just a stretch announcement — xAI confirmed and HUMAIN broke ground on Riyadh/Dammam.'
+  tier_rationale_quote: '"build a 500MW data center in Saudi Arabia" (DCD) + "design, build, and operate hyperscale GPU data centers" (xAI framework)'
   risks:
-    counterparty: Pending Rev-4.2 contract drilldown.
-    regulatory: Pending Rev-4.2 contract drilldown.
-    power_interconnect: Pending Rev-4.2 contract drilldown.
-    supply_chain: Pending Rev-4.2 contract drilldown.
-    technology: Pending Rev-4.2 contract drilldown.
-    financing: Pending Rev-4.2 contract drilldown.
-    structural_optionality: Pending Rev-4.2 contract drilldown.
-  contract_page: null
+    counterparty: xAI/HUMAIN framework, not executed lease/PPA/take-or-pay. PIF (HUMAIN owner) has separate Aramco minority-stake non-binding term sheet.
+    regulatory: BIS export controls — Commerce Nov 19, 2025 approval for HUMAIN up to 35,000 Nvidia GB300 equivalents, conditioned on security/reporting compliance.
+    power_interconnect: No substation, grid-connection, PPA, or utility filing for 500 MW xAI facility found.
+    supply_chain: Depends on Nvidia GB300/Blackwell export approvals, delivery schedules, networking, cooling, power equipment.
+    technology: Grok deployment + sovereign-data controls + high-density liquid cooling at scale.
+    financing: HUMAIN PIF-backed; separate Infra $1.2B/250 MW non-binding framework; no xAI/HUMAIN project financing terms found.
+    structural_optionality: 'Framework + "first of a network" language imply optional expansion; sovereign sidebar candidate pending firm site and financing.'
+  contract_page: contracts/humain.md
+  double_count_risk: 'high (documented Rev-4.3): potential overlap with NVIDIA-HUMAIN 500 MW Saudi AI factories program; both rows would not be additive in same sovereign sum without site/tenant allocation.'
 - atom_id: humain_amd_saudi
-  parent_entity: HUMAIN / AMD
-  counterparty_or_anchor_tenant: Saudi sovereign + merchant
-  site_or_region: Riyadh/Dammam AMD-HUMAIN JV
+  parent_entity: HUMAIN / AMD (later joined by Cisco)
+  counterparty_or_anchor_tenant: Saudi sovereign + enterprise/startup/global customers; Luma AI named first JV customer for phase 1
+  site_or_region: Saudi Arabia and US network; Saudi first-phase site likely Riyadh or Dammam (not confirmed in primary AMD May source)
   capacity_mw_original: 500
   capacity_basis_original: facility
   pue_assumed: 1.35
@@ -4372,47 +4483,60 @@ atoms:
   status: announced
   evidence_tier: T4
   realization_probability: 0.55
-  source_url: https://www.datacenterdynamics.com/en/news/amd-cisco-and-humain-set-up-jv-for-1gw-of-ai-infrastructure-in-saudi-arabia/
-  source_publisher: AMD / DCD
-  source_date: '2025-05-14'
-  last_checked: '2026-04-22'
-  dedupe_group: humain_amd_saudi
+  source_url: https://www.amd.com/en/newsroom/press-releases/2025-5-13-amd-and-humain-form-strategic--10b-collaboration-.html
+  source_publisher: AMD primary release (May 13, 2025)
+  source_date: '2025-05-13'
+  last_checked: '2026-04-28'
+  dedupe_group: humain_amd_saudi_500mw_subsumed_by_amd_cisco_jv_1gw
   dedupe_adjustment_mw: 0.0
-  dedupe_direction: none
+  dedupe_direction: high_overlap_risk_with_amd_cisco_1gw_jv_kept_separate_pending_adjudication
   included_raw_horizon: false
   included_non_stretch: false
   included_conservative_T1_T2_T3: false
   included_probability_weighted: false
-  notes: Saudi AMD-HUMAIN sovereign JV; sidebar only, not Western denominator.
+  notes: 'Rev-4.3 source corrected (D2 research): primary AMD May 13, 2025 release ("AMD AND HUMAIN FORM STRATEGIC, $10B COLLABORATION") states 500 MW over five years across a network from Saudi Arabia to the United States. AMD/Cisco/HUMAIN November 19, 2025 JV is later/deepened collaboration for up to 1 GW by 2030 with 100 MW Saudi phase 1; DCD explicitly flags uncertainty on whether November 1 GW is separate from or part of May 500 MW. Treat May 500 MW as base candidate; do NOT sum with AMD/Cisco 1 GW until adjudication.'
   capacity_mw_it_low: 222.222
   capacity_mw_it_high: 518.519
   capacity_mw_facility_low: 300
   capacity_mw_facility_high: 700
   freshness_status: current_verified
   freshness_waiver_reason: null
-  source_type: primary_plus_secondary
+  source_type: primary_announcement
   source_support: primary_company
-  basis_layer: facility_MW
-  basis_quote: Saudi AMD-HUMAIN sovereign JV; sidebar only, not Western denominator.
-  source_publication_date: '2025-05-14'
-  exact_quote: Saudi AMD-HUMAIN sovereign JV; sidebar only, not Western denominator.
-  pue_rationale: Carried from Rev-4.1 row-level PUE convention; replace with source-specific basis during Rev-4.2 adjudication.
+  basis_layer: ambiguous_compute
+  basis_quote: '"deploy 500 megawatts of AI compute capacity" — AMD May 13, 2025; "global infrastructure network spanning the Kingdom of Saudi Arabia and the United States".'
+  source_publication_date: '2025-05-13'
+  exact_quote: 'deploy 500 megawatts of AI compute capacity'
+  pue_rationale: Saudi hot-arid climate justifies higher PUE (1.35); matches xai_humain_saudi convention.
   energization_window:
-    earliest: null
-    central: null
-    latest: null
-  epoch_overlap_candidates: []
-  tier_rationale: T4 per Rev-4.1 evidence tier; see docs/tier_table.md pending Rev-4.2 research adjudication.
-  tier_rationale_quote: Saudi AMD-HUMAIN sovereign JV; sidebar only, not Western denominator.
+    earliest: '2026-01-01'
+    central: '2028-01-01'
+    latest: '2030-12-31'
+  epoch_overlap_candidates:
+  - epoch_site: epoch:none_saudi_humain
+    epoch_attributed_to: none
+    overlap_gw_facility: 0.0
+    overlap_evidence: No HUMAIN/AMD/Riyadh/Dammam Epoch row in local snapshot.
+  - epoch_site: 'overlay:amd_cisco_humain_jv_1gw_by_2030'
+    epoch_attributed_to: HUMAIN / AMD / Cisco
+    overlap_gw_facility: 0.5
+    overlap_evidence: 'AMD/Cisco/HUMAIN Nov 19, 2025 JV announces "up to 1 GW by 2030" with 100 MW Saudi phase 1. AMD May 500 MW likely subsumed within Nov JV envelope; DCD: "unclear whether today''s announcement is separate from earlier 500 MW AMD deal." Carry as overlap candidate; do not sum.'
+  - epoch_site: 'overlay:humain_riyadh_dammam_initial_100mw_each'
+    epoch_attributed_to: HUMAIN
+    overlap_gw_facility: 0.2
+    overlap_evidence: 'DCD/Bloomberg: Riyadh and Dammam facilities with 100 MW initial each (Q2 2026) may host AMD/Cisco first-phase capacity; not proven to equal full 500 MW AMD row.'
+  tier_rationale: 'T4 because AMD May 2025 release names counterparty (HUMAIN) + magnitude (500 MW) + window (over 5 years). Not T3 because no firm tenant offtake / take-or-pay disclosed (only "up to" + customer-network language). Not T5 because the AMD primary source itself discloses MW.'
+  tier_rationale_quote: '"deploy 500 megawatts of AI compute capacity" + "up to $10 billion" — AMD primary'
   risks:
-    counterparty: Pending Rev-4.2 contract drilldown.
-    regulatory: Pending Rev-4.2 contract drilldown.
-    power_interconnect: Pending Rev-4.2 contract drilldown.
-    supply_chain: Pending Rev-4.2 contract drilldown.
-    technology: Pending Rev-4.2 contract drilldown.
-    financing: Pending Rev-4.2 contract drilldown.
-    structural_optionality: Pending Rev-4.2 contract drilldown.
-  contract_page: null
+    counterparty: AMD provides technology; HUMAIN owns delivery; Cisco joined Nov 2025 JV. Customer/offtake depth thin in public sources; Luma AI named first JV phase customer.
+    regulatory: AMD lists export regulations, tariffs, protection measures, licensing among forward-looking risks.
+    power_interconnect: No primary substation/utility/PPA evidence found; sources state sustainable power systems, global fiber, 100 MW Saudi phase 1, broader Riyadh/Dammam construction.
+    supply_chain: Depends on AMD Instinct MI400/MI450 generations, Cisco networking, liquid cooling, global fiber, exportable US AI hardware.
+    technology: AMD ROCm/open-stack reduces Nvidia lock-in; adds platform adoption and software-readiness risk at hyperscale.
+    financing: '"Up to $10B" is AMD May; AMD/Cisco JV founding-investor sizes undisclosed; Infra $1.2B/250 MW non-binding framework not clearly allocated.'
+    structural_optionality: '500 MW is "up to" over 5 years and cross-border (KSA + US); Nov 1 GW JV announces 100 MW Saudi phase 1 only.'
+  contract_page: contracts/humain.md
+  double_count_risk: 'high (documented Rev-4.3): potential subsumption within AMD/Cisco/HUMAIN Nov 2025 JV 1 GW envelope; not summed without adjudication.'
 - atom_id: reliance_jio_jamnagar
   parent_entity: Reliance Industries / Jio
   counterparty_or_anchor_tenant: Reliance-owned + Indian enterprise
@@ -4534,6 +4658,128 @@ atoms:
     structural_optionality: Pending Rev-4.2 contract drilldown.
   contract_page: contracts/reliance_jio.md
   double_count_risk: 'low: no local Epoch Reliance/Jamnagar row found'
+- atom_id: reliance_andhra_1gw_ai_dc_mou
+  parent_entity: Reliance Industries / Jio
+  counterparty_or_anchor_tenant: India sovereign / Reliance users
+  site_or_region: Andhra Pradesh, India; specific site undisclosed in Reliance MoU
+  capacity_mw_original: 1000
+  capacity_basis_original: facility
+  pue_assumed: 1.4
+  capacity_mw_it: 714.286
+  capacity_mw_facility: 1000
+  scope: sovereign
+  status: announced
+  evidence_tier: T5
+  realization_probability: 0.2
+  source_url: https://www.business-standard.com/companies/news/reliance-andhra-pradesh-1gw-ai-data-centre-investment-125111401010_1.html
+  source_publisher: Business Standard citing Reliance / AP government MoU
+  source_date: '2025-11-14'
+  last_checked: '2026-04-28'
+  dedupe_group: reliance_ap_1gw_program
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_with_digital_connexion_vizag_marked_excluded
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: 'Rev-4.3 NEW ATOM (D1 research adjudication): November 14, 2025 Reliance / AP government MoU for 1 GW AI data center backed by 6 GWp solar; described as twin to Jamnagar. Likely SAME PROGRAM as the Nov 26-27, 2025 Digital Connexion (Reliance/Brookfield/Digital Realty JV) Visakhapatnam 1 GW campus announcement (12 days apart, both Reliance-linked, both AP, both 1 GW). Counted once via this atom; digital_connexion_vizag_1gw_overlap is excluded.'
+  capacity_mw_it_low: 0
+  capacity_mw_it_high: 714.286
+  capacity_mw_facility_low: 0
+  capacity_mw_facility_high: 1000
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: secondary_media
+  source_support: secondary_only_mou_level
+  basis_layer: ambiguous_compute
+  basis_quote: '"1 GW Artificial Intelligence (AI) data centre" — Business Standard, Nov 14, 2025; corroborated by IBEF (Nov 17, 2025).'
+  source_publication_date: '2025-11-14'
+  exact_quote: '1 GW Artificial Intelligence (AI) data centre'
+  pue_rationale: India sovereign-tier hot/humid climate justifies higher PUE (1.40); matches existing reliance_jio_jamnagar row convention.
+  energization_window:
+    earliest: '2027-01-01'
+    central: '2030-12-31'
+    latest: null
+  epoch_overlap_candidates:
+  - epoch_site: 'overlay:digital_connexion_vizag_1gw'
+    epoch_attributed_to: Reliance / Brookfield / Digital Realty JV
+    overlap_gw_facility: 1.0
+    overlap_evidence: 'D1: Reliance AP 1 GW MoU (Nov 14, 2025) and Digital Connexion Vizag 1 GW MoU (Nov 26-27, 2025) are 12 days apart, both Reliance-linked, both AP, both 1 GW. Treated as same program; counted once via this atom.'
+  - epoch_site: epoch:none_andhra_reliance
+    epoch_attributed_to: none
+    overlap_gw_facility: 0.0
+    overlap_evidence: No Andhra/Reliance/Digital Connexion row in local Epoch snapshot (2026-04-20).
+  tier_rationale: 'T5 because counterparty (Reliance), magnitude (1 GW), and broad delivery window (by 2030) all present, but the source is MoU-level secondary reporting (no Reliance filing, no AP government primary text, no permits, no PPA, no land allocation). Not T4 because the AP MoU has no named site or phase plan in primary sources. Not T6 because Reliance and AP government both publicly disclosed the 1 GW figure.'
+  tier_rationale_quote: '"1 GW Artificial Intelligence (AI) data centre" — Reliance/AP MoU + 6 GWp solar support'
+  risks:
+    counterparty: Reliance is named, but MoU does not identify the project SPV, tenant, customer offtake, or commercial structure. Anchor tenant evidence is thin.
+    regulatory: MoU signed with AP Economic Development Board; land allotment, environmental approvals, coastal/telecom permits, and data-center policy incentives remain to be verified at the primary level.
+    power_interconnect: 6 GWp solar is announced for support, but no substation/interconnect schedule was found. India sovereign grid integration is a multi-year process.
+    supply_chain: No chip vendor, server OEM, liquid cooling, transformer, or switchgear order disclosed.
+    technology: Described as modular and GPU/TPU/AI-processor capable, but no rack density, power-per-rack, or accelerator generation disclosed.
+    financing: No AP-Reliance capex total disclosed in MoU reporting; Reliance's $110B 7-year India AI plan is group-level.
+    structural_optionality: MoU-level 1 GW plan with no delivery phasing disclosed; high optionality / can be cancelled, scaled down, or merged into Digital Connexion JV.
+  contract_page: contracts/reliance_jio.md
+  double_count_risk: 'high (resolved Rev-4.3): same program as Digital Connexion Vizag 1 GW; counted once here, Digital Connexion atom marked excluded.'
+- atom_id: digital_connexion_vizag_1gw_overlap
+  parent_entity: Digital Connexion (Reliance / Brookfield / Digital Realty JV)
+  counterparty_or_anchor_tenant: hyperscalers and enterprises
+  site_or_region: Visakhapatnam, Andhra Pradesh, India
+  capacity_mw_original: 1000
+  capacity_basis_original: facility
+  pue_assumed: 1.4
+  capacity_mw_it: 714.286
+  capacity_mw_facility: 1000
+  scope: sovereign
+  status: excluded
+  evidence_tier: excluded
+  realization_probability: 0.0
+  source_url: https://www.datacenterdynamics.com/en/news/digital-connexion-signs-mou-to-build-1gw-campus-in-andhra-pradesh-india/
+  source_publisher: Data Center Dynamics citing Digital Connexion company statement
+  source_date: '2025-11-27'
+  last_checked: '2026-04-28'
+  dedupe_group: reliance_ap_1gw_program
+  dedupe_adjustment_mw: -1000
+  dedupe_direction: same_program_as_reliance_andhra_atom
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: 'Rev-4.3 NEW ATOM (D1 research adjudication): excluded as overlap with reliance_andhra_1gw_ai_dc_mou. Both are 1 GW AP AI data-center programs disclosed within 12 days, both Reliance-linked. Atom retained for transparency / cross-reference but deducted via dedupe_adjustment_mw.'
+  capacity_mw_it_low: 714.286
+  capacity_mw_it_high: 714.286
+  capacity_mw_facility_low: 1000
+  capacity_mw_facility_high: 1000
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: secondary_media
+  source_support: secondary_only_mou_level
+  basis_layer: ambiguous_compute
+  basis_quote: '"1GW data center campus" over 400 acres, $11B by 2030, Visakhapatnam — DCD, Nov 27, 2025.'
+  source_publication_date: '2025-11-27'
+  exact_quote: '1GW data center campus'
+  pue_rationale: India sovereign-tier hot/humid climate justifies higher PUE (1.40); matches existing reliance_jio_jamnagar row convention.
+  energization_window:
+    earliest: null
+    central: '2030-12-31'
+    latest: null
+  epoch_overlap_candidates:
+  - epoch_site: 'repo:reliance_andhra_1gw_ai_dc_mou'
+    epoch_attributed_to: Reliance Industries / Jio
+    overlap_gw_facility: 1.0
+    overlap_evidence: 'Same Reliance-linked 1 GW AP program; counted once via reliance_andhra_1gw_ai_dc_mou atom.'
+  tier_rationale: excluded; same program as reliance_andhra_1gw_ai_dc_mou
+  tier_rationale_quote: 'Excluded: same program as reliance_andhra_1gw_ai_dc_mou (counted once)'
+  risks:
+    counterparty: See reliance_andhra_1gw_ai_dc_mou atom; this row is excluded as overlap.
+    regulatory: See reliance_andhra_1gw_ai_dc_mou atom; this row is excluded as overlap.
+    power_interconnect: See reliance_andhra_1gw_ai_dc_mou atom; this row is excluded as overlap.
+    supply_chain: See reliance_andhra_1gw_ai_dc_mou atom; this row is excluded as overlap.
+    technology: See reliance_andhra_1gw_ai_dc_mou atom; this row is excluded as overlap.
+    financing: See reliance_andhra_1gw_ai_dc_mou atom; this row is excluded as overlap.
+    structural_optionality: See reliance_andhra_1gw_ai_dc_mou atom; this row is excluded as overlap.
+  contract_page: contracts/reliance_jio.md
+  double_count_risk: 'high (resolved Rev-4.3): same program as reliance_andhra_1gw_ai_dc_mou; excluded.'
 - atom_id: uk_culham_ai_growth_zone
   parent_entity: UK Government / UKAEA
   counterparty_or_anchor_tenant: UK sovereign + TBD tenant

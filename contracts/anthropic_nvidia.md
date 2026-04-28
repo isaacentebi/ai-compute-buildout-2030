@@ -1,179 +1,102 @@
-# Anthropic Nvidia
+# Anthropic / NVIDIA — Commercial Relationship (Capacity Lives on Azure Page)
 
 ## TL;DR
 
-This Rev-4.2 contract drilldown is generated from the research dispatch pending final adjudication into atoms, dedupe, and row deltas.
+The Anthropic-NVIDIA relationship announced on November 18, 2025 is a **commercial / equity / co-engineering relationship**, not a standalone NVIDIA-owned data-center capacity row. NVIDIA committed up to **$10 billion equity investment** in Anthropic, alongside a "first deep technology partnership" to optimize Anthropic models and future NVIDIA architectures. The capacity-bearing leg of the same November 18, 2025 announcement is Anthropic's **"$30 billion of Azure compute capacity"** purchase commitment plus **"up to one gigawatt of compute capacity"** running on NVIDIA Grace Blackwell and Vera Rubin systems, which is a Microsoft Azure cloud capacity reservation rather than NVIDIA-owned physical infrastructure. Per Rev-4.3 policy, this page documents the NVIDIA commercial relationship and explicitly attributes physical capacity to `anthropic_azure_incremental_capacity` (see `contracts/anthropic_azure.md`). **No standalone NVIDIA capacity atom is created** to avoid double-counting Anthropic Azure demand under two operator labels.
 
-## Research Source
+## Counterparties
 
-- `docs/research/A5_anthropic_nvidia.md`
+- **Operator** (capacity leg): Microsoft Azure — see `contracts/anthropic_azure.md` for site detail. NVIDIA does not operate this capacity.
+- **Anchor tenant / user**: Anthropic, PBC.
+- **Financing partner(s)**: NVIDIA Corporation (NASDAQ: NVDA) — up to $10B equity into Anthropic; Microsoft up to $5B equity into Anthropic; Anthropic side $30B Azure compute commitment.
 
-## Dispatch Content
+## Structure
 
-# Rev-4.2 Research Dispatch A5: Anthropic-NVIDIA
+- **Type**: Equity investment + chip/architecture co-engineering. Not a physical capacity contract; capacity-bearing leg is the Azure cloud reservation.
+- **Term**: Not disclosed.
+- **Announced contract value**: $10B NVIDIA equity into Anthropic (separate from $30B Azure compute commitment).
+- **Equity cross-investments**: NVIDIA up to $10B + Microsoft up to $5B Anthropic equity. Circular-funding optics: Anthropic equity dollars from chip/cloud vendors recycle into NVIDIA chip purchases on Azure.
+- **Take-or-pay coverage**: N/A at the NVIDIA level; capacity-bearing take-or-pay (if any) lives on Microsoft Azure side.
+- **Optionality**: NVIDIA Investor Relations consistently forward-looking-disclaims chip availability and timing. Equity investment may be milestone-conditional (terms not public).
 
-accessed_date: 2026-04-28
+## GW Shape Over Time
 
-## Bottom Line
+**No standalone NVIDIA capacity row.** Capacity attributed to Microsoft Azure per `contracts/anthropic_azure.md`:
 
-The public Anthropic-NVIDIA relationship is not a standalone NVIDIA-owned data-center capacity atom. The capacity-bearing candidate is a Microsoft Azure commitment: Anthropic committed to purchase $30B of Azure compute and to contract up to 1 GW of additional compute on NVIDIA Grace Blackwell and Vera Rubin systems. NVIDIA's direct role is equity plus architecture/model co-design; Microsoft is the cloud/operator counterparty.
+| Year | Facility GW (low / central / high) | Operational status | Notes |
+|------|-----------------------------------|---------------------|-------|
+| 2026 | n/a | n/a | See `anthropic_azure_incremental_capacity` (0–0.30 GW) |
+| 2027 | n/a | n/a | See `anthropic_azure_incremental_capacity` (0.30–0.80 GW) |
+| 2028 | n/a | n/a | See `anthropic_azure_incremental_capacity` (0.59–1.18 GW) |
 
-This candidate should remain flagged, not adjudicated. It has no disclosed site, no explicit energization date, and high overlap risk with Microsoft AI WAN / Fairwater capacity already in Epoch. It also sits alongside larger Anthropic capacity programs with AWS Trainium, Google/Broadcom TPUs, and Fluidstack-built U.S. data centers, so NVIDIA/Azure should not be treated as Anthropic's only or primary scaling path.
+This page is an attribution-and-relationship document; physical capacity GW is owned by `anthropic_azure_incremental_capacity` central 0.590 GW facility, range 0–1.180.
 
-```yaml
-counterparty: Anthropic-NVIDIA via Microsoft Azure
-contract_overview:
-  type: cloud capacity + chip/architecture support
-  term_years: null
-  announced_capex_usd_b: null
-  announced_compute_capacity_usd_b: 30.0
-  delivery_window: {earliest: null, central: null, latest: null}
-  exclusivity_or_optionality: >
-    Non-exclusive. Anthropic says it uses AWS Trainium, Google TPUs, and
-    NVIDIA GPUs, while Amazon remains its primary cloud provider and
-    training partner. NVIDIA and Microsoft also committed to invest up to
-    $10B and $5B respectively in Anthropic, but the public source does
-    not make NVIDIA the site owner or cloud operator.
-atoms:
-  - id: atom:anthropic_microsoft_nvidia_azure_1gw_candidate
-    site: Azure sites not disclosed
-    operator: Microsoft Azure
-    user_or_anchor: Anthropic
-    gw_facility: [0.00, 1.18, 1.18]
-    gw_it: 1.00
-    basis: ambiguous_compute
-    pue_assumed: 1.18
-    energization_window: {earliest: null, central: null, latest: null}
-    operational_status: T5
-    exact_quote: "up to one gigawatt of compute capacity"
-    source_url: https://blogs.microsoft.com/blog/2025/11/18/microsoft-nvidia-and-anthropic-announce-strategic-partnerships/
-    source_publisher: Microsoft
-    source_publication_date: 2025-11-18
-    accessed_date: 2026-04-28
-    epoch_site_overlap_candidates:
-      - epoch_site: Microsoft Fairwater Wisconsin
-        epoch_attributed_to: Microsoft / OpenAI / Microsoft AI WAN
-        overlap_gw_facility: 3.328
-        overlap_evidence: >
-          Local Epoch snapshot shows Microsoft-owned Fairwater Wisconsin
-          at 555 MW current and 3.328 GW full buildout by 2027-10-03.
-          Because the Azure-Anthropic release names no sites, this capacity
-          could be carved from Microsoft's already-counted AI WAN footprint.
-      - epoch_site: Microsoft Fairwater Atlanta
-        epoch_attributed_to: Microsoft / OpenAI / Microsoft AI WAN
-        overlap_gw_facility: 0.859
-        overlap_evidence: >
-          Local Epoch snapshot shows Microsoft-owned Fairwater Atlanta at
-          433 MW current and 859 MW full buildout by 2026-05-14. The
-          site uses the same Microsoft/NVIDIA AI-superfactory pattern, but
-          no public source ties Anthropic specifically to this site.
-      - epoch_site: Microsoft Goodyear
-        epoch_attributed_to: Microsoft / OpenAI
-        overlap_gw_facility: 0.263
-        overlap_evidence: >
-          Local Epoch snapshot shows Microsoft Goodyear at 263 MW full
-          buildout as of 2025-11-12. It is a possible Azure capacity pool,
-          not an evidenced Anthropic site.
-      - epoch_site: Fluidstack Lake Mariner
-        epoch_attributed_to: Fluidstack / Anthropic, G42
-        overlap_gw_facility: 0.509
-        overlap_evidence: >
-          Not a Microsoft overlap, but a same-customer overlap risk. Local
-          Epoch shows Fluidstack Lake Mariner at 509 MW full buildout, and
-          the repo overlay treats Anthropic/Fluidstack and Anthropic
-          Google/Broadcom as potentially the same physical TPU program.
-    risks:
-      counterparty: >
-        Public source does not disclose whether Anthropic has take-or-pay
-        obligations, minimum utilization, cancellation rights, or whether
-        NVIDIA's $10B investment is conditioned on deployment milestones.
-      regulatory: >
-        Circular AI financing and cross-investment scrutiny risk: NVIDIA
-        and Microsoft invest in Anthropic while Anthropic buys compute
-        capacity powered by NVIDIA systems on Microsoft Azure.
-      power_interconnect: >
-        No site, utility, interconnect queue position, or power procurement
-        disclosed for the 1 GW. Treat as cloud allocation until physical
-        site evidence appears.
-      supply_chain: >
-        Capacity depends on Microsoft receiving and integrating Grace
-        Blackwell and Vera Rubin systems at scale. Microsoft separately
-        said Vera Rubin NVL72 would roll into modern liquid-cooled Azure
-        datacenters over the next few months, but that statement is not
-        Anthropic-specific.
-      technology: >
-        Anthropic is explicitly multi-platform. NVIDIA co-optimization may
-        improve performance/TCO, but Anthropic can shift workloads across
-        AWS Trainium, Google TPUs, and NVIDIA GPUs.
-      financing: >
-        The headline combines $30B Azure purchase capacity with up to $15B
-        supplier/cloud equity commitments; the release does not publish a
-        cash-flow schedule.
-      structural_optionality: >
-        "Up to" 1 GW and no site disclosure make the atom option-like. The
-        low case is zero incremental physical GW if it is an allocation
-        inside existing Microsoft AI capacity.
-contradictions:
-  - >
-    Microsoft frames the Azure/NVIDIA commitment as up to 1 GW, while
-    Anthropic's later AWS announcement says Amazon remains its primary
-    training and cloud provider and secures up to 5 GW of AWS capacity.
-    This is not a contradiction in contract terms, but it argues against
-    treating NVIDIA/Azure as exclusive or as Anthropic's primary capacity
-    path.
-  - >
-    Anthropic's Google/Broadcom TPU release says multiple GW starting in
-    2027 and calls the U.S. siting a major expansion of the November 2025
-    $50B Fluidstack infrastructure commitment. That creates same-customer
-    capacity overlap risk if the Azure/NVIDIA 1 GW is added without
-    checking physical sites.
-  - >
-    The local canonical ledger already carries anthropic_azure_incremental_capacity
-    as 1.0 GW IT / 1.18 GW facility, but its own range floors at zero
-    because no sites are named.
-gaps:
-  - >
-    Need contract terms or Microsoft/Anthropic filings showing whether
-    $30B is committed spend, cancellable cloud credits, take-or-pay, or
-    a framework agreement.
-  - >
-    Need site-level Azure evidence: region, data-center campus, utility
-    filings, delivery schedule, or whether the 1 GW is a carve-out from
-    Fairwater/Goodyear capacity.
-  - >
-    Need NVIDIA investment term sheet or closing disclosure to determine
-    whether equity funds recycle into Azure/NVIDIA system purchases.
-  - >
-    Need workload allocation split across AWS Trainium, Google TPUs,
-    NVIDIA GPUs, and Fluidstack-built sites to avoid double counting
-    Anthropic demand as multiple independent physical GW commitments.
-```
+## Sites
 
-## Evidence Notes
+| Site | Location | Operator | Epoch attribution | Overlap with this contract | Tier |
+|------|----------|----------|-------------------|----------------------------|------|
+| (No NVIDIA-owned data-center capacity) | n/a | n/a | n/a | All physical capacity attributed to Microsoft Azure (`contracts/anthropic_azure.md`) | n/a |
 
-- Microsoft primary source, 2025-11-18: Anthropic committed to purchase "$30 billion of Azure compute capacity" and "additional compute capacity up to one gigawatt"; the same post says the compute commitment initially uses NVIDIA Grace Blackwell and Vera Rubin systems and that NVIDIA/Microsoft would invest up to $10B/$5B in Anthropic.
-- NVIDIA direct role: the Microsoft source describes a first deep technology partnership for NVIDIA and Anthropic to optimize Anthropic models and future NVIDIA architectures. It does not identify NVIDIA as the data-center operator, lessor, power buyer, or capacity seller.
-- Microsoft/NVIDIA infrastructure context: Microsoft said on 2026-03-16 that it had deployed hundreds of thousands of liquid-cooled Grace Blackwell GPUs and was rolling Vera Rubin NVL72 into modern liquid-cooled Azure datacenters over the next few months. This supports Azure platform readiness, not Anthropic-specific energization.
-- Anthropic AWS overlap: Anthropic's 2026-04-20 source says Amazon secures up to 5 GW for Claude, nearly 1 GW total by end-2026, more than $100B over ten years, and that AWS remains Anthropic's primary training/cloud provider.
-- Anthropic Google/Broadcom/Fluidstack overlap: Anthropic's 2025-10-23 Google TPU source says up to one million TPUs and well over 1 GW online in 2026. Its 2026-04-06 Google/Broadcom source says multiple GW starting in 2027 and that most new compute is a major expansion of the November 2025 $50B U.S. infrastructure commitment. Anthropic's 2025-11-12 Fluidstack source says $50B of data centers in Texas and New York with sites online throughout 2026, but no MW.
+## Financing Stack
 
-## Local Atom Context Used
+- **Capex envelope**: Not applicable to NVIDIA standalone. Site capex absorbed by Microsoft Azure stack.
+- **Equity / debt / RPO**: NVIDIA up to $10B equity into Anthropic; specific cash-flow schedule and milestones not public.
+- **Public disclosures**: Microsoft Official Blog 2025-11-18; Anthropic mirror 2025-11-18; NVIDIA Rubin Vera press release 2026-01-05; Microsoft Vera Rubin platform readiness Mar 16, 2026.
 
-- `canonical_capacity_atoms.yaml`: `anthropic_azure_incremental_capacity` already exists as 1.0 GW IT / 1.18 GW facility, T5, with low/high facility range 0-1.18 GW and note "no sites named, so range floors at zero."
-- `compute_commitments_overlay.yaml`: Anthropic-Azure is Class A because GW is disclosed, but no site is named. Anthropic-Google/Broadcom is Class B chip procurement and overlaps the Fluidstack infrastructure envelope. Anthropic-AWS is a separate 5 GW physical-capacity commitment with partial Epoch overlap.
-- `epoch_data_centers/compiled.json`: relevant overlap candidates include Microsoft Fairwater Wisconsin (3.328 GW buildout), Microsoft Fairwater Atlanta (0.859 GW), Microsoft Goodyear (0.263 GW), Anthropic-Amazon New Carlisle (1.229 GW), Amazon Madison Mega Site (0.819 GW), Amazon Ridgeland (1.008 GW), and Fluidstack Lake Mariner (0.509 GW).
+## Atoms Sourced (in canonical_capacity_atoms.yaml)
 
-## Source Register
+- **No standalone NVIDIA atom.** Capacity attributed to:
+  - `anthropic_azure_incremental_capacity` — 0.590 GW facility central, T5 (see `contracts/anthropic_azure.md`).
+- NVIDIA $10B equity is documented here as commercial-relationship context but generates no physical capacity row.
 
-| Publisher | Date | URL | Use |
-| --- | --- | --- | --- |
-| Microsoft | 2025-11-18 | https://blogs.microsoft.com/blog/2025/11/18/microsoft-nvidia-and-anthropic-announce-strategic-partnerships/ | Primary source for Azure/NVIDIA/Anthropic 1 GW candidate, $30B Azure capacity, NVIDIA/Microsoft equity commitments. |
-| Microsoft | 2026-03-16 | https://blogs.microsoft.com/blog/2026/03/16/microsoft-at-nvidia-gtc-new-solutions-for-microsoft-foundry-azure-ai-infrastructure-and-physical-ai/ | Azure Grace Blackwell / Vera Rubin readiness context; not Anthropic-specific. |
-| Anthropic | 2026-04-20 | https://www.anthropic.com/news/anthropic-amazon-compute | Primary source for AWS 5 GW overlap/context and AWS primary-provider language. |
-| Anthropic | 2025-10-23 | https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services | Primary source for up to 1M TPUs, well over 1 GW in 2026, and multi-platform strategy. |
-| Anthropic | 2026-04-06 | https://www.anthropic.com/news/google-broadcom-partnership-compute | Primary source for Google/Broadcom multiple-GW TPU capacity starting 2027 and connection to the $50B U.S. infrastructure commitment. |
-| Google Cloud | 2026-04-06 | https://www.googlecloudpresscorner.com/2026-04-06-Anthropic-Expands-Use-of-Google-Cloud-and-TPUs | Primary corroboration for multiple GW of TPU capacity starting 2027. |
-| Anthropic | 2025-11-12 | https://www.anthropic.com/news/anthropic-invests-50-billion-in-american-ai-infrastructure | Primary source for $50B Fluidstack-built Texas/New York infrastructure and 2026 online language. |
-| Fluidstack | 2025-11-12 | https://www.fluidstack.io/about-us/blog/fluidstack-selected-by-anthropic-to-deliver-custom-data-centers-in-the-us | Primary corroboration for Fluidstack custom data centers and rapid delivery/gigawatts language. |
-| Epoch AI local snapshot | 2026-04-20 | https://epoch.ai/data/data-centers | Local Epoch overlap candidates from `epoch_data_centers/compiled.json`; repo snapshot retrieved 2026-04-22, reviewed 2026-04-28. |
+## Dedupe Notes
 
+NVIDIA's role in the November 18, 2025 announcement is equity ($10B into Anthropic) plus chip/architecture co-engineering. The Microsoft primary release describes a first deep technology partnership for NVIDIA and Anthropic to optimize Anthropic models and future NVIDIA architectures; it does not identify NVIDIA as the data-center operator, lessor, power buyer, or capacity seller. Treating Anthropic-NVIDIA as a standalone capacity row would double-count `anthropic_azure_incremental_capacity` under a different operator label. Rev-4.3 dedupe policy: physical capacity is attributed once to Microsoft Azure with full Vera Rubin/Grace Blackwell chip stack; NVIDIA equity is tracked separately as a commercial/cross-investment data point with no MW assigned. Same-customer demand-allocation risk against `anthropic_aws_incremental_new_capacity`, `anthropic_google_broadcom_physical_tpu`, and `anthropic_fluidstack_undisclosed_mw` is documented on each respective page.
+
+## Risk Axes
+
+1. **Counterparty risk** — NVIDIA $10B Anthropic equity is part of an "AI compute investment loop" pattern (NVIDIA invests in Anthropic; Anthropic buys NVIDIA chips on Microsoft Azure that NVIDIA invests in; Microsoft also invests in OpenAI which buys NVIDIA chips). SEC, FTC, and House AI Task Force have flagged similar structures; NVIDIA standalone counterparty credit is investment-grade strong, but circular-funding optics carry policy risk.
+2. **Regulatory risk** — Antitrust scrutiny of AI vendor-equity-into-customer arrangements. NVIDIA's market share in AI accelerators (>90% data-center training) attracts ongoing FTC and EU competition reviews. Export-control regimes (EAR / BIS) gate NVIDIA chip flows even within domestic deployments where the chip lineage is export-controlled.
+3. **Power / interconnect risk** — N/A at NVIDIA level (no NVIDIA-owned physical sites).
+4. **Supply chain risk** — NVIDIA Grace Blackwell and Vera Rubin systems are supply-constrained through 2027; HBM, CoWoS, and rack-scale liquid-cooling are bottlenecks. Microsoft (Mar 16, 2026) said it had deployed hundreds of thousands of liquid-cooled Grace Blackwell GPUs and was rolling Vera Rubin NVL72 into modern liquid-cooled Azure datacenters; Anthropic-specific allocation depends on Azure platform readiness.
+5. **Technology obsolescence risk** — Anthropic is explicitly multi-platform (AWS Trainium, Google TPU, NVIDIA GPU). NVIDIA co-optimization may improve performance/TCO, but Anthropic can shift workloads to Trainium or TPU paths. Vera Rubin NVL576 (~600 kW/rack) generation transition from Grace Blackwell creates rack-architecture migration risk.
+6. **Financing risk** — $10B NVIDIA equity may be milestone-conditional (terms not public). Microsoft $5B and NVIDIA $10B together create $15B circular-funding stack; SEC review of cross-investment optics increasingly active.
+7. **Structural optionality** — NVIDIA is named as supplier and equity investor; not the operator, lessor, or capacity seller. Anthropic-NVIDIA standalone capacity is option-like — could expand if Anthropic/NVIDIA construct a direct deployment vehicle, but currently routed through Azure.
+
+## Temporal Logic
+
+- **Earliest**: 2026-01-01 — NVIDIA Jan 5, 2026 release: Microsoft will **"deploy Vera Rubin-based instances in 2026"** (capacity-bearing leg via Azure).
+- **Central**: N/A at NVIDIA level (no standalone capacity).
+- **Latest**: N/A at NVIDIA level.
+- **Critical-path dependency**: NVIDIA Vera Rubin/NVL576 fab and packaging supply; Microsoft Azure Fairwater/AI WAN platform readiness; NVIDIA $10B equity tranching schedule into Anthropic.
+
+## Reviewer Findings Addressed
+
+- **Rev-4.3 attribution policy**: Anthropic-NVIDIA is documented as commercial relationship only. **Capacity-bearing leg lives on Azure page** (`contracts/anthropic_azure.md` carries `anthropic_azure_incremental_capacity` at 0.590 GW facility central). No double-counting under separate NVIDIA operator label.
+- **Equity stack tracked**: $10B NVIDIA equity + $5B Microsoft equity into Anthropic documented as cross-investment data point with no MW assignment.
+
+## Open Questions / Gaps
+
+- NVIDIA $10B equity term sheet: tranching, milestones, anti-dilution, governance rights, conversion features.
+- Whether any portion of the November 18, 2025 announcement creates a direct NVIDIA-owned or NVIDIA-operated deployment vehicle separate from Microsoft Azure.
+- Workload allocation split across AWS Trainium, Google TPUs, and NVIDIA GPUs to ensure Anthropic demand is not double-counted as multiple independent physical GW commitments.
+- Whether NVIDIA's role evolves toward neocloud-style operatorship (e.g., NVIDIA leaseback or direct AI factory operation) over the 2026–2031 window.
+
+## Source Citations
+
+| Source | Date | Type | Load-bearing claim | Quote |
+|--------|------|------|---------------------|-------|
+| [Microsoft Official Blog, "Microsoft, NVIDIA and Anthropic announce strategic partnerships"](https://blogs.microsoft.com/blog/2025/11/18/microsoft-nvidia-and-anthropic-announce-strategic-partnerships/) | 2025-11-18 | Primary company announcement | $30B Azure compute purchase; up-to-1 GW; NVIDIA $10B equity; Microsoft $5B equity | "purchase $30 billion of Azure compute capacity"; "up to one gigawatt" |
+| [Anthropic, "Microsoft, NVIDIA, and Anthropic announce strategic partnerships"](https://www.anthropic.com/news/microsoft-nvidia-anthropic-announce-strategic-partnerships) | 2025-11-18 | Primary company announcement | AWS-primary status confirmed; NVIDIA equity into Anthropic | "Amazon remains Anthropic's primary cloud provider" |
+| [NVIDIA IR, "NVIDIA Kicks Off the Next Generation of AI With Rubin"](https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Kicks-Off-the-Next-Generation-of-AI-With-Rubin--Six-New-Chips-One-Incredible-AI-Supercomputer/default.aspx) | 2026-01-05 | Primary company announcement | Vera Rubin deployment timing; Microsoft early-cloud-provider status | "deploy Vera Rubin-based instances in 2026" |
+| [Microsoft Official Blog, "Microsoft at NVIDIA GTC"](https://blogs.microsoft.com/blog/2026/03/16/microsoft-at-nvidia-gtc-new-solutions-for-microsoft-foundry-azure-ai-infrastructure-and-physical-ai/) | 2026-03-16 | Primary company announcement | Azure Grace Blackwell / Vera Rubin readiness; not Anthropic-specific | "hundreds of thousands of liquid-cooled Grace Blackwell GPUs" |
+| [Anthropic, "Anthropic and Amazon expand collaboration"](https://www.anthropic.com/news/anthropic-amazon-compute) | 2026-04-20 | Primary company announcement | AWS-primary status post-Azure/NVIDIA deal | "Amazon remains Anthropic's primary cloud provider and training partner" |
+
+## Cross-Links
+
+- Research dispatch: `docs/research/A5_anthropic_nvidia.md`
+- Atoms: capacity attributed to `anthropic_azure_incremental_capacity` (see `contracts/anthropic_azure.md`)
+- Dedupe entries: `dedupe_audit.csv` (no NVIDIA-specific row; capacity rows on Azure)
+- Audit response: `RESPONSE_TO_AUDIT.md`
+- Schema: `contracts/_schema.md`
+- Related: `contracts/anthropic_azure.md` (capacity-bearing leg), `contracts/anthropic_aws.md`, `contracts/anthropic_google_broadcom.md`, `contracts/anthropic_fluidstack.md`

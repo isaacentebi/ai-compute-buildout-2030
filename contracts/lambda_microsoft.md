@@ -1,173 +1,126 @@
-# Lambda Microsoft
+# Lambda / Microsoft / NVIDIA — Multibillion-Dollar Multi-Year AI Cloud Capacity
 
 ## TL;DR
 
-This Rev-4.2 contract drilldown is generated from the research dispatch pending final adjudication into atoms, dedupe, and row deltas.
+Lambda's November 3, 2025 primary release announces a multibillion-dollar, multi-year Microsoft AI infrastructure agreement powered by **"tens of thousands of NVIDIA GPUs"** including GB300 NVL72 systems. **The release does not disclose MW, named site allocation, RPO, take-or-pay mechanics, or contract value.** The local overlay carries `lambda_microsoft_contract` at **0.320 GW facility / 0.256 GW IT (PUE 1.25), T4** as a leased/signed/committed capacity convention rather than a primary-disclosed Microsoft building. Lambda's November 18, 2025 Series E announcement raises over $1.5B led by TWG Global with USIT, supporting "gigawatt-scale AI factories" but providing no Microsoft-specific MW allocation. Named Lambda site evidence is fragmented across Prime LAX01 Vernon (21 MW initial / 33 MW critical IT), Kansas City (24 MW initial scalable above 100 MW), EdgeConneX Chicago/Atlanta (30+ MW with 23 MW Chicago RFS 2026), Aligned DFW-04 Plano (no MW disclosed), ECL Mountain View (no MW disclosed), Cologix Columbus (no MW disclosed), and Allen TX (no MW disclosed). DCD reports Lambda operates 15 U.S. data centers and targets >1M GPUs and 3 GW liquid-cooled. **No reviewed source ties any Lambda site to Fairwater Wisconsin, Fairwater Atlanta, Goodyear, Crusoe Abilene Expansion, or CoreWeave Helios** — overlap with Epoch Microsoft sites is medium-confidence customer-demand overlap only.
 
-## Research Source
+## Counterparties
 
-- `docs/research/C4_lambda_microsoft.md`
+- **Operator:** Lambda (private; pre-IPO; AI cloud and GPU infrastructure provider).
+- **Anchor tenant:** Microsoft (named in November 3, 2025 release); NVIDIA (named as platform supplier and previously as leaseback counterparty).
+- **Financing partners:**
+  - TWG Global (Series E lead, November 18, 2025).
+  - USIT (Series E participant).
+  - Existing Lambda investors.
+  - NVIDIA (separate leaseback / GPU supply relationship; specific terms not publicly detailed).
+  - Site-level lessors: Prime Data Centers (LAX01 Vernon); EdgeConneX (Chicago, Atlanta); Aligned Data Centers (DFW-04 Plano); ECL (Mountain View); Cologix (Columbus); local Kansas City partners; Allen TX partner.
 
-## Dispatch Content
+## Structure
 
-# Rev-4.2 Research Dispatch C4: Lambda-Microsoft / NVIDIA
+- **Type:** Cloud capacity (multi-year, multibillion-dollar AI infrastructure-as-a-service).
+- **Term:** Multi-year per Lambda release; specific tenor not disclosed.
+- **Announced contract value:** Multibillion-dollar (Lambda press release) — exact value not shared. DCD says "the exact value and GPU count of the Microsoft deal were not shared."
+- **RPO/backlog:** None disclosed (Lambda is private and pre-IPO).
+- **Take-or-pay coverage:** Not publicly disclosed.
+- **Exclusivity:** Not disclosed.
+- **Optionality:** Lambda Kansas City announcement says the site is dedicated to a single unnamed Lambda customer under a multi-year agreement; the customer is not publicly named as Microsoft. Site allocation between Microsoft and NVIDIA leaseback capacity is not publicly resolved.
 
-accessed_date: 2026-04-28
+## GW Shape Over Time
 
-## TL;DR
+| Year | Facility GW low | Facility GW central | Facility GW high | Operational status | Notes |
+|---|---:|---:|---:|---|---|
+| 2025 | 0.05 | 0.05 | 0.10 | T1 | Lambda operational seed; LAX01 Vernon 21 MW Lambda lease; ECL Mountain View first GB300 NVL72 systems online September 2025 |
+| 2026 | 0.10 | 0.20 | 0.32 | T4 | Kansas City 24 MW launch early 2026; EdgeConneX Chicago 23 MW RFS 2026 |
+| 2027 | 0.20 | 0.30 | 0.45 | T4 | Continued site-level expansion; Aligned DFW-04 occupancy |
+| 2028 | 0.25 | 0.35 | 0.60 | T4 | Local 320 MW overlay convention as committed midpoint |
+| 2029 | 0.30 | 0.40 | 0.70 | T4 | DCD 3 GW liquid-cooled target trajectory |
+| 2030 | 0.32 | 0.50 | 1.00 | T4 | Long-tail toward DCD-reported 3 GW ambition |
 
-Lambda and Microsoft have a real multi-year, multibillion-dollar AI infrastructure agreement announced by Lambda on November 3, 2025. The public primary-source disclosure says Microsoft gets access to tens of thousands of NVIDIA GPUs, including GB300 NVL72 systems; it does not disclose a 320 MW capacity term, a named site, RPO, take-or-pay mechanics, or delivery tranches.
+## Sites
 
-The repo's current `lambda_microsoft_contract` row should therefore be treated as a candidate overlay, not a primary-verified Microsoft building. Local overlay carries 320 MW facility / 256 MW IT at PUE 1.25 for "Lambda leased, signed, committed capacity"; public evidence supports Lambda's broader leased and planned footprint, including Prime LAX01 Vernon, Kansas City, EdgeConneX Chicago/Atlanta, Aligned DFW-04 Plano, ECL Mountain View, Cologix Columbus, and Allen, Texas. None of the reviewed public sources show Lambda operating an Epoch-counted Microsoft Fairwater, Goodyear, or Crusoe Abilene building.
+| Site | Location | Operator | Epoch attribution | Overlap with this contract | Tier |
+|---|---|---|---|---:|---|
+| Prime LAX01 | Vernon, CA | Prime Data Centers (landlord); Lambda (tenant) | Not in Epoch | 21 MW Lambda lease at 33 MW critical-IT facility | T1/T2 |
+| Kansas City AI Factory | Kansas City, MO | Lambda (sole tenant) | Not in Epoch | 24 MW initial; scalable above 100 MW; early-2026 launch | T4 |
+| EdgeConneX Chicago | Chicago, IL | EdgeConneX (landlord); Lambda (tenant) | Not in Epoch | 23 MW single-tenant; RFS 2026 | T4 |
+| EdgeConneX Atlanta (ATL02) | Atlanta, GA | EdgeConneX (landlord); Lambda (tenant) | Not in Epoch | Part of "30+ MW combined" Chicago/Atlanta | T4 |
+| Aligned DFW-04 | Plano, TX | Aligned (landlord); Lambda (tenant) | Not in Epoch | MW not disclosed in release | T4 |
+| ECL Mountain View | Mountain View, CA | ECL (landlord); Lambda (tenant) | Not in Epoch | First GB300 NVL72 systems online September 2025; MW not disclosed | T1 |
+| Cologix Columbus | Columbus, OH | Cologix (landlord); Lambda (tenant) | Not in Epoch | MW not disclosed | T4 |
+| Allen TX | Allen, TX | Lambda / partner | Not in Epoch | MW not disclosed | T4 |
 
-## Evidence Notes
+## Financing Stack
 
-- Lambda's November 3, 2025 primary announcement says the Microsoft agreement is multibillion-dollar, multi-year, and includes tens of thousands of NVIDIA GPUs, including GB300 NVL72 systems. It gives no MW, site, lease tenor, or public contract value.
-- Lambda's November 18, 2025 Series E announcement says it raised over $1.5B led by TWG Global with USIT and existing investors, and that the funding supports gigawatt-scale AI factories. This supports financing capacity, not a Microsoft-specific 320 MW term.
-- Named Lambda site evidence is fragmented: Prime says Lambda will initially lease 21 MW at LAX01 Vernon; Lambda says Kansas City launches in early 2026 with 24 MW and can scale above 100 MW; EdgeConneX says 30+ MW across Chicago and Atlanta with a 23 MW Chicago RFS 2026 build-to-density facility; Aligned says Lambda will occupy DFW-04 in Plano but does not disclose MW in the release.
-- DCD secondary reporting says Lambda operates out of 15 U.S. data centers, targets more than one million NVIDIA GPUs and 3 GW of liquid-cooled data center capacity, and lists known/expected Lambda locations. DCD also says the exact value and GPU count of the Microsoft deal were not shared.
-- The 320 MW capacity basis appears to be a local Rev-4.2 overlay estimate from `neocloud_overlay.yaml` / `row_level_audit.csv`, not a public Lambda/Microsoft disclosure. Keep it as a research candidate for adjudication.
+- **Capex envelope:** Not publicly disclosed at top level; DCD reports >1M GPU and 3 GW liquid-cooled target ambition.
+- **Equity:** Lambda Series E over $1.5B led by TWG Global with USIT (November 18, 2025).
+- **Project finance / debt:** No project-finance package or asset-level debt disclosed in primary sources. NVIDIA leaseback structure mentioned by trade press; specific terms not publicly detailed.
+- **RPO / prepaid:** None disclosed.
+- **Public disclosures:** Lambda Microsoft agreement announcement (2025-11-03); Lambda Series E announcement (2025-11-18); Lambda/Prime LAX01 announcement (2025-11-13); Prime LAX01 technical sheet (October 2025); Lambda Kansas City announcement (2025-10-28); EdgeConneX/Lambda Chicago announcement (2025-08-21); Aligned/Lambda DFW-04 announcement (2025-05-07); DCD Microsoft-Lambda coverage (2025-11-04); DCD Series E coverage (2025-11-18).
 
-```yaml
-counterparty: Lambda / Microsoft / NVIDIA
-contract_overview:
-  type: cloud capacity
-  term_years: null
-  announced_capex_usd_b: null
-  announced_contract_value_usd_b: null
-  delivery_window: {earliest: 2026-01-01, central: 2026-12-31, latest: null}
-  exclusivity_or_optionality: >
-    Multi-year Microsoft access to Lambda-deployed NVIDIA GPU infrastructure.
-    Public primary sources do not disclose exclusivity, minimum take-or-pay,
-    RPO, fixed MW, or site allocation. The 320 MW row is a local overlay
-    candidate for Lambda leased/signed/committed capacity with Microsoft/NVIDIA
-    anchors, not a primary-source contract term.
-atoms:
-  - id: atom:lambda_microsoft_contract_candidate_2025_11_03
-    site: "Lambda leased/signed/committed capacity; sites not allocated to Microsoft publicly"
-    operator: Lambda
-    user_or_anchor: "Microsoft / NVIDIA"
-    gw_facility: 0.320
-    gw_it: 0.256
-    basis: facility_MW
-    pue_assumed: 1.25
-    energization_window: {earliest: 2026-01-01, central: 2026-12-31, latest: null}
-    operational_status: T4
-    exact_quote: "tens of thousands of NVIDIA GPUs"
-    source_url: https://lambda.ai/blog/lambda-announces-multibillion-dollar-agreement-with-microsoft-to-deploy-ai-infrastructure-powered-by-tens-of-thousands-of-nvidia-gpus
-    source_publisher: Lambda
-    source_publication_date: 2025-11-03
-    accessed_date: 2026-04-28
-    source_notes:
-      - "Primary source supports multibillion-dollar, multi-year Microsoft/Lambda GPU infrastructure; it does not disclose MW, site, RPO, or take-or-pay mechanics."
-      - "320 MW facility / 256 MW IT is carried from local `neocloud_overlay.yaml` and `row_level_audit.csv`, where the row is described as Lambda leased/signed/committed capacity."
-      - "Earliest 2026 timing is inferred from named Lambda facilities with early-2026/RFS-2026 language; not from the Microsoft contract itself."
-    named_site_candidates:
-      - site: "Kansas City, MO AI Factory"
-        operator_or_landlord: "Lambda sole tenant / local partners"
-        user_or_anchor: "single Lambda customer; not publicly named"
-        gw_facility: [0.024, 0.100]
-        evidence: "Lambda says launch in early 2026 with 24 MW and potential to scale above 100 MW; not tied publicly to Microsoft."
-      - site: "Prime Data Centers LAX01, Vernon, CA"
-        operator_or_landlord: Prime Data Centers
-        user_or_anchor: Lambda
-        gw_facility: 0.021
-        evidence: "Prime/Lambda release says Lambda will initially lease 21 MW at LAX01; Prime datasheet says LAX01 has 33 MW critical IT load and is operational/leased."
-      - site: "EdgeConneX Chicago / Atlanta"
-        operator_or_landlord: EdgeConneX
-        user_or_anchor: Lambda
-        gw_facility: 0.030
-        evidence: "EdgeConneX says 30+ MW across Chicago and Atlanta; Chicago 23 MW single-tenant site RFS 2026."
-      - site: "Aligned DFW-04, Plano, TX"
-        operator_or_landlord: Aligned Data Centers
-        user_or_anchor: Lambda
-        gw_facility: null
-        evidence: "Aligned says Lambda will occupy DFW-04, a liquid-cooled AI/cloud data center under construction; MW not disclosed in release."
-      - site: "ECL Mountain View, CA"
-        operator_or_landlord: ECL
-        user_or_anchor: Lambda
-        gw_facility: null
-        evidence: "DCD says first Lambda GB300 NVL72 systems came online at ECL Mountain View in September 2025; MW not disclosed in reviewed public sources."
-    epoch_site_overlap_candidates:
-      - epoch_site: Microsoft Fairwater Wisconsin
-        epoch_attributed_to: "Microsoft -> OpenAI, Microsoft"
-        overlap_gw_facility: 3.328
-        overlap_evidence: >
-          Local Epoch snapshot carries Fairwater Wisconsin to 3.328 GW facility
-          by 2027-10-03. Candidate only because Microsoft is the anchor in the
-          Lambda deal and Microsoft uses Fairwater for AI workloads; no reviewed
-          source says Lambda operates or leases Fairwater Wisconsin.
-      - epoch_site: Microsoft Fairwater Atlanta
-        epoch_attributed_to: "Microsoft -> OpenAI"
-        overlap_gw_facility: 0.859
-        overlap_evidence: >
-          Local Epoch snapshot carries Fairwater Atlanta to 0.859 GW facility
-          by 2026-05-14. Weak geography/name candidate only: Lambda/EdgeConneX
-          references Atlanta/ATL02, while Epoch's Fairwater Atlanta is the
-          QTS-built Fayetteville Microsoft AI WAN site. No source connects
-          Lambda to the Fairwater Atlanta building.
-      - epoch_site: Microsoft Goodyear
-        epoch_attributed_to: "Microsoft -> OpenAI"
-        overlap_gw_facility: 0.263
-        overlap_evidence: >
-          Local Epoch snapshot has Microsoft Goodyear at 0.263 GW facility
-          operational. Candidate only as generic Microsoft AI capacity; no
-          Lambda/Microsoft source names Goodyear.
-      - epoch_site: Crusoe Abilene Expansion
-        epoch_attributed_to: "Microsoft -> Microsoft"
-        overlap_gw_facility: 0.941
-        overlap_evidence: >
-          Local Epoch snapshot carries Microsoft-attributed Crusoe Abilene
-          Expansion buildout to 0.941 GW facility by 2027-11-11. Candidate only
-          because Microsoft also contracts with neocloud/datacenter providers;
-          no reviewed Lambda source names Crusoe or Abilene.
-      - epoch_site: Coreweave Helios
-        epoch_attributed_to: "CoreWeave -> Microsoft (speculative)"
-        overlap_gw_facility: 0.800
-        overlap_evidence: >
-          Local Epoch snapshot carries CoreWeave Helios buildout to 0.800 GW
-          facility with Microsoft as speculative user. This is a same-anchor
-          Microsoft neocloud overlap candidate, not a Lambda site candidate.
-    risks:
-      counterparty: "Medium: Microsoft/NVIDIA anchor quality is high, but Lambda is private and pre-IPO with limited public financial disclosure."
-      regulatory: "Medium: named Lambda sites span multiple local jurisdictions; public Microsoft contract source does not identify the permitting path."
-      power_interconnect: "High: Microsoft and Lambda both frame power/warm-shell availability as the bottleneck; named sites depend on local utility readiness."
-      supply_chain: "Medium-high: contract depends on NVIDIA GB300 NVL72 and future high-density liquid-cooled deployments."
-      technology: "Medium: dense GB300/NVL72, photonics, liquid cooling, and future Rubin/Vera systems create integration and refresh-cycle risk."
-      financing: "Medium: $1.5B Series E supports growth, but no project-finance package, debt terms, or Microsoft prepayment mechanics were found."
-      structural_optionality: "High: no public MW, no site allocation, and no take-or-pay schedule; the local 320 MW may be absorbed by multiple Lambda sites or overlap with NVIDIA leaseback capacity."
-contradictions:
-  - "Local overlay carries 320 MW facility as Lambda Microsoft/NVIDIA contracted capacity; public Lambda/Microsoft primary announcement discloses GPUs and a multi-year agreement but no MW."
-  - "Local overlay marks Lambda operational at 50 MW; DCD says Lambda operates out of 15 U.S. data centers and targets 3 GW, but the reviewed primary sources give only named-site slices such as 21 MW at LAX01 and 24 MW initial at Kansas City."
-  - "Kansas City is dedicated to a single Lambda customer under a multi-year agreement, but Lambda does not name that customer; do not assume it is Microsoft without contract/source confirmation."
-gaps:
-  - "Contract or filing showing whether Microsoft is reserving exactly 320 MW, a GPU count, an IT-load amount, or a dollar-denominated cloud-service commitment."
-  - "Site allocation for the Microsoft contract: Kansas City, LAX01, EdgeConneX Chicago/Atlanta, Aligned Plano, ECL Mountain View, Cologix Columbus, Allen Texas, or another site."
-  - "Whether the NVIDIA leaseback and Microsoft contract use the same GPUs/capacity or separate tranches."
-  - "Whether any Lambda-operated capacity is physically inside an Epoch-counted Microsoft site; current public evidence says no."
-  - "Delivery schedule, payment terms, cancellation rights, utilization guarantees, and Microsoft prepayment or balance-sheet treatment."
-```
+## Atoms Sourced
 
-## Evidence Register
+- `atom:lambda_microsoft_contract` (0.320 GW T4) — local overlay convention for Lambda leased/signed/committed capacity with Microsoft/NVIDIA anchors (PUE 1.25). **Not primary-disclosed** as Microsoft contract MW.
+- `atom:lambda_operational` — Lambda operational seed capacity.
 
-| Source | Date | Type | Load-bearing evidence | Short quote | Accessed |
-| --- | --- | --- | --- | --- | --- |
-| [Lambda, Microsoft agreement announcement](https://lambda.ai/blog/lambda-announces-multibillion-dollar-agreement-with-microsoft-to-deploy-ai-infrastructure-powered-by-tens-of-thousands-of-nvidia-gpus) | 2025-11-03 | Primary company announcement | Multiyear Microsoft/Lambda deal; NVIDIA GB300 NVL72; no MW/site/contract value disclosed. | "multi-year contract" | 2026-04-28 |
-| [Lambda, Series E announcement](https://lambda.ai/blog/lambda-raises-over-1.5b-from-twg-global-usit-to-build-superintelligence-cloud-infrastructure) | 2025-11-18 | Primary company announcement | $1.5B+ financing led by TWG Global/USIT; supports gigawatt-scale AI factory ambitions. | "raised over $1.5B" | 2026-04-28 |
-| [Lambda / Prime Data Centers LAX01 announcement](https://lambda.ai/blog/prime-data-centers-and-lambda-partner-to-power-the-next-era-of-superintelligence-with-ai-optimized-infrastructure-in-southern-california) | 2025-11-13 | Primary company announcement | LAX01 Vernon site; 33 MW facility, 21 MW Lambda initial lease, VPU power availability. | "21 MW of power" | 2026-04-28 |
-| [Prime LAX01 technical sheet](https://primedatacenters.com/wp-content/uploads/2025/10/PDC_LosAngeles_TechSheet_LAX01_01.pdf) | 2025-10 | Primary operator datasheet | LAX01 capacity, utility, operational/leased status. | "CRITICAL IT LOAD 33MW" | 2026-04-28 |
-| [Lambda Kansas City announcement](https://lambda.ai/blog/lambda-to-build-a-100mw-ai-factory-in-kansas-city-mo) | 2025-10-28 | Primary company announcement | Kansas City 24 MW initial, >100 MW potential, early-2026 launch, single unnamed Lambda customer. | "24MW of capacity" | 2026-04-28 |
-| [EdgeConneX / Lambda announcement](https://www.edgeconnex.com/news/press-releases/edgeconnex-and-lambda-to-build-ai-factory-in-chicago-with-industry-leading-high-density-data-center-infrastructure/) | 2025-08-21 | Primary operator announcement | 30+ MW Chicago/Atlanta, Chicago 23 MW RFS 2026, EdgeConneX operates ATL02/Chicago sites for Lambda. | "30+ Megawatts" | 2026-04-28 |
-| [Aligned / Lambda announcement](https://www.globenewswire.com/de/news-release/2025/05/07/3076210/0/en/Aligned-and-Lambda-Partner-to-Power-Next-Generation-AI-Infrastructure.html) | 2025-05-07 | Primary operator announcement | Lambda will occupy Aligned DFW-04 in Plano; liquid-cooled AI/cloud data center; no MW disclosed. | "occupy Aligned's newest" | 2026-04-28 |
-| [DCD, Microsoft-Lambda deal](https://www.datacenterdynamics.com/en/news/microsoft-signs-multi-billion-dollar-cloud-capacity-deal-with-lambda/) | 2025-11-04 | Secondary trade press | Microsoft access to Lambda GPUs; no exact value/GPU count; named Lambda facility footprint; 3 GW target. | "not been shared" | 2026-04-28 |
-| [DCD, Lambda Series E](https://www.datacenterdynamics.com/en/news/ai-cloud-company-lambda-raises-more-than-15bn-in-series-e-funding-round/) | 2025-11-18 | Secondary trade press | Confirms 15 data centers, >1M GPU/3GW target, Microsoft contract context. | "3GW of liquid-cooled" | 2026-04-28 |
-| [Epoch AI Frontier Data Centers local snapshot](https://epoch.ai/data/data-centers) | 2026-04-20 | Local dataset context | Candidate overlaps: Fairwater Wisconsin, Fairwater Atlanta, Goodyear, Crusoe Abilene Expansion, CoreWeave Helios. | "Microsoft Fairwater Wisconsin" | 2026-04-28 |
+## Dedupe Notes
 
-## Research Notes
+- **Epoch overlap:** None confirmed. Local Epoch Microsoft sites (Fairwater Wisconsin 3.328 GW; Fairwater Atlanta 0.859 GW; Goodyear 0.263 GW; Crusoe Abilene Expansion 0.941 GW; CoreWeave Helios 0.800 GW with Microsoft as #speculative user) are customer-anchor candidates only — **no reviewed Lambda source places Lambda at any of these Epoch buildings.**
+- **Cross-overlay overlap:** **Medium overlap risk** because Microsoft is an anchor tenant in multiple overlay rows (CoreWeave, Nscale, Lambda). The 320 MW Lambda-Microsoft basis is a local overlay convention; if Microsoft has consolidated demand into Fairwater/Stargate, some Lambda overlay capacity could be customer-fungible with those Epoch rows. No primary-source allocation supports MW subtraction.
+- **Atlanta name confusion:** Lambda/EdgeConneX ATL02 is not the Epoch Microsoft Fairwater Atlanta/Fayetteville QTS site based on current public evidence. Do not merge.
+- **NVIDIA leaseback:** Lambda's NVIDIA leaseback footprint may overlap with Microsoft contract capacity at the GPU level; primary sources do not disambiguate.
+- **Residual incremental GW:** 0.320 GW retained as ex-Epoch local overlay convention; could be zero if all 320 MW is embedded in Lambda's named-site footprint already-counted elsewhere.
 
-- Capacity basis: carry the repo's 320 MW as facility MW because `neocloud_overlay.yaml` says Lambda uses facility basis and PUE 1.25. This is not independently verified by public Lambda/Microsoft sources.
-- Microsoft building question: no public evidence found that Lambda operates a Microsoft Fairwater, Goodyear, or Crusoe Abilene building counted by Epoch. The only Atlanta overlap is name/metro confusion: Lambda/EdgeConneX ATL02 is not the Epoch Microsoft Fairwater Atlanta/Fayetteville QTS site based on current public evidence.
-- Timing: early 2026/RFS 2026 comes from Kansas City and EdgeConneX site releases, not the Microsoft contract announcement.
-- Financing: Series E is corporate equity financing, not project-level financing for a specific Microsoft building. No debt package, prepayment, or customer guarantee was found.
-- Dedupe posture: do not adjudicate. Candidate low bound is zero incremental Microsoft physical GW if the 320 MW is already embedded in named Lambda site rows or NVIDIA leaseback capacity; candidate high bound is 0.320 GW facility if the local overlay is retained as ex-Epoch Lambda/Microsoft capacity.
+## Risk Axes
 
+1. **Counterparty:** Microsoft and NVIDIA anchor quality is high, but **Lambda is private and pre-IPO with limited public financial disclosure**, no RPO, and no SEC backlog visibility. The Microsoft contract value is undisclosed (DCD: "not been shared"), and **MW is not published** in either the November 3, 2025 Lambda release or the November 18, 2025 Series E release.
+2. **Regulatory:** Named Lambda sites span California (Vernon, Mountain View), Texas (Plano, Allen), Illinois (Chicago), Georgia (Atlanta), Missouri (Kansas City), and Ohio (Columbus). Each carries separate utility, planning, environmental, and tax permitting paths; the Microsoft contract source does not identify the regulatory path or specific permits required.
+3. **Power / interconnect:** Microsoft and Lambda both frame power/warm-shell availability as the bottleneck. Site delivery depends on local utility readiness: LAX01 Vernon at 33 MW already operational/leased; Kansas City 24 MW initial early 2026 with 100 MW scaling target; EdgeConneX Chicago 23 MW RFS 2026.
+4. **Supply chain:** Contract depends on NVIDIA GB300 NVL72 systems and future high-density liquid-cooled deployments. ECL Mountain View first GB300 NVL72 came online September 2025; further GB300 ramp and Vera/Rubin successor platforms are the principal supply gates.
+5. **Technology obsolescence:** Dense GB300/NVL72, photonics, liquid cooling, and future Rubin/Vera systems create integration and refresh-cycle risk over a multi-year contract.
+6. **Financing:** **$1.5B Series E supports growth, but no project-finance package, debt terms, or Microsoft prepayment mechanics were found.** Series E concentration in TWG Global / USIT is a structural concentration to track. Lambda has no public RPO or SEC backlog.
+7. **Structural optionality:** **No public MW, no site allocation, and no take-or-pay schedule.** The local 320 MW may be absorbed by multiple Lambda sites already counted in named-site lists (LAX01, KC, EdgeConneX, Aligned, ECL, Cologix, Allen) or overlap with NVIDIA leaseback capacity. **Medium overlap risk** with Fairwater/CoreWeave/Crusoe Microsoft demand.
+
+## Temporal Logic
+
+- **Earliest plausible energization:** Already partially energized — 21 MW LAX01 Vernon active; ECL Mountain View first GB300 NVL72 online September 2025.
+- **Central case:** 0.20–0.30 GW facility by year-end 2026 across named sites (Kansas City, EdgeConneX Chicago/Atlanta, LAX01, DFW-04, Mountain View, Columbus, Allen).
+- **Latest plausible:** 0.32 GW local overlay convention retained as midpoint; DCD 3 GW liquid-cooled target is a stretch ambition through 2030.
+- **Critical-path dependency:** GB300 NVL72 supply at ECL/EdgeConneX; Kansas City 24 MW commissioning early 2026; EdgeConneX Chicago 23 MW RFS 2026; Aligned DFW-04 commissioning.
+
+## Reviewer Findings Addressed
+
+- **Local overlay basis disclosed plainly:** **0.320 GW T4 is local overlay convention, not primary-disclosed.** Lambda's November 3, 2025 release verbatim — "tens of thousands of NVIDIA GPUs", "multibillion-dollar", "multi-year" — provides no MW.
+- **Series E concentration:** Documented TWG Global / USIT as Series E lead/participant.
+- **Named sites enumerated** with MW where disclosed and "MW not disclosed" stated plainly where the operator release omits the figure (Aligned, ECL, Cologix, Allen).
+- **No Fairwater/Crusoe overlap claim:** Documented absence of evidence linking Lambda to those Epoch rows; medium overlap risk acknowledged via customer-anchor commonality.
+- **Atlanta name disambiguation:** Lambda/EdgeConneX ATL02 ≠ Epoch Microsoft Fairwater Atlanta (Fayetteville QTS).
+
+## Open Questions / Gaps
+
+- Contract or filing showing whether Microsoft is reserving exactly 320 MW, a GPU count, an IT-load amount, or a dollar-denominated cloud-service commitment.
+- Site allocation for the Microsoft contract: Kansas City, LAX01, EdgeConneX Chicago/Atlanta, Aligned Plano, ECL Mountain View, Cologix Columbus, Allen TX, or another site.
+- Whether the NVIDIA leaseback and Microsoft contract use the same GPUs/capacity or separate tranches.
+- Whether any Lambda-operated capacity is physically inside an Epoch-counted Microsoft site; current public evidence says no.
+- Delivery schedule, payment terms, cancellation rights, utilization guarantees, and Microsoft prepayment or balance-sheet treatment.
+
+## Source Citations
+
+| Source | Date | Type | Load-bearing claim | Quote (verbatim) |
+|---|---|---|---|---|
+| [Lambda Microsoft agreement](https://lambda.ai/blog/lambda-announces-multibillion-dollar-agreement-with-microsoft-to-deploy-ai-infrastructure-powered-by-tens-of-thousands-of-nvidia-gpus) | 2025-11-03 | Primary release | Multibillion-dollar multi-year Microsoft/Lambda; GB300 NVL72; no MW/site/value | "tens of thousands of NVIDIA GPUs"; "multi-year contract" |
+| [Lambda Series E](https://lambda.ai/blog/lambda-raises-over-1.5b-from-twg-global-usit-to-build-superintelligence-cloud-infrastructure) | 2025-11-18 | Primary release | $1.5B+ TWG/USIT; supports gigawatt-scale | "raised over $1.5B" |
+| [Lambda / Prime LAX01](https://lambda.ai/blog/prime-data-centers-and-lambda-partner-to-power-the-next-era-of-superintelligence-with-ai-optimized-infrastructure-in-southern-california) | 2025-11-13 | Primary release | LAX01 Vernon 33 MW facility, 21 MW Lambda lease | "21 MW of power" |
+| [Prime LAX01 technical sheet](https://primedatacenters.com/wp-content/uploads/2025/10/PDC_LosAngeles_TechSheet_LAX01_01.pdf) | 2025-10 | Primary datasheet | 33 MW critical IT load | "CRITICAL IT LOAD 33MW" |
+| [Lambda Kansas City](https://lambda.ai/blog/lambda-to-build-a-100mw-ai-factory-in-kansas-city-mo) | 2025-10-28 | Primary release | KC 24 MW initial, >100 MW potential, early-2026 launch | "24MW of capacity" |
+| [EdgeConneX / Lambda Chicago](https://www.edgeconnex.com/news/press-releases/edgeconnex-and-lambda-to-build-ai-factory-in-chicago-with-industry-leading-high-density-data-center-infrastructure/) | 2025-08-21 | Primary release | 30+ MW Chicago/Atlanta combined; Chicago 23 MW RFS 2026 | "30+ Megawatts" |
+| [Aligned / Lambda DFW-04](https://www.globenewswire.com/de/news-release/2025/05/07/3076210/0/en/Aligned-and-Lambda-Partner-to-Power-Next-Generation-AI-Infrastructure.html) | 2025-05-07 | Primary release | Lambda occupies DFW-04 Plano; MW not disclosed | "occupy Aligned's newest" |
+| [DCD Microsoft-Lambda](https://www.datacenterdynamics.com/en/news/microsoft-signs-multi-billion-dollar-cloud-capacity-deal-with-lambda/) | 2025-11-04 | Secondary trade press | Value/GPU count not disclosed; named Lambda footprint; 3 GW target | "not been shared" |
+| [DCD Lambda Series E](https://www.datacenterdynamics.com/en/news/ai-cloud-company-lambda-raises-more-than-15bn-in-series-e-funding-round/) | 2025-11-18 | Secondary trade press | 15 DCs, >1M GPU, 3 GW liquid-cooled target | "3GW of liquid-cooled" |
+| [Epoch AI Frontier Data Centers](https://epoch.ai/data/data-centers) | 2026-04-20 | Local dataset | Microsoft Epoch sites for customer-anchor overlap | "Microsoft Fairwater Wisconsin" |
+
+## Cross-Links
+
+- Research dispatch: `docs/research/C4_lambda_microsoft.md`
+- Canonical atoms: `canonical_capacity_atoms.yaml` rows for `lambda_microsoft_contract`, `lambda_operational`.
+- Dedupe ledger: `dedupe_audit.csv` rows for the above atom IDs.
+- Schema: `contracts/_schema.md`.

@@ -1,252 +1,132 @@
-# Crusoe Tallgrass
+# Crusoe / Tallgrass — Cheyenne Project Jade and Abilene
 
 ## TL;DR
 
-This Rev-4.2 contract drilldown is generated from the research dispatch pending final adjudication into atoms, dedupe, and row deltas.
+The Crusoe/Tallgrass contract bundle splits into two physically distinct development envelopes. **Cheyenne (Project Jade)** is a 1.8 GW AI data center campus in southeast Wyoming announced jointly by Tallgrass and Crusoe on July 24, 2025, with Laramie County File 26-023 site plans for both Project Jade (600 acres / five DC buildings / 40 BESS units / six continuous phases) and the BFC Power / Cheyenne Power Hub (659 acres / two combined-cycle turbines plus aero turbines and a fuel-cell yard) "approved with conditions" January 6, 2026. Tallgrass's release also says the campus is "designed to scale up to 10 gigawatts," but the on-site generation cap is 2.7 GW per DCD reporting — so the 8.2 GW stretch beyond 1.8 GW would require additional generation. **No public hyperscaler tenant or take-or-pay obligation has been disclosed for Cheyenne.** This warrants a T4 tier for the 1.8 GW base atom and T5 for the 8.2 GW stretch increment. **Abilene** is different: Crusoe's existing 1.18 GW Stargate/Oracle/OpenAI campus (5502 Spinks Rd) and the adjacent 0.941 GW Crusoe Abilene Microsoft Expansion (announced March 27, 2026) are both already in the Epoch row set and are excluded from this overlay's incremental count via `crusoe_abilene_epoch_overlap`. Shackelford County (175 Private Road 1604) is a separate Epoch row at 1.96 GW.
 
-## Research Source
+## Counterparties
 
-- `docs/research/C2_crusoe_tallgrass.md`
+- **Operator:**
+  - **Cheyenne:** WY DC 1, LLC (indirect Crusoe subsidiary; Project Jade applicant/owner per Laramie County site-plan package). Tallgrass Integrated Logistics Solutions (BFC Power and Cheyenne Power Hub applicant/owner).
+  - **Abilene:** Crusoe (developer); Oracle Cloud Infrastructure (operator at Stargate Phase 1).
+- **Anchor tenant:**
+  - **Cheyenne:** Undisclosed. Public sources do not name a hyperscaler tenant, lease term, take-or-pay, or RPO for Project Jade.
+  - **Abilene Stargate (5502 Spinks Rd):** OpenAI via Oracle, original Stargate site (in Epoch).
+  - **Abilene Microsoft (adjacent):** Microsoft, named explicitly in Crusoe's March 27, 2026 release (in Epoch as `Crusoe Abilene Expansion`).
+- **Financing partners:**
+  - Tallgrass (energy-infrastructure investment of approximately $7B per DCD); Crusoe announced $50B total project ambition for Cheyenne.
+  - Blue Owl / Crusoe $15B Abilene JV financing (Kirkland & Ellis press release, May 2025).
+  - GE Vernova 29-unit gas turbine deal for Crusoe (separate announcement).
 
-## Dispatch Content
+## Structure
 
-# Rev-4.2 Research Dispatch C2: Crusoe / Tallgrass
+- **Type:** Cheyenne — JV / co-located energy + data-center development; tenant unknown. Abilene — colocation/build-to-suit cloud capacity (Stargate/Microsoft).
+- **Term:** Not disclosed for Cheyenne. Stargate/Abilene Phase 1 buildout running 2024–2026; Abilene Microsoft expansion energization mid-2027.
+- **Announced contract value:** Cheyenne — DCD reports up to $50B total project cost and $7B Tallgrass infrastructure investment; **no public anchor lease or project-finance close.** Abilene Stargate — $15B Blue Owl JV financing (development-side).
+- **RPO/backlog:** None disclosed for Cheyenne. Abilene Stargate sits within OpenAI's broader Stargate commitments via Oracle.
+- **Take-or-pay coverage:** Not disclosed for Cheyenne. Abilene Microsoft Expansion structure not publicly specified beyond Microsoft's named support.
+- **Exclusivity:** None disclosed for Cheyenne.
+- **Optionality:** "Designed to scale up to 10 gigawatts" (Tallgrass press release 2025-07-24) is explicit scale-up optionality, not firm capacity. The 600 MW Abilene expansion that OpenAI evaluated in September 2025 was reportedly shifted away by Crusoe to the Microsoft adjacent campus per AP March 2026.
 
-accessed_date: 2026-04-28
+## GW Shape Over Time
 
-## TL;DR
+| Year | Facility GW low | Facility GW central | Facility GW high | Operational status | Notes |
+|---|---:|---:|---:|---|---|
+| 2026 | 0.0 | 0.0 | 0.0 | T4 | Project Jade site plan approved January 6, 2026; construction commencement; no buildings energized |
+| 2027 | 0.20 | 0.30 | 0.50 | T4 | DCD: "first data center buildings hoped to be electrified in 2027"; Abilene Microsoft Expansion first building mid-2027 (in Epoch) |
+| 2028 | 0.60 | 0.90 | 1.20 | T4 | Multi-phase Cheyenne build per six-phase site plan |
+| 2029 | 1.20 | 1.50 | 1.80 | T4 | Approaching site-plan capacity per Laramie County package |
+| 2030 | 1.50 | 1.80 | 1.80 | T4 | Project Jade site-plan capacity envelope |
+| Stretch | — | — | 10.0 | T5 | "Designed to scale up to 10 gigawatts" (Tallgrass); requires power beyond 2.7 GW on-site cap |
 
-Crusoe/Tallgrass Cheyenne is a real southeast Wyoming development candidate with primary-source support for a 1.8 GW initial AI data center campus, a design path to 10 GW, local site-plan approval, and a co-located Tallgrass power/gas strategy. It is not yet evidenced as a firm hyperscaler take-or-pay capacity contract in public sources. The best Rev-4.2 treatment is a Cheyenne candidate atom at 1.8 GW facility/site-plan capacity, with the 10 GW language carried only as stretch optionality.
+Abilene capacity (1.18 GW Stargate Phase 1 + 0.941 GW Microsoft Expansion = 2.121 GW total) is fully in the Epoch row set; not duplicated above.
 
-Abilene is different. Crusoe has primary-source support for the original Stargate/Oracle/OpenAI campus, a 1.2 GW existing Abilene buildout, and a new adjacent 900 MW Microsoft campus. Local Epoch already carries `OpenAI Stargate Abilene` at 1.18 GW facility full buildout and `Crusoe Abilene Expansion` at 0.941 GW facility full buildout. Do not adjudicate final tiers or subtraction here, but flag the full 2.121 GW Abilene capacity as an Epoch overlap candidate. Also flag nearby `OpenAI Stargate Shackelford` separately because OpenAI's September 2025 Stargate site announcement names Shackelford County, Texas; it is not the same address as Crusoe's Spinks Road Abilene campus in the local Epoch snapshot.
+## Sites
 
-## Evidence Notes
+| Site | Location | Operator | Epoch attribution | Overlap with this contract | Tier |
+|---|---|---|---|---:|---|
+| Project Jade / Switchgrass Industrial Park | ~8 mi south of Cheyenne, west of US-85, ~1 mi south of Terry Ranch Rd, Laramie County, WY | WY DC 1, LLC (Crusoe sub) | None in local Epoch snapshot | 1.8 GW facility (site-plan capacity); 8.2 GW stretch ex-Epoch | T4 / T5 stretch |
+| BFC Power / Cheyenne Power Hub | 659 acres adjacent to Project Jade | Tallgrass Integrated Logistics Solutions | None in local Epoch | Co-located power; 2.7 GW on-site cap | T4 |
+| Crusoe Stargate Abilene | 5502 Spinks Rd, Abilene, TX | Crusoe; Oracle Cloud Infrastructure operator | Epoch row "OpenAI Stargate Abilene" 1.18 GW full buildout 2026-07-01 | 1.18 GW (excluded; already Epoch-attributed) | T2 |
+| Crusoe Abilene Microsoft Expansion | Adjacent to 5502 Spinks Rd | Crusoe | Epoch row "Crusoe Abilene Expansion" 0.941 GW buildout 2027-11-11 | 0.941 GW (excluded; already Epoch-attributed) | T2 |
+| OpenAI Stargate Shackelford | 175 Private Road 1604, Abilene, Shackelford County, TX | Oracle | Separate Epoch row "OpenAI Stargate Shackelford" 1.96 GW full buildout 2028-12-31 | Separate site (different address); not Crusoe Abilene | T2 |
+| Crusoe Norway / Iceland operational | Various | Crusoe | Not in this overlay's Epoch slice | Operational seed capacity | T1 |
 
-- Tallgrass' July 24, 2025 company release says Crusoe and Tallgrass announced a strategic partnership to develop a 1.8 GW AI data center campus in southeast Wyoming, "designed to scale up to 10 gigawatts." It also says the campus will use power sources fueled by natural gas and future renewables, with proximity to Tallgrass CO2 sequestration, natural gas, and water assets.
-- Laramie County File 26-023 shows the Project Jade site plan and BFC Power / Cheyenne Power Hub site plan were "approved with conditions" on January 6, 2026. The county planning memo says Project Jade is a 600-acre data center site with five data center buildings and two support buildings, while Tallgrass' power project is a 659-acre site with two power-generation facilities.
-- The full county site-plan package identifies WY DC 1, LLC, an indirect Crusoe subsidiary, as Project Jade applicant/owner. It says Project Jade is about eight miles south of Cheyenne, west of US-85 and about one mile south of Terry Ranch Road; construction is planned in six continuous phases, with five data center buildings and 40 BESS units.
-- The Tallgrass site-plan application identifies Tallgrass Integrated Logistics Solutions as applicant/owner and describes BFC Power / Cheyenne Power Hub as a power cogeneration facility for the planned co-located data center. Major components include a fuel-cell yard, two combined-cycle turbines, temporary aeroderivative/light-duty turbines, and permanent aeroderivative/light-duty simple-cycle turbines.
-- DCD's January 8, 2026 report, secondary but consistent with the county record, identifies the site as Project Jade near Terry Ranch Road south of Cheyenne, says Tallgrass will build BFC Power and Cheyenne Power Hub adjacent to the campus, cites a $7B Tallgrass energy-infrastructure investment, and says first data center buildings are hoped to be electrified in 2027.
-- Crusoe's March 27, 2026 Abilene/Microsoft release says the new 900 MW site has two buildings plus an on-site power plant, sits adjacent to existing Abilene infrastructure, brings total projected Abilene capacity to approximately 2.1 GW, and expects first building energization in mid-2027.
-- Crusoe's same Abilene release discloses the basis tension: the 900 MW power plant is facility/generation language, but each of the two Microsoft buildings is designed for 336 MW of critical IT load, implying 672 MW critical IT for the two buildings before support load / generation reserve treatment.
-- Crusoe's September 30, 2025 release says the first phase of Stargate's Abilene campus is live on OCI, construction began in June 2024, the first two buildings were energized within a year, and the planned eight-building campus will support hundreds of thousands of GPUs.
-- OpenAI's September 23, 2025 Stargate release says new Oracle sites plus a potential 600 MW expansion near flagship Abilene can deliver over 5.5 GW; by March 2026, AP reported OpenAI chose to put that incremental Abilene expansion capacity in other locations, while Crusoe announced the adjacent Microsoft campus.
+## Financing Stack
 
-```yaml
-counterparty: "Crusoe / Tallgrass"
-contract_overview:
-  type: unknown
-  term_years: null
-  announced_capex_usd_b: 50
-  delivery_window: {earliest: 2027-01-01, central: 2027-12-31, latest: null}
-  exclusivity_or_optionality: >
-    Cheyenne is publicly evidenced as a Crusoe/Tallgrass strategic partnership,
-    approved site plan, and power-campus development. Public sources do not name
-    a hyperscaler tenant, lease term, take-or-pay obligation, or RPO. The 10 GW
-    language is scale optionality, not firm counted capacity. Abilene has named
-    Oracle/OpenAI and Microsoft customer surfaces, but those physical sites are
-    already represented in local Epoch candidate rows.
-atoms:
-  - id: atom:c2_crusoe_tallgrass_cheyenne_project_jade
-    site: "Project Jade / Switchgrass Industrial Park, south of Cheyenne, Laramie County, WY"
-    operator: "WY DC 1, LLC / Crusoe data center; Tallgrass BFC Power and Cheyenne Power Hub"
-    user_or_anchor: "Undisclosed"
-    gw_facility: 1.8
-    gw_it: null
-    basis: facility_MW
-    pue_assumed: null
-    energization_window: {earliest: 2027-01-01, central: 2027-12-31, latest: null}
-    operational_status: T4
-    exact_quote: "develop a 1.8 gigawatt (GW) AI data center campus"
-    source_url: "https://tallgrass.com/newsroom/press-releases/Crusoe"
-    source_publisher: "Tallgrass"
-    source_publication_date: 2025-07-24
-    accessed_date: 2026-04-28
-    epoch_site_overlap_candidates:
-      - epoch_site: "none found in local Epoch snapshot"
-        epoch_attributed_to: null
-        overlap_gw_facility: 0.0
-        overlap_evidence: >
-          Local `epoch_data_centers/compiled.json` and `canonical_capacity_atoms.yaml`
-          include no Cheyenne/Project Jade row as of the local snapshot reviewed
-          2026-04-28. This is a candidate ex-Epoch site unless a newer Epoch
-          update has added it.
-      - epoch_site: "OpenAI Stargate sites, unspecified future candidates"
-        epoch_attributed_to: "Oracle / SoftBank -> OpenAI"
-        overlap_gw_facility: null
-        overlap_evidence: >
-          OpenAI is still evaluating additional Stargate sites, but no primary
-          source names Cheyenne/Project Jade as Stargate. Carry only as a
-          speculative overlap check, not a site match.
-    risks:
-      counterparty: "Medium-high: Crusoe and Tallgrass are credible named developers, but no public hyperscaler tenant or take-or-pay contract is disclosed."
-      regulatory: "Medium: Laramie County approved site plans with conditions on 2026-01-06; further air, water, generation, pipeline, and construction permits remain execution gates."
-      power_interconnect: "High: project depends on behind-the-meter gas/cogeneration, BESS, Tallgrass gas/CO2/water assets, and county/federal/state approvals; 10 GW stretch would need power beyond the initial plant."
-      supply_chain: "High: multi-GW gas turbines/fuel cells, transformers, switchgear, liquid-cooling equipment, and AI racks face constrained delivery windows."
-      technology: "Medium: public sources do not identify chip stack, rack density, or critical IT load for Cheyenne."
-      financing: "High: DCD reports $7B Tallgrass energy infrastructure and up to $50B total project cost; no public project-finance close or anchor lease has been found."
-      structural_optionality: "High: 1.8 GW is a site-plan/development target; 10 GW is explicitly scale-up optionality."
+- **Capex envelope (Cheyenne):** DCD reports up to $50B total project cost; Tallgrass energy-infrastructure investment approximately $7B.
+- **Equity:** Crusoe (private; recent Series E and venture financing). Tallgrass (privately held energy infrastructure operator).
+- **Project finance / debt:** No Cheyenne project-finance close has been publicly announced. Abilene Stargate has $15B Blue Owl/Crusoe JV financing (Kirkland & Ellis announcement, May 2025).
+- **RPO / prepaid:** None disclosed for Cheyenne. Abilene Stargate falls under OpenAI/Oracle commitments documented separately.
+- **Public disclosures:** Tallgrass Crusoe press release (2025-07-24); Laramie County File 26-023 site-plan approval (2026-01-06); Crusoe Abilene Stargate live announcement (2025-09-30); Crusoe 900 MW Microsoft Abilene release (2026-03-27); GE Vernova 29-turbine deal release; Kirkland Blue Owl JV release.
 
-  - id: atom:c2_crusoe_tallgrass_cheyenne_stretch_to_10gw
-    site: "Project Jade stretch beyond initial 1.8 GW"
-    operator: "Crusoe / Tallgrass"
-    user_or_anchor: "Undisclosed"
-    gw_facility: 8.2
-    gw_it: null
-    basis: facility_MW
-    pue_assumed: null
-    energization_window: {earliest: null, central: null, latest: null}
-    operational_status: T5
-    exact_quote: "Designed to scale up to 10 gigawatts"
-    source_url: "https://tallgrass.com/newsroom/press-releases/Crusoe"
-    source_publisher: "Tallgrass"
-    source_publication_date: 2025-07-24
-    accessed_date: 2026-04-28
-    epoch_site_overlap_candidates:
-      - epoch_site: "none found in local Epoch snapshot"
-        epoch_attributed_to: null
-        overlap_gw_facility: 0.0
-        overlap_evidence: "No local Epoch Cheyenne/Project Jade row found; stretch is below firm-count threshold absent additional permits, power, tenant, and financing evidence."
-    risks:
-      counterparty: "High: no tenant or commercial obligation found for the stretch."
-      regulatory: "High: county-approved materials support the initial Project Jade/BFC scope, not a fully evidenced 10 GW buildout."
-      power_interconnect: "Very high: DCD reports the on-site station will only generate 2.7 GW, so a 10 GW campus would need other power sources."
-      supply_chain: "Very high: 8.2 GW incremental capacity would require enormous electrical, thermal, and compute supply."
-      technology: "High: future rack density and architecture could materially alter GW-to-compute translation."
-      financing: "Very high: no public financing package for the stretch has been found."
-      structural_optionality: "Very high: this is expansion language, not a firm capacity commitment."
+## Atoms Sourced
 
-  - id: atom:c2_crusoe_abilene_stargate_epoch_overlap
-    site: "Crusoe / Oracle / OpenAI Stargate Abilene, 5502 Spinks Rd, Abilene, TX"
-    operator: "Crusoe developer; Oracle Cloud Infrastructure operator"
-    user_or_anchor: OpenAI
-    gw_facility: 1.18
-    gw_it: 1.017
-    basis: facility_MW
-    pue_assumed: 1.16
-    energization_window: {earliest: 2025-06-28, central: 2026-07-01, latest: 2026-12-31}
-    operational_status: T2
-    exact_quote: "first phase of Stargate's flagship data center campus"
-    source_url: "https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live"
-    source_publisher: "Crusoe"
-    source_publication_date: 2025-09-30
-    accessed_date: 2026-04-28
-    epoch_site_overlap_candidates:
-      - epoch_site: "OpenAI Stargate Abilene"
-        epoch_attributed_to: "Oracle -> OpenAI"
-        overlap_gw_facility: 1.18
-        overlap_evidence: >
-          Local Epoch snapshot shows 200 MW current facility power and 1.180 GW
-          full buildout by 2026-07-01 at 5502 Spinks Rd, Abilene, TX.
-    risks:
-      counterparty: "Medium: Oracle/OpenAI/Crusoe remain named, but March 2026 reporting separated the main 1.2 GW campus from the abandoned additional expansion."
-      regulatory: "Medium: existing construction and operations reduce risk, but local tax, water, emissions, and community impacts remain active."
-      power_interconnect: "Medium-high: Crusoe says Abilene primarily connects to ERCOT and uses GE Vernova gas turbines for backup/grid stability; AP cites a 350 MW existing gas plant."
-      supply_chain: "Medium: first two buildings live; remaining six buildings still depend on rack, cooling, electrical, and commissioning schedule."
-      technology: "Medium: OpenAI/Oracle Blackwell-era deployment may change as new accelerator generations arrive."
-      financing: "Medium: the 1.2 GW campus has reported $15B JV/development financing, but Oracle/OpenAI expansion negotiations show financing sensitivity."
-      structural_optionality: "Medium: main Stargate I is live/under construction; further Abilene expansion was optional and shifted away."
+- `atom:crusoe_cheyenne_or_other_future_capacity` (1.8 GW T4) — Cheyenne Project Jade site-plan capacity per Tallgrass primary release "develop a 1.8 gigawatt (GW) AI data center campus." Local canonical atom carries a 1.98 GW point reflecting residual ex-Epoch accounting.
+- `atom:crusoe_abilene_epoch_overlap` (excluded) — 1.18 GW Stargate + 0.941 GW Microsoft Expansion already in Epoch; subtracted to avoid double-counting.
+- `atom:crusoe_norway_iceland_operational` — Crusoe's existing Norway/Iceland operational footprint.
+- `atom:epoch_crusoe_abilene_expansion_buildout_remaining` (0.941 GW; Epoch row, Microsoft-attributed).
+- Cheyenne stretch increment (8.2 GW T5) — implicit "designed to scale up to 10 gigawatts" minus 1.8 GW site-plan base; not separately atomized in canonical (treated as T5 optionality).
 
-  - id: atom:c2_crusoe_abilene_microsoft_epoch_overlap
-    site: "Crusoe Abilene Microsoft campus, adjacent to 5502 Spinks Rd, Abilene, TX"
-    operator: Crusoe
-    user_or_anchor: Microsoft
-    gw_facility: 0.941
-    gw_it: 0.672
-    basis: facility_MW
-    pue_assumed: null
-    energization_window: {earliest: 2027-06-01, central: 2027-09-17, latest: 2027-11-11}
-    operational_status: T2
-    exact_quote: "900 MW site includes two new buildings"
-    source_url: "https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure"
-    source_publisher: "Crusoe"
-    source_publication_date: 2026-03-27
-    accessed_date: 2026-04-28
-    epoch_site_overlap_candidates:
-      - epoch_site: "Crusoe Abilene Expansion"
-        epoch_attributed_to: "Microsoft -> Microsoft"
-        overlap_gw_facility: 0.941
-        overlap_evidence: >
-          Local Epoch snapshot shows `Crusoe Abilene Expansion` at 0 MW
-          current and 0.941 GW full facility buildout by 2027-11-11. The local
-          row's Microsoft owner/user and address match Crusoe's March 2026
-          Microsoft expansion announcement.
-      - epoch_site: "OpenAI Stargate Abilene"
-        epoch_attributed_to: "Oracle -> OpenAI"
-        overlap_gw_facility: null
-        overlap_evidence: >
-          Same broader Abilene tract and adjacent campus, but separate named
-          Microsoft buildings and on-site power plant. Flag for physical-campus
-          dedupe only; do not merge with the OpenAI/Oracle row here.
-    risks:
-      counterparty: "Low-medium: Microsoft is named in Crusoe's primary release and quoted, but public lease term/RPO details are not disclosed."
-      regulatory: "Medium: land clearing and site preparation are underway; local permitting and plant approvals remain delivery gates."
-      power_interconnect: "Medium-high: 900 MW on-site power plant plus MV BESS is planned; first building not expected until mid-2027."
-      supply_chain: "High: two 336 MW critical-IT buildings require very high-density power, cooling, and accelerator supply."
-      technology: "Medium: designed for next-generation GPU architectures; exact silicon not disclosed."
-      financing: "Medium-high: AP/Bloomberg context suggests this capacity followed OpenAI/Oracle expansion changes; no dedicated Microsoft project-finance close found."
-      structural_optionality: "Medium: named Microsoft support is stronger than Cheyenne, but basis differs between 900 MW generation/site capacity and 672 MW critical IT."
+## Dedupe Notes
 
-  - id: atom:c2_openai_stargate_shackelford_regional_overlap_candidate
-    site: "OpenAI Stargate Shackelford, 175 Private Road 1604, Abilene, Shackelford County, TX"
-    operator: Oracle
-    user_or_anchor: OpenAI
-    gw_facility: 1.96
-    gw_it: 1.69
-    basis: facility_MW
-    pue_assumed: 1.16
-    energization_window: {earliest: 2027-01-01, central: 2028-12-31, latest: 2028-12-31}
-    operational_status: T2
-    exact_quote: "located in Shackelford County, Texas"
-    source_url: "https://openai.com/index/five-new-stargate-sites/"
-    source_publisher: "OpenAI"
-    source_publication_date: 2025-09-23
-    accessed_date: 2026-04-28
-    epoch_site_overlap_candidates:
-      - epoch_site: "OpenAI Stargate Shackelford"
-        epoch_attributed_to: "Oracle -> OpenAI"
-        overlap_gw_facility: 1.96
-        overlap_evidence: >
-          Local Epoch snapshot has a separate Stargate Shackelford row at 175
-          Private Road 1604, Abilene, Shackelford County, with 1.960 GW full
-          buildout by 2028-12-31. It is a regional Stargate/Abilene-area
-          overlap candidate, not the same address as Crusoe's 5502 Spinks Rd
-          Abilene campus.
-    risks:
-      counterparty: "Medium: OpenAI/Oracle are named at portfolio level; local operator detail comes from Epoch."
-      regulatory: "Medium-high: separate county/site approvals need primary extraction."
-      power_interconnect: "High: 1.96 GW local Epoch buildout implies large power procurement not resolved in this dispatch."
-      supply_chain: "High: large Stargate site with multi-year completion risk."
-      technology: "Medium: OpenAI/Oracle chip mix may shift over the 2027-2028 buildout."
-      financing: "Medium-high: Oracle/OpenAI broader 4.5 GW partnership is large and financing-intensive."
-      structural_optionality: "Medium: OpenAI names Shackelford as a new site, but this dispatch does not adjudicate the site-specific firm tier."
-contradictions:
-  - "Cheyenne primary release supports 1.8 GW and scale to 10 GW; county/DCD materials describe a 2.7 GW adjacent power project. The 10 GW data-center stretch is not matched by the initial on-site generation scope."
-  - "Crusoe's Abilene Microsoft announcement says 900 MW site capacity and 900 MW on-site power, while the same release says the two buildings are designed for 336 MW of critical IT load each. Treat 900 MW as facility/generation capacity and 672 MW as disclosed critical IT, not interchangeable units."
-  - "OpenAI's September 2025 release described a potential 600 MW expansion near Abilene; AP reported on 2026-03-27 that OpenAI chose to put that additional capacity elsewhere, while Crusoe announced a 900 MW adjacent Microsoft campus."
-  - "Local `canonical_capacity_atoms.yaml` has an existing `crusoe_cheyenne_or_other_future_capacity` atom at 1.98 GW contracted capacity. This dispatch does not edit/adjudicate that row; it flags that public Cheyenne evidence supports 1.8 GW site-plan capacity plus optional stretch, while the extra 0.18 GW appears to be residual/ex-Epoch accounting rather than a named Cheyenne primary-source increment."
-gaps:
-  - "Pull full Laramie County Project Jade and BFC Power/Cheyenne Power Hub site-plan sheets into a structured table: building count, square footage, generation units, phasing, conditions of approval, and water/emissions assumptions."
-  - "Find primary air permit, water permit, and any Wyoming PSC/FERC interconnect or pipeline filings for BFC Power and Cheyenne Power Hub."
-  - "Confirm whether any hyperscaler tenant, lease term, take-or-pay, or project-finance close has been publicly filed for Cheyenne."
-  - "Resolve Cheyenne capacity basis: 1.8 GW appears to be data-center campus/facility capacity; county materials found so far do not disclose critical IT MW."
-  - "For Abilene, reconcile Crusoe's 2.1 GW public site total, Epoch's 1.180 + 0.941 = 2.121 GW facility buildout, and the Microsoft 672 MW critical-IT disclosure."
-  - "Check whether the local Epoch `OpenAI Stargate Shackelford` row should be grouped with Abilene-area Stargate discussions or kept fully separate by address/county."
-```
+- **Epoch overlap:** Crusoe Abilene Stargate (5502 Spinks Rd) is already an Epoch row at 1.18 GW; Crusoe Abilene Microsoft Expansion is already an Epoch row at 0.941 GW. Both excluded from this overlay's incremental count.
+- **Cross-overlay overlap:** Cheyenne is not in Epoch; primary candidate ex-Epoch incremental site at 1.8 GW. The 0.18 GW gap between local canonical 1.98 GW and Tallgrass's 1.8 GW disclosure is residual ex-Epoch accounting from earlier Crusoe-future-capacity inputs and is documented in the C2 dispatch as not Cheyenne-specific.
+- **Shackelford separation:** OpenAI Stargate Shackelford is a separate Epoch row at a different address (175 Private Road 1604, Shackelford County) versus Crusoe Abilene's 5502 Spinks Rd; do not merge.
+- **Residual incremental GW:** 1.8 GW Cheyenne base + 8.2 GW stretch optionality (T5; not counted in central case).
 
-## Source Pointers
+## Risk Axes
 
-- Tallgrass / Crusoe Cheyenne announcement: https://tallgrass.com/newsroom/press-releases/Crusoe
-- Laramie County File 26-023, Project Jade / BFC Power site-plan approval: https://laramiecounty.legistar.com/LegislationDetail.aspx?GUID=1623FD5B-974F-4551-9E2F-53A415151CCE&ID=7792288
-- Laramie County planning memo attachment: https://laramiecounty.legistar.com/View.ashx?GUID=0946D063-8DEE-42DD-B75C-867B3A63027D&ID=15061112&M=F
-- Laramie County Tall Grass/Crusoe press release: https://www.laramiecountywy.gov/files/sharedassets/public/v/1/county/press-release/tall-grasscrusoe-energy-and-data-center-project-in-southern-laramie-county.pdf
-- DCD Cheyenne approval report: https://www.datacenterdynamics.com/en/news/crusoe-gets-go-ahead-for-18gw-data-center-campus-and-power-plant-in-cheyenne-wyoming/
-- Crusoe Abilene Microsoft 900 MW announcement: https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure
-- Crusoe Abilene Stargate live announcement: https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live
-- OpenAI Stargate five-site announcement: https://openai.com/index/five-new-stargate-sites/
-- OpenAI Oracle 4.5 GW Stargate partnership: https://openai.com/index/stargate-advances-with-partnership-with-oracle/
-- AP on Microsoft taking over Abilene expansion after OpenAI backed away: https://apnews.com/article/ai-stargate-microsoft-openai-crusoe-oracle-f4f74c3a4617d8cfab5b933fc31ccc6e
-- GE Vernova / Crusoe 29 gas turbine package announcement: https://www.crusoe.ai/resources/newsroom/ge-vernova-and-crusoe-announce-major-29-unit-gas-turbine-deal
-- Kirkland on Blue Owl / Crusoe $15B Abilene JV financing: https://www.kirkland.com/news/press-release/2025/05/kirkland-advises-blue-owl-on-data-center-development
-- Local Epoch context reviewed: `epoch_data_centers/compiled.json`, `epoch_data_centers/report.txt`, `canonical_capacity_atoms.yaml`, and `neocloud_overlay.yaml` from this repo snapshot.
+1. **Counterparty:** Crusoe and Tallgrass are credible named developers, but **no public hyperscaler tenant, lease term, or take-or-pay contract is disclosed for Cheyenne.** Cheyenne is the principal counterparty risk: a 1.8 GW campus without an anchor tenant is structurally weaker than Abilene Stargate (Oracle/OpenAI) or Abilene Microsoft.
+2. **Regulatory:** Laramie County File 26-023 site plans were approved with conditions on January 6, 2026 — further air, water, generation, pipeline, and construction permits remain execution gates. Tallgrass's BFC Power site requires fuel-cell yard, two combined-cycle turbines, temporary aeroderivative/light-duty turbines, and permanent aeroderivative/light-duty simple-cycle turbines, each of which carries separate state/federal permitting tracks. Wyoming PSC and FERC pipeline interconnection filings have not been publicly identified.
+3. **Power / interconnect:** **The 2.7 GW on-site generation cap is the binding ceiling on the 10 GW stretch** — DCD reports the BFC/Cheyenne Power Hub will only generate 2.7 GW, so a 10 GW campus would need additional power sources beyond the planned plant. Cheyenne also depends on behind-the-meter gas/cogeneration, BESS (40 units in site plan), Tallgrass gas/CO2/water assets, and county/federal/state approvals. Abilene depends on ERCOT primary connection plus GE Vernova gas turbines for backup/grid stability; AP cites a 350 MW existing gas plant.
+4. **Supply chain:** Multi-GW gas turbines, fuel cells, transformers, switchgear, liquid-cooling equipment, and AI racks face constrained delivery windows. The 29-unit GE Vernova gas turbine package for Crusoe addresses some equipment supply but does not cover the full Cheyenne BFC scope.
+5. **Technology obsolescence:** Public sources do not identify chip stack, rack density, or critical IT load for Cheyenne; the 1.8 GW figure is facility/site-plan capacity, not IT MW. Future rack density and architecture could materially alter GW-to-compute translation.
+6. **Financing:** **DCD reports $7B Tallgrass energy infrastructure and up to $50B total project cost; no public project-finance close or anchor lease has been found for Cheyenne.** Abilene has $15B Blue Owl JV financing for Stargate.
+7. **Structural optionality:** **1.8 GW is a site-plan/development target; 10 GW is explicitly scale-up optionality** with no committed power, tenant, or financing path. Abilene Microsoft Expansion is structurally firmer (Microsoft named, on-site power plant under construction, mid-2027 first-energization target).
 
+## Temporal Logic
+
+- **Earliest plausible energization (Cheyenne):** 2027 — DCD says "first data center buildings hoped to be electrified in 2027."
+- **Central case (Cheyenne):** 1.8 GW site-plan capacity by 2029–2030 across six continuous phases per the Laramie County package.
+- **Latest plausible (Cheyenne):** Stretch optionality to 10 GW would require additional generation beyond the 2.7 GW on-site cap; no firm 10 GW timeline is publicly committed.
+- **Critical-path dependency:** BFC Power / Cheyenne Power Hub permits and turbine deliveries; behind-the-meter gas pipeline interconnect; transmission upgrades for any ex-2.7-GW expansion.
+
+## Reviewer Findings Addressed
+
+- **Reviewer #6 (Rev-4.2):** "Cheyenne should be demoted to T4 because no public hyperscaler tenant or take-or-pay disclosed." Resolved. Cheyenne base 1.8 GW is T4; stretch beyond 1.8 GW to 10 GW is T5.
+- **Abilene split:** Confirmed both 1.18 GW Stargate Phase 1 and 0.941 GW Microsoft Expansion are already Epoch rows; excluded from this overlay's incremental count.
+- **Shackelford separation:** Verified Shackelford (175 Private Road 1604) is a different physical site from Crusoe Abilene (5502 Spinks Rd); kept as separate Epoch row.
+- **2.7 GW on-site cap:** Documented explicitly as binding constraint on the 10 GW stretch language.
+
+## Open Questions / Gaps
+
+- Pull full Laramie County Project Jade and BFC Power/Cheyenne Power Hub site-plan sheets into a structured table: building count, square footage, generation units, phasing, conditions of approval, water/emissions assumptions.
+- Find primary air permit, water permit, and any Wyoming PSC/FERC interconnect or pipeline filings for BFC Power and Cheyenne Power Hub.
+- Confirm whether any hyperscaler tenant, lease term, take-or-pay, or project-finance close has been publicly filed for Cheyenne.
+- Resolve Cheyenne capacity basis: 1.8 GW appears to be data-center campus/facility capacity; county materials disclose no critical IT MW.
+- Reconcile Crusoe's 2.1 GW public Abilene total, Epoch's 1.180 + 0.941 = 2.121 GW facility buildout, and the Microsoft 672 MW critical-IT disclosure (two 336 MW critical-IT buildings).
+- Check whether OpenAI relocated its previously evaluated 600 MW Abilene expansion to a specific other site after the March 2026 reshuffle.
+
+## Source Citations
+
+| Source | Date | Type | Load-bearing claim | Quote (verbatim) |
+|---|---|---|---|---|
+| [Tallgrass / Crusoe Cheyenne announcement](https://tallgrass.com/newsroom/press-releases/Crusoe) | 2025-07-24 | Primary release | 1.8 GW campus, 10 GW scale; Tallgrass partnership | "develop a 1.8 gigawatt (GW) AI data center campus"; "designed to scale up to 10 gigawatts" |
+| [Laramie County File 26-023 approval](https://laramiecounty.legistar.com/LegislationDetail.aspx?GUID=1623FD5B-974F-4551-9E2F-53A415151CCE&ID=7792288) | 2026-01-06 | Primary county legistar | Project Jade and BFC Power site plans approved with conditions | "approved with conditions" |
+| [Laramie County planning memo attachment](https://laramiecounty.legistar.com/View.ashx?GUID=0946D063-8DEE-42DD-B75C-867B3A63027D&ID=15061112&M=F) | 2026-01-06 | Primary county document | 600 acres, 5 DC buildings, 40 BESS units | "five data center buildings" |
+| [Laramie County press release](https://www.laramiecountywy.gov/files/sharedassets/public/v/1/county/press-release/tall-grasscrusoe-energy-and-data-center-project-in-southern-laramie-county.pdf) | 2026-01-06 | Primary county release | Co-located scope; Tallgrass and Crusoe naming | "Tall Grass/Crusoe energy and data center project" |
+| [DCD Cheyenne approval report](https://www.datacenterdynamics.com/en/news/crusoe-gets-go-ahead-for-18gw-data-center-campus-and-power-plant-in-cheyenne-wyoming/) | 2026-01-08 | Secondary trade press | $7B Tallgrass infrastructure; 2.7 GW on-site generation; 2027 first-energization aspiration | "$7 billion"; "first data center buildings hoped to be electrified in 2027" |
+| [Crusoe Abilene Microsoft 900 MW announcement](https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure) | 2026-03-27 | Primary release | 900 MW site, two 336 MW critical-IT buildings, mid-2027 energization | "900 MW site includes two new buildings"; "336 MW of critical IT" |
+| [Crusoe Abilene Stargate live announcement](https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live) | 2025-09-30 | Primary release | Stargate Phase 1 live on OCI; eight-building campus | "first phase of Stargate's flagship data center campus" |
+| [OpenAI Stargate five-site announcement](https://openai.com/index/five-new-stargate-sites/) | 2025-09-23 | Primary release | Shackelford County named as Stargate site | "located in Shackelford County, Texas" |
+| [AP on Microsoft Abilene reshuffle](https://apnews.com/article/ai-stargate-microsoft-openai-crusoe-oracle-f4f74c3a4617d8cfab5b933fc31ccc6e) | 2026-03-27 | Secondary wire | Microsoft taking over Abilene expansion after OpenAI shifted | "Microsoft" |
+| [Kirkland Blue Owl Crusoe JV](https://www.kirkland.com/news/press-release/2025/05/kirkland-advises-blue-owl-on-data-center-development) | 2025-05 | Primary law-firm release | $15B Abilene JV development financing | "$15 billion" |
+| [Epoch AI Frontier Data Centers](https://epoch.ai/data/data-centers) | 2026-04-20 | Local dataset | Stargate Abilene 1.18 GW; Crusoe Abilene Expansion 0.941 GW; Stargate Shackelford 1.96 GW | "OpenAI Stargate Abilene"; "Crusoe Abilene Expansion"; "OpenAI Stargate Shackelford" |
+
+## Cross-Links
+
+- Research dispatch: `docs/research/C2_crusoe_tallgrass.md`
+- Canonical atoms: `canonical_capacity_atoms.yaml` rows for `crusoe_cheyenne_or_other_future_capacity`, `crusoe_abilene_epoch_overlap`, `crusoe_norway_iceland_operational`, `epoch_crusoe_abilene_expansion_buildout_remaining`.
+- Dedupe ledger: `dedupe_audit.csv` rows for the above atom IDs.
+- Schema: `contracts/_schema.md`.
