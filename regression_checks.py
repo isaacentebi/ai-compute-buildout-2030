@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -67,8 +68,21 @@ def missing_file_check() -> list[str]:
     return errors
 
 
+def canonical_overlay_totals_check() -> list[str]:
+    result = subprocess.run(
+        [sys.executable, "scripts/build_overlay_totals.py", "--check-only", "--check-overlay"],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+    )
+    if result.returncode == 0:
+        return []
+    output = (result.stdout + result.stderr).strip()
+    return [f"canonical overlay totals drift from canonical_capacity_atoms.yaml:\n{output}"]
+
+
 def main() -> int:
-    errors = stale_number_check() + missing_file_check()
+    errors = stale_number_check() + missing_file_check() + canonical_overlay_totals_check()
     if errors:
         for error in errors:
             print(error)

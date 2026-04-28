@@ -1,0 +1,2654 @@
+metadata:
+  ledger_version: '2026-04-27'
+  created_for: overlay atom-level reconciliation
+  source_of_truth: true
+  generated_from_inputs:
+  - epoch_data_centers/compiled.json
+  - compute_commitments_overlay.yaml
+  - neocloud_overlay.yaml
+  - row_level_audit.csv
+  western_scope_policy: Western denominator excludes sovereign supplemental rows, OpenAI Stargate UAE, and Alibaba Zhangbei;
+    OpenAI Stargate UAE is moved to sovereign sidebar and Alibaba Zhangbei is excluded.
+  unknown_mw_policy: Rows with unknown MW keep capacity_mw_facility null and do not enter totals unless analyst_inference_method
+    is explicit and evidence_tier is T6.
+  tier_probability_defaults:
+    T1: 1.0
+    T2: 0.88
+    T3: 0.78
+    T4: 0.58
+    T5: 0.32
+    T6: 0.25
+    excluded: 0.0
+  required_fields:
+  - atom_id
+  - parent_entity
+  - counterparty_or_anchor_tenant
+  - site_or_region
+  - capacity_mw_original
+  - capacity_basis_original
+  - pue_assumed
+  - capacity_mw_it
+  - capacity_mw_facility
+  - scope
+  - status
+  - evidence_tier
+  - realization_probability
+  - source_url
+  - source_publisher
+  - source_date
+  - last_checked
+  - dedupe_group
+  - dedupe_adjustment_mw
+  - dedupe_direction
+  - included_raw_horizon
+  - included_non_stretch
+  - included_conservative_T1_T2_T3
+  - included_probability_weighted
+  - notes
+atoms:
+- atom_id: epoch_microsoft_fairwater_wisconsin_operational
+  parent_entity: Microsoft
+  counterparty_or_anchor_tenant: OpenAI, Microsoft
+  site_or_region: Microsoft Fairwater Wisconsin
+  capacity_mw_original: 555.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 478.448
+  capacity_mw_facility: 555.0
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Microsoft Fairwater Wisconsin
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: 'Epoch current facility power for Microsoft Fairwater Wisconsin; project=Microsoft AI WAN #confident; country=United
+    States.'
+  capacity_mw_it_low: 478.448
+  capacity_mw_it_high: 478.448
+  capacity_mw_facility_low: 555.0
+  capacity_mw_facility_high: 555.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_microsoft_fairwater_wisconsin_buildout_remaining
+  parent_entity: Microsoft
+  counterparty_or_anchor_tenant: OpenAI, Microsoft
+  site_or_region: Microsoft Fairwater Wisconsin
+  capacity_mw_original: 2773.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 2390.517
+  capacity_mw_facility: 2773.0
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Microsoft Fairwater Wisconsin
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: 'Epoch remaining buildout to 3328.0 MW facility by 2027-10-03; project=Microsoft AI WAN #confident; country=United
+    States.'
+  capacity_mw_it_low: 2390.517
+  capacity_mw_it_high: 2390.517
+  capacity_mw_facility_low: 2773.0
+  capacity_mw_facility_high: 2773.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_openai_stargate_new_mexico_buildout_remaining
+  parent_entity: Oracle
+  counterparty_or_anchor_tenant: OpenAI
+  site_or_region: OpenAI Stargate New Mexico
+  capacity_mw_original: 2210.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 1905.172
+  capacity_mw_facility: 2210.0
+  scope: western
+  status: announced
+  evidence_tier: T4
+  realization_probability: 0.58
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:OpenAI Stargate New Mexico
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: 'Epoch remaining buildout to 2210.0 MW facility by 2028-12-31; project=Stargate #confident; country=United States.'
+  capacity_mw_it_low: 1905.172
+  capacity_mw_it_high: 1905.172
+  capacity_mw_facility_low: 2210.0
+  capacity_mw_facility_high: 2210.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_openai_stargate_shackelford_buildout_remaining
+  parent_entity: Oracle
+  counterparty_or_anchor_tenant: OpenAI
+  site_or_region: OpenAI Stargate Shackelford
+  capacity_mw_original: 1960.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 1689.655
+  capacity_mw_facility: 1960.0
+  scope: western
+  status: announced
+  evidence_tier: T4
+  realization_probability: 0.58
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:OpenAI Stargate Shackelford
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: 'Epoch remaining buildout to 1960.0 MW facility by 2028-12-31; project=Stargate #confident; country=United States.'
+  capacity_mw_it_low: 1689.655
+  capacity_mw_it_high: 1689.655
+  capacity_mw_facility_low: 1960.0
+  capacity_mw_facility_high: 1960.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_meta_hyperion_buildout_remaining
+  parent_entity: Meta
+  counterparty_or_anchor_tenant: Meta
+  site_or_region: Meta Hyperion
+  capacity_mw_original: 2262.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 1950.0
+  capacity_mw_facility: 2262.0
+  scope: western
+  status: announced
+  evidence_tier: T4
+  realization_probability: 0.58
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Meta Hyperion
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: 'Epoch remaining buildout to 2262.0 MW facility by 2028-01-01; project=Hyperion #confident; country=United States.'
+  capacity_mw_it_low: 1950.0
+  capacity_mw_it_high: 1950.0
+  capacity_mw_facility_low: 2262.0
+  capacity_mw_facility_high: 2262.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_qts_cedar_rapids_buildout_remaining
+  parent_entity: (unspecified)
+  counterparty_or_anchor_tenant: (unspecified)
+  site_or_region: QTS Cedar Rapids
+  capacity_mw_original: 1587.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 1368.103
+  capacity_mw_facility: 1587.0
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:QTS Cedar Rapids
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch remaining buildout to 1587.0 MW facility by 2027-11-15; project=n/a; country=United States.
+  capacity_mw_it_low: 1368.103
+  capacity_mw_it_high: 1368.103
+  capacity_mw_facility_low: 1587.0
+  capacity_mw_facility_high: 1587.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_openai_stargate_michigan_buildout_remaining
+  parent_entity: Oracle
+  counterparty_or_anchor_tenant: OpenAI
+  site_or_region: OpenAI Stargate Michigan
+  capacity_mw_original: 1383.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 1192.241
+  capacity_mw_facility: 1383.0
+  scope: western
+  status: announced
+  evidence_tier: T4
+  realization_probability: 0.58
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:OpenAI Stargate Michigan
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: 'Epoch remaining buildout to 1383.0 MW facility by 2028-12-31; project=Stargate #confident; country=United States.'
+  capacity_mw_it_low: 1192.241
+  capacity_mw_it_high: 1192.241
+  capacity_mw_facility_low: 1383.0
+  capacity_mw_facility_high: 1383.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_openai_stargate_wisconsin_buildout_remaining
+  parent_entity: Oracle
+  counterparty_or_anchor_tenant: OpenAI
+  site_or_region: OpenAI Stargate Wisconsin
+  capacity_mw_original: 1300.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 1120.69
+  capacity_mw_facility: 1300.0
+  scope: western
+  status: announced
+  evidence_tier: T4
+  realization_probability: 0.58
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:OpenAI Stargate Wisconsin
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: 'Epoch remaining buildout to 1300.0 MW facility by 2028-12-31; project=Stargate #confident; country=United States.'
+  capacity_mw_it_low: 1120.69
+  capacity_mw_it_high: 1120.69
+  capacity_mw_facility_low: 1300.0
+  capacity_mw_facility_high: 1300.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_openai_stargate_milam_buildout_remaining
+  parent_entity: Softbank
+  counterparty_or_anchor_tenant: OpenAI
+  site_or_region: OpenAI Stargate Milam
+  capacity_mw_original: 1200.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 1034.483
+  capacity_mw_facility: 1200.0
+  scope: western
+  status: announced
+  evidence_tier: T4
+  realization_probability: 0.58
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:OpenAI Stargate Milam
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: 'Epoch remaining buildout to 1200.0 MW facility by 2028-12-31; project=Stargate #confident; country=United States.'
+  capacity_mw_it_low: 1034.483
+  capacity_mw_it_high: 1034.483
+  capacity_mw_facility_low: 1200.0
+  capacity_mw_facility_high: 1200.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_openai_stargate_uae_buildout_remaining
+  parent_entity: G42
+  counterparty_or_anchor_tenant: OpenAI
+  site_or_region: OpenAI Stargate UAE
+  capacity_mw_original: 1400.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 1206.897
+  capacity_mw_facility: 1400.0
+  scope: sovereign
+  status: announced
+  evidence_tier: T4
+  realization_probability: 0.58
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:OpenAI Stargate UAE
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: 'Epoch remaining buildout to 1400.0 MW facility by 2028-01-01; project=Stargate #confident; country=United Arab Emirates.'
+  capacity_mw_it_low: 1206.897
+  capacity_mw_it_high: 1206.897
+  capacity_mw_facility_low: 1400.0
+  capacity_mw_facility_high: 1400.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_goodnight_buildout_remaining
+  parent_entity: Google
+  counterparty_or_anchor_tenant: Google DeepMind
+  site_or_region: Goodnight
+  capacity_mw_original: 1087.6
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 937.586
+  capacity_mw_facility: 1087.6
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Goodnight
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch remaining buildout to 1087.6 MW facility by 2027-10-01; project=n/a; country=United States.
+  capacity_mw_it_low: 937.586
+  capacity_mw_it_high: 937.586
+  capacity_mw_facility_low: 1087.6
+  capacity_mw_facility_high: 1087.6
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_crusoe_abilene_expansion_buildout_remaining
+  parent_entity: Microsoft
+  counterparty_or_anchor_tenant: Microsoft
+  site_or_region: Crusoe Abilene Expansion
+  capacity_mw_original: 941.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 811.207
+  capacity_mw_facility: 941.0
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Crusoe Abilene Expansion
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch remaining buildout to 941.0 MW facility by 2027-11-11; project=n/a; country=United States.
+  capacity_mw_it_low: 811.207
+  capacity_mw_it_high: 811.207
+  capacity_mw_facility_low: 941.0
+  capacity_mw_facility_high: 941.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_xai_colossus_2_buildout_remaining
+  parent_entity: xAI
+  counterparty_or_anchor_tenant: xAI
+  site_or_region: xAI Colossus 2
+  capacity_mw_original: 1494.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 1287.931
+  capacity_mw_facility: 1494.0
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:xAI Colossus 2
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch remaining buildout to 1494.0 MW facility by 2026-05-13; project=n/a; country=United States.
+  capacity_mw_it_low: 1287.931
+  capacity_mw_it_high: 1287.931
+  capacity_mw_facility_low: 1494.0
+  capacity_mw_facility_high: 1494.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_google_cedar_rapids_operational
+  parent_entity: Google
+  counterparty_or_anchor_tenant: Google DeepMind
+  site_or_region: Google Cedar Rapids
+  capacity_mw_original: 105.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 90.517
+  capacity_mw_facility: 105.0
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Google Cedar Rapids
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch current facility power for Google Cedar Rapids; project=n/a; country=United States.
+  capacity_mw_it_low: 90.517
+  capacity_mw_it_high: 90.517
+  capacity_mw_facility_low: 105.0
+  capacity_mw_facility_high: 105.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_google_cedar_rapids_buildout_remaining
+  parent_entity: Google
+  counterparty_or_anchor_tenant: Google DeepMind
+  site_or_region: Google Cedar Rapids
+  capacity_mw_original: 522.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 450.0
+  capacity_mw_facility: 522.0
+  scope: western
+  status: announced
+  evidence_tier: T4
+  realization_probability: 0.58
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Google Cedar Rapids
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: Epoch remaining buildout to 627.0 MW facility by 2028-11-18; project=n/a; country=United States.
+  capacity_mw_it_low: 450.0
+  capacity_mw_it_high: 450.0
+  capacity_mw_facility_low: 522.0
+  capacity_mw_facility_high: 522.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_meta_prometheus_operational
+  parent_entity: Meta
+  counterparty_or_anchor_tenant: Meta
+  site_or_region: Meta Prometheus
+  capacity_mw_original: 531.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 457.759
+  capacity_mw_facility: 531.0
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Meta Prometheus
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: 'Epoch current facility power for Meta Prometheus; project=Prometheus #confident; country=United States.'
+  capacity_mw_it_low: 457.759
+  capacity_mw_it_high: 457.759
+  capacity_mw_facility_low: 531.0
+  capacity_mw_facility_high: 531.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_meta_prometheus_buildout_remaining
+  parent_entity: Meta
+  counterparty_or_anchor_tenant: Meta
+  site_or_region: Meta Prometheus
+  capacity_mw_original: 579.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 499.138
+  capacity_mw_facility: 579.0
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Meta Prometheus
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: 'Epoch remaining buildout to 1110.0 MW facility by 2026-10-01; project=Prometheus #confident; country=United States.'
+  capacity_mw_it_low: 499.138
+  capacity_mw_it_high: 499.138
+  capacity_mw_facility_low: 579.0
+  capacity_mw_facility_high: 579.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_openai_stargate_abilene_operational
+  parent_entity: Oracle
+  counterparty_or_anchor_tenant: OpenAI
+  site_or_region: OpenAI Stargate Abilene
+  capacity_mw_original: 200.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 172.414
+  capacity_mw_facility: 200.0
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:OpenAI Stargate Abilene
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: 'Epoch current facility power for OpenAI Stargate Abilene; project=Stargate #confident; country=United States.'
+  capacity_mw_it_low: 172.414
+  capacity_mw_it_high: 172.414
+  capacity_mw_facility_low: 200.0
+  capacity_mw_facility_high: 200.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_openai_stargate_abilene_buildout_remaining
+  parent_entity: Oracle
+  counterparty_or_anchor_tenant: OpenAI
+  site_or_region: OpenAI Stargate Abilene
+  capacity_mw_original: 980.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 844.828
+  capacity_mw_facility: 980.0
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:OpenAI Stargate Abilene
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: 'Epoch remaining buildout to 1180.0 MW facility by 2026-07-01; project=Stargate #confident; country=United States.'
+  capacity_mw_it_low: 844.828
+  capacity_mw_it_high: 844.828
+  capacity_mw_facility_low: 980.0
+  capacity_mw_facility_high: 980.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_anthropic_amazon_new_carlisle_operational
+  parent_entity: Amazon
+  counterparty_or_anchor_tenant: Anthropic
+  site_or_region: Anthropic-Amazon New Carlisle
+  capacity_mw_original: 1092.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 941.379
+  capacity_mw_facility: 1092.0
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Anthropic-Amazon New Carlisle
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: 'Epoch current facility power for Anthropic-Amazon New Carlisle; project=Project Rainier #confident; country=United
+    States.'
+  capacity_mw_it_low: 941.379
+  capacity_mw_it_high: 941.379
+  capacity_mw_facility_low: 1092.0
+  capacity_mw_facility_high: 1092.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_anthropic_amazon_new_carlisle_buildout_remaining
+  parent_entity: Amazon
+  counterparty_or_anchor_tenant: Anthropic
+  site_or_region: Anthropic-Amazon New Carlisle
+  capacity_mw_original: 137.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 118.103
+  capacity_mw_facility: 137.0
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Anthropic-Amazon New Carlisle
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: 'Epoch remaining buildout to 1229.0 MW facility by 2026-06-21; project=Project Rainier #confident; country=United
+    States.'
+  capacity_mw_it_low: 118.103
+  capacity_mw_it_high: 118.103
+  capacity_mw_facility_low: 137.0
+  capacity_mw_facility_high: 137.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_microsoft_fairwater_atlanta_operational
+  parent_entity: Microsoft
+  counterparty_or_anchor_tenant: OpenAI
+  site_or_region: Microsoft Fairwater Atlanta
+  capacity_mw_original: 433.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 373.276
+  capacity_mw_facility: 433.0
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Microsoft Fairwater Atlanta
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: 'Epoch current facility power for Microsoft Fairwater Atlanta; project=Microsoft AI WAN #confident; country=United
+    States.'
+  capacity_mw_it_low: 373.276
+  capacity_mw_it_high: 373.276
+  capacity_mw_facility_low: 433.0
+  capacity_mw_facility_high: 433.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_microsoft_fairwater_atlanta_buildout_remaining
+  parent_entity: Microsoft
+  counterparty_or_anchor_tenant: OpenAI
+  site_or_region: Microsoft Fairwater Atlanta
+  capacity_mw_original: 426.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 367.241
+  capacity_mw_facility: 426.0
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Microsoft Fairwater Atlanta
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: 'Epoch remaining buildout to 859.0 MW facility by 2026-05-14; project=Microsoft AI WAN #confident; country=United
+    States.'
+  capacity_mw_it_low: 367.241
+  capacity_mw_it_high: 367.241
+  capacity_mw_facility_low: 426.0
+  capacity_mw_facility_high: 426.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_coreweave_helios_buildout_remaining
+  parent_entity: Coreweave
+  counterparty_or_anchor_tenant: Microsoft
+  site_or_region: Coreweave Helios
+  capacity_mw_original: 800.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 689.655
+  capacity_mw_facility: 800.0
+  scope: western
+  status: speculative
+  evidence_tier: T5
+  realization_probability: 0.32
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Coreweave Helios
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: Epoch remaining buildout to 800.0 MW facility by 2029-01-01; project=n/a; country=United States.
+  capacity_mw_it_low: 689.655
+  capacity_mw_it_high: 689.655
+  capacity_mw_facility_low: 800.0
+  capacity_mw_facility_high: 800.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_amazon_ridgeland_buildout_remaining
+  parent_entity: Amazon
+  counterparty_or_anchor_tenant: Anthropic
+  site_or_region: Amazon Ridgeland
+  capacity_mw_original: 1008.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 868.966
+  capacity_mw_facility: 1008.0
+  scope: western
+  status: speculative
+  evidence_tier: T5
+  realization_probability: 0.32
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Amazon Ridgeland
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: 'Epoch remaining buildout to 1008.0 MW facility by 2027-09-21; project=Project Rainier #speculative; country=United
+    States.'
+  capacity_mw_it_low: 868.966
+  capacity_mw_it_high: 868.966
+  capacity_mw_facility_low: 1008.0
+  capacity_mw_facility_high: 1008.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_qts_richmond_operational
+  parent_entity: (unspecified)
+  counterparty_or_anchor_tenant: (unspecified)
+  site_or_region: QTS Richmond
+  capacity_mw_original: 854.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 736.207
+  capacity_mw_facility: 854.0
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:QTS Richmond
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch current facility power for QTS Richmond; project=n/a; country=United States.
+  capacity_mw_it_low: 736.207
+  capacity_mw_it_high: 736.207
+  capacity_mw_facility_low: 854.0
+  capacity_mw_facility_high: 854.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_qts_richmond_buildout_remaining
+  parent_entity: (unspecified)
+  counterparty_or_anchor_tenant: (unspecified)
+  site_or_region: QTS Richmond
+  capacity_mw_original: 67.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 57.759
+  capacity_mw_facility: 67.0
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:QTS Richmond
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch remaining buildout to 921.0 MW facility by 2026-06-15; project=n/a; country=United States.
+  capacity_mw_it_low: 57.759
+  capacity_mw_it_high: 57.759
+  capacity_mw_facility_low: 67.0
+  capacity_mw_facility_high: 67.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_amazon_madison_mega_site_operational
+  parent_entity: Amazon
+  counterparty_or_anchor_tenant: Anthropic
+  site_or_region: Amazon Madison Mega Site
+  capacity_mw_original: 341.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 293.966
+  capacity_mw_facility: 341.0
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Amazon Madison Mega Site
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: 'Epoch current facility power for Amazon Madison Mega Site; project=Project Rainier #speculative; country=United
+    States.'
+  capacity_mw_it_low: 293.966
+  capacity_mw_it_high: 293.966
+  capacity_mw_facility_low: 341.0
+  capacity_mw_facility_high: 341.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_amazon_madison_mega_site_buildout_remaining
+  parent_entity: Amazon
+  counterparty_or_anchor_tenant: Anthropic
+  site_or_region: Amazon Madison Mega Site
+  capacity_mw_original: 478.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 412.069
+  capacity_mw_facility: 478.0
+  scope: western
+  status: speculative
+  evidence_tier: T5
+  realization_probability: 0.32
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Amazon Madison Mega Site
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: 'Epoch remaining buildout to 819.0 MW facility by 2026-09-18; project=Project Rainier #speculative; country=United
+    States.'
+  capacity_mw_it_low: 412.069
+  capacity_mw_it_high: 412.069
+  capacity_mw_facility_low: 478.0
+  capacity_mw_facility_high: 478.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_fluidstack_lake_mariner_operational
+  parent_entity: Fluidstack
+  counterparty_or_anchor_tenant: Anthropic, G42
+  site_or_region: Fluidstack Lake Mariner
+  capacity_mw_original: 68.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 58.621
+  capacity_mw_facility: 68.0
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Fluidstack Lake Mariner
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch current facility power for Fluidstack Lake Mariner; project=n/a; country=United States.
+  capacity_mw_it_low: 58.621
+  capacity_mw_it_high: 58.621
+  capacity_mw_facility_low: 68.0
+  capacity_mw_facility_high: 68.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_fluidstack_lake_mariner_buildout_remaining
+  parent_entity: Fluidstack
+  counterparty_or_anchor_tenant: Anthropic, G42
+  site_or_region: Fluidstack Lake Mariner
+  capacity_mw_original: 441.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 380.172
+  capacity_mw_facility: 441.0
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Fluidstack Lake Mariner
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch remaining buildout to 509.0 MW facility by 2027-03-31; project=n/a; country=United States.
+  capacity_mw_it_low: 380.172
+  capacity_mw_it_high: 380.172
+  capacity_mw_facility_low: 441.0
+  capacity_mw_facility_high: 441.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_google_new_albany_operational
+  parent_entity: Google
+  counterparty_or_anchor_tenant: Google DeepMind
+  site_or_region: Google New Albany
+  capacity_mw_original: 407.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 350.862
+  capacity_mw_facility: 407.0
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Google New Albany
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch current facility power for Google New Albany; project=n/a; country=United States.
+  capacity_mw_it_low: 350.862
+  capacity_mw_it_high: 350.862
+  capacity_mw_facility_low: 407.0
+  capacity_mw_facility_high: 407.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_google_new_albany_buildout_remaining
+  parent_entity: Google
+  counterparty_or_anchor_tenant: Google DeepMind
+  site_or_region: Google New Albany
+  capacity_mw_original: 136.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 117.241
+  capacity_mw_facility: 136.0
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Google New Albany
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch remaining buildout to 543.0 MW facility by 2026-12-18; project=n/a; country=United States.
+  capacity_mw_it_low: 117.241
+  capacity_mw_it_high: 117.241
+  capacity_mw_facility_low: 136.0
+  capacity_mw_facility_high: 136.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_google_omaha_operational
+  parent_entity: Google
+  counterparty_or_anchor_tenant: Google DeepMind
+  site_or_region: Google Omaha
+  capacity_mw_original: 189.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 162.931
+  capacity_mw_facility: 189.0
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Google Omaha
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch current facility power for Google Omaha; project=n/a; country=United States.
+  capacity_mw_it_low: 162.931
+  capacity_mw_it_high: 162.931
+  capacity_mw_facility_low: 189.0
+  capacity_mw_facility_high: 189.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_google_omaha_buildout_remaining
+  parent_entity: Google
+  counterparty_or_anchor_tenant: Google DeepMind
+  site_or_region: Google Omaha
+  capacity_mw_original: 285.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 245.69
+  capacity_mw_facility: 285.0
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Google Omaha
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch remaining buildout to 474.0 MW facility by 2027-07-26; project=n/a; country=United States.
+  capacity_mw_it_low: 245.69
+  capacity_mw_it_high: 245.69
+  capacity_mw_facility_low: 285.0
+  capacity_mw_facility_high: 285.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_google_pryor_north_operational
+  parent_entity: Google
+  counterparty_or_anchor_tenant: Google DeepMind
+  site_or_region: Google Pryor (North)
+  capacity_mw_original: 65.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 56.034
+  capacity_mw_facility: 65.0
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Google Pryor (North)
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch current facility power for Google Pryor (North); project=n/a; country=United States.
+  capacity_mw_it_low: 56.034
+  capacity_mw_it_high: 56.034
+  capacity_mw_facility_low: 65.0
+  capacity_mw_facility_high: 65.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_google_pryor_north_buildout_remaining
+  parent_entity: Google
+  counterparty_or_anchor_tenant: Google DeepMind
+  site_or_region: Google Pryor (North)
+  capacity_mw_original: 389.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 335.345
+  capacity_mw_facility: 389.0
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Google Pryor (North)
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch remaining buildout to 454.0 MW facility by 2026-05-17; project=n/a; country=United States.
+  capacity_mw_it_low: 335.345
+  capacity_mw_it_high: 335.345
+  capacity_mw_facility_low: 389.0
+  capacity_mw_facility_high: 389.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_xai_colossus_1_operational
+  parent_entity: xAI
+  counterparty_or_anchor_tenant: xAI
+  site_or_region: xAI Colossus 1
+  capacity_mw_original: 425.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 366.379
+  capacity_mw_facility: 425.0
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:xAI Colossus 1
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch current facility power for xAI Colossus 1; project=n/a; country=United States.
+  capacity_mw_it_low: 366.379
+  capacity_mw_it_high: 366.379
+  capacity_mw_facility_low: 425.0
+  capacity_mw_facility_high: 425.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_xai_colossus_1_buildout_remaining
+  parent_entity: xAI
+  counterparty_or_anchor_tenant: xAI
+  site_or_region: xAI Colossus 1
+  capacity_mw_original: 17.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 14.655
+  capacity_mw_facility: 17.0
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:xAI Colossus 1
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch remaining buildout to 442.0 MW facility by 2026-02-11; project=n/a; country=United States.
+  capacity_mw_it_low: 14.655
+  capacity_mw_it_high: 14.655
+  capacity_mw_facility_low: 17.0
+  capacity_mw_facility_high: 17.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_stack_infrastructure_nva02_operational
+  parent_entity: (unspecified)
+  counterparty_or_anchor_tenant: (unspecified)
+  site_or_region: STACK Infrastructure NVA02
+  capacity_mw_original: 118.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 101.724
+  capacity_mw_facility: 118.0
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:STACK Infrastructure NVA02
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch current facility power for STACK Infrastructure NVA02; project=n/a; country=United States.
+  capacity_mw_it_low: 101.724
+  capacity_mw_it_high: 101.724
+  capacity_mw_facility_low: 118.0
+  capacity_mw_facility_high: 118.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_stack_infrastructure_nva02_buildout_remaining
+  parent_entity: (unspecified)
+  counterparty_or_anchor_tenant: (unspecified)
+  site_or_region: STACK Infrastructure NVA02
+  capacity_mw_original: 369.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 318.103
+  capacity_mw_facility: 369.0
+  scope: western
+  status: announced
+  evidence_tier: T4
+  realization_probability: 0.58
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:STACK Infrastructure NVA02
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: Epoch remaining buildout to 487.0 MW facility by 2028-01-01; project=n/a; country=United States.
+  capacity_mw_it_low: 318.103
+  capacity_mw_it_high: 318.103
+  capacity_mw_facility_low: 369.0
+  capacity_mw_facility_high: 369.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_meta_temple_operational
+  parent_entity: Meta
+  counterparty_or_anchor_tenant: Meta
+  site_or_region: Meta Temple
+  capacity_mw_original: 198.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 170.69
+  capacity_mw_facility: 198.0
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Meta Temple
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch current facility power for Meta Temple; project=n/a; country=United States.
+  capacity_mw_it_low: 170.69
+  capacity_mw_it_high: 170.69
+  capacity_mw_facility_low: 198.0
+  capacity_mw_facility_high: 198.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_meta_temple_buildout_remaining
+  parent_entity: Meta
+  counterparty_or_anchor_tenant: Meta
+  site_or_region: Meta Temple
+  capacity_mw_original: 40.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 34.483
+  capacity_mw_facility: 40.0
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Meta Temple
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch remaining buildout to 238.0 MW facility by 2026-09-30; project=n/a; country=United States.
+  capacity_mw_it_low: 34.483
+  capacity_mw_it_high: 34.483
+  capacity_mw_facility_low: 40.0
+  capacity_mw_facility_high: 40.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_microsoft_goodyear_operational
+  parent_entity: Microsoft
+  counterparty_or_anchor_tenant: OpenAI
+  site_or_region: Microsoft Goodyear
+  capacity_mw_original: 263.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 226.724
+  capacity_mw_facility: 263.0
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Microsoft Goodyear
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch current facility power for Microsoft Goodyear; project=n/a; country=United States.
+  capacity_mw_it_low: 226.724
+  capacity_mw_it_high: 226.724
+  capacity_mw_facility_low: 263.0
+  capacity_mw_facility_high: 263.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_google_council_bluffs_east_operational
+  parent_entity: Google
+  counterparty_or_anchor_tenant: Google DeepMind
+  site_or_region: Google Council Bluffs (East)
+  capacity_mw_original: 190.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 163.793
+  capacity_mw_facility: 190.0
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Google Council Bluffs (East)
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch current facility power for Google Council Bluffs (East); project=n/a; country=United States.
+  capacity_mw_it_low: 163.793
+  capacity_mw_it_high: 163.793
+  capacity_mw_facility_low: 190.0
+  capacity_mw_facility_high: 190.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_google_council_bluffs_east_buildout_remaining
+  parent_entity: Google
+  counterparty_or_anchor_tenant: Google DeepMind
+  site_or_region: Google Council Bluffs (East)
+  capacity_mw_original: 94.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 81.034
+  capacity_mw_facility: 94.0
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Google Council Bluffs (East)
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch remaining buildout to 284.0 MW facility by 2026-06-10; project=n/a; country=United States.
+  capacity_mw_it_low: 81.034
+  capacity_mw_it_high: 81.034
+  capacity_mw_facility_low: 94.0
+  capacity_mw_facility_high: 94.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_stream_phoenix_buildout_remaining
+  parent_entity: (unspecified)
+  counterparty_or_anchor_tenant: (unspecified)
+  site_or_region: Stream Phoenix
+  capacity_mw_original: 267.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 230.172
+  capacity_mw_facility: 267.0
+  scope: western
+  status: speculative
+  evidence_tier: T5
+  realization_probability: 0.32
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Stream Phoenix
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: Epoch remaining buildout to 267.0 MW facility by 2030-01-01; project=n/a; country=United States.
+  capacity_mw_it_low: 230.172
+  capacity_mw_it_high: 230.172
+  capacity_mw_facility_low: 267.0
+  capacity_mw_facility_high: 267.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_vantage_tx1_operational
+  parent_entity: (unspecified)
+  counterparty_or_anchor_tenant: (unspecified)
+  site_or_region: Vantage TX1
+  capacity_mw_original: 44.8
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 38.621
+  capacity_mw_facility: 44.8
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Vantage TX1
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch current facility power for Vantage TX1; project=n/a; country=United States.
+  capacity_mw_it_low: 38.621
+  capacity_mw_it_high: 38.621
+  capacity_mw_facility_low: 44.8
+  capacity_mw_facility_high: 44.8
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_vantage_tx1_buildout_remaining
+  parent_entity: (unspecified)
+  counterparty_or_anchor_tenant: (unspecified)
+  site_or_region: Vantage TX1
+  capacity_mw_original: 134.4
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 115.862
+  capacity_mw_facility: 134.4
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.88
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Vantage TX1
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Epoch remaining buildout to 179.2 MW facility by 2027-08-31; project=n/a; country=United States.
+  capacity_mw_it_low: 115.862
+  capacity_mw_it_high: 115.862
+  capacity_mw_facility_low: 134.4
+  capacity_mw_facility_high: 134.4
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: epoch_alibaba_zhangbei_operational
+  parent_entity: Alibaba
+  counterparty_or_anchor_tenant: Alibaba
+  site_or_region: Alibaba Zhangbei
+  capacity_mw_original: 203.0
+  capacity_basis_original: facility
+  pue_assumed: 1.16
+  capacity_mw_it: 175.0
+  capacity_mw_facility: 203.0
+  scope: excluded
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://epoch.ai/data/data-centers
+  source_publisher: Epoch AI Frontier Data Centers
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: epoch_site:Alibaba Zhangbei
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: counted_once_as_epoch_site
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: Epoch current facility power for Alibaba Zhangbei; project=n/a; country=China.
+  capacity_mw_it_low: 175.0
+  capacity_mw_it_high: 175.0
+  capacity_mw_facility_low: 203.0
+  capacity_mw_facility_high: 203.0
+  source_type: dataset
+  source_support: primary_dataset
+- atom_id: anthropic_aws_incremental_new_capacity
+  parent_entity: Amazon
+  counterparty_or_anchor_tenant: Anthropic
+  site_or_region: Project Rainier residual / unidentified AWS sites
+  capacity_mw_original: 3170
+  capacity_basis_original: IT
+  pue_assumed: 1.2
+  capacity_mw_it: 3170
+  capacity_mw_facility: 3800
+  scope: western
+  status: announced
+  evidence_tier: T4
+  realization_probability: 0.72
+  source_url: https://www.anthropic.com/news/anthropic-amazon-compute
+  source_publisher: Anthropic
+  source_date: '2026-04-20'
+  last_checked: '2026-04-22'
+  dedupe_group: anthropic_aws_rainier
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: 5 GW announced less Epoch Madison/Ridgeland overlap; residual carried as Western incremental facility capacity.
+  capacity_mw_it_low: 2500
+  capacity_mw_it_high: 5000
+  capacity_mw_facility_low: 3000
+  capacity_mw_facility_high: 6000
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: primary_announcement
+  source_support: primary_company
+- atom_id: anthropic_azure_incremental_capacity
+  parent_entity: Microsoft Azure
+  counterparty_or_anchor_tenant: Anthropic
+  site_or_region: Azure sites not disclosed
+  capacity_mw_original: 1000
+  capacity_basis_original: IT
+  pue_assumed: 1.18
+  capacity_mw_it: 1000
+  capacity_mw_facility: 1180
+  scope: western
+  status: announced
+  evidence_tier: T5
+  realization_probability: 0.3
+  source_url: https://blogs.microsoft.com/blog/2025/11/18/microsoft-nvidia-and-anthropic-announce-strategic-partnerships/
+  source_publisher: Microsoft
+  source_date: '2025-11-18'
+  last_checked: '2026-04-22'
+  dedupe_group: anthropic_azure_incremental_capacity
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: 1 GW Azure compute commitment; no sites named, so range floors at zero.
+  capacity_mw_it_low: 0
+  capacity_mw_it_high: 1000
+  capacity_mw_facility_low: 0
+  capacity_mw_facility_high: 1180
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: primary_announcement
+  source_support: primary_company
+- atom_id: openai_microsoft_fairwater_international
+  parent_entity: Microsoft
+  counterparty_or_anchor_tenant: OpenAI / Microsoft
+  site_or_region: Fairwater Narvik and Loughton
+  capacity_mw_original: 700
+  capacity_basis_original: IT
+  pue_assumed: 1.15
+  capacity_mw_it: 700
+  capacity_mw_facility: 805
+  scope: western
+  status: announced
+  evidence_tier: T2
+  realization_probability: 0.82
+  source_url: https://blogs.microsoft.com/blog/2025/09/18/inside-the-worlds-most-powerful-ai-datacenter/
+  source_publisher: Microsoft
+  source_date: '2025-09-18'
+  last_checked: '2026-04-22'
+  dedupe_group: fairwater_international
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: International Fairwater sites named; MW estimated from disclosed site-scale range and nScale/Microsoft partnership.
+  capacity_mw_it_low: 400
+  capacity_mw_it_high: 1500
+  capacity_mw_facility_low: 460
+  capacity_mw_facility_high: 1725
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: primary_announcement
+  source_support: primary_company
+  analyst_inference_method: Midpoint of Narvik + Loughton announced site-scale ranges; primary source does not disclose MW.
+- atom_id: meta_hyperion_stretch_incremental
+  parent_entity: Meta
+  counterparty_or_anchor_tenant: Meta
+  site_or_region: Hyperion stretch beyond Epoch evidenced 2.26 GW
+  capacity_mw_original: 2740
+  capacity_basis_original: IT
+  pue_assumed: 1.1
+  capacity_mw_it: 2740
+  capacity_mw_facility: 3014
+  scope: western
+  status: speculative
+  evidence_tier: T5
+  realization_probability: 0.28
+  source_url: file:///Users/isaacentebi/Desktop/stack-intelligence-engine/.claude/worktrees/upbeat-keller/fmp_data/companies_toon/META/transcripts/Q2_FY2025.toon
+  source_publisher: Meta
+  source_date: '2025-07-30'
+  last_checked: '2026-04-24'
+  dedupe_group: meta_hyperion_stretch_incremental
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: CEO 5 GW Hyperion stretch less Epoch Hyperion evidenced buildout; firm 2 GW floor is already in Epoch.
+  capacity_mw_it_low: 0
+  capacity_mw_it_high: 2740
+  capacity_mw_facility_low: 0
+  capacity_mw_facility_high: 3014
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: earnings_call
+  source_support: local_cached_primary
+- atom_id: xai_colossus2_residual
+  parent_entity: xAI
+  counterparty_or_anchor_tenant: xAI
+  site_or_region: Memphis Colossus 2 residual
+  capacity_mw_original: 60
+  capacity_basis_original: IT
+  pue_assumed: 1.3
+  capacity_mw_it: 60
+  capacity_mw_facility: 78
+  scope: western
+  status: inferred
+  evidence_tier: T6
+  realization_probability: 0.25
+  source_url: https://www.tomshardware.com/tech-industry/artificial-intelligence/musk-purchases-third-building-at-memphis-site-to-expand-xais-training-capacity-to-a-monstrous-2-gigawatts
+  source_publisher: Tom's Hardware
+  source_date: '2025-12-30'
+  last_checked: '2026-04-22'
+  dedupe_group: xai_colossus2_residual
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: Residual between Musk 2 GW claim and Epoch Colossus buildout; nearly all capacity already in Epoch.
+  capacity_mw_it_low: 0
+  capacity_mw_it_high: 200
+  capacity_mw_facility_low: 0
+  capacity_mw_facility_high: 260
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: secondary_media
+  source_support: secondary_only
+  analyst_inference_method: Residual MW after subtracting Epoch Colossus 1+2 buildout from the 2 GW claim.
+- atom_id: anthropic_fluidstack_undisclosed_mw
+  parent_entity: Fluidstack
+  counterparty_or_anchor_tenant: Anthropic
+  site_or_region: Texas and New York unspecified Fluidstack sites
+  capacity_mw_original: null
+  capacity_basis_original: unknown
+  pue_assumed: 1.25
+  capacity_mw_it: null
+  capacity_mw_facility: null
+  scope: western
+  status: contracted
+  evidence_tier: T5
+  realization_probability: 0.4
+  source_url: https://www.anthropic.com/news/anthropic-invests-50-billion-in-american-ai-infrastructure
+  source_publisher: Anthropic
+  source_date: '2025-11-12'
+  last_checked: '2026-04-22'
+  dedupe_group: anthropic_fluidstack_undisclosed_mw
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: Anthropic/Fluidstack primary discloses $50B and sites but no MW; no MW assigned and excluded from totals.
+  capacity_mw_it_low: null
+  capacity_mw_it_high: null
+  capacity_mw_facility_low: null
+  capacity_mw_facility_high: null
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: primary_announcement
+  source_support: primary_company
+  unknown_mw_reason: No direct MW disclosure; dollar-only conversion intentionally not used.
+- atom_id: coreweave_operational_disclosed
+  parent_entity: CoreWeave
+  counterparty_or_anchor_tenant: multiple
+  site_or_region: CoreWeave 43-DC fleet operational disclosed
+  capacity_mw_original: 850
+  capacity_basis_original: facility
+  pue_assumed: 1.25
+  capacity_mw_it: 680
+  capacity_mw_facility: 850
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://www.sec.gov/Archives/edgar/data/1839341/000162828026013305/core-20251231.htm
+  source_publisher: CoreWeave / SEC
+  source_date: '2026-02-27'
+  last_checked: '2026-04-25'
+  dedupe_group: coreweave_operational_disclosed
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Operational fleet capacity disclosed by public company; counted once under CoreWeave, not Applied Digital.
+  capacity_mw_it_low: 680
+  capacity_mw_it_high: 680
+  capacity_mw_facility_low: 850
+  capacity_mw_facility_high: 850
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: sec_or_public_company
+  source_support: primary_company
+- atom_id: coreweave_contracted_ex_epoch
+  parent_entity: CoreWeave
+  counterparty_or_anchor_tenant: Microsoft / OpenAI / Meta / IBM
+  site_or_region: CoreWeave contracted fleet ex Epoch Helios
+  capacity_mw_original: 2300
+  capacity_basis_original: facility
+  pue_assumed: 1.25
+  capacity_mw_it: 1840
+  capacity_mw_facility: 2300
+  scope: western
+  status: contracted
+  evidence_tier: T3
+  realization_probability: 0.82
+  source_url: https://www.sec.gov/Archives/edgar/data/1839341/000162828026013305/core-20251231.htm
+  source_publisher: CoreWeave / SEC
+  source_date: '2026-02-27'
+  last_checked: '2026-04-25'
+  dedupe_group: coreweave_contracted_ex_epoch
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: 3.1 GW contracted less 0.8 GW Helios already counted in Epoch; T3 due RPO/backlog and named IG customers.
+  capacity_mw_it_low: 1840
+  capacity_mw_it_high: 1840
+  capacity_mw_facility_low: 2300
+  capacity_mw_facility_high: 2300
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: sec_or_public_company
+  source_support: primary_company
+- atom_id: coreweave_epoch_overlap_helios
+  parent_entity: CoreWeave
+  counterparty_or_anchor_tenant: Microsoft
+  site_or_region: CoreWeave Helios
+  capacity_mw_original: 800
+  capacity_basis_original: facility
+  pue_assumed: 1.25
+  capacity_mw_it: 640
+  capacity_mw_facility: 800
+  scope: western
+  status: excluded
+  evidence_tier: excluded
+  realization_probability: 0.0
+  source_url: https://www.sec.gov/Archives/edgar/data/1839341/000162828026013305/core-20251231.htm
+  source_publisher: Epoch AI / CoreWeave
+  source_date: '2026-02-27'
+  last_checked: '2026-04-25'
+  dedupe_group: epoch_site:Coreweave Helios
+  dedupe_adjustment_mw: -800
+  dedupe_direction: exclude_neocloud_duplicate_counted_in_epoch
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: 'Overlap atom: Helios is already counted as an Epoch site and removed from CoreWeave contracted ex-Epoch capacity.'
+  capacity_mw_it_low: 640
+  capacity_mw_it_high: 640
+  capacity_mw_facility_low: 800
+  capacity_mw_facility_high: 800
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: dataset
+  source_support: primary_dataset
+  double_count_risk: Epoch/CoreWeave overlap
+- atom_id: coreweave_applied_digital_pf1_overlap_adjustment
+  parent_entity: Applied Digital / CoreWeave
+  counterparty_or_anchor_tenant: CoreWeave
+  site_or_region: Polaris Forge 1 leaseback overlap
+  capacity_mw_original: 400
+  capacity_basis_original: facility
+  pue_assumed: 1.3
+  capacity_mw_it: 307.692
+  capacity_mw_facility: 400
+  scope: western
+  status: excluded
+  evidence_tier: excluded
+  realization_probability: 0.0
+  source_url: https://ir.applieddigital.com/news-events/press-releases/detail/128/applied-digital-finalizes-additional-150mw-lease-with
+  source_publisher: Applied Digital
+  source_date: '2026-04-01'
+  last_checked: '2026-04-22'
+  dedupe_group: applied_digital_pf1_coreweave
+  dedupe_adjustment_mw: -400
+  dedupe_direction: attribute_to_coreweave_end_user
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: PF1 is Applied Digital real estate leased to CoreWeave; counted under CoreWeave fleet and excluded from Applied Digital
+    incremental capacity.
+  capacity_mw_it_low: 307.692
+  capacity_mw_it_high: 307.692
+  capacity_mw_facility_low: 400
+  capacity_mw_facility_high: 400
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: primary_announcement
+  source_support: primary_company
+  double_count_risk: Applied Digital/CoreWeave leaseback
+- atom_id: nebius_operational_disclosed
+  parent_entity: Nebius
+  counterparty_or_anchor_tenant: multiple
+  site_or_region: Nebius operational fleet
+  capacity_mw_original: 170
+  capacity_basis_original: facility
+  pue_assumed: 1.2
+  capacity_mw_it: 141.667
+  capacity_mw_facility: 170
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta
+  source_publisher: Nebius
+  source_date: '2026-03-16'
+  last_checked: '2026-04-25'
+  dedupe_group: nebius_operational_disclosed
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Operational capacity disclosed in Nebius public materials.
+  capacity_mw_it_low: 141.667
+  capacity_mw_it_high: 141.667
+  capacity_mw_facility_low: 170
+  capacity_mw_facility_high: 170
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: public_company
+  source_support: primary_company
+- atom_id: nebius_meta_microsoft_contract_capacity
+  parent_entity: Nebius
+  counterparty_or_anchor_tenant: Microsoft / Meta
+  site_or_region: Nebius contracted fleet
+  capacity_mw_original: 2000
+  capacity_basis_original: facility
+  pue_assumed: 1.2
+  capacity_mw_it: 1666.667
+  capacity_mw_facility: 2000
+  scope: western
+  status: contracted
+  evidence_tier: T3
+  realization_probability: 0.78
+  source_url: https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta
+  source_publisher: Nebius
+  source_date: '2026-03-16'
+  last_checked: '2026-04-25'
+  dedupe_group: nebius_meta_microsoft_contract_capacity
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Contracted backlog with Microsoft and Meta; T3 because named IG counterparties and revenue contract evidence exist.
+  capacity_mw_it_low: 1666.667
+  capacity_mw_it_high: 1666.667
+  capacity_mw_facility_low: 2000
+  capacity_mw_facility_high: 2000
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: public_company
+  source_support: primary_company
+- atom_id: nscale_operational_seed_capacity
+  parent_entity: Nscale
+  counterparty_or_anchor_tenant: merchant
+  site_or_region: North Carolina seed site
+  capacity_mw_original: 20
+  capacity_basis_original: facility
+  pue_assumed: 1.2
+  capacity_mw_it: 16.667
+  capacity_mw_facility: 20
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://siliconangle.com/2025/10/15/nscale-inks-200000-gpu-data-center-contract-microsoft/
+  source_publisher: SiliconANGLE
+  source_date: '2025-10-15'
+  last_checked: '2026-04-25'
+  dedupe_group: nscale_operational_seed_capacity
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: First US site online; retained but secondary-source flagged.
+  capacity_mw_it_low: 16.667
+  capacity_mw_it_high: 16.667
+  capacity_mw_facility_low: 20
+  capacity_mw_facility_high: 20
+  freshness_status: waived_secondary_source_flagged
+  freshness_waiver_reason: No newer primary MW disclosure found as of 2026-04-25; retained secondary source and flagged as
+    private-company / secondary-source row.
+  source_type: secondary_media
+  source_support: secondary_only
+- atom_id: nscale_microsoft_contract_capacity
+  parent_entity: Nscale
+  counterparty_or_anchor_tenant: Microsoft / Google
+  site_or_region: Barstow, Ward County, West London and other ex-Fairwater sites
+  capacity_mw_original: 900
+  capacity_basis_original: facility
+  pue_assumed: 1.2
+  capacity_mw_it: 750
+  capacity_mw_facility: 900
+  scope: western
+  status: contracted
+  evidence_tier: T4
+  realization_probability: 0.6
+  source_url: https://siliconangle.com/2025/10/15/nscale-inks-200000-gpu-data-center-contract-microsoft/
+  source_publisher: SiliconANGLE
+  source_date: '2025-10-15'
+  last_checked: '2026-04-25'
+  dedupe_group: nscale_microsoft_contract_capacity
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: Private-company contracted capacity after subtracting Fairwater Narvik/Loughton overlap; T4 because no public RPO/take-or-pay
+    disclosure and source is secondary.
+  capacity_mw_it_low: 750
+  capacity_mw_it_high: 750
+  capacity_mw_facility_low: 900
+  capacity_mw_facility_high: 900
+  freshness_status: waived_secondary_source_flagged
+  freshness_waiver_reason: No newer primary MW disclosure found as of 2026-04-25; retained secondary source and flagged as
+    private-company / secondary-source row.
+  source_type: secondary_media
+  source_support: secondary_only
+- atom_id: nscale_fairwater_overlap_adjustment
+  parent_entity: Nscale / Microsoft
+  counterparty_or_anchor_tenant: Microsoft
+  site_or_region: Fairwater Narvik and Loughton overlap
+  capacity_mw_original: 600
+  capacity_basis_original: facility
+  pue_assumed: 1.2
+  capacity_mw_it: 500
+  capacity_mw_facility: 600
+  scope: western
+  status: excluded
+  evidence_tier: excluded
+  realization_probability: 0.0
+  source_url: https://siliconangle.com/2025/10/15/nscale-inks-200000-gpu-data-center-contract-microsoft/
+  source_publisher: Microsoft / Nscale secondary coverage
+  source_date: '2025-10-15'
+  last_checked: '2026-04-25'
+  dedupe_group: fairwater_international
+  dedupe_adjustment_mw: -600
+  dedupe_direction: attribute_to_openai_microsoft_fairwater
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: Nscale Narvik/Loughton capacity is attributed to the Fairwater atom; excluded here to avoid double-count.
+  capacity_mw_it_low: 500
+  capacity_mw_it_high: 500
+  capacity_mw_facility_low: 600
+  capacity_mw_facility_high: 600
+  freshness_status: waived_secondary_source_flagged
+  freshness_waiver_reason: No newer primary MW disclosure found as of 2026-04-25; retained secondary source and flagged as
+    private-company / secondary-source row.
+  source_type: secondary_media
+  source_support: secondary_only
+  double_count_risk: Nscale/Fairwater overlap
+- atom_id: crusoe_norway_iceland_operational
+  parent_entity: Crusoe
+  counterparty_or_anchor_tenant: merchant
+  site_or_region: Norway and Iceland operational sites
+  capacity_mw_original: 200
+  capacity_basis_original: facility
+  pue_assumed: 1.25
+  capacity_mw_it: 160
+  capacity_mw_facility: 200
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure
+  source_publisher: Crusoe
+  source_date: '2026-04-24'
+  last_checked: '2026-04-25'
+  dedupe_group: crusoe_norway_iceland_operational
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Operational ex-Epoch Crusoe capacity in Norway/Iceland and Abilene phase context.
+  capacity_mw_it_low: 160
+  capacity_mw_it_high: 160
+  capacity_mw_facility_low: 200
+  capacity_mw_facility_high: 200
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: primary_announcement
+  source_support: primary_company
+- atom_id: crusoe_abilene_epoch_overlap
+  parent_entity: Crusoe / Oracle / Microsoft
+  counterparty_or_anchor_tenant: OpenAI / Microsoft
+  site_or_region: Abilene Stargate and Microsoft expansion overlap
+  capacity_mw_original: 2120
+  capacity_basis_original: facility
+  pue_assumed: 1.25
+  capacity_mw_it: 1696
+  capacity_mw_facility: 2120
+  scope: western
+  status: excluded
+  evidence_tier: excluded
+  realization_probability: 0.0
+  source_url: https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure
+  source_publisher: Epoch AI / Crusoe
+  source_date: '2026-04-24'
+  last_checked: '2026-04-25'
+  dedupe_group: crusoe_abilene_epoch_overlap
+  dedupe_adjustment_mw: -2120
+  dedupe_direction: exclude_neocloud_duplicate_counted_in_epoch
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: Abilene Phase 1+2 and Microsoft Abilene expansion are already counted in Epoch; excluded from Crusoe incremental
+    neocloud capacity.
+  capacity_mw_it_low: 1696
+  capacity_mw_it_high: 1696
+  capacity_mw_facility_low: 2120
+  capacity_mw_facility_high: 2120
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: dataset
+  source_support: primary_dataset
+  double_count_risk: Crusoe Abilene/Epoch overlap
+- atom_id: crusoe_cheyenne_or_other_future_capacity
+  parent_entity: Crusoe
+  counterparty_or_anchor_tenant: Tallgrass / merchant
+  site_or_region: Cheyenne and residual ex-Epoch contracted capacity
+  capacity_mw_original: 1980
+  capacity_basis_original: facility
+  pue_assumed: 1.25
+  capacity_mw_it: 1584
+  capacity_mw_facility: 1980
+  scope: western
+  status: contracted
+  evidence_tier: T3
+  realization_probability: 0.7
+  source_url: https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure
+  source_publisher: Crusoe / DCD
+  source_date: '2026-04-24'
+  last_checked: '2026-04-25'
+  dedupe_group: crusoe_cheyenne_or_other_future_capacity
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: 4.1 GW contracted less Epoch Abilene overlaps; mostly Cheyenne 1.8 GW with permit and anchor evidence.
+  capacity_mw_it_low: 1584
+  capacity_mw_it_high: 1584
+  capacity_mw_facility_low: 1980
+  capacity_mw_facility_high: 1980
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: primary_plus_secondary
+  source_support: primary_company
+- atom_id: lambda_operational
+  parent_entity: Lambda
+  counterparty_or_anchor_tenant: merchant
+  site_or_region: Lambda operational fleet
+  capacity_mw_original: 50
+  capacity_basis_original: facility
+  pue_assumed: 1.25
+  capacity_mw_it: 40
+  capacity_mw_facility: 50
+  scope: western
+  status: operational
+  evidence_tier: T1
+  realization_probability: 1.0
+  source_url: https://lambda.ai/blog/lambda-raises-over-1.5b-from-twg-global-usit-to-build-superintelligence-cloud-infrastructure
+  source_publisher: Lambda
+  source_date: '2025-11-18'
+  last_checked: '2026-04-25'
+  dedupe_group: lambda_operational
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: Operational estimate retained from neocloud overlay; official financing refreshed but MW disclosure remains limited.
+  capacity_mw_it_low: 40
+  capacity_mw_it_high: 40
+  capacity_mw_facility_low: 50
+  capacity_mw_facility_high: 50
+  freshness_status: waived_current_best_available
+  freshness_waiver_reason: Official financing disclosure refreshed on 2026-04-25; no newer primary MW disclosure found as
+    of 2026-04-25.
+  source_type: primary_announcement
+  source_support: primary_company
+- atom_id: lambda_microsoft_contract
+  parent_entity: Lambda
+  counterparty_or_anchor_tenant: Microsoft / NVIDIA
+  site_or_region: Lambda leased, signed, committed capacity
+  capacity_mw_original: 320
+  capacity_basis_original: facility
+  pue_assumed: 1.25
+  capacity_mw_it: 256
+  capacity_mw_facility: 320
+  scope: western
+  status: contracted
+  evidence_tier: T4
+  realization_probability: 0.58
+  source_url: https://lambda.ai/blog/lambda-raises-over-1.5b-from-twg-global-usit-to-build-superintelligence-cloud-infrastructure
+  source_publisher: Lambda / DCD
+  source_date: '2025-11-18'
+  last_checked: '2026-04-25'
+  dedupe_group: lambda_microsoft_contract
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: Private pre-IPO capacity with Microsoft/NVIDIA anchors; T4 because no public RPO/take-or-pay capacity disclosure.
+  capacity_mw_it_low: 256
+  capacity_mw_it_high: 256
+  capacity_mw_facility_low: 320
+  capacity_mw_facility_high: 320
+  freshness_status: waived_current_best_available
+  freshness_waiver_reason: Official financing disclosure refreshed on 2026-04-25; no newer primary MW disclosure found as
+    of 2026-04-25.
+  source_type: primary_plus_secondary
+  source_support: primary_company
+- atom_id: applied_digital_pf2_leased_capacity
+  parent_entity: Applied Digital
+  counterparty_or_anchor_tenant: undisclosed hyperscaler
+  site_or_region: Polaris Forge 2
+  capacity_mw_original: 200
+  capacity_basis_original: facility
+  pue_assumed: 1.3
+  capacity_mw_it: 153.846
+  capacity_mw_facility: 200
+  scope: western
+  status: contracted
+  evidence_tier: T3
+  realization_probability: 0.78
+  source_url: https://ir.applieddigital.com/news-events/press-releases/detail/128/applied-digital-finalizes-additional-150mw-lease-with
+  source_publisher: Applied Digital
+  source_date: '2026-04-01'
+  last_checked: '2026-04-22'
+  dedupe_group: applied_digital_pf2_leased_capacity
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: true
+  included_probability_weighted: true
+  notes: PF2 hyperscaler lease plus secured financing; PF1 excluded as CoreWeave overlap.
+  capacity_mw_it_low: 153.846
+  capacity_mw_it_high: 153.846
+  capacity_mw_facility_low: 200
+  capacity_mw_facility_high: 200
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: primary_announcement
+  source_support: primary_company
+- atom_id: together_operational_inferred
+  parent_entity: Together AI
+  counterparty_or_anchor_tenant: merchant
+  site_or_region: Maryland, Memphis, Sweden operational footprint
+  capacity_mw_original: 65
+  capacity_basis_original: IT
+  pue_assumed: 1.25
+  capacity_mw_it: 65
+  capacity_mw_facility: 81.25
+  scope: western
+  status: inferred
+  evidence_tier: T6
+  realization_probability: 0.5
+  source_url: https://www.together.ai/blog/together-ai-expands-in-europe
+  source_publisher: Together AI / Sacra
+  source_date: '2026-04-23'
+  last_checked: '2026-04-25'
+  dedupe_group: together_operational_inferred
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: Operational MW inferred from GPU/site footprint; T6 in tier rollup.
+  capacity_mw_it_low: 65
+  capacity_mw_it_high: 65
+  capacity_mw_facility_low: 81.25
+  capacity_mw_facility_high: 81.25
+  freshness_status: waived_current_best_available
+  freshness_waiver_reason: Official GPU/capacity disclosure refreshed on 2026-04-25; row remains GPU-count inferred and is
+    flagged in Appendix B.
+  source_type: primary_plus_secondary
+  source_support: secondary_mw
+  analyst_inference_method: MW inferred from GPU count/site footprint; no direct MW disclosure.
+- atom_id: together_contracted_private_capacity
+  parent_entity: Together AI
+  counterparty_or_anchor_tenant: merchant + inference customers
+  site_or_region: North America secured capacity
+  capacity_mw_original: 200
+  capacity_basis_original: IT
+  pue_assumed: 1.25
+  capacity_mw_it: 200
+  capacity_mw_facility: 250
+  scope: western
+  status: contracted
+  evidence_tier: T4
+  realization_probability: 0.45
+  source_url: https://www.together.ai/blog/together-ai-expands-in-europe
+  source_publisher: Together AI / Sacra
+  source_date: '2026-04-23'
+  last_checked: '2026-04-25'
+  dedupe_group: together_contracted_private_capacity
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: Private-company contracted capacity; T4 because source support and MW conversion are weaker than public RPO evidence.
+  capacity_mw_it_low: 200
+  capacity_mw_it_high: 200
+  capacity_mw_facility_low: 250
+  capacity_mw_facility_high: 250
+  freshness_status: waived_current_best_available
+  freshness_waiver_reason: Official GPU/capacity disclosure refreshed on 2026-04-25; row remains GPU-count inferred and is
+    flagged in Appendix B.
+  source_type: primary_plus_secondary
+  source_support: secondary_mw
+- atom_id: voltage_park_lightning_inferred
+  parent_entity: Voltage Park / Lightning
+  counterparty_or_anchor_tenant: merchant
+  site_or_region: Six-site US GPU cloud footprint
+  capacity_mw_original: 135
+  capacity_basis_original: IT
+  pue_assumed: 1.25
+  capacity_mw_it: 135
+  capacity_mw_facility: 168.75
+  scope: western
+  status: inferred
+  evidence_tier: T6
+  realization_probability: 0.6
+  source_url: https://www.voltagepark.com/blog/lightning-ai-voltage-park-merger-to-create-the-first-cloud-built-for-ai
+  source_publisher: BusinessWire / Voltage Park
+  source_date: '2026-02-06'
+  last_checked: '2026-04-25'
+  dedupe_group: voltage_park_lightning_inferred
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: true
+  included_non_stretch: true
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: true
+  notes: MW inferred from roughly 35k GPU footprint across six sites; no direct MW disclosure.
+  capacity_mw_it_low: 135
+  capacity_mw_it_high: 135
+  capacity_mw_facility_low: 168.75
+  capacity_mw_facility_high: 168.75
+  freshness_status: waived_current_best_available
+  freshness_waiver_reason: Official merger disclosure refreshed on 2026-04-25; no newer primary capacity disclosure found
+    as of 2026-04-25.
+  source_type: primary_announcement
+  source_support: primary_company_but_mw_inferred
+  analyst_inference_method: GPU-count-to-IT-MW estimate from 35k GPU footprint, converted to facility at PUE 1.25.
+- atom_id: fluidstack_anthropic_undisclosed_mw
+  parent_entity: Fluidstack
+  counterparty_or_anchor_tenant: Anthropic
+  site_or_region: Anthropic Fluidstack TX/NY JV outside Epoch Lake Mariner
+  capacity_mw_original: null
+  capacity_basis_original: unknown
+  pue_assumed: 1.25
+  capacity_mw_it: null
+  capacity_mw_facility: null
+  scope: western
+  status: contracted
+  evidence_tier: T5
+  realization_probability: 0.4
+  source_url: https://www.anthropic.com/news/anthropic-invests-50-billion-in-american-ai-infrastructure
+  source_publisher: Anthropic / Fluidstack
+  source_date: '2025-11-12'
+  last_checked: '2026-04-25'
+  dedupe_group: fluidstack_anthropic_undisclosed_mw
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: No disclosed MW for full Anthropic/Fluidstack JV; Lake Mariner overlap counted in Epoch and dollar envelope excluded
+    from physical totals.
+  capacity_mw_it_low: null
+  capacity_mw_it_high: null
+  capacity_mw_facility_low: null
+  capacity_mw_facility_high: null
+  freshness_status: waived_excluded_from_denominator
+  freshness_waiver_reason: Zero-contribution rollup excluded from Western denominator; Anthropic dollar-only row carries the
+    primary source.
+  source_type: primary_announcement
+  source_support: primary_company
+  unknown_mw_reason: No direct MW disclosure; no dollar-to-MW conversion used.
+- atom_id: fermi_speculative_excluded_or_T5_only
+  parent_entity: Fermi America
+  counterparty_or_anchor_tenant: undisclosed
+  site_or_region: Project Matador Amarillo permit envelope
+  capacity_mw_original: null
+  capacity_basis_original: unknown
+  pue_assumed: 1.4
+  capacity_mw_it: null
+  capacity_mw_facility: null
+  scope: excluded
+  status: speculative
+  evidence_tier: T5
+  realization_probability: 0.1
+  source_url: https://www.datacenterdynamics.com/en/news/fermi-secures-natural-gas-pipeline-connection-for-up-to-11gw-data-center-project-in-amarillo-texas/
+  source_publisher: DCD
+  source_date: '2025-12-18'
+  last_checked: '2026-04-22'
+  dedupe_group: fermi_speculative_excluded_or_T5_only
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: 11-17 GW permit aspiration has no customer contract and no operational MW; excluded from Western denominator.
+  capacity_mw_it_low: null
+  capacity_mw_it_high: null
+  capacity_mw_facility_low: null
+  capacity_mw_facility_high: null
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: secondary_media
+  source_support: secondary_only
+  unknown_mw_reason: Permit aspiration only; no defensible included MW atom.
+- atom_id: microsoft_g42_uae_khazna
+  parent_entity: Khazna Data Centers / G42
+  counterparty_or_anchor_tenant: Microsoft Azure sovereign cloud
+  site_or_region: UAE Khazna Microsoft-G42 expansion
+  capacity_mw_original: 200
+  capacity_basis_original: IT
+  pue_assumed: 1.3
+  capacity_mw_it: 200
+  capacity_mw_facility: 260
+  scope: sovereign
+  status: announced
+  evidence_tier: T4
+  realization_probability: 0.7
+  source_url: https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/
+  source_publisher: Microsoft
+  source_date: '2025-11-01'
+  last_checked: '2026-04-22'
+  dedupe_group: microsoft_g42_uae_khazna
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: Sovereign UAE capacity; sidebar only, not Western denominator.
+  capacity_mw_it_low: 200
+  capacity_mw_it_high: 200
+  capacity_mw_facility_low: 260
+  capacity_mw_facility_high: 260
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: primary_announcement
+  source_support: primary_company
+- atom_id: xai_humain_saudi
+  parent_entity: HUMAIN
+  counterparty_or_anchor_tenant: xAI
+  site_or_region: Saudi HUMAIN xAI data center
+  capacity_mw_original: 500
+  capacity_basis_original: facility
+  pue_assumed: 1.35
+  capacity_mw_it: 370.37
+  capacity_mw_facility: 500
+  scope: sovereign
+  status: announced
+  evidence_tier: T4
+  realization_probability: 0.55
+  source_url: https://www.datacenterdynamics.com/en/news/xai-humain-data-center-elon-musk/
+  source_publisher: Data Center Dynamics / CNBC
+  source_date: '2025-05-14'
+  last_checked: '2026-04-22'
+  dedupe_group: xai_humain_saudi
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: Saudi sovereign JV; sidebar only, not Western denominator.
+  capacity_mw_it_low: 296.296
+  capacity_mw_it_high: 444.444
+  capacity_mw_facility_low: 400
+  capacity_mw_facility_high: 600
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: secondary_media
+  source_support: secondary_only
+- atom_id: humain_amd_saudi
+  parent_entity: HUMAIN / AMD
+  counterparty_or_anchor_tenant: Saudi sovereign + merchant
+  site_or_region: Riyadh/Dammam AMD-HUMAIN JV
+  capacity_mw_original: 500
+  capacity_basis_original: facility
+  pue_assumed: 1.35
+  capacity_mw_it: 370.37
+  capacity_mw_facility: 500
+  scope: sovereign
+  status: announced
+  evidence_tier: T4
+  realization_probability: 0.55
+  source_url: https://www.datacenterdynamics.com/en/news/amd-cisco-and-humain-set-up-jv-for-1gw-of-ai-infrastructure-in-saudi-arabia/
+  source_publisher: AMD / DCD
+  source_date: '2025-05-14'
+  last_checked: '2026-04-22'
+  dedupe_group: humain_amd_saudi
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: Saudi AMD-HUMAIN sovereign JV; sidebar only, not Western denominator.
+  capacity_mw_it_low: 222.222
+  capacity_mw_it_high: 518.519
+  capacity_mw_facility_low: 300
+  capacity_mw_facility_high: 700
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: primary_plus_secondary
+  source_support: primary_company
+- atom_id: reliance_jio_jamnagar
+  parent_entity: Reliance Industries / Jio
+  counterparty_or_anchor_tenant: Reliance-owned + Indian enterprise
+  site_or_region: Jamnagar Gujarat AI data center
+  capacity_mw_original: 1000
+  capacity_basis_original: facility
+  pue_assumed: 1.4
+  capacity_mw_it: 714.286
+  capacity_mw_facility: 1000
+  scope: sovereign
+  status: speculative
+  evidence_tier: T5
+  realization_probability: 0.2
+  source_url: https://www.businesstoday.in/latest/corporate/story/ril-agm-2024-jamnagar-to-get-gigawatt-scale-ai-ready-data-centre-powered-by-reliance-green-energy-443516-2024-08-29
+  source_publisher: BusinessToday citing RIL AGM
+  source_date: '2024-08-29'
+  last_checked: '2026-04-22'
+  dedupe_group: reliance_jio_jamnagar
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: India sovereign/strategic capacity; sidebar only, not Western denominator.
+  capacity_mw_it_low: 85.714
+  capacity_mw_it_high: 2142.857
+  capacity_mw_facility_low: 120
+  capacity_mw_facility_high: 3000
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: secondary_media
+  source_support: secondary_only
+- atom_id: uk_culham_ai_growth_zone
+  parent_entity: UK Government / UKAEA
+  counterparty_or_anchor_tenant: UK sovereign + TBD tenant
+  site_or_region: Culham AI Growth Zone
+  capacity_mw_original: 250
+  capacity_basis_original: IT
+  pue_assumed: 1.2
+  capacity_mw_it: 250
+  capacity_mw_facility: 300
+  scope: sovereign
+  status: speculative
+  evidence_tier: T5
+  realization_probability: 0.3
+  source_url: https://www.gov.uk/government/publications/ai-opportunities-action-plan
+  source_publisher: UK Government
+  source_date: '2025-01-13'
+  last_checked: '2026-04-22'
+  dedupe_group: uk_culham_ai_growth_zone
+  dedupe_adjustment_mw: 0.0
+  dedupe_direction: none
+  included_raw_horizon: false
+  included_non_stretch: false
+  included_conservative_T1_T2_T3: false
+  included_probability_weighted: false
+  notes: UK sovereign AI Growth Zone; sidebar only, not Western denominator.
+  capacity_mw_it_low: 100
+  capacity_mw_it_high: 500
+  capacity_mw_facility_low: 120
+  capacity_mw_facility_high: 600
+  freshness_status: current_verified
+  freshness_waiver_reason: null
+  source_type: government_publication
+  source_support: primary_government
