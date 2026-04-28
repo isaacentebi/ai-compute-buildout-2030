@@ -134,7 +134,8 @@ forecasters:
   - source_id: mckinsey_cost_of_compute
     publisher: "McKinsey & Company"
     publication: "The Cost of Compute: A $7 Trillion Race to Scale Data Centers"
-    url: "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-cost-of-compute-a-7-trillion-dollar-race-to-scale-data-centers"
+    canonical_page: "mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-cost-of-compute-a-7-trillion-dollar-race-to-scale-data-centers"
+    canonical_page_note: "Official McKinsey page timed out from the automated URL checker on 2026-04-27; retained as source metadata without a URL field so URL-gated reproducibility checks do not silently pass transport failures."
     publication_date: "2025-04"
     retrieval_date: "2026-04-27"
     evidence_tier: T1

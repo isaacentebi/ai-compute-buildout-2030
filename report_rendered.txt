@@ -2230,14 +2230,12 @@ Investing.com); McKinsey Cost of Compute (Apr. 2025); Bain Compute Power Report 
 Data Center Outlook; Cushman & Wakefield 2025 Cost Guide; Goldman Sachs (Sheridan/Davenport, 2025); Morgan
 Stanley (Stephen Byrd, 2025); JP Morgan; BloombergNEF; Synergy Research; Dell’Oro Group; IEA Energy and AI ;
 LBNL 2024 US Data Center Energy Usage Report; Aschenbrenner Trillion-Dollar Cluster; NVIDIA Q2 FY26 earnings;
-Barclays; OpenAI/Oracle Stargate; Meta–Blue Owl Hyperion JV; CoreWeave 10-K FY25; Nebius Q4 FY25. Full URLs
-and retrieval dates in forecaster_capex_comparison.yaml.
-5 Epoch AI, Frontier Data Centers Hub, retrieved 2026-04-27, https:// epoch.ai/blog/ introducing-the-f rontier-d
+Barclays; OpenAI/Oracle Stargate; Meta–Blue Owl Hyperion JV; CoreWeave 10-K FY25; Nebius Q4 FY25. Source
+URLs, retrieval dates, and non-URL page metadata in forecaster_capex_comparison.yaml.
+5 Epoch AI, Frontier Data Centers Hub, retrieved 2026-04-27, https:// epoch.ai/blog/ introducing-the-f rontier-dat
 
-ata-centers-hub/ . The Epoch documentation breaks the $44B/GW into $30B IT hardware plus $14B other; the
-facility-GW figure is approximately $29–30B at PUE 1.20. McKinsey & Company, The Cost of Compute: A $7 Trillion
-Race to Scale Data Centers, April 2025, https:// www.mckinsey.com/industries/ technology-media-and-telecommuni
-cations/ our-insights/ the-cost-of-compute-a-7-trillion-dollar-race-to-scale-data-centers.
+a-centers-hub/ . The Epoch documentation breaks the $44B/GW into $30B IT hardware plus $14B other; the facilityGW figure is approximately $29–30B at PUE 1.20. McKinsey & Company, The Cost of Compute: A $7 Trillion Race to
+Scale Data Centers, April 2025; official page metadata retained in forecaster_capex_comparison.yaml.
 6 Crusoe Energy Systems, “Crusoe expands AI data center campus in Abilene to 1.2 gigawatts”, 2025-05, https:
 
 // www.crusoe.ai/ resources/ newsroom/crusoe-expands-ai-data-center-campus-in-abilene-to-1-2-gigawatts;
@@ -2263,11 +2261,12 @@ into 2029”, September 2025, https:// www.utilitydive.com/ news/ge-vernova-gas-
 Energy reports a similar backlog into 2030 in its FY2025 annual report.
 10 Crusoe Energy Systems newsroom releases (2024–2026); Madrona “Founded & Funded” interview with Chase
 
+Lochmiller (CEO), retrieved 2026-04-27, https:// www.madrona.com/ the-inf rastructure-of-intelligence-inside-cruso
+
 The AI Compute Build-Out, 2026–2030
 
 31
 
-Lochmiller (CEO), retrieved 2026-04-27, https:// www.madrona.com/ the-inf rastructure-of-intelligence-inside-cruso
 es-ai-f actory-in-texas/ . The 15-year Oracle lease and OpenAI sub-tenancy structure are confirmed by Lochmiller
 in DCD: “Our customer is Oracle. OpenAI is Oracle’s customer.” Annual rent of approximately $1 billion is reported
 by SemiAnalysis (secondary; not Crusoe-confirmed).
@@ -2320,21 +2319,22 @@ Microsoft, Inside the world’s most powerful AI datacenter, September 18, 2025,
 
 the data-centre interconnection queue and transmission constraints. https:// www.dominionenergy.com/
 22 Site-level state assignments from Epoch AI address fields; regional aggregation by author. Non-US regions
+
 consolidated at continental granularity because of smaller site counts: Norway/UK/Ireland includes Microsoft
 Narvik, Loughton, Dublin, and Nscale-CoreWeave UK sites; MENA includes Saudi (HUMAIN), UAE (G42/Khazna,
 Stargate UAE); APAC includes India (Reliance Jamnagar), Singapore, and Australia.
 23 ERCOT, Large Load Interconnection Report, January 2026. https:// www.ercot.com/ ; PJM Interconnection, 2024
 
 Regional Transmission Expansion Plan, Window 3.
+24 Microsoft and Constellation Energy, Constellation and Microsoft sign agreement to launch Crane Clean Energy
+
+Center, September 20, 2024, https:// www.constellationenergy.com/ news/2024/ Constellation-to-Launch-Crane-Clean
 
 The AI Compute Build-Out, 2026–2030
 
 32
 
-24 Microsoft and Constellation Energy, Constellation and Microsoft sign agreement to launch Crane Clean Energy
-
-Center, September 20, 2024, https:// investors.constellationenergy.com/ news-releases/ news-release-details/constella
-tion-launch-crane-clean-energy-center-restoring-jobs/ .
+-Energy-Center-Restoring-Jobs-and-Carbon-Free-Power-to-T he-Grid.html.
 25 Talen Energy, Talen Energy reaches agreement with Amazon Web Services for 1,920 MW data campus, March 4,
 
 2024. https:// www.talenenergy.com/

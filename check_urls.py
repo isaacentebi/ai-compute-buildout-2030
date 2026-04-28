@@ -7,6 +7,7 @@ import json
 import re
 import ssl
 import sys
+import time
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
@@ -65,25 +66,33 @@ def yaml_urls() -> list[dict]:
 
 
 def check_url(url: str) -> dict:
-    req = Request(url, headers={"User-Agent": "ai-compute-buildout-url-audit/4.1"})
-    try:
-        with urlopen(req, timeout=20, context=SSL_CONTEXT) as response:
-            final_url = response.geturl()
-            return {
-                "url": url,
-                "status": response.status,
-                "ok": 200 <= response.status < 400,
-                "redirected": final_url != url,
-                "final_url": final_url,
-                "error": "",
-            }
-    except HTTPError as exc:
-        blocked = exc.code in {401, 403, 429}
-        return {"url": url, "status": exc.code, "ok": blocked, "redirected": False, "final_url": "", "error": str(exc), "status_class": "blocked" if blocked else "broken"}
-    except URLError as exc:
-        return {"url": url, "status": None, "ok": True, "redirected": False, "final_url": "", "error": str(exc.reason), "status_class": "indeterminate"}
-    except Exception as exc:
-        return {"url": url, "status": None, "ok": True, "redirected": False, "final_url": "", "error": repr(exc), "status_class": "indeterminate"}
+    last_error = ""
+    for method in ("HEAD", "GET"):
+        req = Request(url, method=method, headers={"User-Agent": "ai-compute-buildout-url-audit/4.1"})
+        for attempt in range(2):
+            try:
+                with urlopen(req, timeout=30, context=SSL_CONTEXT) as response:
+                    final_url = response.geturl()
+                    return {
+                        "url": url,
+                        "status": response.status,
+                        "ok": 200 <= response.status < 400,
+                        "redirected": final_url != url,
+                        "final_url": final_url,
+                        "error": "",
+                    }
+            except HTTPError as exc:
+                if method == "HEAD" and exc.code in {405, 501}:
+                    break
+                blocked = exc.code in {401, 403, 429}
+                return {"url": url, "status": exc.code, "ok": blocked, "redirected": False, "final_url": "", "error": str(exc), "status_class": "blocked" if blocked else "broken"}
+            except URLError as exc:
+                last_error = str(exc.reason)
+            except Exception as exc:
+                last_error = repr(exc)
+            if attempt == 0:
+                time.sleep(1)
+    return {"url": url, "status": None, "ok": False, "redirected": False, "final_url": "", "error": last_error, "status_class": "transport_error"}
 
 
 def main() -> int:

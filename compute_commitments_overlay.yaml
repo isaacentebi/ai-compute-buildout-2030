@@ -995,8 +995,8 @@ chip_procurement_commitments:
       and inference at Stargate/Fairwater. No sites named in either
       OpenAI or Broadcom primary releases.
     primary_sources:
-      - url: https://investors.broadcom.com/news-releases/news-release-details/openai-and-broadcom-announce-strategic-collaboration-deploy-10
-        publisher: Broadcom
+      - url: https://openai.com/index/openai-and-broadcom-announce-strategic-collaboration/
+        publisher: OpenAI
         date: 2025-10-13
     facts_yaml_refs: ["openai.commitment.broadcom_10gw_custom_accelerator"]
 

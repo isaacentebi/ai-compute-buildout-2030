@@ -469,39 +469,6 @@
       "url": "https://investor.fb.com/"
     },
     {
-      "error": "TimeoutError('The read operation timed out')",
-      "final_url": "",
-      "ok": true,
-      "redirected": false,
-      "references": [
-        {
-          "date": "2025-10-13",
-          "publisher": "Broadcom",
-          "source_file": "compute_commitments_overlay.yaml",
-          "title": "",
-          "url": "https://investors.broadcom.com/news-releases/news-release-details/openai-and-broadcom-announce-strategic-collaboration-deploy-10"
-        }
-      ],
-      "status": null,
-      "status_class": "indeterminate",
-      "url": "https://investors.broadcom.com/news-releases/news-release-details/openai-and-broadcom-announce-strategic-collaboration-deploy-10"
-    },
-    {
-      "error": "TimeoutError('The read operation timed out')",
-      "final_url": "",
-      "ok": true,
-      "redirected": false,
-      "references": [
-        {
-          "source_file": "report.tex",
-          "url": "https://investors.constellationenergy.com/news-releases/news-release-details/constellation-launch-crane-clean-energy-center-restoring-jobs/"
-        }
-      ],
-      "status": null,
-      "status_class": "indeterminate",
-      "url": "https://investors.constellationenergy.com/news-releases/news-release-details/constellation-launch-crane-clean-energy-center-restoring-jobs/"
-    },
-    {
       "error": "HTTP Error 403: Forbidden",
       "final_url": "",
       "ok": true,
@@ -824,6 +791,24 @@
       "status": 403,
       "status_class": "blocked",
       "url": "https://openai.com/index/introducing-stargate-uae/"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "final_url": "",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "date": "2025-10-13",
+          "publisher": "OpenAI",
+          "source_file": "compute_commitments_overlay.yaml",
+          "title": "",
+          "url": "https://openai.com/index/openai-and-broadcom-announce-strategic-collaboration/"
+        }
+      ],
+      "status": 403,
+      "status_class": "blocked",
+      "url": "https://openai.com/index/openai-and-broadcom-announce-strategic-collaboration/"
     },
     {
       "error": "HTTP Error 403: Forbidden",
@@ -1208,6 +1193,20 @@
       ],
       "status": 200,
       "url": "https://www.cnbc.com/2025/11/19/musks-xai-will-be-customer-for-nvidia-data-center-in-saudi-arabia.html"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.constellationenergy.com/news/2024/Constellation-to-Launch-Crane-Clean-Energy-Center-Restoring-Jobs-and-Carbon-Free-Power-to-The-Grid.html",
+      "ok": true,
+      "redirected": false,
+      "references": [
+        {
+          "source_file": "report.tex",
+          "url": "https://www.constellationenergy.com/news/2024/Constellation-to-Launch-Crane-Clean-Energy-Center-Restoring-Jobs-and-Carbon-Free-Power-to-The-Grid.html"
+        }
+      ],
+      "status": 200,
+      "url": "https://www.constellationenergy.com/news/2024/Constellation-to-Launch-Crane-Clean-Energy-Center-Restoring-Jobs-and-Carbon-Free-Power-to-The-Grid.html"
     },
     {
       "error": "",
@@ -2001,28 +2000,6 @@
       "url": "https://www.madrona.com/the-infrastructure-of-intelligence-inside-crusoes-ai-factory-in-texas/"
     },
     {
-      "error": "TimeoutError('The read operation timed out')",
-      "final_url": "",
-      "ok": true,
-      "redirected": false,
-      "references": [
-        {
-          "source_file": "report.tex",
-          "url": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-cost-of-compute-a-7-trillion-dollar-race-to-scale-data-centers"
-        },
-        {
-          "date": "",
-          "publisher": "McKinsey & Company",
-          "source_file": "forecaster_capex_comparison.yaml",
-          "title": "",
-          "url": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-cost-of-compute-a-7-trillion-dollar-race-to-scale-data-centers"
-        }
-      ],
-      "status": null,
-      "status_class": "indeterminate",
-      "url": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-cost-of-compute-a-7-trillion-dollar-race-to-scale-data-centers"
-    },
-    {
       "error": "",
       "final_url": "https://www.microsoft.com/en-us/investor/default",
       "ok": true,
@@ -2369,5 +2346,5 @@
       "url": "https://www.youtube.com/"
     }
   ],
-  "total_urls": 124
+  "total_urls": 123
 }
