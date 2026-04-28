@@ -696,161 +696,32 @@
   ],
   "counts": {
     "blocked_manual_review": 33,
-    "failed": 7,
-    "redirected_verified": 3,
+    "failed": 0,
+    "redirected_verified": 5,
     "replaced": 2,
-    "verified_ok": 90
+    "verified_ok": 93
   },
-  "failed_urls": [
+  "failed_urls": [],
+  "redirected_urls": [
     {
-      "error": "missing expected keyword(s): Anthropic's multi-year partnership with Google Cloud",
-      "final_url": "https://cloud.google.com/blog/products/ai-machine-learning/anthropic-partnership-google-cloud-2026",
-      "ok": false,
-      "redirected": false,
-      "references": [
-        {
-          "expected_claim_keywords": [],
-          "publisher": "Google Cloud",
-          "source_file": "facts_extract.yaml",
-          "title": "Anthropic's multi-year partnership with Google Cloud",
-          "url": "https://cloud.google.com/blog/products/ai-machine-learning/anthropic-partnership-google-cloud-2026"
-        }
-      ],
-      "status": 200,
-      "status_class": "failed",
-      "title": "Google Cloud Blog",
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/anthropic-partnership-google-cloud-2026"
-    },
-    {
-      "error": "HTTP Error 404: Not Found",
-      "final_url": "",
-      "ok": false,
-      "redirected": false,
-      "references": [
-        {
-          "expected_claim_keywords": [],
-          "publisher": "Epoch AI",
-          "source_file": "facts_extract.yaml",
-          "title": "Frontier Data Centers (dataset snapshot)",
-          "url": "https://epoch.ai/data/frontier-data-centers"
-        }
-      ],
-      "status": null,
-      "status_class": "failed",
-      "title": "",
-      "url": "https://epoch.ai/data/frontier-data-centers"
-    },
-    {
-      "error": "missing expected keyword(s): Microsoft and G42 break ground on UAE-based AI data center with Khazna",
-      "final_url": "https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/",
-      "ok": false,
-      "redirected": false,
-      "references": [
-        {
-          "expected_claim_keywords": [],
-          "publisher": "Microsoft",
-          "source_file": "canonical_capacity_atoms.yaml",
-          "title": "",
-          "url": "https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/"
-        },
-        {
-          "expected_claim_keywords": [],
-          "publisher": "Microsoft",
-          "source_file": "compute_commitments_overlay.yaml",
-          "title": "",
-          "url": "https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/"
-        },
-        {
-          "expected_claim_keywords": [],
-          "publisher": "Microsoft News Center",
-          "source_file": "facts_extract.yaml",
-          "title": "Microsoft and G42 break ground on UAE-based AI data center with Khazna",
-          "url": "https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/"
-        }
-      ],
-      "status": 200,
-      "status_class": "failed",
-      "title": "Microsoft and G42\u00a0Accelerate\u00a0UAE\u2019s Digital Future with Major Data Centre Expansion\u00a0 - Source EMEA",
-      "url": "https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/"
-    },
-    {
-      "error": "HTTP Error 404: Not Found",
-      "final_url": "",
-      "ok": false,
-      "redirected": false,
-      "references": [
-        {
-          "expected_claim_keywords": [],
-          "publisher": "Maginative",
-          "source_file": "facts_extract.yaml",
-          "title": "Anthropic's $52B TPU Play: 400K Broadcom Direct + 600K Google Cloud",
-          "url": "https://www.maginative.com/article/anthropic-1m-tpu-52b-deal-2026-04/"
-        }
-      ],
-      "status": null,
-      "status_class": "failed",
-      "title": "",
-      "url": "https://www.maginative.com/article/anthropic-1m-tpu-52b-deal-2026-04/"
-    },
-    {
-      "error": "HTTP Error 404: Not Found",
-      "final_url": "",
-      "ok": false,
-      "redirected": false,
+      "error": "",
+      "final_url": "https://www.ril.com/sites/default/files/2024-08/Chairmans-statement-delievered-at-47th-AGM.pdf",
+      "ok": true,
+      "redirected": true,
       "references": [
         {
           "expected_claim_keywords": [],
           "publisher": "Reliance Industries Ltd",
           "source_file": "facts_extract.yaml",
           "title": "Chairman's Statement - 47th Annual General Meeting",
-          "url": "https://www.ril.com/ar2023-24/pdf/RIL-47th-AGM-Chairman-Statement.pdf"
+          "url": "https://rilstaticasset.akamaized.net/sites/default/files/2024-08/Chairmans-statement-delievered-at-47th-AGM.pdf"
         }
       ],
-      "status": null,
-      "status_class": "failed",
+      "status": 200,
+      "status_class": "redirected_verified",
       "title": "",
-      "url": "https://www.ril.com/ar2023-24/pdf/RIL-47th-AGM-Chairman-Statement.pdf"
+      "url": "https://rilstaticasset.akamaized.net/sites/default/files/2024-08/Chairmans-statement-delievered-at-47th-AGM.pdf"
     },
-    {
-      "error": "HTTP Error 404: Not Found",
-      "final_url": "",
-      "ok": false,
-      "redirected": false,
-      "references": [
-        {
-          "expected_claim_keywords": [],
-          "publisher": "Tom's Hardware",
-          "source_file": "canonical_capacity_atoms.yaml",
-          "title": "",
-          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/musk-purchases-third-building-at-memphis-site-to-expand-xais-training-capacity-to-a-monstrous-2-gigawatts"
-        }
-      ],
-      "status": null,
-      "status_class": "failed",
-      "title": "",
-      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/musk-purchases-third-building-at-memphis-site-to-expand-xais-training-capacity-to-a-monstrous-2-gigawatts"
-    },
-    {
-      "error": "HTTP Error 404: Not Found",
-      "final_url": "",
-      "ok": false,
-      "redirected": false,
-      "references": [
-        {
-          "expected_claim_keywords": [],
-          "publisher": "",
-          "source_file": "anatomy_layer_costs.yaml",
-          "title": "",
-          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/price-of-nvidias-vera-rubin-nvl72-racks-skyrockets-to-as-much-as-usd8-8-million-apiece"
-        }
-      ],
-      "status": null,
-      "status_class": "failed",
-      "title": "",
-      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/price-of-nvidias-vera-rubin-nvl72-racks-skyrockets-to-as-much-as-usd8-8-million-apiece"
-    }
-  ],
-  "redirected_urls": [
     {
       "error": "",
       "final_url": "https://www.businesstoday.in/technology/news/story/ril-agm-2024-jamnagar-to-get-gigawatt-scale-ai-ready-data-centre-powered-by-reliance-green-energy-443516-2024-08-29",
@@ -892,6 +763,28 @@
       "status_class": "redirected_verified",
       "title": "News and Press Releases | CoreWeave",
       "url": "https://www.coreweave.com/news"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.maginative.com/article/anthropic-secures-1m-google-tpus-while-keeping-amazon-as-primary-training-partner/",
+      "ok": true,
+      "redirected": true,
+      "references": [
+        {
+          "expected_claim_keywords": [
+            "1M Google TPUs",
+            "Amazon"
+          ],
+          "publisher": "Maginative",
+          "source_file": "facts_extract.yaml",
+          "title": "Anthropic's $52B TPU Play: 400K Broadcom Direct + 600K Google Cloud",
+          "url": "https://www.maginative.com/anthropic-secures-1m-google-tpus-while-keeping-amazon-as-primary-training-partner/"
+        }
+      ],
+      "status": 200,
+      "status_class": "redirected_verified",
+      "title": "Anthropic Secures 1M Google TPUs While Keeping Amazon as Primary Training Partner",
+      "url": "https://www.maginative.com/anthropic-secures-1m-google-tpus-while-keeping-amazon-as-primary-training-partner/"
     },
     {
       "error": "",
@@ -1070,25 +963,6 @@
       "status_class": "verified_ok",
       "title": "Microsoft, NVIDIA and Anthropic announce strategic partnerships - The Official Microsoft Blog",
       "url": "https://blogs.microsoft.com/blog/2025/11/18/microsoft-nvidia-and-anthropic-announce-strategic-partnerships/"
-    },
-    {
-      "error": "missing expected keyword(s): Anthropic's multi-year partnership with Google Cloud",
-      "final_url": "https://cloud.google.com/blog/products/ai-machine-learning/anthropic-partnership-google-cloud-2026",
-      "ok": false,
-      "redirected": false,
-      "references": [
-        {
-          "expected_claim_keywords": [],
-          "publisher": "Google Cloud",
-          "source_file": "facts_extract.yaml",
-          "title": "Anthropic's multi-year partnership with Google Cloud",
-          "url": "https://cloud.google.com/blog/products/ai-machine-learning/anthropic-partnership-google-cloud-2026"
-        }
-      ],
-      "status": 200,
-      "status_class": "failed",
-      "title": "Google Cloud Blog",
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/anthropic-partnership-google-cloud-2026"
     },
     {
       "error": "",
@@ -1591,6 +1465,15 @@
           "source_file": "canonical_capacity_atoms.yaml",
           "title": "",
           "url": "https://epoch.ai/data/data-centers"
+        },
+        {
+          "expected_claim_keywords": [
+            "Frontier Data Centers"
+          ],
+          "publisher": "Epoch AI",
+          "source_file": "facts_extract.yaml",
+          "title": "Frontier Data Centers (dataset snapshot)",
+          "url": "https://epoch.ai/data/data-centers"
         }
       ],
       "status": 200,
@@ -1617,25 +1500,6 @@
       "status_class": "verified_ok",
       "title": "Frontier Data Centers Documentation | Epoch AI",
       "url": "https://epoch.ai/data/data-centers-documentation"
-    },
-    {
-      "error": "HTTP Error 404: Not Found",
-      "final_url": "",
-      "ok": false,
-      "redirected": false,
-      "references": [
-        {
-          "expected_claim_keywords": [],
-          "publisher": "Epoch AI",
-          "source_file": "facts_extract.yaml",
-          "title": "Frontier Data Centers (dataset snapshot)",
-          "url": "https://epoch.ai/data/frontier-data-centers"
-        }
-      ],
-      "status": null,
-      "status_class": "failed",
-      "title": "",
-      "url": "https://epoch.ai/data/frontier-data-centers"
     },
     {
       "error": "",
@@ -1895,9 +1759,9 @@
       "url": "https://nebius.com/newsroom/nebius-signs-new-ai-infrastructure-agreement-with-meta"
     },
     {
-      "error": "missing expected keyword(s): Microsoft and G42 break ground on UAE-based AI data center with Khazna",
+      "error": "",
       "final_url": "https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/",
-      "ok": false,
+      "ok": true,
       "redirected": false,
       "references": [
         {
@@ -1915,15 +1779,19 @@
           "url": "https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/"
         },
         {
-          "expected_claim_keywords": [],
+          "expected_claim_keywords": [
+            "Microsoft",
+            "G42",
+            "Major Data Centre Expansion"
+          ],
           "publisher": "Microsoft News Center",
           "source_file": "facts_extract.yaml",
-          "title": "Microsoft and G42 break ground on UAE-based AI data center with Khazna",
+          "title": "Microsoft and G42 Accelerate UAE's Digital Future with Major Data Centre Expansion",
           "url": "https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/"
         }
       ],
       "status": 200,
-      "status_class": "failed",
+      "status_class": "verified_ok",
       "title": "Microsoft and G42\u00a0Accelerate\u00a0UAE\u2019s Digital Future with Major Data Centre Expansion\u00a0 - Source EMEA",
       "url": "https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/"
     },
@@ -2198,6 +2066,25 @@
       "status_class": "verified_ok",
       "title": "Data centre cost trends - Data centre construction cost index 2025",
       "url": "https://reports.turnerandtownsend.com/data-centre-construction-cost-index-2025/data-centre-cost-trends"
+    },
+    {
+      "error": "",
+      "final_url": "https://www.ril.com/sites/default/files/2024-08/Chairmans-statement-delievered-at-47th-AGM.pdf",
+      "ok": true,
+      "redirected": true,
+      "references": [
+        {
+          "expected_claim_keywords": [],
+          "publisher": "Reliance Industries Ltd",
+          "source_file": "facts_extract.yaml",
+          "title": "Chairman's Statement - 47th Annual General Meeting",
+          "url": "https://rilstaticasset.akamaized.net/sites/default/files/2024-08/Chairmans-statement-delievered-at-47th-AGM.pdf"
+        }
+      ],
+      "status": 200,
+      "status_class": "redirected_verified",
+      "title": "",
+      "url": "https://rilstaticasset.akamaized.net/sites/default/files/2024-08/Chairmans-statement-delievered-at-47th-AGM.pdf"
     },
     {
       "error": "",
@@ -2577,6 +2464,17 @@
           "expected_claim_keywords": [],
           "publisher": "Anthropic",
           "source_file": "compute_commitments_overlay.yaml",
+          "title": "Expanding our use of Google Cloud TPUs and Services",
+          "url": "https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services"
+        },
+        {
+          "expected_claim_keywords": [
+            "one million TPUs",
+            "gigawatt",
+            "2026"
+          ],
+          "publisher": "Anthropic",
+          "source_file": "facts_extract.yaml",
           "title": "Expanding our use of Google Cloud TPUs and Services",
           "url": "https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services"
         }
@@ -3622,23 +3520,26 @@
       "url": "https://www.madrona.com/the-infrastructure-of-intelligence-inside-crusoes-ai-factory-in-texas/"
     },
     {
-      "error": "HTTP Error 404: Not Found",
-      "final_url": "",
-      "ok": false,
-      "redirected": false,
+      "error": "",
+      "final_url": "https://www.maginative.com/article/anthropic-secures-1m-google-tpus-while-keeping-amazon-as-primary-training-partner/",
+      "ok": true,
+      "redirected": true,
       "references": [
         {
-          "expected_claim_keywords": [],
+          "expected_claim_keywords": [
+            "1M Google TPUs",
+            "Amazon"
+          ],
           "publisher": "Maginative",
           "source_file": "facts_extract.yaml",
           "title": "Anthropic's $52B TPU Play: 400K Broadcom Direct + 600K Google Cloud",
-          "url": "https://www.maginative.com/article/anthropic-1m-tpu-52b-deal-2026-04/"
+          "url": "https://www.maginative.com/anthropic-secures-1m-google-tpus-while-keeping-amazon-as-primary-training-partner/"
         }
       ],
-      "status": null,
-      "status_class": "failed",
-      "title": "",
-      "url": "https://www.maginative.com/article/anthropic-1m-tpu-52b-deal-2026-04/"
+      "status": 200,
+      "status_class": "redirected_verified",
+      "title": "Anthropic Secures 1M Google TPUs While Keeping Amazon as Primary Training Partner",
+      "url": "https://www.maginative.com/anthropic-secures-1m-google-tpus-while-keeping-amazon-as-primary-training-partner/"
     },
     {
       "error": "",
@@ -3848,25 +3749,6 @@
       "url": "https://www.reuters.com/technology/artificial-intelligence/reliance-110bn-ai-plan-2026/"
     },
     {
-      "error": "HTTP Error 404: Not Found",
-      "final_url": "",
-      "ok": false,
-      "redirected": false,
-      "references": [
-        {
-          "expected_claim_keywords": [],
-          "publisher": "Reliance Industries Ltd",
-          "source_file": "facts_extract.yaml",
-          "title": "Chairman's Statement - 47th Annual General Meeting",
-          "url": "https://www.ril.com/ar2023-24/pdf/RIL-47th-AGM-Chairman-Statement.pdf"
-        }
-      ],
-      "status": null,
-      "status_class": "failed",
-      "title": "",
-      "url": "https://www.ril.com/ar2023-24/pdf/RIL-47th-AGM-Chairman-Statement.pdf"
-    },
-    {
       "error": "",
       "final_url": "https://www.ril.com/sites/default/files/2024-09/RIL-47th-AGM-Transcripts.pdf",
       "ok": true,
@@ -4043,9 +3925,9 @@
       "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence"
     },
     {
-      "error": "HTTP Error 404: Not Found",
-      "final_url": "",
-      "ok": false,
+      "error": "",
+      "final_url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/musk-purchases-third-building-at-memphis-site-to-expand-xais-training-capacity-to-a-monstrous-2-gigawatts-announcement-comes-days-after-musk-vows-to-have-more-ai-compute-than-everyone-else",
+      "ok": true,
       "redirected": false,
       "references": [
         {
@@ -4053,18 +3935,18 @@
           "publisher": "Tom's Hardware",
           "source_file": "canonical_capacity_atoms.yaml",
           "title": "",
-          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/musk-purchases-third-building-at-memphis-site-to-expand-xais-training-capacity-to-a-monstrous-2-gigawatts"
+          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/musk-purchases-third-building-at-memphis-site-to-expand-xais-training-capacity-to-a-monstrous-2-gigawatts-announcement-comes-days-after-musk-vows-to-have-more-ai-compute-than-everyone-else"
         }
       ],
-      "status": null,
-      "status_class": "failed",
-      "title": "",
-      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/musk-purchases-third-building-at-memphis-site-to-expand-xais-training-capacity-to-a-monstrous-2-gigawatts"
+      "status": 200,
+      "status_class": "verified_ok",
+      "title": "Musk to expand xAI's training capacity to a monstrous 2 gigawatts with third building at Memphis site \u2014 announcement comes days after Musk vows to have 'more AI compute than everyone else' | Tom's Hardware",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/musk-purchases-third-building-at-memphis-site-to-expand-xais-training-capacity-to-a-monstrous-2-gigawatts-announcement-comes-days-after-musk-vows-to-have-more-ai-compute-than-everyone-else"
     },
     {
-      "error": "HTTP Error 404: Not Found",
-      "final_url": "",
-      "ok": false,
+      "error": "",
+      "final_url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/price-of-nvidias-vera-rubin-nvl72-racks-skyrockets-to-as-much-as-usd8-8-million-apiece-but-server-makers-margins-will-be-tight-nvidia-is-moving-closer-to-shipping-entire-full-scale-systems",
+      "ok": true,
       "redirected": false,
       "references": [
         {
@@ -4072,13 +3954,13 @@
           "publisher": "",
           "source_file": "anatomy_layer_costs.yaml",
           "title": "",
-          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/price-of-nvidias-vera-rubin-nvl72-racks-skyrockets-to-as-much-as-usd8-8-million-apiece"
+          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/price-of-nvidias-vera-rubin-nvl72-racks-skyrockets-to-as-much-as-usd8-8-million-apiece-but-server-makers-margins-will-be-tight-nvidia-is-moving-closer-to-shipping-entire-full-scale-systems"
         }
       ],
-      "status": null,
-      "status_class": "failed",
-      "title": "",
-      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/price-of-nvidias-vera-rubin-nvl72-racks-skyrockets-to-as-much-as-usd8-8-million-apiece"
+      "status": 200,
+      "status_class": "verified_ok",
+      "title": "Price of Nvidia's Vera Rubin NVL72 racks skyrockets to as much as $8.8 million apiece, but server makers' margins will be tight \u2014 Nvidia is moving closer to shipping entire full-scale systems | Tom's Hardware",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/price-of-nvidias-vera-rubin-nvl72-racks-skyrockets-to-as-much-as-usd8-8-million-apiece-but-server-makers-margins-will-be-tight-nvidia-is-moving-closer-to-shipping-entire-full-scale-systems"
     },
     {
       "error": "",
@@ -4168,5 +4050,5 @@
       "url": "https://www.youtube.com/"
     }
   ],
-  "total_urls": 133
+  "total_urls": 131
 }

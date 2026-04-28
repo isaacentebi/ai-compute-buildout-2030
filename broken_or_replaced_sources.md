@@ -9,13 +9,7 @@ Generated from `url_check_report.json`.
 
 ## Failed
 
-- `200` https://cloud.google.com/blog/products/ai-machine-learning/anthropic-partnership-google-cloud-2026 -> https://cloud.google.com/blog/products/ai-machine-learning/anthropic-partnership-google-cloud-2026 (missing expected keyword(s): Anthropic's multi-year partnership with Google Cloud)
-- `None` https://epoch.ai/data/frontier-data-centers -> n/a (HTTP Error 404: Not Found)
-- `200` https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/ -> https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/ (missing expected keyword(s): Microsoft and G42 break ground on UAE-based AI data center with Khazna)
-- `None` https://www.maginative.com/article/anthropic-1m-tpu-52b-deal-2026-04/ -> n/a (HTTP Error 404: Not Found)
-- `None` https://www.ril.com/ar2023-24/pdf/RIL-47th-AGM-Chairman-Statement.pdf -> n/a (HTTP Error 404: Not Found)
-- `None` https://www.tomshardware.com/tech-industry/artificial-intelligence/musk-purchases-third-building-at-memphis-site-to-expand-xais-training-capacity-to-a-monstrous-2-gigawatts -> n/a (HTTP Error 404: Not Found)
-- `None` https://www.tomshardware.com/tech-industry/artificial-intelligence/price-of-nvidias-vera-rubin-nvl72-racks-skyrockets-to-as-much-as-usd8-8-million-apiece -> n/a (HTTP Error 404: Not Found)
+- None.
 
 ## Blocked Manual Review
 

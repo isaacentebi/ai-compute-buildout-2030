@@ -243,9 +243,10 @@ sources:
 
   anthropic_google_broadcom_20260407:
     type: primary
-    publisher: Google Cloud
-    title: "Anthropic's multi-year partnership with Google Cloud"
-    url: "https://cloud.google.com/blog/products/ai-machine-learning/anthropic-partnership-google-cloud-2026"
+    publisher: Anthropic
+    title: "Expanding our use of Google Cloud TPUs and Services"
+    url: "https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services"
+    expected_claim_keywords: ["one million TPUs", "gigawatt", "2026"]
     publication_date: 2026-04-06
     access_date: 2026-04-16
 
@@ -253,7 +254,8 @@ sources:
     type: secondary
     publisher: Maginative
     title: "Anthropic's $52B TPU Play: 400K Broadcom Direct + 600K Google Cloud"
-    url: "https://www.maginative.com/article/anthropic-1m-tpu-52b-deal-2026-04/"
+    url: "https://www.maginative.com/anthropic-secures-1m-google-tpus-while-keeping-amazon-as-primary-training-partner/"
+    expected_claim_keywords: ["1M Google TPUs", "Amazon"]
     publication_date: 2026-04-08
     access_date: 2026-04-22
 
@@ -276,8 +278,9 @@ sources:
   microsoft_g42_uae_2025_11:
     type: primary
     publisher: Microsoft News Center
-    title: "Microsoft and G42 break ground on UAE-based AI data center with Khazna"
+    title: "Microsoft and G42 Accelerate UAE's Digital Future with Major Data Centre Expansion"
     url: "https://news.microsoft.com/source/emea/2025/11/microsoft-and-g42-accelerate-uaes-digital-future-with-major-data-centre-expansion/"
+    expected_claim_keywords: ["Microsoft", "G42", "Major Data Centre Expansion"]
     publication_date: 2025-11-01
     access_date: 2026-04-22
 
@@ -305,7 +308,7 @@ sources:
     type: primary
     publisher: Reliance Industries Ltd
     title: "Chairman's Statement - 47th Annual General Meeting"
-    url: "https://www.ril.com/ar2023-24/pdf/RIL-47th-AGM-Chairman-Statement.pdf"
+    url: "https://rilstaticasset.akamaized.net/sites/default/files/2024-08/Chairmans-statement-delievered-at-47th-AGM.pdf"
     publication_date: 2024-08-29
     access_date: 2026-04-22
 
@@ -329,7 +332,8 @@ sources:
     type: primary
     publisher: Epoch AI
     title: "Frontier Data Centers (dataset snapshot)"
-    url: "https://epoch.ai/data/frontier-data-centers"
+    url: "https://epoch.ai/data/data-centers"
+    expected_claim_keywords: ["Frontier Data Centers"]
     publication_date: 2026-04-16
     access_date: 2026-04-16
 

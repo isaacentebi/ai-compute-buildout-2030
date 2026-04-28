@@ -126,6 +126,9 @@ def expected_keywords(url: str, refs: list[dict]) -> list[str]:
         claim_keywords = ref.get("expected_claim_keywords") or []
         if claim_keywords:
             return [str(keyword) for keyword in claim_keywords]
+    if urlparse(url).path.lower().endswith(".pdf"):
+        return []
+    for ref in refs:
         title = str(ref.get("title") or "").strip()
         if title:
             return [title]
@@ -234,7 +237,7 @@ def main() -> int:
         "results": results,
     }
     print(json.dumps(payload, indent=2, sort_keys=True))
-    return 0
+    return 1 if payload["failed_urls"] else 0
 
 
 if __name__ == "__main__":
