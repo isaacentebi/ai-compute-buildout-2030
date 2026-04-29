@@ -50,15 +50,16 @@ Open `~/Downloads/atoms_audit.xlsx`. Tab 1 (README) defines the four buckets, li
 |---|---|
 | `tracker.csv` / `tracker.md` | Output: every row, four-bucket view |
 | `overlay.csv` | Input: hand-curated rows Epoch doesn't yet cover |
-| `epoch_data_centers/` | Upstream Epoch snapshot + compile.py (their script) |
+| `report.tex` / `report.pdf` | Manuscript, generated from `tracker.csv` |
+| `epoch_data_centers/` | Upstream Epoch snapshot + their `compile.py` |
 | `scripts/refresh_epoch.sh` | Pull fresh Epoch + rebuild |
 | `scripts/build_tracker.py` | Combine Epoch + overlay → tracker |
-| `scripts/check_urls.py` | URL liveness check |
-| `scripts/check_source_freshness.py` | Last-checked-date linter |
-| `source_claim_map.csv` | atom_id → publisher / URL / claim text |
-| `anatomy_layer_costs.yaml` | Capex unit-economics (separate analysis, not the tracker) |
-| `report.tex` / `report.pdf` | Manuscript (Rev-4.4; pre-simplification — to be rewritten on top of the tracker) |
-| `archive/rev4_deprecated/` | Prior atom database, tier framework, Monte Carlo, tier-table validator, etc. — moved out so they don't accrete drift |
+| `scripts/build_report.py` | Generate report.tex from tracker.csv |
+| `anatomy_layer_costs.{yaml,csv}` | Capex unit-economics: six physical layers × ~40 sub-components × $/MW |
+| `anatomy_named_projects.yaml` | Disclosed project-level capex anchors (Crusoe Abilene, Meta Hyperion, etc.) |
+| `forecaster_capex_comparison.yaml` | Cross-forecaster $/GW reconciliation (Bernstein, Bain, JLL, etc., 18 sources) |
+| `research/` | Eight per-layer deep-research notes feeding the anatomy capex pipeline |
+| `archive/rev4_deprecated/` | Prior atom database, tier framework, Monte Carlo, tier-table validator, prior contracts/docs/changelog, etc. — moved out so they don't accrete drift |
 
 ## Scope
 
