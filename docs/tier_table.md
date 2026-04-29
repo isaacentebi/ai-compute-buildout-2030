@@ -9,14 +9,14 @@ If you read only one document in this packet, this is the one. Every headline nu
 | Tier | One-line definition | Concrete inclusion criteria | Example atoms | Count | GW facility (low / central / high) | Why not adjacent tier |
 |---|---|---|---|---:|---:|---|
 | **T1** | Operational today | Energized site or current facility load in Epoch / company / utility evidence; current capacity separated from remaining buildout | `epoch_microsoft_fairwater_wisconsin_operational`; `epoch_anthropic_amazon_new_carlisle_operational`; `epoch_fluidstack_lake_mariner_operational` | 22 | 6.519 / 6.519 / 6.519 | Not T2 because these are current loads, not remaining construction |
-| **T2** | Site-corroborated buildout | Named site + dated construction/permit/utility/interconnect evidence OR Epoch current-planned split with dated buildout | `epoch_microsoft_fairwater_wisconsin_buildout_remaining`; `epoch_openai_stargate_abilene_buildout_remaining`; `epoch_fluidstack_lake_mariner_buildout_remaining` | 19 | 11.908 / 11.888 / 12.218 | Not T1 (not fully energized); not T3 (physical site evidence is stronger than contract-only) |
+| **T2** | Site-corroborated buildout | Named site + dated construction/permit/utility/interconnect evidence OR Epoch current-planned split with dated buildout | `epoch_microsoft_fairwater_wisconsin_buildout_remaining`; `epoch_openai_stargate_abilene_buildout_remaining`; `epoch_fluidstack_lake_mariner_buildout_remaining` | 19 | 11.888 / 11.908 / 12.218 | Not T1 (not fully energized); not T3 (physical site evidence is stronger than contract-only) |
 | **T3** | Firm commercial commitment | Named counterparty + committed/leased/contracted capacity with RPO/$60.7B-class backlog support; site-level overlap or physical buildout still unresolved | `coreweave_contracted_ex_epoch`; `nebius_meta_microsoft_contract_capacity`; `applied_digital_pf2_leased_capacity` | 3 | 4.500 / 4.500 / 4.500 | Not T2 (site/interconnect evidence not tied to atom); not T4 (commercial counterparty + capacity disclosed with contract economics) |
-| **T4** | Announced site plan | Named site/project with capacity estimate; financing, tenant, utility, or final delivery evidence incomplete | `epoch_meta_hyperion_buildout_remaining`; `epoch_openai_stargate_new_mexico_buildout_remaining`; `anthropic_aws_incremental_new_capacity` | 13 | 15.789 / 15.783 / 18.316 | Not T3 (firm take-or-pay/site contract unresolved); not T5 (named site/project is evidenced) |
-| **T5** | Stretch / option / scaling envelope | "Up to" capacity, dollar-only envelope, residual stretch, optional expansion, or no named site; low case can be 0 incremental GW when overlap unresolved | `anthropic_google_broadcom_physical_tpu` (NEW Rev-4.3); `meta_hyperion_stretch_incremental`; `anthropic_azure_incremental_capacity` | 7 | 8.857 / 8.857 / 12.147 | Not T4 (no site-level physical assignment); not T6 (source itself discloses capacity envelope claim) |
-| **T6** | Inferred from GPU / $ / fleet evidence | No direct source-disclosed MW for atom; capacity inferred from GPU count, dollars, fleet claims, or analyst conversion; inference method explicit | `xai_colossus2_residual`; `together_operational_inferred`; `voltage_park_lightning_inferred` | 3 | 0.328 / 0.328 / 0.510 | Not T5 (MW inferred by analyst, not disclosed by source) |
-| | | | | **67** | **47.901 / 47.875 / 54.210** | |
+| **T4** | Announced site plan | Named site/project with capacity estimate; financing, tenant, utility, or final delivery evidence incomplete | `epoch_meta_hyperion_buildout_remaining`; `epoch_openai_stargate_new_mexico_buildout_remaining`; `anthropic_aws_incremental_new_capacity` | 13 | 13.810 / 15.789 / 18.316 | Not T3 (firm take-or-pay/site contract unresolved); not T5 (named site/project is evidenced) |
+| **T5** | Stretch / option / scaling envelope | "Up to" capacity, dollar-only envelope, residual stretch, optional expansion, or no named site; low case can be 0 incremental GW when overlap unresolved | `anthropic_google_broadcom_physical_tpu` (NEW Rev-4.3); `meta_hyperion_stretch_incremental`; `anthropic_azure_incremental_capacity` | 7 | 2.553 / 8.857 / 12.147 | Not T4 (no site-level physical assignment); not T6 (source itself discloses capacity envelope claim) |
+| **T6** | Inferred from GPU / $ / fleet evidence | No direct source-disclosed MW for atom; capacity inferred from GPU count, dollars, fleet claims, or analyst conversion; inference method explicit | `xai_colossus2_residual`; `together_operational_inferred`; `voltage_park_lightning_inferred` | 3 | 0.250 / 0.328 / 0.510 | Not T5 (MW inferred by analyst, not disclosed by source) |
+| | | | | **67** | **39.520 / 47.901 / 54.210** | |
 
-**Sovereign sidebar (separate, not in Western denominator):** 4.960 GW across 8 atoms (HUMAIN xAI 0.5, HUMAIN AMD 0.5, Reliance Jamnagar near-term 0.12 + stretch 0.88, Reliance Andhra 1.0, Microsoft G42 UAE Khazna ~0.7, Stargate UAE 1.4 from Epoch, Culham initial 0.12 + scale-out 0.18). All sovereign atoms `included_*: false` for Western totals.
+**Sovereign sidebar (separate, not in Western denominator):** 4.960 GW across 9 included atoms (Stargate UAE 1.40, Microsoft G42 UAE Khazna 0.26, HUMAIN xAI Saudi 0.50, HUMAIN AMD Saudi 0.50, Reliance Jamnagar near-term 0.12, Reliance Jamnagar stretch 0.88, Reliance Andhra MoU 1.00, Culham initial 0.12, Culham scale-out 0.18). One additional row, `digital_connexion_vizag_1gw_overlap` (1.00 GW), is flagged sovereign but tier `excluded` to avoid double-count with the Reliance Andhra MoU. All sovereign atoms have `included_in_western_raw_horizon=false`.
 
 **Capital envelope**: $1.772T central ($1.437–2.251T range) at $37B/facility-GW × 47.901 GW. Treated as **capex envelope**, not announced-capex-as-bound (per Rev-4.2 prose discipline).
 
@@ -174,7 +174,7 @@ Note: `coreweave_operational_disclosed` (0.850 GW T1) is retained at tier-table 
 ### Aggregate Stats (Rev-4.3 adjudicated atom database)
 
 - **Atom count**: 13
-- **Total GW facility**: 15.789 (low 15.783, high 18.316)
+- **Total GW facility**: 15.789 (low 13.810, high 18.316)
 - **Realization confidence prior**: 0.58
 
 ---
@@ -217,7 +217,7 @@ Note: `coreweave_operational_disclosed` (0.850 GW T1) is retained at tier-table 
 ### Aggregate Stats (Rev-4.3 adjudicated atom database)
 
 - **Atom count**: 7
-- **Total GW facility**: 8.857 (low 8.857, high 12.147 — Anthropic-Google high case 5.4 widens the range)
+- **Total GW facility**: 8.857 (low 2.553, high 12.147 — Anthropic-Azure low 0, Anthropic-Google low 0, Meta-Hyperion stretch low 0 each contribute to the wide low-side band; Anthropic-Google high case 5.4 widens the upside)
 - **Realization confidence prior**: 0.32
 
 ---
@@ -256,7 +256,7 @@ Note: `coreweave_operational_disclosed` (0.850 GW T1) is retained at tier-table 
 ### Aggregate Stats (Rev-4.3 adjudicated atom database)
 
 - **Atom count**: 3
-- **Total GW facility**: 0.328 (low 0.328, high 0.510)
+- **Total GW facility**: 0.328 (low 0.250, high 0.510)
 - **Realization confidence prior**: 0.25
 
 ---
@@ -280,7 +280,7 @@ These are judgmental priors, not empirical frequencies. The Monte Carlo simulati
 - Σ T1+T2+T3+T4 raw = 38.716 + 0.328 carry = 39.044 GW (matches `canonical_totals.json` `raw_non_stretch_gw_facility`)
 - Σ all tiers raw central = 47.901 GW (matches `canonical_totals.json` `raw_western_horizon_gw_facility`)
 - Σ all tiers raw high = 54.210 GW (matches `canonical_totals.json` `full_realization_ceiling_gw_facility`)
-- Σ all tiers raw low = 47.875 GW (close to `canonical_totals.json` `raw_western_horizon_range_gw_facility[0]` = 39.520 — the difference reflects atoms with low=0 cases like Anthropic-Azure and Anthropic-Google whose atom-level low subtotals to 0)
+- Σ all tiers raw low = 39.520 GW (matches `canonical_totals.json` `raw_western_horizon_range_gw_facility[0]`; reflects atoms with low=0 cases like Anthropic-Azure, Anthropic-Google/Broadcom, and Meta-Hyperion stretch whose atom-level low subtotals to 0)
 
 ## Cross-References
 

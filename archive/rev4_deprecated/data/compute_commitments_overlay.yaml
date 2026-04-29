@@ -1399,8 +1399,8 @@ totals:
   # hyperscalers + Western neoclouds). Sovereign-AI is reported separately
   # below so it doesn't get tangled into Session 2's Western ratios.
   western_horizon_2027_2030:
-    total_gw_point: 42.063           # Rev-4.3: re-sum from commitments
-    total_gw_range: [34.342, 46.834] # Rev-4.3: high widens with Anthropic-Google +4.5 IT
+    total_gw_point: 40.878           # Rev-4.4: regenerated from row_level_audit.csv (canonical_totals.raw_western_horizon_gw_it_bridge)
+    total_gw_range: [33.158, 46.834] # Rev-4.4: low/high widened with atom-level ranges; high reflects Anthropic-Google +4.5 IT
     arithmetic:
       epoch_buildout_gw: 27.108        # true IT-load bridge: strict-scope Epoch facility 31.446 / blended PUE 1.16
       class_a_western_incremental_point_gw: 7.960   # Rev-4.3: was 5.705; +2.25 IT for Anthropic-Google new T5
@@ -1432,20 +1432,20 @@ totals:
   # interconnection + facility capex).
   # --------------------------------------------------------------------------
   western_horizon_2027_2030_facility:
-    total_gw_point: 48.794                   # Rev-4.3 commitment-level re-sum (canonical_totals.json shows 47.901 because it derives from canonical_capacity_atoms.yaml directly; overlay commitments-level rounds differently)
-    total_gw_range: [39.832, 54.512]         # Rev-4.3
+    total_gw_point: 47.901                   # Rev-4.4: regenerated from row_level_audit.csv (canonical_totals.raw_western_horizon_gw_facility); legacy commitment-level resum (48.794) retired
+    total_gw_range: [39.520, 54.210]         # Rev-4.4: atom-level low/high sums; matches canonical_totals.raw_western_horizon_range_gw_facility
     arithmetic:
       epoch_buildout_gw: 31.446              # facility; strict Western scope excludes Stargate UAE (sovereign) and Alibaba Zhangbei (excluded)
-      class_a_western_incremental_point_gw: 9.238  # Rev-4.3 commitment-level re-sum
-      class_a_western_incremental_range_gw: [0.282, 14.262]  # Rev-4.3
-      neocloud_ex_epoch_total_gw: 8.10       # Rev-4.3: was 8.65; CoreWeave operational excluded as subset of contracted (-0.85), CoreWeave contracted unchanged at 2.3, others unchanged
+      class_a_western_incremental_point_gw: 8.355  # Rev-4.4: re-derived to reconcile to atom-level 47.901 (31.446 + 8.355 + 8.10 = 47.901)
+      class_a_western_incremental_range_gw: [0.282, 14.262]  # carried forward
+      neocloud_ex_epoch_total_gw: 8.10
       neocloud_ex_epoch_range_gw: [8.10, 8.80]
-      neocloud_operational_gw: 0.69          # Rev-4.3: was 1.54; CoreWeave 850 MW excluded
-      neocloud_contracted_gw: 7.41           # Rev-4.3: was 7.11; +0.3 net adjustments
+      neocloud_operational_gw: 0.69
+      neocloud_contracted_gw: 7.41
     # Point: 31.446 + 8.355 + 8.10 = 47.901
     # Low:   generated from atom ranges = 39.520
     # High:  generated from atom ranges = 54.210
-    uncertainty: "Rev-4.3: range widened in both directions to honestly reflect Anthropic-Google (range 0-5.4 GW) and Anthropic-Azure (range 0-1.18 GW) dedupe uncertainty. Strict atom scope moves OpenAI Stargate UAE to sovereign sidebar and excludes Alibaba Zhangbei."
+    uncertainty: "Rev-4.4: total reconciled to row_level_audit.csv atom sum (47.901 GW); range widened in both directions to honestly reflect Anthropic-Google (range 0-5.4 GW) and Anthropic-Azure (range 0-1.18 GW) dedupe uncertainty. Strict atom scope moves OpenAI Stargate UAE to sovereign sidebar and excludes Alibaba Zhangbei."
     class_a_western_row_sources_facility:    # per-row Class A facility-basis incremental point contributions
       anthropic_aws_2026_04_20: 1.973        # Rev-4.2 residual after Madison/Ridgeland dedupe
       anthropic_azure_2025_11_18: 0.590      # Rev-4.3: 50% Fairwater overlap (was 1.180)
@@ -1479,24 +1479,29 @@ totals:
   # Sovereign-AI sidebar — FACILITY BASIS (rev-3 primary)
   # --------------------------------------------------------------------------
   sovereign_ai_sidebar_horizon_facility:
-    total_gw_point: 3.96                       # vs 3.117 IT bridge
-    total_gw_range: [2.60, 6.56]
+    total_gw_point: 4.960                      # Rev-4.4: re-derived from row_level_audit.csv (canonical_totals.sovereign_sidebar_gw_facility); 9 included atoms; excludes digital_connexion_vizag_1gw_overlap (1.0 GW dedupe)
+    total_gw_range: [3.10, 6.56]               # Rev-4.4
     rows:
-      epoch_openai_stargate_uae: 1.40          # Epoch site in UAE; moved out of Western denominator under strict atom scope
-      microsoft_g42_uae_khazna_2025_11: 0.26   # IT 0.20 × 1.30 (YAML mw_basis: IT, pue_assumed: 1.30)
-      xai_humain_saudi: 0.50                    # facility 1:1 (sovereign xAI-HUMAIN Saudi JV)
-      humain_amd_saudi_2025_05: 0.50           # facility 1:1 (Humain facility disclosure)
-      reliance_jio_jamnagar_2024_08: 1.00      # facility 1:1 (Reliance/Jio Jamnagar facility disclosure)
-      uk_culham_ai_growth_zone_2025_01: 0.30   # IT 0.25 × 1.20
-    # Point: 1.40 + 0.26 + 0.50 + 0.50 + 1.00 + 0.30 = 3.96
-    basis_note: "Sovereign sidebar facility basis. Reported separately from Western denominator. IT-bridge in sovereign_ai_sidebar_horizon sibling block."
+      epoch_openai_stargate_uae_buildout_remaining: 1.40   # Epoch site in UAE; moved out of Western denominator under strict atom scope
+      microsoft_g42_uae_khazna: 0.26                       # 0.20 IT × 1.30 PUE; 200 MW capacity expansion announced 2025-11-05
+      xai_humain_saudi: 0.50                                # facility 1:1 (sovereign xAI-HUMAIN Saudi JV)
+      humain_amd_saudi: 0.50                               # facility 1:1 (Humain facility disclosure)
+      reliance_jio_jamnagar: 0.88                          # stretch atom (T5; Ambani gigawatt-scale AGM)
+      reliance_jio_jamnagar_near_term_120mw: 0.12          # near-term Phase 1 atom (T2; 120 MW Jamnagar online H2 2026)
+      reliance_andhra_1gw_ai_dc_mou: 1.00                  # NEW Rev-4.4: Reliance Andhra MoU; T5
+      uk_culham_ai_growth_zone: 0.18                       # T5 stretch (Culham scale-out 100 -> 250 MW IT)
+      uk_culham_ai_growth_zone_initial_100mw: 0.12         # T4 initial available power
+    # Point: 1.40 + 0.26 + 0.50 + 0.50 + 0.88 + 0.12 + 1.00 + 0.18 + 0.12 = 4.96
+    excluded_overlap_rows:
+      digital_connexion_vizag_1gw_overlap: 1.00            # excluded; flagged sovereign_sidebar=true to retain provenance, but not added (DCD/Reliance-Brookfield Vizag JV may overlap reliance_andhra_1gw_ai_dc_mou)
+    basis_note: "Sovereign sidebar facility basis. Reported separately from Western denominator. IT-bridge in sovereign_ai_sidebar_horizon sibling block. Filters that compute the sidebar must drop tier=excluded; the canonical_totals.sovereign_sidebar_gw_facility = 4.960 explicitly excludes digital_connexion_vizag_1gw_overlap."
 
   # --------------------------------------------------------------------------
   # Global reference total (Western + Sovereign)
   # --------------------------------------------------------------------------
   global_reference_horizon_2027_2030:
-    total_gw_point: 45.180            # Rev-4.3: 42.063 Western IT + 3.117 sovereign IT
-    total_gw_range: [36.449, 51.851]  # Rev-4.3: high widens with Anthropic-Google +4.5 IT high
+    total_gw_point: 44.708            # Rev-4.4: 40.878 Western IT + 3.830 sovereign IT (4.960 facility / 1.295 blended PUE)
+    total_gw_range: [35.158, 51.851]  # Rev-4.4
     note: "Reference only, IT-load bridge. Session 2's Western analysis uses western_horizon_2027_2030_facility, not this."
 
   # --------------------------------------------------------------------------

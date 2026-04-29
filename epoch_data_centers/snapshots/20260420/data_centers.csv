@@ -10,6 +10,12 @@ Microsoft Fairwater Wisconsin,558827.6907529056,555,17.71,Microsoft #confident,"
 - [Construction Permit Application for building 1](https://drive.google.com/file/d/1azyXnreQBuYEqX2oaSUgePDGCMneez5Z/view?usp=sharing)
 - [Construction Permit Application for building 3 and 4 ](https://drive.google.com/file/d/1UXsNFoXCbstOK8upixx060-LFj8beHqp/view?usp=sharing)
 ",https://docs.google.com/spreadsheets/d/10bfo173cjvehaMqextiRGc95lBdPmtZbLDyNvbEN0N0/edit?usp=sharing,Microsoft AI WAN #confident,,,WE Energies,United States,"4800 90th St, Mount Pleasant, WI 53403"
+OpenAI Stargate Abilene,173002.9718827348,200,5.4712,Oracle #confident,OpenAI #confident,"The Stargate data center campus in Abilene Texas is expected to host OpenAI's largest compute cluster from the second half of 2025 through 2026. This is the first of several sites in the Stargate project, spanning the US and the globe. We have a variety of sources to estimate the capacity of this data center, from company announcements, to permit documents, to satellite imagery of air-cooled chillers.
+
+2026-04-22 revision: Oracle/Epoch changelog correction treated roughly 200 MW as operational by the April 2026 cutoff; the prior 590 MW April-1 milestone was moved back into under-construction pending the next commissioning milestone.","- [Crusoe 2024 Impact Report, with details on Abilene](https://drive.google.com/file/d/1oHWA9vmpvFOh-LvDy5fgq_wq5ITuxd1r/view?usp=sharing)
+- [Air Permit Application for buildings 1-2, featuring blueprints on p.157](https://drive.google.com/file/d/1FgfX6hqojlBtqNXJHjzJmnwWAMx4_M0b/view?usp=sharing)
+- [Mortensen’s profile of the project, with details of substations](https://www.mortenson.com/projects/abilene-data-center-development)
+",https://docs.google.com/spreadsheets/d/197BW-5tHutOzJ_LTv990eCO_M8nUXT2t1nl--UfMIUk/edit?usp=sharing,Stargate #confident,"Softbank,OpenAI,Oracle",Mortenson,American Electric Power,United States,"5502 Spinks Rd, Abilene, TX 79601"
 Meta Prometheus,493683.67862556846,531,15.64,Meta #confident,Meta #confident,"Meta Prometheus is unusual for its ad hoc construction, spanning the full length of New Albany Business Park. A combination of weatherproof tents, colocation facilities and Meta’s traditional data center buildings, this data center shows Meta’s pivot towards AI. Reflecting that patchwork, our analysis uses a combination of land use maps, natural gas turbine permitting, and satellite/aerial imagery of cooling equipment to estimate compute capacity.
 ","- [Meta blog post with details on Prometheus](https://engineering.fb.com/2025/09/29/data-infrastructure/metas-infrastructure-evolution-and-the-advent-of-ai/)
 - [New Albany Business Park land use map](https://drive.google.com/file/d/1Wb_BBVOnhu5UCQ8Q5d6iRIG9K_vigD8A/view?usp=sharing)
@@ -28,11 +34,6 @@ Microsoft Fairwater Atlanta,374125.44637352496,433,11.86,Microsoft #confident,Op
 - [Bloomberg article](https://www.bloomberg.com/news/features/2024-12-08/georgia-s-blackstone-backed-qts-data-center-hits-resistance-over-ai-power-needs)
 
 ",https://docs.google.com/spreadsheets/d/1XeruHu2ES3UsSrsAU3HSMkk5zwzFOQzxQE9pQ_fuEUw/edit?usp=sharing,Microsoft AI WAN #confident,,,Georgia Power,United States,"1435 Hwy 54 W, Fayetteville, GA 30214"
-xAI Colossus 2,280837.7920316433,302,8.899895272,xAI #confident,xAI #confident,"xAI Colossus 2 is the follow-up to Colossus 1. Like its predecessor, it is located in Memphis and was converted from an existing building. To start powering the data center, xAI made the unusual choice to install natural gas turbines across the border in Mississippi, possibly to get faster approval for their operation. We use a combination of satellite/aerial images and announcements to estimate the timeline and compute capacity of the data center.
-","- [WSJ profile of the Colossus data centers](https://www.wsj.com/tech/elon-musk-xai-memphis-tennessee-power-dec4c70d) 
-- [Final GPU count reported by Elon Musk](https://x.com/elonmusk/status/1947701807389515912)
-- [MLGW update mentioning power requests for Colossus 2](https://www.mlgw.com/images/content/files/pdf/new/5-5-25%20xAI%20Update.pdf#page=4)
-",https://docs.google.com/spreadsheets/d/1nqq5NxUw0dYX6vVdvc_AOo-ibOLU3i5LhXzSvJuO9VA/edit?usp=sharing,,,,,United States,"5420 Tulane Rd, Memphis, TN 38109"
 xAI Colossus 1,275795.85649317835,425,11.43,xAI #confident,xAI #confident,"xAI Colossus 1 was converted from a factory into a data center in 2024. It is unusual among large scale AI data centers in the mixture of different types of cooling and power infrastructure.
 
 Initially, Colossus 1 was powered by portable gas turbines and a small pre-existing substation. This infrastructure has since been joined by two additional substations providing power from the local grid, with batteries providing backup power. Cooling for the building is accomplished with both air-cooled chillers and cooling towers.
@@ -41,11 +42,6 @@ Initially, Colossus 1 was powered by portable gas turbines and a small pre-exist
 - [Southern Environmental Law Center Gas Permit Appeal, with additional satellite images](https://cdn.arstechnica.net/wp-content/uploads/2025/07/NAACP-and-YGGs-xAI-Air-Permit-Appeal-7-15-2025.pdf)
 - [Disclosure on X (formerly Twitter) by Elon Musk of the breakdown of GPUs](https://archive.is/oHQSA)
 ",https://docs.google.com/spreadsheets/d/1aXs4vx7AMrzUIR3YeBvJRAD_rmDiioY9zR95DZdDa_s/edit?usp=sharing,,,,MLGW,United States,"3231 Riverport Rd, Memphis, TN 38109"
-OpenAI Stargate Abilene,254674.07781707932,295,8.07,Oracle #confident,OpenAI #confident,"The Stargate data center campus in Abilene Texas is expected to host OpenAI's largest compute cluster from the second half of 2025 through 2026. This is the first of several sites in the Stargate project, spanning the US and the globe. We have a variety of sources to estimate the capacity of this data center, from company announcements, to permit documents, to satellite imagery of air-cooled chillers.
-","- [Crusoe 2024 Impact Report, with details on Abilene](https://drive.google.com/file/d/1oHWA9vmpvFOh-LvDy5fgq_wq5ITuxd1r/view?usp=sharing)
-- [Air Permit Application for buildings 1-2, featuring blueprints on p.157](https://drive.google.com/file/d/1FgfX6hqojlBtqNXJHjzJmnwWAMx4_M0b/view?usp=sharing)
-- [Mortensen’s profile of the project, with details of substations](https://www.mortenson.com/projects/abilene-data-center-development)
-",https://docs.google.com/spreadsheets/d/197BW-5tHutOzJ_LTv990eCO_M8nUXT2t1nl--UfMIUk/edit?usp=sharing,Stargate #confident,"Softbank,OpenAI,Oracle",Mortenson,American Electric Power,United States,"5502 Spinks Rd, Abilene, TX 79601"
 Amazon Madison Mega Site,214348.14354550533,341,10.894283791,Amazon #confident,Anthropic #speculative,"Amazon's Madison Mega Site is similar to other Amazon locations, forgoing most external cooling infrastructure in favor of direct air based cooling. We believe it is plausibly part of the Anthropic-Amazon Project Rainier collaboration, based on the New York Times reporting that there’s at least one such data center in Mississippi, though Amazon's data center in Ridgeland is also there. Analysts at SemiAnalysis have indicated this data center is an Anthropic-Amazon collaboration.
 ","- [Air Construction Permit](https://drive.google.com/file/d/1lhSF8TBA7fNWsN4Onj-nfL7X_-BN573r/view?usp=sharing)
 - [Backup diesel generator referenced in the permit](https://www.cat.com/en_US/products/new/power-systems/electric-power/diesel-generator-sets/117341.html)
@@ -108,21 +104,11 @@ Vantage TX1,38706.417382516425,44.8,1.22,,,"Vantage’s TX1 campus is one of two
 - [Construction Permitting for TX12](https://www.tdlr.texas.gov/TABS/Search/Project/TABS2026001234)
 - [Air quality permitting that references TX13](https://drive.google.com/file/d/1rbF-RT5Sq-iZ26hK5cKzbM2K4Vq2vObY/view?usp=sharing)
 ",https://docs.google.com/spreadsheets/d/1PA0eDftvbL8OQPbFyoGGPzBK_j1xEtYcZqs-cGOreVE/edit?usp=drivesdk,,,,,United States,"Goodyear, Arizona 85338"
-Start Campus Sines Data Campus,31834.259727134915,40,1.27,Nscale #confident,Microsoft #confident,"The Start Campus Sines data campus, of which the first building is SIN01, is a data center campus in Portugal. This [six building campus is reported to be completed in 2030, with an IT capacity of 1.2 GW](https://www.startcampus.pt/sines). As of right now, only one building has been completed with the second building beginning construction. This existing building is operational and being [used to support Microsoft.](https://lp.startcampus.pt/start-campus-hosts-eus-first-nvidia-gb300-chips-with-nscale-for-microsoft) 
-","- [Website for the site](https://www.startcampus.pt/sines)
-- [Factsheet for the full site](https://23712035.hs-sites.com/hubfs/SINES%20DC_1.2%20GW%20DC%20Campus_V2.pdf?hsCtaAttrib=194868835084)
-- [Article detailing Microsoft collaboration and GPU amounts](https://lp.startcampus.pt/start-campus-hosts-eus-first-nvidia-gb300-chips-with-nscale-for-microsoft)
-",https://docs.google.com/spreadsheets/d/1MiA7Ol7YZ7hnnn2rZM9JZqWMVJcHWvxZTX3oUby581U/edit?usp=sharing,,,,,Portugal,"Start Campus - Sustainable Data Center Services, Sines, Portugal"
 Google Pryor (North),17938.35270338555,65,2.070330583,Google #confident,Google DeepMind #likely,"Dating back to 2007, Google Pryor serves a variety of uses, from [Google Workspace](https://support.google.com/a/answer/13190816?hl=en) to [machine learning](https://techcrunch.com/2022/05/11/google-launches-a-9-exaflop-cluster-of-cloud-tpu-v4-pods-into-public-preview/). Our analysis only considers those buildings completed since 2024, which are more likely to house modern AI compute. We estimate power capacity using our model of the cooling towers seen in satellite imagery. The compute capacity is derived from the power capacity, based on the energy efficiency of the best available Google TPU chips.
 ","- [Google announces expansion of Pryor facility](https://blog.google/inside-google/company-announcements/google-american-innovation-oklahoma/)
 - [Google 2025 Environmental Report](https://sustainability.google/reports/google-2025-environmental-report/) with PUE and water use on pp.109-110
 - [News of a 9 exaflop TPUv4 cluster in the Pryor data center, launched in 2022](https://techcrunch.com/2022/05/11/google-launches-a-9-exaflop-cluster-of-cloud-tpu-v4-pods-into-public-preview/)
 ",https://docs.google.com/spreadsheets/d/1t7cRs2OukCKSz88qEnyF7vlGWdgY5MpVOLcd79nFdnQ/edit?usp=sharing,,,,,United States,"4581 Webb St, Pryor, OK 74361"
-Meta Hyperion,0,0,0,Meta #confident,Meta #confident,"Meta Hyperion is built on an enormous tract of land, more than three times the size of New York City’s Central Park. It is set to host Meta’s next flagship AI cluster after Prometheus. We estimate its compute capacity primarily based on an application by Entergy for three 752 MW gas turbines linked to the site, as well as plans for a new 1.8 GW substation by the grid operator MISO.
-","- [Data center profile by Meta](https://datacenters.atmeta.com/richland-parish-data-center/)
-- [Entergy's application for generation and transmission resources](https://drive.google.com/file/d/1FLY13apaHy4hI8RNVk9n_nlJpwFHtBrB/view?usp=sharing)
-- [MISO update with 1.8 GW substation plan](https://drive.google.com/file/d/1D4eUHwEuirNi0g3IU_xGOti3PcC8fcXi/view?usp=sharing)
-",https://docs.google.com/spreadsheets/d/1cyXcZ_jIsJDjuPKx6_J1scIWeq0-rfM3-2GcSKN4oA0/edit?usp=sharing,Hyperion #confident,,Mortenson,Entergy,United States,"Holly Ridge, LA 71269"
 Goodnight,0,0,0,Google #speculative,Google DeepMind #speculative,"Crusoe's Goodnight data center is notable for a major mid-flight change in design. It was originally designed in 2024 for seven X-shaped buildings that closely mirror the first eight buildings of the OpenAI Stargate Abilene data center (also built by Crusoe). This was revised in 2025 to 6 buildings, with Buildings 3-6 using a simple rectangle shape.
 
 Given the structural similarities to Abilene, it is plausible it is equipped with NVIDIA chips. Google is a potential user, based on reporting that Google is investing in a data center in Armstrong County.
@@ -163,12 +149,6 @@ The date that this campus reaches full capacity is speculative. However, Vantage
 - [OpenAI Stargate expansion announcement mentioning Shackelford site](https://openai.com/index/five-new-stargate-sites/)
 - [Vantage LinkedIn post connecting the data center to OpenAI Stargate](https://web.archive.org/web/20260226203340/https://www.linkedin.com/posts/vantage-data-centers_ai-digitalinfrastructure-stargate-activity-7405254667062124544-FOcd/?rcm=ACoAAAmuuF4BvsgagH4Z8-Z8-0LaBPPY6467cAs)
 ",https://docs.google.com/spreadsheets/d/13BiLKveH7pjsXRUAbfZsLUvjEzwRT-PVn79UDE69ofM/edit?usp=sharing,Stargate #confident,"Oracle,OpenAI",,,United States,"175 Private Road 1604, Abilene, TX 79601, Shackelford County"
-Google Fort Wayne,0,0,0,Google #confident,Google DeepMind #likely,"Google Fort Wayne will be a five-building campus likely designed to house current and next-gen TPUs. The campus is also notable for being one of the first sites to use the new Google building design, which is larger and has more cooling infrastructure. (There is also the 'H' building which we haven't seen before, but we don't think it's for AI compute.) We estimate that when it's completed in 2028, it will consume approximately 1 GW of total facility power and produce 1.2 million H100-equivalents' worth of compute.
-","- [Google's plans for wetlands in Fort Wayne](https://www.thelocalfw.com/what-to-know-about-googles-plans-for-wetlands-in-fort-wayne/)
-- [Data center's diesel generators](https://www.thelocalfw.com/data-center-diesel-generators/)
-- [Project's history and tax abatement](https://www.thelocalfw.com/data-centers-secrecy-and-tax-abatements/)
-- [City Council approval](https://citycouncildocuments.acfw.net/documents/download/2023-12-19/R-23-12-02.pdf)
-",https://docs.google.com/spreadsheets/d/10-rVasOykSTFojmMX9PbVCfFyM2j9U2JgT0fbYXpkh0/edit?usp=sharing,Project Zodiac,Google,,,United States,"6015 Adams Center Road, Fort Wayne, IN 46806"
 Crusoe Abilene Expansion,0,0,0,Microsoft #confident,Microsoft #likely,"Built by Crusoe and originally planned as an expansion to Stargate Abilene for OpenAI and Oracle, this site reportedly now has interest from NVIDIA and Meta but was ultimately acquired by Microsoft. 
 ","- [Bloomberg reporting that Oracle and OpenAI pulled out of expanding to these buildings, NVIDIA and Meta might replace them](https://www.bloomberg.com/news/articles/2026-03-06/oracle-and-openai-end-plans-to-expand-flagship-data-center)
 - [Air Permit Application for the buildings, featuring blueprints on p.391](https://www.tceq.texas.gov/assets/public/permitting/air/reports/applications/400428-ac.pdf) (via [Aterio](https://www.aterio.io/blog/stargate-files-for-phase-3-expansion-in-abilene))
@@ -210,13 +190,13 @@ By 2030, they aim to serve 280 MW (220 MW for AI) of IT power  across the campus
 ","- [Official page for the data center.](https://www.streamdatacenters.com/locations/phoenix/)
 - [Official pre-construction planning document.](https://www.streamdatacenters.com/wp-content/uploads/2026/01/SDC-Goodyear-CaseStudy-251218.pdf)
 ",https://docs.google.com/spreadsheets/d/1SC63z3YKLbCg9XNmo2uIcuGxife8xhHqYTc_IyEuzk0/edit?usp=drive_link,,,,,United States,2950 S. Litchfield Road
-Meta Kuna,0,0,0,Meta #confident,Meta #confident,"This Idaho site shares its AI-ready design with [Meta Temple](https://epoch.ai/data/data-centers/satellite-explorer/MetaTemple). Two buildings are planned to start use in summer 2026. While Meta has not publicly announced expansion plans, construction and solar offsets suggest an expansion completed around late 2027.
-
-","- [Official Pamphlet from Meta](https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Kuna-Data-Center.pdf)
-- [Application for Power Purchase Agreement, Pleasant Valley Solar 1 ](https://puc.idaho.gov/Fileroom/PublicFiles/ELEC/IPC/IPCE2229/CaseFiles/20221114Application.pdf)
-- [Application for Power Purchase Agreement, Pleasant Valley Solar 2](https://lf-puc.idaho.gov/WebLink/DocView.aspx?dbid=0&id=73294)
-- [Approval to move start date of Solar 2 to May 31, 2026](https://puc.idaho.gov/Fileroom/PublicFiles/ELEC/IPC/IPCE2420/OrdNotc/20240913Final_Order_No_36322.pdf) and [staff comments](https://lf-puc.idaho.gov/WebLink/DocView.aspx?dbid=0&id=135751)
-- [Notice of Application for 3rd PPA (Blacks Creek Energy Center)](https://puc.idaho.gov/Fileroom/PublicFiles/ELEC/IPC/IPCE2442/OrdNotc/20241210Notice_of_Application_Order_No_36419.pdf)
-- [Idaho Statesman: Peak construction reached in March 2025](https://www.idahostatesman.com/news/business/article304464416.html)
-- [Idaho Statesman: Expected water usage reported in 2022](https://www.idahostatesman.com/opinion/from-the-opinion-editor/article259250030.html)
-",https://docs.google.com/spreadsheets/d/1I4oCviRN5Es3njqhSlm3WD7Hxfitb29eVJEGOaTbiTc/edit?gid=0#gid=0,,,,Idaho Power Company,United States,"601 Kuna Mora Rd,  Kuna ID 83634"
+Meta Hyperion,,,,Meta #confident,Meta #confident,"Meta Hyperion is built on an enormous tract of land, more than three times the size of New York City’s Central Park. It is set to host Meta’s next flagship AI cluster after Prometheus. We estimate its compute capacity primarily based on an application by Entergy for three 752 MW gas turbines linked to the site, as well as plans for a new 1.8 GW substation by the grid operator MISO.
+","- [Data center profile by Meta](https://datacenters.atmeta.com/richland-parish-data-center/)
+- [Entergy's application for generation and transmission resources](https://drive.google.com/file/d/1FLY13apaHy4hI8RNVk9n_nlJpwFHtBrB/view?usp=sharing)
+- [MISO update with 1.8 GW substation plan](https://drive.google.com/file/d/1D4eUHwEuirNi0g3IU_xGOti3PcC8fcXi/view?usp=sharing)
+",https://docs.google.com/spreadsheets/d/1cyXcZ_jIsJDjuPKx6_J1scIWeq0-rfM3-2GcSKN4oA0/edit?usp=sharing,Hyperion #confident,,Mortenson,Entergy,United States,"Holly Ridge, LA 71269"
+xAI Colossus 2,,,,xAI #confident,xAI #confident,"xAI Colossus 2 is the follow-up to Colossus 1. Like its predecessor, it is located in Memphis and was converted from an existing building. To start powering the data center, xAI made the unusual choice to install natural gas turbines across the border in Mississippi, possibly to get faster approval for their operation. We use a combination of satellite/aerial images and announcements to estimate the timeline and compute capacity of the data center.
+","- [WSJ profile of the Colossus data centers](https://www.wsj.com/tech/elon-musk-xai-memphis-tennessee-power-dec4c70d) 
+- [Final GPU count reported by Elon Musk](https://x.com/elonmusk/status/1947701807389515912)
+- [MLGW update mentioning power requests for Colossus 2](https://www.mlgw.com/images/content/files/pdf/new/5-5-25%20xAI%20Update.pdf#page=4)
+",https://docs.google.com/spreadsheets/d/1nqq5NxUw0dYX6vVdvc_AOo-ibOLU3i5LhXzSvJuO9VA/edit?usp=sharing,,,,,United States,"5420 Tulane Rd, Memphis, TN 38109"

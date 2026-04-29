@@ -33,3 +33,6 @@ venv/
 .idea/
 *.swp
 *.swo
+
+# Claude Code local state
+.claude/

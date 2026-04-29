@@ -1,229 +1,79 @@
-# The AI Compute Build-Out, 2026–2030
+# AI Compute Build-Out, 2026–2030
 
-**Scale, capex, silicon, and counterparty geography of the frontier AI
-infrastructure arms race.**
+A tracker of announced and operational AI compute capacity through 2030.
 
-A quantitative forecast paper with a full audit trail: every headline number
-resolves to a row in the data layer, every row carries an evidence tier
-(T1–T6) and a realization probability, and the 2030 horizon is reported as
-a Monte Carlo distribution rather than a point estimate.
+**Single source of truth**: [`tracker.csv`](tracker.csv) (machine) and [`tracker.md`](tracker.md) (human).
+Built from Epoch AI's Frontier Data Centers + a small hand-curated overlay for what Epoch's documented methodology doesn't cover.
 
-- **Paper**: [`report.pdf`](report.pdf) (40 pages)
-- **Latest revision**: 2026-04-27 (rev-4.1, data-layer tier correction + reproducibility repair)
-- **Data cutoff**: 2026-04-27
-- **Primary data**: [Epoch AI Frontier Data Centers](https://epoch.ai/data/data-centers) (CC BY 4.0)
+## How it works
 
----
-
-## The headline numbers (facility basis, primary)
-
-| Metric | Value | Notes |
-|---|---|---|
-| Operational today (Q2 2026) | **7.37 GW tier-clean** (~7.62 GW facility including T6-inferred) | T1; +0.25 GW facility T6-inferred |
-| 2030 raw announced horizon (Western) | **46.6 GW facility** (39.8 GW IT-load bridge) | Unweighted sum across T1–T6 |
-| 2030 tier-weighted point | **32.8 GW facility** | Σ tier_GW × tier_default_probability |
-| **2030 Monte Carlo median** | **29.0 GW facility** | 10,000 draws; our probability-honest central estimate |
-| Monte Carlo p10–p90 | **[21.1, 34.8] GW facility** | Interdecile range — the relevant LP sensitivity band |
-| Raw non-stretch (replaces retired "bear") | **39.9 GW facility** | Announced minus T5 stretch targets |
-| Conservative case (T1+T2+T3 only) | **23.8 GW facility** | |
-| Row-uncertainty high envelope | **49.7 GW facility** | Arithmetic high |
-| Sovereign stretch annex (separate) | **3.96 GW facility** (3.12 GW IT-load) | UAE + Saudi + India + UK; not in Western denom. |
-| Capital envelope | **~$1.73T (range $1.40–2.19T)** | Bottoms-up unit-economics × 46.6 GW raw; central $37B/facility-GW. Distinct from RPO. |
-| RPO (revenue underwriting, not capex) | **~$550B** | Oracle–OpenAI, Anthropic–AWS, Meta–Nebius, CoreWeave |
-| 2030 H100-equivalents (Western) | **78.0M** | Rounded chip-density scenario input; vs. 4.2M operational today — 18.7× growth (basis-invariant) |
-
-**The central fact**: approximately 85% of the 46.6 GW facility raw 2030 horizon is
-not yet operational. The forecast stands or falls on whether the 2028–2030
-pipeline materializes on announced timelines — which is why every number
-here carries an evidence tier and a realization probability.
-
-**Power-basis note**: facility power (IT + cooling + losses + auxiliaries) is the
-primary denominator, matching [Epoch AI's methodology](https://epoch.ai/data/data-centers-documentation)
-and the basis most relevant to grid interconnection and facility capex. IT-load-equivalent
-capacity is reported as a secondary bridge against chip-nameplate commitments; the
-central IT-load bridge is ~43 GW at blended PUE 1.20.
-
----
-
-## What's in this repo
-
-### Paper
-- [`report.tex`](report.tex) — LaTeX source
-- [`report.pdf`](report.pdf) — 40-page PDF
-
-### Data layer (the ledger)
-
-**Horizon side — what is being committed (one row per commitment)**
-- [`compute_commitments_overlay.yaml`](compute_commitments_overlay.yaml) — 14 Class A commitments + Class B chips + Class C $-only rows, each with primary-source verbatim, Epoch-overlap dedup reasoning, evidence tier, realization probability, row-level audit fields (PUE, mw_basis, ISO/RTO, interconnection status, chip family, capex split, RPO, financing source, capex bridge), plus top-level `stress_scenarios:` and `chip_density_assumptions:` blocks
-- [`neocloud_overlay.yaml`](neocloud_overlay.yaml) — CoreWeave, Nebius, Applied Digital, Crusoe, Lambda, Voltage Park, Together AI, Fermi, Nscale — operational + contracted capacity per operator with evidence-tier rollup
-- [`facts_extract.yaml`](facts_extract.yaml) — the 11 facts added or modified by the overlay with full source metadata inlined
-- [`compute_commitments_totals.csv`](compute_commitments_totals.csv) — flat per-row table (Excel-ready)
-- [`row_level_audit.csv`](row_level_audit.csv) — 81 capacity atoms × 40 columns, the companion to Appendix B in the paper
-- [`CANONICAL_CONSTANTS.md`](CANONICAL_CONSTANTS.md) — one-page Rev-4.1 constants block that current-facing docs must match
-- [`epoch_data_centers/`](epoch_data_centers/) — upstream Epoch AI Frontier Data Centers snapshot (CC BY 4.0) this overlay sits on top of
-
-**Unit-economics side — what 1 facility GW costs (added rev-4 prep, 2026-04-27)**
-- [`anatomy_layer_costs.yaml`](anatomy_layer_costs.yaml) — per-layer / per-sub-component cost decomposition for one 2026-vintage AI facility GW. Six physical layers (shell, cooling, power, networking, accelerator+server, grid), ~40 sub-components, each with `cost_usd_m_per_mw_{low,high,central}`, basis, vintage, evidence tier (T1–T6), primary sources with retrieval dates, and inflation flags. Includes the basis-conventions cheat sheet that resolves cross-forecaster disagreement.
-- [`anatomy_layer_costs.csv`](anatomy_layer_costs.csv) — flat companion (Excel-ready)
-- [`anatomy_named_projects.yaml`](anatomy_named_projects.yaml) — project-level disclosed capex anchors (Crusoe Abilene, Meta Hyperion, AEP/SB Energy Piketon, Microsoft Mt Pleasant, AWS Madison, Talen-AWS, etc.) with verbatim figures and reconciliation back to the bottoms-up layer ranges
-- [`forecaster_capex_comparison.yaml`](forecaster_capex_comparison.yaml) — 18-source cross-forecaster $/GW reconciliation (Epoch, Bernstein, McKinsey, Bain, JLL, Cushman, Goldman, Morgan Stanley, JPM, BNEF, Synergy, Dell'Oro, IEA, LBNL, Aschenbrenner, NVIDIA, Barclays, Stargate, Hyperion, CoreWeave, Nebius). Verdict on the paper's $23–30B/GW with explicit basis declaration.
-- [`research/`](research/) — eight per-agent research notes (one per layer + Crusoe + forecasters); intermediate scratchpad behind the structured YAML
-
-### Framework docs
-- [`CONFIDENCE_DECOMPOSITION.md`](CONFIDENCE_DECOMPOSITION.md) — the six-tier evidence framework (T1 Operational through T6 Analyst inference) with per-tier realization-probability defaults and per-row override rules
-- [`CHANGELOG.md`](CHANGELOG.md) — every number that moved across the pre-revision, rev-1, and rev-2 PDFs
-
-### Tooling
-- [`audit_totals.py`](audit_totals.py) — re-sums YAML per-row incrementals vs. the declared `totals:` block; emits the seven canonical totals (operational-today, announced horizon, probability-weighted, conservative, full-realization, capital envelope, RPO); exits 1 on drift
-- [`monte_carlo_horizon.py`](monte_carlo_horizon.py) — 10,000-draw simulation. Samples tier realization rates from Beta distributions fitted to (tier_default_mean, tier_p05, tier_p95); applies a systemic stress state plus conditional scenario logic for A/B/C and RPO-linked neocloud financing stress. Reports p05 / p10 / p25 / p50 / p75 / p90 / p95 and tail probabilities. Seed-pinned.
-- [`monte_carlo_output_facility_seed20260424.json`](monte_carlo_output_facility_seed20260424.json) — seed-pinned facility-basis MC output
-- [`monte_carlo_output_it_seed20260424.json`](monte_carlo_output_it_seed20260424.json) — seed-pinned IT-bridge MC output
-- [`check_source_freshness.py`](check_source_freshness.py) — staleness linter on `row_audit.last_checked` and neocloud `as_of_date`. GREEN (≤30 d) / YELLOW (31–60 d) / RED (61+ d) / MISSING. Exit code 1 if any RED or MISSING.
-- [`source_freshness_report.json`](source_freshness_report.json) — generated freshness report
-- [`check_urls.py`](check_urls.py) and [`url_check_report.json`](url_check_report.json) — URL status, broken-link, and redirect report for manuscript/YAML citations
-
----
-
-## Running the tools
-
-```bash
-# Install
-pip install pyyaml
-
-# Audit the data layer (exits 1 if totals drift)
-python3 audit_totals.py
-
-# Monte Carlo (seed-pinned; reproducible)
-python3 monte_carlo_horizon.py --draws 10000 --seed 20260424
-
-# Source-freshness linter (exits 1 if any rows are RED or MISSING)
-python3 check_source_freshness.py
-
-# Rebuild the PDF
-pdflatex report.tex && pdflatex report.tex
+```
+epoch_data_centers/  ←  refresh_epoch.sh pulls latest from epoch.ai/data/data-centers
+        +
+overlay.csv          ←  hand-curated rows for capacity Epoch can't see
+        ↓
+build_tracker.py
+        ↓
+tracker.csv  +  tracker.md  +  ~/Downloads/atoms_audit.xlsx
 ```
 
----
+Two scripts. One CSV input. One CSV output. That's the system.
 
-## The six-tier evidence framework
+## Buckets (lifecycle stage, no probability priors)
 
-Every row in the data layer carries a tier label. Tiers map to default
-realization probabilities; individual rows can override via the
-`realization_probability` field.
+| Bucket | What goes in | Source class |
+|---|---|---|
+| operational | Energized facility power as of today | Epoch op. + verified neocloud |
+| under_construction | Named site + dated buildout / permit / utility / interconnect | Epoch buildout-remaining + recent groundbreakings |
+| contracted | Counterparty + capacity disclosed via 10-K / lease / take-or-pay | Non-Epoch overlay |
+| announced | "Up to N GW" headlines without contracted basis or named site | Non-Epoch overlay |
+| canceled | Project paused, terminated, or descoped post-announcement | Either source |
 
-| Tier | Label | GW (Western) | Default P(realize) | Documented range |
-|------|-------|-------------:|-------------------:|------------------|
-| T1 | Operational | 7.37 | 1.00 | n/a |
-| T2 | Under construction / physically evidenced | 11.91 | 0.88 | 0.80–0.95 |
-| T3 | Firm commercial commitment | 4.50 | 0.78 | 0.65–0.90 |
-| T4 | Announced site-level plan | 14.50 | 0.58 | 0.40–0.75 |
-| T5 | LOI / stretch target | 6.75 | 0.32 | 0.15–0.50 |
-| T6 | Analyst inference | 0.33 | 0.25 | 0.10–0.40 |
-| **Total** | | **46.61** | | |
+Sovereign sidebar items (UAE / Saudi / India / UK / EU / Asia) are reported separately and not added to the Western total.
 
-The full tier definitions and per-row assignment rules are in
-[`CONFIDENCE_DECOMPOSITION.md`](CONFIDENCE_DECOMPOSITION.md).
+## Refresh
 
----
+```bash
+bash scripts/refresh_epoch.sh
+```
 
-## Scope decisions
+This pulls the latest Epoch CSVs, regenerates `epoch_data_centers/compiled.json`, and rebuilds `tracker.csv` + `tracker.md`.
+Epoch updates roughly weekly. The `epoch_data_centers/snapshots/` directory keeps each pull dated.
 
-1. **Western-aligned vs. sovereign-AI reported separately.** The Western
-   subtotal (46.6 GW facility; 39.8 GW IT bridge) is the capex-revenue denominator for any analysis
-   of OpenAI / Anthropic / Google / Meta / Microsoft / xAI. The sovereign
-   annex (3.96 GW facility; 3.12 GW IT bridge — UAE, Saudi, India, UK) is reported but NOT added
-   to the Western denominator.
-2. **Class B (chip procurement) adds zero physical GW.** AMD 6 GW +
-   Broadcom 10 GW + NVIDIA 10 GW = 26 GW in chip nameplate, but those
-   chips deploy into Class A shells already counted at the site level.
-3. **Class C (dollar-only commitments) is tracked but does not add GW.**
-   Altman's $1.4T aggregate, Alphabet UK £5B, etc. — envelopes that
-   overlap Class A capex.
-4. **China excluded except qualitatively** (§9 known-unknowns). Publicly
-   disclosed Chinese AI datacenter capacity materially understates actual
-   build-out and cannot be corroborated from open sources at the same
-   granularity as the Western-aligned set.
-5. **Seven commitments explicitly excluded** after primary-source review
-   (Apple PCC, Oracle ex-Stargate, Tesla Cortex, Cohere/DeepMind,
-   DLR/Equinix merchant, EuroHPC, Mistral Bruyères). Each exclusion is
-   logged in [`compute_commitments_overlay.yaml`](compute_commitments_overlay.yaml)
-   under `excluded_with_reason` with the primary source we checked.
+## To audit
 
----
+Open `~/Downloads/atoms_audit.xlsx`. Tab 1 (README) defines the four buckets, lists totals, and explains the columns. Tab 2 (Tracker) is the full row-level table — sortable, filterable, one row per capacity item.
 
-## Known sharp edges
+## Files in the repo
 
-- **Reliance Jio Jamnagar range is [0.12, 3.00] GW.** Ambani's AGM statement
-  uses "gigawatt-scale" without specificity.
-- **Meta Hyperion range is [0, 2.74] GW.** Meta's own newsroom commits to
-  "over 2 GW" (already matched by Epoch). The incremental is Zuckerberg's
-  earnings-call stretch target of "5 GW over several years."
-- **Anthropic-AWS 5 GW "new" range is [2.50, 5.00] GW.** Low bound allows
-  for overlap with Madison + Ridgeland + future New Carlisle expansion
-  beyond Epoch's current 1.23 GW.
-- **The $52B Anthropic-Google TPU figure should NOT be added to the $50B
-  Fluidstack commitment.** Anthropic's April 2026 blog frames the TPU
-  deal as "a major expansion of our November 2025 commitment to invest
-  $50 billion."
-- **Epoch data moves.** The 2026-04-22 changelog slipped Stargate
-  Abilene's 600 MW milestone from April 1 to late May 2026; rev-2 of
-  the paper (2026-04-24) incorporates this. Run `check_source_freshness.py`
-  to see which rows are stale relative to your current date.
+| File | Purpose |
+|---|---|
+| `tracker.csv` / `tracker.md` | Output: every row, four-bucket view |
+| `overlay.csv` | Input: hand-curated rows Epoch doesn't yet cover |
+| `epoch_data_centers/` | Upstream Epoch snapshot + compile.py (their script) |
+| `scripts/refresh_epoch.sh` | Pull fresh Epoch + rebuild |
+| `scripts/build_tracker.py` | Combine Epoch + overlay → tracker |
+| `scripts/check_urls.py` | URL liveness check |
+| `scripts/check_source_freshness.py` | Last-checked-date linter |
+| `source_claim_map.csv` | atom_id → publisher / URL / claim text |
+| `anatomy_layer_costs.yaml` | Capex unit-economics (separate analysis, not the tracker) |
+| `report.tex` / `report.pdf` | Manuscript (Rev-4.4; pre-simplification — to be rewritten on top of the tracker) |
+| `archive/rev4_deprecated/` | Prior atom database, tier framework, Monte Carlo, tier-table validator, etc. — moved out so they don't accrete drift |
 
----
+## Scope
 
-## Methodology and uncertainty
-
-- **Epoch's disclosed uncertainty bands** (from their methodology docs):
-  cooling-model power estimates can in principle vary up to a factor of
-  2 against ground truth, though validation against known-capacity sites
-  shows agreement within ~50%. Capital-cost estimates apply a uniform
-  $44B/GW ($30B hardware + $14B infrastructure). These bands are consistent
-  with our T2/T3 realization-probability ranges.
-- **Monte Carlo design**: tier rates are sampled from Beta distributions
-  fitted so the tier-default is the mean and the tier-documented range
-  is p05–p95 (method-of-moments with normal approximation on the
-  quantile spread). T1 treated deterministically. Stress scenarios
-  (A Stargate slip, B neocloud spread, C grid slip, D chip slip,
-  E inference > training) use a correlated systemic-stress state plus conditional A/B/C probabilities; which is
-  why the Monte Carlo median (29.0 GW) sits below the deterministic
-  tier-weighted point (32.8 GW).
-- **H100e convention**: 78.0M is the rounded chip-density scenario input
-  used in manuscript tables. 78.2M is the separate chip-layer estimate before
-  this display rounding convention is applied.
-- **What we don't forecast** is enumerated in §9 of the paper: PUE
-  ambiguity, interconnection-queue opacity, chip-roadmap uncertainty
-  post-2027, cluster utilization, training vs inference mix,
-  double-count residual, RPO enforceability, neocloud financing under
-  stress, sovereign disclosure asymmetry, China.
-
----
+- **Western**: US-led hyperscaler + frontier-lab + merchant-neocloud capacity. The primary denominator.
+- **Sovereign sidebar**: UAE, Saudi Arabia, India, UK, EU sovereign-AI initiatives. Reported separately because financing model, geopolitics, and disclosure norms differ.
+- **Excluded**: China (Alibaba Zhangbei tracked by Epoch but kept out of Western totals; broader Chinese AI infrastructure is materially under-disclosed and out of scope qualitatively).
 
 ## License
 
-- **Paper, data, and documentation** (`report.tex`, `report.pdf`, all
-  `.yaml` / `.csv` / `.md` files in the repo root): [CC BY 4.0](LICENSE).
-  Attribution required; commercial use permitted.
-- **Scripts** (`audit_totals.py`, `monte_carlo_horizon.py`,
-  `check_source_freshness.py`): MIT License (embedded in the same
-  [LICENSE](LICENSE) file).
-- **Upstream Epoch AI data** (`epoch_data_centers/`): CC BY 4.0 per
-  Epoch's license. Attribution: "Epoch AI, *Frontier Data Centers*,
-  2026-04-24 snapshot. https://epoch.ai/data/data-centers".
+- Paper, data, documentation: [CC BY 4.0](LICENSE).
+- Scripts: MIT (in [LICENSE](LICENSE)).
+- Upstream Epoch AI data: CC BY 4.0 per Epoch's license. Cite: "Epoch AI, *Frontier Data Centers*, retrieved 2026-04-29. https://epoch.ai/data/data-centers".
 
----
+## What changed in Rev-5.0 (2026-04-29)
 
-## Citation
+Stripped down. Removed the six-tier evidence framework, realization-probability priors, deterministic tier-weighted point, Monte Carlo apparatus, dedupe-coverage / dedupe-reflexivity / tier-table validators, prose-discipline gate, and the 4906-line atoms YAML. Replaced with one CSV overlay + one Python script that combines it with Epoch.
 
-```bibtex
-@techreport{entebi2026aicompute,
-  title   = {The AI Compute Build-Out, 2026--2030:
-             Scale, capex, silicon, and counterparty geography},
-  author  = {Entebi, Isaac},
-  year    = {2026},
-  month   = {April},
-  note    = {Rev-4.1, 2026-04-28. 40 pages.
-             Data and scripts at
-             https://github.com/isaacentebi/ai-compute-buildout-2030}
-}
-```
+Audit findings consolidated from three independent deep-research passes (Anthropic / OpenAI / Gemini) are baked into the new `overlay.csv` row magnitudes and the cancellations bucket. Manuscript still reflects the old (tier-framework) framing and is queued for rewrite on top of the tracker.

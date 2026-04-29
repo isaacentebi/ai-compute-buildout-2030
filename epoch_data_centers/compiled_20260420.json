@@ -4,7 +4,7 @@
     "dataset": "Frontier Data Centers",
     "url": "https://epoch.ai/data/data-centers",
     "dataset_updated": "2026-04-20",
-    "retrieved": "2026-04-29",
+    "retrieved": "2026-04-22",
     "license": "CC BY 4.0",
     "files": [
       "data_centers.csv",
@@ -102,9 +102,9 @@
       "country": "United States",
       "project": "Hyperion #confident",
       "address": "Holly Ridge, LA 71269",
-      "current_h100e": 0.0,
-      "current_power_mw": 0.0,
-      "current_capex_usd_b_2025": 0.0,
+      "current_h100e": null,
+      "current_power_mw": null,
+      "current_capex_usd_b_2025": null,
       "first_operational_date": "2028-01-01",
       "operational_today": false,
       "timeline_now": {
@@ -312,42 +312,15 @@
       }
     },
     {
-      "name": "Google Fort Wayne",
-      "owner": "Google",
-      "users": "Google DeepMind",
-      "country": "United States",
-      "project": "Project Zodiac",
-      "address": "6015 Adams Center Road, Fort Wayne, IN 46806",
-      "current_h100e": 0.0,
-      "current_power_mw": 0.0,
-      "current_capex_usd_b_2025": 0.0,
-      "first_operational_date": "2026-12-01",
-      "operational_today": false,
-      "timeline_now": {
-        "power_mw": 0.0,
-        "h100e": 0.0,
-        "bldgs_op": 0.0,
-        "capex_usd_b": 0.0,
-        "status_text": "The chillers for Buildings 2 and 3 are both a little less than half done and the buildings still look like active construction sites.",
-        "last_update": "2026-03-01"
-      },
-      "full_buildout": {
-        "h100e_max": 1424962.1020717535,
-        "power_mw_max": 1035.0,
-        "capex_usd_b_max": 33.04,
-        "end_of_timeline": "2028-04-01"
-      }
-    },
-    {
       "name": "xAI Colossus 2",
       "owner": "xAI",
       "users": "xAI",
       "country": "United States",
       "project": "",
       "address": "5420 Tulane Rd, Memphis, TN 38109",
-      "current_h100e": 280837.7920316433,
-      "current_power_mw": 302.0,
-      "current_capex_usd_b_2025": 8.899895272,
+      "current_h100e": null,
+      "current_power_mw": null,
+      "current_capex_usd_b_2025": null,
       "first_operational_date": "2025-10-19",
       "operational_today": true,
       "timeline_now": {
@@ -426,24 +399,24 @@
       "country": "United States",
       "project": "Stargate #confident",
       "address": "5502 Spinks Rd, Abilene, TX 79601",
-      "current_h100e": 254674.07781707932,
-      "current_power_mw": 295.0,
-      "current_capex_usd_b_2025": 8.07,
-      "first_operational_date": "2025-09-26",
+      "current_h100e": 173002.9718827348,
+      "current_power_mw": 200.0,
+      "current_capex_usd_b_2025": 5.4712,
+      "first_operational_date": "2025-06-28",
       "operational_today": true,
       "timeline_now": {
-        "power_mw": 295.0,
-        "h100e": 254674.07781707932,
+        "power_mw": 200.0,
+        "h100e": 173002.9718827348,
         "bldgs_op": 2.0,
-        "capex_usd_b": 8.07,
-        "status_text": "Building 3 and 4 look complete, but are not fully operational. Not as many cars are parked next to it as Building 1-2 which suggests they may still be ramping up. Building 4 was due by now according to a [regulatory filing](https://www.tdlr.texas.gov/TABS/Search/Project/TABS2025014756). Building 5 still has light construction activity, while Building 6 still lacks chillers. The on-site power plant to the right of Building 2 looks complete.",
-        "last_update": "2026-03-24"
+        "capex_usd_b": 5.4712,
+        "status_text": "Revision: roughly 200 MW operational by the April 2026 cutoff; the prior 590 MW April-1 milestone is treated as under construction pending a later commissioning milestone.",
+        "last_update": "2026-04-22"
       },
       "full_buildout": {
         "h100e_max": 1020717.5341081354,
         "power_mw_max": 1180.0,
         "capex_usd_b_max": 32.28,
-        "end_of_timeline": "2026-11-01"
+        "end_of_timeline": "2026-07-01"
       }
     },
     {
@@ -606,33 +579,6 @@
         "power_mw_max": 819.0,
         "capex_usd_b_max": 26.146281097,
         "end_of_timeline": "2026-09-18"
-      }
-    },
-    {
-      "name": "Start Campus Sines Data Campus",
-      "owner": "Nscale",
-      "users": "Microsoft",
-      "country": "Portugal",
-      "project": "",
-      "address": "Start Campus - Sustainable Data Center Services, Sines, Portugal",
-      "current_h100e": 31834.259727134915,
-      "current_power_mw": 40.0,
-      "current_capex_usd_b_2025": 1.27,
-      "first_operational_date": "2026-04-03",
-      "operational_today": true,
-      "timeline_now": {
-        "power_mw": 40.0,
-        "h100e": 31834.259727134915,
-        "bldgs_op": 1.0,
-        "capex_usd_b": 1.27,
-        "status_text": "Building 1 (SIN01) operational for AI, with the first deployment of 12,600 Nvidia GB300 NVL72s to the site being reported completed \"Q1 2026\" based on the [corporate announcement](https://lp.startcampus.pt/start-campus-hosts-eus-first-nvidia-gb300-chips-with-nscale-for-microsoft). Land clearing also begins for Building 2 (SIN02), with faint dirt outlines for roads and building foundations visible.",
-        "last_update": "2026-04-03"
-      },
-      "full_buildout": {
-        "h100e_max": 472460.83880747855,
-        "power_mw_max": 280.0,
-        "capex_usd_b_max": 8.92,
-        "end_of_timeline": "2027-09-30"
       }
     },
     {
@@ -849,33 +795,6 @@
         "power_mw_max": 263.0,
         "capex_usd_b_max": 7.9,
         "end_of_timeline": "2025-11-12"
-      }
-    },
-    {
-      "name": "Meta Kuna",
-      "owner": "Meta",
-      "users": "Meta",
-      "country": "United States",
-      "project": "",
-      "address": "601 Kuna Mora Rd,  Kuna ID 83634",
-      "current_h100e": 0.0,
-      "current_power_mw": 0.0,
-      "current_capex_usd_b_2025": 0.0,
-      "first_operational_date": "2026-06-01",
-      "operational_today": false,
-      "timeline_now": {
-        "power_mw": 0.0,
-        "h100e": 0.0,
-        "bldgs_op": 0.0,
-        "capex_usd_b": 0.0,
-        "status_text": "Building 1 and 2 look complete from outside, with all electrical and cooling equipment installed. Construction has started on 2 smaller buldings to the north. Meta announced the arrival of the first server rack the following week.",
-        "last_update": "2026-03-15"
-      },
-      "full_buildout": {
-        "h100e_max": 173319.85851440122,
-        "power_mw_max": 198.0,
-        "capex_usd_b_max": 5.83,
-        "end_of_timeline": "2026-06-01"
       }
     },
     {
@@ -1027,11 +946,17 @@
       "capex_usd_b": 37.47,
       "n_sites": 4.0
     },
+    "Oracle": {
+      "h100e": 173002.9718827348,
+      "power_mw": 200.0,
+      "capex_usd_b": 5.4712,
+      "n_sites": 5.0
+    },
     "Meta": {
       "h100e": 666931.3506099762,
       "power_mw": 729.0,
       "capex_usd_b": 21.47,
-      "n_sites": 4.0
+      "n_sites": 3.0
     },
     "(unspecified)": {
       "h100e": 592016.1697827185,
@@ -1040,22 +965,16 @@
       "n_sites": 5.0
     },
     "xAI": {
-      "h100e": 556633.6485248216,
-      "power_mw": 727.0,
-      "capex_usd_b": 20.329895272,
+      "h100e": 275795.85649317835,
+      "power_mw": 425.0,
+      "capex_usd_b": 11.43,
       "n_sites": 2.0
-    },
-    "Oracle": {
-      "h100e": 254674.07781707932,
-      "power_mw": 295.0,
-      "capex_usd_b": 8.07,
-      "n_sites": 5.0
     },
     "Google": {
       "h100e": 454017.18039413844,
       "power_mw": 956.0,
       "capex_usd_b": 30.514786501,
-      "n_sites": 7.0
+      "n_sites": 6.0
     },
     "Alibaba": {
       "h100e": 132895.40171803941,
@@ -1067,12 +986,6 @@
       "h100e": 71753.4108135422,
       "power_mw": 68.0,
       "capex_usd_b": 2.2199999999999998,
-      "n_sites": 1.0
-    },
-    "Nscale": {
-      "h100e": 31834.259727134915,
-      "power_mw": 40.0,
-      "capex_usd_b": 1.27,
       "n_sites": 1.0
     },
     "G42": {
@@ -1107,11 +1020,17 @@
       "capex_usd_b": 163.38000000000002,
       "n_sites": 4.0
     },
+    "Oracle": {
+      "h100e": 15290550.783223849,
+      "power_mw": 8033.0,
+      "capex_usd_b": 218.77,
+      "n_sites": 5.0
+    },
     "Meta": {
-      "h100e": 5565412.639805608,
-      "power_mw": 3808.0,
-      "capex_usd_b": 117.75000000000001,
-      "n_sites": 4.0
+      "h100e": 5392092.781291207,
+      "power_mw": 3610.0,
+      "capex_usd_b": 111.92000000000002,
+      "n_sites": 3.0
     },
     "(unspecified)": {
       "h100e": 4634800.235003421,
@@ -1125,17 +1044,11 @@
       "capex_usd_b": 55.46685,
       "n_sites": 2.0
     },
-    "Oracle": {
-      "h100e": 15290550.783223849,
-      "power_mw": 8033.0,
-      "capex_usd_b": 218.77,
-      "n_sites": 5.0
-    },
     "Google": {
-      "h100e": 5324335.479634967,
-      "power_mw": 4504.6,
-      "capex_usd_b": 141.48432487,
-      "n_sites": 7.0
+      "h100e": 3899373.377563213,
+      "power_mw": 3469.6,
+      "capex_usd_b": 108.44432487,
+      "n_sites": 6.0
     },
     "Alibaba": {
       "h100e": 132895.40171803941,
@@ -1147,12 +1060,6 @@
       "h100e": 469429.0045477514,
       "power_mw": 509.0,
       "capex_usd_b": 16.7,
-      "n_sites": 1.0
-    },
-    "Nscale": {
-      "h100e": 472460.83880747855,
-      "power_mw": 280.0,
-      "capex_usd_b": 8.92,
       "n_sites": 1.0
     },
     "G42": {
@@ -1182,22 +1089,22 @@
       "n_sites": 3.5
     },
     "OpenAI": {
-      "h100e": 1113358.555366575,
-      "power_mw": 1268.5,
-      "capex_usd_b": 36.685,
+      "h100e": 1031687.4494322306,
+      "power_mw": 1173.5,
+      "capex_usd_b": 34.0862,
       "n_sites": 10.5
     },
     "Microsoft": {
-      "h100e": 311248.1051035877,
-      "power_mw": 317.5,
-      "capex_usd_b": 10.125,
-      "n_sites": 3.5
+      "h100e": 279413.8453764528,
+      "power_mw": 277.5,
+      "capex_usd_b": 8.855,
+      "n_sites": 2.5
     },
     "Meta": {
       "h100e": 666931.3506099762,
       "power_mw": 729.0,
       "capex_usd_b": 21.47,
-      "n_sites": 4.0
+      "n_sites": 3.0
     },
     "(unspecified)": {
       "h100e": 592016.1697827185,
@@ -1206,16 +1113,16 @@
       "n_sites": 5.0
     },
     "xAI": {
-      "h100e": 556633.6485248216,
-      "power_mw": 727.0,
-      "capex_usd_b": 20.329895272,
+      "h100e": 275795.85649317835,
+      "power_mw": 425.0,
+      "capex_usd_b": 11.43,
       "n_sites": 2.0
     },
     "Google DeepMind": {
       "h100e": 454017.18039413844,
       "power_mw": 956.0,
       "capex_usd_b": 30.514786501,
-      "n_sites": 7.0
+      "n_sites": 6.0
     },
     "Alibaba": {
       "h100e": 132895.40171803941,
@@ -1244,16 +1151,16 @@
       "n_sites": 10.5
     },
     "Microsoft": {
-      "h100e": 5186968.265468894,
-      "power_mw": 3685.0,
-      "capex_usd_b": 108.005,
-      "n_sites": 3.5
+      "h100e": 4714507.426661415,
+      "power_mw": 3405.0,
+      "capex_usd_b": 99.085,
+      "n_sites": 2.5
     },
     "Meta": {
-      "h100e": 5565412.639805608,
-      "power_mw": 3808.0,
-      "capex_usd_b": 117.75000000000001,
-      "n_sites": 4.0
+      "h100e": 5392092.781291207,
+      "power_mw": 3610.0,
+      "capex_usd_b": 111.92000000000002,
+      "n_sites": 3.0
     },
     "(unspecified)": {
       "h100e": 4634800.235003421,
@@ -1268,10 +1175,10 @@
       "n_sites": 2.0
     },
     "Google DeepMind": {
-      "h100e": 5324335.479634967,
-      "power_mw": 4504.6,
-      "capex_usd_b": 141.48432487,
-      "n_sites": 7.0
+      "h100e": 3899373.377563213,
+      "power_mw": 3469.6,
+      "capex_usd_b": 108.44432487,
+      "n_sites": 6.0
     },
     "Alibaba": {
       "h100e": 132895.40171803941,
@@ -1339,6 +1246,33 @@
         "power_mw_max": 3328.0,
         "capex_usd_b_max": 106.25,
         "end_of_timeline": "2027-10-03"
+      }
+    },
+    {
+      "name": "OpenAI Stargate Abilene",
+      "owner": "Oracle",
+      "users": "OpenAI",
+      "country": "United States",
+      "project": "Stargate #confident",
+      "address": "5502 Spinks Rd, Abilene, TX 79601",
+      "current_h100e": 173002.9718827348,
+      "current_power_mw": 200.0,
+      "current_capex_usd_b_2025": 5.4712,
+      "first_operational_date": "2025-06-28",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 200.0,
+        "h100e": 173002.9718827348,
+        "bldgs_op": 2.0,
+        "capex_usd_b": 5.4712,
+        "status_text": "Revision: roughly 200 MW operational by the April 2026 cutoff; the prior 590 MW April-1 milestone is treated as under construction pending a later commissioning milestone.",
+        "last_update": "2026-04-22"
+      },
+      "full_buildout": {
+        "h100e_max": 1020717.5341081354,
+        "power_mw_max": 1180.0,
+        "capex_usd_b_max": 32.28,
+        "end_of_timeline": "2026-07-01"
       }
     },
     {
@@ -1423,33 +1357,6 @@
       }
     },
     {
-      "name": "xAI Colossus 2",
-      "owner": "xAI",
-      "users": "xAI",
-      "country": "United States",
-      "project": "",
-      "address": "5420 Tulane Rd, Memphis, TN 38109",
-      "current_h100e": 280837.7920316433,
-      "current_power_mw": 302.0,
-      "current_capex_usd_b_2025": 8.899895272,
-      "first_operational_date": "2025-10-19",
-      "operational_today": true,
-      "timeline_now": {
-        "power_mw": 302.0,
-        "h100e": 280837.7920316433,
-        "bldgs_op": 1.0,
-        "capex_usd_b": 8.899895272,
-        "status_text": "Since October, an array of dry cooling air-cooled condensers has been added (the array of large fans to the left of the building), and appears almost complete. Two more similar arrays appear to be under construction. More air-cooled chillers, batteries, and gas turbines have also been installed.",
-        "last_update": "2026-01-13"
-      },
-      "full_buildout": {
-        "h100e_max": 1389590.7023749368,
-        "power_mw_max": 1494.0,
-        "capex_usd_b_max": 44.03685,
-        "end_of_timeline": "2026-05-13"
-      }
-    },
-    {
       "name": "xAI Colossus 1",
       "owner": "xAI",
       "users": "xAI",
@@ -1474,33 +1381,6 @@
         "power_mw_max": 442.0,
         "capex_usd_b_max": 11.43,
         "end_of_timeline": "2026-02-11"
-      }
-    },
-    {
-      "name": "OpenAI Stargate Abilene",
-      "owner": "Oracle",
-      "users": "OpenAI",
-      "country": "United States",
-      "project": "Stargate #confident",
-      "address": "5502 Spinks Rd, Abilene, TX 79601",
-      "current_h100e": 254674.07781707932,
-      "current_power_mw": 295.0,
-      "current_capex_usd_b_2025": 8.07,
-      "first_operational_date": "2025-09-26",
-      "operational_today": true,
-      "timeline_now": {
-        "power_mw": 295.0,
-        "h100e": 254674.07781707932,
-        "bldgs_op": 2.0,
-        "capex_usd_b": 8.07,
-        "status_text": "Building 3 and 4 look complete, but are not fully operational. Not as many cars are parked next to it as Building 1-2 which suggests they may still be ramping up. Building 4 was due by now according to a [regulatory filing](https://www.tdlr.texas.gov/TABS/Search/Project/TABS2025014756). Building 5 still has light construction activity, while Building 6 still lacks chillers. The on-site power plant to the right of Building 2 looks complete.",
-        "last_update": "2026-03-24"
-      },
-      "full_buildout": {
-        "h100e_max": 1020717.5341081354,
-        "power_mw_max": 1180.0,
-        "capex_usd_b_max": 32.28,
-        "end_of_timeline": "2026-11-01"
       }
     },
     {
@@ -1801,33 +1681,6 @@
       }
     },
     {
-      "name": "Start Campus Sines Data Campus",
-      "owner": "Nscale",
-      "users": "Microsoft",
-      "country": "Portugal",
-      "project": "",
-      "address": "Start Campus - Sustainable Data Center Services, Sines, Portugal",
-      "current_h100e": 31834.259727134915,
-      "current_power_mw": 40.0,
-      "current_capex_usd_b_2025": 1.27,
-      "first_operational_date": "2026-04-03",
-      "operational_today": true,
-      "timeline_now": {
-        "power_mw": 40.0,
-        "h100e": 31834.259727134915,
-        "bldgs_op": 1.0,
-        "capex_usd_b": 1.27,
-        "status_text": "Building 1 (SIN01) operational for AI, with the first deployment of 12,600 Nvidia GB300 NVL72s to the site being reported completed \"Q1 2026\" based on the [corporate announcement](https://lp.startcampus.pt/start-campus-hosts-eus-first-nvidia-gb300-chips-with-nscale-for-microsoft). Land clearing also begins for Building 2 (SIN02), with faint dirt outlines for roads and building foundations visible.",
-        "last_update": "2026-04-03"
-      },
-      "full_buildout": {
-        "h100e_max": 472460.83880747855,
-        "power_mw_max": 280.0,
-        "capex_usd_b_max": 8.92,
-        "end_of_timeline": "2027-09-30"
-      }
-    },
-    {
       "name": "Google Pryor (North)",
       "owner": "Google",
       "users": "Google DeepMind",
@@ -1853,36 +1706,36 @@
         "capex_usd_b_max": 14.492314081,
         "end_of_timeline": "2026-05-17"
       }
+    },
+    {
+      "name": "xAI Colossus 2",
+      "owner": "xAI",
+      "users": "xAI",
+      "country": "United States",
+      "project": "",
+      "address": "5420 Tulane Rd, Memphis, TN 38109",
+      "current_h100e": null,
+      "current_power_mw": null,
+      "current_capex_usd_b_2025": null,
+      "first_operational_date": "2025-10-19",
+      "operational_today": true,
+      "timeline_now": {
+        "power_mw": 302.0,
+        "h100e": 280837.7920316433,
+        "bldgs_op": 1.0,
+        "capex_usd_b": 8.899895272,
+        "status_text": "Since October, an array of dry cooling air-cooled condensers has been added (the array of large fans to the left of the building), and appears almost complete. Two more similar arrays appear to be under construction. More air-cooled chillers, batteries, and gas turbines have also been installed.",
+        "last_update": "2026-01-13"
+      },
+      "full_buildout": {
+        "h100e_max": 1389590.7023749368,
+        "power_mw_max": 1494.0,
+        "capex_usd_b_max": 44.03685,
+        "end_of_timeline": "2026-05-13"
+      }
     }
   ],
   "committed_sites": [
-    {
-      "name": "Meta Hyperion",
-      "owner": "Meta",
-      "users": "Meta",
-      "country": "United States",
-      "project": "Hyperion #confident",
-      "address": "Holly Ridge, LA 71269",
-      "current_h100e": 0.0,
-      "current_power_mw": 0.0,
-      "current_capex_usd_b_2025": 0.0,
-      "first_operational_date": "2028-01-01",
-      "operational_today": false,
-      "timeline_now": {
-        "power_mw": 0.0,
-        "h100e": 0.0,
-        "bldgs_op": 0.0,
-        "capex_usd_b": 0.0,
-        "status_text": "Foundations are underway for the main buildings, and the overall layout aligns with the [architectural renderings](https://engineering.fb.com/2025/09/29/data-infrastructure/metas-infrastructure-evolution-and-the-advent-of-ai/) published in 2025.",
-        "last_update": "2025-10-19"
-      },
-      "full_buildout": {
-        "h100e_max": 4152951.082055361,
-        "power_mw_max": 2262.0,
-        "capex_usd_b_max": 72.21000000000001,
-        "end_of_timeline": "2028-01-01"
-      }
-    },
     {
       "name": "Goodnight",
       "owner": "Google",
@@ -2043,33 +1896,6 @@
         "power_mw_max": 1960.0,
         "capex_usd_b_max": 53.629999999999995,
         "end_of_timeline": "2028-12-31"
-      }
-    },
-    {
-      "name": "Google Fort Wayne",
-      "owner": "Google",
-      "users": "Google DeepMind",
-      "country": "United States",
-      "project": "Project Zodiac",
-      "address": "6015 Adams Center Road, Fort Wayne, IN 46806",
-      "current_h100e": 0.0,
-      "current_power_mw": 0.0,
-      "current_capex_usd_b_2025": 0.0,
-      "first_operational_date": "2026-12-01",
-      "operational_today": false,
-      "timeline_now": {
-        "power_mw": 0.0,
-        "h100e": 0.0,
-        "bldgs_op": 0.0,
-        "capex_usd_b": 0.0,
-        "status_text": "The chillers for Buildings 2 and 3 are both a little less than half done and the buildings still look like active construction sites.",
-        "last_update": "2026-03-01"
-      },
-      "full_buildout": {
-        "h100e_max": 1424962.1020717535,
-        "power_mw_max": 1035.0,
-        "capex_usd_b_max": 33.04,
-        "end_of_timeline": "2028-04-01"
       }
     },
     {
@@ -2262,30 +2088,30 @@
       }
     },
     {
-      "name": "Meta Kuna",
+      "name": "Meta Hyperion",
       "owner": "Meta",
       "users": "Meta",
       "country": "United States",
-      "project": "",
-      "address": "601 Kuna Mora Rd,  Kuna ID 83634",
-      "current_h100e": 0.0,
-      "current_power_mw": 0.0,
-      "current_capex_usd_b_2025": 0.0,
-      "first_operational_date": "2026-06-01",
+      "project": "Hyperion #confident",
+      "address": "Holly Ridge, LA 71269",
+      "current_h100e": null,
+      "current_power_mw": null,
+      "current_capex_usd_b_2025": null,
+      "first_operational_date": "2028-01-01",
       "operational_today": false,
       "timeline_now": {
         "power_mw": 0.0,
         "h100e": 0.0,
         "bldgs_op": 0.0,
         "capex_usd_b": 0.0,
-        "status_text": "Building 1 and 2 look complete from outside, with all electrical and cooling equipment installed. Construction has started on 2 smaller buldings to the north. Meta announced the arrival of the first server rack the following week.",
-        "last_update": "2026-03-15"
+        "status_text": "Foundations are underway for the main buildings, and the overall layout aligns with the [architectural renderings](https://engineering.fb.com/2025/09/29/data-infrastructure/metas-infrastructure-evolution-and-the-advent-of-ai/) published in 2025.",
+        "last_update": "2025-10-19"
       },
       "full_buildout": {
-        "h100e_max": 173319.85851440122,
-        "power_mw_max": 198.0,
-        "capex_usd_b_max": 5.83,
-        "end_of_timeline": "2026-06-01"
+        "h100e_max": 4152951.082055361,
+        "power_mw_max": 2262.0,
+        "capex_usd_b_max": 72.21000000000001,
+        "end_of_timeline": "2028-01-01"
       }
     }
   ],
@@ -2303,12 +2129,6 @@
       "operational_n_sites": 0
     },
     "2021-11-25": {
-      "operational_power_mw": 0.0,
-      "operational_h100e": 0.0,
-      "operational_capex_usd_b": 0.0,
-      "operational_n_sites": 0
-    },
-    "2022-01-01": {
       "operational_power_mw": 0.0,
       "operational_h100e": 0.0,
       "operational_capex_usd_b": 0.0,
@@ -2494,12 +2314,6 @@
       "operational_capex_usd_b": 31.090530388300003,
       "operational_n_sites": 7
     },
-    "2024-10-31": {
-      "operational_power_mw": 921.0,
-      "operational_h100e": 358104.96510456013,
-      "operational_capex_usd_b": 31.090530388300003,
-      "operational_n_sites": 7
-    },
     "2024-11-19": {
       "operational_power_mw": 1110.0,
       "operational_h100e": 433446.0464587795,
@@ -2614,12 +2428,6 @@
       "operational_capex_usd_b": 56.779645737,
       "operational_n_sites": 8
     },
-    "2025-06-10": {
-      "operational_power_mw": 1706.0,
-      "operational_h100e": 735411.5471873921,
-      "operational_capex_usd_b": 56.779645737,
-      "operational_n_sites": 8
-    },
     "2025-06-15": {
       "operational_power_mw": 1801.0,
       "operational_h100e": 790136.1555754669,
@@ -2633,332 +2441,320 @@
       "operational_n_sites": 10
     },
     "2025-06-28": {
-      "operational_power_mw": 2620.0,
-      "operational_h100e": 1304571.7000846798,
-      "operational_capex_usd_b": 85.945926834,
-      "operational_n_sites": 10
+      "operational_power_mw": 2767.0,
+      "operational_h100e": 1431908.7389932196,
+      "operational_capex_usd_b": 89.975926834,
+      "operational_n_sites": 11
     },
     "2025-07-19": {
-      "operational_power_mw": 2620.0,
-      "operational_h100e": 1304571.7000846798,
-      "operational_capex_usd_b": 85.945926834,
-      "operational_n_sites": 10
+      "operational_power_mw": 2767.0,
+      "operational_h100e": 1431908.7389932196,
+      "operational_capex_usd_b": 89.975926834,
+      "operational_n_sites": 11
     },
     "2025-07-22": {
-      "operational_power_mw": 2701.0,
-      "operational_h100e": 1380367.556577858,
-      "operational_capex_usd_b": 88.045926834,
-      "operational_n_sites": 10
+      "operational_power_mw": 2848.0,
+      "operational_h100e": 1507704.5954863979,
+      "operational_capex_usd_b": 92.075926834,
+      "operational_n_sites": 11
     },
     "2025-08-01": {
-      "operational_power_mw": 2701.0,
-      "operational_h100e": 1380367.556577858,
-      "operational_capex_usd_b": 88.045926834,
-      "operational_n_sites": 10
+      "operational_power_mw": 2848.0,
+      "operational_h100e": 1507704.5954863979,
+      "operational_capex_usd_b": 92.075926834,
+      "operational_n_sites": 11
     },
     "2025-08-27": {
-      "operational_power_mw": 2701.0,
-      "operational_h100e": 1380367.556577858,
-      "operational_capex_usd_b": 88.045926834,
-      "operational_n_sites": 10
+      "operational_power_mw": 2848.0,
+      "operational_h100e": 1507704.5954863979,
+      "operational_capex_usd_b": 92.075926834,
+      "operational_n_sites": 11
     },
     "2025-09-01": {
-      "operational_power_mw": 2859.0,
-      "operational_h100e": 1527210.846529044,
-      "operational_capex_usd_b": 92.695926834,
-      "operational_n_sites": 10
+      "operational_power_mw": 3006.0,
+      "operational_h100e": 1654547.8854375838,
+      "operational_capex_usd_b": 96.725926834,
+      "operational_n_sites": 11
     },
     "2025-09-08": {
-      "operational_power_mw": 2859.0,
-      "operational_h100e": 1527210.846529044,
-      "operational_capex_usd_b": 92.695926834,
-      "operational_n_sites": 10
+      "operational_power_mw": 3006.0,
+      "operational_h100e": 1654547.8854375838,
+      "operational_capex_usd_b": 96.725926834,
+      "operational_n_sites": 11
     },
     "2025-09-17": {
-      "operational_power_mw": 2867.0,
-      "operational_h100e": 1526735.11872417,
-      "operational_capex_usd_b": 95.937468062,
-      "operational_n_sites": 11
-    },
-    "2025-09-20": {
-      "operational_power_mw": 2867.0,
-      "operational_h100e": 1526735.11872417,
-      "operational_capex_usd_b": 95.937468062,
-      "operational_n_sites": 11
-    },
-    "2025-09-26": {
       "operational_power_mw": 3014.0,
       "operational_h100e": 1654072.1576327095,
       "operational_capex_usd_b": 99.967468062,
+      "operational_n_sites": 12
+    },
+    "2025-09-20": {
+      "operational_power_mw": 3014.0,
+      "operational_h100e": 1654072.1576327095,
+      "operational_capex_usd_b": 99.967468062,
+      "operational_n_sites": 12
+    },
+    "2025-09-26": {
+      "operational_power_mw": 3162.0,
+      "operational_h100e": 1781409.196541249,
+      "operational_capex_usd_b": 104.00746806199999,
       "operational_n_sites": 12
     },
     "2025-09-27": {
-      "operational_power_mw": 3014.0,
-      "operational_h100e": 1654072.1576327095,
-      "operational_capex_usd_b": 99.967468062,
+      "operational_power_mw": 3162.0,
+      "operational_h100e": 1781409.196541249,
+      "operational_capex_usd_b": 104.00746806199999,
       "operational_n_sites": 12
     },
     "2025-10-01": {
-      "operational_power_mw": 3201.0,
-      "operational_h100e": 1819458.7165008248,
-      "operational_capex_usd_b": 107.017468062,
+      "operational_power_mw": 3349.0,
+      "operational_h100e": 1946795.7554093644,
+      "operational_capex_usd_b": 111.057468062,
       "operational_n_sites": 13
     },
     "2025-10-04": {
-      "operational_power_mw": 3201.0,
-      "operational_h100e": 1819458.7165008248,
-      "operational_capex_usd_b": 107.017468062,
+      "operational_power_mw": 3349.0,
+      "operational_h100e": 1946795.7554093644,
+      "operational_capex_usd_b": 111.057468062,
       "operational_n_sites": 13
     },
     "2025-10-12": {
-      "operational_power_mw": 3201.0,
-      "operational_h100e": 1819458.7165008248,
-      "operational_capex_usd_b": 107.017468062,
+      "operational_power_mw": 3349.0,
+      "operational_h100e": 1946795.7554093644,
+      "operational_capex_usd_b": 111.057468062,
       "operational_n_sites": 13
     },
     "2025-10-14": {
-      "operational_power_mw": 3868.0,
-      "operational_h100e": 2384084.415527205,
-      "operational_capex_usd_b": 114.26260882600002,
+      "operational_power_mw": 4016.0,
+      "operational_h100e": 2511421.4544357443,
+      "operational_capex_usd_b": 118.30260882600001,
       "operational_n_sites": 15
     },
     "2025-10-16": {
-      "operational_power_mw": 3868.0,
-      "operational_h100e": 2384084.415527205,
-      "operational_capex_usd_b": 114.26260882600002,
+      "operational_power_mw": 4016.0,
+      "operational_h100e": 2511421.4544357443,
+      "operational_capex_usd_b": 118.30260882600001,
       "operational_n_sites": 15
     },
     "2025-10-17": {
-      "operational_power_mw": 3868.0,
-      "operational_h100e": 2384084.415527205,
-      "operational_capex_usd_b": 114.26260882600002,
+      "operational_power_mw": 4016.0,
+      "operational_h100e": 2511421.4544357443,
+      "operational_capex_usd_b": 118.30260882600001,
       "operational_n_sites": 15
     },
     "2025-10-19": {
-      "operational_power_mw": 4167.0,
-      "operational_h100e": 2662002.556002192,
-      "operational_capex_usd_b": 123.06997882600001,
+      "operational_power_mw": 4315.0,
+      "operational_h100e": 2789339.5949107315,
+      "operational_capex_usd_b": 127.109978826,
       "operational_n_sites": 16
     },
     "2025-10-21": {
-      "operational_power_mw": 4167.0,
-      "operational_h100e": 2662002.556002192,
-      "operational_capex_usd_b": 123.06997882600001,
+      "operational_power_mw": 4315.0,
+      "operational_h100e": 2789339.5949107315,
+      "operational_capex_usd_b": 127.109978826,
       "operational_n_sites": 16
     },
     "2025-10-27": {
-      "operational_power_mw": 4167.0,
-      "operational_h100e": 2662002.556002192,
-      "operational_capex_usd_b": 123.06997882600001,
+      "operational_power_mw": 4315.0,
+      "operational_h100e": 2789339.5949107315,
+      "operational_capex_usd_b": 127.109978826,
       "operational_n_sites": 16
     },
     "2025-11-02": {
-      "operational_power_mw": 4167.0,
-      "operational_h100e": 2662002.556002192,
-      "operational_capex_usd_b": 123.06997882600001,
+      "operational_power_mw": 4315.0,
+      "operational_h100e": 2789339.5949107315,
+      "operational_capex_usd_b": 127.109978826,
       "operational_n_sites": 16
     },
     "2025-11-07": {
-      "operational_power_mw": 4261.0,
-      "operational_h100e": 2728673.3318111086,
-      "operational_capex_usd_b": 123.06997882600001,
+      "operational_power_mw": 4409.0,
+      "operational_h100e": 2856010.370719648,
+      "operational_capex_usd_b": 127.109978826,
       "operational_n_sites": 16
     },
     "2025-11-12": {
-      "operational_power_mw": 4261.0,
-      "operational_h100e": 2728673.3318111086,
-      "operational_capex_usd_b": 123.06997882600001,
+      "operational_power_mw": 4409.0,
+      "operational_h100e": 2856010.370719648,
+      "operational_capex_usd_b": 127.109978826,
       "operational_n_sites": 16
     },
     "2025-11-15": {
-      "operational_power_mw": 4261.0,
-      "operational_h100e": 2728673.3318111086,
-      "operational_capex_usd_b": 123.06997882600001,
+      "operational_power_mw": 4409.0,
+      "operational_h100e": 2856010.370719648,
+      "operational_capex_usd_b": 127.109978826,
       "operational_n_sites": 16
     },
     "2025-11-16": {
-      "operational_power_mw": 4261.0,
-      "operational_h100e": 2728673.3318111086,
-      "operational_capex_usd_b": 123.06997882600001,
+      "operational_power_mw": 4409.0,
+      "operational_h100e": 2856010.370719648,
+      "operational_capex_usd_b": 127.109978826,
       "operational_n_sites": 16
     },
     "2025-12-01": {
-      "operational_power_mw": 4446.0,
-      "operational_h100e": 2888855.241866692,
-      "operational_capex_usd_b": 130.149978826,
+      "operational_power_mw": 4594.0,
+      "operational_h100e": 3016192.280775232,
+      "operational_capex_usd_b": 134.189978826,
       "operational_n_sites": 16
     },
     "2025-12-04": {
-      "operational_power_mw": 4446.0,
-      "operational_h100e": 2888855.241866692,
-      "operational_capex_usd_b": 130.149978826,
+      "operational_power_mw": 4594.0,
+      "operational_h100e": 3016192.280775232,
+      "operational_capex_usd_b": 134.189978826,
       "operational_n_sites": 16
     },
     "2025-12-09": {
-      "operational_power_mw": 4644.0,
-      "operational_h100e": 3062102.9138510996,
-      "operational_capex_usd_b": 135.97997882599998,
+      "operational_power_mw": 4792.0,
+      "operational_h100e": 3189439.9527596394,
+      "operational_capex_usd_b": 140.01997882599994,
       "operational_n_sites": 17
     },
     "2025-12-23": {
-      "operational_power_mw": 4917.0,
-      "operational_h100e": 3233581.428687504,
-      "operational_capex_usd_b": 144.69540586499997,
-      "operational_n_sites": 17
-    },
-    "2025-12-24": {
       "operational_power_mw": 5065.0,
-      "operational_h100e": 3360918.467596044,
-      "operational_capex_usd_b": 144.69540586499997,
+      "operational_h100e": 3360918.4675960434,
+      "operational_capex_usd_b": 148.73540586499996,
       "operational_n_sites": 17
     },
     "2025-12-29": {
       "operational_power_mw": 5065.0,
-      "operational_h100e": 3360918.467596044,
-      "operational_capex_usd_b": 144.69540586499997,
+      "operational_h100e": 3360918.4675960434,
+      "operational_capex_usd_b": 148.73540586499996,
       "operational_n_sites": 17
     },
     "2026-01-02": {
       "operational_power_mw": 5065.0,
-      "operational_h100e": 3360918.467596044,
-      "operational_capex_usd_b": 144.69540586499997,
+      "operational_h100e": 3360918.4675960434,
+      "operational_capex_usd_b": 148.73540586499996,
       "operational_n_sites": 17
     },
     "2026-01-03": {
       "operational_power_mw": 5166.0,
-      "operational_h100e": 3427618.821310041,
-      "operational_capex_usd_b": 147.93694709099998,
+      "operational_h100e": 3427618.8213100405,
+      "operational_capex_usd_b": 151.97694709099997,
       "operational_n_sites": 17
     },
     "2026-01-04": {
       "operational_power_mw": 5166.0,
-      "operational_h100e": 3427618.821310041,
-      "operational_capex_usd_b": 147.93694709099998,
+      "operational_h100e": 3427618.8213100405,
+      "operational_capex_usd_b": 151.97694709099997,
       "operational_n_sites": 17
     },
     "2026-01-11": {
       "operational_power_mw": 5166.0,
-      "operational_h100e": 3427618.821310041,
-      "operational_capex_usd_b": 147.93694709099998,
+      "operational_h100e": 3427618.8213100405,
+      "operational_capex_usd_b": 151.97694709099997,
       "operational_n_sites": 17
     },
     "2026-01-13": {
       "operational_power_mw": 5169.0,
       "operational_h100e": 3430538.472866697,
-      "operational_capex_usd_b": 148.02947236299997,
+      "operational_capex_usd_b": 152.069472363,
       "operational_n_sites": 17
     },
     "2026-01-15": {
       "operational_power_mw": 5169.0,
       "operational_h100e": 3430538.472866697,
-      "operational_capex_usd_b": 152.06947236299996,
+      "operational_capex_usd_b": 152.069472363,
       "operational_n_sites": 17
     },
     "2026-01-17": {
       "operational_power_mw": 5169.0,
       "operational_h100e": 3430538.472866697,
-      "operational_capex_usd_b": 152.06947236299996,
+      "operational_capex_usd_b": 152.069472363,
       "operational_n_sites": 17
     },
     "2026-01-18": {
       "operational_power_mw": 5511.0,
       "operational_h100e": 3748881.070138046,
-      "operational_capex_usd_b": 162.15947236299996,
+      "operational_capex_usd_b": 162.159472363,
       "operational_n_sites": 17
     },
     "2026-01-20": {
       "operational_power_mw": 5511.0,
       "operational_h100e": 3748881.070138046,
-      "operational_capex_usd_b": 162.15947236299996,
+      "operational_capex_usd_b": 162.159472363,
       "operational_n_sites": 17
     },
     "2026-01-31": {
       "operational_power_mw": 5511.0,
       "operational_h100e": 3748881.070138046,
-      "operational_capex_usd_b": 162.15947236299996,
+      "operational_capex_usd_b": 162.159472363,
       "operational_n_sites": 17
     },
     "2026-02-06": {
       "operational_power_mw": 5511.0,
       "operational_h100e": 3748881.070138046,
-      "operational_capex_usd_b": 162.15947236299996,
+      "operational_capex_usd_b": 162.159472363,
       "operational_n_sites": 17
     },
     "2026-02-09": {
       "operational_power_mw": 5511.0,
       "operational_h100e": 3748881.070138046,
-      "operational_capex_usd_b": 162.15947231799996,
+      "operational_capex_usd_b": 162.15947231799998,
       "operational_n_sites": 17
     },
     "2026-02-11": {
       "operational_power_mw": 5494.0,
       "operational_h100e": 3748881.070138046,
-      "operational_capex_usd_b": 162.15947231799996,
+      "operational_capex_usd_b": 162.15947231799998,
       "operational_n_sites": 17
     },
     "2026-02-13": {
       "operational_power_mw": 5494.0,
       "operational_h100e": 3748881.070138046,
-      "operational_capex_usd_b": 174.019472318,
+      "operational_capex_usd_b": 174.01947231799997,
       "operational_n_sites": 17
     },
     "2026-02-14": {
       "operational_power_mw": 5494.0,
       "operational_h100e": 3748881.070138046,
-      "operational_capex_usd_b": 174.019472318,
+      "operational_capex_usd_b": 174.01947231799997,
       "operational_n_sites": 17
     },
     "2026-02-15": {
       "operational_power_mw": 5538.8,
       "operational_h100e": 3787587.4875205625,
-      "operational_capex_usd_b": 175.239472318,
+      "operational_capex_usd_b": 175.23947231799997,
       "operational_n_sites": 18
     },
     "2026-02-27": {
       "operational_power_mw": 5628.8,
-      "operational_h100e": 3870962.9296630584,
-      "operational_capex_usd_b": 177.87947231799998,
-      "operational_n_sites": 18
-    },
-    "2026-03-01": {
-      "operational_power_mw": 5628.8,
-      "operational_h100e": 3870962.9296630584,
+      "operational_h100e": 3870962.929663059,
       "operational_capex_usd_b": 177.87947231799998,
       "operational_n_sites": 18
     },
     "2026-03-02": {
       "operational_power_mw": 5628.8,
-      "operational_h100e": 3870962.9296630584,
+      "operational_h100e": 3870962.929663059,
       "operational_capex_usd_b": 177.87947231799998,
       "operational_n_sites": 18
     },
     "2026-03-12": {
       "operational_power_mw": 5628.8,
-      "operational_h100e": 3870962.9296630584,
+      "operational_h100e": 3870962.929663059,
       "operational_capex_usd_b": 177.87947231799998,
       "operational_n_sites": 18
     },
     "2026-03-15": {
       "operational_power_mw": 5628.8,
-      "operational_h100e": 3870962.9296630584,
+      "operational_h100e": 3870962.929663059,
       "operational_capex_usd_b": 177.87947231799998,
       "operational_n_sites": 18
     },
     "2026-03-23": {
       "operational_power_mw": 5969.8,
-      "operational_h100e": 4085311.073208566,
+      "operational_h100e": 4085311.0732085663,
       "operational_capex_usd_b": 188.773756158,
       "operational_n_sites": 18
     },
     "2026-03-24": {
       "operational_power_mw": 5969.8,
-      "operational_h100e": 4085311.073208566,
+      "operational_h100e": 4085311.0732085663,
       "operational_capex_usd_b": 188.773756158,
       "operational_n_sites": 18
     },
     "2026-03-29": {
       "operational_power_mw": 6074.8,
-      "operational_h100e": 4156559.1783121536,
+      "operational_h100e": 4156559.178312154,
       "operational_capex_usd_b": 192.113756158,
       "operational_n_sites": 19
     },
@@ -2968,336 +2764,318 @@
       "operational_capex_usd_b": 193.713756158,
       "operational_n_sites": 19
     },
-    "2026-04-03": {
-      "operational_power_mw": 6163.8,
-      "operational_h100e": 4240288.334451619,
-      "operational_capex_usd_b": 194.983756158,
-      "operational_n_sites": 20
+    "2026-04-01": {
+      "operational_power_mw": 6418.8,
+      "operational_h100e": 4464138.763961472,
+      "operational_capex_usd_b": 201.78375615800002,
+      "operational_n_sites": 19
     },
     "2026-04-14": {
-      "operational_power_mw": 6163.8,
-      "operational_h100e": 4240288.334451619,
-      "operational_capex_usd_b": 194.983756158,
-      "operational_n_sites": 20
+      "operational_power_mw": 6418.8,
+      "operational_h100e": 4464138.763961472,
+      "operational_capex_usd_b": 201.78375615800002,
+      "operational_n_sites": 19
     },
     "2026-04-16": {
-      "operational_power_mw": 6718.8,
-      "operational_h100e": 4799116.025204524,
-      "operational_capex_usd_b": 212.693756158,
-      "operational_n_sites": 21
+      "operational_power_mw": 6973.8,
+      "operational_h100e": 5022966.4547143765,
+      "operational_capex_usd_b": 219.49375615800002,
+      "operational_n_sites": 20
     },
-    "2026-04-29": {
-      "operational_power_mw": 6718.8,
-      "operational_h100e": 4799116.025204524,
-      "operational_capex_usd_b": 212.693756158,
-      "operational_n_sites": 21
+    "2026-04-22": {
+      "operational_power_mw": 6583.8,
+      "operational_h100e": 4685610.659543044,
+      "operational_capex_usd_b": 208.82495615800002,
+      "operational_n_sites": 20
     },
     "2026-05-01": {
-      "operational_power_mw": 6795.8,
-      "operational_h100e": 4845250.436523372,
-      "operational_capex_usd_b": 216.05375615800003,
-      "operational_n_sites": 22
+      "operational_power_mw": 6660.8,
+      "operational_h100e": 4731745.070861892,
+      "operational_capex_usd_b": 212.18495615800003,
+      "operational_n_sites": 21
     },
     "2026-05-08": {
-      "operational_power_mw": 6890.8,
-      "operational_h100e": 4915993.235917005,
-      "operational_capex_usd_b": 219.07827297000003,
-      "operational_n_sites": 22
+      "operational_power_mw": 6755.8,
+      "operational_h100e": 4802487.870255524,
+      "operational_capex_usd_b": 215.20947297000004,
+      "operational_n_sites": 21
     },
     "2026-05-13": {
-      "operational_power_mw": 8082.8,
-      "operational_h100e": 6024746.146260299,
-      "operational_capex_usd_b": 254.21522769800004,
-      "operational_n_sites": 22
+      "operational_power_mw": 7947.8,
+      "operational_h100e": 5911240.780598818,
+      "operational_capex_usd_b": 250.346427698,
+      "operational_n_sites": 21
     },
     "2026-05-14": {
-      "operational_power_mw": 8508.8,
-      "operational_h100e": 6391933.39639215,
-      "operational_capex_usd_b": 265.8452276980001,
-      "operational_n_sites": 22
+      "operational_power_mw": 8373.8,
+      "operational_h100e": 6278428.03073067,
+      "operational_capex_usd_b": 261.976427698,
+      "operational_n_sites": 21
     },
     "2026-05-17": {
-      "operational_power_mw": 8897.8,
-      "operational_h100e": 6682231.526761022,
-      "operational_capex_usd_b": 278.2672111960001,
-      "operational_n_sites": 22
+      "operational_power_mw": 8762.8,
+      "operational_h100e": 6568726.161099543,
+      "operational_capex_usd_b": 274.39841119600004,
+      "operational_n_sites": 21
     },
     "2026-05-18": {
-      "operational_power_mw": 9097.8,
-      "operational_h100e": 6865657.499474514,
-      "operational_capex_usd_b": 284.1572111960001,
-      "operational_n_sites": 22
+      "operational_power_mw": 8962.8,
+      "operational_h100e": 6752152.133813034,
+      "operational_capex_usd_b": 280.288411196,
+      "operational_n_sites": 21
     },
     "2026-05-19": {
-      "operational_power_mw": 9370.8,
-      "operational_h100e": 7037136.014310919,
-      "operational_capex_usd_b": 292.87263822900013,
-      "operational_n_sites": 23
-    },
-    "2026-05-23": {
-      "operational_power_mw": 9665.8,
-      "operational_h100e": 7292820.703547907,
-      "operational_capex_usd_b": 300.9426382290001,
-      "operational_n_sites": 23
+      "operational_power_mw": 9235.8,
+      "operational_h100e": 6923630.648649438,
+      "operational_capex_usd_b": 289.00383822900005,
+      "operational_n_sites": 22
     },
     "2026-05-28": {
-      "operational_power_mw": 9754.8,
-      "operational_h100e": 7378722.674240176,
-      "operational_capex_usd_b": 303.5926382290001,
-      "operational_n_sites": 23
+      "operational_power_mw": 9324.8,
+      "operational_h100e": 7009532.619341707,
+      "operational_capex_usd_b": 291.65383822900003,
+      "operational_n_sites": 22
     },
     "2026-05-31": {
-      "operational_power_mw": 9803.8,
-      "operational_h100e": 7416620.602486765,
-      "operational_capex_usd_b": 305.20263822900006,
-      "operational_n_sites": 23
+      "operational_power_mw": 9373.8,
+      "operational_h100e": 7047430.547588296,
+      "operational_capex_usd_b": 293.26383822900004,
+      "operational_n_sites": 22
     },
     "2026-06-01": {
-      "operational_power_mw": 10001.8,
-      "operational_h100e": 7589940.461001166,
-      "operational_capex_usd_b": 311.03263822900004,
-      "operational_n_sites": 24
+      "operational_power_mw": 9373.8,
+      "operational_h100e": 7047430.547588296,
+      "operational_capex_usd_b": 293.26383822900004,
+      "operational_n_sites": 22
     },
     "2026-06-10": {
-      "operational_power_mw": 10095.8,
-      "operational_h100e": 7660683.260394799,
-      "operational_capex_usd_b": 314.062638229,
-      "operational_n_sites": 24
+      "operational_power_mw": 9467.8,
+      "operational_h100e": 7118173.346981929,
+      "operational_capex_usd_b": 296.2938382290001,
+      "operational_n_sites": 22
     },
     "2026-06-15": {
-      "operational_power_mw": 10295.3,
-      "operational_h100e": 7843811.852235924,
-      "operational_capex_usd_b": 320.57852387500003,
-      "operational_n_sites": 25
+      "operational_power_mw": 9667.3,
+      "operational_h100e": 7301301.9388230555,
+      "operational_capex_usd_b": 302.80972387500003,
+      "operational_n_sites": 23
     },
     "2026-06-21": {
-      "operational_power_mw": 10432.3,
-      "operational_h100e": 7929551.109654126,
-      "operational_capex_usd_b": 324.936237385,
-      "operational_n_sites": 25
+      "operational_power_mw": 9804.3,
+      "operational_h100e": 7387041.196241256,
+      "operational_capex_usd_b": 307.1674373850001,
+      "operational_n_sites": 23
     },
     "2026-06-30": {
-      "operational_power_mw": 10632.3,
-      "operational_h100e": 8089102.877890981,
-      "operational_capex_usd_b": 329.99623738500003,
-      "operational_n_sites": 26
+      "operational_power_mw": 10004.3,
+      "operational_h100e": 7546592.964478111,
+      "operational_capex_usd_b": 312.2274373850001,
+      "operational_n_sites": 24
+    },
+    "2026-07-01": {
+      "operational_power_mw": 10984.3,
+      "operational_h100e": 8394307.526703512,
+      "operational_capex_usd_b": 339.03623738500016,
+      "operational_n_sites": 24
     },
     "2026-08-15": {
-      "operational_power_mw": 10764.8,
-      "operational_h100e": 8213616.007377382,
-      "operational_capex_usd_b": 333.94212303,
-      "operational_n_sites": 26
+      "operational_power_mw": 11116.8,
+      "operational_h100e": 8518820.656189913,
+      "operational_capex_usd_b": 342.98212303000014,
+      "operational_n_sites": 24
     },
     "2026-08-26": {
-      "operational_power_mw": 10854.8,
-      "operational_h100e": 8294464.9209701065,
-      "operational_capex_usd_b": 336.58212303000005,
-      "operational_n_sites": 26
+      "operational_power_mw": 11206.8,
+      "operational_h100e": 8599669.569782637,
+      "operational_capex_usd_b": 345.6221230300001,
+      "operational_n_sites": 24
     },
     "2026-09-18": {
-      "operational_power_mw": 11332.8,
-      "operational_h100e": 8594552.321933813,
-      "operational_capex_usd_b": 351.834120336,
-      "operational_n_sites": 26
+      "operational_power_mw": 11684.8,
+      "operational_h100e": 8899756.970746342,
+      "operational_capex_usd_b": 360.8741203360001,
+      "operational_n_sites": 24
     },
     "2026-09-30": {
-      "operational_power_mw": 11372.8,
-      "operational_h100e": 8629622.700878024,
-      "operational_capex_usd_b": 353.004120336,
-      "operational_n_sites": 26
+      "operational_power_mw": 11724.8,
+      "operational_h100e": 8934827.349690555,
+      "operational_capex_usd_b": 362.0441203360001,
+      "operational_n_sites": 24
     },
     "2026-10-01": {
-      "operational_power_mw": 11572.8,
-      "operational_h100e": 8816585.813561197,
-      "operational_capex_usd_b": 358.89412033599996,
-      "operational_n_sites": 26
+      "operational_power_mw": 11924.8,
+      "operational_h100e": 9121790.462373728,
+      "operational_capex_usd_b": 367.9341203360001,
+      "operational_n_sites": 24
     },
     "2026-10-31": {
-      "operational_power_mw": 11768.8,
-      "operational_h100e": 8980810.169296417,
-      "operational_capex_usd_b": 365.33412033599996,
-      "operational_n_sites": 26
-    },
-    "2026-11-01": {
-      "operational_power_mw": 12358.8,
-      "operational_h100e": 9491168.936350487,
-      "operational_capex_usd_b": 381.474120336,
-      "operational_n_sites": 26
+      "operational_power_mw": 12120.8,
+      "operational_h100e": 9286014.818108948,
+      "operational_capex_usd_b": 374.3741203360001,
+      "operational_n_sites": 24
     },
     "2026-11-15": {
-      "operational_power_mw": 12985.8,
-      "operational_h100e": 10477901.300818551,
-      "operational_capex_usd_b": 398.634120336,
-      "operational_n_sites": 27
+      "operational_power_mw": 12747.8,
+      "operational_h100e": 10272747.182577012,
+      "operational_capex_usd_b": 391.5341203360001,
+      "operational_n_sites": 25
     },
     "2026-12-01": {
-      "operational_power_mw": 13472.8,
-      "operational_h100e": 10914485.434219258,
-      "operational_capex_usd_b": 412.91412033600005,
-      "operational_n_sites": 29
+      "operational_power_mw": 13027.8,
+      "operational_h100e": 10525400.037554273,
+      "operational_capex_usd_b": 399.20412033600013,
+      "operational_n_sites": 26
     },
     "2026-12-18": {
-      "operational_power_mw": 13608.8,
-      "operational_h100e": 11035253.498898389,
-      "operational_capex_usd_b": 417.24926109600005,
-      "operational_n_sites": 29
+      "operational_power_mw": 13163.8,
+      "operational_h100e": 10646168.102233404,
+      "operational_capex_usd_b": 403.53926109600013,
+      "operational_n_sites": 26
     },
     "2027-01-01": {
-      "operational_power_mw": 13804.8,
-      "operational_h100e": 11343489.981970647,
-      "operational_capex_usd_b": 422.60926109600007,
-      "operational_n_sites": 30
+      "operational_power_mw": 13359.8,
+      "operational_h100e": 10954404.585305663,
+      "operational_capex_usd_b": 408.89926109600015,
+      "operational_n_sites": 27
     },
     "2027-01-24": {
-      "operational_power_mw": 13899.8,
-      "operational_h100e": 11427876.035533052,
-      "operational_capex_usd_b": 425.63377790800007,
-      "operational_n_sites": 30
+      "operational_power_mw": 13454.8,
+      "operational_h100e": 11038790.63886807,
+      "operational_capex_usd_b": 411.92377790800015,
+      "operational_n_sites": 27
     },
     "2027-02-20": {
-      "operational_power_mw": 14453.8,
-      "operational_h100e": 11986703.726285957,
-      "operational_capex_usd_b": 443.33377790800006,
-      "operational_n_sites": 30
+      "operational_power_mw": 14008.8,
+      "operational_h100e": 11597618.329620972,
+      "operational_capex_usd_b": 429.62377790800014,
+      "operational_n_sites": 27
     },
     "2027-02-22": {
-      "operational_power_mw": 14557.8,
-      "operational_h100e": 12118083.210874133,
-      "operational_capex_usd_b": 446.6637779080001,
-      "operational_n_sites": 30
+      "operational_power_mw": 14112.8,
+      "operational_h100e": 11728997.814209148,
+      "operational_capex_usd_b": 432.9537779080002,
+      "operational_n_sites": 27
     },
     "2027-03-31": {
-      "operational_power_mw": 14753.8,
-      "operational_h100e": 12313636.520626532,
-      "operational_capex_usd_b": 453.0937779080001,
-      "operational_n_sites": 30
+      "operational_power_mw": 14308.8,
+      "operational_h100e": 11924551.12396155,
+      "operational_capex_usd_b": 439.3837779080002,
+      "operational_n_sites": 27
     },
     "2027-05-23": {
-      "operational_power_mw": 14858.8,
-      "operational_h100e": 12424298.471106572,
-      "operational_capex_usd_b": 456.4337779080001,
-      "operational_n_sites": 30
+      "operational_power_mw": 14413.8,
+      "operational_h100e": 12035213.07444159,
+      "operational_capex_usd_b": 442.72377790800016,
+      "operational_n_sites": 27
     },
     "2027-05-31": {
-      "operational_power_mw": 15968.8,
-      "operational_h100e": 14461225.403900916,
-      "operational_capex_usd_b": 491.86377790800003,
-      "operational_n_sites": 30
+      "operational_power_mw": 15523.8,
+      "operational_h100e": 14072140.007235933,
+      "operational_capex_usd_b": 478.1537779080001,
+      "operational_n_sites": 27
     },
     "2027-07-26": {
-      "operational_power_mw": 16063.8,
-      "operational_h100e": 14561275.93447191,
-      "operational_capex_usd_b": 494.88829472500004,
-      "operational_n_sites": 30
+      "operational_power_mw": 15618.8,
+      "operational_h100e": 14172190.537806928,
+      "operational_capex_usd_b": 481.1782947250001,
+      "operational_n_sites": 27
     },
     "2027-08-31": {
-      "operational_power_mw": 16198.2,
-      "operational_h100e": 14677193.064335478,
-      "operational_capex_usd_b": 498.568294725,
-      "operational_n_sites": 30
+      "operational_power_mw": 15753.2,
+      "operational_h100e": 14288107.667670496,
+      "operational_capex_usd_b": 484.85829472500006,
+      "operational_n_sites": 27
     },
     "2027-09-17": {
-      "operational_power_mw": 16668.2,
-      "operational_h100e": 15414939.40086908,
-      "operational_capex_usd_b": 511.448294725,
-      "operational_n_sites": 31
+      "operational_power_mw": 16223.2,
+      "operational_h100e": 15025854.004204098,
+      "operational_capex_usd_b": 497.73829472500006,
+      "operational_n_sites": 28
     },
     "2027-09-21": {
-      "operational_power_mw": 17403.2,
-      "operational_h100e": 15876612.32542863,
-      "operational_capex_usd_b": 534.912905962,
-      "operational_n_sites": 31
-    },
-    "2027-09-30": {
-      "operational_power_mw": 17643.2,
-      "operational_h100e": 16317238.904508973,
-      "operational_capex_usd_b": 542.5629059620001,
-      "operational_n_sites": 31
+      "operational_power_mw": 16958.2,
+      "operational_h100e": 15487526.928763647,
+      "operational_capex_usd_b": 521.202905962,
+      "operational_n_sites": 28
     },
     "2027-10-01": {
-      "operational_power_mw": 18465.800000000003,
-      "operational_h100e": 17726049.89374112,
-      "operational_capex_usd_b": 567.059998341,
-      "operational_n_sites": 31
+      "operational_power_mw": 17780.800000000003,
+      "operational_h100e": 16896337.917995796,
+      "operational_capex_usd_b": 545.699998341,
+      "operational_n_sites": 28
     },
     "2027-10-03": {
-      "operational_power_mw": 19574.800000000003,
-      "operational_h100e": 19762976.82653546,
-      "operational_capex_usd_b": 602.469998341,
-      "operational_n_sites": 31
+      "operational_power_mw": 18889.800000000003,
+      "operational_h100e": 18933264.850790136,
+      "operational_capex_usd_b": 581.1099983409999,
+      "operational_n_sites": 28
     },
     "2027-11-11": {
-      "operational_power_mw": 20045.800000000003,
-      "operational_h100e": 20505776.22016861,
-      "operational_capex_usd_b": 615.329998341,
-      "operational_n_sites": 31
+      "operational_power_mw": 19360.800000000003,
+      "operational_h100e": 19676064.24442328,
+      "operational_capex_usd_b": 593.969998341,
+      "operational_n_sites": 28
     },
     "2027-11-15": {
-      "operational_power_mw": 21005.800000000003,
-      "operational_h100e": 23037623.777414426,
-      "operational_capex_usd_b": 641.589998341,
-      "operational_n_sites": 31
+      "operational_power_mw": 20320.800000000003,
+      "operational_h100e": 22207911.8016691,
+      "operational_capex_usd_b": 620.2299983409999,
+      "operational_n_sites": 28
     },
     "2027-11-24": {
-      "operational_power_mw": 21109.8,
-      "operational_h100e": 23249852.175595324,
-      "operational_capex_usd_b": 644.929998341,
-      "operational_n_sites": 31
+      "operational_power_mw": 20424.800000000003,
+      "operational_h100e": 22420140.19985,
+      "operational_capex_usd_b": 623.569998341,
+      "operational_n_sites": 28
     },
     "2028-01-01": {
-      "operational_power_mw": 25260.8,
-      "operational_h100e": 29679966.420198172,
-      "operational_capex_usd_b": 773.999998341,
-      "operational_n_sites": 32
-    },
-    "2028-04-01": {
-      "operational_power_mw": 26088.8,
-      "operational_h100e": 30920997.24384648,
-      "operational_capex_usd_b": 800.429998341,
-      "operational_n_sites": 32
+      "operational_power_mw": 24575.800000000003,
+      "operational_h100e": 28850254.444452845,
+      "operational_capex_usd_b": 752.6399983409999,
+      "operational_n_sites": 29
     },
     "2028-05-22": {
-      "operational_power_mw": 26193.8,
-      "operational_h100e": 31077642.01393238,
-      "operational_capex_usd_b": 803.7699983409999,
-      "operational_n_sites": 32
+      "operational_power_mw": 24680.800000000003,
+      "operational_h100e": 29006899.214538746,
+      "operational_capex_usd_b": 755.9799983409998,
+      "operational_n_sites": 29
     },
     "2028-11-18": {
-      "operational_power_mw": 26297.8,
-      "operational_h100e": 31517257.981592815,
-      "operational_capex_usd_b": 807.0999983409998,
-      "operational_n_sites": 32
+      "operational_power_mw": 24784.800000000003,
+      "operational_h100e": 29446515.18219918,
+      "operational_capex_usd_b": 759.3099983409999,
+      "operational_n_sites": 29
     },
     "2028-12-31": {
-      "operational_power_mw": 34154.8,
-      "operational_h100e": 47975064.95481161,
-      "operational_capex_usd_b": 1021.069998341,
-      "operational_n_sites": 36
+      "operational_power_mw": 32641.800000000003,
+      "operational_h100e": 45904322.155417986,
+      "operational_capex_usd_b": 973.2799983409999,
+      "operational_n_sites": 33
     },
     "2029-01-01": {
-      "operational_power_mw": 34354.8,
-      "operational_h100e": 48134616.72304846,
-      "operational_capex_usd_b": 1026.119998341,
-      "operational_n_sites": 36
+      "operational_power_mw": 32841.8,
+      "operational_h100e": 46063873.92365484,
+      "operational_capex_usd_b": 978.3299983410001,
+      "operational_n_sites": 33
     },
     "2030-01-01": {
-      "operational_power_mw": 34544.8,
-      "operational_h100e": 48248664.2217852,
-      "operational_capex_usd_b": 1034.4199983409999,
-      "operational_n_sites": 36
+      "operational_power_mw": 33031.8,
+      "operational_h100e": 46177921.42239158,
+      "operational_capex_usd_b": 986.629998341,
+      "operational_n_sites": 33
     }
   },
   "global_totals_current": {
-    "peak_h100e": 4799116.025204524,
-    "effective_h100e_33pct": 1599705.3417348415,
-    "power_mw": 6718.8,
-    "capex_usd_b_2025": 212.693756158
+    "peak_h100e": 4404772.867511401,
+    "effective_h100e_33pct": 1468257.6225038003,
+    "power_mw": 6281.8,
+    "capex_usd_b_2025": 199.925060886
   },
   "global_totals_buildout": {
-    "peak_h100e": 48248664.2217852,
-    "effective_h100e_33pct": 16082888.0739284,
-    "power_mw": 34561.8,
-    "capex_usd_b_2025": 1034.4199983409999
+    "peak_h100e": 46177921.42239158,
+    "effective_h100e_33pct": 15392640.474130526,
+    "power_mw": 33048.8,
+    "capex_usd_b_2025": 986.629998341
   },
   "epoch_context_prose": {
     "share_of_global_ai_compute_pct": 15,

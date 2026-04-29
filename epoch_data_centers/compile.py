@@ -4,7 +4,7 @@ Compile Epoch AI Frontier Data Centers dataset (v2 — correct timeline logic).
 
 Source: https://epoch.ai/data/data-centers
 Files:  data_centers.csv, data_center_timelines.csv
-Dataset updated: 2026-04-20  /  Retrieved: 2026-04-22  /  License: CC BY 4.0
+Dataset updated: 2026-04-28  /  Retrieved: 2026-04-29  /  License: CC BY 4.0
 """
 from __future__ import annotations
 import csv, json
@@ -13,7 +13,7 @@ from pathlib import Path
 from datetime import date, timedelta
 
 ROOT = Path(__file__).parent
-TODAY = date(2026, 4, 22)
+TODAY = date(2026, 4, 29)
 
 # Epoch methodology: "theoretical peak capacity ... typically about
 # one third of that, due to inefficiencies" -> ~33% utilization factor.

@@ -1,0 +1,378 @@
+
+% ============================================================================
+\newpage
+\section*{Appendix D: Atom-level decomposition}
+\addcontentsline{toc}{section}{Appendix D: Atom-level decomposition}
+% ============================================================================
+
+\noindent The Western 47.901~GW horizon resolves to 67 capacity atoms across six tiers. This appendix shows the full atom list grouped by tier (D.1) and three orthogonal cuts of the same atom set: by anchor tenant (D.2), by central energization year (D.3), and by ISO / grid region (D.4). All facility-GW figures match \texttt{canonical\_totals.json} and reproduce by filtering \texttt{row\_level\_audit.csv} on \texttt{included\_in\_western\_raw\_horizon=true}.
+
+\subsection*{D.1 \quad Per-tier atom listing}
+
+
+\paragraph{\textbf{T1 Operational today (6.519 GW, 22 atoms)}}~\\[0.3em]
+\noindent\begin{small}
+\begin{longtable}{@{}p{4.5cm} p{2.4cm} p{2.4cm} r r p{1.8cm}@{}}
+\toprule
+\textbf{Site / commitment} & \textbf{Operator} & \textbf{Anchor tenant} & \textbf{GW central} & \textbf{Range} & \textbf{Online} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{l}{\textit{(continued from previous page — T1 Operational today (6.519 GW, 22 atoms))}} \\
+\toprule
+\textbf{Site / commitment} & \textbf{Operator} & \textbf{Anchor tenant} & \textbf{GW central} & \textbf{Range} & \textbf{Online} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+
+Anthropic-Amazon New Carlisle & Amazon & Anthropic & 1.092 & — & op. \\
+
+QTS Richmond & QTS & undisclosed AI tenant & 0.854 & — & op. \\
+
+Microsoft Fairwater Wisconsin & Microsoft & OpenAI / Microsoft & 0.555 & — & op. \\
+
+Meta Prometheus & Meta & Meta & 0.531 & — & op. \\
+
+Microsoft Fairwater Atlanta & Microsoft & OpenAI & 0.433 & — & op. \\
+
+xAI Colossus 1 & xAI & xAI & 0.425 & — & op. \\
+
+Google New Albany & Google & Google & 0.407 & — & op. \\
+
+Amazon Madison Mega Site & Amazon & Anthropic & 0.341 & — & op. \\
+
+Microsoft Goodyear & Microsoft & OpenAI & 0.263 & — & op. \\
+
+OpenAI Stargate Abilene & Oracle & OpenAI & 0.200 & — & op. \\
+
+Norway and Iceland operational sites & Crusoe & merchant neocloud & 0.200 & — & op. \\
+
+Meta Temple & Meta & Meta & 0.198 & — & op. \\
+
+Google Council Bluffs (East) & Google & Google & 0.190 & — & op. \\
+
+Google Omaha & Google & Google & 0.189 & — & op. \\
+
+Nebius operational fleet & Nebius & undisclosed AI tenant & 0.170 & — & op. \\
+
+STACK Infrastructure NVA02 & STACK & undisclosed AI tenant & 0.118 & — & op. \\
+
+Google Cedar Rapids & Google & Google & 0.105 & — & op. \\
+
+Fluidstack Lake Mariner & Fluidstack & Anthropic / G42 & 0.068 & — & op. \\
+
+Google Pryor (North) & Google & Google & 0.065 & — & op. \\
+
+Lambda operational fleet & Lambda & merchant neocloud & 0.050 & — & op. \\
+
+Vantage TX1 & Vantage & undisclosed AI tenant & 0.045 & — & op. \\
+
+North Carolina seed site & Nscale & merchant neocloud & 0.020 & — & op. \\
+
+\end{longtable}\end{small}
+
+
+\paragraph{\textbf{T2 Site-corroborated buildout (11.908 GW, 19 atoms)}}~\\[0.3em]
+\noindent\begin{small}
+\begin{longtable}{@{}p{4.5cm} p{2.4cm} p{2.4cm} r r p{1.8cm}@{}}
+\toprule
+\textbf{Site / commitment} & \textbf{Operator} & \textbf{Anchor tenant} & \textbf{GW central} & \textbf{Range} & \textbf{Online} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{l}{\textit{(continued from previous page — T2 Site-corroborated buildout (11.908 GW, 19 atoms))}} \\
+\toprule
+\textbf{Site / commitment} & \textbf{Operator} & \textbf{Anchor tenant} & \textbf{GW central} & \textbf{Range} & \textbf{Online} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+
+Microsoft Fairwater Wisconsin & Microsoft & OpenAI / Microsoft & 2.773 & — & 2027 \\
+
+QTS Cedar Rapids & QTS & undisclosed AI tenant & 1.587 & — & 2027 \\
+
+xAI Colossus 2 & xAI & xAI & 1.494 & — & 2026 \\
+
+Goodnight & Google & Google & 1.088 & — & 2027 \\
+
+OpenAI Stargate Abilene & Oracle & OpenAI & 0.980 & — & 2026 \\
+
+Crusoe Abilene Expansion & Microsoft & Microsoft & 0.941 & — & 2027 \\
+
+Meta Prometheus & Meta & Meta & 0.579 & — & 2026 \\
+
+Fluidstack Lake Mariner & Fluidstack & Anthropic / G42 & 0.441 & — & 2027 \\
+
+Microsoft Fairwater Atlanta & Microsoft & OpenAI & 0.426 & — & 2026 \\
+
+Google Pryor (North) & Google & Google & 0.389 & — & 2026 \\
+
+Fairwater Narvik and Loughton & Microsoft & OpenAI / Microsoft & 0.300 & [0.28, 0.61] & ? \\
+
+Google Omaha & Google & Google & 0.285 & — & 2027 \\
+
+Anthropic-Amazon New Carlisle & Amazon & Anthropic & 0.137 & — & 2026 \\
+
+Google New Albany & Google & Google & 0.136 & — & 2026 \\
+
+Vantage TX1 & Vantage & undisclosed AI tenant & 0.134 & — & 2027 \\
+
+Google Council Bluffs (East) & Google & Google & 0.094 & — & 2026 \\
+
+QTS Richmond & QTS & undisclosed AI tenant & 0.067 & — & 2026 \\
+
+Meta Temple & Meta & Meta & 0.040 & — & 2026 \\
+
+xAI Colossus 1 & xAI & xAI & 0.017 & — & 2026 \\
+
+\end{longtable}\end{small}
+
+
+\paragraph{\textbf{T3 Firm commercial commitment (4.500 GW, 3 atoms)}}~\\[0.3em]
+\noindent\begin{small}
+\begin{longtable}{@{}p{4.5cm} p{2.4cm} p{2.4cm} r r p{1.8cm}@{}}
+\toprule
+\textbf{Site / commitment} & \textbf{Operator} & \textbf{Anchor tenant} & \textbf{GW central} & \textbf{Range} & \textbf{Online} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{l}{\textit{(continued from previous page — T3 Firm commercial commitment (4.500 GW, 3 atoms))}} \\
+\toprule
+\textbf{Site / commitment} & \textbf{Operator} & \textbf{Anchor tenant} & \textbf{GW central} & \textbf{Range} & \textbf{Online} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+
+CoreWeave contracted fleet ex Epoch Helios & CoreWeave & Microsoft / OpenAI / Meta / IBM & 2.300 & — & 2027 \\
+
+Nebius contracted fleet & Nebius & Microsoft / Meta & 2.000 & — & 2027 \\
+
+Polaris Forge 2 & Applied Digital & merchant / undisclosed hyperscaler & 0.200 & — & 2026 \\
+
+\end{longtable}\end{small}
+
+
+\paragraph{\textbf{T4 Announced site plan (15.789 GW, 13 atoms)}}~\\[0.3em]
+\noindent\begin{small}
+\begin{longtable}{@{}p{4.5cm} p{2.4cm} p{2.4cm} r r p{1.8cm}@{}}
+\toprule
+\textbf{Site / commitment} & \textbf{Operator} & \textbf{Anchor tenant} & \textbf{GW central} & \textbf{Range} & \textbf{Online} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{l}{\textit{(continued from previous page — T4 Announced site plan (15.789 GW, 13 atoms))}} \\
+\toprule
+\textbf{Site / commitment} & \textbf{Operator} & \textbf{Anchor tenant} & \textbf{GW central} & \textbf{Range} & \textbf{Online} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+
+Meta Hyperion & Meta & Meta & 2.262 & — & 2028 \\
+
+OpenAI Stargate New Mexico & Oracle & OpenAI & 2.210 & — & 2028 \\
+
+Project Rainier residual after Madison/Ri… & Amazon & Anthropic & 1.973 & [0.00, 3.80] & 2028 \\
+
+OpenAI Stargate Shackelford & Oracle & OpenAI & 1.960 & — & 2028 \\
+
+Project Jade / Cheyenne site-plan capacit… & Crusoe & Tallgrass / merchant & 1.800 & — & 2027 \\
+
+OpenAI Stargate Michigan & Oracle & OpenAI & 1.383 & — & 2028 \\
+
+OpenAI Stargate Wisconsin & Oracle & OpenAI & 1.300 & — & 2028 \\
+
+OpenAI Stargate Milam & Softbank & OpenAI & 1.200 & — & 2028 \\
+
+Google Cedar Rapids & Google & Google & 0.522 & — & 2028 \\
+
+STACK Infrastructure NVA02 & STACK & undisclosed AI tenant & 0.369 & — & 2028 \\
+
+Lambda leased, signed, committed capacity & Lambda & Microsoft / NVIDIA & 0.320 & — & 2027 \\
+
+North America secured capacity & Together AI & merchant / inference customers & 0.250 & — & 2027 \\
+
+Ward County/Cedarvale Texas Microsoft flo… & Nscale & Microsoft / Google & 0.240 & [0.23, 0.94] & 2027 \\
+
+\end{longtable}\end{small}
+
+
+\paragraph{\textbf{T5 Stretch / option / scaling envelope (8.857 GW, 7 atoms)}}~\\[0.3em]
+\noindent\begin{small}
+\begin{longtable}{@{}p{4.5cm} p{2.4cm} p{2.4cm} r r p{1.8cm}@{}}
+\toprule
+\textbf{Site / commitment} & \textbf{Operator} & \textbf{Anchor tenant} & \textbf{GW central} & \textbf{Range} & \textbf{Online} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{l}{\textit{(continued from previous page — T5 Stretch / option / scaling envelope (8.857 GW, 7 atoms))}} \\
+\toprule
+\textbf{Site / commitment} & \textbf{Operator} & \textbf{Anchor tenant} & \textbf{GW central} & \textbf{Range} & \textbf{Online} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+
+Hyperion stretch beyond Epoch evidenced 2… & Meta & Meta & 3.014 & [0.00, 3.01] & 2029 \\
+
+"vast majority" US-sited per Anthropic & Google Cloud / Broadcom & Anthropic & 2.700 & [0.00, 5.40] & 2027 \\
+
+Amazon Ridgeland & Amazon & Anthropic & 1.008 & — & 2027 \\
+
+Coreweave Helios & Coreweave & Microsoft & 0.800 & — & 2029 \\
+
+Azure sites not disclosed & Microsoft Azure & Anthropic & 0.590 & [0.00, 1.18] & 2027 \\
+
+Amazon Madison Mega Site & Amazon & Anthropic & 0.478 & — & 2026 \\
+
+Stream Phoenix & Stream & undisclosed AI tenant & 0.267 & — & 2030 \\
+
+\end{longtable}\end{small}
+
+
+\paragraph{\textbf{T6 Inferred from GPU / \$ / fleet (0.328 GW, 3 atoms)}}~\\[0.3em]
+\noindent\begin{small}
+\begin{longtable}{@{}p{4.5cm} p{2.4cm} p{2.4cm} r r p{1.8cm}@{}}
+\toprule
+\textbf{Site / commitment} & \textbf{Operator} & \textbf{Anchor tenant} & \textbf{GW central} & \textbf{Range} & \textbf{Online} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{l}{\textit{(continued from previous page — T6 Inferred from GPU / \$ / fleet (0.328 GW, 3 atoms))}} \\
+\toprule
+\textbf{Site / commitment} & \textbf{Operator} & \textbf{Anchor tenant} & \textbf{GW central} & \textbf{Range} & \textbf{Online} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+
+Six-site US GPU cloud footprint & Voltage Park / Lightning & merchant neocloud & 0.169 & — & 2026 \\
+
+Maryland, Memphis, Sweden operational foo… & Together AI & merchant neocloud & 0.081 & — & op. \\
+
+Memphis Colossus 2 residual & xAI & xAI & 0.078 & [0.00, 0.26] & 2027 \\
+
+\end{longtable}\end{small}
+
+
+\subsection*{D.2 \quad By anchor tenant}
+
+\noindent The same 67 atoms grouped by AI workload owner. Multi-tenant rows (e.g.\ Fairwater Wisconsin jointly committed to OpenAI and Microsoft) appear under their combined anchor.
+\begin{table}[H]
+\centering\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{Anchor tenant} & \textbf{Atoms} & \textbf{GW facility} \\
+\midrule
+
+OpenAI & 10 & 10.355 \\
+
+Anthropic & 8 & 8.319 \\
+
+Meta & 6 & 6.624 \\
+
+OpenAI / Microsoft & 3 & 3.628 \\
+
+undisclosed AI tenant & 9 & 3.611 \\
+
+Google & 11 & 3.470 \\
+
+Microsoft / OpenAI / Meta / IBM & 1 & 2.300 \\
+
+xAI & 4 & 2.014 \\
+
+Microsoft / Meta & 1 & 2.000 \\
+
+Tallgrass / merchant & 1 & 1.800 \\
+
+Microsoft & 2 & 1.741 \\
+
+merchant neocloud & 5 & 0.520 \\
+
+Anthropic / G42 & 2 & 0.509 \\
+
+Microsoft / NVIDIA & 1 & 0.320 \\
+
+merchant / inference customers & 1 & 0.250 \\
+
+Microsoft / Google & 1 & 0.240 \\
+
+merchant / undisclosed hyperscaler & 1 & 0.200 \\
+
+\midrule\textbf{Total} & \textbf{67} & \textbf{47.901} \\
+
+\bottomrule
+\end{tabular}
+\caption{Western raw horizon by anchor tenant. ``Anchor tenant'' is the AI workload owner from \texttt{counterparty\_or\_anchor\_tenant}; ``undisclosed AI tenant'' captures wholesale colocation (QTS, STACK, Vantage, Stream Phoenix) where Epoch confirms the site but the AI customer is not named publicly.}
+\end{table}
+
+
+\subsection*{D.3 \quad By online year}
+
+\noindent Same atoms grouped by central energization year. ``op.'' = operational in Q2 2026. For Epoch-tracked sites the year is the buildout completion date in the source notes; for non-Epoch atoms the year is the central commissioning year disclosed by the operator.
+\begin{table}[H]
+\centering\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Year bucket} & \textbf{Atoms} & \textbf{GW added} & \textbf{Cumulative GW} \\
+\midrule
+
+op. & 23 & 6.600 & 6.600 \\
+
+2026 & 14 & 5.206 & 11.806 \\
+
+2027 & 17 & 18.535 & 30.341 \\
+
+2028 & 9 & 13.179 & 43.520 \\
+
+2029 & 2 & 3.814 & 47.334 \\
+
+2030 & 1 & 0.267 & 47.601 \\
+
+? & 1 & 0.300 & 47.901 \\
+
+\midrule\textbf{Total} & \textbf{67} & \textbf{47.901} & \textbf{47.901} \\
+
+\bottomrule
+\end{tabular}
+\caption{Western raw horizon by online year. The 2028 bucket dominates because the OpenAI Stargate non-Abilene cluster (New Mexico, Shackelford, Michigan, Wisconsin, Milam) all carry buildout completion dates in 2028, alongside Meta Hyperion and the Anthropic--AWS Rainier residual.}
+\end{table}
+
+
+\subsection*{D.4 \quad By ISO / grid region}
+
+\noindent ISO / grid balancing authority is taken from \texttt{compute\_commitments\_overlay.yaml} \texttt{row\_audit.iso\_rto} where available; otherwise inferred from site name and state. ``site n/d'' marks atoms where the announcement does not name a site (Anthropic--Google/Broadcom physical TPU, Anthropic--Azure incremental, Anthropic--AWS Rainier residual unnamed shells).
+\begin{table}[H]
+\centering\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{ISO / grid} & \textbf{Atoms} & \textbf{GW facility} & \textbf{Share} \\
+\midrule
+
+ERCOT & 14 & 11.926 & 24.9\% \\
+
+MISO & 11 & 9.738 & 20.3\% \\
+
+MISO-S & 6 & 9.076 & 18.9\% \\
+
+site n/d & 9 & 6.449 & 13.5\% \\
+
+PJM & 8 & 3.061 & 6.4\% \\
+
+non-ISO NM & 1 & 2.210 & 4.6\% \\
+
+TVA & 5 & 2.095 & 4.4\% \\
+
+SPP & 4 & 0.928 & 1.9\% \\
+
+SERC & 3 & 0.879 & 1.8\% \\
+
+WECC & 2 & 0.530 & 1.1\% \\
+
+NYISO & 2 & 0.509 & 1.1\% \\
+
+Nordic & 2 & 0.500 & 1.0\% \\
+
+\midrule\textbf{Total} & \textbf{67} & \textbf{47.901} & \textbf{100.0\%} \\
+
+\bottomrule
+\end{tabular}
+\caption{Western raw horizon by ISO / grid region. MISO (including MISO-South) is the largest single grid bucket because of Wisconsin Fairwater, Meta Hyperion (Entergy / MISO-South), the Stargate Michigan site, and the Madison/Ridgeland Anthropic--AWS Project Rainier candidates. ERCOT is the second largest cluster, anchored by the Stargate Abilene complex and the Texas Stargate sites (Shackelford, Milam) plus Goodnight.}
+\end{table}
